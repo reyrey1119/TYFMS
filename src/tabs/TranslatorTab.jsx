@@ -68,8 +68,21 @@ export default function TranslatorTab() {
     })
   }
 
+  function downloadResume() {
+    const blob = new Blob([resume], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `resume-draft-${mos.toUpperCase() || 'veteran'}.txt`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }
+
   return (
     <div>
+      <img src="/translator.png" alt="Skills translator" style={{ width: '100%', maxHeight: 200, objectFit: 'cover', borderRadius: 12, marginBottom: 20, display: 'block' }} />
       <p className="sec-title">Skills translator</p>
       <p className="sec-sub">
         Enter your occupational code and branch. The AI will translate your military experience into
@@ -157,19 +170,31 @@ export default function TranslatorTab() {
 
             {resume && (
               <div style={{ marginTop: 16 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, flexWrap: 'wrap', gap: 8 }}>
                   <p style={{ fontSize: 13, fontWeight: 500, color: '#1a1a18' }}>Your resume draft</p>
-                  <button
-                    onClick={copyResume}
-                    style={{
-                      padding: '5px 12px', background: copied ? '#0f6e56' : '#fff',
-                      border: '1px solid #d3d1c7', borderRadius: 8, fontSize: 12,
-                      cursor: 'pointer', fontFamily: 'inherit', color: copied ? '#fff' : '#5f5e5a',
-                      transition: 'all .15s',
-                    }}
-                  >
-                    {copied ? '✓ Copied' : 'Copy to clipboard'}
-                  </button>
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    <button
+                      onClick={copyResume}
+                      style={{
+                        padding: '5px 12px', background: copied ? '#0f6e56' : '#fff',
+                        border: '1px solid #d3d1c7', borderRadius: 8, fontSize: 12,
+                        cursor: 'pointer', fontFamily: 'inherit', color: copied ? '#fff' : '#5f5e5a',
+                        transition: 'all .15s',
+                      }}
+                    >
+                      {copied ? '✓ Copied' : 'Copy to clipboard'}
+                    </button>
+                    <button
+                      onClick={downloadResume}
+                      style={{
+                        padding: '5px 12px', background: '#185fa5',
+                        border: 'none', borderRadius: 8, fontSize: 12,
+                        cursor: 'pointer', fontFamily: 'inherit', color: '#fff',
+                      }}
+                    >
+                      Download .txt
+                    </button>
+                  </div>
                 </div>
                 <div className="resume-output">{resume}</div>
                 <p style={{ fontSize: 11, color: '#b4b2a9', marginTop: 8 }}>

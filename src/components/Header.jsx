@@ -7,11 +7,13 @@ export default function Header({ onSearch }) {
   const [showAuth, setShowAuth] = useState(false)
   const [query, setQuery] = useState('')
   const [searching, setSearching] = useState(false)
+  const [searchError, setSearchError] = useState('')
 
   async function handleSearch(e) {
     e.preventDefault()
     if (!query.trim() || searching) return
     setSearching(true)
+    setSearchError('')
     try {
       const r = await fetch('/api/search', {
         method: 'POST',
@@ -22,9 +24,11 @@ export default function Header({ onSearch }) {
       if (data.tab && onSearch) {
         onSearch(data)
         setQuery('')
+      } else if (data.error) {
+        setSearchError(data.error)
       }
     } catch {
-      // fail silently — search is enhancement, not critical path
+      setSearchError('Search unavailable. Try again.')
     } finally {
       setSearching(false)
     }
@@ -38,30 +42,35 @@ export default function Header({ onSearch }) {
           <p>No more empty thanks — just real tools for the next mission.</p>
         </div>
 
-        <form onSubmit={handleSearch} style={{ display: 'flex', gap: 6, alignItems: 'center', flex: '1 1 220px', maxWidth: 340 }}>
-          <input
-            type="text"
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-            placeholder="Search — try &quot;GI Bill&quot; or &quot;resume tips&quot;"
-            style={{
-              flex: 1, border: '1px solid rgba(159,186,159,0.4)', borderRadius: 8,
-              padding: '7px 12px', fontSize: 12, background: 'rgba(255,255,255,0.08)',
-              color: '#fff', fontFamily: 'inherit', outline: 'none',
-            }}
-          />
-          <button
-            type="submit"
-            disabled={searching || !query.trim()}
-            style={{
-              padding: '7px 12px', background: searching ? '#085041' : '#0f6e56',
-              border: 'none', borderRadius: 8, color: '#fff', fontSize: 12,
-              cursor: searching ? 'not-allowed' : 'pointer', fontFamily: 'inherit',
-              whiteSpace: 'nowrap', flexShrink: 0,
-            }}
-          >
-            {searching ? '...' : 'Search'}
-          </button>
+        <form onSubmit={handleSearch} style={{ display: 'flex', flexDirection: 'column', gap: 4, flex: '1 1 220px', maxWidth: 360 }}>
+          <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+            <input
+              type="text"
+              value={query}
+              onChange={e => { setQuery(e.target.value); setSearchError('') }}
+              placeholder="Search — try &quot;GI Bill&quot; or &quot;resume tips&quot;"
+              style={{
+                flex: 1, border: `1px solid ${searchError ? 'rgba(239,99,99,0.7)' : 'rgba(159,186,159,0.4)'}`, borderRadius: 8,
+                padding: '7px 12px', fontSize: 12, background: 'rgba(255,255,255,0.08)',
+                color: '#fff', fontFamily: 'inherit', outline: 'none',
+              }}
+            />
+            <button
+              type="submit"
+              disabled={searching || !query.trim()}
+              style={{
+                padding: '7px 12px', background: searching ? '#085041' : '#0f6e56',
+                border: 'none', borderRadius: 8, color: '#fff', fontSize: 12,
+                cursor: searching ? 'not-allowed' : 'pointer', fontFamily: 'inherit',
+                whiteSpace: 'nowrap', flexShrink: 0,
+              }}
+            >
+              {searching ? '...' : 'Search'}
+            </button>
+          </div>
+          {searchError && (
+            <p style={{ fontSize: 11, color: '#ef9f60', margin: 0 }}>{searchError}</p>
+          )}
         </form>
 
         {supabaseEnabled && (

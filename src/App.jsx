@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import HomeTab from './tabs/HomeTab'
 import TranslatorTab from './tabs/TranslatorTab'
 import IdentityTab from './tabs/IdentityTab'
@@ -7,6 +8,7 @@ import NetworkTab from './tabs/NetworkTab'
 import TrackerTab from './tabs/TrackerTab'
 import ResourcesTab from './tabs/ResourcesTab'
 import AboutTab from './tabs/AboutTab'
+import PrivacyTab from './tabs/PrivacyTab'
 
 const TABS = [
   { id: 'home',       label: 'Home' },
@@ -21,14 +23,28 @@ const TABS = [
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
   const [searchResult, setSearchResult] = useState(null)
+  const [showPrivacy, setShowPrivacy] = useState(false)
 
   function handleSearch(result) {
     setActiveTab(result.tab)
     setSearchResult(result)
+    setShowPrivacy(false)
   }
 
   function clearSearch() {
     setSearchResult(null)
+  }
+
+  if (showPrivacy) {
+    return (
+      <>
+        <Header onSearch={handleSearch} />
+        <div className="container">
+          <PrivacyTab onClose={() => setShowPrivacy(false)} />
+        </div>
+        <Footer onPrivacy={() => setShowPrivacy(true)} />
+      </>
+    )
   }
 
   return (
@@ -78,6 +94,7 @@ export default function App() {
         {activeTab === 'resources'  && <ResourcesTab />}
         {activeTab === 'about'      && <AboutTab />}
       </div>
+      <Footer onPrivacy={() => setShowPrivacy(true)} />
     </>
   )
 }

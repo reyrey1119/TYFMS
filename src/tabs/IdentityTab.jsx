@@ -100,6 +100,7 @@ export default function IdentityTab() {
 
   return (
     <div>
+      <img src="/identity.png" alt="Identity guide" style={{ width: '100%', maxHeight: 200, objectFit: 'cover', borderRadius: 12, marginBottom: 20, display: 'block' }} />
       <p className="sec-title">Identity guide</p>
       <p className="sec-sub">
         Identity reconstruction is an ongoing process of reflection, practice, and growth.

@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   const { query } = req.body || {}
   if (!query?.trim()) return res.status(400).json({ error: 'Search query required.' })
 
-  const prompt = `You are a helpful assistant for TYFMS, a veteran transition platform.
+  const prompt = `You are a knowledgeable veteran transition advisor for TYFMS. A veteran just searched for information. Give them a real, substantive answer — like a trusted advisor who knows both military and civilian worlds.
 
 Available tabs:
 - home: Overview and navigation
@@ -20,8 +20,8 @@ Available tabs:
 
 Search query: "${query}"
 
-Respond ONLY with valid JSON:
-{"tab":"<tab_id>","summary":"<2-3 sentence answer directly addressing the query>","sectionHint":"<optional: specific section or resource within the tab>"}`
+Respond ONLY with valid JSON. The summary field must be a genuine, helpful answer (4-6 sentences) that directly addresses the question with specific, actionable information — not just "navigate to this tab." Include real facts, tips, or explanations relevant to the query:
+{"tab":"<tab_id>","summary":"<4-6 sentence substantive answer with specific information>","sectionHint":"<optional: specific section or resource name within the tab>"}`
 
   try {
     const r = await fetch('https://api.anthropic.com/v1/messages', {
@@ -40,8 +40,12 @@ Respond ONLY with valid JSON:
     const data = await r.json()
     if (data.error) return res.status(400).json({ error: data.error.message })
     const txt = (data.content || []).map(i => i.text || '').join('').replace(/```json|```/g, '').trim()
-    return res.status(200).json(JSON.parse(txt))
-  } catch {
+    const jsonMatch = txt.match(/\{[\s\S]*\}/)
+    if (!jsonMatch) return res.status(500).json({ error: 'Could not parse search result.' })
+    const parsed = JSON.parse(jsonMatch[0])
+    if (!parsed.tab) return res.status(500).json({ error: 'Invalid search response.' })
+    return res.status(200).json(parsed)
+  } catch (err) {
     return res.status(500).json({ error: 'Search failed. Please try again.' })
   }
 }

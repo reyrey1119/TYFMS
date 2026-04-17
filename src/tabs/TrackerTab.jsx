@@ -6,11 +6,22 @@ import FunFact from '../components/FunFact'
 const CATS = ['Career', 'Education', 'Identity', 'Benefits', 'Networking', 'Personal']
 const CAT_CLASS = { Career: 'ba', Education: 'bg', Identity: 'bb', Benefits: 'bb', Networking: 'bg', Personal: 'ba' }
 
+const MILESTONES = [
+  { pct: 25, emoji: '🌱', msg: "You're building momentum — 25% complete. The hardest part is starting, and you already did." },
+  { pct: 50, emoji: '⚡', msg: "Halfway there. 50% done — you are doing the real work of transition." },
+  { pct: 75, emoji: '🔥', msg: "75% complete. You can see the finish line. Keep going." },
+  { pct: 100, emoji: '🎖️', msg: "Mission accomplished. Every goal checked off. This is what owning your transition looks like." },
+]
+
 export default function TrackerTab() {
   const { user, supabaseEnabled } = useAuth()
   const [goals, setGoals] = useState([])
   const [title, setTitle] = useState('')
   const [cat, setCat] = useState('Career')
+  const [milestone, setMilestone] = useState(null)
+  const [lastMilestonePct, setLastMilestonePct] = useState(null)
+  const [encouragement, setEncouragement] = useState('')
+  const [encLoading, setEncLoading] = useState(false)
 
   const useDb = supabaseEnabled && !!supabase && !!user
 
@@ -24,6 +35,17 @@ export default function TrackerTab() {
   }, [useDb, user])
 
   useEffect(() => { loadGoals() }, [loadGoals])
+
+  function checkMilestone(updatedGoals) {
+    if (updatedGoals.length < 2) return
+    const done = updatedGoals.filter(g => g.done).length
+    const pct = Math.round((done / updatedGoals.length) * 100)
+    const hit = MILESTONES.find(m => m.pct === pct)
+    if (hit && pct !== lastMilestonePct) {
+      setMilestone(hit)
+      setLastMilestonePct(pct)
+    }
+  }
 
   async function addGoal() {
     if (!title.trim()) return
@@ -42,14 +64,17 @@ export default function TrackerTab() {
 
   async function toggleGoal(goal) {
     const newDone = !goal.done
+    let updated
     if (useDb) {
       await supabase.from('goals').update({ done: newDone }).eq('id', goal.id)
-      setGoals(prev => prev.map(g => g.id === goal.id ? { ...g, done: newDone } : g))
+      updated = goals.map(g => g.id === goal.id ? { ...g, done: newDone } : g)
+      setGoals(updated)
     } else {
-      const updated = goals.map(g => g.id === goal.id ? { ...g, done: newDone } : g)
+      updated = goals.map(g => g.id === goal.id ? { ...g, done: newDone } : g)
       setGoals(updated)
       localStorage.setItem('vtg_goals', JSON.stringify(updated))
     }
+    if (newDone) checkMilestone(updated)
   }
 
   async function deleteGoal(id) {
@@ -63,7 +88,23 @@ export default function TrackerTab() {
     }
   }
 
+  async function getEncouragement() {
+    setEncLoading(true)
+    setEncouragement('')
+    try {
+      const r = await fetch('/api/encouragement', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ goals: goals.map(g => ({ done: g.done, title: g.title })) }),
+      })
+      const data = await r.json()
+      if (data.encouragement) setEncouragement(data.encouragement)
+    } catch {}
+    setEncLoading(false)
+  }
+
   const done = goals.filter(g => g.done).length
+  const pct = goals.length ? Math.round((done / goals.length) * 100) : 0
 
   return (
     <div>
@@ -73,6 +114,48 @@ export default function TrackerTab() {
           ? 'Set goals for your transition and mark them off as you go. Your goals are saved to your account.'
           : 'Set goals for your transition and mark them off as you go. Sign in to sync your goals across devices.'}
       </p>
+
+      {/* Milestone celebration */}
+      {milestone && (
+        <div style={{
+          background: '#0f6e56', color: '#fff', borderRadius: 12, padding: '16px 20px',
+          marginBottom: 16, display: 'flex', alignItems: 'center', gap: 14,
+        }}>
+          <span style={{ fontSize: 32, flexShrink: 0 }}>{milestone.emoji}</span>
+          <div style={{ flex: 1 }}>
+            <p style={{ fontWeight: 700, fontSize: 15, marginBottom: 3 }}>Milestone reached!</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.88)', lineHeight: 1.5 }}>{milestone.msg}</p>
+          </div>
+          <button
+            onClick={() => setMilestone(null)}
+            style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.6)', cursor: 'pointer', fontSize: 22, lineHeight: 1, flexShrink: 0 }}
+          >×</button>
+        </div>
+      )}
+
+      {/* Progress bar */}
+      {goals.length > 0 && (
+        <div className="card" style={{ marginBottom: 16 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+            <p style={{ fontSize: 13, fontWeight: 500 }}>Overall completion</p>
+            <p style={{ fontSize: 14, fontWeight: 700, color: pct === 100 ? '#0f6e56' : '#1a1a18' }}>
+              {pct}%
+            </p>
+          </div>
+          <div style={{ height: 12, background: '#f5f4f0', borderRadius: 8, overflow: 'hidden', marginBottom: 6 }}>
+            <div style={{
+              height: '100%',
+              width: `${pct}%`,
+              background: pct === 100
+                ? 'linear-gradient(90deg, #0f6e56, #22c55e)'
+                : 'linear-gradient(90deg, #0f6e56, #34d399)',
+              borderRadius: 8,
+              transition: 'width 0.5s ease',
+            }} />
+          </div>
+          <p style={{ fontSize: 12, color: '#5f5e5a' }}>{done} of {goals.length} goals complete</p>
+        </div>
+      )}
 
       <div className="card" style={{ marginBottom: 14 }}>
         <p style={{ fontSize: 13, fontWeight: 500, marginBottom: 10 }}>Add a new goal</p>
@@ -94,9 +177,7 @@ export default function TrackerTab() {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
         <p style={{ fontSize: 13, fontWeight: 500 }}>Your goals</p>
-        <p style={{ fontSize: 12, color: '#5f5e5a' }}>
-          {goals.length ? `${done} of ${goals.length} complete` : 'No goals yet'}
-        </p>
+        {goals.length === 0 && <p style={{ fontSize: 12, color: '#5f5e5a' }}>No goals yet</p>}
       </div>
 
       {goals.length === 0 && (
@@ -121,6 +202,21 @@ export default function TrackerTab() {
           <button className="goal-del" onClick={() => deleteGoal(g.id)}>×</button>
         </div>
       ))}
+
+      {/* AI weekly encouragement */}
+      {goals.length > 0 && (
+        <div style={{ marginTop: 20 }}>
+          <button className="btn-b" onClick={getEncouragement} disabled={encLoading}>
+            {encLoading ? 'Writing your encouragement...' : "Get this week's encouragement"}
+          </button>
+          {encouragement && (
+            <div className="ai-feedback" style={{ marginTop: 12 }}>
+              <p className="label">Weekly encouragement</p>
+              <p>{encouragement}</p>
+            </div>
+          )}
+        </div>
+      )}
 
       <FunFact />
     </div>

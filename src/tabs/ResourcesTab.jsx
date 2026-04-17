@@ -38,6 +38,7 @@ const RESOURCES = [
 export default function ResourcesTab() {
   return (
     <div>
+      <img src="/resources.png" alt="Resources" style={{ width: '100%', maxHeight: 200, objectFit: 'cover', borderRadius: 12, marginBottom: 20, display: 'block' }} />
       <p className="sec-title">Resources</p>
       <p className="sec-sub">Verified resources organized by what you need most right now.</p>
 

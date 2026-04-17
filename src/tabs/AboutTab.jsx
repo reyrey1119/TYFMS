@@ -26,75 +26,98 @@ const RESEARCH_POINTS = [
 export default function AboutTab() {
   return (
     <div>
-      <p className="sec-title">About TYFMS</p>
-      <p className="sec-sub">
-        TYFMS — Thank You For Your Military Service — was built on a simple observation: the phrase
-        is everywhere, and it means almost nothing. Veterans deserve more than a sentence. They deserve
-        real tools, grounded in research, for the hardest professional transition most people will ever face.
-      </p>
-
-      {/* Origin story */}
-      <div className="card" style={{ marginBottom: 20 }}>
-        <p style={{ fontSize: 12, color: '#5f5e5a', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 8 }}>
-          Origin
-        </p>
-        <p style={{ fontSize: 15, fontWeight: 500, marginBottom: 12, color: '#1a1a18' }}>
-          Built from field research, not assumptions
-        </p>
-        <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.8, marginBottom: 12 }}>
-          TYFMS began as a research project into veteran identity transition — specifically, how
-          service members reconstruct their professional identity after separation. The research
-          involved extended conversations with veterans at different stages of transition: recent
-          separatees navigating campus life, mid-career veterans pivoting to second careers, and
-          senior leaders who had made the crossing years earlier and could name exactly what helped.
-        </p>
-        <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.8 }}>
-          What emerged from that research was not a checklist or a program. It was a picture of
-          how identity reconstruction actually works — what accelerates it, what stalls it, and
-          what most institutional programs miss entirely. TYFMS is an attempt to put that picture
-          in the hands of every veteran who needs it.
-        </p>
+      {/* Magazine hero */}
+      <div style={{
+        background: 'linear-gradient(135deg, #0f1e0f 0%, #1a3a1a 60%, #0f2e1e 100%)',
+        borderRadius: 16, padding: 'clamp(32px,5vw,56px) clamp(24px,5vw,48px)',
+        marginBottom: 32, position: 'relative', overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute', top: -60, right: -60, width: 300, height: 300,
+          background: 'radial-gradient(circle, rgba(15,110,86,.3) 0%, transparent 70%)',
+          borderRadius: '50%', pointerEvents: 'none',
+        }} />
+        <div style={{ position: 'relative' }}>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#9fba9f', textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 16 }}>
+            About TYFMS
+          </p>
+          <h2 style={{ fontSize: 'clamp(28px,5vw,52px)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: 20, letterSpacing: '-.02em' }}>
+            Veterans deserve more<br />than an empty phrase.
+          </h2>
+          <p style={{ fontSize: 'clamp(14px,2vw,17px)', color: '#9fba9f', lineHeight: 1.65, maxWidth: 540 }}>
+            TYFMS was built from field research, not assumptions — because the real transition
+            challenge is not finding a job. It is figuring out who you are when the uniform comes off.
+          </p>
+        </div>
       </div>
 
-      {/* Research pillars */}
-      <p className="cat-label" style={{ marginBottom: 12 }}>What the research found</p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
+      {/* Research findings — 2-column card grid */}
+      <p className="cat-label" style={{ marginBottom: 14 }}>What the research found</p>
+      <div className="grid-2" style={{ marginBottom: 32 }}>
         {RESEARCH_POINTS.map(p => (
           <div key={p.title} className="card">
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span style={{ fontSize: 20, flexShrink: 0 }}>{p.icon}</span>
-              <div>
-                <p style={{ fontSize: 14, fontWeight: 500, marginBottom: 6 }}>{p.title}</p>
-                <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7 }}>{p.body}</p>
-              </div>
-            </div>
+            <span style={{ fontSize: 30, display: 'block', marginBottom: 12 }}>{p.icon}</span>
+            <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 8 }}>{p.title}</p>
+            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75 }}>{p.body}</p>
           </div>
         ))}
       </div>
 
-      {/* Mission */}
-      <div className="insight" style={{ marginBottom: 20 }}>
-        <p className="label">Our mission</p>
-        <p>
-          To replace empty thanks with real tools. Every feature in TYFMS — the skills translator,
-          the identity guide, the peer network, the goal tracker — exists because field research
-          identified it as something veterans actually need and too rarely find in one place.
-          The work is ongoing. So is the transition.
+      {/* Origin story */}
+      <div style={{ borderLeft: '4px solid #0f6e56', paddingLeft: 20, marginBottom: 32 }}>
+        <p style={{ fontSize: 11, fontWeight: 600, color: '#0f6e56', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 8 }}>
+          Origin story
+        </p>
+        <p style={{ fontSize: 16, fontWeight: 600, color: '#1a1a18', marginBottom: 14 }}>
+          Built from field research, not assumptions
+        </p>
+        <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.85, marginBottom: 12 }}>
+          TYFMS began as a research project into veteran identity transition — specifically, how
+          service members reconstruct their professional identity after separation. The research
+          involved extended conversations with veterans at different stages: recent separatees
+          navigating campus life, mid-career veterans pivoting to second careers, and senior leaders
+          who could name exactly what helped.
+        </p>
+        <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.85 }}>
+          What emerged was not a checklist or a program. It was a picture of how identity
+          reconstruction actually works — what accelerates it, what stalls it, and what most
+          institutional programs miss entirely. TYFMS is an attempt to put that picture in the
+          hands of every veteran who needs it.
         </p>
       </div>
 
-      {/* Built by */}
-      <div className="card" style={{ marginBottom: 8 }}>
-        <p style={{ fontSize: 12, color: '#5f5e5a', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 8 }}>
-          Built by
+      {/* Mission statement */}
+      <div className="insight" style={{ marginBottom: 32 }}>
+        <p className="label">Our mission</p>
+        <p style={{ fontSize: 16, fontWeight: 600, color: '#085041', lineHeight: 1.4, marginBottom: 8 }}>
+          To replace empty thanks with real tools.
         </p>
-        <p style={{ fontSize: 14, fontWeight: 500, marginBottom: 4 }}>Reynaldo Rodriguez</p>
-        <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7 }}>
-          Researcher, builder, and advocate for veteran transition. This platform grew from years
-          of listening to veterans describe a process that institutions were not fully equipped to
-          support — and a conviction that better tools, grounded in their actual experience, could
-          change that.
+        <p>
+          Every feature in TYFMS — the skills translator, the identity guide, the peer network,
+          the goal tracker — exists because field research identified it as something veterans
+          actually need and too rarely find in one place. The work is ongoing. So is the transition.
         </p>
+      </div>
+
+      {/* Personal section */}
+      <p className="cat-label" style={{ marginBottom: 12 }}>The person behind it</p>
+      <div className="card" style={{ display: 'flex', gap: 20, alignItems: 'flex-start', marginBottom: 8 }}>
+        <div style={{
+          width: 52, height: 52, borderRadius: '50%', background: '#0f6e56',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+        }}>
+          <span style={{ color: '#fff', fontSize: 22, fontWeight: 700 }}>R</span>
+        </div>
+        <div>
+          <p style={{ fontSize: 16, fontWeight: 600, color: '#1a1a18', marginBottom: 4 }}>Reynaldo Rodriguez</p>
+          <p style={{ fontSize: 12, color: '#0f6e56', marginBottom: 10 }}>Researcher · Builder · Veteran advocate</p>
+          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75 }}>
+            This platform grew from years of listening to veterans describe a transition process
+            that institutions were not fully equipped to support — and a conviction that better
+            tools, grounded in their actual experience, could change that. TYFMS is the result
+            of that listening turned into action.
+          </p>
+        </div>
       </div>
 
       <FunFact />
