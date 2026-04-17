@@ -1,3 +1,5 @@
+import FunFact from '../components/FunFact'
+
 const RESOURCES = [
   {
     category: 'VA benefits',
@@ -56,6 +58,8 @@ export default function ResourcesTab() {
           </div>
         </div>
       ))}
+
+      <FunFact />
     </div>
   )
 }

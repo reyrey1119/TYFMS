@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
+import FunFact from '../components/FunFact'
 
 const CATS = ['Career', 'Education', 'Identity', 'Benefits', 'Networking', 'Personal']
 const CAT_CLASS = { Career: 'ba', Education: 'bg', Identity: 'bb', Benefits: 'bb', Networking: 'bg', Personal: 'ba' }
@@ -110,10 +111,7 @@ export default function TrackerTab() {
             {g.done ? '✓' : ''}
           </button>
           <div style={{ flex: 1 }}>
-            <p style={{
-              fontSize: 14, fontWeight: 500, marginBottom: 4,
-              ...(g.done ? { textDecoration: 'line-through', color: '#888' } : {})
-            }}>
+            <p style={{ fontSize: 14, fontWeight: 500, marginBottom: 4, ...(g.done ? { textDecoration: 'line-through', color: '#888' } : {}) }}>
               {g.title}
             </p>
             <span className={CAT_CLASS[g.category || g.cat] || 'bb'} style={{ fontSize: 11, padding: '2px 8px' }}>
@@ -123,6 +121,8 @@ export default function TrackerTab() {
           <button className="goal-del" onClick={() => deleteGoal(g.id)}>×</button>
         </div>
       ))}
+
+      <FunFact />
     </div>
   )
 }

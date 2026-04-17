@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
+import FunFact from '../components/FunFact'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 const ROLE_CLASS = { Mentor: 'bg', Mentee: 'bb', Both: 'ba' }
@@ -8,7 +9,6 @@ const ROLE_CLASS = { Mentor: 'bg', Mentee: 'bb', Both: 'ba' }
 export default function NetworkTab() {
   const { user, supabaseEnabled } = useAuth()
 
-  // Join form
   const [name, setName] = useState('')
   const [branch, setBranch] = useState('Army')
   const [mos, setMos] = useState('')
@@ -17,7 +17,6 @@ export default function NetworkTab() {
   const [contact, setContact] = useState('')
   const [joinMsg, setJoinMsg] = useState(null)
 
-  // Search
   const [filterMos, setFilterMos] = useState('')
   const [filterRole, setFilterRole] = useState('')
   const [profiles, setProfiles] = useState([])
@@ -31,14 +30,7 @@ export default function NetworkTab() {
       setJoinMsg({ error: true, text: 'Please fill in display name, MOS/AFSC, and contact info.' })
       return
     }
-    const profile = {
-      name: name.trim(),
-      branch,
-      mos: mos.trim().toUpperCase(),
-      role,
-      bio: bio.trim(),
-      contact: contact.trim(),
-    }
+    const profile = { name: name.trim(), branch, mos: mos.trim().toUpperCase(), role, bio: bio.trim(), contact: contact.trim() }
 
     if (useDb && user) {
       const { error } = await supabase.from('profiles').upsert({ ...profile, user_id: user.id })
@@ -68,13 +60,11 @@ export default function NetworkTab() {
       const all = JSON.parse(localStorage.getItem('vtg_network') || '[]')
       const fmos = filterMos.trim().toUpperCase()
       setProfiles(
-        all
-          .filter(p => {
-            const mosMatch = !fmos || p.mos.includes(fmos) || fmos.includes(p.mos)
-            const roleMatch = !filterRole || p.role === filterRole || p.role === 'Both'
-            return mosMatch && roleMatch
-          })
-          .sort((a, b) => b.ts - a.ts)
+        all.filter(p => {
+          const mosMatch = !fmos || p.mos.includes(fmos) || fmos.includes(p.mos)
+          const roleMatch = !filterRole || p.role === filterRole || p.role === 'Both'
+          return mosMatch && roleMatch
+        }).sort((a, b) => b.ts - a.ts)
       )
     }
     setSearchDone(true)
@@ -179,6 +169,8 @@ export default function NetworkTab() {
           ))}
         </div>
       </div>
+
+      <FunFact />
     </div>
   )
 }

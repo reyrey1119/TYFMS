@@ -2,19 +2,70 @@ import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import AuthModal from './AuthModal'
 
-export default function Header() {
+export default function Header({ onSearch }) {
   const { user, signOut, supabaseEnabled } = useAuth()
   const [showAuth, setShowAuth] = useState(false)
+  const [query, setQuery] = useState('')
+  const [searching, setSearching] = useState(false)
+
+  async function handleSearch(e) {
+    e.preventDefault()
+    if (!query.trim() || searching) return
+    setSearching(true)
+    try {
+      const r = await fetch('/api/search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: query.trim() }),
+      })
+      const data = await r.json()
+      if (data.tab && onSearch) {
+        onSearch(data)
+        setQuery('')
+      }
+    } catch {
+      // fail silently — search is enhancement, not critical path
+    } finally {
+      setSearching(false)
+    }
+  }
 
   return (
     <>
-      <header>
+      <header style={{ flexWrap: 'wrap', gap: 12 }}>
         <div>
           <h1>TYFMS</h1>
           <p>No more empty thanks — just real tools for the next mission.</p>
         </div>
+
+        <form onSubmit={handleSearch} style={{ display: 'flex', gap: 6, alignItems: 'center', flex: '1 1 220px', maxWidth: 340 }}>
+          <input
+            type="text"
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            placeholder="Search — try &quot;GI Bill&quot; or &quot;resume tips&quot;"
+            style={{
+              flex: 1, border: '1px solid rgba(159,186,159,0.4)', borderRadius: 8,
+              padding: '7px 12px', fontSize: 12, background: 'rgba(255,255,255,0.08)',
+              color: '#fff', fontFamily: 'inherit', outline: 'none',
+            }}
+          />
+          <button
+            type="submit"
+            disabled={searching || !query.trim()}
+            style={{
+              padding: '7px 12px', background: searching ? '#085041' : '#0f6e56',
+              border: 'none', borderRadius: 8, color: '#fff', fontSize: 12,
+              cursor: searching ? 'not-allowed' : 'pointer', fontFamily: 'inherit',
+              whiteSpace: 'nowrap', flexShrink: 0,
+            }}
+          >
+            {searching ? '...' : 'Search'}
+          </button>
+        </form>
+
         {supabaseEnabled && (
-          <div>
+          <div style={{ flexShrink: 0 }}>
             {user ? (
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <span style={{ fontSize: 12, color: '#9fba9f' }}>{user.email}</span>
@@ -22,7 +73,7 @@ export default function Header() {
                   onClick={signOut}
                   style={{
                     padding: '5px 12px', background: 'transparent', border: '1px solid #3a5a3a',
-                    borderRadius: 8, color: '#9fba9f', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit'
+                    borderRadius: 8, color: '#9fba9f', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
                   }}
                 >
                   Sign out
@@ -34,7 +85,7 @@ export default function Header() {
                 style={{
                   padding: '6px 14px', background: '#0f6e56', border: 'none',
                   borderRadius: 8, color: '#fff', fontSize: 13, cursor: 'pointer',
-                  fontFamily: 'inherit', fontWeight: 500
+                  fontFamily: 'inherit', fontWeight: 500,
                 }}
               >
                 Sign in

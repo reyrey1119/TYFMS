@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import FunFact from '../components/FunFact'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 
@@ -11,12 +12,18 @@ export default function TranslatorTab() {
   const [results, setResults] = useState(null)
   const [error, setError] = useState('')
 
+  // Resume builder state
+  const [resumeLoading, setResumeLoading] = useState(false)
+  const [resume, setResume] = useState('')
+  const [resumeError, setResumeError] = useState('')
+  const [copied, setCopied] = useState(false)
+
   async function translate() {
     if (!mos.trim()) { setError('Please enter your MOS, AFSC, or rate code.'); return }
     setError('')
     setResults(null)
+    setResume('')
     setLoading(true)
-
     try {
       const r = await fetch('/api/translate', {
         method: 'POST',
@@ -31,6 +38,34 @@ export default function TranslatorTab() {
     } finally {
       setLoading(false)
     }
+  }
+
+  async function buildResume() {
+    if (!results) return
+    setResumeError('')
+    setResume('')
+    setResumeLoading(true)
+    try {
+      const r = await fetch('/api/resume', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ branch, mos, rank, yos, ...results }),
+      })
+      const data = await r.json()
+      if (!r.ok) { setResumeError(data.error || 'Something went wrong.'); return }
+      setResume(data.resume)
+    } catch {
+      setResumeError('Could not reach the server. Try again.')
+    } finally {
+      setResumeLoading(false)
+    }
+  }
+
+  function copyResume() {
+    navigator.clipboard.writeText(resume).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
   }
 
   return (
@@ -103,12 +138,50 @@ export default function TranslatorTab() {
             {results.targetIndustries.map(i => <span key={i} className="ba">{i}</span>)}
           </div>
 
-          <div className="insight">
+          <div className="insight" style={{ marginBottom: 24 }}>
             <p className="label">Identity transition tip</p>
             <p>{results.identityTip}</p>
           </div>
+
+          {/* Resume builder */}
+          <div style={{ borderTop: '1px solid #d3d1c7', paddingTop: 20 }}>
+            <p style={{ fontSize: 15, fontWeight: 500, marginBottom: 6 }}>Resume draft</p>
+            <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 14, lineHeight: 1.6 }}>
+              Generate a complete resume draft with your military experience translated into
+              civilian language — ready to customize with your actual details.
+            </p>
+            <button className="btn-b" onClick={buildResume} disabled={resumeLoading} style={{ marginBottom: resumeError ? 8 : 0 }}>
+              {resumeLoading ? 'Building your resume...' : 'Build my resume draft'}
+            </button>
+            {resumeError && <p style={{ color: '#a32d2d', fontSize: 13, marginTop: 8 }}>{resumeError}</p>}
+
+            {resume && (
+              <div style={{ marginTop: 16 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                  <p style={{ fontSize: 13, fontWeight: 500, color: '#1a1a18' }}>Your resume draft</p>
+                  <button
+                    onClick={copyResume}
+                    style={{
+                      padding: '5px 12px', background: copied ? '#0f6e56' : '#fff',
+                      border: '1px solid #d3d1c7', borderRadius: 8, fontSize: 12,
+                      cursor: 'pointer', fontFamily: 'inherit', color: copied ? '#fff' : '#5f5e5a',
+                      transition: 'all .15s',
+                    }}
+                  >
+                    {copied ? '✓ Copied' : 'Copy to clipboard'}
+                  </button>
+                </div>
+                <div className="resume-output">{resume}</div>
+                <p style={{ fontSize: 11, color: '#b4b2a9', marginTop: 8 }}>
+                  Replace all bracketed placeholders [ ] with your actual information before using.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       )}
+
+      <FunFact />
     </div>
   )
 }
