@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { supabase } from '../lib/supabase'
 import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
 
@@ -13,15 +14,21 @@ function getMondayStart() {
   return mon.getTime()
 }
 
-const BAR_COLORS = ['#185fa5', '#0A7868', '#ba7517', '#a32d2d']
+const BAR_COLORS = ['#1B3A6B', '#C07A28', '#7c3aad', '#a32d2d']
 
 export default function CareerTrendsTab() {
   const { user, supabaseEnabled } = useAuth()
+  const useDb = supabaseEnabled && !!supabase && !!user
+
   const [trends, setTrends] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [selected, setSelected] = useState(null)
   const [countdown, setCountdown] = useState(null)
+
+  const [matches, setMatches] = useState(null)
+  const [matchLoading, setMatchLoading] = useState(false)
+  const [resumeMeta, setResumeMeta] = useState(null) // { mos, branch, rank }
 
   useEffect(() => {
     const mondayTs = getMondayStart()
@@ -45,6 +52,36 @@ export default function CareerTrendsTab() {
       .finally(() => setLoading(false))
   }, [])
 
+  // Personalization: fetch resume + call trend-match when signed in and trends ready
+  useEffect(() => {
+    if (!useDb || !trends) return
+    async function fetchPersonalization() {
+      setMatchLoading(true)
+      try {
+        const { data } = await supabase
+          .from('resume_drafts')
+          .select('data')
+          .eq('user_id', user.id)
+          .single()
+        if (!data?.data?.mos) return
+        const { mos, branch, rank } = data.data
+        setResumeMeta({ mos, branch, rank })
+        const r = await fetch('/api/trend-match', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            mos, branch, rank,
+            trends: trends.map(t => ({ title: t.title, category: t.category })),
+          }),
+        })
+        const result = await r.json()
+        if (result.matches) setMatches(result.matches)
+      } catch {}
+      setMatchLoading(false)
+    }
+    fetchPersonalization()
+  }, [useDb, user, trends])
+
   useEffect(() => {
     if (selected === null || countdown === null || countdown === 0) return
     const t = setTimeout(() => setCountdown(c => c - 1), 1000)
@@ -60,6 +97,10 @@ export default function CareerTrendsTab() {
     setSelected(null)
     setCountdown(null)
   }
+
+  const topMatches = matches
+    ? [...matches].sort((a, b) => b.matchScore - a.matchScore).slice(0, 2)
+    : []
 
   return (
     <div>
@@ -79,6 +120,55 @@ export default function CareerTrendsTab() {
 
       {trends && (
         <>
+          {/* Personalized matches — only when signed in with resume */}
+          {useDb && (matchLoading || topMatches.length > 0) && (
+            <div className="card" style={{ marginBottom: 24, borderLeft: '4px solid #C07A28', borderRadius: '0 12px 12px 0' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+                <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.1em' }}>
+                  Matched to your background
+                </p>
+                {resumeMeta?.mos && (
+                  <span className="bg" style={{ fontSize: 10, padding: '2px 7px' }}>{resumeMeta.mos}</span>
+                )}
+              </div>
+
+              {matchLoading ? (
+                <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                  <span className="search-spinner" style={{ width: 12, height: 12, borderColor: 'rgba(26,26,24,.15)', borderTopColor: '#C07A28' }} />
+                  <p style={{ fontSize: 13, color: '#5f5e5a' }}>Matching trends to your MOS…</p>
+                </div>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {topMatches.map(m => {
+                    const trend = trends[m.idx]
+                    if (!trend) return null
+                    return (
+                      <div
+                        key={m.idx}
+                        style={{
+                          padding: '12px 14px', background: '#FAFAF8', borderRadius: 10,
+                          border: '1px solid #E5E3DC', cursor: 'pointer',
+                        }}
+                        onClick={() => openTrend(trend)}
+                      >
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
+                          <p style={{ fontSize: 13, fontWeight: 600, color: '#1a1a18', flex: 1, marginRight: 8 }}>{trend.title}</p>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+                            <div style={{ height: 6, width: 60, background: '#E5E3DC', borderRadius: 3, overflow: 'hidden' }}>
+                              <div style={{ height: '100%', width: `${m.matchScore}%`, background: '#C07A28', borderRadius: 3 }} />
+                            </div>
+                            <p style={{ fontSize: 11, fontWeight: 700, color: '#C07A28' }}>{m.matchScore}%</p>
+                          </div>
+                        </div>
+                        <p style={{ fontSize: 12, color: '#5f5e5a', lineHeight: 1.6 }}>{m.matchReason}</p>
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Opportunity bar chart */}
           <div className="card" style={{ marginBottom: 24 }}>
             <p className="cat-label" style={{ marginBottom: 14 }}>Opportunity score by sector</p>
@@ -87,13 +177,13 @@ export default function CareerTrendsTab() {
                 <div key={i}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }}>
                     <p style={{ fontSize: 12, color: '#1a1a18', fontWeight: 500 }}>{t.category}</p>
-                    <p style={{ fontSize: 12, fontWeight: 700, color: BAR_COLORS[i] }}>{t.score ?? '–'}</p>
+                    <p style={{ fontSize: 12, fontWeight: 700, color: BAR_COLORS[i % BAR_COLORS.length] }}>{t.score ?? '–'}</p>
                   </div>
                   <div style={{ height: 8, background: '#f5f4f0', borderRadius: 4, overflow: 'hidden' }}>
                     <div style={{
                       height: '100%',
                       width: `${t.score ?? 0}%`,
-                      background: BAR_COLORS[i],
+                      background: BAR_COLORS[i % BAR_COLORS.length],
                       borderRadius: 4,
                       transition: 'width 0.8s ease',
                     }} />
@@ -120,7 +210,7 @@ export default function CareerTrendsTab() {
                   <span className={t.badgeCls || 'bg'} style={{ flexShrink: 0 }}>{t.category}</span>
                 </div>
                 <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 10 }}>{t.description}</p>
-                <p style={{ fontSize: 11, color: '#0A7868', fontWeight: 600 }}>Read full analysis →</p>
+                <p style={{ fontSize: 11, color: '#C07A28', fontWeight: 600 }}>Read full analysis →</p>
               </div>
             ))}
           </div>
@@ -174,7 +264,7 @@ export default function CareerTrendsTab() {
                 {supabaseEnabled && user ? (
                   selected.fullAnalysis ? (
                     <div style={{ borderTop: '1px solid #d3d1c7', paddingTop: 16 }}>
-                      <p style={{ fontSize: 11, fontWeight: 600, color: '#0A7868', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 10 }}>
+                      <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 10 }}>
                         Full analysis
                       </p>
                       <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.8 }}>{selected.fullAnalysis}</p>

@@ -5,7 +5,7 @@ import FunFact from '../components/FunFact'
 
 const ROADMAP = [
   {
-    id: 'p1', num: 1, range: 'Month 1', title: 'Paperwork & Benefits', color: '#185fa5', weight: 1,
+    id: 'p1', num: 1, range: 'Month 1', title: 'Paperwork & Benefits', color: '#1B3A6B', weight: 1,
     milestones: [
       { id: 'm1', text: 'File your VA disability claim at va.gov' },
       { id: 'm2', text: 'Obtain certified copies of your DD-214' },
@@ -15,7 +15,7 @@ const ROADMAP = [
     ],
   },
   {
-    id: 'p2', num: 2, range: 'Months 2–3', title: 'Identity & Skills Inventory', color: '#0A7868', weight: 2,
+    id: 'p2', num: 2, range: 'Months 2–3', title: 'Identity & Skills Inventory', color: '#C07A28', weight: 2,
     milestones: [
       { id: 'm6', text: 'Complete the Identity Guide conversation' },
       { id: 'm7', text: 'Use the Skills Translator to map your MOS to civilian roles' },
@@ -176,7 +176,7 @@ export default function TrackerTab() {
             <p style={{ fontSize: 13, fontWeight: 600 }}>Transition readiness score</p>
             <p style={{ fontSize: 11, color: '#5f5e5a' }}>{totalDone} of 25 milestones complete</p>
           </div>
-          <p style={{ fontSize: 26, fontWeight: 800, color: readinessPct === 100 ? '#0A7868' : '#1a1a18', letterSpacing: '-.02em' }}>
+          <p style={{ fontSize: 26, fontWeight: 800, color: readinessPct === 100 ? '#C07A28' : '#1a1a18', letterSpacing: '-.02em' }}>
             {readinessPct}%
           </p>
         </div>
@@ -185,8 +185,8 @@ export default function TrackerTab() {
             height: '100%',
             width: `${readinessPct}%`,
             background: readinessPct === 100
-              ? 'linear-gradient(90deg, #0A7868, #22c55e)'
-              : 'linear-gradient(90deg, #1B4F8C, #0A7868)',
+              ? '#C07A28'
+              : 'linear-gradient(90deg, #C07A28, #e8972e)',
             borderRadius: 8,
             transition: 'width 0.4s ease',
           }} />
@@ -196,25 +196,25 @@ export default function TrackerTab() {
       {/* Encouragement banner */}
       {(encourage || encLoading) && (
         <div style={{
-          background: '#0f2a1a', borderRadius: 12, padding: '14px 18px',
+          background: '#1B3A6B', borderRadius: 12, padding: '14px 18px',
           marginBottom: 16, display: 'flex', alignItems: 'flex-start', gap: 12,
         }}>
           <div style={{ flex: 1 }}>
             {encLoading ? (
-              <p style={{ fontSize: 13, color: '#9fba9f', fontStyle: 'italic' }}>Writing your encouragement…</p>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', fontStyle: 'italic' }}>Writing your encouragement…</p>
             ) : (
               <>
-                <p style={{ fontSize: 11, fontWeight: 600, color: '#9fba9f', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 4 }}>
+                <p style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.65)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 4 }}>
                   Milestone complete
                 </p>
-                <p style={{ fontSize: 13, color: '#c8dfc8', lineHeight: 1.7 }}>{encourage.text}</p>
+                <p style={{ fontSize: 13, color: '#fff', lineHeight: 1.7 }}>{encourage.text}</p>
               </>
             )}
           </div>
           {!encLoading && (
             <button
               onClick={() => setEncourage(null)}
-              style={{ background: 'none', border: 'none', color: '#9fba9f', cursor: 'pointer', fontSize: 20, lineHeight: 1, flexShrink: 0, padding: 0 }}
+              style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.65)', cursor: 'pointer', fontSize: 20, lineHeight: 1, flexShrink: 0, padding: 0 }}
             >×</button>
           )}
         </div>

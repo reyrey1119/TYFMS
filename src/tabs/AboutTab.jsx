@@ -28,7 +28,7 @@ export default function AboutTab() {
     <div>
       {/* Mission — prominent, at the very top */}
       <div style={{ marginBottom: 40, paddingBottom: 32, borderBottom: '1px solid #d3d1c7' }}>
-        <p style={{ fontSize: 11, fontWeight: 600, color: '#0A7868', textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 14 }}>
+        <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 14 }}>
           Our mission
         </p>
         <p style={{ fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 900, color: '#1a1a18', lineHeight: 1.1, marginBottom: 18, letterSpacing: '-.02em' }}>
@@ -43,13 +43,13 @@ export default function AboutTab() {
 
       {/* Magazine hero */}
       <div style={{
-        background: 'linear-gradient(135deg, #0f1e0f 0%, #1a3a1a 60%, #0f2e1e 100%)',
+        background: 'linear-gradient(135deg, #0f1b4d 0%, #1B3A6B 60%, #0f2857 100%)',
         borderRadius: 16, padding: 'clamp(32px,5vw,56px) clamp(24px,5vw,48px)',
         marginBottom: 32, position: 'relative', overflow: 'hidden',
       }}>
         <div style={{
           position: 'absolute', top: -60, right: -60, width: 300, height: 300,
-          background: 'radial-gradient(circle, rgba(15,110,86,.3) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(192,122,40,.2) 0%, transparent 70%)',
           borderRadius: '50%', pointerEvents: 'none',
         }} />
         <div style={{ position: 'relative' }}>
@@ -79,8 +79,8 @@ export default function AboutTab() {
       </div>
 
       {/* Origin story */}
-      <div style={{ borderLeft: '4px solid #0A7868', paddingLeft: 20, marginBottom: 32 }}>
-        <p style={{ fontSize: 11, fontWeight: 600, color: '#0A7868', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 8 }}>
+      <div style={{ borderLeft: '4px solid #C07A28', paddingLeft: 20, marginBottom: 32 }}>
+        <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 8 }}>
           Origin story
         </p>
         <p style={{ fontSize: 16, fontWeight: 600, color: '#1a1a18', marginBottom: 14 }}>

@@ -257,7 +257,7 @@ export default function ResumeTab() {
                 onClick={() => setTargetCompany(c)}
                 style={{
                   padding: '3px 10px', border: '1px solid #d3d1c7', borderRadius: 8,
-                  background: targetCompany === c ? '#0f6e56' : '#fff',
+                  background: targetCompany === c ? '#1B3A6B' : '#fff',
                   color: targetCompany === c ? '#fff' : '#5f5e5a',
                   fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
                 }}
@@ -286,7 +286,7 @@ export default function ResumeTab() {
           <button
             onClick={addJob}
             style={{
-              padding: '5px 12px', background: '#1B4F8C', border: 'none',
+              padding: '5px 12px', background: '#1B3A6B', border: 'none',
               borderRadius: 8, color: '#fff', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
             }}
           >
@@ -342,7 +342,7 @@ export default function ResumeTab() {
             onClick={saveDraft}
             disabled={saving}
             style={{
-              padding: '7px 16px', background: '#185fa5', border: 'none', borderRadius: 8,
+              padding: '7px 16px', background: '#1B3A6B', border: 'none', borderRadius: 8,
               color: '#fff', fontSize: 13, cursor: 'pointer', fontFamily: 'inherit',
               opacity: saving ? 0.6 : 1,
             }}
@@ -379,13 +379,13 @@ export default function ResumeTab() {
         <div style={{ marginTop: 20 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, flexWrap: 'wrap', gap: 8 }}>
             <p style={{ fontSize: 14, fontWeight: 500 }}>
-              Your resume draft {targetCompany && <span style={{ color: '#0f6e56' }}>— tailored for {targetCompany}</span>}
+              Your resume draft {targetCompany && <span style={{ color: '#C07A28' }}>— tailored for {targetCompany}</span>}
             </p>
             <div style={{ display: 'flex', gap: 8 }}>
               <button
                 onClick={copyResume}
                 style={{
-                  padding: '6px 14px', background: copied ? '#0f6e56' : '#fff',
+                  padding: '6px 14px', background: copied ? '#0A7868' : '#fff',
                   border: '1px solid #d3d1c7', borderRadius: 8, fontSize: 12,
                   cursor: 'pointer', fontFamily: 'inherit',
                   color: copied ? '#fff' : '#5f5e5a', transition: 'all .15s',
@@ -396,7 +396,7 @@ export default function ResumeTab() {
               <button
                 onClick={downloadResume}
                 style={{
-                  padding: '6px 14px', background: '#185fa5', border: 'none',
+                  padding: '6px 14px', background: '#1B3A6B', border: 'none',
                   borderRadius: 8, fontSize: 12, cursor: 'pointer',
                   fontFamily: 'inherit', color: '#fff',
                 }}

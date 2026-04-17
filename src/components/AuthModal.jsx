@@ -40,7 +40,7 @@ export default function AuthModal({ onClose }) {
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="card" style={{ width: '100%', maxWidth: 360, padding: 24 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-          <p style={{ fontWeight: 500, fontSize: 15 }}>{mode === 'signin' ? 'Sign in to TYFMS' : 'Create your account'}</p>
+          <p style={{ fontWeight: 600, fontSize: 15, color: '#1a1a18' }}>{mode === 'signin' ? 'Sign in to TYFMS' : 'Create your account'}</p>
           <button
             onClick={onClose}
             style={{ background: 'none', border: 'none', fontSize: 22, cursor: 'pointer', color: '#5f5e5a', lineHeight: 1 }}
@@ -70,7 +70,7 @@ export default function AuthModal({ onClose }) {
             minLength={6}
           />
           {error && <p style={{ color: '#a32d2d', fontSize: 13, marginBottom: 10 }}>{error}</p>}
-          {message && <p style={{ color: '#0f6e56', fontSize: 13, marginBottom: 10 }}>{message}</p>}
+          {message && <p style={{ color: '#0A7868', fontSize: 13, marginBottom: 10 }}>{message}</p>}
           <button className="btn-g" type="submit" disabled={loading}>
             {loading ? 'Loading...' : mode === 'signin' ? 'Sign in' : 'Create account'}
           </button>
@@ -79,7 +79,7 @@ export default function AuthModal({ onClose }) {
           {mode === 'signin' ? "Don't have an account? " : 'Already have an account? '}
           <button
             onClick={switchMode}
-            style={{ background: 'none', border: 'none', color: '#185fa5', cursor: 'pointer', fontSize: 12, fontFamily: 'inherit', textDecoration: 'underline' }}
+            style={{ background: 'none', border: 'none', color: '#1B3A6B', cursor: 'pointer', fontSize: 12, fontFamily: 'inherit', textDecoration: 'underline' }}
           >
             {mode === 'signin' ? 'Create one' : 'Sign in'}
           </button>

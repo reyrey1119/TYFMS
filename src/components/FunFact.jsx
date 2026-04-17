@@ -29,13 +29,13 @@ export default function FunFact() {
   }, [])
 
   return (
-    <div style={{ marginTop: 36, borderTop: '1px solid #d3d1c7', paddingTop: 16, display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-      <span style={{ fontSize: 16, flexShrink: 0, marginTop: 1 }}>⭐</span>
+    <div className="fun-fact" style={{ marginTop: 36 }}>
+      <p className="fun-label">Did you know?</p>
       <p style={{
-        fontSize: 13, color: '#5f5e5a', lineHeight: 1.7,
+        fontSize: 13, color: '#3a3a38', lineHeight: 1.7,
         opacity: visible ? 1 : 0, transition: 'opacity 0.35s ease',
       }}>
-        <strong style={{ color: '#0f6e56' }}>Did you know?</strong>{' '}{FACTS[idx]}
+        {FACTS[idx]}
       </p>
     </div>
   )

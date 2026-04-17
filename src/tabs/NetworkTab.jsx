@@ -122,7 +122,7 @@ export default function NetworkTab() {
               {!canJoin ? 'Sign in to join' : 'Join the network'}
             </button>
             {joinMsg && (
-              <p style={{ fontSize: 12, marginTop: 8, color: joinMsg.error ? '#a32d2d' : '#0f6e56' }}>{joinMsg.text}</p>
+              <p style={{ fontSize: 12, marginTop: 8, color: joinMsg.error ? '#a32d2d' : '#0A7868' }}>{joinMsg.text}</p>
             )}
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function NetworkTab() {
                 <span className={ROLE_CLASS[p.role] || 'bb'}>{p.role}</span>
               </div>
               {p.bio && <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 8, lineHeight: 1.5 }}>{p.bio}</p>}
-              <p style={{ fontSize: 12, color: '#185fa5', wordBreak: 'break-all' }}>{p.contact}</p>
+              <p style={{ fontSize: 12, color: '#1B3A6B', wordBreak: 'break-all' }}>{p.contact}</p>
             </div>
           ))}
         </div>

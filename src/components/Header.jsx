@@ -63,7 +63,7 @@ export default function Header({ onSearch, onNavigateHome }) {
   return (
     <>
       <header>
-        {/* Left spacer — keeps brand centered */}
+        {/* Left spacer — centers brand */}
         <div className="header-spacer" />
 
         {/* Center brand */}
@@ -72,11 +72,11 @@ export default function Header({ onSearch, onNavigateHome }) {
           style={{ cursor: onNavigateHome ? 'pointer' : 'default', textAlign: 'center' }}
         >
           <h1 style={{
-            fontSize: 'clamp(14px, 2vw, 19px)', fontWeight: 800, letterSpacing: '-.02em', color: '#fff',
+            fontSize: 'clamp(13px, 1.8vw, 18px)', fontWeight: 800, letterSpacing: '-.02em', color: '#fff',
           }}>
             Thank You For My Service
           </h1>
-          <p style={{ fontSize: 11, color: '#9fba9f', marginTop: 2 }}>
+          <p style={{ fontSize: 10, color: '#9fba9f', marginTop: 2 }}>
             No more empty thanks — just real tools for the next mission.
           </p>
         </div>
@@ -89,10 +89,10 @@ export default function Header({ onSearch, onNavigateHome }) {
                 type="text"
                 value={query}
                 onChange={e => { setQuery(e.target.value); setSearchError('') }}
-                placeholder="Search — try &quot;GI Bill&quot; or &quot;resume tips&quot;"
+                placeholder="Search — try &quot;GI Bill&quot; or &quot;resume&quot;"
                 style={{
-                  width: 200, border: `1px solid ${searchError ? 'rgba(239,99,99,0.7)' : 'rgba(159,186,159,0.4)'}`,
-                  borderRadius: 8, padding: '7px 12px', fontSize: 12,
+                  width: 190, border: `1px solid ${searchError ? 'rgba(239,99,99,0.7)' : 'rgba(159,186,159,0.4)'}`,
+                  borderRadius: 8, padding: '7px 10px', fontSize: 12,
                   background: 'rgba(255,255,255,0.08)', color: '#fff',
                   fontFamily: 'inherit', outline: 'none',
                 }}
@@ -101,7 +101,7 @@ export default function Header({ onSearch, onNavigateHome }) {
                 type="submit"
                 disabled={searching || !query.trim()}
                 style={{
-                  padding: '7px 12px', background: searching ? '#085041' : '#0f6e56',
+                  padding: '7px 10px', background: searching ? '#0a1e45' : '#1B3A6B',
                   border: 'none', borderRadius: 8, color: '#fff', fontSize: 12,
                   cursor: searching ? 'not-allowed' : 'pointer', fontFamily: 'inherit',
                   whiteSpace: 'nowrap', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 6,
@@ -121,11 +121,11 @@ export default function Header({ onSearch, onNavigateHome }) {
               {user ? (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <span style={{ fontSize: 12, color: '#9fba9f' }}>{user.email}</span>
+                    <span style={{ fontSize: 11, color: '#9fba9f' }}>{user.email}</span>
                     <button
                       onClick={signOut}
                       style={{
-                        padding: '5px 12px', background: 'transparent', border: '1px solid #3a5a3a',
+                        padding: '5px 10px', background: 'transparent', border: '1px solid #3a5a3a',
                         borderRadius: 8, color: '#9fba9f', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
                       }}
                     >
@@ -148,7 +148,7 @@ export default function Header({ onSearch, onNavigateHome }) {
                 <button
                   onClick={() => setShowAuth(true)}
                   style={{
-                    padding: '7px 14px', background: '#0f6e56', border: 'none',
+                    padding: '7px 14px', background: '#C07A28', border: 'none',
                     borderRadius: 8, color: '#fff', fontSize: 13, cursor: 'pointer',
                     fontFamily: 'inherit', fontWeight: 500,
                   }}

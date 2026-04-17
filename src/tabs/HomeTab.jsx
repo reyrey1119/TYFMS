@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import FunFact from '../components/FunFact'
 import TransitionTimeline from '../components/TransitionTimeline'
 
@@ -67,7 +66,7 @@ const HELP_CARDS = [
   {
     icon: '🔍',
     title: 'Why TYFMS exists',
-    body: 'This platform was built from field research into how veterans actually reconstruct their professional identity after service — not from assumptions about what should help. The gap between "thank you for your service" and real support is enormous. TYFMS is an attempt to close it.',
+    body: 'This platform was built from field research into how veterans actually reconstruct their professional identity after service — not from assumptions. The gap between "thank you for your service" and real support is enormous. TYFMS is an attempt to close it.',
   },
 ]
 
@@ -77,7 +76,7 @@ export default function HomeTab({ onNavigate }) {
 
   return (
     <div>
-      {/* Hero */}
+      {/* Hero — navy overlay, full title */}
       <div className="hero" style={{
         backgroundImage: 'url(/hero.png)',
         backgroundSize: 'cover',
@@ -86,18 +85,17 @@ export default function HomeTab({ onNavigate }) {
       }}>
         <div style={{
           position: 'absolute', inset: 0, borderRadius: 16,
-          background: 'linear-gradient(135deg, rgba(15,30,15,0.82) 0%, rgba(15,46,30,0.72) 100%)',
+          background: 'linear-gradient(135deg, rgba(15,27,77,0.90) 0%, rgba(27,58,107,0.84) 100%)',
         }} />
         <div style={{ position: 'relative' }}>
-          <p className="hero-eyebrow">Veteran Transition Platform</p>
-          <h1 className="hero-title">TYFMS</h1>
+          <h1 className="hero-title">Thank You<br />For My Service</h1>
           <p className="hero-tagline">No more empty thanks — just real tools for the next mission.</p>
         </div>
       </div>
 
       {/* Daily tip */}
       <div style={{
-        background: '#fff', border: '1px solid #d3d1c7', borderRadius: 12,
+        background: '#fff', border: '1px solid #E5E3DC', borderRadius: 12,
         padding: '16px 20px', marginBottom: 36, display: 'flex', gap: 14, alignItems: 'flex-start',
       }}>
         <span style={{ fontSize: 22, flexShrink: 0, marginTop: 1 }}>💡</span>
@@ -154,10 +152,8 @@ export default function HomeTab({ onNavigate }) {
         ))}
       </div>
 
-      {/* Transition timeline */}
       <TransitionTimeline />
 
-      {/* Research insight */}
       <div className="insight" style={{ marginBottom: 32 }}>
         <p className="label">Research insight</p>
         <p>

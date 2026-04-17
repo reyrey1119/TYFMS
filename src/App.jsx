@@ -59,38 +59,41 @@ export default function App() {
   return (
     <>
       <Header onSearch={handleSearch} onNavigateHome={() => { setActiveTab('home'); clearSearch() }} />
+      <div className="nav-sticky-wrapper">
+        <div className="nav-inner">
+          <nav>
+            {TABS.map(tab => (
+              <button
+                key={tab.id}
+                className={`tbtn${activeTab === tab.id ? ' on' : ''}`}
+                onClick={() => { setActiveTab(tab.id); clearSearch() }}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
       <div className="container">
-        <nav>
-          {TABS.map(tab => (
-            <button
-              key={tab.id}
-              className={`tbtn${activeTab === tab.id ? ' on' : ''}`}
-              onClick={() => { setActiveTab(tab.id); clearSearch() }}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </nav>
-
         <AdUnit slot="3957268946" />
 
         {searchResult && (
           <div style={{
-            background: '#fff', border: '1px solid #0f6e56', borderRadius: 10,
+            background: '#fff', border: '1px solid #B8C9E8', borderRadius: 10,
             padding: '12px 16px', marginBottom: 20, display: 'flex', gap: 12, alignItems: 'flex-start',
           }}>
             <span style={{ fontSize: 16, flexShrink: 0, marginTop: 2 }}>🔍</span>
             <div style={{ flex: 1 }}>
               <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.7 }}>{searchResult.summary}</p>
               {searchResult.sectionHint && (
-                <p style={{ fontSize: 12, color: '#0f6e56', marginTop: 4 }}>
+                <p style={{ fontSize: 12, color: '#1B3A6B', marginTop: 4 }}>
                   Look for: <strong>{searchResult.sectionHint}</strong>
                 </p>
               )}
             </div>
             <button
               onClick={clearSearch}
-              style={{ background: 'none', border: 'none', color: '#0f6e56', cursor: 'pointer', fontSize: 18, lineHeight: 1, flexShrink: 0 }}
+              style={{ background: 'none', border: 'none', color: '#1B3A6B', cursor: 'pointer', fontSize: 18, lineHeight: 1, flexShrink: 0 }}
             >
               ×
             </button>

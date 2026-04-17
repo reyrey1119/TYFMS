@@ -199,7 +199,7 @@ export default function PathTab() {
         <div className="card" style={{ textAlign: 'center', padding: '28px 20px' }}>
           {countdown > 0 ? (
             <>
-              <p style={{ fontSize: 32, fontWeight: 800, color: '#0f6e56', marginBottom: 8 }}>{countdown}</p>
+              <p style={{ fontSize: 32, fontWeight: 800, color: '#C07A28', marginBottom: 8 }}>{countdown}</p>
               <p style={{ fontSize: 14, color: '#5f5e5a' }}>Your results unlock in {countdown} second{countdown !== 1 ? 's' : ''}…</p>
             </>
           ) : (

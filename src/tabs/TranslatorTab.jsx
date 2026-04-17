@@ -205,7 +205,7 @@ export default function TranslatorTab() {
                     <button
                       onClick={copyResume}
                       style={{
-                        padding: '5px 12px', background: copied ? '#0f6e56' : '#fff',
+                        padding: '5px 12px', background: copied ? '#0A7868' : '#fff',
                         border: '1px solid #d3d1c7', borderRadius: 8, fontSize: 12,
                         cursor: 'pointer', fontFamily: 'inherit', color: copied ? '#fff' : '#5f5e5a',
                         transition: 'all .15s',
@@ -216,7 +216,7 @@ export default function TranslatorTab() {
                     <button
                       onClick={downloadResume}
                       style={{
-                        padding: '5px 12px', background: '#185fa5',
+                        padding: '5px 12px', background: '#1B3A6B',
                         border: 'none', borderRadius: 8, fontSize: 12,
                         cursor: 'pointer', fontFamily: 'inherit', color: '#fff',
                       }}
