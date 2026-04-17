@@ -63,7 +63,7 @@ export default function ResourcesTab() {
         </div>
       ))}
 
-      <AdUnit slot="5891047283" />
+      <AdUnit slot="5201008369" />
       <FunFact />
     </div>
   )

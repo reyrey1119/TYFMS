@@ -65,7 +65,7 @@ export default function App() {
         </nav>
 
         {/* Ad unit below nav */}
-        <AdUnit slot="9783766249" format="horizontal" />
+        <AdUnit slot="3957268946" />
 
         {searchResult && (
           <div style={{

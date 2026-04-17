@@ -209,7 +209,7 @@ export default function TranslatorTab() {
         </div>
       )}
 
-      <AdUnit slot="2748392610" />
+      <AdUnit slot="6514090037" />
       <FunFact />
     </div>
   )
