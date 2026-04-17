@@ -53,10 +53,10 @@ textarea { resize: vertical; }
 .rbtn { padding: 7px 14px; border: 1px solid #d3d1c7; background: #fff; border-radius: 8px; font-size: 13px; cursor: pointer; color: #5f5e5a; font-family: inherit; }
 .rbtn.on { background: #185fa5; color: #fff; border-color: #185fa5; font-weight: 500; }
 
-/* Insight banner */
-.insight { border: 1px solid #d3d1c7; border-left: 4px solid #0f6e56; padding: 14px 18px; background: #fff; border-radius: 0 8px 8px 0; }
-.insight p { font-size: 13px; color: #1a1a18; line-height: 1.7; }
-.insight .label { font-size: 11px; font-weight: 500; color: #0f6e56; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+/* Insight banner — dark green block, cream text */
+.insight { padding: 20px 24px; background: #0f2a1a; border-radius: 12px; }
+.insight p { font-size: 13px; color: #c8dfc8; line-height: 1.75; }
+.insight .label { font-size: 11px; font-weight: 600; color: #9fba9f; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
 
 /* Warning banner */
 .warn { background: #faeeda; border: 1px solid #ef9f27; border-radius: 8px; padding: 10px 14px; margin-bottom: 20px; }

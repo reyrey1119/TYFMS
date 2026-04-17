@@ -11,6 +11,7 @@ import TrackerTab from './tabs/TrackerTab'
 import ResourcesTab from './tabs/ResourcesTab'
 import AboutTab from './tabs/AboutTab'
 import PathTab from './tabs/PathTab'
+import CareerTrendsTab from './tabs/CareerTrendsTab'
 import PrivacyTab from './tabs/PrivacyTab'
 
 const TABS = [
@@ -21,6 +22,7 @@ const TABS = [
   { id: 'resume',     label: 'Resume builder' },
   { id: 'identity',   label: 'Identity guide' },
   { id: 'network',    label: 'Networking' },
+  { id: 'trends',     label: 'Career trends' },
   { id: 'tracker',    label: 'Progress tracker' },
   { id: 'resources',  label: 'Resources' },
 ]
@@ -100,6 +102,7 @@ export default function App() {
         {activeTab === 'resume'     && <ResumeTab />}
         {activeTab === 'identity'   && <IdentityTab />}
         {activeTab === 'network'    && <NetworkTab />}
+        {activeTab === 'trends'     && <CareerTrendsTab />}
         {activeTab === 'tracker'    && <TrackerTab />}
         {activeTab === 'resources'  && <ResourcesTab />}
       </div>

@@ -4,6 +4,11 @@ import AdUnit from '../components/AdUnit'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 
+const YOS_OPTIONS = [
+  '', 'Less than 1 year', '1–2 years', '3–4 years', '5–6 years',
+  '7–8 years', '9–10 years', '11–15 years', '16–20 years', '20+ years',
+]
+
 export default function TranslatorTab() {
   const [branch, setBranch] = useState('Army')
   const [mos, setMos] = useState('')
@@ -29,7 +34,7 @@ export default function TranslatorTab() {
       const r = await fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ branch, mos: mos.trim(), rank: rank.trim(), yos: yos.trim() }),
+        body: JSON.stringify({ branch, mos: mos.trim(), rank, yos }),
       })
       const data = await r.json()
       if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
@@ -114,11 +119,47 @@ export default function TranslatorTab() {
         <div className="grid-2" style={{ marginBottom: 16 }}>
           <div>
             <label>Rank (optional)</label>
-            <input type="text" value={rank} onChange={e => setRank(e.target.value)} placeholder="e.g. SSG, TSgt, PO2" />
+            <select value={rank} onChange={e => setRank(e.target.value)}>
+              <option value="">Select rank (optional)</option>
+              <optgroup label="Enlisted">
+                <option>E-1 Private</option>
+                <option>E-2 Private Second Class</option>
+                <option>E-3 Private First Class</option>
+                <option>E-4 Specialist / Corporal</option>
+                <option>E-5 Sergeant</option>
+                <option>E-6 Staff Sergeant</option>
+                <option>E-7 Sergeant First Class</option>
+                <option>E-8 Master Sergeant / First Sergeant</option>
+                <option>E-9 Sergeant Major / Command Sergeant Major</option>
+              </optgroup>
+              <optgroup label="Warrant Officers">
+                <option>W-1 Warrant Officer 1</option>
+                <option>W-2 Chief Warrant Officer 2</option>
+                <option>W-3 Chief Warrant Officer 3</option>
+                <option>W-4 Chief Warrant Officer 4</option>
+                <option>W-5 Chief Warrant Officer 5</option>
+              </optgroup>
+              <optgroup label="Officers">
+                <option>O-1 Second Lieutenant</option>
+                <option>O-2 First Lieutenant</option>
+                <option>O-3 Captain</option>
+                <option>O-4 Major</option>
+                <option>O-5 Lieutenant Colonel</option>
+                <option>O-6 Colonel</option>
+                <option>O-7 Brigadier General</option>
+                <option>O-8 Major General</option>
+                <option>O-9 Lieutenant General</option>
+                <option>O-10 General</option>
+              </optgroup>
+            </select>
           </div>
           <div>
             <label>Years of service (optional)</label>
-            <input type="number" value={yos} onChange={e => setYos(e.target.value)} placeholder="e.g. 8" min="1" max="40" />
+            <select value={yos} onChange={e => setYos(e.target.value)}>
+              {YOS_OPTIONS.map(y => (
+                <option key={y} value={y}>{y || 'Select years of service'}</option>
+              ))}
+            </select>
           </div>
         </div>
         <button className="btn-g" onClick={translate} disabled={loading}>

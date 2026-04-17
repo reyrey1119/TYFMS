@@ -40,61 +40,28 @@ const STATS = [
     stat: '~200,000',
     label: 'veterans separate from U.S. military service every year',
     source: 'U.S. Dept of Veterans Affairs, 2023',
-    cls: 'bb',
   },
   {
     stat: 'Identity first',
     label: 'The primary obstacle in transition is not finding a job — it is reconstructing professional identity',
     source: 'Rumann & Hamrick, 2010',
-    cls: 'bg',
   },
   {
     stat: 'Mentorship works',
     label: 'Peer and faculty mentorship significantly smooths identity transitions for student veterans',
     source: 'DiRamio & Jarvis, 2011',
-    cls: 'ba',
   },
 ]
 
-const WEEK_MS = 7 * 24 * 60 * 60 * 1000
+const FEATURE_CARDS = [
+  { id: 'path',       icon: '🧭', title: 'Find your path',    desc: 'Discover your veteran career archetype with a 12-question assessment' },
+  { id: 'translator', icon: '🎯', title: 'Skills translator', desc: 'Turn your MOS, AFSC, or rate into civilian job titles and career paths' },
+  { id: 'resume',     icon: '📄', title: 'Resume builder',    desc: 'Generate a tailored civilian resume from your military background' },
+]
 
 export default function HomeTab({ onNavigate }) {
-  const cards = [
-    { id: 'path',       icon: '🧭', title: 'Find your path',    desc: 'Discover your veteran career archetype in 12 questions' },
-    { id: 'translator', icon: '🎯', title: 'Skills translator', desc: 'Turn your MOS or AFSC into civilian career language' },
-    { id: 'identity',   icon: '🪞', title: 'Identity guide',    desc: 'Rebuild your professional identity one module at a time' },
-    { id: 'network',    icon: '🤝', title: 'Networking',        desc: 'Connect with mentors and peers who share your background' },
-    { id: 'resources',  icon: '📚', title: 'Resources',         desc: 'VA benefits, education, career tools, and more' },
-  ]
-
   const dayIndex = Math.floor(Date.now() / 86400000)
   const todaysTip = DAILY_TIPS[dayIndex % DAILY_TIPS.length]
-
-  const [trends, setTrends] = useState(null)
-  const [trendsLoading, setTrendsLoading] = useState(false)
-  const [trendsError, setTrendsError] = useState('')
-
-  useEffect(() => {
-    const weekNum = Math.floor(Date.now() / WEEK_MS)
-    const cached = (() => { try { return JSON.parse(localStorage.getItem('vtg_market_trends') || 'null') } catch { return null } })()
-    if (cached && cached.week === weekNum && Array.isArray(cached.trends)) {
-      setTrends(cached.trends)
-      return
-    }
-    setTrendsLoading(true)
-    fetch('/api/market-trends')
-      .then(r => r.json())
-      .then(data => {
-        if (data.trends) {
-          setTrends(data.trends)
-          try { localStorage.setItem('vtg_market_trends', JSON.stringify({ week: weekNum, trends: data.trends })) } catch {}
-        } else {
-          setTrendsError('Could not load market trends.')
-        }
-      })
-      .catch(() => setTrendsError('Could not load market trends.'))
-      .finally(() => setTrendsLoading(false))
-  }, [])
 
   return (
     <div>
@@ -103,6 +70,7 @@ export default function HomeTab({ onNavigate }) {
         backgroundImage: 'url(/hero.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        marginBottom: 32,
       }}>
         <div style={{
           position: 'absolute', inset: 0, borderRadius: 16,
@@ -118,7 +86,7 @@ export default function HomeTab({ onNavigate }) {
       {/* Daily tip */}
       <div style={{
         background: '#fff', border: '1px solid #d3d1c7', borderRadius: 12,
-        padding: '14px 18px', marginBottom: 24, display: 'flex', gap: 14, alignItems: 'flex-start',
+        padding: '16px 20px', marginBottom: 36, display: 'flex', gap: 14, alignItems: 'flex-start',
       }}>
         <span style={{ fontSize: 22, flexShrink: 0, marginTop: 1 }}>💡</span>
         <div style={{ flex: 1 }}>
@@ -132,33 +100,44 @@ export default function HomeTab({ onNavigate }) {
         </div>
       </div>
 
-      <p className="sec-title">Your transition starts with you.</p>
-      <p className="sec-sub">
-        Built from field research with veterans navigating the path from military service to civilian careers,
-        this guide puts identity reconstruction in your hands. Use it at your own pace, return to it when needed,
-        and share it with others on the same road.
-      </p>
-
-      <div className="grid-5">
-        {cards.map(c => (
-          <div key={c.id} className="card" style={{ cursor: 'pointer' }} onClick={() => onNavigate(c.id)}>
-            <p style={{ fontSize: 20, marginBottom: 6 }}>{c.icon}</p>
-            <p style={{ fontWeight: 500, fontSize: 13, marginBottom: 4 }}>{c.title}</p>
-            <p style={{ fontSize: 12, color: '#5f5e5a' }}>{c.desc}</p>
+      {/* Feature highlight cards */}
+      <p className="cat-label" style={{ marginBottom: 14 }}>Start here</p>
+      <div className="grid-3" style={{ marginBottom: 12 }}>
+        {FEATURE_CARDS.map(c => (
+          <div key={c.id} className="card" style={{ cursor: 'pointer', padding: '24px 20px' }} onClick={() => onNavigate(c.id)}>
+            <p style={{ fontSize: 28, marginBottom: 10 }}>{c.icon}</p>
+            <p style={{ fontWeight: 600, fontSize: 14, color: '#1a1a18', marginBottom: 6 }}>{c.title}</p>
+            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.55 }}>{c.desc}</p>
           </div>
         ))}
       </div>
 
-      {/* Research stats */}
-      <p className="cat-label" style={{ marginBottom: 12 }}>By the numbers</p>
-      <div className="grid-3" style={{ marginBottom: 28 }}>
+      {/* Career trends teaser */}
+      <div
+        className="card"
+        style={{ cursor: 'pointer', marginBottom: 36, padding: '18px 22px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}
+        onClick={() => onNavigate('trends')}
+      >
+        <div>
+          <span className="bg" style={{ fontSize: 10, padding: '2px 8px', marginBottom: 8, display: 'inline-block' }}>Updated weekly</span>
+          <p style={{ fontWeight: 600, fontSize: 14, color: '#1a1a18', marginBottom: 4 }}>Career trends this week</p>
+          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.5 }}>
+            Booming sectors and high-demand roles veterans are uniquely positioned to fill right now →
+          </p>
+        </div>
+        <span style={{ fontSize: 28, flexShrink: 0 }}>📈</span>
+      </div>
+
+      {/* By the numbers */}
+      <p className="cat-label" style={{ marginBottom: 14 }}>By the numbers</p>
+      <div className="grid-3" style={{ marginBottom: 36 }}>
         {STATS.map(s => (
-          <div key={s.stat} className="card" style={{ borderTop: '3px solid #d3d1c7' }}>
+          <div key={s.stat} className="card">
             <p style={{ fontSize: 22, fontWeight: 800, color: '#1a1a18', marginBottom: 6, letterSpacing: '-.02em', lineHeight: 1.1 }}>
               {s.stat}
             </p>
-            <p style={{ fontSize: 12, color: '#1a1a18', lineHeight: 1.5, marginBottom: 8 }}>{s.label}</p>
-            <p style={{ fontSize: 10, color: '#b4b2a9', lineHeight: 1.4 }}>{s.source}</p>
+            <p style={{ fontSize: 12, color: '#1a1a18', lineHeight: 1.55, marginBottom: 8 }}>{s.label}</p>
+            <p style={{ fontSize: 10, color: '#b4b2a9' }}>{s.source}</p>
           </div>
         ))}
       </div>
@@ -166,38 +145,8 @@ export default function HomeTab({ onNavigate }) {
       {/* Transition timeline */}
       <TransitionTimeline />
 
-      {/* Market trends */}
-      <div style={{ marginBottom: 28 }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 6 }}>
-          <p className="cat-label" style={{ marginBottom: 0 }}>This week in civilian careers</p>
-          <p style={{ fontSize: 10, color: '#b4b2a9' }}>Refreshes weekly</p>
-        </div>
-        <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 14 }}>
-          Market trends and high-demand roles veterans are uniquely positioned to fill.
-        </p>
-        {trendsLoading && (
-          <div style={{ display: 'flex', gap: 10, alignItems: 'center', padding: '16px 0' }}>
-            <span className="search-spinner" style={{ width: 14, height: 14 }} />
-            <p style={{ fontSize: 13, color: '#5f5e5a' }}>Loading this week's trends…</p>
-          </div>
-        )}
-        {trendsError && <p style={{ fontSize: 13, color: '#a32d2d' }}>{trendsError}</p>}
-        {trends && (
-          <div className="grid-2">
-            {trends.map((t, i) => (
-              <div key={i} className="card">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
-                  <p style={{ fontSize: 14, fontWeight: 500, color: '#1a1a18', flex: 1, marginRight: 8 }}>{t.title}</p>
-                  <span className={t.badgeCls || 'bg'} style={{ flexShrink: 0 }}>{t.category}</span>
-                </div>
-                <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.65 }}>{t.description}</p>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div className="insight">
+      {/* Research insight */}
+      <div className="insight" style={{ marginBottom: 32 }}>
         <p className="label">Research insight</p>
         <p>
           Veterans who thrive in transition treat the process as self-directed work. They seek out mentors,
