@@ -54,9 +54,9 @@ textarea { resize: vertical; }
 .rbtn.on { background: #185fa5; color: #fff; border-color: #185fa5; font-weight: 500; }
 
 /* Insight banner */
-.insight { border-left: 3px solid #0f6e56; padding: 14px 18px; background: #e1f5ee; border-radius: 0 8px 8px 0; }
-.insight p { font-size: 13px; color: #085041; line-height: 1.7; }
-.insight .label { font-size: 11px; font-weight: 500; color: #085041; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+.insight { border: 1px solid #d3d1c7; border-left: 4px solid #0f6e56; padding: 14px 18px; background: #fff; border-radius: 0 8px 8px 0; }
+.insight p { font-size: 13px; color: #1a1a18; line-height: 1.7; }
+.insight .label { font-size: 11px; font-weight: 500; color: #0f6e56; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
 
 /* Warning banner */
 .warn { background: #faeeda; border: 1px solid #ef9f27; border-radius: 8px; padding: 10px 14px; margin-bottom: 20px; }
@@ -101,9 +101,9 @@ textarea { resize: vertical; }
 .resume-output { background: #fff; border: 1px solid #d3d1c7; border-radius: 12px; padding: 24px; white-space: pre-wrap; font-family: 'Georgia', serif; font-size: 13px; line-height: 1.8; color: #1a1a18; max-height: 520px; overflow-y: auto; }
 
 /* AI feedback */
-.ai-feedback { border-left: 3px solid #185fa5; padding: 14px 18px; background: #e6f1fb; border-radius: 0 8px 8px 0; margin-top: 16px; }
-.ai-feedback .label { font-size: 11px; font-weight: 500; color: #0c447c; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
-.ai-feedback p { font-size: 13px; color: #0c447c; line-height: 1.75; }
+.ai-feedback { border: 1px solid #d3d1c7; border-left: 4px solid #185fa5; padding: 14px 18px; background: #fff; border-radius: 0 8px 8px 0; margin-top: 16px; }
+.ai-feedback .label { font-size: 11px; font-weight: 500; color: #185fa5; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
+.ai-feedback p { font-size: 13px; color: #1a1a18; line-height: 1.75; }
 
 /* Search input in header */
 header input::placeholder { color: rgba(159,186,159,.55); }

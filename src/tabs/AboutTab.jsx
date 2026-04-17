@@ -1,5 +1,33 @@
 import FunFact from '../components/FunFact'
 
+const RESEARCH_STATS = [
+  {
+    stat: '~200,000',
+    detail: 'veterans separate from U.S. military service every year',
+    source: 'U.S. Dept of Veterans Affairs, 2023',
+  },
+  {
+    stat: 'Higher unemployment',
+    detail: 'Veterans face elevated unemployment rates in the 12 months following separation compared to civilian peers',
+    source: 'U.S. Bureau of Labor Statistics, Veterans Employment Data',
+  },
+  {
+    stat: 'Identity first',
+    detail: 'The military-civilian identity gap is the primary transition obstacle — not job availability',
+    source: 'Rumann & Hamrick, 2010',
+  },
+  {
+    stat: 'Peer mentorship works',
+    detail: 'Veterans with peer mentors report significantly smoother identity transitions and faster career placement',
+    source: 'DiRamio & Jarvis, 2011',
+  },
+  {
+    stat: 'Faculty matter too',
+    detail: 'Faculty mentors fill gaps that formal veteran support programs often leave open on campuses',
+    source: 'Schroeder & Perez, 2022',
+  },
+]
+
 const RESEARCH_POINTS = [
   {
     icon: '🔍',
@@ -49,6 +77,20 @@ export default function AboutTab() {
             challenge is not finding a job. It is figuring out who you are when the uniform comes off.
           </p>
         </div>
+      </div>
+
+      {/* Research foundation — cited stats */}
+      <p className="cat-label" style={{ marginBottom: 14 }}>Research foundation</p>
+      <div className="grid-3" style={{ marginBottom: 32 }}>
+        {RESEARCH_STATS.map(s => (
+          <div key={s.stat} className="card" style={{ borderTop: '3px solid #0f6e56' }}>
+            <p style={{ fontSize: 18, fontWeight: 800, color: '#1a1a18', marginBottom: 6, letterSpacing: '-.01em', lineHeight: 1.2 }}>
+              {s.stat}
+            </p>
+            <p style={{ fontSize: 12, color: '#1a1a18', lineHeight: 1.55, marginBottom: 8 }}>{s.detail}</p>
+            <p style={{ fontSize: 10, color: '#b4b2a9', lineHeight: 1.4 }}>{s.source}</p>
+          </div>
+        ))}
       </div>
 
       {/* Research findings — 2-column card grid */}

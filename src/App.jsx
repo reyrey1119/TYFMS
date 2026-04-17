@@ -10,11 +10,13 @@ import NetworkTab from './tabs/NetworkTab'
 import TrackerTab from './tabs/TrackerTab'
 import ResourcesTab from './tabs/ResourcesTab'
 import AboutTab from './tabs/AboutTab'
+import PathTab from './tabs/PathTab'
 import PrivacyTab from './tabs/PrivacyTab'
 
 const TABS = [
   { id: 'home',       label: 'Home' },
   { id: 'about',      label: 'About' },
+  { id: 'path',       label: 'Find your path' },
   { id: 'translator', label: 'Skills translator' },
   { id: 'resume',     label: 'Resume builder' },
   { id: 'identity',   label: 'Identity guide' },
@@ -70,12 +72,12 @@ export default function App() {
 
         {searchResult && (
           <div style={{
-            background: '#e1f5ee', border: '1px solid #0f6e56', borderRadius: 10,
+            background: '#fff', border: '1px solid #0f6e56', borderRadius: 10,
             padding: '12px 16px', marginBottom: 20, display: 'flex', gap: 12, alignItems: 'flex-start',
           }}>
             <span style={{ fontSize: 16, flexShrink: 0, marginTop: 2 }}>🔍</span>
             <div style={{ flex: 1 }}>
-              <p style={{ fontSize: 13, color: '#085041', lineHeight: 1.7 }}>{searchResult.summary}</p>
+              <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.7 }}>{searchResult.summary}</p>
               {searchResult.sectionHint && (
                 <p style={{ fontSize: 12, color: '#0f6e56', marginTop: 4 }}>
                   Look for: <strong>{searchResult.sectionHint}</strong>
@@ -93,6 +95,7 @@ export default function App() {
 
         {activeTab === 'home'       && <HomeTab onNavigate={setActiveTab} />}
         {activeTab === 'about'      && <AboutTab />}
+        {activeTab === 'path'       && <PathTab />}
         {activeTab === 'translator' && <TranslatorTab />}
         {activeTab === 'resume'     && <ResumeTab />}
         {activeTab === 'identity'   && <IdentityTab />}
