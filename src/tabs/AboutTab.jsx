@@ -99,25 +99,15 @@ export default function AboutTab() {
         </p>
       </div>
 
-      {/* Personal section */}
-      <p className="cat-label" style={{ marginBottom: 12 }}>The person behind it</p>
-      <div className="card" style={{ display: 'flex', gap: 20, alignItems: 'flex-start', marginBottom: 8 }}>
-        <div style={{
-          width: 52, height: 52, borderRadius: '50%', background: '#0f6e56',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-        }}>
-          <span style={{ color: '#fff', fontSize: 22, fontWeight: 700 }}>R</span>
-        </div>
-        <div>
-          <p style={{ fontSize: 16, fontWeight: 600, color: '#1a1a18', marginBottom: 4 }}>Reynaldo Rodriguez</p>
-          <p style={{ fontSize: 12, color: '#0f6e56', marginBottom: 10 }}>Researcher · Builder · Veteran advocate</p>
-          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75 }}>
-            This platform grew from years of listening to veterans describe a transition process
-            that institutions were not fully equipped to support — and a conviction that better
-            tools, grounded in their actual experience, could change that. TYFMS is the result
-            of that listening turned into action.
-          </p>
-        </div>
+      {/* Built by */}
+      <div className="card" style={{ marginBottom: 8, textAlign: 'center', padding: '24px 20px' }}>
+        <p style={{ fontSize: 22, fontWeight: 800, color: '#1a1a18', marginBottom: 8, letterSpacing: '-.01em' }}>
+          Built by veterans, for veterans.
+        </p>
+        <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.75, maxWidth: 480, margin: '0 auto' }}>
+          Every tool in TYFMS exists because veterans told us what was missing. The research is real.
+          The people it was built for are real. The gap it fills is real.
+        </p>
       </div>
 
       <FunFact />

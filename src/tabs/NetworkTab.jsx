@@ -75,8 +75,8 @@ export default function NetworkTab() {
 
   return (
     <div>
-      <div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <img src="/networking.png" alt="Peer networking" style={{ width: '100%', maxHeight: 320, objectFit: 'contain', display: 'block' }} />
+      <div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+        <img src="/networking.png" alt="Peer networking" style={{ width: '100%', maxHeight: 320, objectFit: 'contain', objectPosition: 'top', display: 'block' }} />
       </div>
       <p className="sec-title">Peer networking</p>
       <p className="sec-sub">

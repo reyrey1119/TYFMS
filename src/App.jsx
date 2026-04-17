@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import AdUnit from './components/AdUnit'
 import HomeTab from './tabs/HomeTab'
 import TranslatorTab from './tabs/TranslatorTab'
+import ResumeTab from './tabs/ResumeTab'
 import IdentityTab from './tabs/IdentityTab'
 import NetworkTab from './tabs/NetworkTab'
 import TrackerTab from './tabs/TrackerTab'
@@ -15,6 +16,7 @@ const TABS = [
   { id: 'home',       label: 'Home' },
   { id: 'about',      label: 'About' },
   { id: 'translator', label: 'Skills translator' },
+  { id: 'resume',     label: 'Resume builder' },
   { id: 'identity',   label: 'Identity guide' },
   { id: 'network',    label: 'Networking' },
   { id: 'tracker',    label: 'Progress tracker' },
@@ -64,7 +66,6 @@ export default function App() {
           ))}
         </nav>
 
-        {/* Ad unit below nav */}
         <AdUnit slot="3957268946" />
 
         {searchResult && (
@@ -93,6 +94,7 @@ export default function App() {
         {activeTab === 'home'       && <HomeTab onNavigate={setActiveTab} />}
         {activeTab === 'about'      && <AboutTab />}
         {activeTab === 'translator' && <TranslatorTab />}
+        {activeTab === 'resume'     && <ResumeTab />}
         {activeTab === 'identity'   && <IdentityTab />}
         {activeTab === 'network'    && <NetworkTab />}
         {activeTab === 'tracker'    && <TrackerTab />}

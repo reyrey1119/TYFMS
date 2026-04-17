@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useAuth } from '../context/AuthContext'
 import AuthModal from './AuthModal'
 
@@ -8,20 +8,32 @@ export default function Header({ onSearch, onNavigateHome }) {
   const [query, setQuery] = useState('')
   const [searching, setSearching] = useState(false)
   const [searchError, setSearchError] = useState('')
+  const cache = useRef(new Map())
 
   async function handleSearch(e) {
     e.preventDefault()
-    if (!query.trim() || searching) return
+    const q = query.trim()
+    if (!q || searching) return
     setSearching(true)
     setSearchError('')
+
+    if (cache.current.has(q)) {
+      const cached = cache.current.get(q)
+      if (onSearch) onSearch(cached)
+      setQuery('')
+      setSearching(false)
+      return
+    }
+
     try {
       const r = await fetch('/api/search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: query.trim() }),
+        body: JSON.stringify({ query: q }),
       })
       const data = await r.json()
       if (data.tab && onSearch) {
+        cache.current.set(q, data)
         onSearch(data)
         setQuery('')
       } else if (data.error) {
@@ -65,10 +77,11 @@ export default function Header({ onSearch, onNavigateHome }) {
                 padding: '7px 12px', background: searching ? '#085041' : '#0f6e56',
                 border: 'none', borderRadius: 8, color: '#fff', fontSize: 12,
                 cursor: searching ? 'not-allowed' : 'pointer', fontFamily: 'inherit',
-                whiteSpace: 'nowrap', flexShrink: 0,
+                whiteSpace: 'nowrap', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 6,
               }}
             >
-              {searching ? '...' : 'Search'}
+              {searching && <span className="search-spinner" />}
+              {searching ? 'Searching' : 'Search'}
             </button>
           </div>
           {searchError && (
