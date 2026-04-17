@@ -3,27 +3,77 @@ import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import FunFact from '../components/FunFact'
 
+const ROADMAP = [
+  {
+    id: 'p1', num: 1, range: 'Month 1', title: 'Paperwork & Benefits', color: '#185fa5', weight: 1,
+    milestones: [
+      { id: 'm1', text: 'File your VA disability claim at va.gov' },
+      { id: 'm2', text: 'Obtain certified copies of your DD-214' },
+      { id: 'm3', text: 'Set up your eBenefits / VA.gov account' },
+      { id: 'm4', text: 'Apply for VA healthcare enrollment' },
+      { id: 'm5', text: 'Review TRICARE transition options' },
+    ],
+  },
+  {
+    id: 'p2', num: 2, range: 'Months 2–3', title: 'Identity & Skills Inventory', color: '#0A7868', weight: 2,
+    milestones: [
+      { id: 'm6', text: 'Complete the Identity Guide conversation' },
+      { id: 'm7', text: 'Use the Skills Translator to map your MOS to civilian roles' },
+      { id: 'm8', text: 'Update your LinkedIn profile with translated experience' },
+      { id: 'm9', text: 'Research 2–3 target industries or sectors' },
+      { id: 'm10', text: 'Connect with veterans 6–12 months ahead in transition' },
+    ],
+  },
+  {
+    id: 'p3', num: 3, range: 'Months 3–6', title: 'Education or Job Search', color: '#ba7517', weight: 1,
+    milestones: [
+      { id: 'm11', text: 'Apply to GI Bill schools or target companies' },
+      { id: 'm12', text: 'Attend one career fair or veteran hiring event' },
+      { id: 'm13', text: 'Join a Student Veterans of America chapter or veteran network' },
+      { id: 'm14', text: 'Set daily job search or study targets' },
+      { id: 'm15', text: 'Complete 5 informational interviews in your target field' },
+    ],
+  },
+  {
+    id: 'p4', num: 4, range: 'Months 6–12', title: 'First Civilian Role', color: '#7c3aad', weight: 1,
+    milestones: [
+      { id: 'm16', text: 'Set 30-60-90 day goals in your new role' },
+      { id: 'm17', text: 'Find a mentor inside or outside the organization' },
+      { id: 'm18', text: 'Build one meaningful peer relationship in your new field' },
+      { id: 'm19', text: 'Complete your first performance review or check-in' },
+      { id: 'm20', text: 'Stay connected with your veteran network monthly' },
+    ],
+  },
+  {
+    id: 'p5', num: 5, range: 'Months 12–18+', title: 'Long-term Growth', color: '#a32d2d', weight: 1,
+    milestones: [
+      { id: 'm21', text: 'Reflect on how your professional identity has evolved' },
+      { id: 'm22', text: 'Celebrate concrete wins and milestones achieved' },
+      { id: 'm23', text: 'Mentor a veteran who is a few months behind you' },
+      { id: 'm24', text: 'Update your goals for the next phase of growth' },
+      { id: 'm25', text: 'Share your story in a veteran community or network' },
+    ],
+  },
+]
+
+const TOTAL_WEIGHT = ROADMAP.reduce((sum, p) => sum + p.milestones.length * p.weight, 0)
+
 const CATS = ['Career', 'Education', 'Identity', 'Benefits', 'Networking', 'Personal']
 const CAT_CLASS = { Career: 'ba', Education: 'bg', Identity: 'bb', Benefits: 'bb', Networking: 'bg', Personal: 'ba' }
 
-const MILESTONES = [
-  { pct: 25, emoji: '🌱', msg: "You're building momentum — 25% complete. The hardest part is starting, and you already did." },
-  { pct: 50, emoji: '⚡', msg: "Halfway there. 50% done — you are doing the real work of transition." },
-  { pct: 75, emoji: '🔥', msg: "75% complete. You can see the finish line. Keep going." },
-  { pct: 100, emoji: '🎖️', msg: "Mission accomplished. Every goal checked off. This is what owning your transition looks like." },
-]
-
 export default function TrackerTab() {
   const { user, supabaseEnabled } = useAuth()
+  const useDb = supabaseEnabled && !!supabase && !!user
+
+  const [checked, setChecked] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('vtg_roadmap_checks') || '[]') } catch { return [] }
+  })
+  const [encourage, setEncourage] = useState(null) // { text, milestone }
+  const [encLoading, setEncLoading] = useState(false)
+
   const [goals, setGoals] = useState([])
   const [title, setTitle] = useState('')
   const [cat, setCat] = useState('Career')
-  const [milestone, setMilestone] = useState(null)
-  const [lastMilestonePct, setLastMilestonePct] = useState(null)
-  const [encouragement, setEncouragement] = useState('')
-  const [encLoading, setEncLoading] = useState(false)
-
-  const useDb = supabaseEnabled && !!supabase && !!user
 
   const loadGoals = useCallback(async () => {
     if (useDb) {
@@ -36,16 +86,41 @@ export default function TrackerTab() {
 
   useEffect(() => { loadGoals() }, [loadGoals])
 
-  function checkMilestone(updatedGoals) {
-    if (updatedGoals.length < 2) return
-    const done = updatedGoals.filter(g => g.done).length
-    const pct = Math.round((done / updatedGoals.length) * 100)
-    const hit = MILESTONES.find(m => m.pct === pct)
-    if (hit && pct !== lastMilestonePct) {
-      setMilestone(hit)
-      setLastMilestonePct(pct)
+  function saveChecked(next) {
+    setChecked(next)
+    try { localStorage.setItem('vtg_roadmap_checks', JSON.stringify(next)) } catch {}
+  }
+
+  async function toggleMilestone(milestone, phase) {
+    const isChecked = checked.includes(milestone.id)
+    const next = isChecked
+      ? checked.filter(id => id !== milestone.id)
+      : [...checked, milestone.id]
+    saveChecked(next)
+
+    if (!isChecked) {
+      setEncLoading(true)
+      setEncourage(null)
+      try {
+        const r = await fetch('/api/milestone-encourage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ milestone: milestone.text, phase: phase.title }),
+        })
+        const data = await r.json()
+        if (data.encouragement) setEncourage({ text: data.encouragement, milestone: milestone.text })
+      } catch {}
+      setEncLoading(false)
     }
   }
+
+  const doneWeight = ROADMAP.reduce((sum, phase) => {
+    const phaseDone = phase.milestones.filter(m => checked.includes(m.id)).length
+    return sum + phaseDone * phase.weight
+  }, 0)
+  const readinessPct = Math.round((doneWeight / TOTAL_WEIGHT) * 100)
+
+  const totalDone = checked.length
 
   async function addGoal() {
     if (!title.trim()) return
@@ -64,17 +139,14 @@ export default function TrackerTab() {
 
   async function toggleGoal(goal) {
     const newDone = !goal.done
-    let updated
     if (useDb) {
       await supabase.from('goals').update({ done: newDone }).eq('id', goal.id)
-      updated = goals.map(g => g.id === goal.id ? { ...g, done: newDone } : g)
-      setGoals(updated)
+      setGoals(prev => prev.map(g => g.id === goal.id ? { ...g, done: newDone } : g))
     } else {
-      updated = goals.map(g => g.id === goal.id ? { ...g, done: newDone } : g)
+      const updated = goals.map(g => g.id === goal.id ? { ...g, done: newDone } : g)
       setGoals(updated)
       localStorage.setItem('vtg_goals', JSON.stringify(updated))
     }
-    if (newDone) checkMilestone(updated)
   }
 
   async function deleteGoal(id) {
@@ -88,77 +160,124 @@ export default function TrackerTab() {
     }
   }
 
-  async function getEncouragement() {
-    setEncLoading(true)
-    setEncouragement('')
-    try {
-      const r = await fetch('/api/encouragement', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ goals: goals.map(g => ({ done: g.done, title: g.title })) }),
-      })
-      const data = await r.json()
-      if (data.encouragement) setEncouragement(data.encouragement)
-    } catch {}
-    setEncLoading(false)
-  }
-
-  const done = goals.filter(g => g.done).length
-  const pct = goals.length ? Math.round((done / goals.length) * 100) : 0
-
   return (
     <div>
       <p className="sec-title">Progress tracker</p>
       <p className="sec-sub">
-        {useDb
-          ? 'Set goals for your transition and mark them off as you go. Your goals are saved to your account.'
-          : 'Set goals for your transition and mark them off as you go. Sign in to sync your goals across devices.'}
+        Your structured transition roadmap — 25 milestones across 5 phases. Check them off as you go.
+        Phase 2 (Identity &amp; Skills) carries double weight in your readiness score because it's the
+        work most veterans skip and most regret skipping.
       </p>
 
-      {/* Milestone celebration */}
-      {milestone && (
-        <div style={{
-          background: '#0f6e56', color: '#fff', borderRadius: 12, padding: '16px 20px',
-          marginBottom: 16, display: 'flex', alignItems: 'center', gap: 14,
-        }}>
-          <span style={{ fontSize: 32, flexShrink: 0 }}>{milestone.emoji}</span>
-          <div style={{ flex: 1 }}>
-            <p style={{ fontWeight: 700, fontSize: 15, marginBottom: 3 }}>Milestone reached!</p>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.88)', lineHeight: 1.5 }}>{milestone.msg}</p>
+      {/* Readiness score */}
+      <div className="card" style={{ marginBottom: 24 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+          <div>
+            <p style={{ fontSize: 13, fontWeight: 600 }}>Transition readiness score</p>
+            <p style={{ fontSize: 11, color: '#5f5e5a' }}>{totalDone} of 25 milestones complete</p>
           </div>
-          <button
-            onClick={() => setMilestone(null)}
-            style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.6)', cursor: 'pointer', fontSize: 22, lineHeight: 1, flexShrink: 0 }}
-          >×</button>
+          <p style={{ fontSize: 26, fontWeight: 800, color: readinessPct === 100 ? '#0A7868' : '#1a1a18', letterSpacing: '-.02em' }}>
+            {readinessPct}%
+          </p>
+        </div>
+        <div style={{ height: 10, background: '#f5f4f0', borderRadius: 8, overflow: 'hidden' }}>
+          <div style={{
+            height: '100%',
+            width: `${readinessPct}%`,
+            background: readinessPct === 100
+              ? 'linear-gradient(90deg, #0A7868, #22c55e)'
+              : 'linear-gradient(90deg, #1B4F8C, #0A7868)',
+            borderRadius: 8,
+            transition: 'width 0.4s ease',
+          }} />
+        </div>
+      </div>
+
+      {/* Encouragement banner */}
+      {(encourage || encLoading) && (
+        <div style={{
+          background: '#0f2a1a', borderRadius: 12, padding: '14px 18px',
+          marginBottom: 16, display: 'flex', alignItems: 'flex-start', gap: 12,
+        }}>
+          <div style={{ flex: 1 }}>
+            {encLoading ? (
+              <p style={{ fontSize: 13, color: '#9fba9f', fontStyle: 'italic' }}>Writing your encouragement…</p>
+            ) : (
+              <>
+                <p style={{ fontSize: 11, fontWeight: 600, color: '#9fba9f', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 4 }}>
+                  Milestone complete
+                </p>
+                <p style={{ fontSize: 13, color: '#c8dfc8', lineHeight: 1.7 }}>{encourage.text}</p>
+              </>
+            )}
+          </div>
+          {!encLoading && (
+            <button
+              onClick={() => setEncourage(null)}
+              style={{ background: 'none', border: 'none', color: '#9fba9f', cursor: 'pointer', fontSize: 20, lineHeight: 1, flexShrink: 0, padding: 0 }}
+            >×</button>
+          )}
         </div>
       )}
 
-      {/* Progress bar */}
-      {goals.length > 0 && (
-        <div className="card" style={{ marginBottom: 16 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-            <p style={{ fontSize: 13, fontWeight: 500 }}>Overall completion</p>
-            <p style={{ fontSize: 14, fontWeight: 700, color: pct === 100 ? '#0f6e56' : '#1a1a18' }}>
-              {pct}%
-            </p>
+      {/* Roadmap phases */}
+      {ROADMAP.map(phase => {
+        const phaseDone = phase.milestones.filter(m => checked.includes(m.id)).length
+        return (
+          <div key={phase.id} style={{ marginBottom: 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+              <span style={{
+                width: 28, height: 28, borderRadius: '50%', background: phase.color,
+                color: '#fff', fontWeight: 700, fontSize: 13, display: 'flex',
+                alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+              }}>
+                {phase.num}
+              </span>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontSize: 11, color: phase.color, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em' }}>
+                  {phase.range}{phase.weight > 1 ? ' · 2× weight' : ''}
+                </p>
+                <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18' }}>{phase.title}</p>
+              </div>
+              <span style={{ fontSize: 12, color: '#5f5e5a', flexShrink: 0 }}>{phaseDone}/{phase.milestones.length}</span>
+            </div>
+
+            <div className="card" style={{ borderLeft: `3px solid ${phase.color}`, borderRadius: '0 12px 12px 0', padding: '12px 16px' }}>
+              {phase.milestones.map(m => {
+                const done = checked.includes(m.id)
+                return (
+                  <div
+                    key={m.id}
+                    style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '7px 0', borderBottom: '1px solid #f0ede6', cursor: 'pointer' }}
+                    onClick={() => toggleMilestone(m, phase)}
+                  >
+                    <div className={`goal-check${done ? ' done' : ''}`} style={{ cursor: 'pointer' }}>
+                      {done ? '✓' : ''}
+                    </div>
+                    <p style={{
+                      fontSize: 13, color: done ? '#b4b2a9' : '#1a1a18', lineHeight: 1.5,
+                      textDecoration: done ? 'line-through' : 'none', flex: 1,
+                    }}>
+                      {m.text}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
           </div>
-          <div style={{ height: 12, background: '#f5f4f0', borderRadius: 8, overflow: 'hidden', marginBottom: 6 }}>
-            <div style={{
-              height: '100%',
-              width: `${pct}%`,
-              background: pct === 100
-                ? 'linear-gradient(90deg, #0f6e56, #22c55e)'
-                : 'linear-gradient(90deg, #0f6e56, #34d399)',
-              borderRadius: 8,
-              transition: 'width 0.5s ease',
-            }} />
-          </div>
-          <p style={{ fontSize: 12, color: '#5f5e5a' }}>{done} of {goals.length} goals complete</p>
-        </div>
-      )}
+        )
+      })}
+
+      {/* Custom goals */}
+      <div style={{ marginTop: 28, marginBottom: 8, borderTop: '1px solid #d3d1c7', paddingTop: 24 }}>
+        <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 4 }}>Custom goals</p>
+        <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 16 }}>
+          Add goals specific to your situation — things the roadmap above doesn't cover.
+          {!useDb && ' Sign in to sync these across devices.'}
+        </p>
+      </div>
 
       <div className="card" style={{ marginBottom: 14 }}>
-        <p style={{ fontSize: 13, fontWeight: 500, marginBottom: 10 }}>Add a new goal</p>
         <div style={{ display: 'flex', gap: 8, marginBottom: 8, flexWrap: 'wrap' }}>
           <input
             type="text"
@@ -175,15 +294,8 @@ export default function TrackerTab() {
         <button className="btn-a" onClick={addGoal}>Add goal</button>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-        <p style={{ fontSize: 13, fontWeight: 500 }}>Your goals</p>
-        {goals.length === 0 && <p style={{ fontSize: 12, color: '#5f5e5a' }}>No goals yet</p>}
-      </div>
-
       {goals.length === 0 && (
-        <p style={{ fontSize: 14, color: '#5f5e5a', textAlign: 'center', padding: '2rem 0' }}>
-          Add your first goal to start tracking your transition.
-        </p>
+        <p style={{ fontSize: 13, color: '#b4b2a9', marginBottom: 20 }}>No custom goals yet.</p>
       )}
 
       {goals.map(g => (
@@ -202,21 +314,6 @@ export default function TrackerTab() {
           <button className="goal-del" onClick={() => deleteGoal(g.id)}>×</button>
         </div>
       ))}
-
-      {/* AI weekly encouragement */}
-      {goals.length > 0 && (
-        <div style={{ marginTop: 20 }}>
-          <button className="btn-b" onClick={getEncouragement} disabled={encLoading}>
-            {encLoading ? 'Writing your encouragement...' : "Get this week's encouragement"}
-          </button>
-          {encouragement && (
-            <div className="ai-feedback" style={{ marginTop: 12 }}>
-              <p className="label">Weekly encouragement</p>
-              <p>{encouragement}</p>
-            </div>
-          )}
-        </div>
-      )}
 
       <FunFact />
     </div>

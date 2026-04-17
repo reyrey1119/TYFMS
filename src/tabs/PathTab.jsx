@@ -275,10 +275,30 @@ export default function PathTab() {
         lead, and operate — and get a tailored roadmap for your civilian transition.
       </p>
 
+      {/* Archetype intro */}
+      <div className="card" style={{ marginBottom: 24, borderLeft: '4px solid #C07A28', borderRadius: '0 12px 12px 0' }}>
+        <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 8 }}>
+          What is a career archetype?
+        </p>
+        <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 10, lineHeight: 1.4 }}>
+          Your archetype is the strategic lens that focuses your job search.
+        </p>
+        <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75, marginBottom: 10 }}>
+          Most transition tools match your MOS to a job list. That's useful — but it skips the harder question:
+          how do you actually think, lead, and operate? Your archetype captures that pattern — based on how you
+          made decisions, solved problems, and built teams in service — and maps it directly to the civilian roles
+          where veterans like you thrive.
+        </p>
+        <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75 }}>
+          You'll walk away with a named archetype, a tailored set of target roles and sectors, and a career
+          translation tip written specifically for how you show up in a civilian room.
+        </p>
+      </div>
+
       {/* Progress bar */}
       <div style={{ background: '#f5f4f0', borderRadius: 8, height: 6, marginBottom: 24, overflow: 'hidden' }}>
         <div style={{
-          height: '100%', background: '#0f6e56', borderRadius: 8,
+          height: '100%', borderRadius: 8,
           width: `${(answered / QUESTIONS.length) * 100}%`, transition: 'width .2s', background: '#C07A28',
         }} />
       </div>

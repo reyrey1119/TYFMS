@@ -53,13 +53,13 @@ export default function AboutTab() {
           borderRadius: '50%', pointerEvents: 'none',
         }} />
         <div style={{ position: 'relative' }}>
-          <p style={{ fontSize: 11, fontWeight: 600, color: '#9fba9f', textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#fff', textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 16 }}>
             About TYFMS
           </p>
           <h2 style={{ fontSize: 'clamp(28px,5vw,52px)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: 20, letterSpacing: '-.02em' }}>
             Veterans deserve more<br />than an empty phrase.
           </h2>
-          <p style={{ fontSize: 'clamp(14px,2vw,17px)', color: '#9fba9f', lineHeight: 1.65, maxWidth: 540 }}>
+          <p style={{ fontSize: 'clamp(14px,2vw,17px)', color: '#fff', lineHeight: 1.65, maxWidth: 540 }}>
             TYFMS was built from field research, not assumptions — because the real transition
             challenge is not finding a job. It is figuring out who you are when the uniform comes off.
           </p>

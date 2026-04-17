@@ -13,6 +13,7 @@ import AboutTab from './tabs/AboutTab'
 import PathTab from './tabs/PathTab'
 import CareerTrendsTab from './tabs/CareerTrendsTab'
 import PrivacyTab from './tabs/PrivacyTab'
+import FeedbackTab from './tabs/FeedbackTab'
 
 const TABS = [
   { id: 'home',       label: 'Home' },
@@ -25,6 +26,7 @@ const TABS = [
   { id: 'trends',     label: 'Career trends' },
   { id: 'tracker',    label: 'Progress tracker' },
   { id: 'resources',  label: 'Resources' },
+  { id: 'feedback',   label: 'Feedback' },
 ]
 
 export default function App() {
@@ -105,6 +107,7 @@ export default function App() {
         {activeTab === 'trends'     && <CareerTrendsTab />}
         {activeTab === 'tracker'    && <TrackerTab />}
         {activeTab === 'resources'  && <ResourcesTab />}
+        {activeTab === 'feedback'   && <FeedbackTab />}
       </div>
       <Footer onPrivacy={() => setShowPrivacy(true)} />
     </>

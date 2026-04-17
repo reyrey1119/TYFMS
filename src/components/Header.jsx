@@ -62,15 +62,17 @@ export default function Header({ onSearch, onNavigateHome }) {
 
   return (
     <>
-      <header style={{ flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-        {/* Brand */}
+      <header>
+        {/* Left spacer — keeps brand centered */}
+        <div className="header-spacer" />
+
+        {/* Center brand */}
         <div
           onClick={onNavigateHome}
-          style={{ cursor: onNavigateHome ? 'pointer' : 'default', flex: 1, minWidth: 0 }}
+          style={{ cursor: onNavigateHome ? 'pointer' : 'default', textAlign: 'center' }}
         >
           <h1 style={{
-            fontSize: 'clamp(15px, 2.2vw, 20px)', fontWeight: 800, letterSpacing: '-.02em',
-            whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: '#fff',
+            fontSize: 'clamp(14px, 2vw, 19px)', fontWeight: 800, letterSpacing: '-.02em', color: '#fff',
           }}>
             Thank You For My Service
           </h1>
@@ -79,8 +81,8 @@ export default function Header({ onSearch, onNavigateHome }) {
           </p>
         </div>
 
-        {/* Search + auth grouped on the right */}
-        <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start', flexShrink: 0 }}>
+        {/* Right: search + auth */}
+        <div style={{ justifySelf: 'end', display: 'flex', gap: 10, alignItems: 'flex-start' }}>
           <form onSubmit={handleSearch} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
               <input
@@ -89,7 +91,7 @@ export default function Header({ onSearch, onNavigateHome }) {
                 onChange={e => { setQuery(e.target.value); setSearchError('') }}
                 placeholder="Search — try &quot;GI Bill&quot; or &quot;resume tips&quot;"
                 style={{
-                  width: 220, border: `1px solid ${searchError ? 'rgba(239,99,99,0.7)' : 'rgba(159,186,159,0.4)'}`,
+                  width: 200, border: `1px solid ${searchError ? 'rgba(239,99,99,0.7)' : 'rgba(159,186,159,0.4)'}`,
                   borderRadius: 8, padding: '7px 12px', fontSize: 12,
                   background: 'rgba(255,255,255,0.08)', color: '#fff',
                   fontFamily: 'inherit', outline: 'none',

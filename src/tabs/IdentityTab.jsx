@@ -1,174 +1,143 @@
-import { useState, useEffect } from 'react'
-import FunFact from '../components/FunFact'
+import { useState, useEffect, useRef } from 'react'
 
-const MODULES = [
-  {
-    id: 1,
-    title: 'Module 1: who are you beyond your uniform?',
-    theme: 'self-directed identity construction',
-    body: 'For most veterans, military identity is clear: your rank, your unit, your specialty. Those labels define how you act, who you lead, and how others see you. When you separate, those labels change overnight. Many veterans arrive at their next chapter with a plan already in place, which is a real strength. But a plan is not an identity. The work is in discovering who you are when the uniform is off and building a professional self that is genuinely yours.',
-    prompts: [
-      'Outside of your rank and role, how would you describe yourself to a civilian employer?',
-      'What values from your service do you want to carry into your civilian career?',
-      'What is one part of your military identity you are ready to evolve as you transition?',
-    ],
-  },
-  {
-    id: 2,
-    title: 'Module 2: taking ownership of your transition',
-    theme: 'proactive engagement and self-investment',
-    body: 'Transition programs lay a foundation, but the veterans who move forward most effectively are those who treat the process as personally owned, not externally managed. That means going beyond what is handed to you: finding mentors, asking hard questions, seeking out communities of people who have already navigated the path. The transition is yours to lead. The resources in this guide exist to support that leadership.',
-    prompts: [
-      'What have you done proactively to prepare for your transition, outside of what was provided for you?',
-      'What three things do you wish someone had told you before you began the transition process?',
-      'Who or what has been your most valuable resource in this transition, and how did you find it?',
-    ],
-  },
-  {
-    id: 3,
-    title: 'Module 3: navigating two worlds',
-    theme: 'identity navigation at the military-civilian boundary',
-    body: 'The military-civilian gap is real. Civilians do not always understand your experience, and you may find yourself constantly translating military language, downplaying your rank, or feeling out of place in a classroom or workplace where no one has served. This friction is normal. What matters is learning to hold both identities at once without erasing either one. Your military background is a genuine asset. The work is in finding the language to make others see it that way too.',
-    prompts: [
-      'Describe a moment when you felt the gap between your military identity and your civilian environment. How did you handle it?',
-      'What parts of your military background do civilians tend to misunderstand? How do you explain them?',
-      'How has your definition of leadership changed since leaving or preparing to leave the military?',
-    ],
-  },
-  {
-    id: 4,
-    title: 'Module 4: building your support system',
-    theme: 'institutional gaps and informal alternatives',
-    body: "Veteran resource centers exist on many campuses and in many communities, but they do not always reach everyone who needs them. Research shows that faculty mentors, professors who take time to understand a veteran's background, often fill a gap that formal programs leave open. Building your support network means being proactive: finding the people who understand where you come from, whether that is a veteran advisor, a professor who served, or a peer who is a few months ahead of you in the same transition.",
-    prompts: [
-      'Who in your current environment has been most helpful to your transition? What made them effective?',
-      'What gaps exist in the formal support available to you? What informal solutions have you found?',
-      'What is one connection you will make this month to strengthen your support network?',
-    ],
-  },
-]
+const OPENING =
+  "Welcome to the TYFMS Identity Guide. I'm here to help you work through one of the most important — and most overlooked — parts of transition: figuring out who you are when the uniform comes off.\n\nThis isn't a checklist. It's a conversation. Start wherever feels right.\n\nWhat's been the hardest part of your transition so far?"
 
 export default function IdentityTab() {
-  const [open, setOpen] = useState({})
-  const [responses, setResponses] = useState({})
-  const [feedbacks, setFeedbacks] = useState({})
-  const [feedbackLoading, setFeedbackLoading] = useState({})
-  const [feedbackErrors, setFeedbackErrors] = useState({})
+  const [messages, setMessages] = useState([{ role: 'assistant', content: OPENING }])
+  const [input, setInput] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const endRef = useRef(null)
+  const textareaRef = useRef(null)
 
   useEffect(() => {
-    const saved = localStorage.getItem('vtg_identity_responses')
-    if (saved) setResponses(JSON.parse(saved))
-  }, [])
+    endRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages, loading])
 
-  function toggleMod(id) {
-    setOpen(prev => ({ ...prev, [id]: !prev[id] }))
-  }
+  async function send() {
+    const text = input.trim()
+    if (!text || loading) return
 
-  function handleChange(modId, promptIdx, value) {
-    setResponses(prev => {
-      const next = { ...prev, [`${modId}-${promptIdx}`]: value }
-      localStorage.setItem('vtg_identity_responses', JSON.stringify(next))
-      return next
-    })
-  }
+    const userMsg = { role: 'user', content: text }
+    const updated = [...messages, userMsg]
+    setMessages(updated)
+    setInput('')
+    setLoading(true)
+    setError('')
 
-  function hasResponses(modId, prompts) {
-    return prompts.some((_, i) => responses[`${modId}-${i}`]?.trim())
-  }
+    // Skip the hardcoded opening when calling the API — it's part of the system prompt
+    const apiMessages = updated.slice(1).map(m => ({ role: m.role, content: m.content }))
 
-  async function getFeedback(mod) {
-    setFeedbackErrors(prev => ({ ...prev, [mod.id]: '' }))
-    setFeedbackLoading(prev => ({ ...prev, [mod.id]: true }))
-    const filled = mod.prompts
-      .map((prompt, i) => ({ prompt, response: responses[`${mod.id}-${i}`] || '' }))
-      .filter(r => r.response.trim())
     try {
-      const r = await fetch('/api/identity-feedback', {
+      const r = await fetch('/api/identity-chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ moduleTitle: mod.title, theme: mod.theme, responses: filled }),
+        body: JSON.stringify({ messages: apiMessages }),
       })
       const data = await r.json()
-      if (!r.ok) { setFeedbackErrors(prev => ({ ...prev, [mod.id]: data.error || 'Something went wrong.' })); return }
-      setFeedbacks(prev => ({ ...prev, [mod.id]: data.feedback }))
+      if (!r.ok) {
+        setError(data.error || 'Something went wrong.')
+        return
+      }
+      setMessages(prev => [...prev, { role: 'assistant', content: data.reply }])
     } catch {
-      setFeedbackErrors(prev => ({ ...prev, [mod.id]: 'Could not reach the server. Try again.' }))
+      setError('Could not reach the server. Try again.')
     } finally {
-      setFeedbackLoading(prev => ({ ...prev, [mod.id]: false }))
+      setLoading(false)
     }
+  }
+
+  function handleKeyDown(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      send()
+    }
+  }
+
+  function clearChat() {
+    setMessages([{ role: 'assistant', content: OPENING }])
+    setInput('')
+    setError('')
   }
 
   return (
     <div>
-      <div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
-        <img src="/identity.png" alt="Identity guide" style={{ width: '100%', maxHeight: 320, objectFit: 'contain', objectPosition: 'top', display: 'block' }} />
+      <div style={{ width: '100%', maxHeight: 260, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+        <img src="/identity.png" alt="Identity guide" style={{ width: '100%', maxHeight: 260, objectFit: 'contain', objectPosition: 'top', display: 'block' }} />
       </div>
+
       <p className="sec-title">Identity guide</p>
       <p className="sec-sub">
-        Identity reconstruction is an ongoing process of reflection, practice, and growth.
-        Work through these four modules at your own pace. After filling in the prompts, use
-        the AI feedback button to get personalized next steps — your answers don't disappear
-        into a void here.
+        The hardest part of transition isn't finding a job — it's figuring out who you are when the uniform comes off.
+        This is a conversation, not a form. The AI mentor below will ask you one question at a time and help you work
+        through it.
       </p>
 
-      {MODULES.map(mod => (
-        <div key={mod.id}>
-          <button className="mhd" onClick={() => toggleMod(mod.id)}>
-            <span>{mod.title}</span>
-            <span style={{ fontSize: 20, color: '#888' }}>{open[mod.id] ? '−' : '+'}</span>
-          </button>
+      {/* Chat messages */}
+      <div className="chat-messages">
+        {messages.map((m, i) => (
+          <div key={i} className={m.role === 'user' ? 'chat-bubble-user' : 'chat-bubble-ai'}>
+            {m.content}
+          </div>
+        ))}
+        {loading && (
+          <div className="chat-bubble-ai" style={{ color: '#b4b2a9', fontStyle: 'italic' }}>
+            Thinking…
+          </div>
+        )}
+        <div ref={endRef} />
+      </div>
 
-          {open[mod.id] && (
-            <div style={{ marginBottom: 12 }}>
-              <div className="card">
-                <p style={{ fontSize: 12, color: '#5f5e5a', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '.05em' }}>
-                  Theme: {mod.theme}
-                </p>
-                <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.7, marginBottom: 16 }}>{mod.body}</p>
-                <p style={{ fontSize: 13, fontWeight: 500, marginBottom: 10 }}>Reflection prompts</p>
+      {error && (
+        <p style={{ fontSize: 12, color: '#a32d2d', marginBottom: 8 }}>{error}</p>
+      )}
 
-                {mod.prompts.map((prompt, i) => (
-                  <div key={i}>
-                    <label>{i + 1}. {prompt}</label>
-                    <textarea
-                      style={{ marginBottom: i < mod.prompts.length - 1 ? 12 : 16, minHeight: 70 }}
-                      placeholder="Write your thoughts here..."
-                      value={responses[`${mod.id}-${i}`] || ''}
-                      onChange={e => handleChange(mod.id, i, e.target.value)}
-                    />
-                  </div>
-                ))}
+      {/* Input area */}
+      <div style={{ display: 'flex', gap: 8, alignItems: 'flex-end' }}>
+        <textarea
+          ref={textareaRef}
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Type your response… (Enter to send, Shift+Enter for new line)"
+          disabled={loading}
+          style={{ flex: 1, minHeight: 72, maxHeight: 160, resize: 'vertical' }}
+        />
+        <button
+          onClick={send}
+          disabled={loading || !input.trim()}
+          style={{
+            padding: '10px 18px', background: loading ? '#085041' : '#1B4F8C',
+            border: 'none', borderRadius: 8, color: '#fff', fontSize: 13,
+            cursor: loading || !input.trim() ? 'not-allowed' : 'pointer',
+            fontFamily: 'inherit', fontWeight: 500, flexShrink: 0,
+            opacity: loading || !input.trim() ? 0.6 : 1,
+          }}
+        >
+          Send
+        </button>
+      </div>
 
-                <button
-                  className="btn-b"
-                  onClick={() => getFeedback(mod)}
-                  disabled={!hasResponses(mod.id, mod.prompts) || feedbackLoading[mod.id]}
-                  style={{ marginTop: 4 }}
-                >
-                  {feedbackLoading[mod.id]
-                    ? 'Reading your responses...'
-                    : feedbacks[mod.id]
-                    ? 'Refresh feedback'
-                    : 'Get personalized feedback'}
-                </button>
+      {messages.length > 1 && (
+        <button
+          onClick={clearChat}
+          style={{
+            marginTop: 12, background: 'none', border: 'none', color: '#b4b2a9',
+            fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', padding: 0,
+          }}
+        >
+          Start over
+        </button>
+      )}
 
-                {feedbackErrors[mod.id] && (
-                  <p style={{ color: '#a32d2d', fontSize: 13, marginTop: 8 }}>{feedbackErrors[mod.id]}</p>
-                )}
-
-                {feedbacks[mod.id] && (
-                  <div className="ai-feedback">
-                    <p className="label">Personalized feedback</p>
-                    <p style={{ whiteSpace: 'pre-wrap' }}>{feedbacks[mod.id]}</p>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      ))}
-
-      <FunFact />
+      <div className="insight" style={{ marginTop: 28 }}>
+        <p className="label">Research insight</p>
+        <p>
+          Veterans who invest time in identity reflection — not just job searching — report significantly smoother
+          transitions. The goal is not to become someone new. It is to bring who you already are into a new context.
+        </p>
+      </div>
     </div>
   )
 }

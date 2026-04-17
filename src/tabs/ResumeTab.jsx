@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useAuth } from '../context/AuthContext'
+import { supabase } from '../lib/supabase'
 import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
 
@@ -17,7 +19,18 @@ const COMPANY_EXAMPLES = [
   'Local government', 'Nonprofit', 'Startup',
 ]
 
+function emptyJob() {
+  return { id: Date.now() + Math.random(), title: '', employer: '', dates: '', description: '' }
+}
+
 export default function ResumeTab() {
+  const { user, supabaseEnabled } = useAuth()
+  const useDb = supabaseEnabled && !!supabase && !!user
+
+  // Contact info
+  const [contact, setContact] = useState({ name: '', email: '', phone: '', location: '', linkedin: '' })
+
+  // Military background
   const [branch, setBranch] = useState('Army')
   const [mos, setMos] = useState('')
   const [rank, setRank] = useState('')
@@ -25,10 +38,35 @@ export default function ResumeTab() {
   const [targetCompany, setTargetCompany] = useState('')
   const [additionalSkills, setAdditionalSkills] = useState('')
 
+  // Non-military experience
+  const [prevJobs, setPrevJobs] = useState([])
+
+  // Resume output
   const [loading, setLoading] = useState(false)
   const [resume, setResume] = useState('')
   const [error, setError] = useState('')
   const [copied, setCopied] = useState(false)
+
+  // Save/load state
+  const [saving, setSaving] = useState(false)
+  const [saveMsg, setSaveMsg] = useState('')
+  const [loadMsg, setLoadMsg] = useState('')
+
+  function updateContact(field, val) {
+    setContact(prev => ({ ...prev, [field]: val }))
+  }
+
+  function addJob() {
+    setPrevJobs(prev => [...prev, emptyJob()])
+  }
+
+  function updateJob(id, field, val) {
+    setPrevJobs(prev => prev.map(j => j.id === id ? { ...j, [field]: val } : j))
+  }
+
+  function removeJob(id) {
+    setPrevJobs(prev => prev.filter(j => j.id !== id))
+  }
 
   async function generateResume() {
     if (!mos.trim()) { setError('Please enter your MOS, AFSC, or rate code.'); return }
@@ -39,7 +77,13 @@ export default function ResumeTab() {
       const r = await fetch('/api/resume-builder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ branch, mos: mos.trim(), rank, yos, targetCompany: targetCompany.trim(), additionalSkills: additionalSkills.trim() }),
+        body: JSON.stringify({
+          branch, mos: mos.trim(), rank, yos,
+          targetCompany: targetCompany.trim(),
+          additionalSkills: additionalSkills.trim(),
+          contact,
+          prevJobs: prevJobs.filter(j => j.title.trim()),
+        }),
       })
       const data = await r.json()
       if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
@@ -70,6 +114,41 @@ export default function ResumeTab() {
     URL.revokeObjectURL(url)
   }
 
+  async function saveDraft() {
+    if (!useDb) return
+    setSaving(true)
+    setSaveMsg('')
+    const data = { branch, mos, rank, yos, targetCompany, additionalSkills, contact, prevJobs }
+    const { error: dbError } = await supabase
+      .from('resume_drafts')
+      .upsert({ user_id: user.id, data, updated_at: new Date().toISOString() }, { onConflict: 'user_id' })
+    setSaving(false)
+    setSaveMsg(dbError ? 'Could not save draft.' : 'Draft saved.')
+    setTimeout(() => setSaveMsg(''), 3000)
+  }
+
+  async function loadDraft() {
+    if (!useDb) return
+    setLoadMsg('')
+    const { data, error: dbError } = await supabase
+      .from('resume_drafts')
+      .select('data')
+      .eq('user_id', user.id)
+      .single()
+    if (dbError || !data) { setLoadMsg('No saved draft found.'); setTimeout(() => setLoadMsg(''), 3000); return }
+    const d = data.data
+    if (d.branch) setBranch(d.branch)
+    if (d.mos) setMos(d.mos)
+    if (d.rank) setRank(d.rank)
+    if (d.yos) setYos(d.yos)
+    if (d.targetCompany) setTargetCompany(d.targetCompany)
+    if (d.additionalSkills) setAdditionalSkills(d.additionalSkills)
+    if (d.contact) setContact(d.contact)
+    if (d.prevJobs) setPrevJobs(d.prevJobs)
+    setLoadMsg('Draft loaded.')
+    setTimeout(() => setLoadMsg(''), 3000)
+  }
+
   return (
     <div>
       <p className="sec-title">Resume builder</p>
@@ -79,8 +158,38 @@ export default function ResumeTab() {
         matched to the company's culture, and education placeholder.
       </p>
 
-      <div className="card" style={{ marginBottom: 20 }}>
-        <p style={{ fontSize: 13, fontWeight: 500, marginBottom: 14 }}>Your military background</p>
+      {/* Contact info */}
+      <div className="card" style={{ marginBottom: 16 }}>
+        <p style={{ fontSize: 13, fontWeight: 500, marginBottom: 14 }}>Contact information</p>
+        <div className="grid-2" style={{ marginBottom: 12 }}>
+          <div>
+            <label>Full name</label>
+            <input type="text" value={contact.name} onChange={e => updateContact('name', e.target.value)} placeholder="Jane Smith" />
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" value={contact.email} onChange={e => updateContact('email', e.target.value)} placeholder="jane@example.com" />
+          </div>
+        </div>
+        <div className="grid-2" style={{ marginBottom: 12 }}>
+          <div>
+            <label>Phone</label>
+            <input type="text" value={contact.phone} onChange={e => updateContact('phone', e.target.value)} placeholder="(555) 555-5555" />
+          </div>
+          <div>
+            <label>City, State</label>
+            <input type="text" value={contact.location} onChange={e => updateContact('location', e.target.value)} placeholder="Austin, TX" />
+          </div>
+        </div>
+        <div>
+          <label>LinkedIn URL (optional)</label>
+          <input type="text" value={contact.linkedin} onChange={e => updateContact('linkedin', e.target.value)} placeholder="linkedin.com/in/janesmith" />
+        </div>
+      </div>
+
+      {/* Military background */}
+      <div className="card" style={{ marginBottom: 16 }}>
+        <p style={{ fontSize: 13, fontWeight: 500, marginBottom: 14 }}>Military background</p>
 
         <div className="grid-2" style={{ marginBottom: 12 }}>
           <div>
@@ -105,7 +214,7 @@ export default function ResumeTab() {
           <div>
             <label>Rank (optional)</label>
             <select value={rank} onChange={e => setRank(e.target.value)}>
-              <option value="">Select rank (optional)</option>
+              <option value="">Select rank</option>
               <optgroup label="Enlisted">
                 <option>E-1</option><option>E-2</option><option>E-3</option>
                 <option>E-4</option><option>E-5</option><option>E-6</option>
@@ -159,24 +268,115 @@ export default function ResumeTab() {
           </div>
         </div>
 
-        <div style={{ marginBottom: 16 }}>
+        <div>
           <label>Additional skills or context (optional)</label>
           <textarea
             value={additionalSkills}
             onChange={e => setAdditionalSkills(e.target.value)}
-            placeholder="e.g. Python, project management, bilingual Spanish, ITIL certification, 4 years signals intelligence..."
+            placeholder="e.g. Python, project management, bilingual Spanish, ITIL certification..."
             style={{ minHeight: 70 }}
           />
         </div>
-
-        <button className="btn-g" onClick={generateResume} disabled={loading}>
-          {loading ? 'Building your resume...' : 'Generate my resume'}
-        </button>
-        {error && <p style={{ color: '#a32d2d', fontSize: 13, paddingTop: 8 }}>{error}</p>}
       </div>
 
+      {/* Non-military experience */}
+      <div className="card" style={{ marginBottom: 16 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+          <p style={{ fontSize: 13, fontWeight: 500 }}>Non-military experience (optional)</p>
+          <button
+            onClick={addJob}
+            style={{
+              padding: '5px 12px', background: '#1B4F8C', border: 'none',
+              borderRadius: 8, color: '#fff', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
+            }}
+          >
+            + Add role
+          </button>
+        </div>
+
+        {prevJobs.length === 0 && (
+          <p style={{ fontSize: 13, color: '#b4b2a9' }}>
+            Include civilian jobs, internships, or SkillBridge experience.
+          </p>
+        )}
+
+        {prevJobs.map(job => (
+          <div key={job.id} style={{ border: '1px solid #e8e5de', borderRadius: 10, padding: '14px 16px', marginBottom: 12 }}>
+            <div className="grid-2" style={{ marginBottom: 10 }}>
+              <div>
+                <label>Job title</label>
+                <input type="text" value={job.title} onChange={e => updateJob(job.id, 'title', e.target.value)} placeholder="e.g. Project Manager Intern" />
+              </div>
+              <div>
+                <label>Employer</label>
+                <input type="text" value={job.employer} onChange={e => updateJob(job.id, 'employer', e.target.value)} placeholder="Company or organization name" />
+              </div>
+            </div>
+            <div style={{ marginBottom: 10 }}>
+              <label>Dates</label>
+              <input type="text" value={job.dates} onChange={e => updateJob(job.id, 'dates', e.target.value)} placeholder="e.g. Jan 2023 – Jun 2023" />
+            </div>
+            <div style={{ marginBottom: 8 }}>
+              <label>Key responsibilities or achievements</label>
+              <textarea
+                value={job.description}
+                onChange={e => updateJob(job.id, 'description', e.target.value)}
+                placeholder="Brief description of what you did and any results..."
+                style={{ minHeight: 60 }}
+              />
+            </div>
+            <button
+              onClick={() => removeJob(job.id)}
+              style={{ background: 'none', border: 'none', color: '#a32d2d', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', padding: 0 }}
+            >
+              Remove this role
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* Save/load draft */}
+      {useDb && (
+        <div style={{ display: 'flex', gap: 8, marginBottom: 16, flexWrap: 'wrap', alignItems: 'center' }}>
+          <button
+            onClick={saveDraft}
+            disabled={saving}
+            style={{
+              padding: '7px 16px', background: '#185fa5', border: 'none', borderRadius: 8,
+              color: '#fff', fontSize: 13, cursor: 'pointer', fontFamily: 'inherit',
+              opacity: saving ? 0.6 : 1,
+            }}
+          >
+            {saving ? 'Saving…' : 'Save draft'}
+          </button>
+          <button
+            onClick={loadDraft}
+            style={{
+              padding: '7px 16px', background: '#fff', border: '1px solid #d3d1c7',
+              borderRadius: 8, color: '#5f5e5a', fontSize: 13, cursor: 'pointer', fontFamily: 'inherit',
+            }}
+          >
+            Load saved draft
+          </button>
+          {(saveMsg || loadMsg) && (
+            <p style={{ fontSize: 12, color: saveMsg.includes('saved') || loadMsg.includes('loaded') ? '#0A7868' : '#a32d2d' }}>
+              {saveMsg || loadMsg}
+            </p>
+          )}
+        </div>
+      )}
+
+      {!useDb && supabaseEnabled && (
+        <p style={{ fontSize: 12, color: '#b4b2a9', marginBottom: 16 }}>Sign in to save and load resume drafts.</p>
+      )}
+
+      <button className="btn-g" onClick={generateResume} disabled={loading} style={{ marginBottom: 4 }}>
+        {loading ? 'Building your resume...' : 'Generate my resume'}
+      </button>
+      {error && <p style={{ color: '#a32d2d', fontSize: 13, paddingTop: 8 }}>{error}</p>}
+
       {resume && (
-        <div>
+        <div style={{ marginTop: 20 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, flexWrap: 'wrap', gap: 8 }}>
             <p style={{ fontSize: 14, fontWeight: 500 }}>
               Your resume draft {targetCompany && <span style={{ color: '#0f6e56' }}>— tailored for {targetCompany}</span>}
@@ -210,8 +410,7 @@ export default function ResumeTab() {
 
           <div style={{ marginTop: 10, padding: '10px 14px', background: '#faeeda', borderRadius: 8 }}>
             <p style={{ fontSize: 12, color: '#633806', lineHeight: 1.6 }}>
-              Replace all bracketed placeholders [ ] with your actual information. Add your real name,
-              contact info, dates, and specific metrics before using this resume.
+              Replace all bracketed placeholders [ ] with your actual information before using this resume.
             </p>
           </div>
 

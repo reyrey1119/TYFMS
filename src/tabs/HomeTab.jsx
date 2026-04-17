@@ -53,10 +53,22 @@ const STATS = [
   },
 ]
 
-const FEATURE_CARDS = [
-  { id: 'path',       icon: '🧭', title: 'Find your path',    desc: 'Discover your veteran career archetype with a 12-question assessment' },
-  { id: 'translator', icon: '🎯', title: 'Skills translator', desc: 'Turn your MOS, AFSC, or rate into civilian job titles and career paths' },
-  { id: 'resume',     icon: '📄', title: 'Resume builder',    desc: 'Generate a tailored civilian resume from your military background' },
+const HELP_CARDS = [
+  {
+    icon: '🪖',
+    title: 'Getting out soon?',
+    body: "You're in the right place. TYFMS was built for the exact moment you're in — when the mission is clear but the next step isn't. Start with the Skills Translator to map your MOS to civilian roles, then use the Identity Guide to work through who you are when the uniform comes off.",
+  },
+  {
+    icon: '📅',
+    title: 'Been out for a while?',
+    body: "Still finding your footing? That's normal — most veterans report the real adjustment takes 12 to 18 months. Whether you need to translate your resume, build a network, or just get a clearer picture of where you're headed, every tool here is designed for where you are now.",
+  },
+  {
+    icon: '🔍',
+    title: 'Why TYFMS exists',
+    body: 'This platform was built from field research into how veterans actually reconstruct their professional identity after service — not from assumptions about what should help. The gap between "thank you for your service" and real support is enormous. TYFMS is an attempt to close it.',
+  },
 ]
 
 export default function HomeTab({ onNavigate }) {
@@ -100,14 +112,14 @@ export default function HomeTab({ onNavigate }) {
         </div>
       </div>
 
-      {/* Feature highlight cards */}
-      <p className="cat-label" style={{ marginBottom: 14 }}>Start here</p>
-      <div className="grid-3" style={{ marginBottom: 12 }}>
-        {FEATURE_CARDS.map(c => (
-          <div key={c.id} className="card" style={{ cursor: 'pointer', padding: '24px 20px' }} onClick={() => onNavigate(c.id)}>
-            <p style={{ fontSize: 28, marginBottom: 10 }}>{c.icon}</p>
-            <p style={{ fontWeight: 600, fontSize: 14, color: '#1a1a18', marginBottom: 6 }}>{c.title}</p>
-            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.55 }}>{c.desc}</p>
+      {/* How TYFMS helps you */}
+      <p className="cat-label" style={{ marginBottom: 14 }}>How TYFMS helps you</p>
+      <div className="grid-3" style={{ marginBottom: 36 }}>
+        {HELP_CARDS.map(c => (
+          <div key={c.title} className="card" style={{ padding: '24px 20px' }}>
+            <p style={{ fontSize: 26, marginBottom: 10 }}>{c.icon}</p>
+            <p style={{ fontWeight: 600, fontSize: 14, color: '#1a1a18', marginBottom: 8 }}>{c.title}</p>
+            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.65 }}>{c.body}</p>
           </div>
         ))}
       </div>
@@ -119,7 +131,7 @@ export default function HomeTab({ onNavigate }) {
         onClick={() => onNavigate('trends')}
       >
         <div>
-          <span className="bg" style={{ fontSize: 10, padding: '2px 8px', marginBottom: 8, display: 'inline-block' }}>Updated weekly</span>
+          <span className="bg" style={{ fontSize: 10, padding: '2px 8px', marginBottom: 8, display: 'inline-block' }}>Updated Monday</span>
           <p style={{ fontWeight: 600, fontSize: 14, color: '#1a1a18', marginBottom: 4 }}>Career trends this week</p>
           <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.5 }}>
             Booming sectors and high-demand roles veterans are uniquely positioned to fill right now →
