@@ -28,7 +28,7 @@ export default function AboutTab() {
     <div>
       {/* Mission — prominent, at the very top */}
       <div style={{ marginBottom: 40, paddingBottom: 32, borderBottom: '1px solid #d3d1c7' }}>
-        <p style={{ fontSize: 11, fontWeight: 600, color: '#0f6e56', textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 14 }}>
+        <p style={{ fontSize: 11, fontWeight: 600, color: '#0A7868', textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 14 }}>
           Our mission
         </p>
         <p style={{ fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 900, color: '#1a1a18', lineHeight: 1.1, marginBottom: 18, letterSpacing: '-.02em' }}>
@@ -79,8 +79,8 @@ export default function AboutTab() {
       </div>
 
       {/* Origin story */}
-      <div style={{ borderLeft: '4px solid #0f6e56', paddingLeft: 20, marginBottom: 32 }}>
-        <p style={{ fontSize: 11, fontWeight: 600, color: '#0f6e56', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 8 }}>
+      <div style={{ borderLeft: '4px solid #0A7868', paddingLeft: 20, marginBottom: 32 }}>
+        <p style={{ fontSize: 11, fontWeight: 600, color: '#0A7868', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 8 }}>
           Origin story
         </p>
         <p style={{ fontSize: 16, fontWeight: 600, color: '#1a1a18', marginBottom: 14 }}>

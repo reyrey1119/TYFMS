@@ -91,7 +91,7 @@ export default function HomeTab({ onNavigate }) {
         <span style={{ fontSize: 22, flexShrink: 0, marginTop: 1 }}>💡</span>
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-            <p style={{ fontSize: 11, fontWeight: 600, color: '#0f6e56', textTransform: 'uppercase', letterSpacing: '.08em' }}>
+            <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.08em' }}>
               Daily tip
             </p>
             <span className="bg" style={{ fontSize: 10, padding: '2px 7px' }}>{todaysTip.label}</span>

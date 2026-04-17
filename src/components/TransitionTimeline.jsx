@@ -19,7 +19,7 @@ const PHASES = [
     num: 2,
     range: 'Months 2–3',
     title: 'Identity reflection and skills inventory',
-    color: '#0f6e56',
+    color: '#0A7868',
     desc: 'Who are you when the uniform comes off? This is the most important — and most skipped — work of transition. Don\'t rush it.',
     items: [
       'Complete the Identity Guide modules at your own pace',

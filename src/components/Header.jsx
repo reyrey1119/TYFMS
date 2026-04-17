@@ -3,11 +3,12 @@ import { useAuth } from '../context/AuthContext'
 import AuthModal from './AuthModal'
 
 export default function Header({ onSearch, onNavigateHome }) {
-  const { user, signOut, supabaseEnabled } = useAuth()
+  const { user, signOut, deleteAccount, supabaseEnabled } = useAuth()
   const [showAuth, setShowAuth] = useState(false)
   const [query, setQuery] = useState('')
   const [searching, setSearching] = useState(false)
   const [searchError, setSearchError] = useState('')
+  const [deleting, setDeleting] = useState(false)
   const cache = useRef(new Map())
 
   async function handleSearch(e) {
@@ -46,18 +47,30 @@ export default function Header({ onSearch, onNavigateHome }) {
     }
   }
 
+  async function handleDeleteAccount() {
+    const confirmed = window.confirm(
+      'Delete your TYFMS account?\n\nThis will permanently delete your account, network profile, and all saved goals. This cannot be undone.'
+    )
+    if (!confirmed) return
+    setDeleting(true)
+    const result = await deleteAccount()
+    setDeleting(false)
+    if (result?.error) {
+      alert('Could not delete account: ' + result.error.message)
+    }
+  }
+
   return (
     <>
       <header style={{ flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-        {/* Brand — stretches toward the right group */}
+        {/* Brand */}
         <div
           onClick={onNavigateHome}
           style={{ cursor: onNavigateHome ? 'pointer' : 'default', flex: 1, minWidth: 0 }}
         >
           <h1 style={{
             fontSize: 'clamp(15px, 2.2vw, 20px)', fontWeight: 800, letterSpacing: '-.02em',
-            whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-            color: '#fff',
+            whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: '#fff',
           }}>
             Thank You For My Service
           </h1>
@@ -66,7 +79,7 @@ export default function Header({ onSearch, onNavigateHome }) {
           </p>
         </div>
 
-        {/* Search + auth — grouped on the right */}
+        {/* Search + auth grouped on the right */}
         <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start', flexShrink: 0 }}>
           <form onSubmit={handleSearch} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
@@ -104,16 +117,29 @@ export default function Header({ onSearch, onNavigateHome }) {
           {supabaseEnabled && (
             <div style={{ flexShrink: 0 }}>
               {user ? (
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <span style={{ fontSize: 12, color: '#9fba9f' }}>{user.email}</span>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ fontSize: 12, color: '#9fba9f' }}>{user.email}</span>
+                    <button
+                      onClick={signOut}
+                      style={{
+                        padding: '5px 12px', background: 'transparent', border: '1px solid #3a5a3a',
+                        borderRadius: 8, color: '#9fba9f', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
+                      }}
+                    >
+                      Sign out
+                    </button>
+                  </div>
                   <button
-                    onClick={signOut}
+                    onClick={handleDeleteAccount}
+                    disabled={deleting}
                     style={{
-                      padding: '5px 12px', background: 'transparent', border: '1px solid #3a5a3a',
-                      borderRadius: 8, color: '#9fba9f', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
+                      background: 'none', border: 'none', color: '#ef9f60', cursor: 'pointer',
+                      fontSize: 11, fontFamily: 'inherit', padding: 0, textDecoration: 'underline',
+                      opacity: deleting ? 0.6 : 1,
                     }}
                   >
-                    Sign out
+                    {deleting ? 'Deleting…' : 'Delete account'}
                   </button>
                 </div>
               ) : (

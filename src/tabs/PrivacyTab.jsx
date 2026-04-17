@@ -22,14 +22,14 @@ export default function PrivacyTab({ onClose }) {
     },
     {
       title: 'Account deletion',
-      body: `You can request deletion of your account and all associated data at any time by emailing reyrey1119@gmail.com with the subject line "Delete my TYFMS account." Include the email address associated with your account. We will delete your account and all associated data within 30 days of receiving your request. Note that your reflection responses saved in the identity guide are stored only in your browser's localStorage and can be cleared at any time by clearing your browser's site data.`,
+      body: `You can delete your account and all associated data instantly and directly — no need to email anyone. When you are signed in, click "Delete account" in the header. You will be asked to confirm. Upon confirmation, your account and all associated data are permanently deleted immediately.\n\nNote that reflection responses saved in the Identity Guide are stored only in your browser's localStorage and can be cleared at any time by clearing your browser's site data for tyfms.com.`,
     },
     {
       title: 'Data retention',
       body: `We retain your account data for as long as your account is active. If you delete your account, all associated data is permanently removed from our database. Anonymous usage data is not collected or retained.`,
     },
     {
-      title: 'Children\'s privacy',
+      title: "Children's privacy",
       body: `TYFMS is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.`,
     },
     {
@@ -38,7 +38,7 @@ export default function PrivacyTab({ onClose }) {
     },
     {
       title: 'Contact',
-      body: `For any questions about this Privacy Policy or your data, contact us at:\n\nReynaldo Rodriguez\nEmail: reyrey1119@gmail.com\nWebsite: tyfms.vercel.app`,
+      body: `For any questions about this Privacy Policy or your data, contact us at:\n\nTYFMS Support Team\nEmail: tyfmsapp@gmail.com\nWebsite: tyfms.com`,
     },
   ]
 
@@ -55,7 +55,7 @@ export default function PrivacyTab({ onClose }) {
 
       <p className="sec-title">Privacy Policy</p>
       <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 24 }}>
-        Effective date: April 16, 2026 &nbsp;·&nbsp; tyfms.vercel.app
+        Effective date: April 16, 2026 &nbsp;·&nbsp; tyfms.com
       </p>
 
       <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.75, marginBottom: 24 }}>

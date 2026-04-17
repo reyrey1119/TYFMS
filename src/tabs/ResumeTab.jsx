@@ -107,34 +107,19 @@ export default function ResumeTab() {
             <select value={rank} onChange={e => setRank(e.target.value)}>
               <option value="">Select rank (optional)</option>
               <optgroup label="Enlisted">
-                <option>E-1 Private</option>
-                <option>E-2 Private Second Class</option>
-                <option>E-3 Private First Class</option>
-                <option>E-4 Specialist / Corporal</option>
-                <option>E-5 Sergeant</option>
-                <option>E-6 Staff Sergeant</option>
-                <option>E-7 Sergeant First Class</option>
-                <option>E-8 Master Sergeant / First Sergeant</option>
-                <option>E-9 Sergeant Major / Command Sergeant Major</option>
+                <option>E-1</option><option>E-2</option><option>E-3</option>
+                <option>E-4</option><option>E-5</option><option>E-6</option>
+                <option>E-7</option><option>E-8</option><option>E-9</option>
               </optgroup>
-              <optgroup label="Warrant Officers">
-                <option>W-1 Warrant Officer 1</option>
-                <option>W-2 Chief Warrant Officer 2</option>
-                <option>W-3 Chief Warrant Officer 3</option>
-                <option>W-4 Chief Warrant Officer 4</option>
-                <option>W-5 Chief Warrant Officer 5</option>
+              <optgroup label="Warrant">
+                <option>W-1</option><option>W-2</option><option>W-3</option>
+                <option>W-4</option><option>W-5</option>
               </optgroup>
-              <optgroup label="Officers">
-                <option>O-1 Second Lieutenant</option>
-                <option>O-2 First Lieutenant</option>
-                <option>O-3 Captain</option>
-                <option>O-4 Major</option>
-                <option>O-5 Lieutenant Colonel</option>
-                <option>O-6 Colonel</option>
-                <option>O-7 Brigadier General</option>
-                <option>O-8 Major General</option>
-                <option>O-9 Lieutenant General</option>
-                <option>O-10 General</option>
+              <optgroup label="Officer">
+                <option>O-1</option><option>O-2</option><option>O-3</option>
+                <option>O-4</option><option>O-5</option><option>O-6</option>
+                <option>O-7</option><option>O-8</option><option>O-9</option>
+                <option>O-10</option>
               </optgroup>
             </select>
           </div>

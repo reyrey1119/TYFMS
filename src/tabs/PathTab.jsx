@@ -124,7 +124,7 @@ const ARCHETYPES = {
   },
   Builder: {
     label: 'The Builder',
-    color: '#0f6e56',
+    color: '#0A7868',
     tagline: 'Hands-on mastery. Tangible results.',
     desc: 'You thrive when there is something real to build, fix, or improve. In the military, you were the one who kept systems running, solved the technical problems no one else could crack, and found deep satisfaction in mastery. Civilian employers in technical fields are actively looking for veterans with exactly that background.',
     roles: ['Systems Engineer', 'Project Manager', 'Technical Specialist', 'Skilled Tradesperson', 'Entrepreneur'],
@@ -279,7 +279,7 @@ export default function PathTab() {
       <div style={{ background: '#f5f4f0', borderRadius: 8, height: 6, marginBottom: 24, overflow: 'hidden' }}>
         <div style={{
           height: '100%', background: '#0f6e56', borderRadius: 8,
-          width: `${(answered / QUESTIONS.length) * 100}%`, transition: 'width .2s',
+          width: `${(answered / QUESTIONS.length) * 100}%`, transition: 'width .2s', background: '#C07A28',
         }} />
       </div>
       <p style={{ fontSize: 12, color: '#5f5e5a', marginBottom: 20, marginTop: -18 }}>
@@ -298,10 +298,10 @@ export default function PathTab() {
                 onClick={() => setAnswer(qi, oi)}
                 style={{
                   padding: '9px 14px', borderRadius: 8, border: '1px solid',
-                  borderColor: answers[qi] === oi ? '#0f6e56' : '#d3d1c7',
-                  background: answers[qi] === oi ? '#e1f5ee' : '#fff',
+                  borderColor: answers[qi] === oi ? '#C07A28' : '#d3d1c7',
+                  background: answers[qi] === oi ? '#FDF4E7' : '#fff',
                   cursor: 'pointer', fontFamily: 'inherit', fontSize: 13,
-                  color: answers[qi] === oi ? '#085041' : '#1a1a18',
+                  color: answers[qi] === oi ? '#8A5F1A' : '#1a1a18',
                   textAlign: 'left', lineHeight: 1.5, transition: 'all .12s',
                 }}
               >

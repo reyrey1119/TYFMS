@@ -6,7 +6,7 @@ export default function Footer({ onPrivacy }) {
       flexWrap: 'wrap', gap: 8,
     }}>
       <p style={{ fontSize: 12, color: '#b4b2a9' }}>
-        © {new Date().getFullYear()} TYFMS · No more empty thanks.
+        © {new Date().getFullYear()} TYFMS. All rights reserved.
       </p>
       <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
         <button
@@ -15,7 +15,7 @@ export default function Footer({ onPrivacy }) {
         >
           Privacy Policy
         </button>
-        <a href="mailto:reyrey1119@gmail.com" style={{ fontSize: 12, color: '#5f5e5a', textDecoration: 'none' }}>
+        <a href="mailto:tyfmsapp@gmail.com" style={{ fontSize: 12, color: '#5f5e5a', textDecoration: 'none' }}>
           Contact
         </a>
       </div>
