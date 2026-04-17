@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import AdUnit from './components/AdUnit'
 import HomeTab from './tabs/HomeTab'
 import TranslatorTab from './tabs/TranslatorTab'
 import IdentityTab from './tabs/IdentityTab'
@@ -12,12 +13,12 @@ import PrivacyTab from './tabs/PrivacyTab'
 
 const TABS = [
   { id: 'home',       label: 'Home' },
+  { id: 'about',      label: 'About' },
   { id: 'translator', label: 'Skills translator' },
   { id: 'identity',   label: 'Identity guide' },
   { id: 'network',    label: 'Networking' },
   { id: 'tracker',    label: 'Progress tracker' },
   { id: 'resources',  label: 'Resources' },
-  { id: 'about',      label: 'About' },
 ]
 
 export default function App() {
@@ -38,7 +39,7 @@ export default function App() {
   if (showPrivacy) {
     return (
       <>
-        <Header onSearch={handleSearch} />
+        <Header onSearch={handleSearch} onNavigateHome={() => { setShowPrivacy(false); setActiveTab('home') }} />
         <div className="container">
           <PrivacyTab onClose={() => setShowPrivacy(false)} />
         </div>
@@ -49,7 +50,7 @@ export default function App() {
 
   return (
     <>
-      <Header onSearch={handleSearch} />
+      <Header onSearch={handleSearch} onNavigateHome={() => { setActiveTab('home'); clearSearch() }} />
       <div className="container">
         <nav>
           {TABS.map(tab => (
@@ -62,6 +63,9 @@ export default function App() {
             </button>
           ))}
         </nav>
+
+        {/* Ad unit below nav */}
+        <AdUnit slot="9783766249" format="horizontal" />
 
         {searchResult && (
           <div style={{
@@ -87,12 +91,12 @@ export default function App() {
         )}
 
         {activeTab === 'home'       && <HomeTab onNavigate={setActiveTab} />}
+        {activeTab === 'about'      && <AboutTab />}
         {activeTab === 'translator' && <TranslatorTab />}
         {activeTab === 'identity'   && <IdentityTab />}
         {activeTab === 'network'    && <NetworkTab />}
         {activeTab === 'tracker'    && <TrackerTab />}
         {activeTab === 'resources'  && <ResourcesTab />}
-        {activeTab === 'about'      && <AboutTab />}
       </div>
       <Footer onPrivacy={() => setShowPrivacy(true)} />
     </>

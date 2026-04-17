@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import AuthModal from './AuthModal'
 
-export default function Header({ onSearch }) {
+export default function Header({ onSearch, onNavigateHome }) {
   const { user, signOut, supabaseEnabled } = useAuth()
   const [showAuth, setShowAuth] = useState(false)
   const [query, setQuery] = useState('')
@@ -37,8 +37,11 @@ export default function Header({ onSearch }) {
   return (
     <>
       <header style={{ flexWrap: 'wrap', gap: 12 }}>
-        <div>
-          <h1>TYFMS</h1>
+        <div
+          onClick={onNavigateHome}
+          style={{ cursor: onNavigateHome ? 'pointer' : 'default' }}
+        >
+          <h1 style={{ fontSize: 28, fontWeight: 800, letterSpacing: '-.02em' }}>TYFMS</h1>
           <p>No more empty thanks — just real tools for the next mission.</p>
         </div>
 

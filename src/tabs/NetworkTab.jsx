@@ -75,7 +75,9 @@ export default function NetworkTab() {
 
   return (
     <div>
-      <img src="/networking.png" alt="Peer networking" style={{ width: '100%', maxHeight: 200, objectFit: 'cover', borderRadius: 12, marginBottom: 20, display: 'block' }} />
+      <div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <img src="/networking.png" alt="Peer networking" style={{ width: '100%', maxHeight: 320, objectFit: 'contain', display: 'block' }} />
+      </div>
       <p className="sec-title">Peer networking</p>
       <p className="sec-sub">
         Connect with veterans who share your MOS, AFSC, or rate. Join as a mentor if you are further

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import FunFact from '../components/FunFact'
+import AdUnit from '../components/AdUnit'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 
@@ -82,7 +83,9 @@ export default function TranslatorTab() {
 
   return (
     <div>
-      <img src="/translator.png" alt="Skills translator" style={{ width: '100%', maxHeight: 200, objectFit: 'cover', borderRadius: 12, marginBottom: 20, display: 'block' }} />
+      <div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <img src="/translator.png" alt="Skills translator" style={{ width: '100%', maxHeight: 320, objectFit: 'contain', display: 'block' }} />
+      </div>
       <p className="sec-title">Skills translator</p>
       <p className="sec-sub">
         Enter your occupational code and branch. The AI will translate your military experience into
@@ -206,6 +209,7 @@ export default function TranslatorTab() {
         </div>
       )}
 
+      <AdUnit slot="2748392610" />
       <FunFact />
     </div>
   )

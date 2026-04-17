@@ -1,4 +1,5 @@
 import FunFact from '../components/FunFact'
+import AdUnit from '../components/AdUnit'
 
 const RESOURCES = [
   {
@@ -38,7 +39,9 @@ const RESOURCES = [
 export default function ResourcesTab() {
   return (
     <div>
-      <img src="/resources.png" alt="Resources" style={{ width: '100%', maxHeight: 200, objectFit: 'cover', borderRadius: 12, marginBottom: 20, display: 'block' }} />
+      <div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <img src="/resources.png" alt="Resources" style={{ width: '100%', maxHeight: 320, objectFit: 'contain', display: 'block' }} />
+      </div>
       <p className="sec-title">Resources</p>
       <p className="sec-sub">Verified resources organized by what you need most right now.</p>
 
@@ -60,6 +63,7 @@ export default function ResourcesTab() {
         </div>
       ))}
 
+      <AdUnit slot="5891047283" />
       <FunFact />
     </div>
   )
