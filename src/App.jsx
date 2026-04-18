@@ -14,6 +14,7 @@ import PathTab from './tabs/PathTab'
 import CareerTrendsTab from './tabs/CareerTrendsTab'
 import PrivacyTab from './tabs/PrivacyTab'
 import VetNewsTab from './tabs/VetNewsTab'
+import TestimonialsTab from './tabs/TestimonialsTab'
 import FeedbackTab from './tabs/FeedbackTab'
 
 const TABS = [
@@ -27,8 +28,9 @@ const TABS = [
   { id: 'trends',     label: 'Career trends' },
   { id: 'vetnews',    label: 'Vet news' },
   { id: 'tracker',    label: 'Progress tracker' },
-  { id: 'resources',  label: 'Resources' },
-  { id: 'feedback',   label: 'Feedback' },
+  { id: 'resources',     label: 'Resources' },
+  { id: 'testimonials',  label: 'Testimonials' },
+  { id: 'feedback',      label: 'Feedback' },
 ]
 
 const BOTTOM_NAV = [
@@ -121,8 +123,9 @@ export default function App() {
         {activeTab === 'trends'     && <CareerTrendsTab />}
         {activeTab === 'vetnews'    && <VetNewsTab />}
         {activeTab === 'tracker'    && <TrackerTab />}
-        {activeTab === 'resources'  && <ResourcesTab searchResult={searchResult} />}
-        {activeTab === 'feedback'   && <FeedbackTab />}
+        {activeTab === 'resources'     && <ResourcesTab searchResult={searchResult} />}
+        {activeTab === 'testimonials'  && <TestimonialsTab />}
+        {activeTab === 'feedback'      && <FeedbackTab />}
       </div>
       <Footer onPrivacy={() => setShowPrivacy(true)} />
 
