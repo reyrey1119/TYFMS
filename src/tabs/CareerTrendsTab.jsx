@@ -4,17 +4,18 @@ import { supabase } from '../lib/supabase'
 import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
 
-function getMondayStart() {
+function getWeekStart() {
   const now = new Date()
-  const day = now.getDay()
+  const day = now.getUTCDay()
   const diff = day === 0 ? -6 : 1 - day
   const mon = new Date(now)
-  mon.setDate(now.getDate() + diff)
-  mon.setHours(0, 0, 0, 0)
-  return mon.getTime()
+  mon.setUTCDate(now.getUTCDate() + diff)
+  mon.setUTCHours(0, 0, 0, 0)
+  return mon.toISOString().slice(0, 10) // YYYY-MM-DD
 }
 
 const BAR_COLORS = ['#1B3A6B', '#C07A28', '#7c3aad', '#a32d2d']
+const LS_KEY = 'vtg_trends_v2'
 
 export default function CareerTrendsTab() {
   const { user, supabaseEnabled } = useAuth()
@@ -22,28 +23,34 @@ export default function CareerTrendsTab() {
 
   const [trends, setTrends] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [generating, setGenerating] = useState(false)
   const [error, setError] = useState('')
   const [selected, setSelected] = useState(null)
   const [countdown, setCountdown] = useState(null)
 
   const [matches, setMatches] = useState(null)
   const [matchLoading, setMatchLoading] = useState(false)
-  const [resumeMeta, setResumeMeta] = useState(null) // { mos, branch, rank }
+  const [resumeMeta, setResumeMeta] = useState(null)
 
   useEffect(() => {
-    const mondayTs = getMondayStart()
-    const cached = (() => { try { return JSON.parse(localStorage.getItem('vtg_market_trends') || 'null') } catch { return null } })()
-    if (cached && cached.monday === mondayTs && Array.isArray(cached.trends)) {
+    const weekStart = getWeekStart()
+
+    // Check browser localStorage first (instant)
+    const cached = (() => { try { return JSON.parse(localStorage.getItem(LS_KEY) || 'null') } catch { return null } })()
+    if (cached?.weekStart === weekStart && Array.isArray(cached.trends)) {
       setTrends(cached.trends)
       return
     }
+
+    // Fetch from server (reads Supabase cache — fast, or generates — slower)
     setLoading(true)
     fetch('/api/market-trends')
       .then(r => r.json())
       .then(data => {
         if (data.trends) {
           setTrends(data.trends)
-          try { localStorage.setItem('vtg_market_trends', JSON.stringify({ monday: mondayTs, trends: data.trends })) } catch {}
+          if (data.source === 'generated') setGenerating(false)
+          try { localStorage.setItem(LS_KEY, JSON.stringify({ weekStart, trends: data.trends })) } catch {}
         } else {
           setError('Could not load market trends.')
         }
@@ -113,7 +120,9 @@ export default function CareerTrendsTab() {
       {loading && (
         <div style={{ display: 'flex', gap: 10, alignItems: 'center', padding: '24px 0' }}>
           <span className="search-spinner" style={{ width: 14, height: 14, borderColor: 'rgba(26,26,24,.2)', borderTopColor: '#1a1a18' }} />
-          <p style={{ fontSize: 13, color: '#5f5e5a' }}>Loading this week's trends…</p>
+          <p style={{ fontSize: 13, color: '#5f5e5a' }}>
+            {generating ? 'Generating this week\'s trends — this takes about 10 seconds…' : 'Loading this week\'s trends…'}
+          </p>
         </div>
       )}
       {error && <p style={{ fontSize: 13, color: '#a32d2d', marginBottom: 16 }}>{error}</p>}

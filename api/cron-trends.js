@@ -1,19 +1,14 @@
 /*
- * Supabase table — run once in your Supabase SQL editor:
+ * Vercel cron job — runs every Monday at 00:00 UTC.
+ * Pre-generates and caches the week's career trends before any user opens the tab.
  *
- * create table if not exists career_trends_cache (
- *   id           uuid        primary key default gen_random_uuid(),
- *   week_start   date        not null unique,
- *   content      jsonb       not null,
- *   generated_at timestamptz not null default now()
- * );
- * alter table career_trends_cache enable row level security;
- * create policy "Public read trends cache"
- *   on career_trends_cache for select using (true);
+ * Configured in vercel.json:
+ *   { "path": "/api/cron-trends", "schedule": "0 0 * * 1" }
  *
- * Required Vercel env vars (server-side, no VITE_ prefix):
- *   SUPABASE_URL          — same value as VITE_SUPABASE_URL
- *   SUPABASE_SERVICE_KEY  — Supabase service role key (Settings → API → service_role)
+ * Required env var: CRON_SECRET — set in Vercel dashboard (any random string).
+ * Vercel sends: Authorization: Bearer <CRON_SECRET>
+ *
+ * Also requires: SUPABASE_URL, SUPABASE_SERVICE_KEY, ANTHROPIC_API_KEY
  */
 
 import { createClient } from '@supabase/supabase-js'
@@ -25,19 +20,12 @@ function getWeekStart() {
   const mon = new Date(now)
   mon.setUTCDate(now.getUTCDate() + diff)
   mon.setUTCHours(0, 0, 0, 0)
-  return mon.toISOString().slice(0, 10) // YYYY-MM-DD
-}
-
-function getSupabaseAdmin() {
-  const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
-  const key = process.env.SUPABASE_SERVICE_KEY
-  if (!url || !key) return null
-  return createClient(url, key, { auth: { persistSession: false } })
+  return mon.toISOString().slice(0, 10)
 }
 
 async function generateTrends(weekStart) {
   const apiKey = process.env.ANTHROPIC_API_KEY
-  if (!apiKey) throw new Error('API key not configured.')
+  if (!apiKey) throw new Error('ANTHROPIC_API_KEY not configured.')
 
   const weekLabel = new Date(weekStart + 'T12:00:00Z').toLocaleDateString('en-US', {
     month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC',
@@ -89,51 +77,53 @@ Response format — a JSON array, nothing else:
 }
 
 export default async function handler(req, res) {
-  if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' })
-
-  const weekStart = getWeekStart()
-  const db = getSupabaseAdmin()
-
-  // 1. Try Supabase cache
-  if (db) {
-    try {
-      const { data } = await db
-        .from('career_trends_cache')
-        .select('content, generated_at')
-        .eq('week_start', weekStart)
-        .single()
-
-      if (data?.content && Array.isArray(data.content)) {
-        return res.status(200).json({
-          trends: data.content,
-          weekStart,
-          source: 'cache',
-          generatedAt: data.generated_at,
-        })
-      }
-    } catch {
-      // Cache miss or DB error — fall through to AI generation
-    }
+  // Verify this is called by Vercel cron (or an authorized admin)
+  const cronSecret = process.env.CRON_SECRET
+  const authHeader = req.headers.authorization || ''
+  if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
+    return res.status(401).json({ error: 'Unauthorized' })
   }
 
-  // 2. Cache miss: generate via AI
-  try {
-    const trends = await generateTrends(weekStart)
+  const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
+  const key = process.env.SUPABASE_SERVICE_KEY
+  if (!url || !key) {
+    return res.status(500).json({ error: 'Supabase not configured.' })
+  }
 
-    // 3. Save to Supabase cache (best-effort)
-    if (db) {
-      try {
-        await db.from('career_trends_cache').upsert(
-          { week_start: weekStart, content: trends, generated_at: new Date().toISOString() },
-          { onConflict: 'week_start' }
-        )
-      } catch {
-        // Non-fatal: return trends even if cache write fails
-      }
+  const db = createClient(url, key, { auth: { persistSession: false } })
+  const weekStart = getWeekStart()
+
+  try {
+    // Check if already cached for this week (avoid redundant AI call)
+    const { data: existing } = await db
+      .from('career_trends_cache')
+      .select('week_start')
+      .eq('week_start', weekStart)
+      .single()
+
+    if (existing) {
+      return res.status(200).json({ message: `Cache already current for week ${weekStart}.`, weekStart })
     }
 
-    return res.status(200).json({ trends, weekStart, source: 'generated' })
+    // Generate fresh trends
+    const trends = await generateTrends(weekStart)
+
+    // Save to cache
+    const { error: upsertErr } = await db
+      .from('career_trends_cache')
+      .upsert(
+        { week_start: weekStart, content: trends, generated_at: new Date().toISOString() },
+        { onConflict: 'week_start' }
+      )
+
+    if (upsertErr) throw new Error(upsertErr.message)
+
+    return res.status(200).json({
+      message: `Career trends cached for week ${weekStart}.`,
+      weekStart,
+      trendCount: trends.length,
+    })
   } catch (err) {
-    return res.status(500).json({ error: err.message || 'Could not load market trends.' })
+    return res.status(500).json({ error: err.message || 'Cron job failed.' })
   }
 }
