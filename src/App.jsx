@@ -13,6 +13,7 @@ import AboutTab from './tabs/AboutTab'
 import PathTab from './tabs/PathTab'
 import CareerTrendsTab from './tabs/CareerTrendsTab'
 import PrivacyTab from './tabs/PrivacyTab'
+import VetNewsTab from './tabs/VetNewsTab'
 import FeedbackTab from './tabs/FeedbackTab'
 
 const TABS = [
@@ -24,6 +25,7 @@ const TABS = [
   { id: 'identity',   label: 'Identity guide' },
   { id: 'network',    label: 'Networking' },
   { id: 'trends',     label: 'Career trends' },
+  { id: 'vetnews',    label: 'Vet news' },
   { id: 'tracker',    label: 'Progress tracker' },
   { id: 'resources',  label: 'Resources' },
   { id: 'feedback',   label: 'Feedback' },
@@ -116,6 +118,7 @@ export default function App() {
         {activeTab === 'identity'   && <IdentityTab />}
         {activeTab === 'network'    && <NetworkTab />}
         {activeTab === 'trends'     && <CareerTrendsTab />}
+        {activeTab === 'vetnews'    && <VetNewsTab />}
         {activeTab === 'tracker'    && <TrackerTab />}
         {activeTab === 'resources'  && <ResourcesTab searchResult={searchResult} />}
         {activeTab === 'feedback'   && <FeedbackTab />}

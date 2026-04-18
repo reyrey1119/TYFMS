@@ -7,20 +7,27 @@ export default async function handler(req, res) {
   const apiKey = process.env.ANTHROPIC_API_KEY
   if (!apiKey) return res.status(500).json({ error: 'API key not configured on server.' })
 
-  const { action = 'translate', branch, mos, rank, yos } = req.body || {}
+  const { action = 'translate', branch, mos, rank, yos, existingCerts } = req.body || {}
   if (!mos) return res.status(400).json({ error: 'MOS/AFSC is required.' })
 
   // ── TRANSLATE MOS → CIVILIAN ──────────────────────────────────────────────
   if (action === 'translate') {
+    const certsLine = existingCerts && existingCerts.length > 0
+      ? `Certifications already held: ${existingCerts.join(', ')}`
+      : ''
+
     const prompt = `You are a career counselor specializing in military-to-civilian transitions. Translate this veteran's military background into civilian career terms.
 
 Branch: ${branch}
 Occupational code: ${mos}
 ${rank ? 'Rank: ' + rank : ''}
 ${yos ? 'Years of service: ' + yos : ''}
+${certsLine}
 
 Respond ONLY with valid JSON, no markdown, no extra text:
-{"civilianTitles":["t1","t2","t3"],"transferableSkills":["s1","s2","s3","s4","s5","s6"],"careerPaths":[{"title":"path","description":"why it fits"},{"title":"path","description":"why it fits"},{"title":"path","description":"why it fits"}],"targetIndustries":["i1","i2","i3","i4"],"identityTip":"one specific actionable tip for identity transition from this background"}`
+{"civilianTitles":["t1","t2","t3"],"transferableSkills":["s1","s2","s3","s4","s5","s6"],"careerPaths":[{"title":"path","description":"why it fits"},{"title":"path","description":"why it fits"},{"title":"path","description":"why it fits"}],"targetIndustries":["i1","i2","i3","i4"],"identityTip":"one specific actionable tip for identity transition from this background","certifications":[{"name":"Cert Name","why":"one sentence on why this cert helps this veteran land civilian roles"},{"name":"Cert Name","why":"one sentence"},{"name":"Cert Name","why":"one sentence"}]}
+
+For certifications: recommend exactly 3 high-value civilian certifications to pursue next, specific to this MOS and target roles. Do NOT recommend certifications they already hold.`
 
     try {
       const r = await fetch('https://api.anthropic.com/v1/messages', {

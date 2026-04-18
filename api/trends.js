@@ -35,21 +35,19 @@ async function getSupabaseAdmin() {
 }
 
 async function generateTrends(weekStart, apiKey) {
-  const weekLabel = new Date(weekStart + 'T12:00:00Z').toLocaleDateString('en-US', {
-    month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC',
-  })
+  const today = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
 
-  const prompt = `You are a veteran career advisor tracking civilian job market trends. Generate a "This week in civilian careers" briefing for veterans transitioning from military service. This content is for the week of ${weekLabel}.
+  const prompt = `Today is ${today}. You are a veteran career advisor. Search the web for current civilian job market trends and veteran employment news from the past 2 weeks.
 
-Return exactly 4 trend cards as valid JSON. Each card highlights a real, current trend in the civilian job market relevant to veterans — booming industries, high-demand roles, major hiring surges, or skills gaps veterans can uniquely fill.
+Search for: veteran employment news ${new Date().getFullYear()}, military to civilian careers hiring, defense contractor jobs veterans, federal hiring veterans, hot careers veterans transition.
 
-Use badgeCls "bg" for tech/growth roles, "ba" for trades/defense/manufacturing, "bb" for government/federal jobs, "bd" for healthcare/social services. Mix the badge types.
+Return exactly 4 trend cards as valid JSON reflecting real current market conditions. Include source name and publication date when available.
 
-score is 0-100 representing how hot this trend is right now for veterans (higher = more urgent opportunity). Vary the scores meaningfully.
+Use badgeCls "bg" for tech/growth roles, "ba" for trades/defense/manufacturing, "bb" for government/federal jobs, "bd" for healthcare/social services. Mix badge types.
 
-fullAnalysis is 3 sentences: deeper context on the trend, specific veteran advantages in this space, and one concrete action step veterans can take this week.
+score is 0-100 (how hot this trend is for veterans right now). Vary scores meaningfully. fullAnalysis is 3 sentences: context, veteran advantages, one concrete action step this week.
 
-Response format — a JSON array, nothing else:
+Response format — JSON array only, no extra text:
 [
   {
     "title": "Short punchy headline (5-8 words)",
@@ -57,29 +55,40 @@ Response format — a JSON array, nothing else:
     "description": "2-3 sentences explaining the trend and why it matters for veterans specifically.",
     "badgeCls": "bg",
     "score": 85,
-    "fullAnalysis": "3 sentences of deeper analysis, veteran advantages, and a concrete action step."
+    "fullAnalysis": "3 sentences: deeper context, veteran advantages, concrete action step.",
+    "source": "Source name or null",
+    "sourceDate": "Month Year or null"
   }
 ]`
 
   const r = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'anthropic-beta': 'web-search-2025-03-05',
+    },
     body: JSON.stringify({
       model: 'claude-sonnet-4-6',
-      max_tokens: 1200,
+      max_tokens: 2000,
+      tools: [{ type: 'web_search_20250305', name: 'web_search' }],
       messages: [{ role: 'user', content: prompt }],
     }),
   })
   const data = await r.json()
   if (data.error) throw new Error(data.error.message)
-  const txt = (data.content || []).map(i => i.text || '').join('').replace(/```json|```/g, '').trim()
+  const txt = (data.content || [])
+    .filter(i => i.type === 'text')
+    .map(i => i.text || '')
+    .join('')
+    .replace(/```json|```/g, '')
+    .trim()
 
-  // 3-strategy JSON extraction
   const arrMatch = txt.match(/\[[\s\S]*\]/)
   if (arrMatch) {
     try { return JSON.parse(arrMatch[0]) } catch {}
   }
-  // Try finding last complete ]
   const lastBracket = txt.lastIndexOf(']')
   const firstBracket = txt.indexOf('[')
   if (firstBracket !== -1 && lastBracket !== -1) {

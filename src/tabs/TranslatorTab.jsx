@@ -4,6 +4,15 @@ import AdUnit from '../components/AdUnit'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 
+const MILITARY_CERTS = [
+  'CompTIA Security+', 'CompTIA Network+', 'CompTIA A+',
+  'AWS Cloud Practitioner', 'Project Management Professional (PMP)',
+  'Six Sigma Green Belt', 'Certified Defense Financial Manager (CDFM)',
+  'CDL Class A', 'EMT-Basic', 'Paramedic (NREMT-P)',
+  'OSHA 30-Hour', 'Cisco CCNA', 'Microsoft Azure Fundamentals',
+  'Certified Ethical Hacker (CEH)', 'HazMat Operations',
+]
+
 const YOS_OPTIONS = [
   '', 'Less than 1 year', '1–2 years', '3–4 years', '5–6 years',
   '7–8 years', '9–10 years', '11–15 years', '16–20 years', '20+ years',
@@ -17,6 +26,11 @@ export default function TranslatorTab() {
   const [loading, setLoading] = useState(false)
   const [results, setResults] = useState(null)
   const [error, setError] = useState('')
+  const [existingCerts, setExistingCerts] = useState([])
+
+  function toggleCert(cert) {
+    setExistingCerts(prev => prev.includes(cert) ? prev.filter(c => c !== cert) : [...prev, cert])
+  }
 
   // Resume builder state
   const [resumeLoading, setResumeLoading] = useState(false)
@@ -34,7 +48,7 @@ export default function TranslatorTab() {
       const r = await fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos }),
+        body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos, existingCerts }),
       })
       const data = await r.json()
       if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
@@ -147,6 +161,30 @@ export default function TranslatorTab() {
             </select>
           </div>
         </div>
+        <div style={{ marginBottom: 16 }}>
+          <label style={{ display: 'block', marginBottom: 8 }}>
+            Certifications you already hold{' '}
+            <span style={{ fontSize: 11, color: '#b4b2a9', fontWeight: 400 }}>(optional — helps tailor recommendations)</span>
+          </label>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+            {MILITARY_CERTS.map(cert => (
+              <button
+                key={cert}
+                type="button"
+                onClick={() => toggleCert(cert)}
+                style={{
+                  padding: '4px 10px', fontSize: 11, borderRadius: 20,
+                  border: existingCerts.includes(cert) ? '1px solid #0A7868' : '1px solid #d3d1c7',
+                  background: existingCerts.includes(cert) ? '#e8f5f3' : '#fff',
+                  color: existingCerts.includes(cert) ? '#0A7868' : '#5f5e5a',
+                  cursor: 'pointer', fontFamily: 'inherit', transition: 'all .15s',
+                }}
+              >
+                {existingCerts.includes(cert) ? '✓ ' : ''}{cert}
+              </button>
+            ))}
+          </div>
+        </div>
         <button className="btn-g" onClick={translate} disabled={loading}>
           {loading ? 'Analyzing your military experience...' : 'Translate my experience'}
         </button>
@@ -184,6 +222,23 @@ export default function TranslatorTab() {
             <p className="label">Identity transition tip</p>
             <p>{results.identityTip}</p>
           </div>
+
+          {results.certifications && results.certifications.length > 0 && (
+            <div style={{ marginBottom: 24 }}>
+              <p className="cat-label">Certifications to pursue</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 10 }}>
+                {results.certifications.map(c => (
+                  <div key={c.name} className="card" style={{ display: 'flex', gap: 12, alignItems: 'flex-start', padding: '12px 14px' }}>
+                    <span style={{ fontSize: 18, flexShrink: 0 }}>🎓</span>
+                    <div>
+                      <p style={{ fontWeight: 600, fontSize: 14, marginBottom: 3, color: '#1a1a18' }}>{c.name}</p>
+                      <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.6 }}>{c.why}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Resume builder */}
           <div style={{ borderTop: '1px solid #d3d1c7', paddingTop: 20 }}>
