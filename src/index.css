@@ -203,8 +203,10 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
   .header-auth-email { display: none; }
   .header-auth-delete { display: none; }
 
-  /* Hide the top scrollable tab bar — bottom nav replaces it */
-  .nav-sticky-wrapper { display: none; }
+  /* Top tab bar — compact scrollable strip, sticky below header */
+  .nav-sticky-wrapper { display: block; top: 52px; }
+  .nav-inner nav { gap: 4px; padding: 5px 0; }
+  .tbtn { font-size: 11px; padding: 4px 9px; border-radius: 16px; min-height: 28px; }
 
   /* Mobile search panel */
   .mobile-search-panel { top: 52px; }
