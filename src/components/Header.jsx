@@ -86,9 +86,9 @@ export default function Header({ onSearch, onNavigateHome }) {
         <div
           className="header-brand"
           onClick={onNavigateHome}
-          style={{ cursor: onNavigateHome ? 'pointer' : 'default', textAlign: 'center' }}
+          style={{ cursor: onNavigateHome ? 'pointer' : 'default', display: 'flex', alignItems: 'center', gap: 10 }}
         >
-          <h1>Thank You For My Service</h1>
+          <img src="/logo.png" alt="TYFMS" className="header-logo" />
           <p className="header-tagline">No more empty thanks — just real tools for the next mission.</p>
         </div>
 
