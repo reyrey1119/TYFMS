@@ -17,7 +17,8 @@ header {
   z-index: 100;
   min-height: 62px;
 }
-.header-logo { height: 52px; width: auto; display: block; flex-shrink: 0; }
+.header-logo { height: 48px; width: auto; display: block; flex-shrink: 0; }
+.ad-unit { min-height: 90px; }
 .header-tagline { font-size: 10px; color: #9fba9f; line-height: 1.4; }
 .header-search-icon { display: none; background: none; border: none; color: #9fba9f; font-size: 22px; cursor: pointer; padding: 4px; min-height: 44px; min-width: 44px; align-items: center; justify-content: center; }
 .container { max-width: 1100px; margin: 0 auto; padding: 20px 16px 32px; }
@@ -177,56 +178,58 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
 
 /* ── Mobile ≤ 768px ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  /* Typography */
-  body { font-size: 15px; line-height: 1.6; }
+  /* No horizontal overflow */
+  body { font-size: 15px; line-height: 1.6; overflow-x: hidden; }
   .sec-title { font-size: 20px; }
   .sec-sub { font-size: 15px; line-height: 1.65; }
 
-  /* Container — extra bottom for bottom nav */
-  .container { padding: 16px 12px 96px; }
+  /* Container — full width, bottom pad for bottom nav */
+  .container { width: 100%; padding: 16px 12px 96px; }
 
-  /* Header — single row on mobile */
+  /* Header — single clean row: logo left, icons right */
   header {
-    padding: 10px 14px;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
     min-height: 52px;
   }
   .header-spacer { display: none; }
-  .header-brand { text-align: left !important; }
-  .header-logo { height: 40px; }
+  .header-brand { display: flex; align-items: center; flex-shrink: 0; }
+  .header-logo { height: 36px; }
   .header-tagline { display: none; }
   .header-search-desktop { display: none !important; }
   .header-search-icon { display: flex; }
   .header-auth-email { display: none; }
   .header-auth-delete { display: none; }
 
-  /* Nav sticky — below shorter mobile header */
-  .nav-sticky-wrapper { top: 52px; }
+  /* Hide the top scrollable tab bar — bottom nav replaces it */
+  .nav-sticky-wrapper { display: none; }
 
-  /* Nav — smaller pill buttons */
-  .nav-inner nav { gap: 6px; padding: 7px 0; }
-  .tbtn { font-size: 12px; padding: 5px 10px; border-radius: 20px; min-height: 34px; }
-
-  /* Mobile search panel — adjust top */
+  /* Mobile search panel */
   .mobile-search-panel { top: 52px; }
 
-  /* Hero — edge-to-edge, shorter, no radius */
+  /* Hero — edge-to-edge, controlled height, no radius */
   .hero {
     border-radius: 0;
     margin: -16px -12px 24px;
-    min-height: 280px;
+    min-height: 280px !important; /* override inline minHeight: 500 */
     padding: 28px 20px 24px;
   }
   .hero-title { font-size: 36px; line-height: 1.1; margin-bottom: 10px; }
   .hero-tagline { font-size: 16px; margin-bottom: 0; }
 
-  /* Grids → single column */
-  .grid-2 { grid-template-columns: 1fr; }
+  /* All grids → single column */
+  .grid-2 { display: block; }
+  .grid-2 > * { margin-bottom: 12px; }
   .grid-3 { grid-template-columns: 1fr; }
   .grid-5 { grid-template-columns: 1fr 1fr; }
 
   /* Cards */
-  .card { padding: 14px 16px; border-radius: 10px; }
+  .card { padding: 14px 16px; border-radius: 10px; width: 100%; }
+
+  /* Ad placeholder — compact on mobile */
+  .ad-unit { min-height: 60px; max-height: 100px; }
 
   /* Buttons */
   .btn-g, .btn-a, .btn-b { min-height: 50px; font-size: 15px; padding: 13px 16px; }

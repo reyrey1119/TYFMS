@@ -8,7 +8,7 @@ export default function AdUnit({ slot, format = 'auto' }) {
     try { ;(window.adsbygoogle = window.adsbygoogle || []).push({}) } catch {}
   }, [])
   return (
-    <div style={{ margin: '20px 0', position: 'relative', minHeight: 90, background: '#f5f4f0', borderRadius: 8, overflow: 'hidden' }}>
+    <div className="ad-unit" style={{ margin: '20px 0', position: 'relative', background: '#f5f4f0', borderRadius: 8, overflow: 'hidden' }}>
       <p style={{
         position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
         fontSize: 11, color: '#b4b2a9', pointerEvents: 'none', whiteSpace: 'nowrap',
