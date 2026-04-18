@@ -23,7 +23,9 @@ export default function CareerTrendsTab() {
 
   const [trends, setTrends] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [refreshing, setRefreshing] = useState(false)
   const [generating, setGenerating] = useState(false)
+  const [generatedAt, setGeneratedAt] = useState(null)
   const [error, setError] = useState('')
   const [selected, setSelected] = useState(null)
   const [countdown, setCountdown] = useState(null)
@@ -34,29 +36,35 @@ export default function CareerTrendsTab() {
 
   useEffect(() => {
     const weekStart = getWeekStart()
+    let hasCached = false
 
-    // Check browser localStorage first (instant)
     const cached = (() => { try { return JSON.parse(localStorage.getItem(LS_KEY) || 'null') } catch { return null } })()
-    if (cached?.weekStart === weekStart && Array.isArray(cached.trends)) {
+
+    // Show cached data immediately — never block the UI on an API call if we have anything cached
+    if (cached && Array.isArray(cached.trends)) {
       setTrends(cached.trends)
-      return
+      if (cached.generatedAt) setGeneratedAt(cached.generatedAt)
+      hasCached = true
+      if (cached.weekStart === weekStart) return  // Current week — done, no API call
+      setRefreshing(true)  // Stale week — background refresh without spinner
+    } else {
+      setLoading(true)
     }
 
-    // Fetch from server (reads Supabase cache — fast, or generates — slower)
-    setLoading(true)
     fetch('/api/trends')
       .then(r => r.json())
       .then(data => {
         if (data.trends) {
           setTrends(data.trends)
-          if (data.source === 'generated') setGenerating(false)
-          try { localStorage.setItem(LS_KEY, JSON.stringify({ weekStart, trends: data.trends })) } catch {}
-        } else {
+          const gAt = data.generatedAt || new Date().toISOString()
+          setGeneratedAt(gAt)
+          try { localStorage.setItem(LS_KEY, JSON.stringify({ weekStart, trends: data.trends, generatedAt: gAt })) } catch {}
+        } else if (!hasCached) {
           setError('Could not load market trends.')
         }
       })
-      .catch(() => setError('Could not load market trends.'))
-      .finally(() => setLoading(false))
+      .catch(() => { if (!hasCached) setError('Could not load market trends.') })
+      .finally(() => { setLoading(false); setRefreshing(false) })
   }, [])
 
   // Personalization: fetch resume + call trend-match when signed in and trends ready
@@ -116,6 +124,20 @@ export default function CareerTrendsTab() {
         High-demand roles, booming industries, and civilian hiring surges — updated every Monday
         for veterans who are ready to make their move.
       </p>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4, minHeight: 20 }}>
+        {generatedAt && (
+          <p style={{ fontSize: 11, color: '#b4b2a9' }}>
+            Last updated: {new Date(generatedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          </p>
+        )}
+        {refreshing && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <span className="search-spinner" style={{ width: 10, height: 10, borderColor: 'rgba(192,122,40,.2)', borderTopColor: '#C07A28' }} />
+            <p style={{ fontSize: 11, color: '#C07A28' }}>Refreshing…</p>
+          </div>
+        )}
+      </div>
 
       {loading && (
         <div style={{ display: 'flex', gap: 10, alignItems: 'center', padding: '24px 0' }}>

@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { useAuth } from '../context/AuthContext'
 import AuthModal from './AuthModal'
 
-export default function Header({ onSearch, onNavigateHome }) {
+export default function Header({ onSearch, onNavigateHome, onMenu }) {
   const { user, signOut, deleteAccount, supabaseEnabled } = useAuth()
   const [showAuth, setShowAuth] = useState(false)
   const [query, setQuery] = useState('')
@@ -129,6 +129,11 @@ export default function Header({ onSearch, onNavigateHome }) {
           {/* Mobile search icon */}
           <button className="header-search-icon" onClick={openMobileSearch} aria-label="Search">
             🔍
+          </button>
+
+          {/* Hamburger — mobile only, opens slide-up tab sheet */}
+          <button className="header-menu-icon" onClick={onMenu} aria-label="All features">
+            ☰
           </button>
 
           {/* Auth */}

@@ -43,6 +43,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('home')
   const [searchResult, setSearchResult] = useState(null)
   const [showPrivacy, setShowPrivacy] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
 
   function handleSearch(result) {
     setActiveTab(result.tab)
@@ -57,7 +58,7 @@ export default function App() {
   if (showPrivacy) {
     return (
       <>
-        <Header onSearch={handleSearch} onNavigateHome={() => { setShowPrivacy(false); setActiveTab('home') }} />
+        <Header onSearch={handleSearch} onNavigateHome={() => { setShowPrivacy(false); setActiveTab('home') }} onMenu={() => setShowMenu(true)} />
         <div className="container">
           <PrivacyTab onClose={() => setShowPrivacy(false)} />
         </div>
@@ -68,7 +69,7 @@ export default function App() {
 
   return (
     <>
-      <Header onSearch={handleSearch} onNavigateHome={() => { setActiveTab('home'); clearSearch() }} />
+      <Header onSearch={handleSearch} onNavigateHome={() => { setActiveTab('home'); clearSearch() }} onMenu={() => setShowMenu(true)} />
       <div className="nav-sticky-wrapper">
         <div className="nav-inner">
           <nav>
@@ -138,6 +139,27 @@ export default function App() {
           </button>
         ))}
       </div>
+
+      {/* Slide-up tab sheet — triggered by hamburger, mobile only */}
+      {showMenu && (
+        <div className="menu-sheet-overlay" onClick={() => setShowMenu(false)}>
+          <div className="menu-sheet" onClick={e => e.stopPropagation()}>
+            <div className="menu-sheet-header">
+              <p style={{ fontSize: 15, fontWeight: 600, color: '#1a1a18' }}>All features</p>
+              <button className="menu-sheet-close" onClick={() => setShowMenu(false)}>×</button>
+            </div>
+            {TABS.map(tab => (
+              <button
+                key={tab.id}
+                className={`menu-sheet-item${activeTab === tab.id ? ' active' : ''}`}
+                onClick={() => { setActiveTab(tab.id); clearSearch(); setShowMenu(false) }}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   )
 }

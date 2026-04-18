@@ -21,6 +21,7 @@ header {
 .ad-unit { min-height: 90px; }
 .header-tagline { font-size: 10px; color: #9fba9f; line-height: 1.4; }
 .header-search-icon { display: none; background: none; border: none; color: #9fba9f; font-size: 22px; cursor: pointer; padding: 4px; min-height: 44px; min-width: 44px; align-items: center; justify-content: center; }
+.header-menu-icon { display: none; background: none; border: 1px solid rgba(159,186,159,0.3); border-radius: 8px; color: #fff; font-size: 18px; cursor: pointer; min-height: 36px; min-width: 36px; align-items: center; justify-content: center; }
 .container { max-width: 1100px; margin: 0 auto; padding: 20px 16px 32px; }
 
 /* Sticky nav wrapper */
@@ -200,11 +201,12 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
   .header-tagline { display: none; }
   .header-search-desktop { display: none !important; }
   .header-search-icon { display: flex; }
+  .header-menu-icon { display: flex; }
   .header-auth-email { display: none; }
   .header-auth-delete { display: none; }
 
-  /* Top tab bar — compact scrollable strip, sticky below header */
-  .nav-sticky-wrapper { display: block; top: 52px; }
+  /* Top tab bar — hidden on mobile; hamburger sheet handles navigation */
+  .nav-sticky-wrapper { display: none !important; }
   .nav-inner nav { gap: 4px; padding: 5px 0; }
   .tbtn { font-size: 11px; padding: 4px 9px; border-radius: 16px; min-height: 28px; }
 
@@ -272,3 +274,49 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
     box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
   }
 }
+
+/* ── Slide-up menu sheet (hamburger) ─────────────────────────── */
+.menu-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+}
+.menu-sheet {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+  max-height: 75vh;
+  overflow-y: auto;
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.menu-sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid #f0ede6;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+}
+.menu-sheet-item {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #f9f8f5;
+  text-align: left;
+  font-size: 16px;
+  color: #1a1a18;
+  cursor: pointer;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+.menu-sheet-item.active { color: #1B3A6B; font-weight: 600; background: #f0f4ff; }
+.menu-sheet-close { background: none; border: none; font-size: 28px; cursor: pointer; color: #888; padding: 0; line-height: 1; }

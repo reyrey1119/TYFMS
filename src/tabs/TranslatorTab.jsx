@@ -4,13 +4,16 @@ import AdUnit from '../components/AdUnit'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 
-const MILITARY_CERTS = [
-  'CompTIA Security+', 'CompTIA Network+', 'CompTIA A+',
-  'AWS Cloud Practitioner', 'Project Management Professional (PMP)',
-  'Six Sigma Green Belt', 'Certified Defense Financial Manager (CDFM)',
-  'CDL Class A', 'EMT-Basic', 'Paramedic (NREMT-P)',
-  'OSHA 30-Hour', 'Cisco CCNA', 'Microsoft Azure Fundamentals',
-  'Certified Ethical Hacker (CEH)', 'HazMat Operations',
+const CERT_GROUPS = [
+  { label: 'Cybersecurity & IT', certs: ['CompTIA Security+', 'CompTIA Network+', 'CompTIA A+', 'CompTIA CySA+', 'CompTIA CASP+', 'Certified Ethical Hacker (CEH)', 'CISSP', 'CISM', 'AWS Cloud Practitioner', 'AWS Solutions Architect', 'Microsoft Azure Fundamentals', 'Azure Administrator', 'Google Cloud Associate', 'Cisco CCNA', 'Cisco CCNP', 'Splunk Core Certified User', 'Palo Alto PCNSA'] },
+  { label: 'Project & Operations Management', certs: ['Project Management Professional (PMP)', 'CAPM', 'Six Sigma Green Belt', 'Six Sigma Black Belt', 'Lean Six Sigma', 'Agile Scrum Master', 'SAFe Agile', 'ITIL Foundation'] },
+  { label: 'Human Resources', certs: ['PHR', 'SPHR', 'SHRM-CP', 'SHRM-SCP', 'aPHR', 'Certified Defense Financial Manager (CDFM)'] },
+  { label: 'Healthcare & Medical', certs: ['EMT-Basic', 'EMT-Advanced', 'Paramedic (NREMT-P)', 'CNA', 'Phlebotomy Technician', 'Medical Coding (CPC)', 'HIPAA Compliance'] },
+  { label: 'Logistics & Supply Chain', certs: ['APICS CPIM', 'APICS CSCP', 'Certified Supply Chain Professional (CSCP)', 'CDL Class A', 'CDL Class B', 'HAZMAT Operations', 'OSHA 30-Hour'] },
+  { label: 'Finance & Accounting', certs: ['Series 7', 'Series 65', 'CPA', 'Certified Financial Planner (CFP)', 'Bloomberg Market Concepts'] },
+  { label: 'Law Enforcement & Security', certs: ['CPP (Certified Protection Professional)', 'PSP (Physical Security Professional)', 'Security+ DoD 8570'] },
+  { label: 'Education & Counseling', certs: ['Teaching Certificate', 'School Counselor License', 'Certified Career Counselor (CCC)'] },
+  { label: 'Trades', certs: ['OSHA 10-Hour', 'Electrician License', 'Plumbing License', 'HVAC Certification', 'Welding Certification (AWS)'] },
 ]
 
 const YOS_OPTIONS = [
@@ -27,10 +30,7 @@ export default function TranslatorTab() {
   const [results, setResults] = useState(null)
   const [error, setError] = useState('')
   const [existingCerts, setExistingCerts] = useState([])
-
-  function toggleCert(cert) {
-    setExistingCerts(prev => prev.includes(cert) ? prev.filter(c => c !== cert) : [...prev, cert])
-  }
+  const [certToAdd, setCertToAdd] = useState('')
 
   // Resume builder state
   const [resumeLoading, setResumeLoading] = useState(false)
@@ -166,24 +166,55 @@ export default function TranslatorTab() {
             Certifications you already hold{' '}
             <span style={{ fontSize: 11, color: '#b4b2a9', fontWeight: 400 }}>(optional — helps tailor recommendations)</span>
           </label>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-            {MILITARY_CERTS.map(cert => (
-              <button
-                key={cert}
-                type="button"
-                onClick={() => toggleCert(cert)}
-                style={{
-                  padding: '4px 10px', fontSize: 11, borderRadius: 20,
-                  border: existingCerts.includes(cert) ? '1px solid #0A7868' : '1px solid #d3d1c7',
-                  background: existingCerts.includes(cert) ? '#e8f5f3' : '#fff',
-                  color: existingCerts.includes(cert) ? '#0A7868' : '#5f5e5a',
-                  cursor: 'pointer', fontFamily: 'inherit', transition: 'all .15s',
-                }}
-              >
-                {existingCerts.includes(cert) ? '✓ ' : ''}{cert}
-              </button>
-            ))}
+          <div style={{ display: 'flex', gap: 8, marginBottom: existingCerts.length > 0 ? 8 : 0 }}>
+            <select
+              value={certToAdd}
+              onChange={e => setCertToAdd(e.target.value)}
+              style={{ flex: 1 }}
+            >
+              <option value="">Choose a certification to add…</option>
+              {CERT_GROUPS.map(g => (
+                <optgroup key={g.label} label={g.label}>
+                  {g.certs.map(c => (
+                    <option key={c} value={c} disabled={existingCerts.includes(c)}>{c}</option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
+            <button
+              type="button"
+              onClick={() => { if (certToAdd) { setExistingCerts(prev => [...prev, certToAdd]); setCertToAdd('') } }}
+              disabled={!certToAdd}
+              style={{
+                padding: '8px 16px', background: certToAdd ? '#1B3A6B' : '#d3d1c7',
+                border: 'none', borderRadius: 8, color: '#fff', fontSize: 13,
+                cursor: certToAdd ? 'pointer' : 'default', fontFamily: 'inherit', flexShrink: 0,
+              }}
+            >
+              Add
+            </button>
           </div>
+          {existingCerts.length > 0 && (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+              {existingCerts.map(cert => (
+                <span
+                  key={cert}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 4,
+                    padding: '3px 8px 3px 10px', background: '#e8f5f3', color: '#0A7868',
+                    border: '1px solid #0A7868', borderRadius: 20, fontSize: 11,
+                  }}
+                >
+                  {cert}
+                  <button
+                    type="button"
+                    onClick={() => setExistingCerts(prev => prev.filter(c => c !== cert))}
+                    style={{ background: 'none', border: 'none', color: '#0A7868', cursor: 'pointer', padding: 0, fontSize: 15, lineHeight: 1, display: 'flex', alignItems: 'center' }}
+                  >×</button>
+                </span>
+              ))}
+            </div>
+          )}
         </div>
         <button className="btn-g" onClick={translate} disabled={loading}>
           {loading ? 'Analyzing your military experience...' : 'Translate my experience'}
