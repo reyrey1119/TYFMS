@@ -109,7 +109,7 @@ export default function App() {
         {activeTab === 'network'    && <NetworkTab />}
         {activeTab === 'trends'     && <CareerTrendsTab />}
         {activeTab === 'tracker'    && <TrackerTab />}
-        {activeTab === 'resources'  && <ResourcesTab />}
+        {activeTab === 'resources'  && <ResourcesTab searchResult={searchResult} />}
         {activeTab === 'feedback'   && <FeedbackTab />}
       </div>
       <Footer onPrivacy={() => setShowPrivacy(true)} />
