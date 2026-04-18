@@ -1,60 +1,80 @@
+// POST /api/resume  — full resume builder (used by ResumeTab)
+// Body: { branch, mos, rank, yos, targetCompany, additionalSkills, contact, prevJobs }
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
   const apiKey = process.env.ANTHROPIC_API_KEY
   if (!apiKey) return res.status(500).json({ error: 'API key not configured on server.' })
 
-  const { branch, mos, rank, yos, civilianTitles, transferableSkills, careerPaths, targetIndustries } = req.body || {}
-  if (!mos) return res.status(400).json({ error: 'Military background required.' })
+  const { branch, mos, rank, yos, targetCompany, additionalSkills, contact, prevJobs } = req.body || {}
+  if (!mos?.trim()) return res.status(400).json({ error: 'MOS, AFSC, or rate code is required.' })
 
-  const prompt = `You are an expert resume writer specializing in military-to-civilian transitions. Create a complete, professional resume draft.
+  const companyContext = targetCompany?.trim()
+    ? `The veteran is targeting: ${targetCompany.trim()}. Tailor the tone, skills emphasis, and language to that company's culture and values.`
+    : 'Tailor for general civilian employment in the private sector.'
 
-Military background:
-- Branch: ${branch}
-- Occupational code: ${mos}
-${rank ? `- Rank: ${rank}` : ''}
-${yos ? `- Years of service: ${yos}` : ''}
+  const contactBlock = contact
+    ? `Name: ${contact.name || '[YOUR NAME]'} | Email: ${contact.email || '[email]'} | Phone: ${contact.phone || '[phone]'} | Location: ${contact.location || '[City, State]'}${contact.linkedin ? ' | ' + contact.linkedin : ''}`
+    : '[YOUR NAME] | [City, State] | [email@example.com] | [LinkedIn URL] | [Phone]'
 
-Civilian profile (AI-translated):
-- Target titles: ${(civilianTitles || []).join(', ')}
-- Key skills: ${(transferableSkills || []).join(', ')}
-- Career paths: ${(careerPaths || []).map(p => p.title).join(', ')}
-- Target industries: ${(targetIndustries || []).join(', ')}
+  const prevJobsBlock = Array.isArray(prevJobs) && prevJobs.filter(j => j.title?.trim()).length > 0
+    ? '\n\nNon-military experience to include:\n' + prevJobs
+        .filter(j => j.title?.trim())
+        .map(j => `- ${j.title} at ${j.employer || 'N/A'} (${j.dates || 'N/A'}): ${j.description || ''}`)
+        .join('\n')
+    : ''
 
-Write a complete resume with these exact sections, separated by blank lines:
+  const prompt = `You are an expert resume writer who specializes in veteran-to-civilian career transitions. Create a complete, polished one-page civilian resume.
 
-[YOUR NAME]
-[City, State] | [Phone] | [Email] | [LinkedIn URL]
+Veteran profile:
+- Branch: ${branch || 'US Military'}
+- MOS / AFSC / Rate: ${mos.trim()}
+- Rank: ${rank?.trim() || 'Not specified'}
+- Years of service: ${yos?.trim() || 'Not specified'}
+- Additional skills: ${additionalSkills?.trim() || 'None listed'}
+
+Target: ${companyContext}${prevJobsBlock}
+
+Generate the full resume in plain text. Include every section below. Translate ALL military terminology into civilian language — never use acronyms without explanation. Quantify results with realistic bracketed placeholders like [X%], [N people], [$X], [N years].
+
+Format exactly as follows:
+
+${contactBlock}
 
 PROFESSIONAL SUMMARY
-3-4 sentences. Civilian language only. No military jargon. Lead with years of experience and top value.
+3-4 sentence summary tailored to the target company, leading with years of experience and top value proposition.
 
 CORE COMPETENCIES
-List 12 skills relevant to the target roles, formatted as three columns of four (use " | " to separate columns).
+12-16 skills in a 3-column list, matched to the target company's known priorities.
 
 PROFESSIONAL EXPERIENCE
-[Civilian Job Title equivalent] | [Branch of Service]
+
+[Job Title translated from MOS] | [Equivalent civilian employer name]
 [Start Year] – [End Year]
-• 5-6 bullet points with strong action verbs and quantified achievements using placeholder numbers like [X]% or [N] team members
+• 4-5 bullet points with quantified achievements, leadership scope, and impact
+• Use strong action verbs. No military jargon.
 
-EDUCATION & TRAINING
-[Your Degree, if applicable] | [Institution] | [Year]
-[Relevant Military Training/School] | [Year]
+[Second Job Title] | [Branch of Service, abbreviated]
+[Start Year] – [End Year]
+• 3-4 bullet points for an earlier role or different function within service
+${prevJobs?.filter(j => j.title?.trim()).length > 0 ? `
+[Non-military roles — include each provided above with title, employer, dates, and 2-3 bullets translating their civilian experience]` : ''}
 
-CERTIFICATIONS & CLEARANCES
-• [Security Clearance Level] Security Clearance (if applicable based on MOS)
-• [Relevant Certification] — list 2-3 likely certifications for this MOS
+EDUCATION
+[Degree or In Progress] | [Institution]
+Expected [Year] or [Year]
+Relevant coursework or training programs translated from military.
 
-Return only the resume text. No markdown, no extra commentary.`
+CERTIFICATIONS & TRAINING
+List 2-4 relevant certifications based on MOS (real civilian equivalents where they exist).
+
+Return only the resume text — no preamble, no commentary.`
 
   try {
     const r = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-      },
+      headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
         max_tokens: 2000,

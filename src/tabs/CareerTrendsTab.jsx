@@ -44,7 +44,7 @@ export default function CareerTrendsTab() {
 
     // Fetch from server (reads Supabase cache — fast, or generates — slower)
     setLoading(true)
-    fetch('/api/market-trends')
+    fetch('/api/trends')
       .then(r => r.json())
       .then(data => {
         if (data.trends) {
@@ -73,11 +73,11 @@ export default function CareerTrendsTab() {
         if (!data?.data?.mos) return
         const { mos, branch, rank } = data.data
         setResumeMeta({ mos, branch, rank })
-        const r = await fetch('/api/trend-match', {
+        const r = await fetch('/api/trends', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            mos, branch, rank,
+            action: 'match', mos, branch, rank,
             trends: trends.map(t => ({ title: t.title, category: t.category })),
           }),
         })

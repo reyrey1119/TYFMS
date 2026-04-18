@@ -102,10 +102,10 @@ export default function TrackerTab() {
       setEncLoading(true)
       setEncourage(null)
       try {
-        const r = await fetch('/api/milestone-encourage', {
+        const r = await fetch('/api/tracker', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ milestone: milestone.text, phase: phase.title }),
+          body: JSON.stringify({ action: 'milestone', milestone: milestone.text, phase: phase.title }),
         })
         const data = await r.json()
         if (data.encouragement) setEncourage({ text: data.encouragement, milestone: milestone.text })

@@ -85,10 +85,10 @@ export default function IdentityTab() {
     setError('')
     const apiMessages = updated.slice(1).map(m => ({ role: m.role, content: m.content }))
     try {
-      const r = await fetch('/api/identity-chat', {
+      const r = await fetch('/api/identity', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: apiMessages }),
+        body: JSON.stringify({ action: 'chat', messages: apiMessages }),
       })
       const data = await r.json()
       if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
@@ -105,10 +105,10 @@ export default function IdentityTab() {
     setStatementLoading(true)
     setStatement('')
     try {
-      const r = await fetch('/api/identity-statement', {
+      const r = await fetch('/api/identity', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages }),
+        body: JSON.stringify({ action: 'statement', messages }),
       })
       const data = await r.json()
       if (data.statement) setStatement(data.statement)

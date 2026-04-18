@@ -34,7 +34,7 @@ export default function TranslatorTab() {
       const r = await fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ branch, mos: mos.trim(), rank, yos }),
+        body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos }),
       })
       const data = await r.json()
       if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
@@ -52,10 +52,10 @@ export default function TranslatorTab() {
     setResume('')
     setResumeLoading(true)
     try {
-      const r = await fetch('/api/resume', {
+      const r = await fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ branch, mos, rank, yos, ...results }),
+        body: JSON.stringify({ action: 'resume', branch, mos, rank, yos, ...results }),
       })
       const data = await r.json()
       if (!r.ok) { setResumeError(data.error || 'Something went wrong.'); return }

@@ -74,7 +74,7 @@ export default function ResumeTab() {
     setResume('')
     setLoading(true)
     try {
-      const r = await fetch('/api/resume-builder', {
+      const r = await fetch('/api/resume', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
