@@ -12,24 +12,6 @@ const FEATURES = [
 const YEARS_OUT = ['Less than 1 year', '1–2 years', '3–5 years', '6–10 years', '10+ years']
 const AVATAR_COLORS = ['#1B3A6B', '#0A7868', '#C07A28', '#7B3F91', '#a32d2d', '#2d6a8a']
 
-// Seed stories shown only until real approved testimonials exist
-const SEED_STORIES = [
-  {
-    id: 'seed-1', name: 'SSgt Martinez', branch: 'Marine Corps', mos: '0311',
-    years_out: '2 years', feature_used: 'Skills translator',
-    story: 'I had no idea what to put on a resume. The translator took my 0311 and turned it into language that actually meant something to a civilian hiring manager. Got my first real interview two weeks later.',
-  },
-  {
-    id: 'seed-2', name: 'Petty Officer Chen', branch: 'Navy', mos: 'IT',
-    years_out: '1 year', feature_used: 'Resume builder',
-    story: 'I knew computers but I couldn\'t explain what I did in civilian terms. TYFMS helped me see my own value in a way nobody at the transition office ever had. That changed everything.',
-  },
-  {
-    id: 'seed-3', name: 'SGT Williams', branch: 'Army', mos: '25U',
-    years_out: '3 years', feature_used: 'Career trends',
-    story: 'The career trends tab showed me my signal background was in demand before I even knew what cybersecurity was. Changed my entire direction. Three years later I\'m a SOC analyst making more than I ever expected.',
-  },
-]
 
 function Avatar({ name, size = 44 }) {
   const initials = (name || '?').trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase()
@@ -115,9 +97,6 @@ export default function TestimonialsTab() {
     setSubmitting(false)
   }
 
-  const displayStories = testimonials.length > 0 ? testimonials : SEED_STORIES
-  const showingSeed = testimonials.length === 0
-
   return (
     <div>
       {/* Intro */}
@@ -140,39 +119,45 @@ export default function TestimonialsTab() {
           <span className="search-spinner" style={{ width: 14, height: 14, borderColor: 'rgba(26,26,24,.2)', borderTopColor: '#1a1a18' }} />
           <p style={{ fontSize: 13, color: '#5f5e5a' }}>Loading stories…</p>
         </div>
+      ) : testimonials.length === 0 ? (
+        <div style={{
+          padding: '36px 24px', textAlign: 'center', marginBottom: 40,
+          background: '#f9f8f5', borderRadius: 12, border: '1px dashed #d3d1c7',
+        }}>
+          <p style={{ fontSize: 28, marginBottom: 12 }}>⭐</p>
+          <p style={{ fontSize: 15, fontWeight: 600, color: '#1a1a18', marginBottom: 8 }}>
+            Be the first to share your story.
+          </p>
+          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7 }}>
+            Real testimonials from real veterans will appear here once submitted and reviewed.
+          </p>
+        </div>
       ) : (
-        <div style={{ marginBottom: 40 }}>
-          {showingSeed && (
-            <p style={{ fontSize: 11, color: '#b4b2a9', marginBottom: 12, fontStyle: 'italic' }}>
-              Sample stories shown below. Real veteran submissions will replace these once approved.
-            </p>
-          )}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            {displayStories.map((t, i) => (
-              <div
-                key={t.id || i}
-                className="card"
-                style={{ borderLeft: '4px solid #C07A28', borderRadius: '0 12px 12px 0', padding: '18px 20px' }}
-              >
-                <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 12, flexWrap: 'wrap' }}>
-                  <Avatar name={t.name} />
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 2 }}>{t.name}</p>
-                    <p style={{ fontSize: 12, color: '#5f5e5a' }}>
-                      {t.branch} · {t.mos}
-                      {t.years_out && <span> · {t.years_out} out</span>}
-                    </p>
-                  </div>
-                  {t.feature_used && (
-                    <span className="bg" style={{ fontSize: 10, flexShrink: 0 }}>{t.feature_used}</span>
-                  )}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 40 }}>
+          {testimonials.map((t, i) => (
+            <div
+              key={t.id || i}
+              className="card"
+              style={{ borderLeft: '4px solid #C07A28', borderRadius: '0 12px 12px 0', padding: '18px 20px' }}
+            >
+              <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 12, flexWrap: 'wrap' }}>
+                <Avatar name={t.name} />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 2 }}>{t.name}</p>
+                  <p style={{ fontSize: 12, color: '#5f5e5a' }}>
+                    {t.branch} · {t.mos}
+                    {t.years_out && <span> · {t.years_out} out</span>}
+                  </p>
                 </div>
-                <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.8, fontStyle: 'italic' }}>
-                  "{t.story}"
-                </p>
+                {t.feature_used && (
+                  <span className="bg" style={{ fontSize: 10, flexShrink: 0 }}>{t.feature_used}</span>
+                )}
               </div>
-            ))}
-          </div>
+              <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.8, fontStyle: 'italic' }}>
+                "{t.story}"
+              </p>
+            </div>
+          ))}
         </div>
       )}
 

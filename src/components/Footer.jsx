@@ -1,6 +1,6 @@
-export default function Footer({ onPrivacy }) {
+export default function Footer({ onPrivacy, className }) {
   return (
-    <footer style={{
+    <footer className={className} style={{
       borderTop: '1px solid #d3d1c7', marginTop: 48, padding: '20px 24px',
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       flexWrap: 'wrap', gap: 8,

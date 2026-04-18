@@ -8,6 +8,25 @@ const CACHE_TTL = 7 * 24 * 60 * 60 * 1000
 
 const CAT_CLS = { Benefits: 'bg', Employment: 'ba', Policy: 'bb', Education: 'bd', Health: 'bd' }
 
+function SkeletonArticle() {
+  return (
+    <div className="card">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8, gap: 8 }}>
+        <div className="skeleton-block" style={{ width: 70, height: 20, borderRadius: 8 }} />
+        <div className="skeleton-block" style={{ width: 60, height: 13 }} />
+      </div>
+      <div className="skeleton-block" style={{ width: '85%', height: 18, marginBottom: 6 }} />
+      <div className="skeleton-block" style={{ width: '100%', height: 13, marginBottom: 4 }} />
+      <div className="skeleton-block" style={{ width: '100%', height: 13, marginBottom: 4 }} />
+      <div className="skeleton-block" style={{ width: '70%', height: 13, marginBottom: 14 }} />
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="skeleton-block" style={{ width: 80, height: 13 }} />
+        <div className="skeleton-block" style={{ width: 80, height: 28, borderRadius: 8 }} />
+      </div>
+    </div>
+  )
+}
+
 export default function VetNewsTab() {
   const { user, supabaseEnabled } = useAuth()
   const [articles, setArticles] = useState([])
@@ -31,11 +50,8 @@ export default function VetNewsTab() {
           setLoading(false)
           hasCached = true
 
-          // Fresh enough — done, no API call
-          if (Date.now() - new Date(cached.cachedAt).getTime() < CACHE_TTL) return
-
-          // Stale — refresh in background without blocking the UI
-          setRefreshing(true)
+          // Stale — show refreshing indicator; always continue to background check
+          if (Date.now() - new Date(cached.cachedAt).getTime() >= CACHE_TTL) setRefreshing(true)
         }
       } catch {}
 
@@ -92,9 +108,8 @@ export default function VetNewsTab() {
       </div>
 
       {loading && (
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 10, alignItems: 'center', padding: '40px 0' }}>
-          <span className="search-spinner" style={{ width: 16, height: 16, borderColor: 'rgba(26,26,24,.15)', borderTopColor: '#1B3A6B' }} />
-          <p style={{ fontSize: 13, color: '#5f5e5a' }}>Searching for current veteran news…</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 32 }}>
+          {[...Array(5)].map((_, i) => <SkeletonArticle key={i} />)}
         </div>
       )}
 

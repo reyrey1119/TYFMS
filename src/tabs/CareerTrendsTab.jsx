@@ -45,8 +45,7 @@ export default function CareerTrendsTab() {
       setTrends(cached.trends)
       if (cached.generatedAt) setGeneratedAt(cached.generatedAt)
       hasCached = true
-      if (cached.weekStart === weekStart) return  // Current week — done, no API call
-      setRefreshing(true)  // Stale week — background refresh without spinner
+      if (cached.weekStart !== weekStart) setRefreshing(true)  // Stale week — show indicator
     } else {
       setLoading(true)
     }
@@ -139,13 +138,35 @@ export default function CareerTrendsTab() {
         )}
       </div>
 
-      {loading && (
-        <div style={{ display: 'flex', gap: 10, alignItems: 'center', padding: '24px 0' }}>
-          <span className="search-spinner" style={{ width: 14, height: 14, borderColor: 'rgba(26,26,24,.2)', borderTopColor: '#1a1a18' }} />
-          <p style={{ fontSize: 13, color: '#5f5e5a' }}>
-            {generating ? 'Generating this week\'s trends — this takes about 10 seconds…' : 'Loading this week\'s trends…'}
-          </p>
-        </div>
+      {loading && !trends && (
+        <>
+          <div className="card" style={{ marginBottom: 24 }}>
+            <div className="skeleton-block" style={{ width: 180, height: 14, marginBottom: 14 }} />
+            {[...Array(4)].map((_, i) => (
+              <div key={i} style={{ marginBottom: 12 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
+                  <div className="skeleton-block" style={{ width: 110, height: 12 }} />
+                  <div className="skeleton-block" style={{ width: 30, height: 12 }} />
+                </div>
+                <div className="skeleton-block" style={{ width: '100%', height: 8 }} />
+              </div>
+            ))}
+          </div>
+          <div className="grid-2" style={{ marginBottom: 32 }}>
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="card">
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, gap: 8 }}>
+                  <div className="skeleton-block" style={{ flex: 1, height: 18 }} />
+                  <div className="skeleton-block" style={{ width: 60, height: 20, borderRadius: 8 }} />
+                </div>
+                <div className="skeleton-block" style={{ width: '100%', height: 13, marginBottom: 4 }} />
+                <div className="skeleton-block" style={{ width: '100%', height: 13, marginBottom: 4 }} />
+                <div className="skeleton-block" style={{ width: '80%', height: 13, marginBottom: 10 }} />
+                <div className="skeleton-block" style={{ width: 120, height: 12 }} />
+              </div>
+            ))}
+          </div>
+        </>
       )}
       {error && <p style={{ fontSize: 13, color: '#a32d2d', marginBottom: 16 }}>{error}</p>}
 

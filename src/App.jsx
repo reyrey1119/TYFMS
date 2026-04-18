@@ -18,19 +18,19 @@ import TestimonialsTab from './tabs/TestimonialsTab'
 import FeedbackTab from './tabs/FeedbackTab'
 
 const TABS = [
-  { id: 'home',       label: 'Home' },
-  { id: 'about',      label: 'About' },
-  { id: 'path',       label: 'Find your path' },
-  { id: 'translator', label: 'Skills translator' },
-  { id: 'resume',     label: 'Resume builder' },
-  { id: 'identity',   label: 'Identity guide' },
-  { id: 'network',    label: 'Networking' },
-  { id: 'trends',     label: 'Career trends' },
-  { id: 'vetnews',    label: 'Vet news' },
-  { id: 'tracker',    label: 'Progress tracker' },
-  { id: 'resources',     label: 'Resources' },
-  { id: 'testimonials',  label: 'Testimonials' },
-  { id: 'feedback',      label: 'Feedback' },
+  { id: 'home',         icon: '🏠', label: 'Home' },
+  { id: 'about',        icon: 'ℹ️',  label: 'About' },
+  { id: 'path',         icon: '🧭', label: 'Find your path' },
+  { id: 'translator',   icon: '⚡', label: 'Skills translator' },
+  { id: 'resume',       icon: '📄', label: 'Resume builder' },
+  { id: 'identity',     icon: '💬', label: 'Identity guide' },
+  { id: 'network',      icon: '🤝', label: 'Networking' },
+  { id: 'trends',       icon: '📈', label: 'Career trends' },
+  { id: 'vetnews',      icon: '📰', label: 'Vet news' },
+  { id: 'tracker',      icon: '✅', label: 'Progress tracker' },
+  { id: 'resources',    icon: '📚', label: 'Resources' },
+  { id: 'testimonials', icon: '⭐', label: 'Testimonials' },
+  { id: 'feedback',     icon: '💡', label: 'Feedback' },
 ]
 
 const BOTTOM_NAV = [
@@ -61,10 +61,22 @@ export default function App() {
     return (
       <>
         <Header onSearch={handleSearch} onNavigateHome={() => { setShowPrivacy(false); setActiveTab('home') }} onMenu={() => setShowMenu(true)} />
+        <nav className="sidebar" aria-label="Main navigation">
+          {TABS.map(tab => (
+            <button
+              key={tab.id}
+              className={`sidebar-btn${activeTab === tab.id ? ' on' : ''}`}
+              onClick={() => { setShowPrivacy(false); setActiveTab(tab.id); clearSearch() }}
+            >
+              <span className="sidebar-icon">{tab.icon}</span>
+              <span className="sidebar-label">{tab.label}</span>
+            </button>
+          ))}
+        </nav>
         <div className="container">
           <PrivacyTab onClose={() => setShowPrivacy(false)} />
         </div>
-        <Footer onPrivacy={() => setShowPrivacy(true)} />
+        <Footer className="main-footer" onPrivacy={() => setShowPrivacy(true)} />
       </>
     )
   }
@@ -72,6 +84,19 @@ export default function App() {
   return (
     <>
       <Header onSearch={handleSearch} onNavigateHome={() => { setActiveTab('home'); clearSearch() }} onMenu={() => setShowMenu(true)} />
+      {/* Desktop sidebar — fixed left, >1024px only, shown via CSS */}
+      <nav className="sidebar" aria-label="Main navigation">
+        {TABS.map(tab => (
+          <button
+            key={tab.id}
+            className={`sidebar-btn${activeTab === tab.id ? ' on' : ''}`}
+            onClick={() => { setActiveTab(tab.id); clearSearch() }}
+          >
+            <span className="sidebar-icon">{tab.icon}</span>
+            <span className="sidebar-label">{tab.label}</span>
+          </button>
+        ))}
+      </nav>
       <div className="nav-sticky-wrapper">
         <div className="nav-inner">
           <nav>
@@ -127,7 +152,7 @@ export default function App() {
         {activeTab === 'testimonials'  && <TestimonialsTab />}
         {activeTab === 'feedback'      && <FeedbackTab />}
       </div>
-      <Footer onPrivacy={() => setShowPrivacy(true)} />
+      <Footer className="main-footer" onPrivacy={() => setShowPrivacy(true)} />
 
       {/* Bottom nav — mobile only, shown via CSS */}
       <div className="bottom-nav" role="navigation" aria-label="Main navigation">
