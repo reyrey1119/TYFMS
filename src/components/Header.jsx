@@ -33,12 +33,14 @@ export default function Header({ onSearch, onNavigateHome }) {
         body: JSON.stringify({ query: q }),
       })
       const data = await r.json()
-      if (data.tab && onSearch) {
+      if (data.tab && data.summary && onSearch) {
         cache.current.set(q, data)
         onSearch(data)
         setQuery('')
       } else if (data.error) {
         setSearchError(data.error)
+      } else {
+        setSearchError('No results found. Try a different search.')
       }
     } catch {
       setSearchError('Search unavailable. Try again.')
