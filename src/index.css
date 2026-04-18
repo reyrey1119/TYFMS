@@ -228,8 +228,6 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
   /* Cards */
   .card { padding: 14px 16px; border-radius: 10px; width: 100%; }
 
-  /* Ad placeholder — compact on mobile */
-  .ad-unit { min-height: 60px; max-height: 100px; }
 
   /* Buttons */
   .btn-g, .btn-a, .btn-b { min-height: 50px; font-size: 15px; padding: 13px 16px; }
