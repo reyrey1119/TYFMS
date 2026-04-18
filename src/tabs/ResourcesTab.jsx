@@ -3,9 +3,9 @@ import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
 
 const CONTACTS = [
-  { label: 'VA Main Hotline (MyVA411)', number: '800-698-2411', color: '#1B3A6B', crisis: false },
-  { label: 'Veterans Crisis Line', number: '988 → press 1', color: '#a32d2d', crisis: true },
-  { label: 'Benefits Hotline', number: '800-827-1000', color: '#1B3A6B', crisis: false },
+  { label: 'VA Main Hotline (MyVA411)', number: '800-698-2411', tel: '18006982411', color: '#1B3A6B', crisis: false },
+  { label: 'Veterans Crisis Line', number: '988 → press 1', tel: '988', color: '#a32d2d', crisis: true },
+  { label: 'Benefits Hotline', number: '800-827-1000', tel: '18008271000', color: '#1B3A6B', crisis: false },
 ]
 
 const RESOURCES = [
@@ -146,7 +146,7 @@ export default function ResourcesTab({ searchResult }) {
             borderRadius: 8, border: `1px solid ${c.crisis ? '#f5c0c0' : '#d3ddf0'}`,
           }}>
             <p style={{ fontSize: 10, color: '#b4b2a9', marginBottom: 3, fontWeight: 500 }}>{c.label}</p>
-            <p style={{ fontSize: 16, fontWeight: 800, color: c.color, letterSpacing: '-.01em' }}>{c.number}</p>
+            <a href={`tel:${c.tel}`} style={{ fontSize: 16, fontWeight: 800, color: c.color, letterSpacing: '-.01em', textDecoration: 'none', display: 'block' }}>{c.number}</a>
           </div>
         ))}
       </div>

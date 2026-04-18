@@ -80,12 +80,13 @@ export default function HomeTab({ onNavigate }) {
       <div className="hero" style={{
         backgroundImage: 'url(/hero.png)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'top',
+        minHeight: 500,
         marginBottom: 32,
       }}>
         <div style={{
-          position: 'absolute', inset: 0, borderRadius: 16,
-          background: 'linear-gradient(135deg, rgba(15,27,77,0.90) 0%, rgba(27,58,107,0.84) 100%)',
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(135deg, rgba(15,27,77,0.88) 0%, rgba(27,58,107,0.80) 100%)',
         }} />
         <div style={{ position: 'relative' }}>
           <h1 className="hero-title">Thank You<br />For My Service</h1>

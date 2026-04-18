@@ -29,6 +29,14 @@ const TABS = [
   { id: 'feedback',   label: 'Feedback' },
 ]
 
+const BOTTOM_NAV = [
+  { id: 'home',       icon: '🏠', label: 'Home' },
+  { id: 'path',       icon: '🧭', label: 'Find path' },
+  { id: 'translator', icon: '⚡', label: 'Translate' },
+  { id: 'network',    icon: '🤝', label: 'Network' },
+  { id: 'resources',  icon: '📚', label: 'Resources' },
+]
+
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
   const [searchResult, setSearchResult] = useState(null)
@@ -113,6 +121,20 @@ export default function App() {
         {activeTab === 'feedback'   && <FeedbackTab />}
       </div>
       <Footer onPrivacy={() => setShowPrivacy(true)} />
+
+      {/* Bottom nav — mobile only, shown via CSS */}
+      <div className="bottom-nav" role="navigation" aria-label="Main navigation">
+        {BOTTOM_NAV.map(t => (
+          <button
+            key={t.id}
+            className={`bottom-nav-btn${activeTab === t.id ? ' on' : ''}`}
+            onClick={() => { setActiveTab(t.id); clearSearch() }}
+          >
+            <span className="bottom-nav-icon">{t.icon}</span>
+            <span className="bottom-nav-label">{t.label}</span>
+          </button>
+        ))}
+      </div>
     </>
   )
 }

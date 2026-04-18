@@ -231,7 +231,7 @@ export default function IdentityTab() {
       {error && <p style={{ fontSize: 12, color: '#a32d2d', marginBottom: 8 }}>{error}</p>}
 
       {/* Input */}
-      <div style={{ display: 'flex', gap: 8, alignItems: 'flex-end' }}>
+      <div className="chat-input-area">
         <textarea
           value={input}
           onChange={e => setInput(e.target.value)}

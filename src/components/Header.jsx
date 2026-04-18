@@ -9,23 +9,18 @@ export default function Header({ onSearch, onNavigateHome }) {
   const [searching, setSearching] = useState(false)
   const [searchError, setSearchError] = useState('')
   const [deleting, setDeleting] = useState(false)
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false)
   const cache = useRef(new Map())
+  const mobileInputRef = useRef(null)
 
-  async function handleSearch(e) {
-    e.preventDefault()
-    const q = query.trim()
-    if (!q || searching) return
+  async function runSearch(q) {
+    if (!q || searching) return false
+    if (cache.current.has(q)) {
+      if (onSearch) onSearch(cache.current.get(q))
+      return true
+    }
     setSearching(true)
     setSearchError('')
-
-    if (cache.current.has(q)) {
-      const cached = cache.current.get(q)
-      if (onSearch) onSearch(cached)
-      setQuery('')
-      setSearching(false)
-      return
-    }
-
     try {
       const r = await fetch('/api/search', {
         method: 'POST',
@@ -36,7 +31,7 @@ export default function Header({ onSearch, onNavigateHome }) {
       if (data.tab && data.summary && onSearch) {
         cache.current.set(q, data)
         onSearch(data)
-        setQuery('')
+        return true
       } else if (data.error) {
         setSearchError(data.error)
       } else {
@@ -47,6 +42,27 @@ export default function Header({ onSearch, onNavigateHome }) {
     } finally {
       setSearching(false)
     }
+    return false
+  }
+
+  async function handleDesktopSearch(e) {
+    e.preventDefault()
+    const q = query.trim()
+    const ok = await runSearch(q)
+    if (ok) setQuery('')
+  }
+
+  async function handleMobileSearch(e) {
+    e.preventDefault()
+    const q = query.trim()
+    const ok = await runSearch(q)
+    if (ok) { setQuery(''); setMobileSearchOpen(false) }
+  }
+
+  function openMobileSearch() {
+    setMobileSearchOpen(true)
+    setSearchError('')
+    setTimeout(() => mobileInputRef.current?.focus(), 80)
   }
 
   async function handleDeleteAccount() {
@@ -57,35 +73,29 @@ export default function Header({ onSearch, onNavigateHome }) {
     setDeleting(true)
     const result = await deleteAccount()
     setDeleting(false)
-    if (result?.error) {
-      alert('Could not delete account: ' + result.error.message)
-    }
+    if (result?.error) alert('Could not delete account: ' + result.error.message)
   }
 
   return (
     <>
       <header>
-        {/* Left spacer — centers brand */}
+        {/* Left spacer (centers brand on desktop, hidden on mobile) */}
         <div className="header-spacer" />
 
-        {/* Center brand */}
+        {/* Brand */}
         <div
+          className="header-brand"
           onClick={onNavigateHome}
           style={{ cursor: onNavigateHome ? 'pointer' : 'default', textAlign: 'center' }}
         >
-          <h1 style={{
-            fontSize: 'clamp(13px, 1.8vw, 18px)', fontWeight: 800, letterSpacing: '-.02em', color: '#fff',
-          }}>
-            Thank You For My Service
-          </h1>
-          <p style={{ fontSize: 10, color: '#9fba9f', marginTop: 2 }}>
-            No more empty thanks — just real tools for the next mission.
-          </p>
+          <h1>Thank You For My Service</h1>
+          <p className="header-tagline">No more empty thanks — just real tools for the next mission.</p>
         </div>
 
         {/* Right: search + auth */}
-        <div style={{ justifySelf: 'end', display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-          <form onSubmit={handleSearch} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <div style={{ justifySelf: 'end', display: 'flex', gap: 8, alignItems: 'center' }}>
+          {/* Desktop search form */}
+          <form className="header-search-desktop" onSubmit={handleDesktopSearch} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
               <input
                 type="text"
@@ -113,28 +123,34 @@ export default function Header({ onSearch, onNavigateHome }) {
                 {searching ? 'Searching' : 'Search'}
               </button>
             </div>
-            {searchError && (
-              <p style={{ fontSize: 11, color: '#ef9f60', margin: 0 }}>{searchError}</p>
-            )}
+            {searchError && <p style={{ fontSize: 11, color: '#ef9f60', margin: 0 }}>{searchError}</p>}
           </form>
 
+          {/* Mobile search icon */}
+          <button className="header-search-icon" onClick={openMobileSearch} aria-label="Search">
+            🔍
+          </button>
+
+          {/* Auth */}
           {supabaseEnabled && (
             <div style={{ flexShrink: 0 }}>
               {user ? (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <span style={{ fontSize: 11, color: '#9fba9f' }}>{user.email}</span>
+                    <span className="header-auth-email" style={{ fontSize: 11, color: '#9fba9f' }}>{user.email}</span>
                     <button
                       onClick={signOut}
                       style={{
                         padding: '5px 10px', background: 'transparent', border: '1px solid #3a5a3a',
                         borderRadius: 8, color: '#9fba9f', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
+                        minHeight: 32,
                       }}
                     >
                       Sign out
                     </button>
                   </div>
                   <button
+                    className="header-auth-delete"
                     onClick={handleDeleteAccount}
                     disabled={deleting}
                     style={{
@@ -152,7 +168,7 @@ export default function Header({ onSearch, onNavigateHome }) {
                   style={{
                     padding: '7px 14px', background: '#C07A28', border: 'none',
                     borderRadius: 8, color: '#fff', fontSize: 13, cursor: 'pointer',
-                    fontFamily: 'inherit', fontWeight: 500,
+                    fontFamily: 'inherit', fontWeight: 500, minHeight: 36,
                   }}
                 >
                   Sign in
@@ -162,6 +178,46 @@ export default function Header({ onSearch, onNavigateHome }) {
           )}
         </div>
       </header>
+
+      {/* Mobile search panel */}
+      {mobileSearchOpen && (
+        <div className="mobile-search-panel">
+          <form onSubmit={handleMobileSearch}>
+            <input
+              ref={mobileInputRef}
+              type="text"
+              value={query}
+              onChange={e => { setQuery(e.target.value); setSearchError('') }}
+              placeholder="Search — GI Bill, resume, network…"
+            />
+            <button
+              type="submit"
+              disabled={searching || !query.trim()}
+              style={{
+                padding: '8px 14px', background: '#1B3A6B', border: 'none', borderRadius: 8,
+                color: '#fff', fontSize: 14, cursor: 'pointer', fontFamily: 'inherit',
+                display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0, minHeight: 44,
+              }}
+            >
+              {searching && <span className="search-spinner" />}
+              {searching ? '' : 'Go'}
+            </button>
+            <button
+              type="button"
+              onClick={() => { setMobileSearchOpen(false); setSearchError(''); setQuery('') }}
+              style={{
+                background: 'none', border: '1px solid #3a5a3a', borderRadius: 8,
+                color: '#9fba9f', fontSize: 14, cursor: 'pointer', padding: '8px 12px',
+                fontFamily: 'inherit', flexShrink: 0, minHeight: 44,
+              }}
+            >
+              Cancel
+            </button>
+          </form>
+          {searchError && <p style={{ fontSize: 12, color: '#ef9f60', marginTop: 6 }}>{searchError}</p>}
+        </div>
+      )}
+
       {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
     </>
   )
