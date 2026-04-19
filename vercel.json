@@ -1,5 +1,4 @@
 {
-  "installCommand": "npm cache clean --force && npm install",
   "buildCommand": "npm run build",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "crons": [
