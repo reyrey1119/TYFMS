@@ -26,19 +26,43 @@ const RESEARCH_POINTS = [
 export default function AboutTab() {
   return (
     <div>
-      {/* Mission — prominent, at the very top */}
-      <div style={{ marginBottom: 40, paddingBottom: 32, borderBottom: '1px solid #d3d1c7' }}>
-        <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 14 }}>
-          Our mission
-        </p>
-        <p style={{ fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 900, color: '#1a1a18', lineHeight: 1.1, marginBottom: 18, letterSpacing: '-.02em' }}>
-          To replace empty thanks<br />with real tools.
-        </p>
-        <p style={{ fontSize: 16, color: '#5f5e5a', lineHeight: 1.8, maxWidth: 580 }}>
-          Every feature in TYFMS — the skills translator, the identity guide, the peer network,
-          the goal tracker — exists because field research identified something veterans
-          actually need and too rarely find in one place. The work is ongoing. So is the transition.
-        </p>
+      {/* Top: logo / mission / regulation badge */}
+      <div className="about-top">
+        {/* Left — logo */}
+        <div className="about-logo-col">
+          <img src="/logo.png" alt="TYFMS" style={{ width: 120, height: 'auto', display: 'block' }} />
+        </div>
+
+        {/* Center — mission */}
+        <div>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 14 }}>
+            Our mission
+          </p>
+          <p style={{ fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 900, color: '#1a1a18', lineHeight: 1.1, marginBottom: 18, letterSpacing: '-.02em' }}>
+            To replace empty thanks<br />with real tools.
+          </p>
+          <p style={{ fontSize: 16, color: '#5f5e5a', lineHeight: 1.8 }}>
+            Every feature in TYFMS — the skills translator, the identity guide, the peer network,
+            the goal tracker — exists because field research identified something veterans
+            actually need and too rarely find in one place. The work is ongoing. So is the transition.
+          </p>
+        </div>
+
+        {/* Right — regulation backed badge */}
+        <div className="about-badge">
+          <svg viewBox="0 0 120 144" style={{ width: 96, display: 'block', margin: '0 auto 10px' }} aria-hidden="true">
+            <path d="M60,6 L110,28 L110,76 C110,108 86,132 60,142 C34,132 10,108 10,76 L10,28 Z" fill="#1B3A6B" />
+            <path d="M60,6 L110,28 L110,76 C110,108 86,132 60,142 C34,132 10,108 10,76 L10,28 Z"
+              fill="none" stroke="rgba(192,122,40,0.35)" strokeWidth="3" />
+            <path d="M38,74 L53,89 L83,57" stroke="#C07A28" strokeWidth="6" fill="none"
+              strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <p style={{ fontSize: 13, fontWeight: 700, color: '#1B3A6B', marginBottom: 5 }}>Regulation Backed</p>
+          <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.55, maxWidth: 160 }}>
+            Answers sourced from{' '}
+            <span style={{ color: '#C07A28', fontWeight: 600 }}>38 CFR Federal Regulations</span>
+          </p>
+        </div>
       </div>
 
       {/* Magazine hero */}

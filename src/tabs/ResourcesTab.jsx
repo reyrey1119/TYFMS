@@ -165,34 +165,36 @@ export default function ResourcesTab({ searchResult }) {
             </div>
           )}
 
-          <div className={grid} style={{ marginBottom: 24 }}>
-            {items.map(r => {
-              const highlighted = highlightIds.has(r.id)
-              return (
-                <div
-                  key={r.id}
-                  ref={r.id === firstHighlightedId ? firstHighlightRef : null}
-                  className="card"
-                  style={highlighted ? {
-                    border: '2px solid #C07A28',
-                    boxShadow: '0 0 0 4px rgba(192,122,40,0.12)',
-                    transition: 'box-shadow 0.3s ease',
-                  } : {}}
-                >
-                  {highlighted && (
-                    <span className="ba" style={{ fontSize: 10, padding: '2px 8px', marginBottom: 8, display: 'inline-block' }}>
-                      Relevant to your search
-                    </span>
-                  )}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
-                    <p style={{ fontSize: 14, fontWeight: 500, flex: 1, marginRight: 8 }}>{r.title}</p>
-                    <span className={r.cls} style={{ flexShrink: 0 }}>{r.badge}</span>
+          <div className="resource-scroll-wrapper">
+            <div className="resource-scroll-row">
+              {items.map(r => {
+                const highlighted = highlightIds.has(r.id)
+                return (
+                  <div
+                    key={r.id}
+                    ref={r.id === firstHighlightedId ? firstHighlightRef : null}
+                    className="card resource-card-h"
+                    style={highlighted ? {
+                      border: '2px solid #C07A28',
+                      boxShadow: '0 0 0 4px rgba(192,122,40,0.12)',
+                      transition: 'box-shadow 0.3s ease',
+                    } : {}}
+                  >
+                    {highlighted && (
+                      <span className="ba" style={{ fontSize: 10, padding: '2px 8px', marginBottom: 8, display: 'inline-block' }}>
+                        Relevant to your search
+                      </span>
+                    )}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
+                      <p style={{ fontSize: 14, fontWeight: 500, flex: 1, marginRight: 8 }}>{r.title}</p>
+                      <span className={r.cls} style={{ flexShrink: 0 }}>{r.badge}</span>
+                    </div>
+                    <p style={{ fontSize: 12, color: '#5f5e5a', marginBottom: 8, lineHeight: 1.6 }}>{r.desc}</p>
+                    <a href={r.url} target="_blank" rel="noreferrer" style={{ fontSize: 12 }}>{r.urlText}</a>
                   </div>
-                  <p style={{ fontSize: 12, color: '#5f5e5a', marginBottom: 8, lineHeight: 1.6 }}>{r.desc}</p>
-                  <a href={r.url} target="_blank" rel="noreferrer" style={{ fontSize: 12 }}>{r.urlText}</a>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         </div>
       ))}

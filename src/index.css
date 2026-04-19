@@ -74,6 +74,34 @@ header {
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
 .grid-5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 24px; }
 
+/* Resource horizontal scroll */
+.resource-scroll-wrapper { position: relative; margin-bottom: 24px; }
+.resource-scroll-wrapper::before,
+.resource-scroll-wrapper::after {
+  content: ''; position: absolute; top: 0; bottom: 14px;
+  width: 48px; pointer-events: none; z-index: 1;
+}
+.resource-scroll-wrapper::before { left: 0; background: linear-gradient(to right, #FAFAF8, transparent); }
+.resource-scroll-wrapper::after { right: 0; background: linear-gradient(to left, #FAFAF8, transparent); }
+.resource-scroll-row {
+  display: flex; flex-direction: row; gap: 12px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin; scrollbar-color: #d3d1c7 transparent;
+  padding-bottom: 10px;
+}
+.resource-scroll-row::-webkit-scrollbar { height: 4px; }
+.resource-scroll-row::-webkit-scrollbar-track { background: transparent; }
+.resource-scroll-row::-webkit-scrollbar-thumb { background: #d3d1c7; border-radius: 2px; }
+.resource-card-h { flex: 0 0 260px; width: 260px !important; }
+
+/* About page top layout */
+.about-top {
+  display: grid; grid-template-columns: 120px 1fr auto;
+  gap: 32px; align-items: start;
+  margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid #d3d1c7;
+}
+.about-badge { text-align: center; min-width: 150px; }
+
 /* Badges */
 .bg { background: #FDF0DC; color: #8A5F1A; font-size: 12px; padding: 3px 10px; border-radius: 8px; display: inline-block; }
 .ba { background: #FDF0DC; color: #8A5F1A; font-size: 12px; padding: 3px 10px; border-radius: 8px; display: inline-block; }
@@ -273,6 +301,14 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
 
   /* Cards */
   .card { padding: 14px 16px; border-radius: 10px; width: 100%; }
+
+  /* Resource horizontal scroll — narrower cards on mobile */
+  .resource-card-h { flex: 0 0 240px; width: 240px !important; }
+
+  /* About top — stack vertically, center logo */
+  .about-top { grid-template-columns: 1fr; gap: 20px; text-align: left; }
+  .about-logo-col { display: flex; justify-content: center; }
+  .about-badge { display: flex; flex-direction: column; align-items: center; }
 
 
   /* Buttons */
