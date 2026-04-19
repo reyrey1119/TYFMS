@@ -40,12 +40,14 @@ const BOTTOM_NAV = [
   { id: 'network',    icon: '🤝', label: 'Network' },
   { id: 'resources',  icon: '📚', label: 'Resources' },
 ]
+const BOTTOM_NAV_IDS = new Set(BOTTOM_NAV.map(t => t.id))
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
   const [searchResult, setSearchResult] = useState(null)
   const [showPrivacy, setShowPrivacy] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
+  const [menuSeen, setMenuSeen] = useState(() => !!localStorage.getItem('vtg_menu_seen'))
 
   function handleSearch(result) {
     setActiveTab(result.tab)
@@ -57,10 +59,18 @@ export default function App() {
     setSearchResult(null)
   }
 
+  function openMenu() {
+    setShowMenu(true)
+    if (!menuSeen) {
+      setMenuSeen(true)
+      localStorage.setItem('vtg_menu_seen', '1')
+    }
+  }
+
   if (showPrivacy) {
     return (
       <>
-        <Header onSearch={handleSearch} onNavigateHome={() => { setShowPrivacy(false); setActiveTab('home') }} onMenu={() => setShowMenu(true)} />
+        <Header onSearch={handleSearch} onNavigateHome={() => { setShowPrivacy(false); setActiveTab('home') }} onMenu={openMenu} menuPulse={!menuSeen} />
         <nav className="sidebar" aria-label="Main navigation">
           {TABS.map(tab => (
             <button
@@ -83,7 +93,7 @@ export default function App() {
 
   return (
     <>
-      <Header onSearch={handleSearch} onNavigateHome={() => { setActiveTab('home'); clearSearch() }} onMenu={() => setShowMenu(true)} />
+      <Header onSearch={handleSearch} onNavigateHome={() => { setActiveTab('home'); clearSearch() }} onMenu={openMenu} menuPulse={!menuSeen} />
       {/* Desktop sidebar — fixed left, >1024px only, shown via CSS */}
       <nav className="sidebar" aria-label="Main navigation">
         {TABS.map(tab => (
@@ -173,18 +183,28 @@ export default function App() {
         <div className="menu-sheet-overlay" onClick={() => setShowMenu(false)}>
           <div className="menu-sheet" onClick={e => e.stopPropagation()}>
             <div className="menu-sheet-header">
-              <p style={{ fontSize: 15, fontWeight: 600, color: '#1a1a18' }}>All features</p>
+              <div>
+                <p style={{ fontSize: 16, fontWeight: 700, color: '#1a1a18' }}>All tabs</p>
+                <p style={{ fontSize: 11, color: '#b4b2a9', marginTop: 2 }}>
+                  <span style={{ color: '#C07A28' }}>NEW</span> = not in bottom bar
+                </p>
+              </div>
               <button className="menu-sheet-close" onClick={() => setShowMenu(false)}>×</button>
             </div>
-            {TABS.map(tab => (
-              <button
-                key={tab.id}
-                className={`menu-sheet-item${activeTab === tab.id ? ' active' : ''}`}
-                onClick={() => { setActiveTab(tab.id); clearSearch(); setShowMenu(false) }}
-              >
-                {tab.label}
-              </button>
-            ))}
+            {TABS.map(tab => {
+              const isExtra = !BOTTOM_NAV_IDS.has(tab.id)
+              return (
+                <button
+                  key={tab.id}
+                  className={`menu-sheet-item${activeTab === tab.id ? ' active' : ''}`}
+                  onClick={() => { setActiveTab(tab.id); clearSearch(); setShowMenu(false) }}
+                >
+                  <span className="menu-sheet-icon">{tab.icon}</span>
+                  <span style={{ flex: 1, textAlign: 'left' }}>{tab.label}</span>
+                  {isExtra && <span className="menu-extra-badge">NEW</span>}
+                </button>
+              )
+            })}
           </div>
         </div>
       )}

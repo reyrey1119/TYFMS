@@ -1,3 +1,5 @@
+import { searchRegulationChunks } from './regulation-search.js'
+
 // Resource IDs available for resourceMatch field:
 // vagov, myhealthevet, accessva, ebenefits, nrd, va-navigator,
 // va-education, gi-bill-tool, goarmyed, sva, dea,
@@ -156,9 +158,18 @@ export default async function handler(req, res) {
     })
   }
 
+  // Check regulations before calling AI — fast indexed lookup, adds context when relevant
+  const regChunks = await searchRegulationChunks(query, 3)
+  const regContext = regChunks.length > 0
+    ? '\n\nRELEVANT 38 CFR REGULATION TEXT (cite this if applicable):\n' +
+      regChunks.map(c =>
+        `Per 38 CFR ${c.part}${c.section ? ', ' + c.section : ''}: ${c.content.slice(0, 350)}`
+      ).join('\n\n')
+    : ''
+
   const prompt = `You are a knowledgeable veteran transition advisor for TYFMS. A veteran just searched for information. Give a real, substantive answer with specific facts.
 
-${KNOWLEDGE_BASE}
+${KNOWLEDGE_BASE}${regContext}
 
 Search query: "${query}"
 

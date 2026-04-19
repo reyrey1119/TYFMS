@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { useAuth } from '../context/AuthContext'
 import AuthModal from './AuthModal'
 
-export default function Header({ onSearch, onNavigateHome, onMenu }) {
+export default function Header({ onSearch, onNavigateHome, onMenu, menuPulse }) {
   const { user, signOut, deleteAccount, supabaseEnabled } = useAuth()
   const [showAuth, setShowAuth] = useState(false)
   const [query, setQuery] = useState('')
@@ -132,8 +132,14 @@ export default function Header({ onSearch, onNavigateHome, onMenu }) {
           </button>
 
           {/* Hamburger — mobile only, opens slide-up tab sheet */}
-          <button className="header-menu-icon" onClick={onMenu} aria-label="All features">
+          <button
+            className={`header-menu-icon${menuPulse ? ' pulse' : ''}`}
+            onClick={onMenu}
+            aria-label="All features"
+            style={{ position: 'relative' }}
+          >
             ☰
+            {menuPulse && <span className="menu-dot" aria-hidden="true" />}
           </button>
 
           {/* Auth */}
