@@ -1,5 +1,3 @@
-import { searchRegulationChunks } from './regulation-search.js'
-
 // Resource IDs available for resourceMatch field:
 // vagov, myhealthevet, accessva, ebenefits, nrd, va-navigator,
 // va-education, gi-bill-tool, goarmyed, sva, dea,
@@ -139,6 +137,39 @@ function buildFallback(query) {
   }
 }
 
+// Inline regulation lookup — avoids cross-file import issues in Vercel bundler.
+// Tries full-text search first, falls back to ilike so we always get results.
+async function searchRegs(query) {
+  try {
+    const { createClient } = await import('@supabase/supabase-js')
+    const url = process.env.VITE_SUPABASE_URL
+    const key = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
+    if (!url || !key) return []
+    const sb = createClient(url, key, { auth: { persistSession: false } })
+
+    // Full-text search using tsvector index
+    const { data: ftData, error: ftErr } = await sb
+      .from('regulation_chunks')
+      .select('part, part_num, section, content')
+      .textSearch('content_tsv', query, { type: 'plain' })
+      .order('part_num', { ascending: true })
+      .limit(3)
+    if (!ftErr && ftData?.length) return ftData
+
+    // Fallback: keyword ilike on the most significant term
+    const stopWords = new Set(['what', 'when', 'where', 'does', 'the', 'for', 'and', 'are', 'have', 'with', 'that', 'this', 'from', 'your', 'about', 'will', 'can'])
+    const terms = query.toLowerCase().replace(/['"?!.]/g, '').split(/\s+/)
+      .filter(t => t.length > 3 && !stopWords.has(t))
+    if (!terms.length) return []
+    const { data: likeData } = await sb
+      .from('regulation_chunks')
+      .select('part, part_num, section, content')
+      .ilike('content', `%${terms[0]}%`)
+      .limit(3)
+    return likeData || []
+  } catch { return [] }
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
@@ -158,23 +189,26 @@ export default async function handler(req, res) {
     })
   }
 
-  // Check regulations before calling AI — fast indexed lookup, adds context when relevant
-  const regChunks = await searchRegulationChunks(query, 3)
-  const regContext = regChunks.length > 0
-    ? '\n\nRELEVANT 38 CFR REGULATION TEXT (cite this if applicable):\n' +
-      regChunks.map(c =>
-        `Per 38 CFR ${c.part}${c.section ? ', ' + c.section : ''}: ${c.content.slice(0, 350)}`
-      ).join('\n\n')
+  // Regulation lookup — runs before AI to inject authoritative CFR text into the prompt
+  const regChunks = await searchRegs(query)
+  const hasRegs = regChunks.length > 0
+
+  const regSection = hasRegs
+    ? `\n\n=== MANDATORY: USE THIS EXACT REGULATION TEXT ===\nThe following text is directly from 38 CFR. You MUST:\n1. Begin your "summary" value with "Per 38 CFR ${regChunks[0].part}${regChunks[0].section ? ', ' + regChunks[0].section : ''}:" followed by a quote or close paraphrase of the regulation text below.\n2. Then explain in plain language what this means for the veteran (2-3 sentences).\n3. Do NOT ignore this regulation text. Do NOT start with a generic sentence.\n\n${regChunks.map(c => `[${c.part}${c.section ? ' / ' + c.section : ''}]\n${c.content.slice(0, 500)}`).join('\n\n')}\n=== END REGULATION TEXT ===`
     : ''
 
-  const prompt = `You are a knowledgeable veteran transition advisor for TYFMS. A veteran just searched for information. Give a real, substantive answer with specific facts.
+  const summaryInstruction = hasRegs
+    ? '1. Your summary MUST begin with "Per 38 CFR..." as instructed above. Then explain what it means for the veteran.'
+    : '1. Give a 3-5 sentence answer directly addressing the query with specific information, URLs, and program names.'
 
-${KNOWLEDGE_BASE}${regContext}
+  const prompt = `You are a knowledgeable veteran transition advisor for TYFMS. A veteran just searched for information.
+
+${KNOWLEDGE_BASE}${regSection}
 
 Search query: "${query}"
 
 INSTRUCTIONS:
-1. Give a 3-5 sentence answer directly addressing the query with specific information, URLs, and program names.
+${summaryInstruction}
 2. For dependent/family/parent/children questions: reference TRICARE, DEA Chapter 35, DIC, TEB, SBP, DEERS, Military OneSource, Fry Scholarship by name.
 3. For healthcare questions: reference My HealtheVet.
 4. For home/mortgage questions: reference VA Home Loans.
@@ -187,7 +221,7 @@ INSTRUCTIONS:
     vagov, myhealthevet, accessva, ebenefits, nrd, va-navigator, va-education, gi-bill-tool, goarmyed, sva, dea, va-home-loan, vets-dol, hiring-our-heroes, onet, linkedin-veterans, usajobs, tricare, fry-scholarship, teb, sbp, dic, deers, military-onesource, caregiver, va-dvs, crisis-line, make-connection, give-hour
 
 Respond with ONLY valid JSON on one line (no markdown, no code blocks, no extra text):
-{"tab":"<tab_id>","summary":"<3-5 sentence answer with specific info and URLs>","sectionHint":"<specific resource name or category>","resourceMatch":"<comma-separated resource ids>"}`
+{"tab":"<tab_id>","summary":"<answer — must start with Per 38 CFR... if regulation text was provided>","sectionHint":"<specific resource name or category>","resourceMatch":"<comma-separated resource ids>"}`
 
   try {
     const r = await fetch('https://api.anthropic.com/v1/messages', {
@@ -251,6 +285,9 @@ Respond with ONLY valid JSON on one line (no markdown, no code blocks, no extra 
 
     // Ensure resourceMatch is a string
     if (typeof parsed.resourceMatch !== 'string') parsed.resourceMatch = ''
+
+    // Server stamps regulationBacked — Claude doesn't control this flag
+    parsed.regulationBacked = hasRegs
 
     return res.status(200).json(parsed)
   } catch {

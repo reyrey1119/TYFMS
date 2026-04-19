@@ -127,11 +127,24 @@ export default function App() {
 
         {searchResult && (
           <div style={{
-            background: '#fff', border: '1px solid #B8C9E8', borderRadius: 10,
-            padding: '12px 16px', marginBottom: 20, display: 'flex', gap: 12, alignItems: 'flex-start',
+            background: '#fff',
+            border: `1px solid ${searchResult.regulationBacked ? '#1B3A6B' : '#B8C9E8'}`,
+            borderRadius: 10, padding: '12px 16px', marginBottom: 20,
+            display: 'flex', gap: 12, alignItems: 'flex-start',
           }}>
-            <span style={{ fontSize: 16, flexShrink: 0, marginTop: 2 }}>🔍</span>
+            <span style={{ fontSize: 16, flexShrink: 0, marginTop: searchResult.regulationBacked ? 14 : 2 }}>
+              {searchResult.regulationBacked ? '📋' : '🔍'}
+            </span>
             <div style={{ flex: 1 }}>
+              {searchResult.regulationBacked && (
+                <span style={{
+                  display: 'inline-block', fontSize: 10, fontWeight: 700, letterSpacing: '.06em',
+                  textTransform: 'uppercase', background: '#1B3A6B', color: '#fff',
+                  padding: '2px 8px', borderRadius: 6, marginBottom: 7,
+                }}>
+                  Regulation-backed · 38 CFR
+                </span>
+              )}
               <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.7 }}>{searchResult.summary}</p>
               {searchResult.sectionHint && (
                 <p style={{ fontSize: 12, color: '#1B3A6B', marginTop: 4 }}>
