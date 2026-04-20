@@ -70,6 +70,8 @@ header {
 
 /* Cards */
 .card { background: #fff; border: 1px solid #E5E3DC; border-radius: 12px; padding: 16px 20px; }
+.audience-card { transition: border-color .15s, box-shadow .15s, transform .15s; }
+.audience-card:hover { border-color: #C07A28; box-shadow: 0 4px 16px rgba(192,122,40,.12); transform: translateY(-2px); }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
 .grid-5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 24px; }

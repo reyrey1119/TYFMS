@@ -56,16 +56,19 @@ const HELP_CARDS = [
     icon: '🪖',
     title: 'Separating soon?',
     body: 'Active duty within 12 months of ETS. Start here to map your MOS to civilian roles and build your transition plan before you out-process.',
+    tab: 'translator',
   },
   {
     icon: '🧭',
     title: 'Recently separated?',
     body: 'Out less than 2 years and still finding your footing. Use the skills translator, resume builder, and mentor network to accelerate your landing.',
+    tab: 'resume',
   },
   {
     icon: '🔁',
     title: 'Been out a while?',
     body: 'Veterans who feel stuck or want to pivot careers. The identity guide and career trends will help you find your next direction.',
+    tab: 'identity',
   },
 ]
 
@@ -114,10 +117,19 @@ export default function HomeTab({ onNavigate }) {
       <p className="cat-label" style={{ marginBottom: 14 }}>Where are you in your transition?</p>
       <div className="grid-3" style={{ marginBottom: 52 }}>
         {HELP_CARDS.map(c => (
-          <div key={c.title} className="card" style={{ padding: '28px 22px' }}>
+          <div
+            key={c.title}
+            className="card audience-card"
+            style={{ padding: '28px 22px', cursor: 'pointer', display: 'flex', flexDirection: 'column' }}
+            onClick={() => onNavigate(c.tab)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onNavigate(c.tab) }}
+          >
             <p style={{ fontSize: 26, marginBottom: 12 }}>{c.icon}</p>
             <p style={{ fontWeight: 700, fontSize: 15, color: '#1a1a18', marginBottom: 10 }}>{c.title}</p>
-            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7 }}>{c.body}</p>
+            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, flex: 1 }}>{c.body}</p>
+            <p style={{ marginTop: 16, fontSize: 13, fontWeight: 600, color: '#C07A28' }}>Start here →</p>
           </div>
         ))}
       </div>
