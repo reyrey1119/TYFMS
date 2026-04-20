@@ -26,6 +26,15 @@ const RESEARCH_POINTS = [
 export default function AboutTab() {
   return (
     <div>
+      {/* BLUF */}
+      <div style={{
+        background: '#1B3A6B', borderRadius: 10, padding: '14px 20px', marginBottom: 24,
+      }}>
+        <p style={{ fontSize: 14, fontWeight: 600, color: '#fff', lineHeight: 1.55 }}>
+          TYFMS gives veterans the tools TAP does not. Free, research-backed, and built by someone who served.
+        </p>
+      </div>
+
       {/* Top: logo / mission / regulation badge */}
       <div className="about-top">
         {/* Left — logo */}
@@ -63,6 +72,34 @@ export default function AboutTab() {
             <span style={{ color: '#C07A28', fontWeight: 600 }}>38 CFR Federal Regulations</span>
           </p>
         </div>
+      </div>
+
+      {/* What you walk away with */}
+      <p className="cat-label" style={{ marginBottom: 14 }}>What you walk away with</p>
+      <div className="grid-3" style={{ marginBottom: 32 }}>
+        {[
+          {
+            icon: '📄',
+            title: 'A civilian resume targeted to your dream job',
+            body: 'Not a generic template — a resume tailored to the company and role you actually want, with your military experience translated into civilian language that hiring managers respond to.',
+          },
+          {
+            icon: '🧭',
+            title: 'A clear picture of which careers match your background',
+            body: 'Know exactly which civilian roles your MOS, rank, and experience translate to — and which industries are actively hiring veterans with your profile right now.',
+          },
+          {
+            icon: '🤝',
+            title: 'A peer mentor who has already made the crossing',
+            body: 'Connect with veterans who transitioned into your target field. No program, no gatekeeping — direct access to people who have done what you are trying to do.',
+          },
+        ].map(c => (
+          <div key={c.title} className="card">
+            <span style={{ fontSize: 28, display: 'block', marginBottom: 12 }}>{c.icon}</span>
+            <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 8 }}>{c.title}</p>
+            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75 }}>{c.body}</p>
+          </div>
+        ))}
       </div>
 
       {/* Magazine hero */}

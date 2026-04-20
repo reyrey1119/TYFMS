@@ -96,6 +96,9 @@ export default function HomeTab({ onNavigate }) {
         <div style={{ position: 'relative' }}>
           <h1 className="hero-title">Thank You For My<br />Service (TYFMS)</h1>
           <p className="hero-tagline">No more empty thanks — just real tools for the next mission.</p>
+          <p style={{ position: 'relative', fontSize: 13, color: 'rgba(255,255,255,0.75)', marginTop: 12, lineHeight: 1.7, maxWidth: 480 }}>
+            Type your MOS. Get civilian job titles, a resume, and your next steps. Free. No sign up required to start.
+          </p>
         </div>
       </div>
 

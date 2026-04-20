@@ -31,12 +31,16 @@ export default function ResumeTab({ prefill }) {
   const [contact, setContact] = useState({ name: '', email: '', phone: '', location: '', linkedin: '' })
 
   // Military background
-  const [branch, setBranch] = useState('Army')
-  const [mos, setMos] = useState('')
-  const [rank, setRank] = useState('')
-  const [yos, setYos] = useState('')
+  const [branch, setBranch] = useState(() => prefill?.branch || 'Army')
+  const [mos, setMos] = useState(() => prefill?.mos || '')
+  const [rank, setRank] = useState(() => prefill?.rank || '')
+  const [yos, setYos] = useState(() => prefill?.yos || '')
   const [targetCompany, setTargetCompany] = useState('')
   const [additionalSkills, setAdditionalSkills] = useState('')
+  const [clearance, setClearance] = useState('')
+  const [awards, setAwards] = useState('')
+  const [summaryTone, setSummaryTone] = useState('')
+  const [education, setEducation] = useState([])
 
   // Non-military experience
   const [prevJobs, setPrevJobs] = useState([])
@@ -54,7 +58,7 @@ export default function ResumeTab({ prefill }) {
 
   useEffect(() => {
     if (!prefill) return
-    if (prefill.branch) setBranch(prefill.branch)
+    setBranch(prefill.branch || 'Army')
     if (prefill.mos) setMos(prefill.mos)
     if (prefill.rank) setRank(prefill.rank)
     if (prefill.yos) setYos(prefill.yos)
@@ -76,6 +80,13 @@ export default function ResumeTab({ prefill }) {
     setPrevJobs(prev => prev.filter(j => j.id !== id))
   }
 
+  function emptyEdu() {
+    return { id: Date.now() + Math.random(), school: '', degreeType: '', field: '', gradYear: '', gpa: '' }
+  }
+  function addEdu() { setEducation(prev => [...prev, emptyEdu()]) }
+  function updateEdu(id, field, val) { setEducation(prev => prev.map(e => e.id === id ? { ...e, [field]: val } : e)) }
+  function removeEdu(id) { setEducation(prev => prev.filter(e => e.id !== id)) }
+
   async function generateResume() {
     if (!mos.trim()) { setError('Please enter your MOS, AFSC, or rate code.'); return }
     setError('')
@@ -89,6 +100,10 @@ export default function ResumeTab({ prefill }) {
           branch, mos: mos.trim(), rank, yos,
           targetCompany: targetCompany.trim(),
           additionalSkills: additionalSkills.trim(),
+          clearance,
+          awards: awards.trim(),
+          summaryTone,
+          education: education.filter(e => e.school.trim() || e.degreeType),
           contact,
           prevJobs: prevJobs.filter(j => j.title.trim()),
         }),
@@ -126,7 +141,7 @@ export default function ResumeTab({ prefill }) {
     if (!useDb) return
     setSaving(true)
     setSaveMsg('')
-    const data = { branch, mos, rank, yos, targetCompany, additionalSkills, contact, prevJobs }
+    const data = { branch, mos, rank, yos, targetCompany, additionalSkills, clearance, awards, summaryTone, education, contact, prevJobs }
     const { error: dbError } = await supabase
       .from('resume_drafts')
       .upsert({ user_id: user.id, data, updated_at: new Date().toISOString() }, { onConflict: 'user_id' })
@@ -151,6 +166,10 @@ export default function ResumeTab({ prefill }) {
     if (d.yos) setYos(d.yos)
     if (d.targetCompany) setTargetCompany(d.targetCompany)
     if (d.additionalSkills) setAdditionalSkills(d.additionalSkills)
+    if (d.clearance !== undefined) setClearance(d.clearance)
+    if (d.awards) setAwards(d.awards)
+    if (d.summaryTone) setSummaryTone(d.summaryTone)
+    if (d.education) setEducation(d.education)
     if (d.contact) setContact(d.contact)
     if (d.prevJobs) setPrevJobs(d.prevJobs)
     setLoadMsg('Draft loaded.')
@@ -251,6 +270,17 @@ export default function ResumeTab({ prefill }) {
         </div>
 
         <div style={{ marginBottom: 12 }}>
+          <label>Security clearance</label>
+          <select value={clearance} onChange={e => setClearance(e.target.value)}>
+            <option value="">None / Not applicable</option>
+            <option>Confidential</option>
+            <option>Secret</option>
+            <option>Top Secret</option>
+            <option>TS/SCI</option>
+          </select>
+        </div>
+
+        <div style={{ marginBottom: 12 }}>
           <label>Target company or industry</label>
           <input
             type="text"
@@ -276,15 +306,107 @@ export default function ResumeTab({ prefill }) {
           </div>
         </div>
 
-        <div>
-          <label>Additional skills or context (optional)</label>
+        <div style={{ marginBottom: 12 }}>
+          <label>
+            Additional skills (optional){' '}
+            <span style={{ fontSize: 11, color: '#b4b2a9', fontWeight: 400 }}>languages, software, technical</span>
+          </label>
           <textarea
             value={additionalSkills}
             onChange={e => setAdditionalSkills(e.target.value)}
-            placeholder="e.g. Python, project management, bilingual Spanish, ITIL certification..."
-            style={{ minHeight: 70 }}
+            placeholder="Languages, software, technical skills — e.g. Python, bilingual Spanish, Adobe Suite, ITIL..."
+            style={{ minHeight: 60 }}
           />
         </div>
+
+        <div style={{ marginBottom: 12 }}>
+          <label>
+            Awards and decorations{' '}
+            <span style={{ fontSize: 11, color: '#b4b2a9', fontWeight: 400 }}>(optional — AI translates into civilian language)</span>
+          </label>
+          <input
+            type="text"
+            value={awards}
+            onChange={e => setAwards(e.target.value)}
+            placeholder="e.g. Army Commendation Medal, Bronze Star, Good Conduct Medal..."
+          />
+        </div>
+
+        <div>
+          <label>Resume summary tone</label>
+          <select value={summaryTone} onChange={e => setSummaryTone(e.target.value)}>
+            <option value="">Modern and direct (default)</option>
+            <option>Conservative and formal</option>
+            <option>Leadership focused</option>
+            <option>Technical focused</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Education */}
+      <div className="card" style={{ marginBottom: 16 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+          <p style={{ fontSize: 13, fontWeight: 500 }}>Education (optional)</p>
+          <button
+            onClick={addEdu}
+            style={{
+              padding: '5px 12px', background: '#1B3A6B', border: 'none',
+              borderRadius: 8, color: '#fff', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
+            }}
+          >
+            + Add education
+          </button>
+        </div>
+
+        {education.length === 0 && (
+          <p style={{ fontSize: 13, color: '#b4b2a9' }}>
+            Add degrees or diplomas. Leave blank and the resume will show a placeholder for you to fill in.
+          </p>
+        )}
+
+        {education.map(edu => (
+          <div key={edu.id} style={{ border: '1px solid #e8e5de', borderRadius: 10, padding: '14px 16px', marginBottom: 12 }}>
+            <div className="grid-2" style={{ marginBottom: 10 }}>
+              <div>
+                <label>School name</label>
+                <input type="text" value={edu.school} onChange={e => updateEdu(edu.id, 'school', e.target.value)} placeholder="University or institution" />
+              </div>
+              <div>
+                <label>Degree type</label>
+                <select value={edu.degreeType} onChange={e => updateEdu(edu.id, 'degreeType', e.target.value)}>
+                  <option value="">Select degree</option>
+                  <option>High School Diploma</option>
+                  <option>Some College</option>
+                  <option>Associate</option>
+                  <option>Bachelor</option>
+                  <option>Master</option>
+                  <option>Doctoral</option>
+                  <option>Professional</option>
+                </select>
+              </div>
+            </div>
+            <div className="grid-2" style={{ marginBottom: 10 }}>
+              <div>
+                <label>Field of study</label>
+                <input type="text" value={edu.field} onChange={e => updateEdu(edu.id, 'field', e.target.value)} placeholder="e.g. Business Administration" />
+              </div>
+              <div>
+                <label>Graduation year</label>
+                <input type="text" value={edu.gradYear} onChange={e => updateEdu(edu.id, 'gradYear', e.target.value)} placeholder="e.g. 2022 or In Progress" />
+              </div>
+            </div>
+            <div style={{ marginBottom: 8 }}>
+              <label>GPA (optional)</label>
+              <input type="text" value={edu.gpa} onChange={e => updateEdu(edu.id, 'gpa', e.target.value)} placeholder="e.g. 3.8" style={{ maxWidth: 120 }} />
+            </div>
+            <button
+              onClick={() => removeEdu(edu.id)}
+              style={{ background: 'none', border: 'none', color: '#a32d2d', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', padding: 0 }}
+            >
+              Remove
+            </button>
+          </div>
+        ))}
       </div>
 
       {/* Non-military experience */}
