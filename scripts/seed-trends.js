@@ -21,7 +21,9 @@ try {
   }
 } catch {}
 
-const SUPABASE_URL = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
+// SUPABASE_URL on Vercel may be a variable reference string — validate and fall back
+const _rawUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
+const SUPABASE_URL = (_rawUrl && _rawUrl.startsWith('http')) ? _rawUrl : process.env.VITE_SUPABASE_URL
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY
 
