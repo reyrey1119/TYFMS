@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import FunFact from '../components/FunFact'
@@ -23,7 +23,7 @@ function emptyJob() {
   return { id: Date.now() + Math.random(), title: '', employer: '', dates: '', description: '' }
 }
 
-export default function ResumeTab() {
+export default function ResumeTab({ prefill }) {
   const { user, supabaseEnabled } = useAuth()
   const useDb = supabaseEnabled && !!supabase && !!user
 
@@ -51,6 +51,14 @@ export default function ResumeTab() {
   const [saving, setSaving] = useState(false)
   const [saveMsg, setSaveMsg] = useState('')
   const [loadMsg, setLoadMsg] = useState('')
+
+  useEffect(() => {
+    if (!prefill) return
+    if (prefill.branch) setBranch(prefill.branch)
+    if (prefill.mos) setMos(prefill.mos)
+    if (prefill.rank) setRank(prefill.rank)
+    if (prefill.yos) setYos(prefill.yos)
+  }, [prefill])
 
   function updateContact(field, val) {
     setContact(prev => ({ ...prev, [field]: val }))

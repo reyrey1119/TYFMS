@@ -19,24 +19,24 @@ import FeedbackTab from './tabs/FeedbackTab'
 
 const TABS = [
   { id: 'home',         icon: '🏠', label: 'Home' },
-  { id: 'about',        icon: 'ℹ️',  label: 'About' },
-  { id: 'path',         icon: '🧭', label: 'Find your path' },
   { id: 'translator',   icon: '⚡', label: 'Skills translator' },
   { id: 'resume',       icon: '📄', label: 'Resume builder' },
+  { id: 'path',         icon: '🧭', label: 'Find your path' },
   { id: 'identity',     icon: '💬', label: 'Identity guide' },
   { id: 'network',      icon: '🤝', label: 'Networking' },
   { id: 'trends',       icon: '📈', label: 'Career trends' },
   { id: 'vetnews',      icon: '📰', label: 'Vet news' },
   { id: 'tracker',      icon: '✅', label: 'Progress tracker' },
   { id: 'resources',    icon: '📚', label: 'Resources' },
+  { id: 'about',        icon: 'ℹ️',  label: 'About' },
   { id: 'testimonials', icon: '⭐', label: 'Testimonials' },
   { id: 'feedback',     icon: '💡', label: 'Feedback' },
 ]
 
 const BOTTOM_NAV = [
   { id: 'home',       icon: '🏠', label: 'Home' },
-  { id: 'path',       icon: '🧭', label: 'Find path' },
   { id: 'translator', icon: '⚡', label: 'Translate' },
+  { id: 'resume',     icon: '📄', label: 'Resume' },
   { id: 'network',    icon: '🤝', label: 'Network' },
   { id: 'resources',  icon: '📚', label: 'Resources' },
 ]
@@ -46,6 +46,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('home')
   const [searchResult, setSearchResult] = useState(null)
   const [showPrivacy, setShowPrivacy] = useState(false)
+  const [resumePrefill, setResumePrefill] = useState(null)
   const [showMenu, setShowMenu] = useState(false)
   const [menuSeen, setMenuSeen] = useState(() => !!localStorage.getItem('vtg_menu_seen'))
 
@@ -187,8 +188,8 @@ export default function App() {
         {activeTab === 'home'       && <HomeTab onNavigate={setActiveTab} />}
         {activeTab === 'about'      && <AboutTab />}
         {activeTab === 'path'       && <PathTab />}
-        {activeTab === 'translator' && <TranslatorTab />}
-        {activeTab === 'resume'     && <ResumeTab />}
+        {activeTab === 'translator' && <TranslatorTab onGoToResume={(data) => { setResumePrefill(data); setActiveTab('resume') }} />}
+        {activeTab === 'resume'     && <ResumeTab prefill={resumePrefill} />}
         {activeTab === 'identity'   && <IdentityTab />}
         {activeTab === 'network'    && <NetworkTab />}
         {activeTab === 'trends'     && <CareerTrendsTab />}

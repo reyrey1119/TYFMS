@@ -21,7 +21,7 @@ const YOS_OPTIONS = [
   '7–8 years', '9–10 years', '11–15 years', '16–20 years', '20+ years',
 ]
 
-export default function TranslatorTab() {
+export default function TranslatorTab({ onGoToResume }) {
   const [branch, setBranch] = useState('Army')
   const [mos, setMos] = useState('')
   const [rank, setRank] = useState('')
@@ -270,6 +270,29 @@ export default function TranslatorTab() {
               </div>
             </div>
           )}
+
+          {/* CTA → full Resume Builder */}
+          <div style={{
+            background: 'linear-gradient(135deg, #1B3A6B 0%, #0f1b4d 100%)',
+            borderRadius: 14, padding: '22px 24px', marginBottom: 24,
+          }}>
+            <p style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginBottom: 6 }}>
+              Ready to build your full resume?
+            </p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)', lineHeight: 1.6, marginBottom: 16 }}>
+              Your branch, MOS, rank, and years of service will be pre-filled automatically.
+            </p>
+            <button
+              onClick={() => onGoToResume && onGoToResume({ branch, mos, rank, yos })}
+              style={{
+                width: '100%', padding: '13px 20px', background: '#C07A28',
+                border: 'none', borderRadius: 10, color: '#fff', fontSize: 14,
+                fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit',
+              }}
+            >
+              Build my resume with these results →
+            </button>
+          </div>
 
           {/* Resume builder */}
           <div style={{ borderTop: '1px solid #d3d1c7', paddingTop: 20 }}>

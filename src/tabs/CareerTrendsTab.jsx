@@ -36,34 +36,70 @@ export default function CareerTrendsTab() {
 
   useEffect(() => {
     const weekStart = getWeekStart()
-    let hasCached = false
 
     const cached = (() => { try { return JSON.parse(localStorage.getItem(LS_KEY) || 'null') } catch { return null } })()
 
-    // Show cached data immediately — never block the UI on an API call if we have anything cached
+    // Show from localStorage immediately — never block on a network call if we have data
     if (cached && Array.isArray(cached.trends)) {
       setTrends(cached.trends)
       if (cached.generatedAt) setGeneratedAt(cached.generatedAt)
-      hasCached = true
-      if (cached.weekStart !== weekStart) setRefreshing(true)  // Stale week — show indicator
-    } else {
-      setLoading(true)
+      if (cached.weekStart !== weekStart) {
+        // Stale week — background refresh only
+        setRefreshing(true)
+        fetch('/api/trends')
+          .then(r => r.json())
+          .then(data => {
+            if (data.trends) {
+              setTrends(data.trends)
+              const gAt = data.generatedAt || new Date().toISOString()
+              setGeneratedAt(gAt)
+              try { localStorage.setItem(LS_KEY, JSON.stringify({ weekStart, trends: data.trends, generatedAt: gAt })) } catch {}
+            }
+          })
+          .catch(() => {})
+          .finally(() => setRefreshing(false))
+      }
+      return
     }
 
-    fetch('/api/trends')
-      .then(r => r.json())
-      .then(data => {
-        if (data.trends) {
-          setTrends(data.trends)
-          const gAt = data.generatedAt || new Date().toISOString()
-          setGeneratedAt(gAt)
-          try { localStorage.setItem(LS_KEY, JSON.stringify({ weekStart, trends: data.trends, generatedAt: gAt })) } catch {}
-        } else if (!hasCached) {
-          setError('Could not load market trends.')
-        }
-      })
-      .catch(() => { if (!hasCached) setError('Could not load market trends.') })
-      .finally(() => { setLoading(false); setRefreshing(false) })
+    // No localStorage — query Supabase cache first (fast), fall back to API only on miss
+    setLoading(true)
+    async function loadTrends() {
+      if (supabase) {
+        try {
+          const { data: cacheRow } = await supabase
+            .from('career_trends_cache')
+            .select('content, generated_at')
+            .eq('week_start', weekStart)
+            .maybeSingle()
+          if (cacheRow?.content && Array.isArray(cacheRow.content)) {
+            setTrends(cacheRow.content)
+            const gAt = cacheRow.generated_at || new Date().toISOString()
+            setGeneratedAt(gAt)
+            try { localStorage.setItem(LS_KEY, JSON.stringify({ weekStart, trends: cacheRow.content, generatedAt: gAt })) } catch {}
+            setLoading(false)
+            return
+          }
+        } catch {}
+      }
+
+      // Cache miss — call API (triggers AI generation)
+      fetch('/api/trends')
+        .then(r => r.json())
+        .then(data => {
+          if (data.trends) {
+            setTrends(data.trends)
+            const gAt = data.generatedAt || new Date().toISOString()
+            setGeneratedAt(gAt)
+            try { localStorage.setItem(LS_KEY, JSON.stringify({ weekStart, trends: data.trends, generatedAt: gAt })) } catch {}
+          } else {
+            setError('Could not load market trends.')
+          }
+        })
+        .catch(() => setError('Could not load market trends.'))
+        .finally(() => setLoading(false))
+    }
+    loadTrends()
   }, [])
 
   // Personalization: fetch resume + call trend-match when signed in and trends ready

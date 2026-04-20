@@ -53,22 +53,25 @@ const STATS = [
 
 const HELP_CARDS = [
   {
-    icon: '🪖',
-    title: 'Separating soon?',
-    body: 'Active duty within 12 months of ETS. Start here to map your MOS to civilian roles and build your transition plan before you out-process.',
+    icon: '⚡',
+    title: 'Translate your MOS',
+    body: 'Type in your MOS or AFSC and get civilian job titles, transferable skills, and certifications in 60 seconds.',
+    buttonText: 'Start translating →',
     tab: 'translator',
   },
   {
-    icon: '🧭',
-    title: 'Recently separated?',
-    body: 'Out less than 2 years and still finding your footing. Use the skills translator, resume builder, and mentor network to accelerate your landing.',
+    icon: '📄',
+    title: 'Build your resume',
+    body: 'Turn your military experience into a targeted civilian resume for any company or industry.',
+    buttonText: 'Build my resume →',
     tab: 'resume',
   },
   {
-    icon: '🔁',
-    title: 'Been out a while?',
-    body: 'Veterans who feel stuck or want to pivot careers. The identity guide and career trends will help you find your next direction.',
-    tab: 'identity',
+    icon: '🧭',
+    title: 'Find your path',
+    body: '12 questions. Discover your veteran career archetype and get a personalized roadmap for your transition.',
+    buttonText: 'Find my path →',
+    tab: 'path',
   },
 ]
 
@@ -129,7 +132,7 @@ export default function HomeTab({ onNavigate }) {
             <p style={{ fontSize: 26, marginBottom: 12 }}>{c.icon}</p>
             <p style={{ fontWeight: 700, fontSize: 15, color: '#1a1a18', marginBottom: 10 }}>{c.title}</p>
             <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, flex: 1 }}>{c.body}</p>
-            <p style={{ marginTop: 16, fontSize: 13, fontWeight: 600, color: '#C07A28' }}>Start here →</p>
+            <p style={{ marginTop: 16, fontSize: 13, fontWeight: 600, color: '#C07A28' }}>{c.buttonText}</p>
           </div>
         ))}
       </div>
