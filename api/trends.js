@@ -25,7 +25,7 @@ function getWeekStart() {
 async function getSupabaseAdmin() {
   try {
     const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
-    const key = process.env.SUPABASE_SERVICE_KEY
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY
     if (!url || !key) return null
     const { createClient } = await import('@supabase/supabase-js')
     return createClient(url, key, { auth: { persistSession: false } })
@@ -162,10 +162,9 @@ export default async function handler(req, res) {
         const trends = await generateTrends(weekStart, apiKey)
         if (db) {
           try {
-            await db.from('career_trends_cache').upsert(
-              { week_start: weekStart, content: trends, generated_at: new Date().toISOString() },
-              { onConflict: 'week_start' }
-            )
+            await db.from('career_trends_cache').insert({
+              week_start: weekStart, content: trends, generated_at: new Date().toISOString()
+            })
           } catch { /* non-fatal */ }
         }
         return res.status(200).json({ trends, weekStart, source: 'generated' })

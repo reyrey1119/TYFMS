@@ -85,7 +85,7 @@ export default async function handler(req, res) {
   }
 
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
-  const key = process.env.SUPABASE_SERVICE_KEY
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY
   if (!url || !key) {
     return res.status(500).json({ error: 'Supabase not configured.' })
   }
@@ -111,10 +111,7 @@ export default async function handler(req, res) {
     // Save to cache
     const { error: upsertErr } = await db
       .from('career_trends_cache')
-      .upsert(
-        { week_start: weekStart, content: trends, generated_at: new Date().toISOString() },
-        { onConflict: 'week_start' }
-      )
+      .insert({ week_start: weekStart, content: trends, generated_at: new Date().toISOString() })
 
     if (upsertErr) throw new Error(upsertErr.message)
 

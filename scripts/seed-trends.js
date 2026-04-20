@@ -22,7 +22,7 @@ try {
 } catch {}
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY
 
 if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY || !ANTHROPIC_API_KEY) {
@@ -118,11 +118,10 @@ Response format — JSON array only, no extra text:
   const trends = JSON.parse(arrMatch[0])
   if (!Array.isArray(trends) || trends.length === 0) throw new Error('empty trends array')
 
-  const { error: upsertErr } = await supabase.from('career_trends_cache').upsert(
-    { week_start: weekStart, content: trends, generated_at: new Date().toISOString() },
-    { onConflict: 'week_start' }
-  )
-  if (upsertErr) throw new Error(upsertErr.message)
+  const { error: insertErr } = await supabase.from('career_trends_cache').insert({
+    week_start: weekStart, content: trends, generated_at: new Date().toISOString()
+  })
+  if (insertErr) throw new Error(insertErr.message)
 
   console.log(`seed-trends: cached ${trends.length} trends for ${weekStart}`)
 } catch (err) {
