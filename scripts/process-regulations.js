@@ -46,8 +46,7 @@ if (!SUPABASE_URL || !SUPABASE_KEY) {
 const { createClient } = await import('@supabase/supabase-js')
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: false } })
 
-// Dynamically import pdf-parse (CommonJS module)
-const { default: pdfParse } = await import('pdf-parse')
+const { PDFParse } = await import('pdf-parse')
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -135,14 +134,15 @@ for (const filePath of files) {
   let pdfData
   try {
     const buffer = await readFile(filePath)
-    pdfData = await pdfParse(buffer)
+    const parser = new PDFParse({ data: new Uint8Array(buffer) })
+    pdfData = await parser.getText({})
   } catch (e) {
     console.error(`   ⚠️  Could not parse PDF: ${e.message}`)
     continue
   }
 
   const text = pdfData.text
-  console.log(`   Pages: ${pdfData.numpages} | Characters: ${text.length.toLocaleString()}`)
+  console.log(`   Pages: ${pdfData.total} | Characters: ${text.length.toLocaleString()}`)
 
   const chunks = chunkText(text)
   console.log(`   Chunks created: ${chunks.length}`)
