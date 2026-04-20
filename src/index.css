@@ -94,6 +94,17 @@ header {
 .resource-scroll-row::-webkit-scrollbar-thumb { background: #d3d1c7; border-radius: 2px; }
 .resource-card-h { flex: 0 0 260px; width: 260px !important; }
 
+/* Sticky search result bar */
+.search-result-sticky {
+  position: sticky;
+  top: 114px; /* header(62) + tab-nav(~52) for tablet */
+  z-index: 96;
+  background: #FAFAF8;
+  padding: 10px 16px 12px;
+  border-bottom: 1px solid #E5E3DC;
+}
+.search-result-inner { max-width: 1100px; margin: 0 auto; }
+
 /* About page top layout */
 .about-top {
   display: grid; grid-template-columns: 120px 1fr auto;
@@ -305,6 +316,10 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
   /* Resource horizontal scroll — narrower cards on mobile */
   .resource-card-h { flex: 0 0 240px; width: 240px !important; }
 
+  /* Sticky search result — full width, flush edges */
+  .search-result-sticky { top: 52px; padding: 8px 0 10px; }
+  .search-result-inner { padding: 0 12px; }
+
   /* About top — stack vertically, center logo */
   .about-top { grid-template-columns: 1fr; gap: 20px; text-align: left; }
   .about-logo-col { display: flex; justify-content: center; }
@@ -430,4 +445,8 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
   /* Shift content and footer right of sidebar */
   .container { margin-left: 200px; }
   .main-footer { margin-left: 200px; }
+
+  /* Sticky search result — clear the fixed sidebar */
+  .search-result-sticky { top: 62px; margin-left: 200px; padding: 10px 16px 12px; }
+  .search-result-inner { max-width: 900px; margin: 0; }
 }

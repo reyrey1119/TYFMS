@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from 'react'
+import { useMemo } from 'react'
 import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
 
@@ -111,16 +111,6 @@ export default function ResourcesTab({ searchResult }) {
     return null
   }, [highlightIds])
 
-  const firstHighlightRef = useRef(null)
-
-  useEffect(() => {
-    if (!firstHighlightRef.current || highlightIds.size === 0) return
-    const t = setTimeout(() => {
-      firstHighlightRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    }, 150)
-    return () => clearTimeout(t)
-  }, [highlightIds])
-
   return (
     <div>
       <div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
@@ -172,7 +162,7 @@ export default function ResourcesTab({ searchResult }) {
                 return (
                   <div
                     key={r.id}
-                    ref={r.id === firstHighlightedId ? firstHighlightRef : null}
+                    id={r.id === firstHighlightedId ? 'first-resource-match' : undefined}
                     className="card resource-card-h"
                     style={highlighted ? {
                       border: '2px solid #C07A28',

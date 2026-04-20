@@ -122,44 +122,67 @@ export default function App() {
           </nav>
         </div>
       </div>
+      {searchResult && (
+        <div className="search-result-sticky">
+          <div className="search-result-inner">
+            <div style={{
+              background: '#fff',
+              border: `1px solid ${searchResult.regulationBacked ? '#1B3A6B' : '#B8C9E8'}`,
+              borderRadius: 10, padding: '12px 16px',
+              display: 'flex', gap: 12, alignItems: 'flex-start',
+            }}>
+              <span style={{ fontSize: 16, flexShrink: 0, marginTop: searchResult.regulationBacked ? 14 : 2 }}>
+                {searchResult.regulationBacked ? '📋' : '🔍'}
+              </span>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                {searchResult.regulationBacked && (
+                  <span style={{
+                    display: 'inline-block', fontSize: 10, fontWeight: 700, letterSpacing: '.06em',
+                    textTransform: 'uppercase', background: '#1B3A6B', color: '#fff',
+                    padding: '2px 8px', borderRadius: 6, marginBottom: 7,
+                  }}>
+                    Regulation-backed · 38 CFR
+                  </span>
+                )}
+                <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.7 }}>{searchResult.summary}</p>
+                {searchResult.sectionHint && (
+                  <p style={{ fontSize: 12, color: '#1B3A6B', marginTop: 4 }}>
+                    Look for: <strong>{searchResult.sectionHint}</strong>
+                  </p>
+                )}
+                {searchResult.resourceMatch && (
+                  <button
+                    onClick={() => document.getElementById('first-resource-match')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                    style={{
+                      background: 'none', border: 'none', padding: 0, cursor: 'pointer',
+                      fontSize: 13, color: '#C07A28', fontWeight: 600, marginTop: 8,
+                      display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'inherit',
+                      textDecoration: 'underline', textUnderlineOffset: 3,
+                    }}
+                  >
+                    See related resources below ↓
+                  </button>
+                )}
+              </div>
+              <button
+                onClick={clearSearch}
+                aria-label="Dismiss"
+                style={{
+                  background: '#F0EDE6', border: 'none', borderRadius: '50%',
+                  color: '#5f5e5a', cursor: 'pointer', fontSize: 16, fontWeight: 700,
+                  lineHeight: 1, flexShrink: 0, width: 28, height: 28,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="container">
         <AdUnit slot="3957268946" />
-
-        {searchResult && (
-          <div style={{
-            background: '#fff',
-            border: `1px solid ${searchResult.regulationBacked ? '#1B3A6B' : '#B8C9E8'}`,
-            borderRadius: 10, padding: '12px 16px', marginBottom: 20,
-            display: 'flex', gap: 12, alignItems: 'flex-start',
-          }}>
-            <span style={{ fontSize: 16, flexShrink: 0, marginTop: searchResult.regulationBacked ? 14 : 2 }}>
-              {searchResult.regulationBacked ? '📋' : '🔍'}
-            </span>
-            <div style={{ flex: 1 }}>
-              {searchResult.regulationBacked && (
-                <span style={{
-                  display: 'inline-block', fontSize: 10, fontWeight: 700, letterSpacing: '.06em',
-                  textTransform: 'uppercase', background: '#1B3A6B', color: '#fff',
-                  padding: '2px 8px', borderRadius: 6, marginBottom: 7,
-                }}>
-                  Regulation-backed · 38 CFR
-                </span>
-              )}
-              <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.7 }}>{searchResult.summary}</p>
-              {searchResult.sectionHint && (
-                <p style={{ fontSize: 12, color: '#1B3A6B', marginTop: 4 }}>
-                  Look for: <strong>{searchResult.sectionHint}</strong>
-                </p>
-              )}
-            </div>
-            <button
-              onClick={clearSearch}
-              style={{ background: 'none', border: 'none', color: '#1B3A6B', cursor: 'pointer', fontSize: 18, lineHeight: 1, flexShrink: 0 }}
-            >
-              ×
-            </button>
-          </div>
-        )}
 
         {activeTab === 'home'       && <HomeTab onNavigate={setActiveTab} />}
         {activeTab === 'about'      && <AboutTab />}
