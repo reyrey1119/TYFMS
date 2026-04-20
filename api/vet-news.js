@@ -1,16 +1,13 @@
 // GET /api/vet-news — current veteran news via web search, cached 7 days
 //
-// Supabase table (run once):
-// CREATE TABLE vet_news_cache (
-//   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-//   cached_at timestamptz NOT NULL DEFAULT now(),
-//   content jsonb NOT NULL
-// );
+// Supabase table — see supabase/migrations/002_fix_vet_news_cache.sql
+// Column: generated_at (not generated_at)
 
 async function getSupabaseAdmin() {
   try {
-    const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
-    const key = process.env.SUPABASE_SERVICE_KEY
+    const rawUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
+    const url = (rawUrl && rawUrl.startsWith('http')) ? rawUrl : process.env.VITE_SUPABASE_URL
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY
     if (!url || !key) return null
     const { createClient } = await import('@supabase/supabase-js')
     return createClient(url, key, { auth: { persistSession: false } })
@@ -94,14 +91,14 @@ export default async function handler(req, res) {
       try {
         const { data } = await db
           .from('vet_news_cache')
-          .select('content, cached_at')
-          .gte('cached_at', cutoff.toISOString())
-          .order('cached_at', { ascending: false })
+          .select('content, generated_at')
+          .gte('generated_at', cutoff.toISOString())
+          .order('generated_at', { ascending: false })
           .limit(1)
           .single()
 
         if (data?.content && Array.isArray(data.content)) {
-          return res.status(200).json({ articles: data.content, cachedAt: data.cached_at, source: 'cache' })
+          return res.status(200).json({ articles: data.content, cachedAt: data.generated_at, source: 'cache' })
         }
       } catch { /* cache miss */ }
     }
@@ -112,8 +109,8 @@ export default async function handler(req, res) {
 
     if (db) {
       try {
-        await db.from('vet_news_cache').delete().lt('cached_at', cutoff.toISOString())
-        await db.from('vet_news_cache').insert({ content: articles, cached_at: now })
+        await db.from('vet_news_cache').delete().lt('generated_at', cutoff.toISOString())
+        await db.from('vet_news_cache').insert({ content: articles, generated_at: now })
       } catch { /* non-fatal */ }
     }
 

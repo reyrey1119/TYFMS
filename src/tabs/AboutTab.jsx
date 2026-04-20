@@ -30,7 +30,7 @@ export default function AboutTab() {
       <div className="about-top">
         {/* Left — logo */}
         <div className="about-logo-col">
-          <img src="/logo.png" alt="TYFMS" style={{ width: 120, height: 'auto', display: 'block' }} />
+          <img src="/logo.png" alt="TYFMS" className="about-logo-img" style={{ height: 'auto', display: 'block' }} />
         </div>
 
         {/* Center — mission */}

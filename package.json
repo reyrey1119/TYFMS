@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/seed-trends.js && vite build",
+    "build": "node scripts/seed-trends.js && node scripts/seed-vet-news.js && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

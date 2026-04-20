@@ -160,7 +160,7 @@ export default function App() {
                       textDecoration: 'underline', textUnderlineOffset: 3,
                     }}
                   >
-                    See related resources below ↓
+                    See highlighted resources below ↓
                   </button>
                 )}
               </div>
