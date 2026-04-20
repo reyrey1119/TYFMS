@@ -1,5 +1,4 @@
 import FunFact from '../components/FunFact'
-import TransitionTimeline from '../components/TransitionTimeline'
 
 const DAILY_TIPS = [
   { tip: "Your military experience is more transferable than you think. Start by writing down three skills you used every day in service.", label: "Skill inventory" },
@@ -55,18 +54,18 @@ const STATS = [
 const HELP_CARDS = [
   {
     icon: '🪖',
-    title: 'Getting out soon?',
-    body: "You're in the right place. TYFMS was built for the exact moment you're in — when the mission is clear but the next step isn't. Start with the Skills Translator to map your MOS to civilian roles, then use the Identity Guide to work through who you are when the uniform comes off.",
+    title: 'Separating soon?',
+    body: 'Active duty within 12 months of ETS. Start here to map your MOS to civilian roles and build your transition plan before you out-process.',
   },
   {
-    icon: '📅',
-    title: 'Been out for a while?',
-    body: "Still finding your footing? That's normal — most veterans report the real adjustment takes 12 to 18 months. Whether you need to translate your resume, build a network, or just get a clearer picture of where you're headed, every tool here is designed for where you are now.",
+    icon: '🧭',
+    title: 'Recently separated?',
+    body: 'Out less than 2 years and still finding your footing. Use the skills translator, resume builder, and mentor network to accelerate your landing.',
   },
   {
-    icon: '🔍',
-    title: 'Why TYFMS exists',
-    body: 'This platform was built from field research into how veterans actually reconstruct their professional identity after service — not from assumptions. The gap between "thank you for your service" and real support is enormous. TYFMS is an attempt to close it.',
+    icon: '🔁',
+    title: 'Been out a while?',
+    body: 'Veterans who feel stuck or want to pivot careers. The identity guide and career trends will help you find your next direction.',
   },
 ]
 
@@ -89,7 +88,7 @@ export default function HomeTab({ onNavigate }) {
           background: 'linear-gradient(135deg, rgba(15,27,77,0.88) 0%, rgba(27,58,107,0.80) 100%)',
         }} />
         <div style={{ position: 'relative' }}>
-          <h1 className="hero-title">Thank You<br />For My Service</h1>
+          <h1 className="hero-title">Thank You For My<br />Service (TYFMS)</h1>
           <p className="hero-tagline">No more empty thanks — just real tools for the next mission.</p>
         </div>
       </div>
@@ -97,7 +96,7 @@ export default function HomeTab({ onNavigate }) {
       {/* Daily tip */}
       <div style={{
         background: '#fff', border: '1px solid #E5E3DC', borderRadius: 12,
-        padding: '16px 20px', marginBottom: 36, display: 'flex', gap: 14, alignItems: 'flex-start',
+        padding: '16px 20px', marginBottom: 48, display: 'flex', gap: 14, alignItems: 'flex-start',
       }}>
         <span style={{ fontSize: 22, flexShrink: 0, marginTop: 1 }}>💡</span>
         <div style={{ flex: 1 }}>
@@ -111,37 +110,21 @@ export default function HomeTab({ onNavigate }) {
         </div>
       </div>
 
-      {/* How TYFMS helps you */}
-      <p className="cat-label" style={{ marginBottom: 14 }}>How TYFMS helps you</p>
-      <div className="grid-3" style={{ marginBottom: 36 }}>
+      {/* Who this is for */}
+      <p className="cat-label" style={{ marginBottom: 14 }}>Where are you in your transition?</p>
+      <div className="grid-3" style={{ marginBottom: 52 }}>
         {HELP_CARDS.map(c => (
-          <div key={c.title} className="card" style={{ padding: '24px 20px' }}>
-            <p style={{ fontSize: 26, marginBottom: 10 }}>{c.icon}</p>
-            <p style={{ fontWeight: 600, fontSize: 14, color: '#1a1a18', marginBottom: 8 }}>{c.title}</p>
-            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.65 }}>{c.body}</p>
+          <div key={c.title} className="card" style={{ padding: '28px 22px' }}>
+            <p style={{ fontSize: 26, marginBottom: 12 }}>{c.icon}</p>
+            <p style={{ fontWeight: 700, fontSize: 15, color: '#1a1a18', marginBottom: 10 }}>{c.title}</p>
+            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7 }}>{c.body}</p>
           </div>
         ))}
       </div>
 
-      {/* Career trends teaser */}
-      <div
-        className="card"
-        style={{ cursor: 'pointer', marginBottom: 36, padding: '18px 22px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}
-        onClick={() => onNavigate('trends')}
-      >
-        <div>
-          <span className="bg" style={{ fontSize: 10, padding: '2px 8px', marginBottom: 8, display: 'inline-block' }}>Updated Monday</span>
-          <p style={{ fontWeight: 600, fontSize: 14, color: '#1a1a18', marginBottom: 4 }}>Career trends this week</p>
-          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.5 }}>
-            Booming sectors and high-demand roles veterans are uniquely positioned to fill right now →
-          </p>
-        </div>
-        <span style={{ fontSize: 28, flexShrink: 0 }}>📈</span>
-      </div>
-
       {/* By the numbers */}
       <p className="cat-label" style={{ marginBottom: 14 }}>By the numbers</p>
-      <div className="grid-3" style={{ marginBottom: 36 }}>
+      <div className="grid-3" style={{ marginBottom: 52 }}>
         {STATS.map(s => (
           <div key={s.stat} className="card">
             <p style={{ fontSize: 22, fontWeight: 800, color: '#1a1a18', marginBottom: 6, letterSpacing: '-.02em', lineHeight: 1.1 }}>
@@ -153,9 +136,7 @@ export default function HomeTab({ onNavigate }) {
         ))}
       </div>
 
-      <TransitionTimeline />
-
-      <div className="insight" style={{ marginBottom: 32 }}>
+      <div className="insight" style={{ marginBottom: 48 }}>
         <p className="label">Research insight</p>
         <p>
           Veterans who thrive in transition treat the process as self-directed work. They seek out mentors,
