@@ -454,3 +454,25 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
   .search-result-sticky { top: 62px; margin-left: 200px; padding: 10px 16px 12px; }
   .search-result-inner { max-width: 900px; margin: 0; }
 }
+
+/* ── Resume Builder preview column ───────────────────────────────────────── */
+.resume-preview-col { display: none; }
+@media (min-width: 769px) {
+  .resume-preview-col { display: block; flex: 0 0 44%; position: sticky; top: 80px; min-width: 0; align-self: flex-start; }
+}
+.resume-mobile-output { display: block; }
+@media (min-width: 769px) { .resume-mobile-output { display: none; } }
+
+/* ── Print / PDF export ───────────────────────────────────────────────────── */
+@media print {
+  @page { size: letter portrait; margin: 0.65in 0.75in; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body * { visibility: hidden; }
+  #resume-print-target, #resume-print-target * { visibility: visible; }
+  #resume-print-target {
+    position: absolute; left: 0; top: 0; width: 100%;
+    padding: 0 !important; border: none !important;
+    border-radius: 0 !important; box-shadow: none !important;
+    max-height: none !important; overflow: visible !important;
+  }
+}

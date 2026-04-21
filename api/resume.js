@@ -9,6 +9,7 @@ export default async function handler(req, res) {
   const {
     branch, mos, rank, yos, targetCompany, additionalSkills,
     clearance, awards, summaryTone, education, contact, prevJobs,
+    additionalContext,
   } = req.body || {}
 
   if (!mos?.trim()) return res.status(400).json({ error: 'MOS, AFSC, or rate code is required.' })
@@ -48,6 +49,10 @@ export default async function handler(req, res) {
         .join('\n')
     : ''
 
+  const additionalContextBlock = additionalContext?.trim()
+    ? `\nADDITIONAL CONTEXT: ${additionalContext.trim()}`
+    : ''
+
   const prompt = `You are an expert resume writer specializing in veteran-to-civilian career transitions. Create a complete, ATS-optimized civilian resume.
 
 VETERAN PROFILE:
@@ -58,7 +63,7 @@ VETERAN PROFILE:
 - Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently near the header as it is a major hiring advantage` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()} — translate each into a specific civilian achievement statement` : ''}
 
 TARGET: ${companyContext}
-SUMMARY TONE: ${toneNote}${prevJobsBlock}
+SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}
 
 CRITICAL RULES:
 1. NEVER use military acronyms without civilian translation
