@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
 
@@ -32,6 +32,29 @@ export default function TranslatorTab({ onGoToResume }) {
   const [existingCerts, setExistingCerts] = useState([])
   const [certToAdd, setCertToAdd] = useState('')
 
+  const [milRefData, setMilRefData] = useState(null)
+  const [milRefStatus, setMilRefStatus] = useState('idle')
+  const [milDuties, setMilDuties] = useState('')
+
+  useEffect(() => {
+    if (!mos.trim() || !rank) { setMilRefStatus('idle'); setMilRefData(null); return }
+    const timer = setTimeout(async () => {
+      if (!['Army', 'Air Force'].includes(branch)) { setMilRefStatus('unsupported'); return }
+      setMilRefStatus('loading'); setMilRefData(null)
+      try {
+        const r = await fetch('/api/resume-tools', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'mil-reference', branch, mos_afsc: mos.trim(), rank }),
+        })
+        const data = await r.json()
+        if (!r.ok || data.error) { setMilRefStatus('failed'); return }
+        setMilRefData(data); setMilRefStatus('found')
+      } catch { setMilRefStatus('failed') }
+    }, 700)
+    return () => clearTimeout(timer)
+  }, [mos, rank, branch])
+
   // Resume builder state
   const [resumeLoading, setResumeLoading] = useState(false)
   const [resume, setResume] = useState('')
@@ -48,7 +71,7 @@ export default function TranslatorTab({ onGoToResume }) {
       const r = await fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos, existingCerts }),
+        body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos, existingCerts, milReference: milRefData, milDuties: milDuties.trim() }),
       })
       const data = await r.json()
       if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
@@ -115,7 +138,7 @@ export default function TranslatorTab({ onGoToResume }) {
         <div className="grid-2" style={{ marginBottom: 12 }}>
           <div>
             <label>Branch of service</label>
-            <select value={branch} onChange={e => setBranch(e.target.value)}>
+            <select value={branch} onChange={e => { setBranch(e.target.value); setMilRefData(null); setMilRefStatus('idle') }}>
               {BRANCHES.map(b => <option key={b}>{b}</option>)}
             </select>
           </div>
@@ -124,7 +147,7 @@ export default function TranslatorTab({ onGoToResume }) {
             <input
               type="text"
               value={mos}
-              onChange={e => setMos(e.target.value)}
+              onChange={e => { setMos(e.target.value); setMilRefData(null); setMilRefStatus('idle') }}
               onKeyDown={e => e.key === 'Enter' && translate()}
               placeholder="e.g. 25U, 6F0X1, IT"
             />
@@ -216,6 +239,36 @@ export default function TranslatorTab({ onGoToResume }) {
             </div>
           )}
         </div>
+        {milRefStatus === 'loading' && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', background: '#f5f4f0', borderRadius: 8, marginBottom: 12, fontSize: 13, color: '#5f5e5a' }}>
+            <span style={{ display: 'inline-block', width: 14, height: 14, border: '2px solid #0A7868', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.7s linear infinite', flexShrink: 0 }} />
+            Looking up official duty description...
+          </div>
+        )}
+        {milRefStatus === 'found' && milRefData && (
+          <div style={{ background: '#e8f5f3', border: '1px solid #0A7868', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
+            <p style={{ color: '#0A7868', fontWeight: 600, marginBottom: 2 }}>✓ Official duty description found</p>
+            <p style={{ color: '#5f5e5a', fontSize: 12 }}>{milRefData.duty_title} — {milRefData.document_source}</p>
+          </div>
+        )}
+        {milRefStatus === 'failed' && (
+          <div style={{ background: '#fff5f5', border: '1px solid #e0a0a0', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
+            <p style={{ color: '#a32d2d', fontWeight: 600, marginBottom: 6 }}>Could not retrieve official duty description</p>
+            <label style={{ display: 'block', marginBottom: 4, fontSize: 12, color: '#5f5e5a' }}>Describe your primary duties (optional — improves results):</label>
+            <textarea
+              value={milDuties}
+              onChange={e => setMilDuties(e.target.value)}
+              placeholder="e.g. Maintained and operated radio communications systems, trained junior soldiers on SINCGARS..."
+              rows={3}
+              style={{ width: '100%', fontSize: 13, borderRadius: 6, border: '1px solid #d3d1c7', padding: '7px 9px', fontFamily: 'inherit', resize: 'vertical', boxSizing: 'border-box' }}
+            />
+          </div>
+        )}
+        {milRefStatus === 'unsupported' && (
+          <div style={{ background: '#f5f4f0', border: '1px solid #d3d1c7', borderRadius: 8, padding: '8px 14px', marginBottom: 12, fontSize: 12, color: '#5f5e5a' }}>
+            Official duty lookup is available for Army and Air Force. Translation will still run using your MOS/rate.
+          </div>
+        )}
         <button className="btn-g" onClick={translate} disabled={loading}>
           {loading ? 'Analyzing your military experience...' : 'Translate my experience'}
         </button>
