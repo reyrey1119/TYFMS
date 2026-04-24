@@ -38,7 +38,7 @@ function initForm(prefill) {
     targetTitle: '', targetCompany: '', prevJobs: [],
     education: [],
     awards: '', additionalSkills: '', certifications: '',
-    summaryTone: '', additionalContext: '',
+    summaryTone: '', additionalContext: '', milDuties: '',
   }
 }
 
@@ -336,6 +336,8 @@ export default function ResumeTab({ prefill }) {
   const [jobFetchError, setJobFetchError] = useState('')
   const [scoreData, setScoreData] = useState(null)
   const [scoringLoading, setScoringLoading] = useState(false)
+  const [milRefData, setMilRefData] = useState(null)
+  const [milRefStatus, setMilRefStatus] = useState('idle')
 
   useEffect(() => {
     if (!prefill) return
@@ -343,7 +345,29 @@ export default function ResumeTab({ prefill }) {
     setStep(2)
   }, [prefill])
 
-  function set(field, val) { setForm(prev => ({ ...prev, [field]: val })) }
+  useEffect(() => {
+    if (step !== 3 || !form.mos.trim() || !form.rank) return
+    const mos = form.mos.trim(), branch = form.branch, rank = form.rank
+    const timer = setTimeout(async () => {
+      if (!['Army', 'Air Force'].includes(branch)) { setMilRefStatus('unsupported'); return }
+      setMilRefStatus('loading'); setMilRefData(null)
+      try {
+        const r = await fetch('/api/resume-tools', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'mil-reference', branch, mos_afsc: mos, rank }),
+        })
+        const data = await r.json()
+        if (!r.ok || data.error) { setMilRefStatus('failed'); return }
+        setMilRefData(data); setMilRefStatus('found')
+      } catch { setMilRefStatus('failed') }
+    }, 700)
+    return () => clearTimeout(timer)
+  }, [step, form.mos, form.rank, form.branch])
+
+  function set(field, val) {
+    setForm(prev => ({ ...prev, [field]: val }))
+    if (field === 'mos' || field === 'branch') { setMilRefStatus('idle'); setMilRefData(null) }
+  }
   function setJob(id, f, v) { setForm(prev => ({ ...prev, prevJobs: prev.prevJobs.map(j => j.id === id ? { ...j, [f]: v } : j) })) }
   function setEdu(id, f, v) { setForm(prev => ({ ...prev, education: prev.education.map(e => e.id === id ? { ...e, [f]: v } : e) })) }
 
@@ -381,6 +405,8 @@ export default function ResumeTab({ prefill }) {
           summaryTone: form.summaryTone,
           additionalContext: form.additionalContext.trim(),
           jobDescription: jobContext,
+          milReference: milRefData,
+          milDuties: form.milDuties.trim(),
           education: form.education.filter(e => e.school.trim() || e.degreeType),
           contact: { name: form.name, email: form.email, phone: form.phone, location: form.location, linkedin: form.linkedin },
           prevJobs: form.prevJobs.filter(j => j.title.trim()),
@@ -566,6 +592,44 @@ export default function ResumeTab({ prefill }) {
               </select>
             </F>
           </div>
+
+          {/* Mil Reference Lookup */}
+          {milRefStatus === 'loading' && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 14, padding: '12px 14px', background: '#FAFAF8', borderRadius: 10, border: '1px solid #E5E3DC' }}>
+              <span className="search-spinner" />
+              <p style={{ fontSize: 12, color: '#5f5e5a' }}>Looking up official duty description from military career publications…</p>
+            </div>
+          )}
+          {milRefStatus === 'found' && milRefData && (
+            <div style={{ marginTop: 14, background: '#F0F7EE', borderRadius: 10, padding: '14px 16px', border: '1px solid #9DC99A' }}>
+              <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6614', marginBottom: 6 }}>✓ Official duty description found</p>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#1a1a18', marginBottom: 3 }}>{milRefData.duty_title}</p>
+              <p style={{ fontSize: 10, color: '#5f5e5a', marginBottom: milRefData.key_skills ? 8 : 0 }}>Source: {milRefData.document_source || 'Military career management publication'}</p>
+              {milRefData.key_skills && <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.55 }}>Key skills: {milRefData.key_skills}</p>}
+              <p style={{ fontSize: 10, color: '#1a6614', marginTop: 8, opacity: 0.8 }}>This description will be used to accurately generate your resume.</p>
+            </div>
+          )}
+          {milRefStatus === 'failed' && (
+            <div style={{ marginTop: 14 }}>
+              <div style={{ background: '#FDF2F2', borderRadius: 10, padding: '12px 14px', border: '1px solid #F5C6CB', marginBottom: 12 }}>
+                <p style={{ fontSize: 12, color: '#7a2d2d', lineHeight: 1.55 }}>We could not automatically retrieve your duty description. Please describe your primary duties below.</p>
+              </div>
+              <F label="Primary duties" hint="(describe your role)" mb={0}>
+                <textarea value={form.milDuties} onChange={e => set('milDuties', e.target.value)} placeholder="Describe your primary duties, equipment operated, systems managed, teams led, and key responsibilities…" style={{ minHeight: 80 }} />
+              </F>
+            </div>
+          )}
+          {milRefStatus === 'unsupported' && form.mos.trim() && (
+            <div style={{ marginTop: 14, padding: '12px 14px', background: '#FAFAF8', borderRadius: 10, border: '1px dashed #d3d1c7' }}>
+              <p style={{ fontSize: 12, color: '#5f5e5a', lineHeight: 1.6 }}>
+                Automatic duty lookup is available for <strong>Army</strong> and <strong>Air Force</strong>.
+                Marine Corps, Navy, and Coast Guard support is coming soon.
+              </p>
+              <F label="Primary duties" hint="(describe your role)" mb={0} style={{ marginTop: 12 }}>
+                <textarea value={form.milDuties} onChange={e => set('milDuties', e.target.value)} placeholder="Describe your primary duties, equipment operated, systems managed, and key responsibilities…" style={{ minHeight: 64, marginTop: 8 }} />
+              </F>
+            </div>
+          )}
         </div>
       )
 

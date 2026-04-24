@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   const {
     branch, mos, rank, yos, targetCompany, additionalSkills,
     clearance, awards, summaryTone, education, contact, prevJobs,
-    additionalContext, jobDescription,
+    additionalContext, jobDescription, milReference, milDuties,
   } = req.body || {}
 
   if (!mos?.trim()) return res.status(400).json({ error: 'MOS, AFSC, or rate code is required.' })
@@ -57,6 +57,12 @@ export default async function handler(req, res) {
     ? `\n\nJOB DESCRIPTION (tailor the entire resume to match this specific role):\n${jobDescription.trim().slice(0, 2500)}`
     : ''
 
+  const milRefBlock = milReference && !milReference.error
+    ? `\n\nOFFICIAL DUTY DESCRIPTION (source: ${milReference.document_source || 'military career management publication'}):\nDuty Title: ${milReference.duty_title || ''}\nDuties and Responsibilities: ${milReference.duties_and_responsibilities || ''}\nKey Skills: ${milReference.key_skills || ''}\nRank-Specific Expectations: ${milReference.rank_specific_expectations || ''}\nCivilian Translation Hints: ${milReference.civilian_translation_hints || ''}\n\nIMPORTANT: Use this official duty description as the authoritative source for what this veteran did. Translate military terminology into civilian language. Base resume bullets on these documented duties — do not invent responsibilities not listed here.`
+    : (milDuties?.trim()
+      ? `\n\nVETERAN-DESCRIBED DUTIES:\n${milDuties.trim()}\n\nUse these described duties as the primary source for the Professional Experience section.`
+      : '')
+
   const targetLabel = targetCompany?.trim() || 'this employer'
 
   const prompt = `You are an expert resume writer specializing in veteran-to-civilian career transitions. Create a complete, ATS-optimized civilian resume.
@@ -69,7 +75,7 @@ VETERAN PROFILE:
 - Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently near the header as it is a major hiring advantage` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()} — translate each into a specific civilian achievement statement` : ''}
 
 TARGET: ${companyContext}
-SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}
+SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}
 
 CRITICAL RULES:
 1. NEVER use military acronyms without civilian translation
