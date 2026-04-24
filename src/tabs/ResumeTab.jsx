@@ -351,9 +351,9 @@ export default function ResumeTab({ prefill }) {
     if (!form.jobUrl.trim()) return
     setJobFetching(true); setJobFetchError(''); setJobData(null)
     try {
-      const r = await fetch('/api/fetch-job', {
+      const r = await fetch('/api/resume-tools', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url: form.jobUrl.trim() }),
+        body: JSON.stringify({ action: 'fetch-job', url: form.jobUrl.trim() }),
       })
       const data = await r.json()
       if (!r.ok) { setJobFetchError(data.error || 'Could not extract the job posting.'); return }
@@ -392,9 +392,9 @@ export default function ResumeTab({ prefill }) {
       if (jobContext) {
         setScoringLoading(true)
         try {
-          const sr = await fetch('/api/score-resume', {
+          const sr = await fetch('/api/resume-tools', {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ resume: data.resume, jobDescription: jobContext }),
+            body: JSON.stringify({ action: 'score-resume', resume: data.resume, jobDescription: jobContext }),
           })
           const sd = await sr.json()
           if (sr.ok && sd.overall !== undefined) setScoreData(sd)
