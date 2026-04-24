@@ -252,9 +252,9 @@ export default function TranslatorTab({ onGoToResume }) {
           </div>
         )}
         {milRefStatus === 'failed' && (
-          <div style={{ background: '#fff5f5', border: '1px solid #e0a0a0', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
-            <p style={{ color: '#a32d2d', fontWeight: 600, marginBottom: 6 }}>Could not retrieve official duty description</p>
-            <label style={{ display: 'block', marginBottom: 4, fontSize: 12, color: '#5f5e5a' }}>Describe your primary duties (optional — improves results):</label>
+          <div style={{ background: '#f9f8f5', border: '1px solid #d3d1c7', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
+            <p style={{ color: '#5f5e5a', fontWeight: 600, marginBottom: 4 }}>Official duty description not available</p>
+            <p style={{ color: '#5f5e5a', fontSize: 12, marginBottom: 8, lineHeight: 1.5 }}>Your translation will still run using AI knowledge of your MOS. Optionally describe your duties below for a more tailored result.</p>
             <textarea
               value={milDuties}
               onChange={e => setMilDuties(e.target.value)}
