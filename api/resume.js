@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   const {
     branch, mos, rank, yos, targetCompany, additionalSkills,
     clearance, awards, summaryTone, education, contact, prevJobs,
-    additionalContext,
+    additionalContext, jobDescription,
   } = req.body || {}
 
   if (!mos?.trim()) return res.status(400).json({ error: 'MOS, AFSC, or rate code is required.' })
@@ -53,6 +53,12 @@ export default async function handler(req, res) {
     ? `\nADDITIONAL CONTEXT: ${additionalContext.trim()}`
     : ''
 
+  const jobDescBlock = jobDescription?.trim()
+    ? `\n\nJOB DESCRIPTION (tailor the entire resume to match this specific role):\n${jobDescription.trim().slice(0, 2500)}`
+    : ''
+
+  const targetLabel = targetCompany?.trim() || 'this employer'
+
   const prompt = `You are an expert resume writer specializing in veteran-to-civilian career transitions. Create a complete, ATS-optimized civilian resume.
 
 VETERAN PROFILE:
@@ -63,19 +69,29 @@ VETERAN PROFILE:
 - Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently near the header as it is a major hiring advantage` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()} — translate each into a specific civilian achievement statement` : ''}
 
 TARGET: ${companyContext}
-SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}
+SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}
 
 CRITICAL RULES:
 1. NEVER use military acronyms without civilian translation
-2. Use strong action verbs: Led, Directed, Managed, Executed, Optimized, Deployed, Trained, Coordinated, Streamlined, Spearheaded
+2. Use strong action verbs: Led, Directed, Managed, Executed, Optimized, Trained, Coordinated, Built, Cut, Grew, Delivered
 3. Quantify every bullet with realistic placeholders: [X%], [$X], [N personnel], [N months]
 4. Include ATS keywords relevant to the target company/industry throughout the document
 5. Professional summary MUST lead with the veteran's strongest civilian value proposition in ${toneNote} tone
 6. Section headers use ─────────────────────────────────────────────── as dividers${hasClearance ? '\n7. Show clearance on its own line after contact info' : ''}${!hasEducation ? '\n8. EDUCATION section must show exactly: ADD YOUR EDUCATION HERE — never invent degrees' : ''}
+9. IMMEDIATE VALUE OFFERED: Each of the 3 bullets must start with a strong action verb, be exactly one sentence, and directly address a specific need from the job description or target employer. Sound like a confident professional, not AI.
+10. ANTI-AI LANGUAGE: Never use em dashes — replace with commas or periods. Never use: leverage, utilize, synergize, robust, holistic, in order to, it is worth noting, as previously mentioned, going forward, moving forward. Active voice throughout — rewrite any passive constructions.
+11. VARY SENTENCE LENGTH: Mix short punchy statements (6-8 words) with longer detailed ones (15-20 words). Every metric must be specific — never "significantly improved," always a real number like "cut processing time by 34%."
 
 OUTPUT — plain text only, no markdown, follow this exact format:
 
 ${contactLine}${hasClearance ? `\nCLEARANCE: ${clearance}` : ''}
+
+─────────────────────────────────────────────────────
+IMMEDIATE VALUE OFFERED
+─────────────────────────────────────────────────────
+• [Action verb + specific deliverable that directly addresses what ${targetLabel} needs, one sentence, no em dashes]
+• [Action verb + specific deliverable that directly addresses what ${targetLabel} needs, one sentence, no em dashes]
+• [Action verb + specific deliverable that directly addresses what ${targetLabel} needs, one sentence, no em dashes]
 
 ─────────────────────────────────────────────────────
 PROFESSIONAL SUMMARY
@@ -133,7 +149,7 @@ Return only the resume text — no preamble, no commentary, no markdown.`
       headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 2500,
+        max_tokens: 3000,
         messages: [{ role: 'user', content: prompt }],
       }),
     })
