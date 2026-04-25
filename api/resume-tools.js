@@ -189,14 +189,29 @@ function parseJsonResult(text) {
   try { return JSON.parse(m[0]) } catch { return null }
 }
 
+// Returns true only if the extracted result clearly corresponds to the requested MOS.
+// Wrong data injected into a resume is worse than falling back to AI knowledge.
+function milRefMatchesMos(result, mos) {
+  if (!result || result.not_found) return false
+  if (!result.duty_title || result.duty_title.length < 5) return false
+  if (!result.duties_and_responsibilities || result.duties_and_responsibilities.length < 50) return false
+  // The MOS code itself must appear somewhere in the extracted content.
+  const haystack = JSON.stringify(result).toUpperCase()
+  const needle = mos.replace(/[^A-Z0-9]/g, '')
+  return haystack.includes(needle)
+}
+
 async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
   if (!mos_afsc?.trim() || !branch?.trim()) return { error: 'Branch and MOS/AFSC are required.' }
+
+  // Normalize to uppercase immediately — "42b" and "42B" must resolve identically.
+  const mosCleaned = mos_afsc.trim().toUpperCase()
 
   const component = rank?.startsWith('O-') ? 'officer'
     : rank?.startsWith('W-') ? 'warrant_officer'
     : 'enlisted'
 
-  const cacheKey = `${branch}_${component}_${mos_afsc.trim().toUpperCase()}_${rank || 'any'}`.replace(/[\s/]+/g, '_')
+  const cacheKey = `${branch}_${component}_${mosCleaned}_${rank || 'any'}`.replace(/[\s/]+/g, '_')
 
   if (supabase) {
     try {
@@ -242,7 +257,7 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
 
   // ── Path 1: Fetch actual DA PAM 600-3 branch PDF (Army officers/WOs only) ──
   if (branch === 'Army' && component !== 'enlisted') {
-    const pdfEntry = getArmyOfficerPdfEntry(mos_afsc)
+    const pdfEntry = getArmyOfficerPdfEntry(mosCleaned)
     if (pdfEntry) {
       const pdfBase64 = await fetchPdfBase64(pdfEntry.url)
       if (pdfBase64) {
@@ -257,21 +272,27 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
               },
               {
                 type: 'text',
-                text: `Using this official DA PAM 600-3 ${pdfEntry.branch} Branch document, extract the duty description for MOS/AOC ${mos_afsc.trim()} at rank ${rank || 'officer level'}.
+                text: `This is the official DA PAM 600-3 ${pdfEntry.branch} Branch document. Extract the duty description for exactly one MOS/AOC: ${mosCleaned}.
 
-Return ONLY a valid JSON object — no markdown, no preamble:
-${jsonSchema}
+STEP 1 — LOCATE THE SECTION: Search for a section header that contains the exact string "${mosCleaned}" (e.g. "AOC ${mosCleaned}", "MOS ${mosCleaned}", a chapter heading beginning with "${mosCleaned}", or a paragraph number followed by "${mosCleaned}"). This must be an exact match on the MOS code — do not match adjacent or similar codes.
 
-Every field must be specific to ${mos_afsc.trim()} as described in this document.`,
+STEP 2 — EXTRACT ONLY THAT SECTION: Copy the content from that section header to the beginning of the next MOS/AOC section header. Do not include content from any other MOS or AOC section.
+
+STEP 3 — IF NOT FOUND: If this document does not contain a section specifically for "${mosCleaned}", return exactly:
+{"not_found": true, "document_source": "${docSource}"}
+
+STEP 4 — IF FOUND: Return ONLY this JSON object, populated entirely from the extracted section text. The string "${mosCleaned}" must appear somewhere in your response to confirm the correct section was found. No markdown, no preamble:
+${jsonSchema}`,
               },
             ],
-          }])
+          }], 1400)
           if (!data.error) {
             const result = parseJsonResult((data.content || []).map(i => i.text || '').join(''))
-            if (result) return cacheAndReturn(result)
+            // Validate: wrong data is worse than no data — only accept if MOS code appears in result
+            if (milRefMatchesMos(result, mosCleaned)) return cacheAndReturn(result)
           }
         } catch {}
-        // PDF extraction failed — fall through to knowledge path
+        // PDF extraction failed or validation rejected — fall through to knowledge path
       }
     }
   }
@@ -283,14 +304,14 @@ Generate the official duty description for this service member based on your kno
 
 Branch: ${branch}
 Component: ${componentLabel}
-MOS/AFSC: ${mos_afsc.trim()}
+MOS/AFSC: ${mosCleaned}
 Rank: ${rank || 'Not specified'}
 Source document: ${docSource}
 
 Return ONLY a valid JSON object — no markdown, no preamble:
 ${jsonSchema}
 
-Be specific and accurate. Reference actual systems, doctrinal tasks, and terminology authentic to this MOS/AFSC.`
+Be specific and accurate. Reference actual systems, doctrinal tasks, and terminology authentic to ${mosCleaned}.`
 
   try {
     const data = await callClaude(apiKey, [{ role: 'user', content: knowledgePrompt }])
