@@ -533,6 +533,134 @@ Return ONLY a valid JSON object — no markdown:
   catch { return { error: 'Could not parse LinkedIn content.' } }
 }
 
+// ── vault-extract ─────────────────────────────────────────────────────────────
+
+async function vaultExtract(apiKey, { storagePath, contentType, documentType, accessToken }) {
+  if (!storagePath || !accessToken) return { error: 'Missing required parameters.' }
+
+  // Verify the caller owns this path (path must start with their user_id)
+  const supabaseUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
+  const anonKey = process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+  if (!supabaseUrl || !anonKey) return { error: 'Supabase not configured.' }
+
+  // Verify user identity via their JWT
+  const { createClient } = await import('@supabase/supabase-js')
+  const userClient = createClient(supabaseUrl, anonKey, {
+    global: { headers: { Authorization: `Bearer ${accessToken}` } },
+  })
+  const { data: { user }, error: authErr } = await userClient.auth.getUser()
+  if (authErr || !user) return { error: 'Not authenticated.' }
+
+  // Verify path belongs to this user
+  if (!storagePath.startsWith(user.id + '/')) return { error: 'Access denied.' }
+
+  // Download file using service role key (or anon key for storage if policies allow)
+  const storageKey = serviceKey || anonKey
+  const storageClient = createClient(supabaseUrl, storageKey)
+  const { data: fileBlob, error: dlErr } = await storageClient.storage
+    .from('document-vault')
+    .download(storagePath)
+
+  if (dlErr || !fileBlob) return { error: 'Could not download document. Check storage policies.' }
+
+  const arrayBuffer = await fileBlob.arrayBuffer()
+  const bytes = Buffer.from(arrayBuffer)
+
+  if (bytes.length > 15 * 1024 * 1024) return { error: 'File too large for extraction (max 15 MB).' }
+
+  const docLabel = documentType?.toUpperCase().replace(/_/g, ' ') || 'SERVICE DOCUMENT'
+  let extractedText = ''
+
+  // ── PDF → Claude document API ──────────────────────────────────────────────
+  if (contentType === 'application/pdf' || storagePath.endsWith('.pdf')) {
+    const base64 = bytes.toString('base64')
+    const data = await callClaude(apiKey, [{
+      role: 'user',
+      content: [
+        {
+          type: 'document',
+          source: { type: 'base64', media_type: 'application/pdf', data: base64 },
+          title: `${docLabel} — ${storagePath.split('/').pop()}`,
+        },
+        {
+          type: 'text',
+          text: `Extract ALL text from this ${docLabel} military document. Return the complete text exactly as it appears, preserving structure, bullet points, ratings, names, dates, unit designations, and award citations. Do not summarize — return the full extracted text verbatim.`,
+        },
+      ],
+    }], 4096)
+    if (data.error) return { error: data.error.message || 'Claude extraction failed.' }
+    extractedText = (data.content || []).map(i => i.text || '').join('')
+
+  // ── Image → Claude vision ──────────────────────────────────────────────────
+  } else if (contentType?.startsWith('image/') || /\.(jpg|jpeg|png)$/i.test(storagePath)) {
+    const mediaType = contentType?.startsWith('image/png') ? 'image/png' : 'image/jpeg'
+    const base64 = bytes.toString('base64')
+    const data = await callClaude(apiKey, [{
+      role: 'user',
+      content: [
+        {
+          type: 'image',
+          source: { type: 'base64', media_type: mediaType, data: base64 },
+        },
+        {
+          type: 'text',
+          text: `This is a scanned military document (${docLabel}). Extract ALL visible text from this image. Return the complete text exactly as it appears, preserving all details, ratings, names, dates, bullet points, award names, and unit designations. Do not summarize — return the full text verbatim.`,
+        },
+      ],
+    }], 4096)
+    if (data.error) return { error: data.error.message || 'Claude vision extraction failed.' }
+    extractedText = (data.content || []).map(i => i.text || '').join('')
+
+  // ── DOCX → mammoth text extraction ────────────────────────────────────────
+  } else if (
+    contentType?.includes('wordprocessingml') ||
+    contentType?.includes('msword') ||
+    /\.docx?$/i.test(storagePath)
+  ) {
+    try {
+      const mammoth = await import('mammoth')
+      const result = await mammoth.extractRawText({ buffer: bytes })
+      extractedText = result.value || ''
+    } catch {
+      return { error: 'Could not parse DOCX file. Try uploading a PDF version instead.' }
+    }
+  } else {
+    return { error: 'Unsupported file type. Upload a PDF, DOCX, JPG, or PNG.' }
+  }
+
+  if (!extractedText.trim()) return { error: 'No text could be extracted from this document.' }
+
+  // ── Generate structured summary ────────────────────────────────────────────
+  const summaryPrompt = `You are analyzing extracted text from a veteran's ${docLabel} military document. Identify and extract key information.
+
+DOCUMENT TEXT:
+${extractedText.slice(0, 6000)}
+
+Return ONLY a valid JSON object — no markdown, no preamble:
+{
+  "docType": "${docLabel}",
+  "veteranName": "<full name if found, else null>",
+  "rank": "<military rank if found, else null>",
+  "unit": "<unit/organization if found, else null>",
+  "ratingOverall": "<for OER/NCOER: the overall rating such as 'Among the Best', 'Most Qualified', 'Highly Qualified', 'Fully Capable' — null if this is not an evaluation report>",
+  "awards": [<array of award names found, e.g. ["ARCOM", "AAM", "MSM"] — empty array if none>],
+  "keyBullets": [<array of up to 5 strongest achievement statements extracted verbatim or near-verbatim from the document. These are the most specific, impressive accomplishments with concrete actions and outcomes. Include metrics when present.>],
+  "period": "<date range covered, e.g. '2020-2022' — null if not determinable>"
+}`
+
+  const summaryData = await callClaude(apiKey, [{ role: 'user', content: summaryPrompt }], 1200)
+  const summaryText = (summaryData.content || []).map(i => i.text || '').join('')
+  let summary = null
+  try {
+    const match = summaryText.match(/\{[\s\S]*\}/)
+    if (match) summary = JSON.parse(match[0])
+  } catch {}
+
+  return { extractedText: extractedText.slice(0, 20000), summary }
+}
+
 // ── Handler ───────────────────────────────────────────────────────────────────
 
 export default async function handler(req, res) {
@@ -571,6 +699,10 @@ export default async function handler(req, res) {
     }
     if (action === 'linkedin-optimizer') {
       const result = await linkedInOptimizer(apiKey, params)
+      return result.error ? res.status(400).json(result) : res.status(200).json(result)
+    }
+    if (action === 'vault-extract') {
+      const result = await vaultExtract(apiKey, params)
       return result.error ? res.status(400).json(result) : res.status(200).json(result)
     }
     return res.status(400).json({ error: 'Unknown action.' })

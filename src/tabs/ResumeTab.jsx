@@ -530,6 +530,22 @@ export default function ResumeTab({ prefill }) {
   const [scoringLoading, setScoringLoading] = useState(false)
   const [milRefData, setMilRefData] = useState(null)
   const [milRefStatus, setMilRefStatus] = useState('idle')
+  const [vaultDocs, setVaultDocs] = useState([])
+  const [vaultLoaded, setVaultLoaded] = useState(false)
+
+  useEffect(() => {
+    if (!useDb || vaultLoaded) return
+    supabase
+      .from('vault_documents')
+      .select('id, document_type, filename, extracted_text, extraction_summary')
+      .eq('user_id', user.id)
+      .not('extracted_text', 'is', null)
+      .then(({ data }) => { if (data) setVaultDocs(data); setVaultLoaded(true) })
+  }, [useDb])
+
+  const vaultContext = vaultDocs.length > 0
+    ? vaultDocs.map(d => `=== ${d.document_type.toUpperCase()} — ${d.filename} ===\n${d.extracted_text}`).join('\n\n')
+    : ''
 
   const activeSteps = mode === 'cv' ? CV_STEPS : RESUME_STEPS
   const lastStep = activeSteps[activeSteps.length - 1].n
@@ -615,6 +631,7 @@ export default function ResumeTab({ prefill }) {
           prevJobs: form.prevJobs.filter(j => j.title.trim()),
           format: mode,
           cvExtras: mode === 'cv' ? cvExtras : null,
+          vaultContext: vaultContext || undefined,
         }),
       })
       const data = await r.json()
@@ -1198,6 +1215,24 @@ export default function ResumeTab({ prefill }) {
 
   return (
     <div>
+      {/* Vault context banner */}
+      {vaultDocs.length > 0 && (
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18,
+          padding: '12px 16px', background: '#F0F7EE', border: '1px solid #B8DDB8', borderRadius: 12,
+        }}>
+          <span style={{ fontSize: 22, flexShrink: 0 }}>🔒</span>
+          <div>
+            <p style={{ fontSize: 13, fontWeight: 700, color: '#1a6614', marginBottom: 2 }}>
+              Document Vault connected — {vaultDocs.length} document{vaultDocs.length !== 1 ? 's' : ''} found
+            </p>
+            <p style={{ fontSize: 12, color: '#1a6614' }}>
+              Your resume will be built from your actual service record. Every bullet will trace to your real evaluations, awards, and documented accomplishments.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Mode toggle */}
       <div style={{ display: 'flex', gap: 6, marginBottom: 20, background: '#F5F4F0', borderRadius: 10, padding: 4 }}>
         {[

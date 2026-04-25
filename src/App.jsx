@@ -10,6 +10,7 @@ import IdentityTab from './tabs/IdentityTab'
 import NetworkTab from './tabs/NetworkTab'
 import TrackerTab from './tabs/TrackerTab'
 import ApplicationTrackerTab from './tabs/ApplicationTrackerTab'
+import DocumentVaultTab from './tabs/DocumentVaultTab'
 import ResourcesTab from './tabs/ResourcesTab'
 import AboutTab from './tabs/AboutTab'
 import PathTab from './tabs/PathTab'
@@ -34,6 +35,7 @@ const TABS = [
   { id: 'vetnews',         icon: '📰', label: 'Vet news' },
   { id: 'tracker',         icon: '✅', label: 'Progress tracker' },
   { id: 'applications',    icon: '📋', label: 'Application tracker' },
+  { id: 'vault',           icon: '🔒', label: 'Document Vault' },
   { id: 'resources',       icon: '📚', label: 'Resources' },
   { id: 'about',           icon: 'ℹ️',  label: 'About' },
   { id: 'testimonials',    icon: '⭐', label: 'Testimonials' },
@@ -212,6 +214,7 @@ export default function App() {
         {activeTab === 'vetnews'      && <VetNewsTab />}
         {activeTab === 'tracker'      && <TrackerTab />}
         {activeTab === 'applications' && <ApplicationTrackerTab />}
+        {activeTab === 'vault'        && <DocumentVaultTab />}
         {activeTab === 'resources'    && <ResourcesTab searchResult={searchResult} />}
         {activeTab === 'testimonials' && <TestimonialsTab />}
         {activeTab === 'feedback'     && <FeedbackTab />}

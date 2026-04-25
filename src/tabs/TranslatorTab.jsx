@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
+import { useAuth } from '../context/AuthContext'
+import { supabase } from '../lib/supabase'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 
@@ -22,6 +24,24 @@ const YOS_OPTIONS = [
 ]
 
 export default function TranslatorTab({ onGoToResume }) {
+  const { user, supabaseEnabled } = useAuth()
+  const useDb = supabaseEnabled && !!supabase && !!user
+
+  const [vaultDocs, setVaultDocs] = useState([])
+  useEffect(() => {
+    if (!useDb) return
+    supabase
+      .from('vault_documents')
+      .select('document_type, filename, extracted_text')
+      .eq('user_id', user.id)
+      .not('extracted_text', 'is', null)
+      .then(({ data }) => { if (data) setVaultDocs(data) })
+  }, [useDb])
+
+  const vaultContext = vaultDocs.length > 0
+    ? vaultDocs.map(d => `=== ${d.document_type.toUpperCase()} — ${d.filename} ===\n${d.extracted_text}`).join('\n\n')
+    : ''
+
   const [branch, setBranch] = useState('Army')
   const [mos, setMos] = useState('')
   const [rank, setRank] = useState('')
@@ -71,7 +91,7 @@ export default function TranslatorTab({ onGoToResume }) {
       const r = await fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos, existingCerts, milReference: milRefData, milDuties: milDuties.trim() }),
+        body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos, existingCerts, milReference: milRefData, milDuties: milDuties.trim(), vaultContext: vaultContext || undefined }),
       })
       const data = await r.json()
       if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
@@ -134,6 +154,18 @@ export default function TranslatorTab({ onGoToResume }) {
         Enter your occupational code and branch. The AI will translate your military experience into
         civilian job titles, transferable skills, and career path recommendations.
       </p>
+
+      {vaultDocs.length > 0 && (
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16,
+          padding: '12px 16px', background: '#F0F7EE', border: '1px solid #B8DDB8', borderRadius: 12,
+        }}>
+          <span style={{ fontSize: 20, flexShrink: 0 }}>🔒</span>
+          <p style={{ fontSize: 12, color: '#1a6614' }}>
+            <strong>Document Vault connected.</strong> Your translation will reflect your actual documented skills and accomplishments from {vaultDocs.length} service document{vaultDocs.length !== 1 ? 's' : ''}.
+          </p>
+        </div>
+      )}
 
       <div className="card" style={{ marginBottom: 16 }}>
         <div className="grid-2" style={{ marginBottom: 12 }}>

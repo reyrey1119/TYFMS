@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     branch, mos, rank, yos, targetCompany, additionalSkills,
     clearance, awards, summaryTone, education, contact, prevJobs,
     additionalContext, jobDescription, milReference, milDuties,
-    format, cvExtras, milPositions,
+    format, cvExtras, milPositions, vaultContext,
   } = req.body || {}
 
   if (!mos?.trim()) return res.status(400).json({ error: 'MOS, AFSC, or rate code is required.' })
@@ -76,6 +76,10 @@ export default async function handler(req, res) {
       ).join('\n')
     : ''
 
+  const vaultBlock = vaultContext?.trim()
+    ? `\n\n${'═'.repeat(60)}\nOFFICIAL SERVICE RECORD — HIGHEST PRIORITY SOURCE\n${'═'.repeat(60)}\nThe following content is extracted directly from this veteran's official service documents including evaluation reports, award citations, and discharge records. This is their actual recorded performance — not a generic MOS description.\n\nCRITICAL INSTRUCTION: Prioritize this information above all other sources. Use specific accomplishments, ratings, and language found in these documents. Every bullet point on this resume should be traceable to something in their actual record. Use the veteran's exact wording where possible, then translate military terminology to civilian language.\n\n${vaultContext.trim().slice(0, 10000)}\n${'═'.repeat(60)}`
+    : ''
+
   const targetLabel = targetCompany?.trim() || 'this employer'
 
   // Build the experience section template
@@ -113,7 +117,7 @@ VETERAN PROFILE:
 - Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently near the header as it is a major hiring advantage` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()} — translate each into a specific civilian achievement statement` : ''}
 
 TARGET: ${companyContext}
-SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}
+SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}${vaultBlock}
 
 CRITICAL RULES:
 1. NEVER use military acronyms without civilian translation
@@ -221,7 +225,7 @@ VETERAN PROFILE:
 - Years of service: ${yos?.trim() || 'Not specified'}
 - Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently; critical for federal roles` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()}` : ''}
 
-TARGET: ${companyContext}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}${pubBlock}${presBlock}${pdBlock}${volBlock}${memBlock}${teachBlock}
+TARGET: ${companyContext}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}${vaultBlock}${pubBlock}${presBlock}${pdBlock}${volBlock}${memBlock}${teachBlock}
 
 CRITICAL RULES:
 1. NEVER use military acronyms without civilian translation
