@@ -148,6 +148,7 @@ export default function NetworkTab() {
     <div>
       {/* Intro section */}
       <div style={{ marginBottom: 28 }}>
+        <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Building Your Support</p>
         <p className="sec-title">Find your people.</p>
         <p style={{ fontSize: 18, fontWeight: 700, color: '#1B3A6B', marginBottom: 14, lineHeight: 1.3 }}>
           Veterans who have been exactly where you are.

@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     branch, mos, rank, yos, targetCompany, additionalSkills,
     clearance, awards, summaryTone, education, contact, prevJobs,
     additionalContext, jobDescription, milReference, milDuties,
-    format, cvExtras,
+    format, cvExtras, milPositions,
   } = req.body || {}
 
   if (!mos?.trim()) return res.status(400).json({ error: 'MOS, AFSC, or rate code is required.' })
@@ -64,7 +64,44 @@ export default async function handler(req, res) {
       ? `\n\nVETERAN-DESCRIBED DUTIES:\n${milDuties.trim()}\n\nUse these described duties as the primary source for the Professional Experience section.`
       : '')
 
+  // Build military positions block for multi-position experience
+  const validMilPositions = Array.isArray(milPositions)
+    ? milPositions.filter(p => p.mos?.trim() || p.title?.trim())
+    : []
+
+  const milPositionsBlock = validMilPositions.length > 0
+    ? '\n\nMILITARY SERVICE POSITIONS (most recent first — generate one experience entry per position):\n' +
+      validMilPositions.map((p, i) =>
+        `Position ${i + 1}: ${p.mos || p.title}${p.unit ? ` | Unit: ${p.unit}` : ''}${p.location ? ` | Location: ${p.location}` : ''} | ${p.startDate || '[Start]'} – ${p.present ? 'Present' : (p.endDate || '[End]')}${p.duties?.trim() ? `\n  Duties: ${p.duties.trim().slice(0, 300)}` : ''}`
+      ).join('\n')
+    : ''
+
   const targetLabel = targetCompany?.trim() || 'this employer'
+
+  // Build the experience section template
+  const experienceTemplate = validMilPositions.length > 0
+    ? validMilPositions.map(p =>
+        `[Translate "${p.mos || p.title}" to civilian job title] | ${branch || 'U.S. Military'}
+${p.startDate || '[Start Year]'} – ${p.present ? 'Present' : (p.endDate || '[End Year]')}
+• [Scope bullet: N personnel led, $X budget managed, geographic/operational scale]
+• [Quantified achievement with strong action verb]
+• [Quantified achievement with strong action verb]
+• [Technical or systems competency relevant to target role]
+• [Outcome or impact bullet with measurable result]`
+      ).join('\n\n')
+    : `[Translated Civilian Job Title] | ${branch || 'U.S. Military'}
+[Start Year] – [End Year]
+• [Scope bullet: N personnel led, $X budget managed, geographic/operational scale]
+• [Quantified achievement with strong action verb]
+• [Quantified achievement with strong action verb]
+• [Technical or systems competency relevant to target role]
+• [Outcome or impact bullet with measurable result]
+
+[Earlier Civilian Title] | ${branch || 'U.S. Military'}
+[Start Year] – [End Year]
+• [Achievement bullet]
+• [Achievement bullet]
+• [Achievement bullet]`
 
   const prompt = `You are an expert resume writer specializing in veteran-to-civilian career transitions. Create a complete, ATS-optimized civilian resume.
 
@@ -76,34 +113,26 @@ VETERAN PROFILE:
 - Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently near the header as it is a major hiring advantage` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()} — translate each into a specific civilian achievement statement` : ''}
 
 TARGET: ${companyContext}
-SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}
+SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}
 
 CRITICAL RULES:
 1. NEVER use military acronyms without civilian translation
 2. Use strong action verbs: Led, Directed, Managed, Executed, Optimized, Trained, Coordinated, Built, Cut, Grew, Delivered
-3. Quantify every bullet with realistic placeholders: [X%], [$X], [N personnel], [N months]
+3. Quantify every bullet with specific numbers drawn from the duty description or credible estimates for the rank/role
 4. Include ATS keywords relevant to the target company/industry throughout the document
-5. Professional summary MUST lead with the veteran's strongest civilian value proposition in ${toneNote} tone
+5. PROFESSIONAL SUMMARY: One flowing paragraph of 4-5 sentences in ${toneNote} tone. Open with the veteran's core identity and total years of experience. Connect their background directly to the target role and company. Close with one confident statement about what they will deliver. No bullets. No placeholder tokens like [N]. Written like a confident, experienced professional — not an AI.
 6. Section headers use ─────────────────────────────────────────────── as dividers${hasClearance ? '\n7. Show clearance on its own line after contact info' : ''}${!hasEducation ? '\n8. EDUCATION section must show exactly: ADD YOUR EDUCATION HERE — never invent degrees' : ''}
-9. IMMEDIATE VALUE OFFERED: Each of the 3 bullets must start with a strong action verb, be exactly one sentence, and directly address a specific need from the job description or target employer. Sound like a confident professional, not AI.
-10. ANTI-AI LANGUAGE: Never use em dashes — replace with commas or periods. Never use: leverage, utilize, synergize, robust, holistic, in order to, it is worth noting, as previously mentioned, going forward, moving forward. Active voice throughout — rewrite any passive constructions.
-11. VARY SENTENCE LENGTH: Mix short punchy statements (6-8 words) with longer detailed ones (15-20 words). Every metric must be specific — never "significantly improved," always a real number like "cut processing time by 34%."
+9. ANTI-AI LANGUAGE: Never use em dashes — replace with commas or periods. Never use: leverage, utilize, synergize, robust, holistic, in order to, it is worth noting, as previously mentioned, going forward, moving forward. Active voice throughout.
+10. VARY SENTENCE LENGTH: Mix short punchy statements (6-8 words) with longer detailed ones (15-20 words). Every metric must be specific — never "significantly improved," always a real number.
 
 OUTPUT — plain text only, no markdown, follow this exact format:
 
 ${contactLine}${hasClearance ? `\nCLEARANCE: ${clearance}` : ''}
 
 ─────────────────────────────────────────────────────
-IMMEDIATE VALUE OFFERED
-─────────────────────────────────────────────────────
-• [Action verb + specific deliverable that directly addresses what ${targetLabel} needs, one sentence, no em dashes]
-• [Action verb + specific deliverable that directly addresses what ${targetLabel} needs, one sentence, no em dashes]
-• [Action verb + specific deliverable that directly addresses what ${targetLabel} needs, one sentence, no em dashes]
-
-─────────────────────────────────────────────────────
 PROFESSIONAL SUMMARY
 ─────────────────────────────────────────────────────
-[4–5 sentences in ${toneNote} tone. Lead with total years of experience + top value proposition. Make it specific to the target employer. End with a forward-looking statement about delivering results.]
+[Single paragraph, 4-5 sentences in ${toneNote} tone: open with core identity and years of experience, connect background to target role, close with what you will deliver. No bullets. No placeholders. Confident and specific.]
 
 ─────────────────────────────────────────────────────
 CORE COMPETENCIES
@@ -117,19 +146,7 @@ CORE COMPETENCIES
 PROFESSIONAL EXPERIENCE
 ─────────────────────────────────────────────────────
 
-[Translated Civilian Job Title] | ${branch || 'U.S. Military'}
-[Start Year] – [End Year]
-• [Scope bullet: N personnel led, $X budget managed, geographic/operational scale]
-• [Quantified achievement with strong action verb]
-• [Quantified achievement with strong action verb]
-• [Technical or systems competency relevant to target role]
-• [Outcome or impact bullet with measurable result]
-
-[Earlier Civilian Title] | ${branch || 'U.S. Military'}
-[Start Year] – [End Year]
-• [Achievement bullet]
-• [Achievement bullet]
-• [Achievement bullet]
+${experienceTemplate}
 ${Array.isArray(prevJobs) && prevJobs.filter(j => j.title?.trim()).length > 0 ? '\n[Non-military roles: include each provided role with civilian job title, employer, dates, and 2–3 strong achievement bullets]\n' : ''}${hasAwards ? `
 ─────────────────────────────────────────────────────
 HONORS & RECOGNITION
@@ -150,7 +167,7 @@ CERTIFICATIONS & TRAINING
 
 Return only the resume text — no preamble, no commentary, no markdown.`
 
-  // ── CV format override ────────────────────────────────────────────────────
+  // ── CV format override ────────────────────────────────────────────────────────
   let activePrompt = prompt
   let activeMaxTokens = 3000
 
@@ -166,10 +183,36 @@ Return only the resume text — no preamble, no commentary, no markdown.`
     const memBlock = cvExtras?.memberships?.trim() ? `\n\nPROFESSIONAL MEMBERSHIPS:\n${cvExtras.memberships.trim()}` : ''
     const teachBlock = cvExtras?.teachingExp?.trim() ? `\n\nTEACHING & TRAINING EXPERIENCE:\n${cvExtras.teachingExp.trim()}` : ''
 
+    const cvExperienceTemplate = validMilPositions.length > 0
+      ? validMilPositions.map(p =>
+          `[Translate "${p.mos || p.title}" to civilian job title] | ${branch || 'U.S. Military'}
+${p.startDate || '[Start Year]'} – ${p.present ? 'Present' : (p.endDate || '[End Year]')}
+• [Scope bullet: personnel led, budget managed, geographic scale]
+• [Quantified achievement]
+• [Quantified achievement]
+• [Technical or systems competency]
+• [Leadership or policy outcome]
+• [Outcome or impact bullet]`
+        ).join('\n\n')
+      : `[Translated Civilian Job Title] | ${branch || 'U.S. Military'}
+[Start Year] – [End Year]
+• [Scope bullet: personnel led, budget managed, geographic scale]
+• [Quantified achievement]
+• [Quantified achievement]
+• [Technical or systems competency]
+• [Leadership or policy outcome]
+• [Outcome or impact bullet]
+
+[Earlier Title] | ${branch || 'U.S. Military'}
+[Start Year] – [End Year]
+• [Achievement bullet]
+• [Achievement bullet]
+• [Achievement bullet]`
+
     activeMaxTokens = 4000
     activePrompt = `You are an expert CV writer specializing in veteran-to-civilian career transitions for federal government, academic, and senior leadership roles. Create a comprehensive, ATS-optimized civilian CV.
 
-DOCUMENT TYPE: Curriculum Vitae (CV) — NOT a resume. This is optimized for GS federal positions, academic roles, and senior leadership applications. CVs are longer and more comprehensive than resumes. Include all relevant sections with full detail.
+DOCUMENT TYPE: Curriculum Vitae (CV) — NOT a resume. Optimized for GS federal positions, academic roles, and senior leadership applications. CVs are longer and more comprehensive than resumes.
 
 VETERAN PROFILE:
 - Branch: ${branch || 'US Military'}
@@ -178,16 +221,17 @@ VETERAN PROFILE:
 - Years of service: ${yos?.trim() || 'Not specified'}
 - Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently; critical for federal roles` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()}` : ''}
 
-TARGET: ${companyContext}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${pubBlock}${presBlock}${pdBlock}${volBlock}${memBlock}${teachBlock}
+TARGET: ${companyContext}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}${pubBlock}${presBlock}${pdBlock}${volBlock}${memBlock}${teachBlock}
 
 CRITICAL RULES:
 1. NEVER use military acronyms without civilian translation
 2. Use strong action verbs throughout
-3. Quantify achievements with realistic placeholders: [X%], [$X], [N personnel]
+3. Quantify achievements with specific numbers
 4. NO em dashes — use commas or periods instead
 5. NO filler words: leverage, utilize, synergize, robust, holistic
 6. Active voice throughout
-7. Section headers use ─────────────────────────────────────────────── as dividers${hasClearance ? '\n8. Show clearance prominently after contact info' : ''}
+7. PROFESSIONAL SUMMARY: One flowing paragraph of 5-6 sentences. Open with core identity and years of experience. Tailor to federal/academic/senior leadership context. End with a forward-looking statement. No bullets, no placeholders.
+8. Section headers use ─────────────────────────────────────────────── as dividers${hasClearance ? '\n9. Show clearance prominently after contact info' : ''}
 
 OUTPUT — plain text only, no markdown, follow this exact format:
 
@@ -196,7 +240,7 @@ ${contactLine}${hasClearance ? `\nCLEARANCE: ${clearance}` : ''}
 ─────────────────────────────────────────────────────
 PROFESSIONAL SUMMARY
 ─────────────────────────────────────────────────────
-[5–6 sentences. Lead with total years of experience and strongest civilian value. Tailor to federal/academic/senior leadership context. End with a forward-looking statement.]
+[Single paragraph, 5-6 sentences. Core identity + years of experience. Target context. Forward-looking close. Confident, specific, human.]
 
 ─────────────────────────────────────────────────────
 CORE COMPETENCIES
@@ -210,20 +254,7 @@ CORE COMPETENCIES
 PROFESSIONAL EXPERIENCE
 ─────────────────────────────────────────────────────
 
-[Translated Civilian Job Title] | ${branch || 'U.S. Military'}
-[Start Year] – [End Year]
-• [Scope bullet: personnel led, budget managed, geographic scale]
-• [Quantified achievement]
-• [Quantified achievement]
-• [Technical or systems competency]
-• [Leadership or policy outcome]
-• [Outcome or impact bullet]
-
-[Earlier Title] | ${branch || 'U.S. Military'}
-[Start Year] – [End Year]
-• [Achievement bullet]
-• [Achievement bullet]
-• [Achievement bullet]
+${cvExperienceTemplate}
 ${Array.isArray(prevJobs) && prevJobs.filter(j => j.title?.trim()).length > 0 ? '\n[Non-military roles: include each with civilian title, employer, dates, 3–4 achievement bullets]\n' : ''}${hasAwards ? `
 ─────────────────────────────────────────────────────
 HONORS & RECOGNITION

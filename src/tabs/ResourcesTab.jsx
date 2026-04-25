@@ -117,6 +117,7 @@ export default function ResourcesTab({ searchResult }) {
         <img src="/resources.png" alt="Resources" style={{ width: '100%', maxHeight: 320, objectFit: 'contain', objectPosition: 'top', display: 'block' }} />
       </div>
 
+      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Your Strategies</p>
       <p className="sec-title">Resources</p>
       <p className="sec-sub">Verified resources organized by what you need most right now. Use the search bar above to find answers — matching resources will be highlighted.</p>
 

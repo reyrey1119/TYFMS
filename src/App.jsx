@@ -1,13 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import AdUnit from './components/AdUnit'
+import OnboardingModal from './components/OnboardingModal'
 import HomeTab from './tabs/HomeTab'
 import TranslatorTab from './tabs/TranslatorTab'
 import ResumeTab from './tabs/ResumeTab'
 import IdentityTab from './tabs/IdentityTab'
 import NetworkTab from './tabs/NetworkTab'
 import TrackerTab from './tabs/TrackerTab'
+import ApplicationTrackerTab from './tabs/ApplicationTrackerTab'
 import ResourcesTab from './tabs/ResourcesTab'
 import AboutTab from './tabs/AboutTab'
 import PathTab from './tabs/PathTab'
@@ -17,20 +19,25 @@ import VetNewsTab from './tabs/VetNewsTab'
 import TestimonialsTab from './tabs/TestimonialsTab'
 import FeedbackTab from './tabs/FeedbackTab'
 
+function trackEvent(name, params = {}) {
+  try { window.gtag?.('event', name, params) } catch {}
+}
+
 const TABS = [
-  { id: 'home',         icon: '🏠', label: 'Home' },
-  { id: 'translator',   icon: '⚡', label: 'Skills translator' },
-  { id: 'resume',       icon: '📄', label: 'Resume builder' },
-  { id: 'path',         icon: '🧭', label: 'Find your path' },
-  { id: 'identity',     icon: '💬', label: 'Identity guide' },
-  { id: 'network',      icon: '🤝', label: 'Networking' },
-  { id: 'trends',       icon: '📈', label: 'Career trends' },
-  { id: 'vetnews',      icon: '📰', label: 'Vet news' },
-  { id: 'tracker',      icon: '✅', label: 'Progress tracker' },
-  { id: 'resources',    icon: '📚', label: 'Resources' },
-  { id: 'about',        icon: 'ℹ️',  label: 'About' },
-  { id: 'testimonials', icon: '⭐', label: 'Testimonials' },
-  { id: 'feedback',     icon: '💡', label: 'Feedback' },
+  { id: 'home',            icon: '🏠', label: 'Home' },
+  { id: 'translator',      icon: '⚡', label: 'Skills translator' },
+  { id: 'resume',          icon: '📄', label: 'Resume builder' },
+  { id: 'path',            icon: '🧭', label: 'Find your path' },
+  { id: 'identity',        icon: '💬', label: 'Identity guide' },
+  { id: 'network',         icon: '🤝', label: 'Networking' },
+  { id: 'trends',          icon: '📈', label: 'Career trends' },
+  { id: 'vetnews',         icon: '📰', label: 'Vet news' },
+  { id: 'tracker',         icon: '✅', label: 'Progress tracker' },
+  { id: 'applications',    icon: '📋', label: 'Application tracker' },
+  { id: 'resources',       icon: '📚', label: 'Resources' },
+  { id: 'about',           icon: 'ℹ️',  label: 'About' },
+  { id: 'testimonials',    icon: '⭐', label: 'Testimonials' },
+  { id: 'feedback',        icon: '💡', label: 'Feedback' },
 ]
 
 const BOTTOM_NAV = [
@@ -49,6 +56,15 @@ export default function App() {
   const [resumePrefill, setResumePrefill] = useState(null)
   const [showMenu, setShowMenu] = useState(false)
   const [menuSeen, setMenuSeen] = useState(() => !!localStorage.getItem('vtg_menu_seen'))
+
+  useEffect(() => {
+    trackEvent('page_view', { tab: activeTab })
+  }, [activeTab])
+
+  function navigate(tab) {
+    setActiveTab(tab)
+    clearSearch()
+  }
 
   function handleSearch(result) {
     setActiveTab(result.tab)
@@ -185,19 +201,21 @@ export default function App() {
       <div className="container">
         <AdUnit slot="3957268946" />
 
-        {activeTab === 'home'       && <HomeTab onNavigate={setActiveTab} />}
-        {activeTab === 'about'      && <AboutTab />}
-        {activeTab === 'path'       && <PathTab />}
-        {activeTab === 'translator' && <TranslatorTab onGoToResume={(data) => { setResumePrefill(data); setActiveTab('resume') }} />}
-        {activeTab === 'resume'     && <ResumeTab prefill={resumePrefill} />}
-        {activeTab === 'identity'   && <IdentityTab />}
-        {activeTab === 'network'    && <NetworkTab />}
-        {activeTab === 'trends'     && <CareerTrendsTab />}
-        {activeTab === 'vetnews'    && <VetNewsTab />}
-        {activeTab === 'tracker'    && <TrackerTab />}
-        {activeTab === 'resources'     && <ResourcesTab searchResult={searchResult} />}
-        {activeTab === 'testimonials'  && <TestimonialsTab />}
-        {activeTab === 'feedback'      && <FeedbackTab />}
+        {activeTab === 'home'         && <HomeTab onNavigate={navigate} />}
+        {activeTab === 'about'        && <AboutTab />}
+        {activeTab === 'path'         && <PathTab />}
+        {activeTab === 'translator'   && <TranslatorTab onGoToResume={(data) => { setResumePrefill(data); navigate('resume') }} />}
+        {activeTab === 'resume'       && <ResumeTab prefill={resumePrefill} onTrackEvent={trackEvent} />}
+        {activeTab === 'identity'     && <IdentityTab />}
+        {activeTab === 'network'      && <NetworkTab />}
+        {activeTab === 'trends'       && <CareerTrendsTab />}
+        {activeTab === 'vetnews'      && <VetNewsTab />}
+        {activeTab === 'tracker'      && <TrackerTab />}
+        {activeTab === 'applications' && <ApplicationTrackerTab />}
+        {activeTab === 'resources'    && <ResourcesTab searchResult={searchResult} />}
+        {activeTab === 'testimonials' && <TestimonialsTab />}
+        {activeTab === 'feedback'     && <FeedbackTab />}
+        <OnboardingModal onComplete={() => {}} onNavigate={navigate} />
       </div>
       <Footer className="main-footer" onPrivacy={() => setShowPrivacy(true)} />
 

@@ -269,6 +269,7 @@ export default function PathTab() {
 
   return (
     <div>
+      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Understanding Your Situation</p>
       <p className="sec-title">Find your path.</p>
       <p className="sec-sub">
         12 questions. No wrong answers. Discover which of four veteran career archetypes matches how you think,

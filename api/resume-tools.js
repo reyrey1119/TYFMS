@@ -1,5 +1,5 @@
 // POST /api/resume-tools — shared utilities for the resume builder
-// action: "fetch-job" | "score-resume" | "mil-reference"
+// action: "fetch-job" | "score-resume" | "mil-reference" | "interview-prep" | "answer-feedback" | "cover-letter" | "linkedin-optimizer"
 
 import { createClient } from '@supabase/supabase-js'
 
@@ -11,6 +11,12 @@ function getSupabase() {
 }
 
 // ── fetch-job ─────────────────────────────────────────────────────────────────
+
+const JOB_BOARD_DOMAINS = ['indeed.com', 'linkedin.com', 'glassdoor.com', 'ziprecruiter.com', 'monster.com', 'careerbuilder.com', 'simplyhired.com', 'usajobs.gov', 'dice.com']
+
+function isJobBoard(url) {
+  try { return JOB_BOARD_DOMAINS.some(d => new URL(url).hostname.includes(d)) } catch { return false }
+}
 
 async function fetchJob(apiKey, { url }) {
   if (!url?.trim()) return { error: 'URL is required.' }
@@ -26,7 +32,12 @@ async function fetchJob(apiKey, { url }) {
       signal: AbortSignal.timeout(10000),
       redirect: 'follow',
     })
-    if (!resp.ok) return { error: `Could not load the page (HTTP ${resp.status}). Try pasting the job description directly.` }
+    if (!resp.ok) {
+      if (isJobBoard(url.trim())) {
+        return { error: 'This job board blocks automatic fetching. Please copy and paste the job description text directly into the field below.' }
+      }
+      return { error: `Could not load the page (HTTP ${resp.status}). Try pasting the job description directly.` }
+    }
     const html = await resp.text()
     pageText = html
       .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
@@ -39,6 +50,9 @@ async function fetchJob(apiKey, { url }) {
       .trim()
       .slice(0, 8000)
   } catch {
+    if (isJobBoard(url.trim())) {
+      return { error: 'This job board blocks automatic fetching. Please copy and paste the job description text directly into the field below.' }
+    }
     return { error: 'Could not fetch that URL. Some job sites block automated access. Try pasting the job description directly.' }
   }
 
@@ -113,9 +127,7 @@ No markdown, no preamble — only the JSON object.`
 // ── mil-reference ─────────────────────────────────────────────────────────────
 
 // DA PAM 600-3 per-branch PDF routing table (Army officers & warrant officers)
-// Exact MOS/AOC codes take priority; 2-digit numeric prefixes are fallbacks.
 const ARMY_OFFICER_PDF_MAP = {
-  // Exact codes — user-specified + common
   '11A': { branch: 'Infantry',                url: 'https://api.army.mil/e2/c/downloads/2022/09/01/21ecacfb/infantry-branch-da-pam-600-1-sep-22.pdf' },
   '12A': { branch: 'Corps of Engineers',      url: 'https://api.army.mil/e2/c/downloads/2024/04/25/6b2f9dbc/en-da-pam-600-3-25-april-24.pdf' },
   '13A': { branch: 'Field Artillery',         url: 'https://api.army.mil/e2/c/downloads/2024/04/03/1cf69906/field-artillery-da-pam-600-3.pdf' },
@@ -130,7 +142,6 @@ const ARMY_OFFICER_PDF_MAP = {
   '42B': { branch: 'Finance and Comptroller', url: 'https://api.army.mil/e2/c/downloads/2025/09/10/640a0b16/fc-10sep25.pdf' },
   '42C': { branch: 'Finance and Comptroller', url: 'https://api.army.mil/e2/c/downloads/2025/09/10/640a0b16/fc-10sep25.pdf' },
   '65D': { branch: 'Army Medical Department', url: 'https://api.army.mil/e2/c/downloads/2022/08/08/6ef1bd02/1-amedd-da-pam-600-3.pdf' },
-  // 2-digit prefix fallbacks
   '11': { branch: 'Infantry',                url: 'https://api.army.mil/e2/c/downloads/2022/09/01/21ecacfb/infantry-branch-da-pam-600-1-sep-22.pdf' },
   '12': { branch: 'Corps of Engineers',      url: 'https://api.army.mil/e2/c/downloads/2024/04/25/6b2f9dbc/en-da-pam-600-3-25-april-24.pdf' },
   '13': { branch: 'Field Artillery',         url: 'https://api.army.mil/e2/c/downloads/2024/04/03/1cf69906/field-artillery-da-pam-600-3.pdf' },
@@ -146,10 +157,12 @@ const ARMY_OFFICER_PDF_MAP = {
   '65': { branch: 'Army Medical Department', url: 'https://api.army.mil/e2/c/downloads/2022/08/08/6ef1bd02/1-amedd-da-pam-600-3.pdf' },
 }
 
+// DA PAM 600-25 covers all Army enlisted MOS codes (521-page document)
+const ARMY_ENLISTED_PDF_URL = 'https://benning.army.mil/infantry/ocoi/content/pdf/p600_25.pdf'
+
 function getArmyOfficerPdfEntry(mos) {
   const n = mos.trim().toUpperCase().replace(/\s+/g, '')
   if (ARMY_OFFICER_PDF_MAP[n]) return ARMY_OFFICER_PDF_MAP[n]
-  // Try first 3 chars (e.g. '42B'), then numeric prefix (e.g. '42'), then first 2 chars
   const t3 = n.slice(0, 3)
   if (ARMY_OFFICER_PDF_MAP[t3]) return ARMY_OFFICER_PDF_MAP[t3]
   const num2 = n.replace(/[A-Z]/g, '').slice(0, 2)
@@ -162,12 +175,12 @@ async function fetchPdfBase64(url) {
   try {
     const resp = await fetch(url, {
       headers: { 'Accept': 'application/pdf, */*', 'User-Agent': 'Mozilla/5.0 (compatible)' },
-      signal: AbortSignal.timeout(12000),
+      signal: AbortSignal.timeout(15000),
       redirect: 'follow',
     })
     if (!resp.ok) return null
     const buf = await resp.arrayBuffer()
-    if (buf.byteLength > 8 * 1024 * 1024) return null // skip PDFs > 8 MB
+    if (buf.byteLength > 8 * 1024 * 1024) return null
     return Buffer.from(buf).toString('base64')
   } catch {
     return null
@@ -189,13 +202,10 @@ function parseJsonResult(text) {
   try { return JSON.parse(m[0]) } catch { return null }
 }
 
-// Returns true only if the extracted result clearly corresponds to the requested MOS.
-// Wrong data injected into a resume is worse than falling back to AI knowledge.
 function milRefMatchesMos(result, mos) {
   if (!result || result.not_found) return false
   if (!result.duty_title || result.duty_title.length < 5) return false
   if (!result.duties_and_responsibilities || result.duties_and_responsibilities.length < 50) return false
-  // The MOS code itself must appear somewhere in the extracted content.
   const haystack = JSON.stringify(result).toUpperCase()
   const needle = mos.replace(/[^A-Z0-9]/g, '')
   return haystack.includes(needle)
@@ -204,7 +214,6 @@ function milRefMatchesMos(result, mos) {
 async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
   if (!mos_afsc?.trim() || !branch?.trim()) return { error: 'Branch and MOS/AFSC are required.' }
 
-  // Normalize to uppercase immediately — "42b" and "42B" must resolve identically.
   const mosCleaned = mos_afsc.trim().toUpperCase()
 
   const component = rank?.startsWith('O-') ? 'officer'
@@ -232,10 +241,16 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
 
   const docSource = branch === 'Army'
     ? (component === 'enlisted' ? 'DA PAM 600-25' : 'DA PAM 600-3')
-    : (component === 'enlisted' ? 'DAFECD (Oct 2025)' : 'DAFOCD (Oct 2025)')
+    : branch === 'Air Force'
+    ? (component === 'enlisted' ? 'DAFECD (Oct 2025)' : 'DAFOCD (Oct 2025)')
+    : branch === 'Marine Corps'
+    ? 'MCBUL 1200 MOS Manual'
+    : branch === 'Navy'
+    ? 'Navy Rating Manual / MILPERSMAN'
+    : 'Military Career Management Publication'
 
   const jsonSchema = `{
-  "duty_title": "<official job title — use the real Army or Air Force designation>",
+  "duty_title": "<official job title — use the real ${branch} designation for ${mosCleaned}>",
   "document_source": "${docSource}",
   "duties_and_responsibilities": "<5-7 specific duties at this rank level. Name actual systems, equipment, doctrinal tasks, and organizational responsibilities>",
   "key_skills": "<10-12 specific skills and technical competencies, comma-separated>",
@@ -256,7 +271,7 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
     return tagged
   }
 
-  // ── Path 1: Fetch actual DA PAM 600-3 branch PDF (Army officers/WOs only) ──
+  // ── Path 1a: Fetch DA PAM 600-3 branch PDF (Army officers/WOs) ─────────────
   if (branch === 'Army' && component !== 'enlisted') {
     const pdfEntry = getArmyOfficerPdfEntry(mosCleaned)
     if (pdfEntry) {
@@ -289,30 +304,73 @@ ${jsonSchema}`,
           }], 1400)
           if (!data.error) {
             const result = parseJsonResult((data.content || []).map(i => i.text || '').join(''))
-            // Validate: wrong data is worse than no data — only accept if MOS code appears in result
             if (milRefMatchesMos(result, mosCleaned)) return cacheAndReturn(result, 'pdf')
           }
         } catch {}
-        // PDF extraction failed or validation rejected — fall through to knowledge path
       }
     }
   }
 
-  // ── Path 2: Knowledge-based fallback (all branches, all components) ────────
-  const knowledgePrompt = `You are a military career analyst with expert knowledge of U.S. military career management publications including DA PAM 600-3, DA PAM 600-25, DAFOCD, and DAFECD.
+  // ── Path 1b: Fetch DA PAM 600-25 (Army enlisted) ──────────────────────────
+  if (branch === 'Army' && component === 'enlisted') {
+    const pdfBase64 = await fetchPdfBase64(ARMY_ENLISTED_PDF_URL)
+    if (pdfBase64) {
+      try {
+        const data = await callClaude(apiKey, [{
+          role: 'user',
+          content: [
+            {
+              type: 'document',
+              source: { type: 'base64', media_type: 'application/pdf', data: pdfBase64 },
+              title: 'DA PAM 600-25 Enlisted Career Management',
+            },
+            {
+              type: 'text',
+              text: `This is DA PAM 600-25. Extract the duty description for Army enlisted MOS: ${mosCleaned}.
 
-Generate the official duty description for this service member based on your knowledge of these publications:
+STEP 1 — LOCATE THE SECTION: Search for a section header containing the exact string "${mosCleaned}".
+STEP 2 — EXTRACT ONLY THAT SECTION: Copy content from that header to the next MOS section header.
+STEP 3 — IF NOT FOUND: Return exactly: {"not_found": true, "document_source": "${docSource}"}
+STEP 4 — IF FOUND: Return ONLY this JSON. "${mosCleaned}" must appear in your response:
+${jsonSchema}`,
+            },
+          ],
+        }], 1400)
+        if (!data.error) {
+          const result = parseJsonResult((data.content || []).map(i => i.text || '').join(''))
+          if (milRefMatchesMos(result, mosCleaned)) return cacheAndReturn(result, 'pdf')
+        }
+      } catch {}
+    }
+  }
+
+  // ── Path 2: Knowledge-based fallback (all branches, all components) ────────
+  const branchPubRef = branch === 'Army'
+    ? `DA PAM 600-25 (enlisted) or DA PAM 600-3 (officers)`
+    : branch === 'Air Force'
+    ? `DAFECD (enlisted) or DAFOCD (officers)`
+    : branch === 'Marine Corps'
+    ? `MCBUL 1200 Marine Corps MOS Manual`
+    : branch === 'Navy'
+    ? `Navy Rating manuals and MILPERSMAN`
+    : `applicable career management publications`
+
+  const knowledgePrompt = `You are a military career analyst with expert knowledge of U.S. military career management publications including DA PAM 600-3, DA PAM 600-25, DAFOCD, DAFECD, MCBUL 1200, and Navy rating manuals.
+
+CRITICAL: You are describing ONLY the specific MOS/AFSC/Rating code "${mosCleaned}" in the ${branch}. Do NOT substitute a different MOS code. Do NOT describe any adjacent, similar, or default MOS. The duty_title field MUST be the official title for "${mosCleaned}" specifically.
+
+Describe the official duties, key skills, and rank-level expectations for ${mosCleaned} at rank ${rank || 'not specified'} in the ${branch} based on ${branchPubRef}.
 
 Branch: ${branch}
 Component: ${componentLabel}
-MOS/AFSC: ${mosCleaned}
+MOS/AFSC/Rating: ${mosCleaned}
 Rank: ${rank || 'Not specified'}
 Source document: ${docSource}
 
-Return ONLY a valid JSON object — no markdown, no preamble:
+Return ONLY a valid JSON object — no markdown, no preamble. The duty_title MUST reference "${mosCleaned}" explicitly:
 ${jsonSchema}
 
-Be specific and accurate. Reference actual systems, doctrinal tasks, and terminology authentic to ${mosCleaned}.`
+Be specific and accurate. Reference actual systems, doctrinal tasks, equipment, and terminology authentic to ${mosCleaned} in the ${branch}. Do not invent duties that are not associated with this specific code.`
 
   try {
     const data = await callClaude(apiKey, [{ role: 'user', content: knowledgePrompt }])
@@ -393,6 +451,88 @@ Return ONLY a valid JSON object — no markdown, no preamble:
   catch { return { error: 'Could not parse feedback.' } }
 }
 
+// ── cover-letter ──────────────────────────────────────────────────────────────
+
+async function generateCoverLetter(apiKey, { resume, jobDescription, company, jobTitle, veteranName }) {
+  const targetLine = company ? `${company}` : (jobTitle || 'this opportunity')
+  const prompt = `You are an expert career coach writing a tailored cover letter for a veteran transitioning to a civilian role.
+
+VETERAN'S RESUME:
+${resume?.slice(0, 2500) || '[Resume not provided]'}
+
+${jobDescription?.trim() ? `JOB DESCRIPTION:\n${jobDescription.slice(0, 2000)}` : (jobTitle ? `TARGET ROLE: ${jobTitle}${company ? ` at ${company}` : ''}` : 'General civilian employment')}
+
+Write a professional 3-paragraph cover letter with this exact structure:
+- Opening line: "Dear ${company ? company + ' Team' : 'Hiring Team'},"
+- Paragraph 1 (4-5 sentences): Strong hook connecting the veteran's specific military background to ${targetLine}. Lead with the most compelling aspect of their service. No generic opener.
+- Paragraph 2 (4-5 sentences): Highlight 2-3 specific accomplishments from their service record that directly address the role requirements. Each accomplishment must be concrete, using real metrics from the resume or credible specific placeholders.
+- Paragraph 3 (2-3 sentences): Confident call to action. Express specific interest in contributing to ${targetLine}. No cliche closers.
+- Closing: "Respectfully," then the name: ${veteranName || '[YOUR NAME]'}
+
+ANTI-AI RULES: No em dashes. No: leverage, utilize, synergize, robust, holistic, going forward, moving forward, excited to, passionate about. Active voice. Short and confident sentences. Sound like a real person, not a template.
+
+Return ONLY the cover letter text — no preamble, no commentary, no markdown.`
+
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+    body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 1200, messages: [{ role: 'user', content: prompt }] }),
+  })
+  const data = await r.json()
+  if (data.error) return { error: data.error.message }
+  const text = (data.content || []).map(i => i.text || '').join('')
+  return { coverLetter: text }
+}
+
+// ── linkedin-optimizer ────────────────────────────────────────────────────────
+
+async function linkedInOptimizer(apiKey, { resume, milPositions, branch, mos, rank }) {
+  const positionsText = Array.isArray(milPositions) && milPositions.filter(p => p.mos?.trim()).length > 0
+    ? milPositions.filter(p => p.mos?.trim()).map((p, i) =>
+        `Position ${i + 1}: ${p.mos}${p.unit ? ` | ${p.unit}` : ''}${p.location ? ` | ${p.location}` : ''} | ${p.startDate || '[Start]'} – ${p.present ? 'Present' : (p.endDate || '[End]')}`
+      ).join('\n')
+    : `Primary: ${mos || 'Military service'}${rank ? ` | ${rank}` : ''} | ${branch || 'U.S. Military'}`
+
+  const prompt = `You are a LinkedIn profile optimizer specializing in military-to-civilian career transitions.
+
+VETERAN'S RESUME:
+${resume?.slice(0, 2500) || '[Resume not provided]'}
+
+MILITARY POSITIONS:
+${positionsText}
+
+Generate two distinct sections:
+
+SECTION A — LINKEDIN ABOUT:
+Write 3-4 short paragraphs in FIRST PERSON. Tell the veteran's professional story from military to civilian. Lead with who they are and what they bring, not their rank. Connect specific military achievements to civilian value. End with what kind of opportunity they are seeking. Max 280 words. Sound confident, specific, human.
+
+SECTION B — EXPERIENCE BULLETS:
+For each military position listed above, write 3 civilian-language achievement bullets. Strong action verbs. Include specific metrics from the resume or credible specific placeholders. Translate military terminology to civilian equivalents.
+
+ANTI-AI RULES: No em dashes. No: leverage, utilize, synergize, robust, holistic, excited to. Active voice. Vary sentence length.
+
+Return ONLY a valid JSON object — no markdown:
+{
+  "about": "<LinkedIn About section text, 3-4 paragraphs>",
+  "experienceBullets": [
+    {"position": "<position title from above>", "bullets": ["<bullet 1>", "<bullet 2>", "<bullet 3>"]}
+  ]
+}`
+
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+    body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 1500, messages: [{ role: 'user', content: prompt }] }),
+  })
+  const data = await r.json()
+  if (data.error) return { error: data.error.message }
+  const text = (data.content || []).map(i => i.text || '').join('')
+  const match = text.match(/\{[\s\S]*\}/)
+  if (!match) return { error: 'Could not generate LinkedIn content.' }
+  try { return JSON.parse(match[0]) }
+  catch { return { error: 'Could not parse LinkedIn content.' } }
+}
+
 // ── Handler ───────────────────────────────────────────────────────────────────
 
 export default async function handler(req, res) {
@@ -423,6 +563,14 @@ export default async function handler(req, res) {
     }
     if (action === 'answer-feedback') {
       const result = await answerFeedback(apiKey, params)
+      return result.error ? res.status(400).json(result) : res.status(200).json(result)
+    }
+    if (action === 'cover-letter') {
+      const result = await generateCoverLetter(apiKey, params)
+      return result.error ? res.status(400).json(result) : res.status(200).json(result)
+    }
+    if (action === 'linkedin-optimizer') {
+      const result = await linkedInOptimizer(apiKey, params)
       return result.error ? res.status(400).json(result) : res.status(200).json(result)
     }
     return res.status(400).json({ error: 'Unknown action.' })
