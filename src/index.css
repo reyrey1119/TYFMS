@@ -226,24 +226,80 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
 
 /* Desktop sidebar — hidden by default (mobile-first) */
 .sidebar { display: none; }
-.sidebar-btn {
-  display: flex; align-items: center; gap: 10px; width: 100%;
-  padding: 10px 16px; background: none; border: none; cursor: pointer;
-  font-family: inherit; font-size: 13px; color: #5f5e5a;
-  text-align: left; transition: background .15s; min-height: 40px;
+
+/* Sidebar section accordion */
+.sidebar-section { border-bottom: 1px solid #f0ede6; }
+.sidebar-section:last-child { border-bottom: none; }
+
+.sidebar-section-btn {
+  display: flex; align-items: center; gap: 9px; width: 100%;
+  padding: 11px 14px 11px 12px; background: none; border: none; cursor: pointer;
+  font-family: inherit; text-align: left; transition: background .15s;
   -webkit-tap-highlight-color: transparent;
 }
-.sidebar-btn:hover { background: #F5F4F0; color: #1a1a18; }
-.sidebar-btn.on { background: #1B3A6B; color: #fff; }
-.sidebar-icon { font-size: 15px; flex-shrink: 0; width: 20px; text-align: center; line-height: 1; }
-.sidebar-label { font-size: 13px; font-weight: 500; line-height: 1.3; }
+.sidebar-section-btn:hover { background: #F5F4F0; }
+.sidebar-section-btn.active { background: #FDF6EC; }
+.sidebar-section-icon { font-size: 16px; flex-shrink: 0; width: 22px; text-align: center; line-height: 1; }
+.sidebar-section-label { font-size: 12px; font-weight: 700; color: #1a1a18; flex: 1; letter-spacing: .01em; }
+.sidebar-section-btn.active .sidebar-section-label { color: #C07A28; }
+.sidebar-chevron {
+  width: 0; height: 0; flex-shrink: 0; margin-left: auto;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #b4b2a9;
+  transition: transform .2s;
+}
+.sidebar-section-btn.open .sidebar-chevron { transform: rotate(180deg); }
+.sidebar-section-btn.active .sidebar-chevron { border-top-color: #C07A28; }
 
-/* Bottom nav — desktop: hidden */
+.sidebar-subtabs { background: #FAFAF8; }
+.sidebar-btn {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 9px 14px 9px 30px; background: none; border: none; cursor: pointer;
+  font-family: inherit; font-size: 13px; color: #5f5e5a;
+  text-align: left; transition: background .15s; min-height: 38px;
+  -webkit-tap-highlight-color: transparent;
+  border-left: 2px solid transparent;
+}
+.sidebar-btn:hover { background: #F0EDE6; color: #1a1a18; border-left-color: #d3d1c7; }
+.sidebar-btn.on { background: #E8F0FB; color: #1B3A6B; font-weight: 600; border-left-color: #1B3A6B; }
+.sidebar-icon { font-size: 14px; flex-shrink: 0; width: 18px; text-align: center; line-height: 1; }
+.sidebar-label { font-size: 12.5px; font-weight: 500; line-height: 1.3; }
+
+/* Bottom nav — hidden at ≥1025px; shown at ≤1024px via media query below */
 .bottom-nav { display: none; }
 .bottom-nav-btn { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; background: none; border: none; cursor: pointer; padding: 8px 4px; min-height: 56px; font-family: inherit; }
-.bottom-nav-icon { font-size: 22px; line-height: 1; }
-.bottom-nav-label { font-size: 10px; color: #888; font-weight: 500; }
-.bottom-nav-btn.on .bottom-nav-label { color: #1B3A6B; font-weight: 700; }
+.bottom-nav-icon { font-size: 20px; line-height: 1; }
+.bottom-nav-label { font-size: 9.5px; color: #888; font-weight: 500; white-space: nowrap; }
+.bottom-nav-btn.on .bottom-nav-icon { filter: none; }
+.bottom-nav-btn.on .bottom-nav-label { color: #C07A28; font-weight: 700; }
+
+/* Bottom nav active indicator dot */
+.bottom-nav-btn.on::after {
+  content: '';
+  display: block;
+  width: 4px; height: 4px;
+  background: #C07A28;
+  border-radius: 50%;
+  margin-top: -2px;
+}
+
+/* ── Tablet + mobile (≤1024px) — bottom nav + no sticky tab strip ──────────── */
+@media (max-width: 1024px) {
+  .nav-sticky-wrapper { display: none !important; }
+  .header-menu-icon { display: none !important; } /* bottom nav replaces hamburger */
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 150;
+    background: #fff;
+    border-top: 1px solid #E5E3DC;
+    padding-bottom: env(safe-area-inset-bottom, 4px);
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
+  }
+  .container { padding-bottom: 96px; }
+}
 
 /* Mobile search panel (shown/hidden via React state) */
 .mobile-search-panel {
@@ -357,19 +413,6 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
   /* Insight */
   .insight { border-radius: 8px; padding: 16px; }
 
-  /* Bottom nav — visible on mobile */
-  .bottom-nav {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 150;
-    background: #fff;
-    border-top: 1px solid #E5E3DC;
-    padding-bottom: env(safe-area-inset-bottom, 4px);
-    box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
-  }
 }
 
 /* ── Slide-up menu sheet (hamburger) ─────────────────────────── */
@@ -425,10 +468,10 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
 .menu-sheet-item.active { color: #1B3A6B; font-weight: 600; background: #f0f4ff; }
 .menu-sheet-close { background: none; border: none; font-size: 28px; cursor: pointer; color: #888; padding: 0; line-height: 1; }
 
-/* ── Desktop ≥ 1025px — fixed left sidebar ───────────────────── */
+/* ── Desktop ≥ 1025px — fixed left sidebar accordion ─────────── */
 @media (min-width: 1025px) {
-  /* Top tab bar replaced by sidebar */
   .nav-sticky-wrapper { display: none !important; }
+  .bottom-nav { display: none !important; }
 
   /* Fixed left sidebar */
   .sidebar {
@@ -438,20 +481,20 @@ header input:focus { border-color: rgba(159,186,159,.7) !important; box-shadow: 
     top: 62px;
     left: 0;
     bottom: 0;
-    width: 200px;
+    width: 210px;
     background: #fff;
     border-right: 1px solid #E5E3DC;
     overflow-y: auto;
     z-index: 98;
-    padding: 8px 0;
+    padding: 4px 0;
   }
 
   /* Shift content and footer right of sidebar */
-  .container { margin-left: 200px; }
-  .main-footer { margin-left: 200px; }
+  .container { margin-left: 210px; padding-bottom: 32px; }
+  .main-footer { margin-left: 210px; }
 
   /* Sticky search result — clear the fixed sidebar */
-  .search-result-sticky { top: 62px; margin-left: 200px; padding: 10px 16px 12px; }
+  .search-result-sticky { top: 62px; margin-left: 210px; padding: 10px 16px 12px; }
   .search-result-inner { max-width: 900px; margin: 0; }
 }
 

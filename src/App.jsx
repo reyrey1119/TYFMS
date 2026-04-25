@@ -24,116 +24,244 @@ function trackEvent(name, params = {}) {
   try { window.gtag?.('event', name, params) } catch {}
 }
 
-const NAV_GROUPS = [
+// ── Navigation structure ──────────────────────────────────────────────────────
+
+const SECTIONS = [
   {
-    label: 'Where you are',
+    id: 'where',
+    icon: '🏠',
+    label: 'Where You Are',
+    navLabel: 'Where',
     tabs: [
-      { id: 'home',         icon: '🏠', label: 'Home' },
-      { id: 'path',         icon: '🧭', label: 'Find your path' },
+      { id: 'home',     icon: '🏠', label: 'Home' },
+      { id: 'path',     icon: '🧭', label: 'Find your path' },
     ],
   },
   {
-    label: 'Who you are',
+    id: 'who',
+    icon: '👤',
+    label: 'Who You Are',
+    navLabel: 'Who You Are',
     tabs: [
-      { id: 'translator',   icon: '⚡', label: 'Skills translator' },
-      { id: 'identity',     icon: '💬', label: 'Identity guide' },
-      { id: 'vault',        icon: '🔒', label: 'Document Vault' },
+      { id: 'identity',   icon: '💬', label: 'Identity guide' },
+      { id: 'translator', icon: '⚡', label: 'Skills translator' },
+      { id: 'vault',      icon: '🔒', label: 'Document Vault' },
     ],
   },
   {
-    label: 'Your network',
+    id: 'network',
+    icon: '🤝',
+    label: 'Your Network',
+    navLabel: 'Network',
     tabs: [
-      { id: 'network',      icon: '🤝', label: 'Networking' },
-      { id: 'vetnews',      icon: '📰', label: 'Vet news' },
-      { id: 'testimonials', icon: '⭐', label: 'Testimonials' },
+      { id: 'network',   icon: '🤝', label: 'Networking' },
+      { id: 'resources', icon: '📚', label: 'Resources' },
+      { id: 'vetnews',   icon: '📰', label: 'Vet news' },
     ],
   },
   {
-    label: 'Your plan',
+    id: 'plan',
+    icon: '📋',
+    label: 'Your Plan',
+    navLabel: 'Your Plan',
     tabs: [
       { id: 'resume',       icon: '📄', label: 'Resume builder' },
       { id: 'trends',       icon: '📈', label: 'Career trends' },
-      { id: 'tracker',      icon: '✅', label: 'Progress tracker' },
       { id: 'applications', icon: '📋', label: 'Application tracker' },
-      { id: 'resources',    icon: '📚', label: 'Resources' },
-      { id: 'about',        icon: 'ℹ️',  label: 'About' },
-      { id: 'feedback',     icon: '💡', label: 'Feedback' },
+      { id: 'tracker',      icon: '✅', label: 'Progress tracker' },
+    ],
+  },
+  {
+    id: 'more',
+    icon: '☰',
+    label: 'More',
+    navLabel: 'More',
+    tabs: [
+      { id: 'about',       icon: 'ℹ️',  label: 'About' },
+      { id: 'testimonials', icon: '⭐', label: 'Testimonials' },
+      { id: 'feedback',    icon: '💡', label: 'Feedback' },
     ],
   },
 ]
 
-const TABS = NAV_GROUPS.flatMap(g => g.tabs)
+const ALL_TABS = SECTIONS.flatMap(s => s.tabs)
 
-const BOTTOM_NAV = [
-  { id: 'home',       icon: '🏠', label: 'Home' },
-  { id: 'translator', icon: '⚡', label: 'Translate' },
-  { id: 'resume',     icon: '📄', label: 'Resume' },
-  { id: 'network',    icon: '🤝', label: 'Network' },
-  { id: 'resources',  icon: '📚', label: 'Resources' },
-]
-const BOTTOM_NAV_IDS = new Set(BOTTOM_NAV.map(t => t.id))
+function getSectionForTab(tabId) {
+  return SECTIONS.find(s => s.tabs.some(t => t.id === tabId)) || SECTIONS[0]
+}
+
+const INITIAL_TAB = (() => {
+  try {
+    const saved = localStorage.getItem('vtg_active_tab')
+    return ALL_TABS.some(t => t.id === saved) ? saved : 'home'
+  } catch { return 'home' }
+})()
+
+// ── App ───────────────────────────────────────────────────────────────────────
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('home')
+  const [activeTab, setActiveTab] = useState(INITIAL_TAB)
+  const [expandedSection, setExpandedSection] = useState(getSectionForTab(INITIAL_TAB).id)
+  const [sectionSheet, setSectionSheet] = useState(null) // section id or null
   const [searchResult, setSearchResult] = useState(null)
   const [showPrivacy, setShowPrivacy] = useState(false)
   const [resumePrefill, setResumePrefill] = useState(null)
-  const [showMenu, setShowMenu] = useState(false)
-  const [menuSeen, setMenuSeen] = useState(() => !!localStorage.getItem('vtg_menu_seen'))
 
+  const activeSection = getSectionForTab(activeTab)
+
+  // Keep expanded section in sync with active tab
   useEffect(() => {
+    setExpandedSection(activeSection.id)
+  }, [activeSection.id])
+
+  // Persist active tab + analytics
+  useEffect(() => {
+    try { localStorage.setItem('vtg_active_tab', activeTab) } catch {}
     trackEvent('page_view', { tab: activeTab })
   }, [activeTab])
 
-  function navigate(tab) {
-    setActiveTab(tab)
-    clearSearch()
+  function navigate(tabId) {
+    setActiveTab(tabId)
+    setSearchResult(null)
+    setSectionSheet(null)
   }
 
   function handleSearch(result) {
     setActiveTab(result.tab)
     setSearchResult(result)
     setShowPrivacy(false)
+    setSectionSheet(null)
   }
 
-  function clearSearch() {
-    setSearchResult(null)
-  }
+  function clearSearch() { setSearchResult(null) }
 
-  function openMenu() {
-    setShowMenu(true)
-    if (!menuSeen) {
-      setMenuSeen(true)
-      localStorage.setItem('vtg_menu_seen', '1')
+  // Mobile bottom bar: tap active section → open sheet; tap other section → go to first tab
+  function handleBottomSectionTap(section) {
+    if (section.id === activeSection.id) {
+      setSectionSheet(prev => prev === section.id ? null : section.id)
+    } else {
+      navigate(section.tabs[0].id)
     }
+  }
+
+  // Desktop sidebar: click section header to expand (accordion)
+  function handleSidebarSectionToggle(sectionId) {
+    setExpandedSection(prev => {
+      // Can't collapse the section that contains the active tab
+      if (sectionId === activeSection.id) return sectionId
+      return prev === sectionId ? null : sectionId
+    })
+  }
+
+  const sheetSection = sectionSheet ? SECTIONS.find(s => s.id === sectionSheet) : null
+
+  // Reusable sidebar renderer
+  function Sidebar({ onTabClick }) {
+    return (
+      <nav className="sidebar" aria-label="Main navigation">
+        {SECTIONS.map(section => {
+          const isSectionActive = section.id === activeSection.id
+          const isOpen = section.id === expandedSection
+          return (
+            <div key={section.id} className="sidebar-section">
+              <button
+                className={`sidebar-section-btn${isSectionActive ? ' active' : ''}${isOpen ? ' open' : ''}`}
+                onClick={() => handleSidebarSectionToggle(section.id)}
+                aria-expanded={isOpen}
+              >
+                <span className="sidebar-section-icon">{section.icon}</span>
+                <span className="sidebar-section-label">{section.label}</span>
+                <span className="sidebar-chevron" aria-hidden="true" />
+              </button>
+              {isOpen && (
+                <div className="sidebar-subtabs">
+                  {section.tabs.map(tab => (
+                    <button
+                      key={tab.id}
+                      className={`sidebar-btn${tab.id === activeTab ? ' on' : ''}`}
+                      onClick={() => onTabClick(tab.id)}
+                    >
+                      <span className="sidebar-icon">{tab.icon}</span>
+                      <span className="sidebar-label">{tab.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </nav>
+    )
+  }
+
+  // Search result banner
+  function SearchBanner() {
+    if (!searchResult) return null
+    return (
+      <div className="search-result-sticky">
+        <div className="search-result-inner">
+          <div style={{
+            background: '#fff',
+            border: `1px solid ${searchResult.regulationBacked ? '#1B3A6B' : '#B8C9E8'}`,
+            borderRadius: 10, padding: '12px 16px',
+            display: 'flex', gap: 12, alignItems: 'flex-start',
+          }}>
+            <span style={{ fontSize: 16, flexShrink: 0, marginTop: searchResult.regulationBacked ? 14 : 2 }}>
+              {searchResult.regulationBacked ? '📋' : '🔍'}
+            </span>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              {searchResult.regulationBacked && (
+                <span style={{
+                  display: 'inline-block', fontSize: 10, fontWeight: 700, letterSpacing: '.06em',
+                  textTransform: 'uppercase', background: '#1B3A6B', color: '#fff',
+                  padding: '2px 8px', borderRadius: 6, marginBottom: 7,
+                }}>
+                  Regulation-backed · 38 CFR
+                </span>
+              )}
+              <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.7 }}>{searchResult.summary}</p>
+              {searchResult.sectionHint && (
+                <p style={{ fontSize: 12, color: '#1B3A6B', marginTop: 4 }}>
+                  Look for: <strong>{searchResult.sectionHint}</strong>
+                </p>
+              )}
+              {searchResult.resourceMatch && (
+                <button
+                  onClick={() => document.getElementById('first-resource-match')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                  style={{
+                    background: 'none', border: 'none', padding: 0, cursor: 'pointer',
+                    fontSize: 13, color: '#C07A28', fontWeight: 600, marginTop: 8,
+                    display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'inherit',
+                    textDecoration: 'underline', textUnderlineOffset: 3,
+                  }}
+                >
+                  See highlighted resources below ↓
+                </button>
+              )}
+            </div>
+            <button
+              onClick={clearSearch}
+              aria-label="Dismiss"
+              style={{
+                background: '#F0EDE6', border: 'none', borderRadius: '50%',
+                color: '#5f5e5a', cursor: 'pointer', fontSize: 16, fontWeight: 700,
+                lineHeight: 1, flexShrink: 0, width: 28, height: 28,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   if (showPrivacy) {
     return (
       <>
-        <Header onSearch={handleSearch} onNavigateHome={() => { setShowPrivacy(false); setActiveTab('home') }} onMenu={openMenu} menuPulse={!menuSeen} />
-        <nav className="sidebar" aria-label="Main navigation">
-          {NAV_GROUPS.map(group => (
-            <div key={group.label}>
-              <p style={{
-                fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em',
-                color: '#b4b2a9', padding: '12px 14px 4px', margin: 0,
-              }}>
-                {group.label}
-              </p>
-              {group.tabs.map(tab => (
-                <button
-                  key={tab.id}
-                  className={`sidebar-btn${activeTab === tab.id ? ' on' : ''}`}
-                  onClick={() => { setShowPrivacy(false); setActiveTab(tab.id); clearSearch() }}
-                >
-                  <span className="sidebar-icon">{tab.icon}</span>
-                  <span className="sidebar-label">{tab.label}</span>
-                </button>
-              ))}
-            </div>
-          ))}
-        </nav>
+        <Header onSearch={handleSearch} onNavigateHome={() => { setShowPrivacy(false); navigate('home') }} onMenu={() => {}} menuPulse={false} />
+        <Sidebar onTabClick={(tabId) => { setShowPrivacy(false); navigate(tabId) }} />
         <div className="container">
           <PrivacyTab onClose={() => setShowPrivacy(false)} />
         </div>
@@ -144,103 +272,11 @@ export default function App() {
 
   return (
     <>
-      <Header onSearch={handleSearch} onNavigateHome={() => { setActiveTab('home'); clearSearch() }} onMenu={openMenu} menuPulse={!menuSeen} />
-      {/* Desktop sidebar — fixed left, >1024px only, shown via CSS */}
-      <nav className="sidebar" aria-label="Main navigation">
-        {NAV_GROUPS.map(group => (
-          <div key={group.label}>
-            <p style={{
-              fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em',
-              color: '#b4b2a9', padding: '12px 14px 4px', margin: 0,
-            }}>
-              {group.label}
-            </p>
-            {group.tabs.map(tab => (
-              <button
-                key={tab.id}
-                className={`sidebar-btn${activeTab === tab.id ? ' on' : ''}`}
-                onClick={() => { setActiveTab(tab.id); clearSearch() }}
-              >
-                <span className="sidebar-icon">{tab.icon}</span>
-                <span className="sidebar-label">{tab.label}</span>
-              </button>
-            ))}
-          </div>
-        ))}
-      </nav>
-      <div className="nav-sticky-wrapper">
-        <div className="nav-inner">
-          <nav>
-            {TABS.map(tab => (
-              <button
-                key={tab.id}
-                className={`tbtn${activeTab === tab.id ? ' on' : ''}`}
-                onClick={() => { setActiveTab(tab.id); clearSearch() }}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </div>
-      {searchResult && (
-        <div className="search-result-sticky">
-          <div className="search-result-inner">
-            <div style={{
-              background: '#fff',
-              border: `1px solid ${searchResult.regulationBacked ? '#1B3A6B' : '#B8C9E8'}`,
-              borderRadius: 10, padding: '12px 16px',
-              display: 'flex', gap: 12, alignItems: 'flex-start',
-            }}>
-              <span style={{ fontSize: 16, flexShrink: 0, marginTop: searchResult.regulationBacked ? 14 : 2 }}>
-                {searchResult.regulationBacked ? '📋' : '🔍'}
-              </span>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                {searchResult.regulationBacked && (
-                  <span style={{
-                    display: 'inline-block', fontSize: 10, fontWeight: 700, letterSpacing: '.06em',
-                    textTransform: 'uppercase', background: '#1B3A6B', color: '#fff',
-                    padding: '2px 8px', borderRadius: 6, marginBottom: 7,
-                  }}>
-                    Regulation-backed · 38 CFR
-                  </span>
-                )}
-                <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.7 }}>{searchResult.summary}</p>
-                {searchResult.sectionHint && (
-                  <p style={{ fontSize: 12, color: '#1B3A6B', marginTop: 4 }}>
-                    Look for: <strong>{searchResult.sectionHint}</strong>
-                  </p>
-                )}
-                {searchResult.resourceMatch && (
-                  <button
-                    onClick={() => document.getElementById('first-resource-match')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-                    style={{
-                      background: 'none', border: 'none', padding: 0, cursor: 'pointer',
-                      fontSize: 13, color: '#C07A28', fontWeight: 600, marginTop: 8,
-                      display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'inherit',
-                      textDecoration: 'underline', textUnderlineOffset: 3,
-                    }}
-                  >
-                    See highlighted resources below ↓
-                  </button>
-                )}
-              </div>
-              <button
-                onClick={clearSearch}
-                aria-label="Dismiss"
-                style={{
-                  background: '#F0EDE6', border: 'none', borderRadius: '50%',
-                  color: '#5f5e5a', cursor: 'pointer', fontSize: 16, fontWeight: 700,
-                  lineHeight: 1, flexShrink: 0, width: 28, height: 28,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}
-              >
-                ×
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <Header onSearch={handleSearch} onNavigateHome={() => navigate('home')} onMenu={() => {}} menuPulse={false} />
+
+      <Sidebar onTabClick={navigate} />
+
+      <SearchBanner />
 
       <div className="container">
         <AdUnit slot="3957268946" />
@@ -262,49 +298,51 @@ export default function App() {
         {activeTab === 'feedback'     && <FeedbackTab />}
         <OnboardingModal onComplete={() => {}} onNavigate={navigate} />
       </div>
+
       <Footer className="main-footer" onPrivacy={() => setShowPrivacy(true)} />
 
-      {/* Bottom nav — mobile only, shown via CSS */}
+      {/* ── Bottom nav — shown at ≤1024px ──────────────────────────── */}
       <div className="bottom-nav" role="navigation" aria-label="Main navigation">
-        {BOTTOM_NAV.map(t => (
-          <button
-            key={t.id}
-            className={`bottom-nav-btn${activeTab === t.id ? ' on' : ''}`}
-            onClick={() => { setActiveTab(t.id); clearSearch() }}
-          >
-            <span className="bottom-nav-icon">{t.icon}</span>
-            <span className="bottom-nav-label">{t.label}</span>
-          </button>
-        ))}
+        {SECTIONS.map(section => {
+          const isActive = section.id === activeSection.id
+          return (
+            <button
+              key={section.id}
+              className={`bottom-nav-btn${isActive ? ' on' : ''}`}
+              onClick={() => handleBottomSectionTap(section)}
+              aria-label={section.label}
+            >
+              <span className="bottom-nav-icon">{section.icon}</span>
+              <span className="bottom-nav-label">{section.navLabel}</span>
+            </button>
+          )
+        })}
       </div>
 
-      {/* Slide-up tab sheet — triggered by hamburger, mobile only */}
-      {showMenu && (
-        <div className="menu-sheet-overlay" onClick={() => setShowMenu(false)}>
+      {/* ── Section subtab sheet (mobile) ──────────────────────────── */}
+      {sheetSection && (
+        <div className="menu-sheet-overlay" onClick={() => setSectionSheet(null)}>
           <div className="menu-sheet" onClick={e => e.stopPropagation()}>
             <div className="menu-sheet-header">
-              <div>
-                <p style={{ fontSize: 16, fontWeight: 700, color: '#1a1a18' }}>All tabs</p>
-                <p style={{ fontSize: 11, color: '#b4b2a9', marginTop: 2 }}>
-                  <span style={{ color: '#C07A28' }}>NEW</span> = not in bottom bar
-                </p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ fontSize: 22 }}>{sheetSection.icon}</span>
+                <p style={{ fontSize: 16, fontWeight: 700, color: '#1a1a18' }}>{sheetSection.label}</p>
               </div>
-              <button className="menu-sheet-close" onClick={() => setShowMenu(false)}>×</button>
+              <button className="menu-sheet-close" onClick={() => setSectionSheet(null)}>×</button>
             </div>
-            {TABS.map(tab => {
-              const isExtra = !BOTTOM_NAV_IDS.has(tab.id)
-              return (
-                <button
-                  key={tab.id}
-                  className={`menu-sheet-item${activeTab === tab.id ? ' active' : ''}`}
-                  onClick={() => { setActiveTab(tab.id); clearSearch(); setShowMenu(false) }}
-                >
-                  <span className="menu-sheet-icon">{tab.icon}</span>
-                  <span style={{ flex: 1, textAlign: 'left' }}>{tab.label}</span>
-                  {isExtra && <span className="menu-extra-badge">NEW</span>}
-                </button>
-              )
-            })}
+            {sheetSection.tabs.map(tab => (
+              <button
+                key={tab.id}
+                className={`menu-sheet-item${tab.id === activeTab ? ' active' : ''}`}
+                onClick={() => navigate(tab.id)}
+              >
+                <span className="menu-sheet-icon">{tab.icon}</span>
+                <span style={{ flex: 1, textAlign: 'left' }}>{tab.label}</span>
+                {tab.id === activeTab && (
+                  <span style={{ fontSize: 10, color: '#1B3A6B', fontWeight: 700 }}>Current</span>
+                )}
+              </button>
+            ))}
           </div>
         </div>
       )}
