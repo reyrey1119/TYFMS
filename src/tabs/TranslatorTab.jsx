@@ -245,10 +245,16 @@ export default function TranslatorTab({ onGoToResume }) {
             Looking up official duty description...
           </div>
         )}
-        {milRefStatus === 'found' && milRefData && (
+        {milRefStatus === 'found' && milRefData && milRefData._source === 'pdf' && (
           <div style={{ background: '#e8f5f3', border: '1px solid #0A7868', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
             <p style={{ color: '#0A7868', fontWeight: 600, marginBottom: 2 }}>✓ Official duty description found</p>
             <p style={{ color: '#5f5e5a', fontSize: 12 }}>{milRefData.duty_title} — {milRefData.document_source}</p>
+          </div>
+        )}
+        {milRefStatus === 'found' && milRefData && milRefData._source !== 'pdf' && (
+          <div style={{ background: '#e8f0f5', border: '1px solid #2d7a8a', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
+            <p style={{ color: '#2d7a8a', fontWeight: 600, marginBottom: 2 }}>✓ Duty description loaded from AI knowledge</p>
+            <p style={{ color: '#5f5e5a', fontSize: 12 }}>Official PDF unavailable — using trained knowledge of {mos.trim().toUpperCase()} from DA PAM 600-3</p>
           </div>
         )}
         {milRefStatus === 'failed' && (

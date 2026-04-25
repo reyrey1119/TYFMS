@@ -10,6 +10,7 @@ export default async function handler(req, res) {
     branch, mos, rank, yos, targetCompany, additionalSkills,
     clearance, awards, summaryTone, education, contact, prevJobs,
     additionalContext, jobDescription, milReference, milDuties,
+    format, cvExtras,
   } = req.body || {}
 
   if (!mos?.trim()) return res.status(400).json({ error: 'MOS, AFSC, or rate code is required.' })
@@ -149,14 +150,138 @@ CERTIFICATIONS & TRAINING
 
 Return only the resume text — no preamble, no commentary, no markdown.`
 
+  // ── CV format override ────────────────────────────────────────────────────
+  let activePrompt = prompt
+  let activeMaxTokens = 3000
+
+  if (format === 'cv') {
+    const pubBlock = Array.isArray(cvExtras?.publications) && cvExtras.publications.filter(p => p.title?.trim()).length > 0
+      ? '\n\nPUBLICATIONS & RESEARCH:\n' + cvExtras.publications.filter(p => p.title?.trim()).map(p => `${p.title} | ${p.journal || 'Journal/Conference'} | ${p.year || '[Year]'}`).join('\n')
+      : ''
+    const presBlock = Array.isArray(cvExtras?.presentations) && cvExtras.presentations.filter(p => p.title?.trim()).length > 0
+      ? '\n\nPRESENTATIONS:\n' + cvExtras.presentations.filter(p => p.title?.trim()).map(p => `${p.title} | ${p.event || 'Event'} | ${p.year || '[Year]'}`).join('\n')
+      : ''
+    const pdBlock = cvExtras?.pdCourses?.trim() ? `\n\nPROFESSIONAL DEVELOPMENT COURSES:\n${cvExtras.pdCourses.trim()}` : ''
+    const volBlock = cvExtras?.volunteerService?.trim() ? `\n\nVOLUNTEER & COMMUNITY SERVICE:\n${cvExtras.volunteerService.trim()}` : ''
+    const memBlock = cvExtras?.memberships?.trim() ? `\n\nPROFESSIONAL MEMBERSHIPS:\n${cvExtras.memberships.trim()}` : ''
+    const teachBlock = cvExtras?.teachingExp?.trim() ? `\n\nTEACHING & TRAINING EXPERIENCE:\n${cvExtras.teachingExp.trim()}` : ''
+
+    activeMaxTokens = 4000
+    activePrompt = `You are an expert CV writer specializing in veteran-to-civilian career transitions for federal government, academic, and senior leadership roles. Create a comprehensive, ATS-optimized civilian CV.
+
+DOCUMENT TYPE: Curriculum Vitae (CV) — NOT a resume. This is optimized for GS federal positions, academic roles, and senior leadership applications. CVs are longer and more comprehensive than resumes. Include all relevant sections with full detail.
+
+VETERAN PROFILE:
+- Branch: ${branch || 'US Military'}
+- MOS/AFSC/Rate: ${mos.trim()}
+- Rank: ${rank?.trim() || 'Not specified'}
+- Years of service: ${yos?.trim() || 'Not specified'}
+- Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently; critical for federal roles` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()}` : ''}
+
+TARGET: ${companyContext}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${pubBlock}${presBlock}${pdBlock}${volBlock}${memBlock}${teachBlock}
+
+CRITICAL RULES:
+1. NEVER use military acronyms without civilian translation
+2. Use strong action verbs throughout
+3. Quantify achievements with realistic placeholders: [X%], [$X], [N personnel]
+4. NO em dashes — use commas or periods instead
+5. NO filler words: leverage, utilize, synergize, robust, holistic
+6. Active voice throughout
+7. Section headers use ─────────────────────────────────────────────── as dividers${hasClearance ? '\n8. Show clearance prominently after contact info' : ''}
+
+OUTPUT — plain text only, no markdown, follow this exact format:
+
+${contactLine}${hasClearance ? `\nCLEARANCE: ${clearance}` : ''}
+
+─────────────────────────────────────────────────────
+PROFESSIONAL SUMMARY
+─────────────────────────────────────────────────────
+[5–6 sentences. Lead with total years of experience and strongest civilian value. Tailor to federal/academic/senior leadership context. End with a forward-looking statement.]
+
+─────────────────────────────────────────────────────
+CORE COMPETENCIES
+─────────────────────────────────────────────────────
+[Skill 1]                    [Skill 2]                    [Skill 3]
+[Skill 4]                    [Skill 5]                    [Skill 6]
+[Skill 7]                    [Skill 8]                    [Skill 9]
+[14–18 competencies in 3-column layout]
+
+─────────────────────────────────────────────────────
+PROFESSIONAL EXPERIENCE
+─────────────────────────────────────────────────────
+
+[Translated Civilian Job Title] | ${branch || 'U.S. Military'}
+[Start Year] – [End Year]
+• [Scope bullet: personnel led, budget managed, geographic scale]
+• [Quantified achievement]
+• [Quantified achievement]
+• [Technical or systems competency]
+• [Leadership or policy outcome]
+• [Outcome or impact bullet]
+
+[Earlier Title] | ${branch || 'U.S. Military'}
+[Start Year] – [End Year]
+• [Achievement bullet]
+• [Achievement bullet]
+• [Achievement bullet]
+${Array.isArray(prevJobs) && prevJobs.filter(j => j.title?.trim()).length > 0 ? '\n[Non-military roles: include each with civilian title, employer, dates, 3–4 achievement bullets]\n' : ''}${hasAwards ? `
+─────────────────────────────────────────────────────
+HONORS & RECOGNITION
+─────────────────────────────────────────────────────
+[Translate each award into a civilian achievement statement]
+` : ''}
+─────────────────────────────────────────────────────
+EDUCATION
+─────────────────────────────────────────────────────
+${hasEducation ? educationBlock : 'ADD YOUR EDUCATION HERE'}
+
+─────────────────────────────────────────────────────
+CERTIFICATIONS & LICENSES
+─────────────────────────────────────────────────────
+[Certification | Year]
+[Include all relevant certifications with dates; federal roles require specific certs]
+
+─────────────────────────────────────────────────────
+PROFESSIONAL DEVELOPMENT
+─────────────────────────────────────────────────────
+${cvExtras?.pdCourses?.trim() ? cvExtras.pdCourses.trim() : '[Military and civilian professional development courses, schools, and training programs with years]'}
+${pubBlock ? `
+─────────────────────────────────────────────────────
+PUBLICATIONS & RESEARCH
+─────────────────────────────────────────────────────
+${cvExtras.publications.filter(p => p.title?.trim()).map(p => `${p.title} | ${p.journal || 'Journal/Conference'} | ${p.year || '[Year]'}`).join('\n')}
+` : ''}${presBlock ? `
+─────────────────────────────────────────────────────
+PRESENTATIONS
+─────────────────────────────────────────────────────
+${cvExtras.presentations.filter(p => p.title?.trim()).map(p => `${p.title} | ${p.event || 'Event'} | ${p.year || '[Year]'}`).join('\n')}
+` : ''}${volBlock ? `
+─────────────────────────────────────────────────────
+VOLUNTEER & COMMUNITY SERVICE
+─────────────────────────────────────────────────────
+${cvExtras.volunteerService.trim()}
+` : ''}${memBlock ? `
+─────────────────────────────────────────────────────
+PROFESSIONAL MEMBERSHIPS
+─────────────────────────────────────────────────────
+${cvExtras.memberships.trim()}
+` : ''}${teachBlock ? `
+─────────────────────────────────────────────────────
+TEACHING & TRAINING EXPERIENCE
+─────────────────────────────────────────────────────
+${cvExtras.teachingExp.trim()}
+` : ''}
+Return only the CV text — no preamble, no commentary, no markdown.`
+  }
+
   try {
     const r = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 3000,
-        messages: [{ role: 'user', content: prompt }],
+        max_tokens: activeMaxTokens,
+        messages: [{ role: 'user', content: activePrompt }],
       }),
     })
     const data = await r.json()

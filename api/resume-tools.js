@@ -243,16 +243,17 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
   "civilian_translation_hints": "<5-6 civilian job titles, industries, or certifications this maps to, with one sentence each>"
 }`
 
-  async function cacheAndReturn(result) {
+  async function cacheAndReturn(result, source) {
+    const tagged = { ...result, _source: source }
     if (supabase) {
       try {
         await supabase.from('mil_reference_cache').upsert({
           cache_key: cacheKey, document_source: docSource,
-          extracted_content: result, fetched_at: new Date().toISOString(),
+          extracted_content: tagged, fetched_at: new Date().toISOString(),
         }, { onConflict: 'cache_key' })
       } catch {}
     }
-    return result
+    return tagged
   }
 
   // ── Path 1: Fetch actual DA PAM 600-3 branch PDF (Army officers/WOs only) ──
@@ -289,7 +290,7 @@ ${jsonSchema}`,
           if (!data.error) {
             const result = parseJsonResult((data.content || []).map(i => i.text || '').join(''))
             // Validate: wrong data is worse than no data — only accept if MOS code appears in result
-            if (milRefMatchesMos(result, mosCleaned)) return cacheAndReturn(result)
+            if (milRefMatchesMos(result, mosCleaned)) return cacheAndReturn(result, 'pdf')
           }
         } catch {}
         // PDF extraction failed or validation rejected — fall through to knowledge path
@@ -318,10 +319,78 @@ Be specific and accurate. Reference actual systems, doctrinal tasks, and termino
     if (data.error) return { error: data.error.message }
     const result = parseJsonResult((data.content || []).map(i => i.text || '').join(''))
     if (!result) return { error: 'Could not extract duty information.' }
-    return cacheAndReturn(result)
+    return cacheAndReturn(result, 'knowledge')
   } catch {
     return { error: 'Could not retrieve duty description. Please describe your primary duties below.' }
   }
+}
+
+// ── interview-prep ────────────────────────────────────────────────────────────
+
+async function interviewPrep(apiKey, { resume, jobDescription, jobTitle, company }) {
+  const hasJob = !!(jobDescription?.trim() || jobTitle?.trim())
+  const context = jobDescription?.trim()
+    ? jobDescription.slice(0, 2000)
+    : `Role: ${jobTitle || 'unspecified'}\nCompany: ${company || 'unspecified'}`
+
+  const prompt = `You are an expert career coach specializing in military-to-civilian transitions. Generate exactly 5 likely interview questions for this veteran, with coaching notes showing how to answer each using their military background.
+
+RESUME:
+${resume?.slice(0, 2500) || '[No resume provided — use general veteran background]'}
+
+${hasJob ? `ROLE / JOB DESCRIPTION:\n${context}` : 'No specific job provided — generate general behavioral and competency questions for civilian roles suited to this military background.'}
+
+Return ONLY a valid JSON array of exactly 5 objects — no markdown, no preamble:
+[{"question":"<likely interview question specific to this role>","coaching":"<2-3 sentence coaching note: how this veteran answers using their specific military experience. Be concrete, reference real items from the resume. Active voice, no jargon, no em dashes."}]`
+
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+    body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 1600, messages: [{ role: 'user', content: prompt }] }),
+  })
+  const data = await r.json()
+  if (data.error) return { error: data.error.message }
+  const text = (data.content || []).map(i => i.text || '').join('').trim()
+  const match = text.match(/\[[\s\S]*\]/)
+  if (!match) return { error: 'Could not generate interview questions.' }
+  try { return { questions: JSON.parse(match[0]) } }
+  catch { return { error: 'Could not parse interview questions.' } }
+}
+
+// ── answer-feedback ───────────────────────────────────────────────────────────
+
+async function answerFeedback(apiKey, { question, answer, resume }) {
+  if (!question?.trim() || !answer?.trim()) return { error: 'Question and answer are required.' }
+
+  const prompt = `You are a career coach reviewing a veteran's practice interview answer. Give specific, actionable feedback.
+
+INTERVIEW QUESTION: ${question}
+
+VETERAN'S ANSWER: ${answer.slice(0, 1200)}
+
+${resume ? `RESUME CONTEXT (first 800 chars):\n${resume.slice(0, 800)}` : ''}
+
+Return ONLY a valid JSON object — no markdown, no preamble:
+{
+  "rating": "<Strong / Solid / Needs Work>",
+  "clarity": "<1-2 sentences on the clarity and structure of the answer>",
+  "relevance": "<1-2 sentences on how well it addresses what the interviewer wants to hear>",
+  "translation": "<1-2 sentences on how well it converts military experience into civilian language>",
+  "improve": "<One concrete, specific change to make this answer stronger>"
+}`
+
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+    body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 600, messages: [{ role: 'user', content: prompt }] }),
+  })
+  const data = await r.json()
+  if (data.error) return { error: data.error.message }
+  const text = (data.content || []).map(i => i.text || '').join('').trim()
+  const match = text.match(/\{[\s\S]*\}/)
+  if (!match) return { error: 'Could not generate feedback.' }
+  try { return JSON.parse(match[0]) }
+  catch { return { error: 'Could not parse feedback.' } }
 }
 
 // ── Handler ───────────────────────────────────────────────────────────────────
@@ -346,6 +415,14 @@ export default async function handler(req, res) {
     if (action === 'mil-reference') {
       const supabase = getSupabase()
       const result = await milReference(apiKey, supabase, params)
+      return result.error ? res.status(400).json(result) : res.status(200).json(result)
+    }
+    if (action === 'interview-prep') {
+      const result = await interviewPrep(apiKey, params)
+      return result.error ? res.status(400).json(result) : res.status(200).json(result)
+    }
+    if (action === 'answer-feedback') {
+      const result = await answerFeedback(apiKey, params)
       return result.error ? res.status(400).json(result) : res.status(200).json(result)
     }
     return res.status(400).json({ error: 'Unknown action.' })
