@@ -101,18 +101,14 @@ const INITIAL_TAB = (() => {
 
 export default function App() {
   const [activeTab, setActiveTab] = useState(INITIAL_TAB)
-  const [expandedSection, setExpandedSection] = useState(getSectionForTab(INITIAL_TAB).id)
+  // All sections open by default; each toggles independently
+  const [openSections, setOpenSections] = useState(() => new Set(SECTIONS.map(s => s.id)))
   const [sectionSheet, setSectionSheet] = useState(null) // section id or null
   const [searchResult, setSearchResult] = useState(null)
   const [showPrivacy, setShowPrivacy] = useState(false)
   const [resumePrefill, setResumePrefill] = useState(null)
 
   const activeSection = getSectionForTab(activeTab)
-
-  // Keep expanded section in sync with active tab
-  useEffect(() => {
-    setExpandedSection(activeSection.id)
-  }, [activeSection.id])
 
   // Persist active tab + analytics
   useEffect(() => {
@@ -135,21 +131,18 @@ export default function App() {
 
   function clearSearch() { setSearchResult(null) }
 
-  // Mobile bottom bar: tap active section → open sheet; tap other section → go to first tab
+  // Mobile bottom bar: always open the sheet for that section on any tap
   function handleBottomSectionTap(section) {
-    if (section.id === activeSection.id) {
-      setSectionSheet(prev => prev === section.id ? null : section.id)
-    } else {
-      navigate(section.tabs[0].id)
-    }
+    setSectionSheet(section.id)
   }
 
-  // Desktop sidebar: click section header to expand (accordion)
+  // Desktop sidebar: each section toggles independently
   function handleSidebarSectionToggle(sectionId) {
-    setExpandedSection(prev => {
-      // Can't collapse the section that contains the active tab
-      if (sectionId === activeSection.id) return sectionId
-      return prev === sectionId ? null : sectionId
+    setOpenSections(prev => {
+      const next = new Set(prev)
+      if (next.has(sectionId)) next.delete(sectionId)
+      else next.add(sectionId)
+      return next
     })
   }
 
@@ -161,7 +154,7 @@ export default function App() {
       <nav className="sidebar" aria-label="Main navigation">
         {SECTIONS.map(section => {
           const isSectionActive = section.id === activeSection.id
-          const isOpen = section.id === expandedSection
+          const isOpen = openSections.has(section.id)
           return (
             <div key={section.id} className="sidebar-section">
               <button
