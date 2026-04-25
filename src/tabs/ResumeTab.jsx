@@ -1215,6 +1215,14 @@ export default function ResumeTab({ prefill }) {
 
   return (
     <div>
+      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Execute Your Plan</p>
+      <p className="sec-title" style={{ marginBottom: 6 }}>Resume builder</p>
+      <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 20 }}>
+        The resume is where everything comes together — your translated skills, your articulated
+        identity, and the strategy to land the role you are actually qualified for.
+        This tool builds it from your real record.
+      </p>
+
       {/* Vault context banner */}
       {vaultDocs.length > 0 && (
         <div style={{

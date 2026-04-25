@@ -148,9 +148,13 @@ export default function TranslatorTab({ onGoToResume }) {
       <div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
         <img src="/translator.png" alt="Skills translator" style={{ width: '100%', maxHeight: 320, objectFit: 'contain', objectPosition: 'top', display: 'block' }} />
       </div>
-      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Knowing Your Self</p>
+      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>What You Bring</p>
       <p className="sec-title">Skills translator</p>
       <p className="sec-sub">
+        Everything you did in service — the skills, the leadership, the technical mastery — is already
+        there. This tool makes it visible to civilian employers.
+      </p>
+      <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 20 }}>
         Enter your occupational code and branch. The AI will translate your military experience into
         civilian job titles, transferable skills, and career path recommendations.
       </p>

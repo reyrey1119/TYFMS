@@ -153,6 +153,11 @@ export default function NetworkTab() {
         <p style={{ fontSize: 18, fontWeight: 700, color: '#1B3A6B', marginBottom: 14, lineHeight: 1.3 }}>
           Veterans who have been exactly where you are.
         </p>
+        <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 10 }}>
+          Research consistently shows that strong support — a mentor who gets it, a peer two months
+          ahead of you, someone who will be honest — is one of the top predictors of a smooth transition.
+          It is not a bonus. It is part of the plan.
+        </p>
         <p className="sec-sub" style={{ marginBottom: 20 }}>
           The TYFMS network connects veterans by MOS, AFSC, and rate — because the best transition
           advice comes from someone who wore the same uniform and made the same leap. Whether you

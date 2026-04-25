@@ -24,23 +24,45 @@ function trackEvent(name, params = {}) {
   try { window.gtag?.('event', name, params) } catch {}
 }
 
-const TABS = [
-  { id: 'home',            icon: '🏠', label: 'Home' },
-  { id: 'translator',      icon: '⚡', label: 'Skills translator' },
-  { id: 'resume',          icon: '📄', label: 'Resume builder' },
-  { id: 'path',            icon: '🧭', label: 'Find your path' },
-  { id: 'identity',        icon: '💬', label: 'Identity guide' },
-  { id: 'network',         icon: '🤝', label: 'Networking' },
-  { id: 'trends',          icon: '📈', label: 'Career trends' },
-  { id: 'vetnews',         icon: '📰', label: 'Vet news' },
-  { id: 'tracker',         icon: '✅', label: 'Progress tracker' },
-  { id: 'applications',    icon: '📋', label: 'Application tracker' },
-  { id: 'vault',           icon: '🔒', label: 'Document Vault' },
-  { id: 'resources',       icon: '📚', label: 'Resources' },
-  { id: 'about',           icon: 'ℹ️',  label: 'About' },
-  { id: 'testimonials',    icon: '⭐', label: 'Testimonials' },
-  { id: 'feedback',        icon: '💡', label: 'Feedback' },
+const NAV_GROUPS = [
+  {
+    label: 'Where you are',
+    tabs: [
+      { id: 'home',         icon: '🏠', label: 'Home' },
+      { id: 'path',         icon: '🧭', label: 'Find your path' },
+    ],
+  },
+  {
+    label: 'Who you are',
+    tabs: [
+      { id: 'translator',   icon: '⚡', label: 'Skills translator' },
+      { id: 'identity',     icon: '💬', label: 'Identity guide' },
+      { id: 'vault',        icon: '🔒', label: 'Document Vault' },
+    ],
+  },
+  {
+    label: 'Your network',
+    tabs: [
+      { id: 'network',      icon: '🤝', label: 'Networking' },
+      { id: 'vetnews',      icon: '📰', label: 'Vet news' },
+      { id: 'testimonials', icon: '⭐', label: 'Testimonials' },
+    ],
+  },
+  {
+    label: 'Your plan',
+    tabs: [
+      { id: 'resume',       icon: '📄', label: 'Resume builder' },
+      { id: 'trends',       icon: '📈', label: 'Career trends' },
+      { id: 'tracker',      icon: '✅', label: 'Progress tracker' },
+      { id: 'applications', icon: '📋', label: 'Application tracker' },
+      { id: 'resources',    icon: '📚', label: 'Resources' },
+      { id: 'about',        icon: 'ℹ️',  label: 'About' },
+      { id: 'feedback',     icon: '💡', label: 'Feedback' },
+    ],
+  },
 ]
+
+const TABS = NAV_GROUPS.flatMap(g => g.tabs)
 
 const BOTTOM_NAV = [
   { id: 'home',       icon: '🏠', label: 'Home' },
@@ -91,15 +113,25 @@ export default function App() {
       <>
         <Header onSearch={handleSearch} onNavigateHome={() => { setShowPrivacy(false); setActiveTab('home') }} onMenu={openMenu} menuPulse={!menuSeen} />
         <nav className="sidebar" aria-label="Main navigation">
-          {TABS.map(tab => (
-            <button
-              key={tab.id}
-              className={`sidebar-btn${activeTab === tab.id ? ' on' : ''}`}
-              onClick={() => { setShowPrivacy(false); setActiveTab(tab.id); clearSearch() }}
-            >
-              <span className="sidebar-icon">{tab.icon}</span>
-              <span className="sidebar-label">{tab.label}</span>
-            </button>
+          {NAV_GROUPS.map(group => (
+            <div key={group.label}>
+              <p style={{
+                fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em',
+                color: '#b4b2a9', padding: '12px 14px 4px', margin: 0,
+              }}>
+                {group.label}
+              </p>
+              {group.tabs.map(tab => (
+                <button
+                  key={tab.id}
+                  className={`sidebar-btn${activeTab === tab.id ? ' on' : ''}`}
+                  onClick={() => { setShowPrivacy(false); setActiveTab(tab.id); clearSearch() }}
+                >
+                  <span className="sidebar-icon">{tab.icon}</span>
+                  <span className="sidebar-label">{tab.label}</span>
+                </button>
+              ))}
+            </div>
           ))}
         </nav>
         <div className="container">
@@ -115,15 +147,25 @@ export default function App() {
       <Header onSearch={handleSearch} onNavigateHome={() => { setActiveTab('home'); clearSearch() }} onMenu={openMenu} menuPulse={!menuSeen} />
       {/* Desktop sidebar — fixed left, >1024px only, shown via CSS */}
       <nav className="sidebar" aria-label="Main navigation">
-        {TABS.map(tab => (
-          <button
-            key={tab.id}
-            className={`sidebar-btn${activeTab === tab.id ? ' on' : ''}`}
-            onClick={() => { setActiveTab(tab.id); clearSearch() }}
-          >
-            <span className="sidebar-icon">{tab.icon}</span>
-            <span className="sidebar-label">{tab.label}</span>
-          </button>
+        {NAV_GROUPS.map(group => (
+          <div key={group.label}>
+            <p style={{
+              fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em',
+              color: '#b4b2a9', padding: '12px 14px 4px', margin: 0,
+            }}>
+              {group.label}
+            </p>
+            {group.tabs.map(tab => (
+              <button
+                key={tab.id}
+                className={`sidebar-btn${activeTab === tab.id ? ' on' : ''}`}
+                onClick={() => { setActiveTab(tab.id); clearSearch() }}
+              >
+                <span className="sidebar-icon">{tab.icon}</span>
+                <span className="sidebar-label">{tab.label}</span>
+              </button>
+            ))}
+          </div>
         ))}
       </nav>
       <div className="nav-sticky-wrapper">

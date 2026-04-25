@@ -271,6 +271,10 @@ export default function PathTab() {
     <div>
       <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Understanding Your Situation</p>
       <p className="sec-title">Find your path.</p>
+      <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 8 }}>
+        Before you can move forward, you need a clear picture of where you actually are — your
+        transition stage, your strengths, and which direction fits how you think and operate.
+      </p>
       <p className="sec-sub">
         12 questions. No wrong answers. Discover which of four veteran career archetypes matches how you think,
         lead, and operate — and get a tailored roadmap for your civilian transition.

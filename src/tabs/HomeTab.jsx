@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import FunFact from '../components/FunFact'
 
 const DAILY_TIPS = [
@@ -75,9 +76,41 @@ const HELP_CARDS = [
   },
 ]
 
+const SCHLOSSBERG_4S = [
+  {
+    letter: 'S',
+    label: 'Situation',
+    color: '#1B3A6B',
+    tab: 'path',
+    desc: 'Understanding where you are right now — what has changed, what you\'ve lost, and what\'s possible. The "Find Your Path" assessment starts here.',
+  },
+  {
+    letter: 'S',
+    label: 'Self',
+    color: '#C07A28',
+    tab: 'identity',
+    desc: 'Knowing your values, strengths, and identity beyond your rank and MOS. The Identity Guide and Skills Translator help you see yourself clearly.',
+  },
+  {
+    letter: 'S',
+    label: 'Support',
+    color: '#0A7868',
+    tab: 'network',
+    desc: 'Building the people around you — mentors, peers, advocates. The Veteran Network connects you to people who have already made your transition.',
+  },
+  {
+    letter: 'S',
+    label: 'Strategies',
+    color: '#7c3aad',
+    tab: 'resume',
+    desc: 'Taking action with the right tools — your resume, career plan, and resources. Every tool in TYFMS is a strategy for your next chapter.',
+  },
+]
+
 export default function HomeTab({ onNavigate }) {
   const dayIndex = Math.floor(Date.now() / 86400000)
   const todaysTip = DAILY_TIPS[dayIndex % DAILY_TIPS.length]
+  const [showApproach, setShowApproach] = useState(false)
 
   return (
     <div>
@@ -97,10 +130,83 @@ export default function HomeTab({ onNavigate }) {
           <h1 className="hero-title">Thank You For My<br />Service (TYFMS)</h1>
           <p className="hero-tagline">No more empty thanks — just real tools for the next mission.</p>
           <p style={{ position: 'relative', fontSize: 13, color: 'rgba(255,255,255,0.75)', marginTop: 12, lineHeight: 1.7, maxWidth: 480 }}>
-            Type your MOS. Get civilian job titles, a resume, and your next steps. Free. No sign up required to start.
+            Every tool here maps to one of four factors that determine how well veterans transition:
+            your Situation, your Self, your Support, and your Strategies.
           </p>
+          <button
+            onClick={() => setShowApproach(true)}
+            style={{
+              marginTop: 14, background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.35)',
+              borderRadius: 8, color: '#fff', fontSize: 12, fontWeight: 600, cursor: 'pointer',
+              padding: '7px 14px', fontFamily: 'inherit', letterSpacing: '.02em',
+              backdropFilter: 'blur(4px)',
+            }}
+          >
+            Our approach →
+          </button>
         </div>
       </div>
+
+      {/* Our Approach modal */}
+      {showApproach && (
+        <div
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', zIndex: 1100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
+          onClick={() => setShowApproach(false)}
+        >
+          <div
+            style={{ background: '#fff', borderRadius: 16, padding: '28px 24px', maxWidth: 520, width: '100%', maxHeight: '85vh', overflowY: 'auto' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
+              <div>
+                <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#C07A28', marginBottom: 4 }}>
+                  Research-backed framework
+                </p>
+                <p style={{ fontSize: 20, fontWeight: 800, color: '#1a1a18', lineHeight: 1.2 }}>
+                  The 4S Framework
+                </p>
+              </div>
+              <button
+                onClick={() => setShowApproach(false)}
+                style={{ background: 'none', border: 'none', fontSize: 24, cursor: 'pointer', color: '#888', lineHeight: 1, padding: 0, flexShrink: 0 }}
+              >×</button>
+            </div>
+            <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.75, marginBottom: 20 }}>
+              TYFMS is built around Schlossberg's Transition Theory — one of the most robust
+              frameworks in transition research. It identifies four factors that determine whether
+              a transition goes well or falls apart. Every tool in this app addresses at least one.
+            </p>
+            {SCHLOSSBERG_4S.map(s => (
+              <div
+                key={s.label}
+                style={{
+                  display: 'flex', gap: 14, marginBottom: 14, padding: '14px 16px',
+                  background: '#f9f8f5', borderRadius: 12, borderLeft: `4px solid ${s.color}`,
+                  cursor: 'pointer',
+                }}
+                onClick={() => { setShowApproach(false); onNavigate(s.tab) }}
+              >
+                <div style={{
+                  width: 36, height: 36, borderRadius: '50%', background: s.color,
+                  color: '#fff', fontWeight: 800, fontSize: 15, flexShrink: 0,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  {s.letter}
+                </div>
+                <div>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: '#1a1a18', marginBottom: 4 }}>{s.label}</p>
+                  <p style={{ fontSize: 12, color: '#5f5e5a', lineHeight: 1.6 }}>{s.desc}</p>
+                </div>
+              </div>
+            ))}
+            <p style={{ fontSize: 11, color: '#b4b2a9', marginTop: 8, lineHeight: 1.6 }}>
+              Source: Schlossberg, N. K. (1981). A model for analyzing human adaptation to transition.
+              The Counseling Psychologist, 9(2), 2–18.
+            </p>
+          </div>
+        </div>
+      )}
+
 
       {/* Daily tip */}
       <div style={{

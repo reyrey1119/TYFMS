@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   const apiKey = process.env.ANTHROPIC_API_KEY
   if (!apiKey) return res.status(500).json({ error: 'API key not configured.' })
 
-  const { action, messages } = req.body || {}
+  const { action, messages, reflectionContext } = req.body || {}
   if (!Array.isArray(messages) || messages.length === 0) {
     return res.status(400).json({ error: 'Messages required.' })
   }
@@ -23,7 +23,12 @@ export default async function handler(req, res) {
           max_tokens: 400,
           system: `You are a veteran transition mentor embedded in the TYFMS Identity Guide. Your role is to help veterans reconstruct their professional identity after military service through thoughtful, empathetic conversation.
 
-You opened this conversation by asking what has been the hardest part of their transition. Continue from there.
+You opened this conversation by asking what has been the hardest part of their transition. Continue from there.${reflectionContext ? `
+
+VETERAN'S PRIOR REFLECTIONS (use this as context — do not repeat it back verbatim, but let it inform your questions and observations):
+${reflectionContext}
+
+Open the conversation knowing these details. Reference specific things they shared to show you were listening. Do not ask them to repeat information they already gave.` : ''}
 
 EMOTIONAL AWARENESS: If the veteran expresses frustration, grief, loss of identity, loneliness, or any form of pain or hopelessness — acknowledge that emotion directly and with genuine empathy before moving forward. Say something human and real. Do not use therapeutic jargon or minimizing phrases like "that makes sense" or "I hear you." If they are struggling, sit with it for a moment before asking the next question.
 

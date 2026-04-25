@@ -268,6 +268,93 @@ export default function TrackerTab() {
         )
       })}
 
+      {/* 4S Schlossberg self-assessment */}
+      <div style={{ marginTop: 28, marginBottom: 8, borderTop: '1px solid #d3d1c7', paddingTop: 24 }}>
+        <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 4 }}>4S Framework progress</p>
+        <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 16, lineHeight: 1.6 }}>
+          Schlossberg's four factors — the backbone of this app. Check each one as you address it.
+        </p>
+      </div>
+      {[
+        {
+          id: 's-situation', factor: 'Situation', color: '#1B3A6B', icon: '🧭',
+          desc: 'You understand where you are in your transition.',
+          items: [
+            { id: 'ss1', text: 'Named what has changed most since separation' },
+            { id: 'ss2', text: 'Identified your 3 biggest transition stressors' },
+            { id: 'ss3', text: 'Completed the "Find Your Path" archetype assessment' },
+          ],
+        },
+        {
+          id: 's-self', factor: 'Self', color: '#C07A28', icon: '💬',
+          desc: 'You know your identity, values, and strengths beyond your rank.',
+          items: [
+            { id: 'se1', text: 'Completed at least one Identity Guide conversation' },
+            { id: 'se2', text: 'Generated your professional identity statement' },
+            { id: 'se3', text: 'Used the Skills Translator to map your MOS to civilian roles' },
+          ],
+        },
+        {
+          id: 's-support', factor: 'Support', color: '#0A7868', icon: '🤝',
+          desc: 'You have people around you who can help.',
+          items: [
+            { id: 'su1', text: 'Identified at least one civilian advocate in your corner' },
+            { id: 'su2', text: 'Connected with one veteran ahead of you in transition' },
+            { id: 'su3', text: 'Joined or browsed the TYFMS Veteran Network' },
+          ],
+        },
+        {
+          id: 's-strategies', factor: 'Strategies', color: '#7c3aad', icon: '📋',
+          desc: 'You are taking concrete action with the right tools.',
+          items: [
+            { id: 'st1', text: 'Built at least one version of your civilian resume' },
+            { id: 'st2', text: 'Submitted at least one job or education application' },
+            { id: 'st3', text: 'Scheduled or completed one informational interview' },
+          ],
+        },
+      ].map(factor => {
+        const factorDone = factor.items.filter(m => checked.includes(m.id)).length
+        return (
+          <div key={factor.id} style={{ marginBottom: 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+              <span style={{ fontSize: 20, flexShrink: 0 }}>{factor.icon}</span>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontSize: 11, color: factor.color, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em' }}>
+                  {factor.factor}
+                </p>
+                <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.4 }}>{factor.desc}</p>
+              </div>
+              <span style={{ fontSize: 12, color: '#5f5e5a', flexShrink: 0 }}>{factorDone}/{factor.items.length}</span>
+            </div>
+            <div className="card" style={{ borderLeft: `3px solid ${factor.color}`, borderRadius: '0 12px 12px 0', padding: '12px 16px' }}>
+              {factor.items.map(m => {
+                const done = checked.includes(m.id)
+                return (
+                  <div
+                    key={m.id}
+                    style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '7px 0', borderBottom: '1px solid #f0ede6', cursor: 'pointer' }}
+                    onClick={() => {
+                      const next = done ? checked.filter(id => id !== m.id) : [...checked, m.id]
+                      saveChecked(next)
+                    }}
+                  >
+                    <div className={`goal-check${done ? ' done' : ''}`} style={{ cursor: 'pointer' }}>
+                      {done ? '✓' : ''}
+                    </div>
+                    <p style={{
+                      fontSize: 13, color: done ? '#b4b2a9' : '#1a1a18', lineHeight: 1.5,
+                      textDecoration: done ? 'line-through' : 'none', flex: 1,
+                    }}>
+                      {m.text}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )
+      })}
+
       {/* Custom goals */}
       <div style={{ marginTop: 28, marginBottom: 8, borderTop: '1px solid #d3d1c7', paddingTop: 24 }}>
         <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 4 }}>Custom goals</p>

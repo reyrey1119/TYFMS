@@ -162,6 +162,49 @@ export default function AboutTab() {
         </p>
       </div>
 
+      {/* Our Research Foundation */}
+      <div style={{ marginBottom: 32 }}>
+        <p className="cat-label" style={{ marginBottom: 14 }}>Our research foundation</p>
+        <div className="card" style={{ borderLeft: '4px solid #1B3A6B', borderRadius: '0 12px 12px 0', marginBottom: 12 }}>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#1B3A6B', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 8 }}>
+            Schlossberg's Transition Theory
+          </p>
+          <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 10 }}>
+            The 4S framework behind every TYFMS feature
+          </p>
+          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75, marginBottom: 10 }}>
+            TYFMS is built on Nancy K. Schlossberg's Transition Theory — one of the most robust
+            and widely validated frameworks in adult transition research. First published in 1981
+            and refined over decades, the theory identifies four factors that determine whether
+            a transition succeeds: <strong>Situation</strong> (the context of the change),
+            <strong> Self</strong> (who the person is and how they cope),
+            <strong> Support</strong> (the people and networks available),
+            and <strong>Strategies</strong> (the actions taken). Schlossberg's research showed
+            that these four factors — not luck, not timing alone — predict transition outcomes.
+          </p>
+          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75, marginBottom: 10 }}>
+            For veterans, the military-to-civilian transition is one of the most structurally
+            complex role changes an adult can navigate. The entire institutional identity —
+            rank, unit, mission, belonging — dissolves almost overnight. Schlossberg's framework
+            provides a language for what veterans actually experience and a roadmap for addressing
+            each dimension systematically rather than by accident.
+          </p>
+          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75 }}>
+            Every feature in TYFMS maps to at least one of the 4S factors. The Skills Translator
+            and Identity Guide address <em>Self</em>. The Path assessment clarifies <em>Situation</em>.
+            The Veteran Network builds <em>Support</em>. The Resume Builder, Resources, and
+            Progress Tracker are your <em>Strategies</em>. The invisible architecture of this
+            app is the same framework that researchers have found, repeatedly, to determine
+            who transitions well — and who doesn't.
+          </p>
+        </div>
+        <p style={{ fontSize: 11, color: '#b4b2a9', lineHeight: 1.6, paddingLeft: 4 }}>
+          Source: Schlossberg, N. K. (1981). A model for analyzing human adaptation to transition.
+          The Counseling Psychologist, 9(2), 2–18. See also: Anderson, M. L., Goodman, J., &amp;
+          Schlossberg, N. K. (2012). Counseling adults in transition (4th ed.).
+        </p>
+      </div>
+
       {/* Built by */}
       <div className="card" style={{ marginBottom: 8, textAlign: 'center', padding: '24px 20px' }}>
         <p style={{ fontSize: 22, fontWeight: 800, color: '#1a1a18', marginBottom: 8, letterSpacing: '-.01em' }}>
