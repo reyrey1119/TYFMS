@@ -79,7 +79,7 @@ export function AuthProvider({ children }) {
   // signUp now accepts optional profileData stored in user_metadata
   const signUp = (email, password, profileData = {}) =>
     supabase
-      ? supabase.auth.signUp({ email, password, options: { data: profileData } })
+      ? supabase.auth.signUp({ email, password, options: { data: profileData, emailRedirectTo: 'https://www.tyfms.com' } })
       : Promise.resolve({ error: { message: 'Supabase not configured' } })
 
   const signIn = (email, password) =>
