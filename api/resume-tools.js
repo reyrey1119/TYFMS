@@ -618,7 +618,10 @@ export default async function handler(req, res) {
       return result.error ? res.status(400).json(result) : res.status(200).json(result)
     }
     if (action === 'mil-reference') {
-      const supabase = getSupabase()
+      const supabaseUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
+      const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY
+      const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null
+      console.log('[mil-reference] supabase init:', !!supabaseUrl, !!supabaseKey, !!supabase)
       if (supabase) {
         try { await supabase.from('mil_reference_cache').delete().neq('cache_key', '') } catch {}
       }

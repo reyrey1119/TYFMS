@@ -261,13 +261,15 @@ function F({ label, hint, children, mb = 14 }) {
 
 function ScoreCard({ score, company, jobTitle, location }) {
   const { overall, keyword_match, experience_alignment, ats_compatibility, suggestions = [] } = score
-  const color = overall >= 80 ? '#16A34A' : overall >= 60 ? '#D97706' : '#DC2626'
-  const matchLabel = overall >= 80 ? 'Strong Match' : overall >= 60 ? 'Moderate Match' : 'Needs Work'
-  const matchDesc = overall >= 80
-    ? 'High likelihood of an interview callback. Your background aligns well with this role.'
-    : overall >= 60
-    ? 'Some gaps to address before applying. Review the suggestions below.'
-    : 'Significant gaps between your resume and this role. Focus on the suggestions below.'
+  const color = overall >= 80 ? '#16A34A' : overall >= 70 ? '#D97706' : '#DC2626'
+  const matchLabel = overall >= 90 ? 'Excellent Match' : overall >= 80 ? 'Strong Match' : overall >= 70 ? 'Good Match' : 'Not Ready'
+  const matchDesc = overall >= 90
+    ? 'You are ready to submit this application.'
+    : overall >= 80
+    ? 'Consider the suggestions below before submitting.'
+    : overall >= 70
+    ? 'Address the suggestions below to reach 90 before submitting.'
+    : 'Reach 90% before submitting. Here is what to fix:'
   const r = 45, circ = 2 * Math.PI * r, offset = circ * (1 - overall / 100)
 
   const hasResearch = !!(company || jobTitle)
@@ -317,7 +319,7 @@ function ScoreCard({ score, company, jobTitle, location }) {
         </div>
       </div>
       {suggestions.length > 0 && (
-        <div style={{ background: '#FAFAF8', borderRadius: 10, padding: '14px 16px', borderLeft: '3px solid #C07A28', marginBottom: hasResearch ? 16 : 0 }}>
+        <div style={{ background: '#FAFAF8', borderRadius: 10, padding: '14px 16px', borderLeft: '3px solid #C07A28', marginBottom: overall < 90 ? 0 : hasResearch ? 16 : 0 }}>
           <p style={{ fontSize: 11, fontWeight: 700, color: '#5f5e5a', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>To improve your score, we recommend:</p>
           {suggestions.map((s, i) => (
             <div key={i} style={{ display: 'flex', gap: 10, marginBottom: i < suggestions.length - 1 ? 10 : 0, alignItems: 'flex-start' }}>
@@ -326,6 +328,11 @@ function ScoreCard({ score, company, jobTitle, location }) {
             </div>
           ))}
         </div>
+      )}
+      {overall < 90 && (
+        <p style={{ fontSize: 12, fontWeight: 700, color: '#DC2626', marginTop: 10, marginBottom: hasResearch ? 16 : 0 }}>
+          Jim's Rule: Never submit below 90. Use the suggestions above to get there.
+        </p>
       )}
       {hasResearch && (
         <div style={{ borderTop: suggestions.length > 0 ? 'none' : '1px solid #E5E3DC', paddingTop: suggestions.length > 0 ? 0 : 16 }}>
