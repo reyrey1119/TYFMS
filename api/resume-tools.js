@@ -160,22 +160,7 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
     : isWarrant ? 'warrant_officer'
     : 'enlisted'
 
-  // ── Supabase client diagnostics ───────────────────────────────────────────
-  console.log('[mil-reference] supabase client:', supabase ? 'connected' : 'NULL — all DB paths will be skipped')
-  console.log('[mil-reference] env keys present:', {
-    SUPABASE_URL: !!process.env.SUPABASE_URL,
-    VITE_SUPABASE_URL: !!process.env.VITE_SUPABASE_URL,
-    SUPABASE_SERVICE_KEY: !!process.env.SUPABASE_SERVICE_KEY,
-    SUPABASE_ANON_KEY: !!process.env.SUPABASE_ANON_KEY,
-    VITE_SUPABASE_ANON_KEY: !!process.env.VITE_SUPABASE_ANON_KEY,
-  })
-
-  if (supabase) {
-    const test = await supabase.from('mos_reference_enlisted').select('mos_code').limit(3)
-    console.log('[mil-reference] TABLE TEST mos_reference_enlisted:', JSON.stringify({ data: test.data, error: test.error }))
-  }
-
-  const cacheKey = `${branch}_${component}_${mosCleaned}_${rank || 'any'}`.replace(/[\s/]+/g, '_')
+  const cacheKey = `${branch}_${component}_${mosCleaned}`.replace(/[\s/]+/g, '_')
 
   if (supabase) {
     try {
@@ -186,7 +171,10 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
         .eq('cache_key', cacheKey)
         .gte('fetched_at', thirtyDaysAgo)
         .maybeSingle()
-      if (cached?.extracted_content) return cached.extracted_content
+      if (cached?.extracted_content) {
+        console.log('[mil-reference] cache HIT for ' + cacheKey)
+        return cached.extracted_content
+      }
     } catch {}
   }
 
@@ -244,6 +232,7 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
         row = rows?.[0] || null
       }
       if (row) {
+        console.log('[mil-reference] cache MISS - queried database for ' + cacheKey)
         const result = {
           duty_title: row.title,
           document_source: 'DA PAM 600-3',
@@ -259,14 +248,13 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
 
   // ── Path 1b: Query mos_reference_enlisted table (Army enlisted) ──────────
   if (branch === 'Army' && component === 'enlisted' && supabase) {
-    const { data: row, error: enlErr } = await supabase
+    const { data: row } = await supabase
       .from('mos_reference_enlisted')
       .select('title, duties, goals')
       .eq('mos_code', mosCleaned)
       .maybeSingle()
-    console.log('[mil-reference] enlisted lookup mos_code=' + mosCleaned + ':', JSON.stringify({ found: !!row, error: enlErr }))
-    if (enlErr) console.error('[mil-reference] enlisted Supabase error:', JSON.stringify(enlErr))
     if (row) {
+      console.log('[mil-reference] cache MISS - queried database for ' + cacheKey)
       const result = {
         duty_title: row.title,
         document_source: 'DA PAM 600-25',
@@ -314,6 +302,7 @@ Be specific and accurate. Reference actual systems, doctrinal tasks, equipment, 
     if (data.error) return { error: data.error.message }
     const result = parseJsonResult((data.content || []).map(i => i.text || '').join(''))
     if (!result) return { error: 'Could not extract duty information.' }
+    console.log('[mil-reference] cache MISS - used AI knowledge for ' + cacheKey)
     return cacheAndReturn(result, 'knowledge')
   } catch {
     return { error: 'Could not retrieve duty description. Please describe your primary duties below.' }
@@ -631,9 +620,6 @@ export default async function handler(req, res) {
         console.error('[mil-reference] createClient threw:', e.message)
       }
       console.log('[mil-reference] supabase init:', !!supabaseUrl, !!supabaseKey, !!supabase)
-      if (supabase) {
-        try { await supabase.from('mil_reference_cache').delete().neq('cache_key', '') } catch {}
-      }
       const result = await milReference(apiKey, supabase, params)
       return result.error ? res.status(400).json(result) : res.status(200).json(result)
     }
