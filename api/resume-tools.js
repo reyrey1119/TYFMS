@@ -320,37 +320,26 @@ ${jsonSchema}`,
     }
   }
 
-  // ── Path 1b: Fetch DA PAM 600-25 (Army enlisted) ──────────────────────────
-  if (branch === 'Army' && component === 'enlisted') {
-    const pdfBase64 = await fetchPdfBase64(ARMY_ENLISTED_PDF_URL)
-    if (pdfBase64) {
-      try {
-        const data = await callClaude(apiKey, [{
-          role: 'user',
-          content: [
-            {
-              type: 'document',
-              source: { type: 'base64', media_type: 'application/pdf', data: pdfBase64 },
-              title: 'DA PAM 600-25 Enlisted Career Management',
-            },
-            {
-              type: 'text',
-              text: `This is DA PAM 600-25. Extract the duty description for Army enlisted MOS: ${mosCleaned}.
-
-STEP 1 — LOCATE THE SECTION: Search for a section header containing the exact string "${mosCleaned}".
-STEP 2 — EXTRACT ONLY THAT SECTION: Copy content from that header to the next MOS section header.
-STEP 3 — IF NOT FOUND: Return exactly: {"not_found": true, "document_source": "${docSource}"}
-STEP 4 — IF FOUND: Return ONLY this JSON. "${mosCleaned}" must appear in your response:
-${jsonSchema}`,
-            },
-          ],
-        }], 1400)
-        if (!data.error) {
-          const result = parseJsonResult((data.content || []).map(i => i.text || '').join(''))
-          if (milRefMatchesMos(result, mosCleaned)) return cacheAndReturn(result, 'pdf')
+  // ── Path 1b: Query mos_reference_enlisted table (Army enlisted) ──────────
+  if (branch === 'Army' && component === 'enlisted' && supabase) {
+    try {
+      const { data: row } = await supabase
+        .from('mos_reference_enlisted')
+        .select('title, duties, goals')
+        .eq('mos_code', mosCleaned)
+        .maybeSingle()
+      if (row) {
+        const result = {
+          duty_title: row.title,
+          document_source: 'DA PAM 600-25',
+          duties_and_responsibilities: row.duties || '',
+          key_skills: row.goals || '',
+          rank_specific_expectations: '',
+          civilian_translation_hints: '',
         }
-      } catch {}
-    }
+        return cacheAndReturn(result, 'database')
+      }
+    } catch {}
   }
 
   // ── Path 2: Knowledge-based fallback (all branches, all components) ────────

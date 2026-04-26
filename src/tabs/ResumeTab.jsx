@@ -833,24 +833,31 @@ export default function ResumeTab({ prefill }) {
               <p style={{ fontSize: 12, color: '#5f5e5a' }}>Looking up official duty description from military career publications…</p>
             </div>
           )}
-          {milRefStatus === 'found' && milRefData && (
-            milRefData._source === 'pdf' ? (
-              <div style={{ marginTop: 14, background: '#F0F7EE', borderRadius: 10, padding: '14px 16px', border: '1px solid #9DC99A' }}>
-                <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6614', marginBottom: 6 }}>✓ Official duty description found</p>
-                <p style={{ fontSize: 13, fontWeight: 700, color: '#1a1a18', marginBottom: 3 }}>{milRefData.duty_title}</p>
-                <p style={{ fontSize: 10, color: '#5f5e5a', marginBottom: milRefData.key_skills ? 8 : 0 }}>Source: {milRefData.document_source}</p>
-                {milRefData.key_skills && <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.55 }}>Key skills: {milRefData.key_skills}</p>}
-                <p style={{ fontSize: 10, color: '#1a6614', marginTop: 8, opacity: 0.8 }}>This description will be used to accurately generate your {isCv ? 'CV' : 'resume'}.</p>
-              </div>
-            ) : (
-              <div style={{ marginTop: 14, background: '#E8F5F3', borderRadius: 10, padding: '14px 16px', border: '1px solid #0A7868' }}>
-                <p style={{ fontSize: 11, fontWeight: 700, color: '#0A7868', marginBottom: 6 }}>✓ Duty description loaded from AI knowledge</p>
-                <p style={{ fontSize: 13, fontWeight: 700, color: '#1a1a18', marginBottom: 3 }}>{milRefData.duty_title}</p>
-                <p style={{ fontSize: 10, color: '#5f5e5a', marginBottom: milRefData.key_skills ? 8 : 0 }}>Official PDF unavailable — using trained knowledge of {form.mos.trim().toUpperCase()} from {milRefData.document_source}</p>
-                {milRefData.key_skills && <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.55 }}>Key skills: {milRefData.key_skills}</p>}
-                <p style={{ fontSize: 10, color: '#0A7868', marginTop: 8, opacity: 0.8 }}>This description will be injected into your {isCv ? 'CV' : 'resume'} generation.</p>
-              </div>
-            )
+          {milRefStatus === 'found' && milRefData && milRefData._source === 'pdf' && (
+            <div style={{ marginTop: 14, background: '#F0F7EE', borderRadius: 10, padding: '14px 16px', border: '1px solid #9DC99A' }}>
+              <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6614', marginBottom: 6 }}>✓ Official duty description found</p>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#1a1a18', marginBottom: 3 }}>{milRefData.duty_title}</p>
+              <p style={{ fontSize: 10, color: '#5f5e5a', marginBottom: milRefData.key_skills ? 8 : 0 }}>Source: {milRefData.document_source}</p>
+              {milRefData.key_skills && <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.55 }}>Key skills: {milRefData.key_skills}</p>}
+              <p style={{ fontSize: 10, color: '#1a6614', marginTop: 8, opacity: 0.8 }}>This description will be used to accurately generate your {isCv ? 'CV' : 'resume'}.</p>
+            </div>
+          )}
+          {milRefStatus === 'found' && milRefData && milRefData._source === 'database' && (
+            <div style={{ marginTop: 14, background: '#F0F7EE', borderRadius: 10, padding: '14px 16px', border: '1px solid #9DC99A' }}>
+              <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6614', marginBottom: 6 }}>✓ Duty description loaded from DA PAM 600-25</p>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#1a1a18', marginBottom: 3 }}>{milRefData.duty_title}</p>
+              {milRefData.key_skills && <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.55, marginBottom: 8 }}>Key skills: {milRefData.key_skills}</p>}
+              <p style={{ fontSize: 10, color: '#1a6614', marginTop: 8, opacity: 0.8 }}>This description will be used to accurately generate your {isCv ? 'CV' : 'resume'}.</p>
+            </div>
+          )}
+          {milRefStatus === 'found' && milRefData && milRefData._source !== 'pdf' && milRefData._source !== 'database' && (
+            <div style={{ marginTop: 14, background: '#E8F5F3', borderRadius: 10, padding: '14px 16px', border: '1px solid #0A7868' }}>
+              <p style={{ fontSize: 11, fontWeight: 700, color: '#0A7868', marginBottom: 6 }}>✓ Duty description loaded from AI knowledge</p>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#1a1a18', marginBottom: 3 }}>{milRefData.duty_title}</p>
+              <p style={{ fontSize: 10, color: '#5f5e5a', marginBottom: milRefData.key_skills ? 8 : 0 }}>Official publication unavailable — using trained knowledge of {form.mos.trim().toUpperCase()} from {milRefData.document_source}</p>
+              {milRefData.key_skills && <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.55 }}>Key skills: {milRefData.key_skills}</p>}
+              <p style={{ fontSize: 10, color: '#0A7868', marginTop: 8, opacity: 0.8 }}>This description will be injected into your {isCv ? 'CV' : 'resume'} generation.</p>
+            </div>
           )}
           {milRefStatus === 'failed' && (
             <div style={{ marginTop: 14, background: '#FAFAF8', borderRadius: 10, padding: '14px 16px', border: '1px solid #d3d1c7' }}>
