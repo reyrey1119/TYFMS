@@ -126,67 +126,6 @@ No markdown, no preamble — only the JSON object.`
 
 // ── mil-reference ─────────────────────────────────────────────────────────────
 
-// DA PAM 600-3 per-branch PDF routing table (Army officers & warrant officers)
-const ARMY_OFFICER_PDF_MAP = {
-  '11A': { branch: 'Infantry',                url: 'https://api.army.mil/e2/c/downloads/2022/09/01/21ecacfb/infantry-branch-da-pam-600-1-sep-22.pdf' },
-  '12A': { branch: 'Corps of Engineers',      url: 'https://api.army.mil/e2/c/downloads/2024/04/25/6b2f9dbc/en-da-pam-600-3-25-april-24.pdf' },
-  '13A': { branch: 'Field Artillery',         url: 'https://api.army.mil/e2/c/downloads/2024/04/03/1cf69906/field-artillery-da-pam-600-3.pdf' },
-  '14A': { branch: 'Air Defense Artillery',   url: 'https://api.army.mil/e2/c/downloads/2022/08/03/ff2ecd1d/da-pam-600-3-ada-20210615.pdf' },
-  '15A': { branch: 'Aviation',                url: 'https://api.army.mil/e2/c/downloads/2022/08/03/8d0a3936/1-av-branch-da-pam-600-3-as-of-20210630.pdf' },
-  '19A': { branch: 'Armor',                   url: 'https://api.army.mil/e2/c/downloads/2022/08/03/2125724d/armor-da-pam-600-3-a.pdf' },
-  '25A': { branch: 'Signal Corps',            url: 'https://api.army.mil/e2/c/downloads/2022/08/08/39bc9db1/signal-corps-8-aug-22.pdf' },
-  '35D': { branch: 'Military Intelligence',   url: 'https://api.army.mil/e2/c/downloads/2025/03/20/f4ef3d31/mi-da-pam-600-3-20mar25.pdf' },
-  '36A': { branch: 'Finance and Comptroller', url: 'https://api.army.mil/e2/c/downloads/2025/09/10/640a0b16/fc-10sep25.pdf' },
-  '38A': { branch: 'Civil Affairs',           url: 'https://api.army.mil/e2/c/downloads/2024/02/01/7aa07281/da-pam-600-3-branch-38-civil-affairs-29sep23.pdf' },
-  '42A': { branch: 'Adjutant General Corps',  url: 'https://api.army.mil/e2/c/downloads/2026/01/26/6d0dfce5/ag-da-pam-600-3-26-jan-26.pdf' },
-  '42B': { branch: 'Finance and Comptroller', url: 'https://api.army.mil/e2/c/downloads/2025/09/10/640a0b16/fc-10sep25.pdf' },
-  '42C': { branch: 'Finance and Comptroller', url: 'https://api.army.mil/e2/c/downloads/2025/09/10/640a0b16/fc-10sep25.pdf' },
-  '65D': { branch: 'Army Medical Department', url: 'https://api.army.mil/e2/c/downloads/2022/08/08/6ef1bd02/1-amedd-da-pam-600-3.pdf' },
-  '11': { branch: 'Infantry',                url: 'https://api.army.mil/e2/c/downloads/2022/09/01/21ecacfb/infantry-branch-da-pam-600-1-sep-22.pdf' },
-  '12': { branch: 'Corps of Engineers',      url: 'https://api.army.mil/e2/c/downloads/2024/04/25/6b2f9dbc/en-da-pam-600-3-25-april-24.pdf' },
-  '13': { branch: 'Field Artillery',         url: 'https://api.army.mil/e2/c/downloads/2024/04/03/1cf69906/field-artillery-da-pam-600-3.pdf' },
-  '14': { branch: 'Air Defense Artillery',   url: 'https://api.army.mil/e2/c/downloads/2022/08/03/ff2ecd1d/da-pam-600-3-ada-20210615.pdf' },
-  '15': { branch: 'Aviation',                url: 'https://api.army.mil/e2/c/downloads/2022/08/03/8d0a3936/1-av-branch-da-pam-600-3-as-of-20210630.pdf' },
-  '19': { branch: 'Armor',                   url: 'https://api.army.mil/e2/c/downloads/2022/08/03/2125724d/armor-da-pam-600-3-a.pdf' },
-  '25': { branch: 'Signal Corps',            url: 'https://api.army.mil/e2/c/downloads/2022/08/08/39bc9db1/signal-corps-8-aug-22.pdf' },
-  '27': { branch: "Judge Advocate General's Corps", url: 'https://api.army.mil/e2/c/downloads/2022/08/08/4cbca29d/2-jag-corps-da-pam-600-3.pdf' },
-  '35': { branch: 'Military Intelligence',   url: 'https://api.army.mil/e2/c/downloads/2025/03/20/f4ef3d31/mi-da-pam-600-3-20mar25.pdf' },
-  '36': { branch: 'Finance and Comptroller', url: 'https://api.army.mil/e2/c/downloads/2025/09/10/640a0b16/fc-10sep25.pdf' },
-  '38': { branch: 'Civil Affairs',           url: 'https://api.army.mil/e2/c/downloads/2024/02/01/7aa07281/da-pam-600-3-branch-38-civil-affairs-29sep23.pdf' },
-  '42': { branch: 'Adjutant General Corps',  url: 'https://api.army.mil/e2/c/downloads/2026/01/26/6d0dfce5/ag-da-pam-600-3-26-jan-26.pdf' },
-  '65': { branch: 'Army Medical Department', url: 'https://api.army.mil/e2/c/downloads/2022/08/08/6ef1bd02/1-amedd-da-pam-600-3.pdf' },
-}
-
-// DA PAM 600-25 covers all Army enlisted MOS codes (521-page document)
-const ARMY_ENLISTED_PDF_URL = 'https://benning.army.mil/infantry/ocoi/content/pdf/p600_25.pdf'
-
-function getArmyOfficerPdfEntry(mos) {
-  const n = mos.trim().toUpperCase().replace(/\s+/g, '')
-  if (ARMY_OFFICER_PDF_MAP[n]) return ARMY_OFFICER_PDF_MAP[n]
-  const t3 = n.slice(0, 3)
-  if (ARMY_OFFICER_PDF_MAP[t3]) return ARMY_OFFICER_PDF_MAP[t3]
-  const num2 = n.replace(/[A-Z]/g, '').slice(0, 2)
-  if (num2 && ARMY_OFFICER_PDF_MAP[num2]) return ARMY_OFFICER_PDF_MAP[num2]
-  const t2 = n.slice(0, 2)
-  return ARMY_OFFICER_PDF_MAP[t2] || null
-}
-
-async function fetchPdfBase64(url) {
-  try {
-    const resp = await fetch(url, {
-      headers: { 'Accept': 'application/pdf, */*', 'User-Agent': 'Mozilla/5.0 (compatible)' },
-      signal: AbortSignal.timeout(15000),
-      redirect: 'follow',
-    })
-    if (!resp.ok) return null
-    const buf = await resp.arrayBuffer()
-    if (buf.byteLength > 8 * 1024 * 1024) return null
-    return Buffer.from(buf).toString('base64')
-  } catch {
-    return null
-  }
-}
-
 async function callClaude(apiKey, messages, maxTokens = 1200) {
   const r = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -202,14 +141,6 @@ function parseJsonResult(text) {
   try { return JSON.parse(m[0]) } catch { return null }
 }
 
-function milRefMatchesMos(result, mos) {
-  if (!result || result.not_found) return false
-  if (!result.duty_title || result.duty_title.length < 5) return false
-  if (!result.duties_and_responsibilities || result.duties_and_responsibilities.length < 50) return false
-  const haystack = JSON.stringify(result).toUpperCase()
-  const needle = mos.replace(/[^A-Z0-9]/g, '')
-  return haystack.includes(needle)
-}
 
 async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
   if (!mos_afsc?.trim() || !branch?.trim()) return { error: 'Branch and MOS/AFSC are required.' }
@@ -280,44 +211,35 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
     return tagged
   }
 
-  // ── Path 1a: Fetch DA PAM 600-3 branch PDF (Army officers/WOs) ─────────────
-  if (branch === 'Army' && component !== 'enlisted') {
-    const pdfEntry = getArmyOfficerPdfEntry(mosCleaned)
-    if (pdfEntry) {
-      const pdfBase64 = await fetchPdfBase64(pdfEntry.url)
-      if (pdfBase64) {
-        try {
-          const data = await callClaude(apiKey, [{
-            role: 'user',
-            content: [
-              {
-                type: 'document',
-                source: { type: 'base64', media_type: 'application/pdf', data: pdfBase64 },
-                title: `DA PAM 600-3 ${pdfEntry.branch} Branch`,
-              },
-              {
-                type: 'text',
-                text: `This is the official DA PAM 600-3 ${pdfEntry.branch} Branch document. Extract the duty description for exactly one MOS/AOC: ${mosCleaned}.
-
-STEP 1 — LOCATE THE SECTION: Search for a section header that contains the exact string "${mosCleaned}" (e.g. "AOC ${mosCleaned}", "MOS ${mosCleaned}", a chapter heading beginning with "${mosCleaned}", or a paragraph number followed by "${mosCleaned}"). This must be an exact match on the MOS code — do not match adjacent or similar codes.
-
-STEP 2 — EXTRACT ONLY THAT SECTION: Copy the content from that section header to the beginning of the next MOS/AOC section header. Do not include content from any other MOS or AOC section.
-
-STEP 3 — IF NOT FOUND: If this document does not contain a section specifically for "${mosCleaned}", return exactly:
-{"not_found": true, "document_source": "${docSource}"}
-
-STEP 4 — IF FOUND: Return ONLY this JSON object, populated entirely from the extracted section text. The string "${mosCleaned}" must appear somewhere in your response to confirm the correct section was found. No markdown, no preamble:
-${jsonSchema}`,
-              },
-            ],
-          }], 1400)
-          if (!data.error) {
-            const result = parseJsonResult((data.content || []).map(i => i.text || '').join(''))
-            if (milRefMatchesMos(result, mosCleaned)) return cacheAndReturn(result, 'pdf')
-          }
-        } catch {}
+  // ── Path 1a: Query aoc_reference_officer table (Army officers/WOs) ──────────
+  if (branch === 'Army' && component !== 'enlisted' && supabase) {
+    try {
+      let { data: row } = await supabase
+        .from('aoc_reference_officer')
+        .select('title, branch, characteristics, development')
+        .eq('aoc_code', mosCleaned)
+        .maybeSingle()
+      if (!row) {
+        const prefix = mosCleaned.slice(0, 2)
+        const { data: rows } = await supabase
+          .from('aoc_reference_officer')
+          .select('title, branch, characteristics, development')
+          .like('aoc_code', `${prefix}%`)
+          .limit(1)
+        row = rows?.[0] || null
       }
-    }
+      if (row) {
+        const result = {
+          duty_title: row.title,
+          document_source: 'DA PAM 600-3',
+          duties_and_responsibilities: row.characteristics || '',
+          key_skills: row.development || '',
+          rank_specific_expectations: '',
+          civilian_translation_hints: '',
+        }
+        return cacheAndReturn(result, 'database')
+      }
+    } catch {}
   }
 
   // ── Path 1b: Query mos_reference_enlisted table (Army enlisted) ──────────
