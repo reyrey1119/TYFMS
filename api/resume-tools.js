@@ -216,8 +216,12 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
 
   const mosCleaned = mos_afsc.trim().toUpperCase()
 
-  const component = rank?.startsWith('O-') ? 'officer'
-    : rank?.startsWith('W-') ? 'warrant_officer'
+  const isOfficer = rank?.startsWith('O-')
+  const isWarrant = rank?.startsWith('W-')
+  const isEnlisted = !isOfficer && !isWarrant  // E- prefix or no rank provided
+
+  const component = isOfficer ? 'officer'
+    : isWarrant ? 'warrant_officer'
     : 'enlisted'
 
   const cacheKey = `${branch}_${component}_${mosCleaned}_${rank || 'any'}`.replace(/[\s/]+/g, '_')
@@ -346,18 +350,20 @@ ${jsonSchema}`,
 
   // ── Path 2: Knowledge-based fallback (all branches, all components) ────────
   const branchPubRef = branch === 'Army'
-    ? `DA PAM 600-25 (enlisted) or DA PAM 600-3 (officers)`
+    ? (isEnlisted ? 'DA PAM 600-25' : 'DA PAM 600-3')
     : branch === 'Air Force'
-    ? `DAFECD (enlisted) or DAFOCD (officers)`
+    ? (isEnlisted ? 'DAFECD' : 'DAFOCD')
     : branch === 'Marine Corps'
-    ? `MCBUL 1200 Marine Corps MOS Manual`
+    ? 'MCBUL 1200 Marine Corps MOS Manual'
     : branch === 'Navy'
-    ? `Navy Rating manuals and MILPERSMAN`
-    : `applicable career management publications`
+    ? 'Navy Rating manuals and MILPERSMAN'
+    : 'applicable career management publications'
 
   const knowledgePrompt = `You are a military career analyst with expert knowledge of U.S. military career management publications including DA PAM 600-3, DA PAM 600-25, DAFOCD, DAFECD, MCBUL 1200, and Navy rating manuals.
 
 CRITICAL: You are describing ONLY the specific MOS/AFSC/Rating code "${mosCleaned}" in the ${branch}. Do NOT substitute a different MOS code. Do NOT describe any adjacent, similar, or default MOS. The duty_title field MUST be the official title for "${mosCleaned}" specifically.
+
+DOCUMENT SELECTION: The rank is ${rank || 'not specified'} — this is a ${componentLabel}. You MUST use ${branchPubRef} exclusively. Do NOT reference any other career management publication.
 
 Describe the official duties, key skills, and rank-level expectations for ${mosCleaned} at rank ${rank || 'not specified'} in the ${branch} based on ${branchPubRef}.
 
