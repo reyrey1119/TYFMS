@@ -4,7 +4,7 @@ import AdUnit from '../components/AdUnit'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 
-const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
+const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force', 'National Guard', 'Reserve']
 
 const CERT_GROUPS = [
   { label: 'Cybersecurity & IT', certs: ['CompTIA Security+', 'CompTIA Network+', 'CompTIA A+', 'CompTIA CySA+', 'CompTIA CASP+', 'Certified Ethical Hacker (CEH)', 'CISSP', 'CISM', 'AWS Cloud Practitioner', 'AWS Solutions Architect', 'Microsoft Azure Fundamentals', 'Azure Administrator', 'Google Cloud Associate', 'Cisco CCNA', 'Cisco CCNP', 'Splunk Core Certified User', 'Palo Alto PCNSA'] },
@@ -24,7 +24,7 @@ const YOS_OPTIONS = [
 ]
 
 export default function TranslatorTab({ onGoToResume }) {
-  const { user, supabaseEnabled } = useAuth()
+  const { user, supabaseEnabled, profile } = useAuth()
   const useDb = supabaseEnabled && !!supabase && !!user
 
   const [vaultDocs, setVaultDocs] = useState([])
@@ -45,6 +45,14 @@ export default function TranslatorTab({ onGoToResume }) {
   const [branch, setBranch] = useState('Army')
   const [mos, setMos] = useState('')
   const [rank, setRank] = useState('')
+
+  const [profileApplied, setProfileApplied] = useState(false)
+  useEffect(() => {
+    if (!profile || profileApplied) return
+    if (profile.branch && BRANCHES.includes(profile.branch)) setBranch(profile.branch)
+    if (profile.rank) setRank(profile.rank)
+    setProfileApplied(true)
+  }, [profile])
   const [yos, setYos] = useState('')
   const [loading, setLoading] = useState(false)
   const [results, setResults] = useState(null)
@@ -158,6 +166,18 @@ export default function TranslatorTab({ onGoToResume }) {
         Enter your occupational code and branch. The AI will translate your military experience into
         civilian job titles, transferable skills, and career path recommendations.
       </p>
+
+      {profileApplied && profile && (profile.branch || profile.rank) && (
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12,
+          padding: '12px 16px', background: '#EFF3FB', border: '1px solid #B8C9E8', borderRadius: 12,
+        }}>
+          <span style={{ fontSize: 18, flexShrink: 0 }}>👤</span>
+          <p style={{ fontSize: 12, color: '#1B3A6B' }}>
+            <strong>Using your saved profile.</strong> Branch and rank have been pre-filled from your account.
+          </p>
+        </div>
+      )}
 
       {vaultDocs.length > 0 && (
         <div style={{

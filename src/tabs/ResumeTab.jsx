@@ -509,7 +509,7 @@ function InterviewPrepSection({ resume, jobDescription, jobTitle, company }) {
 // ── Main Component ────────────────────────────────────────────────────────────
 
 export default function ResumeTab({ prefill }) {
-  const { user, supabaseEnabled } = useAuth()
+  const { user, supabaseEnabled, profile } = useAuth()
   const useDb = supabaseEnabled && !!supabase && !!user
 
   const [mode, setMode] = useState('resume') // 'resume' | 'cv'
@@ -561,6 +561,19 @@ export default function ResumeTab({ prefill }) {
     setForm(prev => ({ ...prev, branch: prefill.branch || 'Army', mos: prefill.mos || prev.mos, rank: prefill.rank || prev.rank, yos: prefill.yos || prev.yos }))
     setStep(2)
   }, [prefill])
+
+  const [profileApplied, setProfileApplied] = useState(false)
+  useEffect(() => {
+    if (!profile || prefill || profileApplied) return
+    if (profile.branch || profile.rank) {
+      setForm(prev => ({
+        ...prev,
+        branch: profile.branch || prev.branch,
+        rank: profile.rank || prev.rank,
+      }))
+      setProfileApplied(true)
+    }
+  }, [profile])
 
   useEffect(() => {
     if (step !== 3 || !form.mos.trim() || !form.rank) return
@@ -765,6 +778,17 @@ export default function ResumeTab({ prefill }) {
         <div>
           <h2 style={{ fontSize: 20, fontWeight: 700, color: '#1a1a18', marginBottom: 4 }}>Military background</h2>
           <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 16, lineHeight: 1.6 }}>Your MOS is the foundation — the AI translates it into civilian language.</p>
+          {profileApplied && profile && (profile.branch || profile.rank) && (
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14,
+              padding: '12px 16px', background: '#EFF3FB', border: '1px solid #B8C9E8', borderRadius: 12,
+            }}>
+              <span style={{ fontSize: 18, flexShrink: 0 }}>👤</span>
+              <p style={{ fontSize: 12, color: '#1B3A6B' }}>
+                <strong>Using your saved profile.</strong> Branch and rank have been pre-filled from your account.
+              </p>
+            </div>
+          )}
           <div style={cardStyle}>
             <div className="grid-2">
               <F label="Branch of service">
