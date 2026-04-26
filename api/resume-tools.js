@@ -601,20 +601,20 @@ Return ONLY a valid JSON object — no markdown, no preamble:
 // ── Handler ───────────────────────────────────────────────────────────────────
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
-
-  const apiKey = process.env.ANTHROPIC_API_KEY
-  const { action, ...params } = req.body || {}
-  console.log('[resume-tools] action:', action, '| apiKey present:', !!apiKey, '| env keys:', {
-    ANTHROPIC_API_KEY: !!process.env.ANTHROPIC_API_KEY,
-    SUPABASE_URL: !!process.env.SUPABASE_URL,
-    VITE_SUPABASE_URL: !!process.env.VITE_SUPABASE_URL,
-    SUPABASE_SERVICE_ROLE_KEY: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
-  })
-
-  if (!apiKey) return res.status(500).json({ error: 'API key not configured.' })
-
   try {
+    if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
+
+    const apiKey = process.env.ANTHROPIC_API_KEY
+    const { action, ...params } = req.body || {}
+    console.log('[resume-tools] action:', action, '| apiKey present:', !!apiKey, '| env keys:', {
+      ANTHROPIC_API_KEY: !!process.env.ANTHROPIC_API_KEY,
+      SUPABASE_URL: !!process.env.SUPABASE_URL,
+      VITE_SUPABASE_URL: !!process.env.VITE_SUPABASE_URL,
+      SUPABASE_SERVICE_ROLE_KEY: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+    })
+
+    if (!apiKey) return res.status(500).json({ error: 'API key not configured.' })
+
     if (action === 'fetch-job') {
       const result = await fetchJob(apiKey, params)
       return result.error ? res.status(400).json(result) : res.status(200).json(result)
@@ -626,7 +626,10 @@ export default async function handler(req, res) {
     if (action === 'mil-reference') {
       const supabaseUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
       const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY
-      const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null
+      let supabase = null
+      try { supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null } catch (e) {
+        console.error('[mil-reference] createClient threw:', e.message)
+      }
       console.log('[mil-reference] supabase init:', !!supabaseUrl, !!supabaseKey, !!supabase)
       if (supabase) {
         try { await supabase.from('mil_reference_cache').delete().neq('cache_key', '') } catch {}
@@ -655,7 +658,8 @@ export default async function handler(req, res) {
       return result.error ? res.status(400).json(result) : res.status(200).json(result)
     }
     return res.status(400).json({ error: 'Unknown action.' })
-  } catch {
+  } catch (err) {
+    console.error('[resume-tools] unhandled error:', err.message, err.stack)
     return res.status(500).json({ error: 'Request failed. Please try again.' })
   }
 }
