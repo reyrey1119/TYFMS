@@ -604,9 +604,15 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
   const apiKey = process.env.ANTHROPIC_API_KEY
-  if (!apiKey) return res.status(500).json({ error: 'API key not configured.' })
-
   const { action, ...params } = req.body || {}
+  console.log('[resume-tools] action:', action, '| apiKey present:', !!apiKey, '| env keys:', {
+    ANTHROPIC_API_KEY: !!process.env.ANTHROPIC_API_KEY,
+    SUPABASE_URL: !!process.env.SUPABASE_URL,
+    VITE_SUPABASE_URL: !!process.env.VITE_SUPABASE_URL,
+    SUPABASE_SERVICE_ROLE_KEY: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+  })
+
+  if (!apiKey) return res.status(500).json({ error: 'API key not configured.' })
 
   try {
     if (action === 'fetch-job') {
