@@ -216,9 +216,14 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
 
   const mosCleaned = mos_afsc.trim().toUpperCase()
 
-  const isOfficer = rank?.startsWith('O-')
-  const isWarrant = rank?.startsWith('W-')
-  const isEnlisted = !isOfficer && !isWarrant  // E- prefix or no rank provided
+  const rankUpper = (rank || '').toUpperCase().trim()
+  const isEnlisted = rankUpper.startsWith('E-') ||
+    ['E1','E2','E3','E4','E5','E6','E7','E8','E9'].includes(rankUpper.replace('-',''))
+  const isWarrant = rankUpper.startsWith('W-') ||
+    ['W1','W2','W3','W4','W5'].includes(rankUpper.replace('-',''))
+  const isOfficer = rankUpper.startsWith('O-') ||
+    ['O1','O2','O3','O4','O5','O6','O7','O8','O9','O10'].includes(rankUpper.replace('-',''))
+  console.log('[mil-reference] rank:', rank, '| rankUpper:', rankUpper, '| isEnlisted:', isEnlisted, '| isWarrant:', isWarrant, '| isOfficer:', isOfficer)
 
   const component = isOfficer ? 'officer'
     : isWarrant ? 'warrant_officer'
@@ -688,6 +693,9 @@ export default async function handler(req, res) {
     }
     if (action === 'mil-reference') {
       const supabase = getSupabase()
+      if (supabase) {
+        try { await supabase.from('mil_reference_cache').delete().neq('cache_key', '') } catch {}
+      }
       const result = await milReference(apiKey, supabase, params)
       return result.error ? res.status(400).json(result) : res.status(200).json(result)
     }
