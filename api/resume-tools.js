@@ -160,6 +160,21 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
     : isWarrant ? 'warrant_officer'
     : 'enlisted'
 
+  // ── Supabase client diagnostics ───────────────────────────────────────────
+  console.log('[mil-reference] supabase client:', supabase ? 'connected' : 'NULL — all DB paths will be skipped')
+  console.log('[mil-reference] env keys present:', {
+    SUPABASE_URL: !!process.env.SUPABASE_URL,
+    VITE_SUPABASE_URL: !!process.env.VITE_SUPABASE_URL,
+    SUPABASE_SERVICE_KEY: !!process.env.SUPABASE_SERVICE_KEY,
+    SUPABASE_ANON_KEY: !!process.env.SUPABASE_ANON_KEY,
+    VITE_SUPABASE_ANON_KEY: !!process.env.VITE_SUPABASE_ANON_KEY,
+  })
+
+  if (supabase) {
+    const test = await supabase.from('mos_reference_enlisted').select('mos_code').limit(3)
+    console.log('[mil-reference] TABLE TEST mos_reference_enlisted:', JSON.stringify({ data: test.data, error: test.error }))
+  }
+
   const cacheKey = `${branch}_${component}_${mosCleaned}_${rank || 'any'}`.replace(/[\s/]+/g, '_')
 
   if (supabase) {
@@ -244,24 +259,24 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
 
   // ── Path 1b: Query mos_reference_enlisted table (Army enlisted) ──────────
   if (branch === 'Army' && component === 'enlisted' && supabase) {
-    try {
-      const { data: row } = await supabase
-        .from('mos_reference_enlisted')
-        .select('title, duties, goals')
-        .eq('mos_code', mosCleaned)
-        .maybeSingle()
-      if (row) {
-        const result = {
-          duty_title: row.title,
-          document_source: 'DA PAM 600-25',
-          duties_and_responsibilities: row.duties || '',
-          key_skills: row.goals || '',
-          rank_specific_expectations: '',
-          civilian_translation_hints: '',
-        }
-        return cacheAndReturn(result, 'database')
+    const { data: row, error: enlErr } = await supabase
+      .from('mos_reference_enlisted')
+      .select('title, duties, goals')
+      .eq('mos_code', mosCleaned)
+      .maybeSingle()
+    console.log('[mil-reference] enlisted lookup mos_code=' + mosCleaned + ':', JSON.stringify({ found: !!row, error: enlErr }))
+    if (enlErr) console.error('[mil-reference] enlisted Supabase error:', JSON.stringify(enlErr))
+    if (row) {
+      const result = {
+        duty_title: row.title,
+        document_source: 'DA PAM 600-25',
+        duties_and_responsibilities: row.duties || '',
+        key_skills: row.goals || '',
+        rank_specific_expectations: '',
+        civilian_translation_hints: '',
       }
-    } catch {}
+      return cacheAndReturn(result, 'database')
+    }
   }
 
   // ── Path 2: Knowledge-based fallback (all branches, all components) ────────
