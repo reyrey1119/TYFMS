@@ -70,7 +70,7 @@ const HELP_CARDS = [
   {
     icon: '🧭',
     title: 'Find your path',
-    body: '12 questions. Discover your veteran career archetype and get a personalized roadmap for your transition.',
+    body: 'Not sure what career fits you? Answer 12 questions and get a personalized civilian career roadmap based on your strengths, interests, and military background.',
     buttonText: 'Find my path →',
     tab: 'path',
   },
@@ -82,14 +82,14 @@ const SCHLOSSBERG_4S = [
     label: 'Situation',
     color: '#1B3A6B',
     tab: 'path',
-    desc: 'Understanding where you are right now — what has changed, what you\'ve lost, and what\'s possible. The "Find Your Path" assessment starts here.',
+    desc: 'Not sure what career fits you? The "Find Your Path" assessment helps you figure out what to do next — 12 questions, personalized roadmap.',
   },
   {
     letter: 'S',
     label: 'Self',
     color: '#C07A28',
     tab: 'identity',
-    desc: 'Knowing your values, strengths, and identity beyond your rank and MOS. The Identity Guide and Skills Translator help you see yourself clearly.',
+    desc: 'Know what job you want but struggling to explain who you are? The Identity Guide helps you find the language to tell your story in interviews and on paper.',
   },
   {
     letter: 'S',

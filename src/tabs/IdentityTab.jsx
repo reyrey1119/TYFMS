@@ -262,8 +262,8 @@ export default function IdentityTab() {
       <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Knowing Your Self</p>
       <p className="sec-title">Identity guide</p>
       <p className="sec-sub">
-        The hardest part of transition isn't finding a job — it's figuring out who you are when the uniform comes off.
-        Have a real conversation with your AI mentor below. Your session is saved if you sign in.
+        Know what job you want but struggling to explain who you are in interviews and on paper? This is where you figure that out.
+        Have a real conversation with your AI mentor about who you are beyond your rank and MOS — and walk away with language that tells your story.
       </p>
 
       {/* Pre-chat reflection questions */}
