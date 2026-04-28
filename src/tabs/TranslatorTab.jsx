@@ -67,7 +67,7 @@ export default function TranslatorTab({ onGoToResume }) {
   useEffect(() => {
     if (!mos.trim() || !rank) { setMilRefStatus('idle'); setMilRefData(null); return }
     const timer = setTimeout(async () => {
-      if (!['Army', 'Air Force'].includes(branch)) { setMilRefStatus('unsupported'); return }
+      if (!['Army', 'Air Force', 'Navy', 'Marine Corps'].includes(branch)) { setMilRefStatus('unsupported'); return }
       setMilRefStatus('loading'); setMilRefData(null)
       try {
         const r = await fetch('/api/resume-tools', {
@@ -310,7 +310,7 @@ export default function TranslatorTab({ onGoToResume }) {
         )}
         {milRefStatus === 'found' && milRefData && milRefData._source === 'database' && (
           <div style={{ background: '#e8f5f3', border: '1px solid #0A7868', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
-            <p style={{ color: '#0A7868', fontWeight: 600, marginBottom: 2 }}>✓ Duty description loaded from DA PAM 600-25</p>
+            <p style={{ color: '#0A7868', fontWeight: 600, marginBottom: 2 }}>✓ Duty description loaded from {milRefData.document_source}</p>
             <p style={{ color: '#5f5e5a', fontSize: 12 }}>{milRefData.duty_title}</p>
           </div>
         )}
@@ -335,7 +335,7 @@ export default function TranslatorTab({ onGoToResume }) {
         )}
         {milRefStatus === 'unsupported' && (
           <div style={{ background: '#f5f4f0', border: '1px solid #d3d1c7', borderRadius: 8, padding: '8px 14px', marginBottom: 12, fontSize: 12, color: '#5f5e5a' }}>
-            Official duty lookup is available for Army and Air Force. Translation will still run using your MOS/rate.
+            Official duty lookup is available for Army, Air Force, Navy, and Marine Corps. Translation will still run using your MOS/rate.
           </div>
         )}
         <button className="btn-g" onClick={translate} disabled={loading}>

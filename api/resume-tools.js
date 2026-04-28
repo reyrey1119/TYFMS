@@ -187,9 +187,9 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
     : branch === 'Air Force'
     ? (component === 'enlisted' ? 'DAFECD (Oct 2025)' : 'DAFOCD (Oct 2025)')
     : branch === 'Marine Corps'
-    ? 'MCBUL 1200 MOS Manual'
+    ? 'MCO 1200.17'
     : branch === 'Navy'
-    ? 'Navy Rating Manual / MILPERSMAN'
+    ? 'NAVPERS 18068F'
     : 'Military Career Management Publication'
 
   const jsonSchema = `{
@@ -264,6 +264,46 @@ async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
         civilian_translation_hints: '',
       }
       return cacheAndReturn(result, 'database')
+    }
+  }
+
+  // ── Path 1c: Query navy_rating_reference table (Navy) ────────────────────────
+  if (branch === 'Navy' && supabase) {
+    const { data: row } = await supabase
+      .from('navy_rating_reference')
+      .select('title, duties, source')
+      .eq('rating_code', mosCleaned)
+      .maybeSingle()
+    if (row) {
+      console.log('[mil-reference] cache MISS - queried database for ' + cacheKey)
+      return cacheAndReturn({
+        duty_title: row.title,
+        document_source: row.source || 'NAVPERS 18068F',
+        duties_and_responsibilities: row.duties || '',
+        key_skills: '',
+        rank_specific_expectations: '',
+        civilian_translation_hints: '',
+      }, 'database')
+    }
+  }
+
+  // ── Path 1d: Query usmc_mos_reference table (Marine Corps) ───────────────────
+  if (branch === 'Marine Corps' && supabase) {
+    const { data: row } = await supabase
+      .from('usmc_mos_reference')
+      .select('title, duties, source')
+      .eq('mos_code', mosCleaned)
+      .maybeSingle()
+    if (row) {
+      console.log('[mil-reference] cache MISS - queried database for ' + cacheKey)
+      return cacheAndReturn({
+        duty_title: row.title,
+        document_source: row.source || 'MCO 1200.17',
+        duties_and_responsibilities: row.duties || '',
+        key_skills: '',
+        rank_specific_expectations: '',
+        civilian_translation_hints: '',
+      }, 'database')
     }
   }
 

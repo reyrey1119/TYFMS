@@ -586,7 +586,7 @@ export default function ResumeTab({ prefill }) {
     if (step !== 3 || !form.mos.trim() || !form.rank) return
     const mos = form.mos.trim(), branch = form.branch, rank = form.rank
     const timer = setTimeout(async () => {
-      if (!['Army', 'Air Force'].includes(branch)) { setMilRefStatus('unsupported'); return }
+      if (!['Army', 'Air Force', 'Navy', 'Marine Corps'].includes(branch)) { setMilRefStatus('unsupported'); return }
       setMilRefStatus('loading'); setMilRefData(null)
       try {
         const r = await fetch('/api/resume-tools', {
@@ -851,7 +851,7 @@ export default function ResumeTab({ prefill }) {
           )}
           {milRefStatus === 'found' && milRefData && milRefData._source === 'database' && (
             <div style={{ marginTop: 14, background: '#F0F7EE', borderRadius: 10, padding: '14px 16px', border: '1px solid #9DC99A' }}>
-              <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6614', marginBottom: 6 }}>✓ Duty description loaded from DA PAM 600-25</p>
+              <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6614', marginBottom: 6 }}>✓ Duty description loaded from {milRefData.document_source}</p>
               <p style={{ fontSize: 13, fontWeight: 700, color: '#1a1a18', marginBottom: 3 }}>{milRefData.duty_title}</p>
               {milRefData.key_skills && <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.55, marginBottom: 8 }}>Key skills: {milRefData.key_skills}</p>}
               <p style={{ fontSize: 10, color: '#1a6614', marginTop: 8, opacity: 0.8 }}>This description will be used to accurately generate your {isCv ? 'CV' : 'resume'}.</p>
@@ -878,8 +878,8 @@ export default function ResumeTab({ prefill }) {
           {milRefStatus === 'unsupported' && form.mos.trim() && (
             <div style={{ marginTop: 14, padding: '12px 14px', background: '#FAFAF8', borderRadius: 10, border: '1px dashed #d3d1c7' }}>
               <p style={{ fontSize: 12, color: '#5f5e5a', lineHeight: 1.6 }}>
-                Automatic duty lookup is available for <strong>Army</strong> and <strong>Air Force</strong>.
-                Marine Corps, Navy, and Coast Guard support is coming soon.
+                Automatic duty lookup is available for <strong>Army</strong>, <strong>Air Force</strong>, <strong>Navy</strong>, and <strong>Marine Corps</strong>.
+                Coast Guard and Space Force support is coming soon.
               </p>
               <F label="Primary duties" hint="(optional)" mb={0} style={{ marginTop: 12 }}>
                 <textarea value={form.milDuties} onChange={e => set('milDuties', e.target.value)} placeholder="Describe your primary duties, equipment operated, systems managed, and key responsibilities…" style={{ minHeight: 64, marginTop: 8 }} />
