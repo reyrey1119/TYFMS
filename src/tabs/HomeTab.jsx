@@ -246,6 +246,38 @@ export default function HomeTab({ onNavigate }) {
         ))}
       </div>
 
+      {/* Why We Built This */}
+      <div style={{ marginBottom: 52, padding: '36px 28px', background: 'linear-gradient(135deg, #0f1b4d 0%, #1B3A6B 100%)', borderRadius: 16 }}>
+        <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.12em', color: '#C07A28', marginBottom: 6 }}>Our Story</p>
+        <p style={{ fontSize: 22, fontWeight: 800, color: '#ffffff', lineHeight: 1.2, marginBottom: 0 }}>Why We Built This</p>
+        <div style={{ width: 48, height: 3, background: '#C07A28', borderRadius: 2, margin: '12px 0 24px' }} />
+        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.80)', lineHeight: 1.8, marginBottom: 20 }}>
+          Most transition resources hand you a checklist and call it support. Update your resume. Attend a TAP class.
+          Connect on LinkedIn. Check the boxes and good luck out there.
+        </p>
+        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.80)', lineHeight: 1.8, marginBottom: 20 }}>
+          But anyone who has actually left the military knows the hardest part isn't finding a job listing.
+          It's the moment you realize the structure, the identity, the sense of purpose that came with wearing
+          the uniform — none of that transfers automatically. You spent years knowing exactly who you were.
+          Your rank told people how to address you. Your MOS told people what you did. Your unit told people
+          where you belonged. And then one day, none of that follows you through the door.
+        </p>
+        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.80)', lineHeight: 1.8, marginBottom: 28 }}>
+          TYFMS was built because that gap is real and it deserved a real response. Not another generic job board.
+          Not another PDF of tips. A platform grounded in actual research on how people navigate major life
+          transitions — built by a veteran who has lived it, for veterans who are living it right now. Every
+          tool on this site is designed around one idea: the resume works best when it comes from knowing
+          yourself first. The Skills Translator helps you see what you actually bring to the civilian world.
+          The Identity Guide helps you find the language to talk about who you are beyond your rank. The
+          Resume Builder pulls from your real service record — your evaluations, your awards, your actual
+          accomplishments — not a template. And it's all free, because access to a good transition shouldn't
+          depend on how much money you have left in the bank.
+        </p>
+        <p style={{ fontSize: 17, fontWeight: 700, color: '#ffffff', lineHeight: 1.6, textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 24, marginBottom: 0 }}>
+          We're not done building it. But we built it for you.
+        </p>
+      </div>
+
       {/* By the numbers */}
       <p className="cat-label" style={{ marginBottom: 14 }}>By the numbers</p>
       <div className="grid-3" style={{ marginBottom: 52 }}>
