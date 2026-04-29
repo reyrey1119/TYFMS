@@ -39,6 +39,7 @@ const BUCKET = 'document-vault'
 const MAX_FILE_MB = 15
 
 const VAULT_CATS = [
+  { id: 'jst',    label: 'JST',          fullLabel: 'Joint Service Transcript',               icon: '🎓', desc: 'Your official military education and training transcript. Includes ACE college credit recommendations for all your military courses and occupational experience.', accept: '.pdf,application/pdf' },
   { id: 'oer',    label: 'OER',          fullLabel: 'Officer Evaluation Report',             icon: '📊', desc: 'Annual, relief, and interim OERs' },
   { id: 'ncoer',  label: 'NCOER',        fullLabel: 'Non-Commissioned Officer Eval Report',   icon: '📊', desc: 'DA Form 2166-9 series' },
   { id: 'opb',    label: 'OPB',          fullLabel: 'Officer Promotion Board Bio/Photo',      icon: '📋', desc: 'Board bio and photo packet' },
@@ -104,6 +105,49 @@ function SummaryCard({ summary }) {
             </div>
           ))}
         </div>
+      )}
+    </div>
+  )
+}
+
+function JstSummaryCard({ summary }) {
+  if (!summary) return null
+  const { coursesFound, occupationsFound, totalAceHours, mosCodes, veteranName, rank } = summary
+  if (coursesFound == null && occupationsFound == null && !totalAceHours) return null
+  return (
+    <div style={{ background: '#F5F9F5', border: '1px solid #B8DDB8', borderRadius: 10, padding: '12px 14px', marginTop: 10 }}>
+      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.08em', color: '#0A7868', marginBottom: 8 }}>
+        JST processed successfully
+      </p>
+      {(veteranName || rank) && (
+        <p style={{ fontSize: 12, color: '#1a1a18', marginBottom: 8, fontWeight: 500 }}>
+          {[veteranName, rank].filter(Boolean).join(' · ')}
+        </p>
+      )}
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 8 }}>
+        {coursesFound != null && (
+          <div style={{ background: '#fff', border: '1px solid #B8DDB8', borderRadius: 8, padding: '6px 12px', textAlign: 'center' }}>
+            <p style={{ fontSize: 18, fontWeight: 800, color: '#1B3A6B', lineHeight: 1 }}>{coursesFound}</p>
+            <p style={{ fontSize: 10, color: '#5f5e5a' }}>Courses found</p>
+          </div>
+        )}
+        {occupationsFound != null && (
+          <div style={{ background: '#fff', border: '1px solid #B8DDB8', borderRadius: 8, padding: '6px 12px', textAlign: 'center' }}>
+            <p style={{ fontSize: 18, fontWeight: 800, color: '#1B3A6B', lineHeight: 1 }}>{occupationsFound}</p>
+            <p style={{ fontSize: 10, color: '#5f5e5a' }}>Occupations found</p>
+          </div>
+        )}
+        {totalAceHours != null && (
+          <div style={{ background: '#fff', border: '1px solid #B8DDB8', borderRadius: 8, padding: '6px 12px', textAlign: 'center' }}>
+            <p style={{ fontSize: 18, fontWeight: 800, color: '#C07A28', lineHeight: 1 }}>{totalAceHours}</p>
+            <p style={{ fontSize: 10, color: '#5f5e5a' }}>ACE credit hrs</p>
+          </div>
+        )}
+      </div>
+      {mosCodes?.length > 0 && (
+        <p style={{ fontSize: 11, color: '#5f5e5a' }}>
+          MOS codes identified: <strong style={{ color: '#1a1a18' }}>{mosCodes.join(', ')}</strong>
+        </p>
       )}
     </div>
   )
@@ -353,18 +397,40 @@ export default function DocumentVaultTab() {
             const isUploading = uploading[cat.id]
             const uploadErr = uploadErrors[cat.id]
             const isDragOver = dragOver[cat.id]
+            const catAccept = cat.accept || ACCEPT
+            const isJst = cat.id === 'jst'
 
             return (
-              <div key={cat.id} style={{ background: '#fff', border: '1px solid #E5E3DC', borderRadius: 14, overflow: 'hidden' }}>
+              <div key={cat.id} style={{ background: '#fff', border: `1px solid ${isJst ? '#C07A28' : '#E5E3DC'}`, borderRadius: 14, overflow: 'hidden' }}>
                 {/* Category header */}
-                <div style={{ padding: '14px 18px', borderBottom: catDocs.length > 0 ? '1px solid #F0EDE6' : 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+                <div style={{ padding: '14px 18px', borderBottom: catDocs.length > 0 ? '1px solid #F0EDE6' : 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
                       <span style={{ fontSize: 18 }}>{cat.icon}</span>
                       <p style={{ fontSize: 14, fontWeight: 700, color: '#1a1a18' }}>{cat.label}</p>
                       <span style={{ fontSize: 11, color: '#b4b2a9' }}>{cat.fullLabel}</span>
+                      {isJst && <span style={{ fontSize: 10, fontWeight: 700, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.06em' }}>Recommended</span>}
                     </div>
-                    <p style={{ fontSize: 12, color: '#5f5e5a', marginLeft: 26 }}>{cat.desc}</p>
+                    <p style={{ fontSize: 12, color: '#5f5e5a', marginLeft: 26, lineHeight: 1.6 }}>{cat.desc}</p>
+                    {isJst && (
+                      <div style={{ marginLeft: 26, marginTop: 10 }}>
+                        <a
+                          href="https://jst.doded.mil"
+                          target="_blank"
+                          rel="noreferrer"
+                          style={{
+                            display: 'inline-block', fontSize: 12, fontWeight: 700, color: '#fff',
+                            background: '#C07A28', borderRadius: 7, padding: '5px 12px',
+                            textDecoration: 'none', marginBottom: 8,
+                          }}
+                        >
+                          Get your JST →
+                        </a>
+                        <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.6, maxWidth: 420 }}>
+                          Most veterans don't know this exists. Your JST documents every military course you completed and recommends college credit for them. It takes about 10 minutes to create an account and download your transcript.
+                        </p>
+                      </div>
+                    )}
                     {uploadErr && <p style={{ fontSize: 12, color: '#a32d2d', marginLeft: 26, marginTop: 4 }}>{uploadErr}</p>}
                   </div>
                   <div
@@ -386,14 +452,14 @@ export default function DocumentVaultTab() {
                       <>
                         <p style={{ fontSize: 18, marginBottom: 2 }}>📎</p>
                         <p style={{ fontSize: 11, color: '#1B3A6B', fontWeight: 600 }}>Upload</p>
-                        <p style={{ fontSize: 10, color: '#b4b2a9' }}>PDF · DOCX · JPG · PNG</p>
+                        <p style={{ fontSize: 10, color: '#b4b2a9' }}>{isJst ? 'PDF only' : 'PDF · DOCX · JPG · PNG'}</p>
                       </>
                     )}
                     <input
                       ref={el => fileInputRefs.current[cat.id] = el}
                       type="file"
                       multiple
-                      accept={ACCEPT}
+                      accept={catAccept}
                       style={{ display: 'none' }}
                       onChange={e => handleFiles(cat.id, e.target.files)}
                     />
@@ -483,7 +549,10 @@ export default function DocumentVaultTab() {
                               )}
                             </div>
                           </div>
-                          {isExpanded && <SummaryCard summary={doc.extraction_summary} />}
+                          {isExpanded && (isJst
+                            ? <JstSummaryCard summary={doc.extraction_summary} />
+                            : <SummaryCard summary={doc.extraction_summary} />
+                          )}
                         </div>
                       )
                     })}

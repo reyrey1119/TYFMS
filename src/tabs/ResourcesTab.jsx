@@ -125,6 +125,48 @@ export default function ResourcesTab({ searchResult }) {
       </p>
       <p className="sec-sub">Verified resources organized by what you need most right now. Use the search bar above to find answers — matching resources will be highlighted.</p>
 
+      {/* Spotlight cards — JST and SkillBridge */}
+      <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 28 }}>
+        <div style={{ flex: '1 1 280px', background: 'linear-gradient(135deg, #0f1b4d 0%, #1B3A6B 100%)', borderRadius: 14, padding: '20px 20px 18px', display: 'flex', flexDirection: 'column' }}>
+          <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#C07A28', marginBottom: 6 }}>Most veterans don't know this exists</p>
+          <p style={{ fontSize: 16, fontWeight: 800, color: '#fff', marginBottom: 10, lineHeight: 1.2 }}>Get Your Joint Service Transcript</p>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.80)', lineHeight: 1.7, marginBottom: 16, flex: 1 }}>
+            Your JST is your official military education transcript — it documents every course you completed in service and recommends college credit for them. Most veterans never know it exists. Takes 10 minutes to get. Could be worth thousands in college credits.
+          </p>
+          <a
+            href="https://jst.doded.mil"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              display: 'inline-block', fontSize: 13, fontWeight: 700, color: '#1B3A6B',
+              background: '#C07A28', borderRadius: 8, padding: '8px 16px',
+              textDecoration: 'none', alignSelf: 'flex-start',
+            }}
+          >
+            Get yours now →
+          </a>
+        </div>
+        <div style={{ flex: '1 1 280px', background: 'linear-gradient(135deg, #0A4035 0%, #0A7868 100%)', borderRadius: 14, padding: '20px 20px 18px', display: 'flex', flexDirection: 'column' }}>
+          <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#7FFFD4', marginBottom: 6 }}>One of the most underused benefits</p>
+          <p style={{ fontSize: 16, fontWeight: 800, color: '#fff', marginBottom: 10, lineHeight: 1.2 }}>DoD SkillBridge Program</p>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.80)', lineHeight: 1.7, marginBottom: 16, flex: 1 }}>
+            Work for a civilian employer for up to 180 days before you separate — while still collecting your full military pay and benefits. This is one of the most underused benefits in the military.
+          </p>
+          <a
+            href="https://skillbridge.osd.mil"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              display: 'inline-block', fontSize: 13, fontWeight: 700, color: '#0A4035',
+              background: '#7FFFD4', borderRadius: 8, padding: '8px 16px',
+              textDecoration: 'none', alignSelf: 'flex-start',
+            }}
+          >
+            Learn more →
+          </a>
+        </div>
+      </div>
+
       {/* Key contact numbers */}
       <div style={{
         display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 28,

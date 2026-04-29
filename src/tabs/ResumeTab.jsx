@@ -550,8 +550,13 @@ export default function ResumeTab({ prefill }) {
       .then(({ data }) => { if (data) setVaultDocs(data); setVaultLoaded(true) })
   }, [useDb])
 
-  const vaultContext = vaultDocs.length > 0
-    ? vaultDocs.map(d => `=== ${d.document_type.toUpperCase()} — ${d.filename} ===\n${d.extracted_text}`).join('\n\n')
+  const jstDocs = vaultDocs.filter(d => d.document_type === 'jst')
+  const otherVaultDocs = vaultDocs.filter(d => d.document_type !== 'jst')
+  const vaultContext = otherVaultDocs.length > 0
+    ? otherVaultDocs.map(d => `=== ${d.document_type.toUpperCase()} — ${d.filename} ===\n${d.extracted_text}`).join('\n\n')
+    : ''
+  const jstContext = jstDocs.length > 0
+    ? jstDocs.map(d => d.extracted_text).join('\n\n')
     : ''
 
   const activeSteps = mode === 'cv' ? CV_STEPS : RESUME_STEPS
@@ -652,6 +657,7 @@ export default function ResumeTab({ prefill }) {
           format: mode,
           cvExtras: mode === 'cv' ? cvExtras : null,
           vaultContext: vaultContext || undefined,
+          jstContext: jstContext || undefined,
         }),
       })
       const data = await r.json()

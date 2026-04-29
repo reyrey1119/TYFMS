@@ -599,7 +599,26 @@ async function vaultExtract(apiKey, { storagePath, contentType, documentType, ac
   if (!extractedText.trim()) return { error: 'No text could be extracted from this document.' }
 
   // ── Generate structured summary ────────────────────────────────────────────
-  const summaryPrompt = `You are analyzing extracted text from a veteran's ${docLabel} military document. Identify and extract key information.
+  const isJst = documentType === 'jst'
+
+  const summaryPrompt = isJst
+    ? `You are analyzing a Joint Service Transcript (JST) — an official U.S. military education and training record.
+
+DOCUMENT TEXT:
+${extractedText.slice(0, 8000)}
+
+Extract ALL of the following. Return ONLY a valid JSON object — no markdown, no preamble:
+{
+  "veteranName": "<full name if found, else null>",
+  "rank": "<military rank or pay grade if found, else null>",
+  "coursesFound": <integer count of all military courses listed>,
+  "occupationsFound": <integer count of all military occupations/MOS entries listed>,
+  "totalAceHours": <total ACE-recommended semester hours as a number, or null if not determinable>,
+  "mosCodes": [<array of MOS/AFSC/rate codes found in the occupations section, e.g. ["11B", "42A"]>],
+  "courses": [<array of up to 20 course objects: {"courseId": "...", "title": "...", "location": "...", "dates": "...", "aceRecommendation": "..."}>],
+  "occupations": [<array of all occupation objects: {"mosCode": "...", "title": "...", "datesHeld": "..."}>]
+}`
+    : `You are analyzing extracted text from a veteran's ${docLabel} military document. Identify and extract key information.
 
 DOCUMENT TEXT:
 ${extractedText.slice(0, 6000)}
@@ -616,7 +635,7 @@ Return ONLY a valid JSON object — no markdown, no preamble:
   "period": "<date range covered, e.g. '2020-2022' — null if not determinable>"
 }`
 
-  const summaryData = await callClaude(apiKey, [{ role: 'user', content: summaryPrompt }], 1200)
+  const summaryData = await callClaude(apiKey, [{ role: 'user', content: summaryPrompt }], isJst ? 2000 : 1200)
   const summaryText = (summaryData.content || []).map(i => i.text || '').join('')
   let summary = null
   try {

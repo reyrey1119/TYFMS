@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     branch, mos, rank, yos, targetCompany, additionalSkills,
     clearance, awards, summaryTone, education, contact, prevJobs,
     additionalContext, jobDescription, milReference, milDuties,
-    format, cvExtras, milPositions, vaultContext,
+    format, cvExtras, milPositions, vaultContext, jstContext,
   } = req.body || {}
 
   if (!mos?.trim()) return res.status(400).json({ error: 'MOS, AFSC, or rate code is required.' })
@@ -80,6 +80,10 @@ export default async function handler(req, res) {
     ? `\n\n${'═'.repeat(60)}\nOFFICIAL SERVICE RECORD — HIGHEST PRIORITY SOURCE\n${'═'.repeat(60)}\nThe following content is extracted directly from this veteran's official service documents including evaluation reports, award citations, and discharge records. This is their actual recorded performance — not a generic MOS description.\n\nCRITICAL INSTRUCTION: Prioritize this information above all other sources. Use specific accomplishments, ratings, and language found in these documents. Every bullet point on this resume should be traceable to something in their actual record. Use the veteran's exact wording where possible, then translate military terminology to civilian language.\n\n${vaultContext.trim().slice(0, 10000)}\n${'═'.repeat(60)}`
     : ''
 
+  const jstBlock = jstContext?.trim()
+    ? `\n\n${'═'.repeat(60)}\nJOINT SERVICE TRANSCRIPT (JST) — OFFICIAL TRAINING & EDUCATION RECORD\n${'═'.repeat(60)}\nThe following content is extracted from the veteran's official Joint Service Transcript (JST). This is an authoritative government document listing every military course completed, occupation held, and ACE college credit recommendations. Use the course titles, dates, and occupational descriptions to accurately represent the veteran's training and education history.\n\n${jstContext.trim().slice(0, 8000)}\n${'═'.repeat(60)}`
+    : ''
+
   const targetLabel = targetCompany?.trim() || 'this employer'
 
   // Build the experience section template
@@ -117,7 +121,7 @@ VETERAN PROFILE:
 - Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently near the header as it is a major hiring advantage` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()} — translate each into a specific civilian achievement statement` : ''}
 
 TARGET: ${companyContext}
-SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}${vaultBlock}
+SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}${vaultBlock}${jstBlock}
 
 CRITICAL RULES:
 1. NEVER use military acronyms without civilian translation
@@ -225,7 +229,7 @@ VETERAN PROFILE:
 - Years of service: ${yos?.trim() || 'Not specified'}
 - Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently; critical for federal roles` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()}` : ''}
 
-TARGET: ${companyContext}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}${vaultBlock}${pubBlock}${presBlock}${pdBlock}${volBlock}${memBlock}${teachBlock}
+TARGET: ${companyContext}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}${vaultBlock}${jstBlock}${pubBlock}${presBlock}${pdBlock}${volBlock}${memBlock}${teachBlock}
 
 CRITICAL RULES:
 1. NEVER use military acronyms without civilian translation
@@ -270,6 +274,11 @@ EDUCATION
 ─────────────────────────────────────────────────────
 ${hasEducation ? educationBlock : 'ADD YOUR EDUCATION HERE'}
 
+${jstContext?.trim() ? `─────────────────────────────────────────────────────
+ACE CREDIT RECOMMENDATIONS (Joint Service Transcript)
+─────────────────────────────────────────────────────
+[List military courses from the JST with ACE-recommended college credit. Format each as: Course Title | Recommended Semester Hours | Upper/Lower Division | Year Completed. Include all courses with non-zero ACE recommendations.]
+` : ''}
 ─────────────────────────────────────────────────────
 CERTIFICATIONS & LICENSES
 ─────────────────────────────────────────────────────
