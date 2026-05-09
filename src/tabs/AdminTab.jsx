@@ -13,16 +13,16 @@ export default function AdminTab() {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    if (user?.email !== ADMIN_EMAIL) return
+    if (!supabase || user?.email !== ADMIN_EMAIL) return
 
     async function load() {
       try {
-        const { data: { session } } = await supabase.auth.getSession()
-        const r = await fetch('/api/admin-feedback', {
-          headers: { 'Authorization': `Bearer ${session?.access_token}` },
-        })
-        if (!r.ok) throw new Error()
-        setRows(await r.json())
+        const { data, error: dbError } = await supabase
+          .from('user_feedback')
+          .select('*')
+          .order('created_at', { ascending: false })
+        if (dbError) throw dbError
+        setRows(data || [])
       } catch {
         setError('Could not load feedback submissions.')
       } finally {
