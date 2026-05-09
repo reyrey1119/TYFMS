@@ -1,6 +1,59 @@
 import { useState } from 'react'
 import FunFact from '../components/FunFact'
 
+const TRANSITION_STATS = [
+  {
+    stat: '200,000+',
+    desc: 'veterans separate from service every year',
+    source: 'U.S. Department of Veterans Affairs',
+  },
+  {
+    stat: '6–12 months',
+    desc: 'average time for veterans to find civilian employment after separation',
+    source: 'Bureau of Labor Statistics',
+  },
+  {
+    stat: '12+ months',
+    desc: 'of advance planning is associated with significantly better employment alignment with skills',
+    source: 'Institute for Veterans and Military Families',
+  },
+]
+
+const FAQ_ITEMS = [
+  {
+    q: 'Is TYFMS really free?',
+    a: 'Yes, completely free. No subscriptions, no hidden fees, no premium tiers. Every tool on this site — the Resume Builder, Skills Translator, Identity Guide, Document Vault, and everything else — is available to every veteran and service member at no cost. The site is supported by Google AdSense display ads.',
+  },
+  {
+    q: 'Who is TYFMS for?',
+    a: 'TYFMS is built for anyone navigating the military-to-civilian transition — active duty service members preparing to separate, veterans who have already transitioned and are still finding their footing, National Guard and Reserve members, and military spouses. If the uniform is part of your life, this site is for you.',
+  },
+  {
+    q: 'How does the Resume Builder work?',
+    a: 'You enter your military background, upload your service documents (OERs, NCOERs, award citations, DD-214, or Joint Service Transcript), and paste in a job description for the role you are targeting. The AI reads your actual service record and the official duty descriptions for your MOS from DA PAM 600-3 and DA PAM 600-25, then builds a resume tailored to that specific job. It scores your resume against the job description and tells you exactly what to improve before you apply.',
+  },
+  {
+    q: 'What is the Joint Service Transcript and why does it matter?',
+    a: 'The Joint Service Transcript (JST) is your official military education and training transcript. It documents every course you completed during your service and recommends college credit for them through the American Council on Education. Most veterans have never heard of it. You can get yours free at jst.doded.mil — it takes about 10 minutes. Upload it to your TYFMS Document Vault and the Resume Builder will use your actual training record to build your resume.',
+  },
+  {
+    q: 'Is my personal information safe?',
+    a: 'Yes. All data is stored in a SOC 2 compliant database with Row Level Security enabled — meaning only you can access your own data. Documents uploaded to the Document Vault are stored in a private storage bucket accessible only to your account. TYFMS does not sell, share, or monetize your personal information. The site does not require your Social Security Number.',
+  },
+  {
+    q: 'What branches of service does TYFMS support?',
+    a: 'TYFMS supports Army (officers and enlisted), Air Force (officers and enlisted), Navy, and Marine Corps. Coast Guard and Space Force support is coming soon. The MOS and rating lookup system uses official government publications including DA PAM 600-3, DA PAM 600-25, NAVPERS 18068F, and MCO 1200.17.',
+  },
+  {
+    q: 'What is the Identity Guide?',
+    a: 'The Identity Guide is a confidential AI conversation that helps you figure out who you are beyond your rank and MOS. Research shows that the hardest part of military transition isn\'t finding a job — it\'s the identity shift that happens when the structure and purpose of military life disappear. The Identity Guide helps you find the language to talk about yourself, your values, and your strengths in civilian terms.',
+  },
+  {
+    q: 'How is TYFMS different from TAP?',
+    a: 'TAP (Transition Assistance Program) is mandatory and time-limited — you go through it once before you separate. TYFMS is available to you before, during, and after your transition, as many times as you need it. TAP gives you information. TYFMS gives you tools you can use at any point in the process.',
+  },
+]
+
 const DAILY_TIPS = [
   { tip: "Your military experience is more transferable than you think. Start by writing down three skills you used every day in service.", label: "Skill inventory" },
   { tip: "Reach out to one person in your target industry this week. Veterans are often surprised by how much respect civilians have for their service.", label: "Networking" },
@@ -111,6 +164,7 @@ export default function HomeTab({ onNavigate }) {
   const dayIndex = Math.floor(Date.now() / 86400000)
   const todaysTip = DAILY_TIPS[dayIndex % DAILY_TIPS.length]
   const [showApproach, setShowApproach] = useState(false)
+  const [openFaq, setOpenFaq] = useState(null)
 
   return (
     <div>
@@ -276,6 +330,83 @@ export default function HomeTab({ onNavigate }) {
         <p style={{ fontSize: 17, fontWeight: 700, color: '#ffffff', lineHeight: 1.6, textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 24, marginBottom: 0 }}>
           We're not done building it. But we built it for you.
         </p>
+      </div>
+
+      {/* The Transition Gap Is Real */}
+      <div style={{ marginBottom: 52 }}>
+        <p className="cat-label" style={{ marginBottom: 6 }}>The Transition Gap Is Real</p>
+        <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 20, maxWidth: 640 }}>
+          The data is clear: military transition is one of the most disruptive life events a person can face.
+          Understanding the scope of the challenge is the first step toward navigating it on your own terms.
+        </p>
+        <div className="grid-3">
+          {TRANSITION_STATS.map(s => (
+            <div key={s.stat} className="card" style={{ borderTop: '3px solid #1B3A6B' }}>
+              <p style={{ fontSize: 28, fontWeight: 800, color: '#1B3A6B', marginBottom: 8, letterSpacing: '-.02em', lineHeight: 1.1 }}>
+                {s.stat}
+              </p>
+              <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.6, marginBottom: 8 }}>{s.desc}</p>
+              <p style={{ fontSize: 10, color: '#b4b2a9' }}>Source: {s.source}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div style={{ marginBottom: 52 }}>
+        <p className="cat-label" style={{ marginBottom: 6 }}>Frequently Asked Questions</p>
+        <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 24, maxWidth: 640 }}>
+          Common questions from veterans, service members, and military families about TYFMS and how to get the most out of it.
+        </p>
+        <div>
+          {FAQ_ITEMS.map((item, i) => {
+            const isOpen = openFaq === i
+            return (
+              <div
+                key={i}
+                style={{
+                  border: '1px solid #E5E3DC',
+                  borderRadius: 10,
+                  marginBottom: 8,
+                  overflow: 'hidden',
+                  background: '#fff',
+                }}
+              >
+                <button
+                  onClick={() => setOpenFaq(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                  style={{
+                    width: '100%', textAlign: 'left', background: 'none', border: 'none',
+                    padding: '16px 20px', cursor: 'pointer', display: 'flex',
+                    justifyContent: 'space-between', alignItems: 'center', gap: 12,
+                    fontFamily: 'inherit',
+                  }}
+                >
+                  <span style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', lineHeight: 1.4 }}>
+                    {item.q}
+                  </span>
+                  <span style={{
+                    flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
+                    background: isOpen ? '#1B3A6B' : '#F0EDE6',
+                    color: isOpen ? '#fff' : '#5f5e5a',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 16, fontWeight: 700, lineHeight: 1,
+                    transition: 'background .15s, color .15s',
+                  }}>
+                    {isOpen ? '−' : '+'}
+                  </span>
+                </button>
+                {isOpen && (
+                  <div style={{ padding: '0 20px 18px', borderTop: '1px solid #F0EDE6' }}>
+                    <p style={{ fontSize: 13, color: '#3a3a38', lineHeight: 1.8, marginTop: 14 }}>
+                      {item.a}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
       </div>
 
       {/* By the numbers */}
