@@ -19,6 +19,10 @@ import PrivacyTab from './tabs/PrivacyTab'
 import VetNewsTab from './tabs/VetNewsTab'
 import TestimonialsTab from './tabs/TestimonialsTab'
 import FeedbackTab from './tabs/FeedbackTab'
+import AdminTab from './tabs/AdminTab'
+import { useAuth } from './context/AuthContext'
+
+const ADMIN_EMAIL = 'reyrey1119@gmail.com'
 
 function trackEvent(name, params = {}) {
   try { window.gtag?.('event', name, params) } catch {}
@@ -100,6 +104,8 @@ const INITIAL_TAB = (() => {
 // ── App ───────────────────────────────────────────────────────────────────────
 
 export default function App() {
+  const { user } = useAuth()
+  const isAdmin = user?.email === ADMIN_EMAIL
   const [activeTab, setActiveTab] = useState(INITIAL_TAB)
   // All sections open by default; each toggles independently
   const [openSections, setOpenSections] = useState(() => new Set(SECTIONS.map(s => s.id)))
@@ -183,6 +189,18 @@ export default function App() {
             </div>
           )
         })}
+        {isAdmin && (
+          <div className="sidebar-section">
+            <button
+              className={`sidebar-btn${activeTab === 'admin' ? ' on' : ''}`}
+              onClick={() => onTabClick('admin')}
+              style={{ marginTop: 8 }}
+            >
+              <span className="sidebar-icon">🔐</span>
+              <span className="sidebar-label">Admin</span>
+            </button>
+          </div>
+        )}
       </nav>
     )
   }
@@ -289,6 +307,7 @@ export default function App() {
         {activeTab === 'resources'    && <ResourcesTab searchResult={searchResult} />}
         {activeTab === 'testimonials' && <TestimonialsTab />}
         {activeTab === 'feedback'     && <FeedbackTab />}
+        {activeTab === 'admin'        && isAdmin && <AdminTab />}
         <OnboardingModal onComplete={() => {}} onNavigate={navigate} />
       </div>
 

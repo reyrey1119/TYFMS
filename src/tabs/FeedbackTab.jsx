@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
+import { useAuth } from '../context/AuthContext'
 
 const FEATURES = [
   'Skills Translator',
@@ -15,14 +16,28 @@ const FEATURES = [
 ]
 
 export default function FeedbackTab() {
+  const { user, profile } = useAuth()
+
   const [rating, setRating] = useState(0)
   const [hovered, setHovered] = useState(0)
   const [feature, setFeature] = useState('')
   const [missing, setMissing] = useState('')
   const [comment, setComment] = useState('')
+  const [name, setName] = useState(
+    profile ? [profile.first_name, profile.last_name].filter(Boolean).join(' ') : ''
+  )
+  const [email, setEmail] = useState(user?.email || '')
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
+
+  function buildMessage() {
+    const parts = []
+    if (feature) parts.push(`Feature used: ${feature}`)
+    if (missing.trim()) parts.push(`What's missing: ${missing.trim()}`)
+    if (comment.trim()) parts.push(`Comments: ${comment.trim()}`)
+    return parts.join('\n') || null
+  }
 
   async function submit() {
     if (!rating) { setError('Please select a star rating before submitting.'); return }
@@ -30,11 +45,12 @@ export default function FeedbackTab() {
     setError('')
     setSubmitting(true)
     try {
-      const { error: dbError } = await supabase.from('feedback').insert({
+      const { error: dbError } = await supabase.from('user_feedback').insert({
+        user_id: user?.id || null,
+        name: name.trim() || null,
+        email: email.trim() || null,
         rating,
-        feature_used: feature || null,
-        what_missing: missing.trim() || null,
-        comment: comment.trim() || null,
+        message: buildMessage(),
       })
       if (dbError) throw dbError
       setSubmitted(true)
@@ -43,6 +59,16 @@ export default function FeedbackTab() {
     } finally {
       setSubmitting(false)
     }
+  }
+
+  function reset() {
+    setSubmitted(false)
+    setRating(0)
+    setFeature('')
+    setMissing('')
+    setComment('')
+    setName(profile ? [profile.first_name, profile.last_name].filter(Boolean).join(' ') : '')
+    setEmail(user?.email || '')
   }
 
   if (submitted) {
@@ -58,7 +84,7 @@ export default function FeedbackTab() {
           </p>
         </div>
         <button
-          onClick={() => { setSubmitted(false); setRating(0); setFeature(''); setMissing(''); setComment('') }}
+          onClick={reset}
           style={{
             padding: '8px 18px', background: 'none', border: '1px solid #d3d1c7',
             borderRadius: 8, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', color: '#5f5e5a',
@@ -108,6 +134,28 @@ export default function FeedbackTab() {
               {rating === 1 ? 'Needs major improvement' : rating === 2 ? 'Below expectations' : rating === 3 ? 'Meets expectations' : rating === 4 ? 'Really useful' : 'Excellent — exactly what veterans need'}
             </p>
           )}
+        </div>
+
+        {/* Name + Email */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 16 }}>
+          <div>
+            <label>Name (optional)</label>
+            <input
+              type="text"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              placeholder="Your name"
+            />
+          </div>
+          <div>
+            <label>Email (optional)</label>
+            <input
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="your@email.com"
+            />
+          </div>
         </div>
 
         {/* Feature dropdown */}
