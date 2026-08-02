@@ -1,6 +1,6 @@
 /*
- * GET  /api/trends        — load career trends (Supabase cache → AI fallback)
- * POST /api/trends  { action: 'match', mos, branch, rank, trends }
+ * GET /api/trends — load career trends (Supabase cache → AI fallback)
+ * POST /api/trends { action: 'match', mos, branch, rank, trends }
  *
  * Supabase table (create if not exists):
  * CREATE TABLE career_trends_cache (
@@ -61,21 +61,29 @@ Response format — JSON array only, no extra text:
   }
 ]`
 
-  const r = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-      'anthropic-beta': 'web-search-2025-03-05',
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 2000,
-      tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-      messages: [{ role: 'user', content: prompt }],
-    }),
-  })
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 20000)
+  let r
+  try {
+    r = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-beta': 'web-search-2025-03-05',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 2000,
+        tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+        messages: [{ role: 'user', content: prompt }],
+      }),
+      signal: controller.signal,
+    })
+  } finally {
+    clearTimeout(timeout)
+  }
   const data = await r.json()
   if (data.error) throw new Error(data.error.message)
   const txt = (data.content || [])
@@ -157,7 +165,7 @@ export default async function handler(req, res) {
         } catch { /* cache miss — continue */ }
       }
 
-      // 2. AI generation
+      // 2. AI generation (bounded to ~20s — falls through to static fallback on timeout)
       try {
         const trends = await generateTrends(weekStart, apiKey)
         if (db) {
@@ -168,9 +176,9 @@ export default async function handler(req, res) {
           } catch { /* non-fatal */ }
         }
         return res.status(200).json({ trends, weekStart, source: 'generated' })
-      } catch { /* AI failed — use fallback */ }
+      } catch { /* AI failed or timed out — use fallback */ }
 
-      // 3. Static fallback — always returns something
+      // 3. Static fallback — always returns something, quickly
       return res.status(200).json({ trends: FALLBACK_TRENDS, weekStart, source: 'fallback' })
     }
 
@@ -204,15 +212,23 @@ Return valid JSON only — a JSON array, nothing else:
 ]`
 
         try {
-          const r = await fetch('https://api.anthropic.com/v1/messages', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
-            body: JSON.stringify({
-              model: 'claude-sonnet-4-6',
-              max_tokens: 500,
-              messages: [{ role: 'user', content: prompt }],
-            }),
-          })
+          const controller = new AbortController()
+          const timeout = setTimeout(() => controller.abort(), 15000)
+          let r
+          try {
+            r = await fetch('https://api.anthropic.com/v1/messages', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+              body: JSON.stringify({
+                model: 'claude-sonnet-4-6',
+                max_tokens: 500,
+                messages: [{ role: 'user', content: prompt }],
+              }),
+              signal: controller.signal,
+            })
+          } finally {
+            clearTimeout(timeout)
+          }
           const data = await r.json()
           if (data.error) return res.status(400).json({ error: data.error.message })
           const txt = (data.content || []).map(i => i.text || '').join('').replace(/```json|```/g, '').trim()
