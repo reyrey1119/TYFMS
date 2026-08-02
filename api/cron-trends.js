@@ -1,9 +1,12 @@
 /*
- * Vercel cron job — runs every Monday at 00:00 UTC.
+ * Vercel cron job — runs daily at 00:00 UTC.
  * Pre-generates and caches the week's career trends before any user opens the tab.
+ * Running daily (instead of weekly) also acts as a retry if a prior run failed,
+ * and as a keep-alive ping so the free-tier Supabase project doesn't auto-pause
+ * from inactivity.
  *
  * Configured in vercel.json:
- *   { "path": "/api/cron-trends", "schedule": "0 0 * * 1" }
+ * { "path": "/api/cron-trends", "schedule": "0 0 * * *" }
  *
  * Required env var: CRON_SECRET — set in Vercel dashboard (any random string).
  * Vercel sends: Authorization: Bearer <CRON_SECRET>
@@ -53,19 +56,27 @@ Response format — a JSON array, nothing else:
   }
 ]`
 
-  const r = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 1200,
-      messages: [{ role: 'user', content: prompt }],
-    }),
-  })
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 20000)
+  let r
+  try {
+    r = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 1200,
+        messages: [{ role: 'user', content: prompt }],
+      }),
+      signal: controller.signal,
+    })
+  } finally {
+    clearTimeout(timeout)
+  }
 
   const data = await r.json()
   if (data.error) throw new Error(data.error.message)
@@ -94,7 +105,8 @@ export default async function handler(req, res) {
   const weekStart = getWeekStart()
 
   try {
-    // Check if already cached for this week (avoid redundant AI call)
+    // Check if already cached for this week (avoid redundant AI call).
+    // This read alone also serves as the daily Supabase keep-alive ping.
     const { data: existing } = await db
       .from('career_trends_cache')
       .select('week_start')
