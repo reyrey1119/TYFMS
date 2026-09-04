@@ -16,7 +16,6 @@ import AboutTab from './tabs/AboutTab'
 import PathTab from './tabs/PathTab'
 import CareerTrendsTab from './tabs/CareerTrendsTab'
 import PrivacyTab from './tabs/PrivacyTab'
-import VetNewsTab from './tabs/VetNewsTab'
 import TestimonialsTab from './tabs/TestimonialsTab'
 import FeedbackTab from './tabs/FeedbackTab'
 import AdminTab from './tabs/AdminTab'
@@ -60,7 +59,6 @@ const SECTIONS = [
     tabs: [
       { id: 'network',   icon: '🤝', label: 'Networking' },
       { id: 'resources', icon: '📚', label: 'Resources' },
-      { id: 'vetnews',   icon: '📰', label: 'Vet news' },
     ],
   },
   {
@@ -116,10 +114,11 @@ export default function App() {
 
   const activeSection = getSectionForTab(activeTab)
 
-  // Persist active tab + analytics
+  // Persist active tab + analytics, and reset scroll so each tab starts at the top
   useEffect(() => {
     try { localStorage.setItem('vtg_active_tab', activeTab) } catch {}
     trackEvent('page_view', { tab: activeTab })
+    try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }) } catch {}
   }, [activeTab])
 
   function navigate(tabId) {
@@ -300,7 +299,6 @@ export default function App() {
         {activeTab === 'identity'     && <IdentityTab />}
         {activeTab === 'network'      && <NetworkTab />}
         {activeTab === 'trends'       && <CareerTrendsTab />}
-        {activeTab === 'vetnews'      && <VetNewsTab />}
         {activeTab === 'tracker'      && <TrackerTab />}
         {activeTab === 'applications' && <ApplicationTrackerTab />}
         {activeTab === 'vault'        && <DocumentVaultTab />}
