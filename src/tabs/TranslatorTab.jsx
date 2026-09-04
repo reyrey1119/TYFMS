@@ -157,16 +157,16 @@ URL.revokeObjectURL(url)
 
 return (
 <div>
-<div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+<div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#EFE7CD', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
 <img src="/translator.png" alt="Skills translator" style={{ width: '100%', maxHeight: 320, objectFit: 'contain', objectPosition: 'top', display: 'block' }} />
 </div>
-<p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>What You Bring</p>
+<p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#8F8768', marginBottom: 4 }}>What You Bring</p>
 <p className="sec-title">Skills translator</p>
 <p className="sec-sub">
 Everything you did in service — the skills, the leadership, the technical mastery — is already
 there. This tool makes it visible to civilian employers.
 </p>
-<p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 20 }}>
+<p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.7, marginBottom: 20 }}>
 Enter your occupational code and branch. The AI will translate your military experience into
 civilian job titles, transferable skills, and career path recommendations.
 </p>
@@ -248,7 +248,7 @@ placeholder="e.g. 25U, 6F0X1, IT"
 <div style={{ marginBottom: 16 }}>
 <label style={{ display: 'block', marginBottom: 8 }}>
 Certifications you already hold{' '}
-<span style={{ fontSize: 11, color: '#b4b2a9', fontWeight: 400 }}>(optional — helps tailor recommendations)</span>
+<span style={{ fontSize: 11, color: '#8F8768', fontWeight: 400 }}>(optional — helps tailor recommendations)</span>
 </label>
 <div style={{ display: 'flex', gap: 8, marginBottom: existingCerts.length > 0 ? 8 : 0 }}>
 <select
@@ -270,7 +270,7 @@ type="button"
 onClick={() => { if (certToAdd) { setExistingCerts(prev => [...prev, certToAdd]); setCertToAdd('') } }}
 disabled={!certToAdd}
 style={{
-padding: '8px 16px', background: certToAdd ? '#1B3A6B' : '#d3d1c7',
+padding: '8px 16px', background: certToAdd ? '#1B3A6B' : '#C2B588',
 border: 'none', borderRadius: 8, color: '#fff', fontSize: 13,
 cursor: certToAdd ? 'pointer' : 'default', fontFamily: 'inherit', flexShrink: 0,
 }}
@@ -301,7 +301,7 @@ style={{ background: 'none', border: 'none', color: '#0A7868', cursor: 'pointer'
 )}
 </div>
 {milRefStatus === 'loading' && (
-<div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', background: '#f5f4f0', borderRadius: 8, marginBottom: 12, fontSize: 13, color: '#5f5e5a' }}>
+<div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', background: '#EFE7CD', borderRadius: 8, marginBottom: 12, fontSize: 13, color: '#5C5646' }}>
 <span style={{ display: 'inline-block', width: 14, height: 14, border: '2px solid #0A7868', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.7s linear infinite', flexShrink: 0 }} />
 Looking up official duty description...
 </div>
@@ -309,36 +309,36 @@ Looking up official duty description...
 {milRefStatus === 'found' && milRefData && milRefData._source === 'pdf' && (
 <div style={{ background: '#e8f5f3', border: '1px solid #0A7868', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
 <p style={{ color: '#0A7868', fontWeight: 600, marginBottom: 2 }}>✓ Official duty description found</p>
-<p style={{ color: '#5f5e5a', fontSize: 12 }}>{milRefData.duty_title} — {milRefData.document_source}</p>
+<p style={{ color: '#5C5646', fontSize: 12 }}>{milRefData.duty_title} — {milRefData.document_source}</p>
 </div>
 )}
 {milRefStatus === 'found' && milRefData && milRefData._source === 'database' && (
 <div style={{ background: '#e8f5f3', border: '1px solid #0A7868', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
 <p style={{ color: '#0A7868', fontWeight: 600, marginBottom: 2 }}>✓ Duty description loaded from {milRefData.document_source}</p>
-<p style={{ color: '#5f5e5a', fontSize: 12 }}>{milRefData.duty_title}</p>
+<p style={{ color: '#5C5646', fontSize: 12 }}>{milRefData.duty_title}</p>
 </div>
 )}
 {milRefStatus === 'found' && milRefData && milRefData._source !== 'pdf' && milRefData._source !== 'database' && (
 <div style={{ background: '#e8f0f5', border: '1px solid #2d7a8a', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
 <p style={{ color: '#2d7a8a', fontWeight: 600, marginBottom: 2 }}>✓ Duty description loaded from AI knowledge</p>
-<p style={{ color: '#5f5e5a', fontSize: 12 }}>Official publication unavailable — using trained knowledge of {mos.trim().toUpperCase()} from {milRefData.document_source}</p>
+<p style={{ color: '#5C5646', fontSize: 12 }}>Official publication unavailable — using trained knowledge of {mos.trim().toUpperCase()} from {milRefData.document_source}</p>
 </div>
 )}
 {milRefStatus === 'failed' && (
-<div style={{ background: '#f9f8f5', border: '1px solid #d3d1c7', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
-<p style={{ color: '#5f5e5a', fontWeight: 600, marginBottom: 4 }}>Official duty description not available</p>
-<p style={{ color: '#5f5e5a', fontSize: 12, marginBottom: 8, lineHeight: 1.5 }}>Your translation will still run using AI knowledge of your MOS. Optionally describe your duties below for a more tailored result.</p>
+<div style={{ background: '#EFE7CD', border: '1px solid #C2B588', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
+<p style={{ color: '#5C5646', fontWeight: 600, marginBottom: 4 }}>Official duty description not available</p>
+<p style={{ color: '#5C5646', fontSize: 12, marginBottom: 8, lineHeight: 1.5 }}>Your translation will still run using AI knowledge of your MOS. Optionally describe your duties below for a more tailored result.</p>
 <textarea
 value={milDuties}
 onChange={e => setMilDuties(e.target.value)}
 placeholder="e.g. Maintained and operated radio communications systems, trained junior soldiers on SINCGARS..."
 rows={3}
-style={{ width: '100%', fontSize: 13, borderRadius: 6, border: '1px solid #d3d1c7', padding: '7px 9px', fontFamily: 'inherit', resize: 'vertical', boxSizing: 'border-box' }}
+style={{ width: '100%', fontSize: 13, borderRadius: 6, border: '1px solid #C2B588', padding: '7px 9px', fontFamily: 'inherit', resize: 'vertical', boxSizing: 'border-box' }}
 />
 </div>
 )}
 {milRefStatus === 'unsupported' && (
-<div style={{ background: '#f5f4f0', border: '1px solid #d3d1c7', borderRadius: 8, padding: '8px 14px', marginBottom: 12, fontSize: 12, color: '#5f5e5a' }}>
+<div style={{ background: '#EFE7CD', border: '1px solid #C2B588', borderRadius: 8, padding: '8px 14px', marginBottom: 12, fontSize: 12, color: '#5C5646' }}>
 Official duty lookup is available for Army, Air Force, Navy, and Marine Corps. Translation will still run using your MOS/rate.
 </div>
 )}
@@ -349,7 +349,7 @@ Official duty lookup is available for Army, Air Force, Navy, and Marine Corps. T
 </div>
 
 {results && (
-<div style={{ borderTop: '1px solid #d3d1c7', paddingTop: 20 }}>
+<div style={{ borderTop: '1px solid #C2B588', paddingTop: 20 }}>
 <p className="cat-label">Civilian job titles</p>
 <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
 {results.civilianTitles.map(t => <span key={t} className="bg">{t}</span>)}
@@ -365,7 +365,7 @@ Official duty lookup is available for Army, Air Force, Navy, and Marine Corps. T
 {results.careerPaths.map(p => (
 <div key={p.title} className="card">
 <p style={{ fontWeight: 500, fontSize: 14, marginBottom: 4 }}>{p.title}</p>
-<p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.6 }}>{p.description}</p>
+<p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.6 }}>{p.description}</p>
 </div>
 ))}
 </div>
@@ -388,8 +388,8 @@ Official duty lookup is available for Army, Air Force, Navy, and Marine Corps. T
 <div key={c.name} className="card" style={{ display: 'flex', gap: 12, alignItems: 'flex-start', padding: '12px 14px' }}>
 <span style={{ fontSize: 18, flexShrink: 0 }}>🎓</span>
 <div>
-<p style={{ fontWeight: 600, fontSize: 14, marginBottom: 3, color: '#1a1a18' }}>{c.name}</p>
-<p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.6 }}>{c.why}</p>
+<p style={{ fontWeight: 600, fontSize: 14, marginBottom: 3, color: '#211F19' }}>{c.name}</p>
+<p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.6 }}>{c.why}</p>
 </div>
 </div>
 ))}
@@ -421,9 +421,9 @@ Build my resume with these results →
 </div>
 
 {/* Resume builder */}
-<div style={{ borderTop: '1px solid #d3d1c7', paddingTop: 20 }}>
+<div style={{ borderTop: '1px solid #C2B588', paddingTop: 20 }}>
 <p style={{ fontSize: 15, fontWeight: 500, marginBottom: 6 }}>Resume draft</p>
-<p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 14, lineHeight: 1.6 }}>
+<p style={{ fontSize: 13, color: '#5C5646', marginBottom: 14, lineHeight: 1.6 }}>
 Generate a complete resume draft with your military experience translated into
 civilian language — ready to customize with your actual details.
 </p>
@@ -435,14 +435,14 @@ civilian language — ready to customize with your actual details.
 {resume && (
 <div style={{ marginTop: 16 }}>
 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, flexWrap: 'wrap', gap: 8 }}>
-<p style={{ fontSize: 13, fontWeight: 500, color: '#1a1a18' }}>Your resume draft</p>
+<p style={{ fontSize: 13, fontWeight: 500, color: '#211F19' }}>Your resume draft</p>
 <div style={{ display: 'flex', gap: 8 }}>
 <button
 onClick={copyResume}
 style={{
 padding: '5px 12px', background: copied ? '#0A7868' : '#fff',
-border: '1px solid #d3d1c7', borderRadius: 8, fontSize: 12,
-cursor: 'pointer', fontFamily: 'inherit', color: copied ? '#fff' : '#5f5e5a',
+border: '1px solid #C2B588', borderRadius: 8, fontSize: 12,
+cursor: 'pointer', fontFamily: 'inherit', color: copied ? '#fff' : '#5C5646',
 transition: 'all .15s',
 }}
 >
@@ -461,7 +461,7 @@ Download .txt
 </div>
 </div>
 <div className="resume-output">{resume}</div>
-<p style={{ fontSize: 11, color: '#b4b2a9', marginTop: 8 }}>
+<p style={{ fontSize: 11, color: '#8F8768', marginTop: 8 }}>
 Replace all bracketed placeholders [ ] with your actual information before using.
 </p>
 </div>

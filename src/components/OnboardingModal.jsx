@@ -49,10 +49,10 @@ export default function OnboardingModal({ onComplete, onNavigate }) {
       content: (
         <div style={{ textAlign: 'center' }}>
           <p style={{ fontSize: 40, marginBottom: 16 }}>🎖️</p>
-          <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.7, marginBottom: 8 }}>
+          <p style={{ fontSize: 14, color: '#211F19', lineHeight: 1.7, marginBottom: 8 }}>
             TYFMS gives you free tools built specifically for the military-to-civilian transition.
           </p>
-          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7 }}>
+          <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.7 }}>
             Translate your MOS into civilian language, build a resume that passes ATS systems, find career paths that match your background, and track your transition progress — all in one place.
           </p>
         </div>
@@ -71,17 +71,17 @@ export default function OnboardingModal({ onComplete, onNavigate }) {
               key={opt.tab}
               onClick={() => complete(opt.tab)}
               style={{
-                padding: '14px 16px', background: '#FAFAF8', border: '1.5px solid #E5E3DC',
+                padding: '14px 16px', background: '#E7E0C6', border: '1.5px solid #D6CBA3',
                 borderRadius: 12, cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left',
                 display: 'flex', alignItems: 'flex-start', gap: 12, transition: 'border-color .15s',
               }}
               onMouseEnter={e => e.currentTarget.style.borderColor = '#1B3A6B'}
-              onMouseLeave={e => e.currentTarget.style.borderColor = '#E5E3DC'}
+              onMouseLeave={e => e.currentTarget.style.borderColor = '#D6CBA3'}
             >
               <span style={{ fontSize: 22, flexShrink: 0 }}>{opt.icon}</span>
               <div>
-                <p style={{ fontSize: 13, fontWeight: 700, color: '#1a1a18', marginBottom: 2 }}>{opt.label}</p>
-                <p style={{ fontSize: 12, color: '#5f5e5a', lineHeight: 1.5 }}>{opt.desc}</p>
+                <p style={{ fontSize: 13, fontWeight: 700, color: '#211F19', marginBottom: 2 }}>{opt.label}</p>
+                <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.5 }}>{opt.desc}</p>
               </div>
             </button>
           ))}
@@ -93,10 +93,10 @@ export default function OnboardingModal({ onComplete, onNavigate }) {
       content: (
         <div style={{ textAlign: 'center' }}>
           <p style={{ fontSize: 40, marginBottom: 16 }}>✅</p>
-          <p style={{ fontSize: 14, fontWeight: 700, color: '#1a1a18', marginBottom: 10 }}>
+          <p style={{ fontSize: 14, fontWeight: 700, color: '#211F19', marginBottom: 10 }}>
             Pro tip: Start with the Skills Translator
           </p>
-          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7 }}>
+          <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.7 }}>
             Enter your MOS or rate code to instantly see civilian job titles, transferable skills, and recommended certifications. Then use those results to pre-fill your resume builder with one click.
           </p>
         </div>
@@ -120,12 +120,12 @@ export default function OnboardingModal({ onComplete, onNavigate }) {
           {steps.map((_, i) => (
             <div key={i} style={{
               width: 7, height: 7, borderRadius: '50%',
-              background: i + 1 === step ? '#1B3A6B' : '#E5E3DC', transition: 'background .2s',
+              background: i + 1 === step ? '#1B3A6B' : '#D6CBA3', transition: 'background .2s',
             }} />
           ))}
         </div>
 
-        <h2 style={{ fontSize: 20, fontWeight: 800, color: '#1a1a18', marginBottom: 20, textAlign: 'center' }}>
+        <h2 style={{ fontSize: 20, fontWeight: 800, color: '#211F19', marginBottom: 20, textAlign: 'center' }}>
           {current.title}
         </h2>
 
@@ -136,7 +136,7 @@ export default function OnboardingModal({ onComplete, onNavigate }) {
             {step > 1 && (
               <button onClick={() => setStep(s => s - 1)} style={{
                 flex: '0 1 auto', padding: '12px 22px', background: '#fff',
-                border: '1px solid #d3d1c7', borderRadius: 10, color: '#5f5e5a',
+                border: '1px solid #C2B588', borderRadius: 10, color: '#5C5646',
                 fontSize: 14, cursor: 'pointer', fontFamily: 'inherit',
               }}>← Back</button>
             )}
@@ -162,7 +162,7 @@ export default function OnboardingModal({ onComplete, onNavigate }) {
 
         <button onClick={() => complete()} style={{
           display: 'block', margin: '12px auto 0', background: 'none', border: 'none',
-          fontSize: 12, color: '#b4b2a9', cursor: 'pointer', fontFamily: 'inherit',
+          fontSize: 12, color: '#8F8768', cursor: 'pointer', fontFamily: 'inherit',
         }}>
           Skip
         </button>

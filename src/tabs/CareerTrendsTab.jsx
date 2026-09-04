@@ -174,7 +174,7 @@ for veterans who are ready to make their move.
 
 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4, minHeight: 20 }}>
 {generatedAt && (
-<p style={{ fontSize: 11, color: '#b4b2a9' }}>
+<p style={{ fontSize: 11, color: '#8F8768' }}>
 Last updated: {new Date(generatedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
 </p>
 )}
@@ -235,7 +235,7 @@ Matched to your background
 {matchLoading ? (
 <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
 <span className="search-spinner" style={{ width: 12, height: 12, borderColor: 'rgba(26,26,24,.15)', borderTopColor: '#C07A28' }} />
-<p style={{ fontSize: 13, color: '#5f5e5a' }}>Matching trends to your MOS…</p>
+<p style={{ fontSize: 13, color: '#5C5646' }}>Matching trends to your MOS…</p>
 </div>
 ) : (
 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -246,21 +246,21 @@ return (
 <div
 key={m.idx}
 style={{
-padding: '12px 14px', background: '#FAFAF8', borderRadius: 10,
-border: '1px solid #E5E3DC', cursor: 'pointer',
+padding: '12px 14px', background: '#E7E0C6', borderRadius: 10,
+border: '1px solid #D6CBA3', cursor: 'pointer',
 }}
 onClick={() => openTrend(trend)}
 >
 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
-<p style={{ fontSize: 13, fontWeight: 600, color: '#1a1a18', flex: 1, marginRight: 8 }}>{trend.title}</p>
+<p style={{ fontSize: 13, fontWeight: 600, color: '#211F19', flex: 1, marginRight: 8 }}>{trend.title}</p>
 <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
-<div style={{ height: 6, width: 60, background: '#E5E3DC', borderRadius: 3, overflow: 'hidden' }}>
+<div style={{ height: 6, width: 60, background: '#D6CBA3', borderRadius: 3, overflow: 'hidden' }}>
 <div style={{ height: '100%', width: `${m.matchScore}%`, background: '#C07A28', borderRadius: 3 }} />
 </div>
 <p style={{ fontSize: 11, fontWeight: 700, color: '#C07A28' }}>{m.matchScore}%</p>
 </div>
 </div>
-<p style={{ fontSize: 12, color: '#5f5e5a', lineHeight: 1.6 }}>{m.matchReason}</p>
+<p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.6 }}>{m.matchReason}</p>
 </div>
 )
 })}
@@ -276,10 +276,10 @@ onClick={() => openTrend(trend)}
 {trends.map((t, i) => (
 <div key={i}>
 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }}>
-<p style={{ fontSize: 12, color: '#1a1a18', fontWeight: 500 }}>{t.category}</p>
+<p style={{ fontSize: 12, color: '#211F19', fontWeight: 500 }}>{t.category}</p>
 <p style={{ fontSize: 12, fontWeight: 700, color: BAR_COLORS[i % BAR_COLORS.length] }}>{t.score ?? '–'}</p>
 </div>
-<div style={{ height: 8, background: '#f5f4f0', borderRadius: 4, overflow: 'hidden' }}>
+<div style={{ height: 8, background: '#EFE7CD', borderRadius: 4, overflow: 'hidden' }}>
 <div style={{
 height: '100%',
 width: `${t.score ?? 0}%`,
@@ -306,10 +306,10 @@ onMouseEnter={e => e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08
 onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
 >
 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
-<p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', flex: 1, marginRight: 8, lineHeight: 1.4 }}>{t.title}</p>
+<p style={{ fontSize: 14, fontWeight: 600, color: '#211F19', flex: 1, marginRight: 8, lineHeight: 1.4 }}>{t.title}</p>
 <span className={t.badgeCls || 'bg'} style={{ flexShrink: 0 }}>{t.category}</span>
 </div>
-<p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 10 }}>{t.description}</p>
+<p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.7, marginBottom: 10 }}>{t.description}</p>
 <p style={{ fontSize: 11, color: '#C07A28', fontWeight: 600 }}>Read full analysis →</p>
 </div>
 ))}
@@ -342,38 +342,38 @@ onClick={e => e.stopPropagation()}
 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
 <div>
 <span className={selected.badgeCls || 'bg'} style={{ marginBottom: 8, display: 'inline-block' }}>{selected.category}</span>
-<p style={{ fontSize: 20, fontWeight: 700, color: '#1a1a18', lineHeight: 1.3 }}>{selected.title}</p>
+<p style={{ fontSize: 20, fontWeight: 700, color: '#211F19', lineHeight: 1.3 }}>{selected.title}</p>
 </div>
 <button
 onClick={closeModal}
-style={{ background: 'none', border: 'none', fontSize: 26, cursor: 'pointer', color: '#888', marginLeft: 12, flexShrink: 0, lineHeight: 1, padding: 0 }}
+style={{ background: 'none', border: 'none', fontSize: 26, cursor: 'pointer', color: '#726B4E', marginLeft: 12, flexShrink: 0, lineHeight: 1, padding: 0 }}
 >×</button>
 </div>
 
 {countdown > 0 ? (
 <div>
-<p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 16 }}>
+<p style={{ fontSize: 13, color: '#5C5646', marginBottom: 16 }}>
 Full analysis unlocks in <strong>{countdown}</strong> second{countdown !== 1 ? 's' : ''}…
 </p>
 <AdUnit slot="5201008369" />
 </div>
 ) : (
 <div>
-<p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.75, marginBottom: 20 }}>{selected.description}</p>
+<p style={{ fontSize: 14, color: '#211F19', lineHeight: 1.75, marginBottom: 20 }}>{selected.description}</p>
 
 {supabaseEnabled && user ? (
 selected.fullAnalysis ? (
-<div style={{ borderTop: '1px solid #d3d1c7', paddingTop: 16 }}>
+<div style={{ borderTop: '1px solid #C2B588', paddingTop: 16 }}>
 <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 10 }}>
 Full analysis
 </p>
-<p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.8 }}>{selected.fullAnalysis}</p>
+<p style={{ fontSize: 14, color: '#211F19', lineHeight: 1.8 }}>{selected.fullAnalysis}</p>
 </div>
 ) : null
 ) : supabaseEnabled ? (
-<div style={{ background: '#f5f4f0', borderRadius: 10, padding: '16px 18px' }}>
-<p style={{ fontSize: 13, fontWeight: 600, color: '#1a1a18', marginBottom: 6 }}>Full analysis — sign in to unlock</p>
-<p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.65 }}>
+<div style={{ background: '#EFE7CD', borderRadius: 10, padding: '16px 18px' }}>
+<p style={{ fontSize: 13, fontWeight: 600, color: '#211F19', marginBottom: 6 }}>Full analysis — sign in to unlock</p>
+<p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.65 }}>
 Create a free account to access deeper career analysis and veteran-specific action steps for each trend.
 </p>
 </div>

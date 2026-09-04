@@ -199,13 +199,13 @@ padding: '12px 16px', background: '#EFF3FB', border: '1px solid #B8C9E8', border
 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
 <div>
 <p style={{ fontSize: 13, fontWeight: 600 }}>Transition readiness score</p>
-<p style={{ fontSize: 11, color: '#5f5e5a' }}>{totalDone} of 25 milestones complete</p>
+<p style={{ fontSize: 11, color: '#5C5646' }}>{totalDone} of 25 milestones complete</p>
 </div>
-<p style={{ fontSize: 26, fontWeight: 800, color: readinessPct === 100 ? '#C07A28' : '#1a1a18', letterSpacing: '-.02em' }}>
+<p style={{ fontSize: 26, fontWeight: 800, color: readinessPct === 100 ? '#C07A28' : '#211F19', letterSpacing: '-.02em' }}>
 {readinessPct}%
 </p>
 </div>
-<div style={{ height: 10, background: '#f5f4f0', borderRadius: 8, overflow: 'hidden' }}>
+<div style={{ height: 10, background: '#EFE7CD', borderRadius: 8, overflow: 'hidden' }}>
 <div style={{
 height: '100%',
 width: `${readinessPct}%`,
@@ -262,9 +262,9 @@ alignItems: 'center', justifyContent: 'center', flexShrink: 0,
 <p style={{ fontSize: 11, color: phase.color, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em' }}>
 {phase.range}{phase.weight > 1 ? ' · 2× weight' : ''}
 </p>
-<p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18' }}>{phase.title}</p>
+<p style={{ fontSize: 14, fontWeight: 600, color: '#211F19' }}>{phase.title}</p>
 </div>
-<span style={{ fontSize: 12, color: '#5f5e5a', flexShrink: 0 }}>{phaseDone}/{phase.milestones.length}</span>
+<span style={{ fontSize: 12, color: '#5C5646', flexShrink: 0 }}>{phaseDone}/{phase.milestones.length}</span>
 </div>
 
 <div className="card" style={{ borderLeft: `3px solid ${phase.color}`, borderRadius: '0 12px 12px 0', padding: '12px 16px' }}>
@@ -273,14 +273,14 @@ const done = checked.includes(m.id)
 return (
 <div
 key={m.id}
-style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '7px 0', borderBottom: '1px solid #f0ede6', cursor: 'pointer' }}
+style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '7px 0', borderBottom: '1px solid #ECE3C7', cursor: 'pointer' }}
 onClick={() => toggleMilestone(m, phase)}
 >
 <div className={`goal-check${done ? ' done' : ''}`} style={{ cursor: 'pointer' }}>
 {done ? '✓' : ''}
 </div>
 <p style={{
-fontSize: 13, color: done ? '#b4b2a9' : '#1a1a18', lineHeight: 1.5,
+fontSize: 13, color: done ? '#8F8768' : '#211F19', lineHeight: 1.5,
 textDecoration: done ? 'line-through' : 'none', flex: 1,
 }}>
 {m.text}
@@ -294,9 +294,9 @@ textDecoration: done ? 'line-through' : 'none', flex: 1,
 })}
 
 {/* 4S Schlossberg self-assessment */}
-<div style={{ marginTop: 28, marginBottom: 8, borderTop: '1px solid #d3d1c7', paddingTop: 24 }}>
-<p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 4 }}>4S Framework progress</p>
-<p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 16, lineHeight: 1.6 }}>
+<div style={{ marginTop: 28, marginBottom: 8, borderTop: '1px solid #C2B588', paddingTop: 24 }}>
+<p style={{ fontSize: 14, fontWeight: 600, color: '#211F19', marginBottom: 4 }}>4S Framework progress</p>
+<p style={{ fontSize: 13, color: '#5C5646', marginBottom: 16, lineHeight: 1.6 }}>
 Schlossberg's four factors — the backbone of this app. Check each one as you address it.
 </p>
 </div>
@@ -347,9 +347,9 @@ return (
 <p style={{ fontSize: 11, color: factor.color, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em' }}>
 {factor.factor}
 </p>
-<p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.4 }}>{factor.desc}</p>
+<p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.4 }}>{factor.desc}</p>
 </div>
-<span style={{ fontSize: 12, color: '#5f5e5a', flexShrink: 0 }}>{factorDone}/{factor.items.length}</span>
+<span style={{ fontSize: 12, color: '#5C5646', flexShrink: 0 }}>{factorDone}/{factor.items.length}</span>
 </div>
 <div className="card" style={{ borderLeft: `3px solid ${factor.color}`, borderRadius: '0 12px 12px 0', padding: '12px 16px' }}>
 {factor.items.map(m => {
@@ -357,7 +357,7 @@ const done = checked.includes(m.id)
 return (
 <div
 key={m.id}
-style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '7px 0', borderBottom: '1px solid #f0ede6', cursor: 'pointer' }}
+style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '7px 0', borderBottom: '1px solid #ECE3C7', cursor: 'pointer' }}
 onClick={() => {
 const next = done ? checked.filter(id => id !== m.id) : [...checked, m.id]
 saveChecked(next)
@@ -367,7 +367,7 @@ saveChecked(next)
 {done ? '✓' : ''}
 </div>
 <p style={{
-fontSize: 13, color: done ? '#b4b2a9' : '#1a1a18', lineHeight: 1.5,
+fontSize: 13, color: done ? '#8F8768' : '#211F19', lineHeight: 1.5,
 textDecoration: done ? 'line-through' : 'none', flex: 1,
 }}>
 {m.text}
@@ -381,9 +381,9 @@ textDecoration: done ? 'line-through' : 'none', flex: 1,
 })}
 
 {/* Custom goals */}
-<div style={{ marginTop: 28, marginBottom: 8, borderTop: '1px solid #d3d1c7', paddingTop: 24 }}>
-<p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 4 }}>Custom goals</p>
-<p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 16 }}>
+<div style={{ marginTop: 28, marginBottom: 8, borderTop: '1px solid #C2B588', paddingTop: 24 }}>
+<p style={{ fontSize: 14, fontWeight: 600, color: '#211F19', marginBottom: 4 }}>Custom goals</p>
+<p style={{ fontSize: 13, color: '#5C5646', marginBottom: 16 }}>
 Add goals specific to your situation — things the roadmap above doesn't cover.
 {!useDb && ' Sign in to sync these across devices.'}
 </p>
@@ -407,7 +407,7 @@ style={{ flex: 1, minWidth: 180 }}
 </div>
 
 {goals.length === 0 && (
-<p style={{ fontSize: 13, color: '#b4b2a9', marginBottom: 20 }}>No custom goals yet.</p>
+<p style={{ fontSize: 13, color: '#8F8768', marginBottom: 20 }}>No custom goals yet.</p>
 )}
 
 {goals.map(g => (
@@ -416,7 +416,7 @@ style={{ flex: 1, minWidth: 180 }}
 {g.done ? '✓' : ''}
 </button>
 <div style={{ flex: 1 }}>
-<p style={{ fontSize: 14, fontWeight: 500, marginBottom: 4, ...(g.done ? { textDecoration: 'line-through', color: '#888' } : {}) }}>
+<p style={{ fontSize: 14, fontWeight: 500, marginBottom: 4, ...(g.done ? { textDecoration: 'line-through', color: '#726B4E' } : {}) }}>
 {g.title}
 </p>
 <span className={CAT_CLASS[g.category || g.cat] || 'bb'} style={{ fontSize: 11, padding: '2px 8px' }}>

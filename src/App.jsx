@@ -19,6 +19,7 @@ import PrivacyTab from './tabs/PrivacyTab'
 import TestimonialsTab from './tabs/TestimonialsTab'
 import FeedbackTab from './tabs/FeedbackTab'
 import AdminTab from './tabs/AdminTab'
+import { Icon } from './components/icons'
 import { useAuth } from './context/AuthContext'
 
 const ADMIN_EMAIL = 'reyrey1119@gmail.com'
@@ -32,56 +33,56 @@ function trackEvent(name, params = {}) {
 const SECTIONS = [
   {
     id: 'where',
-    icon: '🏠',
+    icon: 'home',
     label: 'Where You Are',
     navLabel: 'Where',
     tabs: [
-      { id: 'home',     icon: '🏠', label: 'Home' },
-      { id: 'path',     icon: '🧭', label: 'Find your path' },
+      { id: 'home',     icon: 'home',    label: 'Home' },
+      { id: 'path',     icon: 'compass', label: 'Find your path' },
     ],
   },
   {
     id: 'who',
-    icon: '👤',
+    icon: 'user',
     label: 'Who You Are',
     navLabel: 'Who You Are',
     tabs: [
-      { id: 'identity',   icon: '💬', label: 'Identity guide' },
-      { id: 'translator', icon: '⚡', label: 'Skills translator' },
-      { id: 'vault',      icon: '🔒', label: 'Document Vault' },
+      { id: 'identity',   icon: 'chat', label: 'Identity guide' },
+      { id: 'translator', icon: 'bolt', label: 'Skills translator' },
+      { id: 'vault',      icon: 'lock', label: 'Document Vault' },
     ],
   },
   {
     id: 'network',
-    icon: '🤝',
+    icon: 'handshake',
     label: 'Your Network',
     navLabel: 'Network',
     tabs: [
-      { id: 'network',   icon: '🤝', label: 'Networking' },
-      { id: 'resources', icon: '📚', label: 'Resources' },
+      { id: 'network',   icon: 'handshake', label: 'Networking' },
+      { id: 'resources', icon: 'book',      label: 'Resources' },
     ],
   },
   {
     id: 'plan',
-    icon: '📋',
+    icon: 'clipboard',
     label: 'Your Plan',
     navLabel: 'Your Plan',
     tabs: [
-      { id: 'resume',       icon: '📄', label: 'Resume builder' },
-      { id: 'trends',       icon: '📈', label: 'Career trends' },
-      { id: 'applications', icon: '📋', label: 'Application tracker' },
-      { id: 'tracker',      icon: '✅', label: 'Progress tracker' },
+      { id: 'resume',       icon: 'document',    label: 'Resume builder' },
+      { id: 'trends',       icon: 'trend',       label: 'Career trends' },
+      { id: 'applications', icon: 'clipboard',   label: 'Application tracker' },
+      { id: 'tracker',      icon: 'checkCircle', label: 'Progress tracker' },
     ],
   },
   {
     id: 'more',
-    icon: '☰',
+    icon: 'menu',
     label: 'More',
     navLabel: 'More',
     tabs: [
-      { id: 'about',       icon: 'ℹ️',  label: 'About' },
-      { id: 'testimonials', icon: '⭐', label: 'Testimonials' },
-      { id: 'feedback',    icon: '💡', label: 'Feedback' },
+      { id: 'about',       icon: 'info',      label: 'About' },
+      { id: 'testimonials', icon: 'star',     label: 'Testimonials' },
+      { id: 'feedback',    icon: 'lightbulb', label: 'Feedback' },
     ],
   },
 ]
@@ -167,7 +168,7 @@ export default function App() {
                 onClick={() => handleSidebarSectionToggle(section.id)}
                 aria-expanded={isOpen}
               >
-                <span className="sidebar-section-icon">{section.icon}</span>
+                <span className="sidebar-section-icon"><Icon name={section.icon} size={16} /></span>
                 <span className="sidebar-section-label">{section.label}</span>
                 <span className="sidebar-chevron" aria-hidden="true" />
               </button>
@@ -179,7 +180,7 @@ export default function App() {
                       className={`sidebar-btn${tab.id === activeTab ? ' on' : ''}`}
                       onClick={() => onTabClick(tab.id)}
                     >
-                      <span className="sidebar-icon">{tab.icon}</span>
+                      <span className="sidebar-icon"><Icon name={tab.icon} size={15} /></span>
                       <span className="sidebar-label">{tab.label}</span>
                     </button>
                   ))}
@@ -195,7 +196,7 @@ export default function App() {
               onClick={() => onTabClick('admin')}
               style={{ marginTop: 8 }}
             >
-              <span className="sidebar-icon">🔐</span>
+              <span className="sidebar-icon"><Icon name="shield" size={15} /></span>
               <span className="sidebar-label">Admin</span>
             </button>
           </div>
@@ -216,8 +217,8 @@ export default function App() {
             borderRadius: 10, padding: '12px 16px',
             display: 'flex', gap: 12, alignItems: 'flex-start',
           }}>
-            <span style={{ fontSize: 16, flexShrink: 0, marginTop: searchResult.regulationBacked ? 14 : 2 }}>
-              {searchResult.regulationBacked ? '📋' : '🔍'}
+            <span style={{ flexShrink: 0, marginTop: searchResult.regulationBacked ? 14 : 2, color: searchResult.regulationBacked ? '#1B3A6B' : '#5C5646' }}>
+              <Icon name={searchResult.regulationBacked ? 'clipboard' : 'search'} size={16} />
             </span>
             <div style={{ flex: 1, minWidth: 0 }}>
               {searchResult.regulationBacked && (
@@ -229,7 +230,7 @@ export default function App() {
                   Regulation-backed · 38 CFR
                 </span>
               )}
-              <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.7 }}>{searchResult.summary}</p>
+              <p style={{ fontSize: 13, color: '#211F19', lineHeight: 1.7 }}>{searchResult.summary}</p>
               {searchResult.sectionHint && (
                 <p style={{ fontSize: 12, color: '#1B3A6B', marginTop: 4 }}>
                   Look for: <strong>{searchResult.sectionHint}</strong>
@@ -253,8 +254,8 @@ export default function App() {
               onClick={clearSearch}
               aria-label="Dismiss"
               style={{
-                background: '#F0EDE6', border: 'none', borderRadius: '50%',
-                color: '#5f5e5a', cursor: 'pointer', fontSize: 16, fontWeight: 700,
+                background: '#ECE3C7', border: 'none', borderRadius: '50%',
+                color: '#5C5646', cursor: 'pointer', fontSize: 16, fontWeight: 700,
                 lineHeight: 1, flexShrink: 0, width: 28, height: 28,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}
@@ -322,7 +323,7 @@ export default function App() {
               onClick={() => handleBottomSectionTap(section)}
               aria-label={section.label}
             >
-              <span className="bottom-nav-icon">{section.icon}</span>
+              <span className="bottom-nav-icon"><Icon name={section.icon} size={21} /></span>
               <span className="bottom-nav-label">{section.navLabel}</span>
             </button>
           )
@@ -335,8 +336,8 @@ export default function App() {
           <div className="menu-sheet" onClick={e => e.stopPropagation()}>
             <div className="menu-sheet-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <span style={{ fontSize: 22 }}>{sheetSection.icon}</span>
-                <p style={{ fontSize: 16, fontWeight: 700, color: '#1a1a18' }}>{sheetSection.label}</p>
+                <Icon name={sheetSection.icon} size={20} />
+                <p style={{ fontSize: 16, fontWeight: 700, color: '#211F19' }}>{sheetSection.label}</p>
               </div>
               <button className="menu-sheet-close" onClick={() => setSectionSheet(null)}>×</button>
             </div>
@@ -346,7 +347,7 @@ export default function App() {
                 className={`menu-sheet-item${tab.id === activeTab ? ' active' : ''}`}
                 onClick={() => navigate(tab.id)}
               >
-                <span className="menu-sheet-icon">{tab.icon}</span>
+                <span className="menu-sheet-icon"><Icon name={tab.icon} size={17} /></span>
                 <span style={{ flex: 1, textAlign: 'left' }}>{tab.label}</span>
                 {tab.id === activeTab && (
                   <span style={{ fontSize: 10, color: '#1B3A6B', fontWeight: 700 }}>Current</span>

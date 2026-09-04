@@ -54,11 +54,11 @@ export default function PrivacyTab({ onClose }) {
       )}
 
       <p className="sec-title">Privacy Policy</p>
-      <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 24 }}>
+      <p style={{ fontSize: 13, color: '#5C5646', marginBottom: 24 }}>
         Effective date: April 16, 2026 &nbsp;·&nbsp; tyfms.com
       </p>
 
-      <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.75, marginBottom: 24 }}>
+      <p style={{ fontSize: 14, color: '#211F19', lineHeight: 1.75, marginBottom: 24 }}>
         TYFMS ("we," "our," or "us") is committed to protecting your privacy. This policy explains
         what information we collect, how we use it, and your rights regarding your data.
       </p>
@@ -66,7 +66,7 @@ export default function PrivacyTab({ onClose }) {
       {sections.map((s, i) => (
         <div key={i} className="card" style={{ marginBottom: 12 }}>
           <p style={{ fontSize: 14, fontWeight: 500, marginBottom: 8 }}>{s.title}</p>
-          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75, whiteSpace: 'pre-line' }}>{s.body}</p>
+          <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.75, whiteSpace: 'pre-line' }}>{s.body}</p>
         </div>
       ))}
     </div>

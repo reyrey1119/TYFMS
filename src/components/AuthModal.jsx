@@ -103,7 +103,7 @@ export default function AuthModal({ onClose }) {
           <button
             onClick={onClose}
             aria-label="Close"
-            style={{ background: 'none', border: 'none', fontSize: 22, cursor: 'pointer', color: '#5f5e5a', lineHeight: 1 }}
+            style={{ background: 'none', border: 'none', fontSize: 22, cursor: 'pointer', color: '#5C5646', lineHeight: 1 }}
           >
             ×
           </button>
@@ -113,14 +113,14 @@ export default function AuthModal({ onClose }) {
         {mode === 'signup' ? (
           <div style={{ textAlign: 'center', marginBottom: 22 }}>
             <img src="/logo.png" alt="TYFMS" style={{ height: 52, marginBottom: 12 }} />
-            <p style={{ fontWeight: 700, fontSize: 17, color: '#1a1a18', marginBottom: 6 }}>Create your account</p>
-            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.5 }}>
+            <p style={{ fontWeight: 700, fontSize: 17, color: '#211F19', marginBottom: 6 }}>Create your account</p>
+            <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.5 }}>
               Join thousands of veterans navigating their next mission.
             </p>
           </div>
         ) : (
           <div style={{ marginBottom: 20 }}>
-            <p style={{ fontWeight: 700, fontSize: 17, color: '#1a1a18' }}>
+            <p style={{ fontWeight: 700, fontSize: 17, color: '#211F19' }}>
               {savedFirstName ? `Welcome back, ${savedFirstName}.` : 'Sign in to TYFMS'}
             </p>
           </div>
@@ -242,7 +242,7 @@ export default function AuthModal({ onClose }) {
           </button>
         </form>
 
-        <p style={{ fontSize: 12, color: '#5f5e5a', textAlign: 'center', marginTop: 12 }}>
+        <p style={{ fontSize: 12, color: '#5C5646', textAlign: 'center', marginTop: 12 }}>
           {mode === 'signin' ? "Don't have an account? " : 'Already have an account? '}
           <button
             onClick={switchMode}

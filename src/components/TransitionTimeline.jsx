@@ -79,7 +79,7 @@ export default function TransitionTimeline() {
   return (
     <div style={{ marginBottom: 28 }}>
       <p className="cat-label" style={{ marginBottom: 14 }}>Transition timeline</p>
-      <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 18, lineHeight: 1.65 }}>
+      <p style={{ fontSize: 13, color: '#5C5646', marginBottom: 18, lineHeight: 1.65 }}>
         Most veterans find their footing within 12–18 months. Click any phase to see what to focus on.
       </p>
 
@@ -102,11 +102,11 @@ export default function TransitionTimeline() {
               {p.num}
             </button>
             {i < PHASES.length - 1 && (
-              <div style={{ height: 3, width: 32, background: '#d3d1c7', flexShrink: 0 }} />
+              <div style={{ height: 3, width: 32, background: '#C2B588', flexShrink: 0 }} />
             )}
           </div>
         ))}
-        <p style={{ fontSize: 11, color: '#b4b2a9', marginLeft: 12, whiteSpace: 'nowrap', flexShrink: 0 }}>
+        <p style={{ fontSize: 11, color: '#8F8768', marginLeft: 12, whiteSpace: 'nowrap', flexShrink: 0 }}>
           18 months
         </p>
       </div>
@@ -119,13 +119,13 @@ export default function TransitionTimeline() {
             onClick={() => setOpen(open === p.num ? null : p.num)}
             style={{
               flex: '1 0 auto', padding: '6px 8px', borderRadius: 8, border: '1px solid',
-              borderColor: open === p.num ? p.color : '#d3d1c7',
+              borderColor: open === p.num ? p.color : '#C2B588',
               background: open === p.num ? p.color + '12' : '#fff',
               cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left',
             }}
           >
             <p style={{ fontSize: 10, fontWeight: 600, color: p.color, marginBottom: 1 }}>{p.range}</p>
-            <p style={{ fontSize: 11, color: '#1a1a18', lineHeight: 1.3 }}>{p.title}</p>
+            <p style={{ fontSize: 11, color: '#211F19', lineHeight: 1.3 }}>{p.title}</p>
           </button>
         ))}
       </div>
@@ -145,10 +145,10 @@ export default function TransitionTimeline() {
               </span>
               <div>
                 <p style={{ fontSize: 11, color: p.color, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em' }}>{p.range}</p>
-                <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18' }}>{p.title}</p>
+                <p style={{ fontSize: 14, fontWeight: 600, color: '#211F19' }}>{p.title}</p>
               </div>
             </div>
-            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.65, marginBottom: 14 }}>{p.desc}</p>
+            <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.65, marginBottom: 14 }}>{p.desc}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               {p.items.map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
@@ -159,7 +159,7 @@ export default function TransitionTimeline() {
                   }}>
                     {i + 1}
                   </span>
-                  <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.5 }}>{item}</p>
+                  <p style={{ fontSize: 13, color: '#211F19', lineHeight: 1.5 }}>{item}</p>
                 </div>
               ))}
             </div>

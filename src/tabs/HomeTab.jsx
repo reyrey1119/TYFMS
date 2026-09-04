@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import FunFact from '../components/FunFact'
+import { Icon } from '../components/icons'
 
 const TRANSITION_STATS = [
   {
@@ -107,21 +108,21 @@ const STATS = [
 
 const HELP_CARDS = [
   {
-    icon: '⚡',
+    icon: 'bolt',
     title: 'Translate your MOS',
     body: 'Type in your MOS or AFSC and get civilian job titles, transferable skills, and certifications in 60 seconds.',
     buttonText: 'Start translating →',
     tab: 'translator',
   },
   {
-    icon: '📄',
+    icon: 'document',
     title: 'Build your resume',
     body: 'Turn your military experience into a targeted civilian resume for any company or industry.',
     buttonText: 'Build my resume →',
     tab: 'resume',
   },
   {
-    icon: '🧭',
+    icon: 'compass',
     title: 'Find your path',
     body: 'Not sure what career fits you? Answer 12 questions and get a personalized civilian career roadmap based on your strengths, interests, and military background.',
     buttonText: 'Find my path →',
@@ -168,37 +169,26 @@ export default function HomeTab({ onNavigate }) {
 
   return (
     <div>
-      {/* Hero — navy overlay, full title */}
-      <div className="hero" style={{
-        backgroundImage: 'url(/hero.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'top',
-        minHeight: 500,
-        marginBottom: 32,
-      }}>
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(135deg, rgba(15,27,77,0.88) 0%, rgba(27,58,107,0.80) 100%)',
-        }} />
-        <div style={{ position: 'relative' }}>
-          <h1 className="hero-title">Thank You For My<br />Service (TYFMS)</h1>
-          <p className="hero-tagline">No more empty thanks — just real tools for the next mission.</p>
-          <p style={{ position: 'relative', fontSize: 13, color: 'rgba(255,255,255,0.75)', marginTop: 12, lineHeight: 1.7, maxWidth: 480 }}>
-            Every tool here maps to one of four factors that determine how well veterans transition:
-            your Situation, your Self, your Support, and your Strategies.
-          </p>
-          <button
-            onClick={() => setShowApproach(true)}
-            style={{
-              marginTop: 14, background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.35)',
-              borderRadius: 8, color: '#fff', fontSize: 12, fontWeight: 600, cursor: 'pointer',
-              padding: '7px 14px', fontFamily: 'inherit', letterSpacing: '.02em',
-              backdropFilter: 'blur(4px)',
-            }}
-          >
-            Our approach →
-          </button>
-        </div>
+      {/* Hero — official-record document card */}
+      <div className="hero">
+        <p className="mono-tag" style={{ fontSize: 11, color: '#8F8768', letterSpacing: '.06em', marginBottom: 14 }}>
+          FORM TYFMS-1 · TRANSITION RECORD
+        </p>
+        <h1 className="hero-title">Thank You For My Service</h1>
+        <p className="hero-tagline">No more empty thanks — just real tools for the next mission.</p>
+        <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.7, maxWidth: 480, marginBottom: 16 }}>
+          Every tool here maps to one of four factors that determine how well veterans transition:
+          your Situation, your Self, your Support, and your Strategies.
+        </p>
+        <button
+          onClick={() => setShowApproach(true)}
+          style={{
+            background: '#211F19', border: 'none', borderRadius: 3, color: '#E7E0C6', fontSize: 12.5,
+            fontWeight: 600, cursor: 'pointer', padding: '9px 16px', fontFamily: 'inherit', letterSpacing: '.02em',
+          }}
+        >
+          Our approach →
+        </button>
       </div>
 
       {/* Our Approach modal */}
@@ -216,16 +206,16 @@ export default function HomeTab({ onNavigate }) {
                 <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#C07A28', marginBottom: 4 }}>
                   Research-backed framework
                 </p>
-                <p style={{ fontSize: 20, fontWeight: 800, color: '#1a1a18', lineHeight: 1.2 }}>
+                <p style={{ fontSize: 20, fontWeight: 800, color: '#211F19', lineHeight: 1.2 }}>
                   The 4S Framework
                 </p>
               </div>
               <button
                 onClick={() => setShowApproach(false)}
-                style={{ background: 'none', border: 'none', fontSize: 24, cursor: 'pointer', color: '#888', lineHeight: 1, padding: 0, flexShrink: 0 }}
+                style={{ background: 'none', border: 'none', fontSize: 24, cursor: 'pointer', color: '#726B4E', lineHeight: 1, padding: 0, flexShrink: 0 }}
               >×</button>
             </div>
-            <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.75, marginBottom: 20 }}>
+            <p style={{ fontSize: 14, color: '#5C5646', lineHeight: 1.75, marginBottom: 20 }}>
               TYFMS is built around Schlossberg's Transition Theory — one of the most robust
               frameworks in transition research. It identifies four factors that determine whether
               a transition goes well or falls apart. Every tool in this app addresses at least one.
@@ -235,7 +225,7 @@ export default function HomeTab({ onNavigate }) {
                 key={s.label}
                 style={{
                   display: 'flex', gap: 14, marginBottom: 14, padding: '14px 16px',
-                  background: '#f9f8f5', borderRadius: 12, borderLeft: `4px solid ${s.color}`,
+                  background: '#EFE7CD', borderRadius: 12, borderLeft: `4px solid ${s.color}`,
                   cursor: 'pointer',
                 }}
                 onClick={() => { setShowApproach(false); onNavigate(s.tab) }}
@@ -248,12 +238,12 @@ export default function HomeTab({ onNavigate }) {
                   {s.letter}
                 </div>
                 <div>
-                  <p style={{ fontSize: 14, fontWeight: 700, color: '#1a1a18', marginBottom: 4 }}>{s.label}</p>
-                  <p style={{ fontSize: 12, color: '#5f5e5a', lineHeight: 1.6 }}>{s.desc}</p>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: '#211F19', marginBottom: 4 }}>{s.label}</p>
+                  <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.6 }}>{s.desc}</p>
                 </div>
               </div>
             ))}
-            <p style={{ fontSize: 11, color: '#b4b2a9', marginTop: 8, lineHeight: 1.6 }}>
+            <p style={{ fontSize: 11, color: '#8F8768', marginTop: 8, lineHeight: 1.6 }}>
               Source: Schlossberg, N. K. (1981). A model for analyzing human adaptation to transition.
               The Counseling Psychologist, 9(2), 2–18.
             </p>
@@ -264,10 +254,10 @@ export default function HomeTab({ onNavigate }) {
 
       {/* Daily tip */}
       <div style={{
-        background: '#fff', border: '1px solid #E5E3DC', borderRadius: 12,
+        background: '#fff', border: '1px solid #D6CBA3', borderRadius: 4,
         padding: '16px 20px', marginBottom: 48, display: 'flex', gap: 14, alignItems: 'flex-start',
       }}>
-        <span style={{ fontSize: 22, flexShrink: 0, marginTop: 1 }}>💡</span>
+        <span style={{ flexShrink: 0, marginTop: 1, color: '#C07A28' }}><Icon name="lightbulb" size={22} /></span>
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
             <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.08em' }}>
@@ -275,7 +265,7 @@ export default function HomeTab({ onNavigate }) {
             </p>
             <span className="bg" style={{ fontSize: 10, padding: '2px 7px' }}>{todaysTip.label}</span>
           </div>
-          <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.7 }}>{todaysTip.tip}</p>
+          <p style={{ fontSize: 13, color: '#211F19', lineHeight: 1.7 }}>{todaysTip.tip}</p>
         </div>
       </div>
 
@@ -292,9 +282,9 @@ export default function HomeTab({ onNavigate }) {
             tabIndex={0}
             onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onNavigate(c.tab) }}
           >
-            <p style={{ fontSize: 26, marginBottom: 12 }}>{c.icon}</p>
-            <p style={{ fontWeight: 700, fontSize: 15, color: '#1a1a18', marginBottom: 10 }}>{c.title}</p>
-            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, flex: 1 }}>{c.body}</p>
+            <span style={{ color: '#C07A28', marginBottom: 12, display: 'block' }}><Icon name={c.icon} size={26} /></span>
+            <p style={{ fontWeight: 700, fontSize: 15, color: '#211F19', marginBottom: 10 }}>{c.title}</p>
+            <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.7, flex: 1 }}>{c.body}</p>
             <p style={{ marginTop: 16, fontSize: 13, fontWeight: 600, color: '#C07A28' }}>{c.buttonText}</p>
           </div>
         ))}
@@ -335,7 +325,7 @@ export default function HomeTab({ onNavigate }) {
       {/* The Transition Gap Is Real */}
       <div style={{ marginBottom: 52 }}>
         <p className="cat-label" style={{ marginBottom: 6 }}>The Transition Gap Is Real</p>
-        <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 20, maxWidth: 640 }}>
+        <p style={{ fontSize: 14, color: '#5C5646', lineHeight: 1.7, marginBottom: 20, maxWidth: 640 }}>
           The data is clear: military transition is one of the most disruptive life events a person can face.
           Understanding the scope of the challenge is the first step toward navigating it on your own terms.
         </p>
@@ -345,8 +335,8 @@ export default function HomeTab({ onNavigate }) {
               <p style={{ fontSize: 28, fontWeight: 800, color: '#1B3A6B', marginBottom: 8, letterSpacing: '-.02em', lineHeight: 1.1 }}>
                 {s.stat}
               </p>
-              <p style={{ fontSize: 13, color: '#1a1a18', lineHeight: 1.6, marginBottom: 8 }}>{s.desc}</p>
-              <p style={{ fontSize: 10, color: '#b4b2a9' }}>Source: {s.source}</p>
+              <p style={{ fontSize: 13, color: '#211F19', lineHeight: 1.6, marginBottom: 8 }}>{s.desc}</p>
+              <p style={{ fontSize: 10, color: '#8F8768' }}>Source: {s.source}</p>
             </div>
           ))}
         </div>
@@ -355,7 +345,7 @@ export default function HomeTab({ onNavigate }) {
       {/* FAQ */}
       <div style={{ marginBottom: 52 }}>
         <p className="cat-label" style={{ marginBottom: 6 }}>Frequently Asked Questions</p>
-        <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 24, maxWidth: 640 }}>
+        <p style={{ fontSize: 14, color: '#5C5646', lineHeight: 1.7, marginBottom: 24, maxWidth: 640 }}>
           Common questions from veterans, service members, and military families about TYFMS and how to get the most out of it.
         </p>
         <div>
@@ -365,7 +355,7 @@ export default function HomeTab({ onNavigate }) {
               <div
                 key={i}
                 style={{
-                  border: '1px solid #E5E3DC',
+                  border: '1px solid #D6CBA3',
                   borderRadius: 10,
                   marginBottom: 8,
                   overflow: 'hidden',
@@ -382,13 +372,13 @@ export default function HomeTab({ onNavigate }) {
                     fontFamily: 'inherit',
                   }}
                 >
-                  <span style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', lineHeight: 1.4 }}>
+                  <span style={{ fontSize: 14, fontWeight: 600, color: '#211F19', lineHeight: 1.4 }}>
                     {item.q}
                   </span>
                   <span style={{
                     flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
-                    background: isOpen ? '#1B3A6B' : '#F0EDE6',
-                    color: isOpen ? '#fff' : '#5f5e5a',
+                    background: isOpen ? '#1B3A6B' : '#ECE3C7',
+                    color: isOpen ? '#fff' : '#5C5646',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: 16, fontWeight: 700, lineHeight: 1,
                     transition: 'background .15s, color .15s',
@@ -397,8 +387,8 @@ export default function HomeTab({ onNavigate }) {
                   </span>
                 </button>
                 {isOpen && (
-                  <div style={{ padding: '0 20px 18px', borderTop: '1px solid #F0EDE6' }}>
-                    <p style={{ fontSize: 13, color: '#3a3a38', lineHeight: 1.8, marginTop: 14 }}>
+                  <div style={{ padding: '0 20px 18px', borderTop: '1px solid #ECE3C7' }}>
+                    <p style={{ fontSize: 13, color: '#2A2820', lineHeight: 1.8, marginTop: 14 }}>
                       {item.a}
                     </p>
                   </div>
@@ -414,11 +404,11 @@ export default function HomeTab({ onNavigate }) {
       <div className="grid-3" style={{ marginBottom: 52 }}>
         {STATS.map(s => (
           <div key={s.stat} className="card">
-            <p style={{ fontSize: 22, fontWeight: 800, color: '#1a1a18', marginBottom: 6, letterSpacing: '-.02em', lineHeight: 1.1 }}>
+            <p style={{ fontSize: 22, fontWeight: 800, color: '#211F19', marginBottom: 6, letterSpacing: '-.02em', lineHeight: 1.1 }}>
               {s.stat}
             </p>
-            <p style={{ fontSize: 12, color: '#1a1a18', lineHeight: 1.55, marginBottom: 8 }}>{s.label}</p>
-            <p style={{ fontSize: 10, color: '#b4b2a9' }}>{s.source}</p>
+            <p style={{ fontSize: 12, color: '#211F19', lineHeight: 1.55, marginBottom: 8 }}>{s.label}</p>
+            <p style={{ fontSize: 10, color: '#8F8768' }}>{s.source}</p>
           </div>
         ))}
       </div>

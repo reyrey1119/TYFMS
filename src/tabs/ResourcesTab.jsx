@@ -113,13 +113,13 @@ export default function ResourcesTab({ searchResult }) {
 
   return (
     <div>
-      <div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+      <div style={{ width: '100%', maxHeight: 320, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#EFE7CD', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
         <img src="/resources.png" alt="Resources" style={{ width: '100%', maxHeight: 320, objectFit: 'contain', objectPosition: 'top', display: 'block' }} />
       </div>
 
-      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Your Strategies Start Here</p>
+      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#8F8768', marginBottom: 4 }}>Your Strategies Start Here</p>
       <p className="sec-title">Resources</p>
-      <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 8 }}>
+      <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.7, marginBottom: 8 }}>
         Knowing what to do is not enough — you need the right tools, organizations, and contacts
         to execute your plan. These are the resources that actually move the needle.
       </p>
@@ -170,10 +170,10 @@ export default function ResourcesTab({ searchResult }) {
       {/* Key contact numbers */}
       <div style={{
         display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 28,
-        padding: '14px 18px', background: '#fff', border: '1px solid #E5E3DC',
+        padding: '14px 18px', background: '#fff', border: '1px solid #D6CBA3',
         borderRadius: 12,
       }}>
-        <p style={{ fontSize: 11, fontWeight: 600, color: '#b4b2a9', textTransform: 'uppercase', letterSpacing: '.08em', width: '100%', marginBottom: 4 }}>
+        <p style={{ fontSize: 11, fontWeight: 600, color: '#8F8768', textTransform: 'uppercase', letterSpacing: '.08em', width: '100%', marginBottom: 4 }}>
           Key contact numbers
         </p>
         {CONTACTS.map(c => (
@@ -182,7 +182,7 @@ export default function ResourcesTab({ searchResult }) {
             background: c.crisis ? '#fff5f5' : '#f5f7fc',
             borderRadius: 8, border: `1px solid ${c.crisis ? '#f5c0c0' : '#d3ddf0'}`,
           }}>
-            <p style={{ fontSize: 10, color: '#b4b2a9', marginBottom: 3, fontWeight: 500 }}>{c.label}</p>
+            <p style={{ fontSize: 10, color: '#8F8768', marginBottom: 3, fontWeight: 500 }}>{c.label}</p>
             <a href={`tel:${c.tel}`} style={{ fontSize: 16, fontWeight: 800, color: c.color, letterSpacing: '-.01em', textDecoration: 'none', display: 'block' }}>{c.number}</a>
           </div>
         ))}
@@ -195,8 +195,8 @@ export default function ResourcesTab({ searchResult }) {
           {id === 'state' && (
             <div style={{
               marginBottom: 10, padding: '10px 14px', background: '#fff',
-              border: '1px solid #E5E3DC', borderRadius: 8,
-              fontSize: 12, color: '#5f5e5a', lineHeight: 1.6,
+              border: '1px solid #D6CBA3', borderRadius: 8,
+              fontSize: 12, color: '#5C5646', lineHeight: 1.6,
             }}>
               Every U.S. state has a Department of Veterans Affairs or Veterans Services office with state-specific benefits. Search "[your state] department of veterans services" to find your state's office.
             </div>
@@ -226,7 +226,7 @@ export default function ResourcesTab({ searchResult }) {
                       <p style={{ fontSize: 14, fontWeight: 500, flex: 1, marginRight: 8 }}>{r.title}</p>
                       <span className={r.cls} style={{ flexShrink: 0 }}>{r.badge}</span>
                     </div>
-                    <p style={{ fontSize: 12, color: '#5f5e5a', marginBottom: 8, lineHeight: 1.6 }}>{r.desc}</p>
+                    <p style={{ fontSize: 12, color: '#5C5646', marginBottom: 8, lineHeight: 1.6 }}>{r.desc}</p>
                     <a href={r.url} target="_blank" rel="noreferrer" style={{ fontSize: 12 }}>{r.urlText}</a>
                   </div>
                 )
