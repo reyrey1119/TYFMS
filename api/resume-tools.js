@@ -2,6 +2,7 @@
 // action: "fetch-job" | "score-resume" | "mil-reference" | "interview-prep" | "answer-feedback" | "cover-letter" | "linkedin-optimizer"
 
 import { createClient } from '@supabase/supabase-js'
+import { rejectIfRateLimited } from './_lib/rateLimit.js'
 
 function getSupabase() {
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
@@ -651,6 +652,7 @@ Return ONLY a valid JSON object — no markdown, no preamble:
 export default async function handler(req, res) {
   try {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
+    if (await rejectIfRateLimited(res, 'resume-tools', req, { windowSeconds: 600, max: 40 })) return
 
     const apiKey = process.env.ANTHROPIC_API_KEY
     const { action, ...params } = req.body || {}

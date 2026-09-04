@@ -12,6 +12,8 @@
  * Env vars: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, ANTHROPIC_API_KEY
  */
 
+import { rejectIfRateLimited } from './_lib/rateLimit.js'
+
 function getWeekStart() {
   const now = new Date()
   const day = now.getUTCDay()
@@ -190,6 +192,7 @@ export default async function handler(req, res) {
         if (!mos || !Array.isArray(trends) || trends.length === 0) {
           return res.status(400).json({ error: 'MOS and trends required.' })
         }
+        if (await rejectIfRateLimited(res, 'trends-match', req, { windowSeconds: 600, max: 20 })) return
 
         const prompt = `A veteran with the following background is viewing civilian career trends:
 - Branch: ${branch || 'U.S. Military'}

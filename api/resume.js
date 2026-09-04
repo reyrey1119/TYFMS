@@ -1,7 +1,10 @@
 // POST /api/resume  — full resume builder (used by ResumeTab)
 
+import { rejectIfRateLimited } from './_lib/rateLimit.js'
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
+  if (await rejectIfRateLimited(res, 'resume', req, { windowSeconds: 600, max: 12 })) return
 
   const apiKey = process.env.ANTHROPIC_API_KEY
   if (!apiKey) return res.status(500).json({ error: 'API key not configured on server.' })

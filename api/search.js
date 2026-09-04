@@ -7,6 +7,8 @@
 // va-dvs,
 // crisis-line, make-connection, give-hour
 
+import { rejectIfRateLimited } from './_lib/rateLimit.js'
+
 const KNOWLEDGE_BASE = `
 TYFMS TABS:
 - home: Daily tips, transition timeline, stats, links to all tools
@@ -188,6 +190,8 @@ export default async function handler(req, res) {
       resourceMatch: 'crisis-line, make-connection, give-hour',
     })
   }
+
+  if (await rejectIfRateLimited(res, 'search', req, { windowSeconds: 600, max: 20 })) return
 
   // Regulation lookup — runs before AI to inject authoritative CFR text into the prompt
   const regChunks = await searchRegs(query)

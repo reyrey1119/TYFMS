@@ -528,6 +528,8 @@ export default function ResumeTab({ prefill }) {
   const [resume, setResume] = useState('')
   const [error, setError] = useState('')
   const [copied, setCopied] = useState(false)
+  const [docxBuilding, setDocxBuilding] = useState(false)
+  const [docxError, setDocxError] = useState('')
   const [saving, setSaving] = useState(false)
   const [draftMsg, setDraftMsg] = useState('')
   const [jobData, setJobData] = useState(null)
@@ -684,6 +686,70 @@ export default function ResumeTab({ prefill }) {
   }
 
   function downloadPDF() { window.print() }
+
+  async function downloadDOCX() {
+    if (!resume) return
+    setDocxError('')
+    setDocxBuilding(true)
+    try {
+      const { Document, Packer, Paragraph, TextRun, AlignmentType, BorderStyle } = await import('docx')
+      const parsed = parseSections(resume)
+      const header = parsed?.header || []
+      const sections = parsed?.sections || []
+      const name = header[0] || form.name || 'Your Name'
+      const contactLines = header.slice(1).filter(Boolean)
+
+      const children = [
+        new Paragraph({
+          alignment: AlignmentType.CENTER,
+          spacing: { after: 80 },
+          children: [new TextRun({ text: name, bold: true, size: 32 })],
+        }),
+        ...contactLines.map(line => new Paragraph({
+          alignment: AlignmentType.CENTER,
+          spacing: { after: 40 },
+          children: [new TextRun({ text: line, size: 18, color: '555555' })],
+        })),
+        new Paragraph({
+          border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: '1B3A6B' } },
+          spacing: { after: 200 },
+        }),
+      ]
+
+      sections.forEach(sec => {
+        children.push(new Paragraph({
+          spacing: { before: 200, after: 80 },
+          border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: '999999' } },
+          children: [new TextRun({ text: sec.title.toUpperCase(), bold: true, size: 20, color: '1B3A6B' })],
+        }))
+        sec.content.split('\n').forEach(line => {
+          const trimmed = line.trim()
+          if (!trimmed) return
+          const isBullet = trimmed.startsWith('•')
+          children.push(new Paragraph({
+            ...(isBullet ? { bullet: { level: 0 } } : {}),
+            spacing: { after: 60 },
+            children: [new TextRun({ text: isBullet ? trimmed.replace(/^•\s*/, '') : trimmed, size: 20 })],
+          }))
+        })
+      })
+
+      const doc = new Document({ sections: [{ properties: {}, children }] })
+      const blob = await Packer.toBlob(doc)
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `${(name || 'resume').trim().replace(/[^a-z0-9]+/gi, '_') || 'resume'}.docx`
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      URL.revokeObjectURL(url)
+    } catch {
+      setDocxError('Could not build the Word document. Try again.')
+    } finally {
+      setDocxBuilding(false)
+    }
+  }
 
   function copyText() {
     navigator.clipboard.writeText(resume).then(() => { setCopied(true); setTimeout(() => setCopied(false), 2000) })
@@ -1189,6 +1255,9 @@ export default function ResumeTab({ prefill }) {
               <button onClick={downloadPDF} style={{ flex: '1 1 160px', padding: '13px 20px', background: '#1B3A6B', border: 'none', borderRadius: 10, color: '#fff', fontSize: 14, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
                 ⬇ Download PDF
               </button>
+              <button onClick={downloadDOCX} disabled={docxBuilding} style={{ flex: '1 1 160px', padding: '13px 20px', background: docxBuilding ? '#d3d1c7' : '#0A7868', border: 'none', borderRadius: 10, color: '#fff', fontSize: 14, fontWeight: 700, cursor: docxBuilding ? 'not-allowed' : 'pointer', fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+                {docxBuilding ? 'Building…' : '⬇ Download Word (.docx)'}
+              </button>
               <button onClick={copyText} style={{ flex: '0 1 130px', padding: '13px 18px', background: copied ? '#0A7868' : '#fff', border: '1px solid #d3d1c7', borderRadius: 10, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', color: copied ? '#fff' : '#5f5e5a', transition: 'all .15s' }}>
                 {copied ? '✓ Copied' : 'Copy text'}
               </button>
@@ -1196,6 +1265,7 @@ export default function ResumeTab({ prefill }) {
                 Regenerate
               </button>
             </div>
+            {docxError && <p style={{ color: '#a32d2d', fontSize: 12, marginBottom: 10 }}>{docxError}</p>}
             <div style={{ padding: '10px 14px', background: '#faeeda', borderRadius: 8 }}>
               <p style={{ fontSize: 12, color: '#633806', lineHeight: 1.6 }}>Replace all bracketed placeholders [ ] with your actual information before using.</p>
             </div>
