@@ -2,7 +2,14 @@ node_modules
 dist
 .env
 .env.local
+.env*.local
+.env.local.backup
 .DS_Store
 ._*
 .vercel
 package-lock.json
+
+# local dev / audit scratch (not part of the app)
+vite.config.dev.mjs
+AUDIT-FINDINGS.md
+public/*.pdf

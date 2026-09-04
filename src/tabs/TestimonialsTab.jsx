@@ -7,7 +7,7 @@ const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'S
 const FEATURES = [
   'Skills translator', 'Resume builder', 'Find your path',
   'Peer networking', 'Career trends', 'Identity guide',
-  'Resources directory', 'Vet news', 'Progress tracker',
+  'Resources directory', 'Progress tracker',
 ]
 const YEARS_OUT = ['Currently serving', 'Less than 1 year', '1–2 years', '3–5 years', '6–10 years', '10+ years']
 const AVATAR_COLORS = ['#1B3A6B', '#0A7868', '#C07A28', '#7B3F91', '#a32d2d', '#2d6a8a']

@@ -16,7 +16,6 @@ import AboutTab from './tabs/AboutTab'
 import PathTab from './tabs/PathTab'
 import CareerTrendsTab from './tabs/CareerTrendsTab'
 import PrivacyTab from './tabs/PrivacyTab'
-import VetNewsTab from './tabs/VetNewsTab'
 import TestimonialsTab from './tabs/TestimonialsTab'
 import FeedbackTab from './tabs/FeedbackTab'
 import AdminTab from './tabs/AdminTab'
@@ -60,7 +59,6 @@ const SECTIONS = [
     tabs: [
       { id: 'network',   icon: '🤝', label: 'Networking' },
       { id: 'resources', icon: '📚', label: 'Resources' },
-      { id: 'vetnews',   icon: '📰', label: 'Vet news' },
     ],
   },
   {
@@ -300,7 +298,6 @@ export default function App() {
         {activeTab === 'identity'     && <IdentityTab />}
         {activeTab === 'network'      && <NetworkTab />}
         {activeTab === 'trends'       && <CareerTrendsTab />}
-        {activeTab === 'vetnews'      && <VetNewsTab />}
         {activeTab === 'tracker'      && <TrackerTab />}
         {activeTab === 'applications' && <ApplicationTrackerTab />}
         {activeTab === 'vault'        && <DocumentVaultTab />}
