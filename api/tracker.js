@@ -1,8 +1,11 @@
 // POST /api/tracker  { action: 'milestone', milestone, phase }
 // POST /api/tracker  { action: 'goals', goals }
 
+import { rejectIfRateLimited } from './_lib/rateLimit.js'
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
+  if (await rejectIfRateLimited(res, 'tracker', req, { windowSeconds: 600, max: 30 })) return
 
   const apiKey = process.env.ANTHROPIC_API_KEY
   if (!apiKey) return res.status(500).json({ error: 'API key not configured.' })
