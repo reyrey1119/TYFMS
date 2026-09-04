@@ -574,6 +574,11 @@ export default function ResumeTab({ prefill }) {
     setStep(2)
   }, [prefill])
 
+  // Each wizard step should start at the top, not wherever the last step left the scroll
+  useEffect(() => {
+    try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }) } catch {}
+  }, [step])
+
   const [profileApplied, setProfileApplied] = useState(false)
   useEffect(() => {
     if (!profile || prefill || profileApplied) return

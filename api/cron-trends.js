@@ -11,7 +11,7 @@
  * Required env var: CRON_SECRET — set in Vercel dashboard (any random string).
  * Vercel sends: Authorization: Bearer <CRON_SECRET>
  *
- * Also requires: SUPABASE_URL, SUPABASE_SERVICE_KEY, ANTHROPIC_API_KEY
+ * Also requires: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, ANTHROPIC_API_KEY
  */
 
 import { createClient } from '@supabase/supabase-js'

@@ -9,7 +9,7 @@
  *   content jsonb NOT NULL,
  *   generated_at timestamptz NOT NULL DEFAULT now()
  * );
- * Env vars: SUPABASE_URL, SUPABASE_SERVICE_KEY, ANTHROPIC_API_KEY
+ * Env vars: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, ANTHROPIC_API_KEY
  */
 
 function getWeekStart() {

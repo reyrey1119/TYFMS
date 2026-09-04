@@ -114,10 +114,11 @@ export default function App() {
 
   const activeSection = getSectionForTab(activeTab)
 
-  // Persist active tab + analytics
+  // Persist active tab + analytics, and reset scroll so each tab starts at the top
   useEffect(() => {
     try { localStorage.setItem('vtg_active_tab', activeTab) } catch {}
     trackEvent('page_view', { tab: activeTab })
+    try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }) } catch {}
   }, [activeTab])
 
   function navigate(tabId) {

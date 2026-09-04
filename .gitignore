@@ -7,7 +7,6 @@ dist
 .DS_Store
 ._*
 .vercel
-package-lock.json
 
 # local dev / audit scratch (not part of the app)
 vite.config.dev.mjs

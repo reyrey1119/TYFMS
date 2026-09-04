@@ -142,8 +142,8 @@ function buildFallback(query) {
 async function searchRegs(query) {
   try {
     const { createClient } = await import('@supabase/supabase-js')
-    const url = process.env.VITE_SUPABASE_URL
-    const key = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
+    const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
     if (!url || !key) return []
     const sb = createClient(url, key, { auth: { persistSession: false } })
 
