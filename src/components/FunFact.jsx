@@ -32,7 +32,7 @@ export default function FunFact() {
     <div className="fun-fact" style={{ marginTop: 36 }}>
       <p className="fun-label">Did you know?</p>
       <p style={{
-        fontSize: 13, color: '#3a3a38', lineHeight: 1.7,
+        fontSize: 13, color: '#2A2820', lineHeight: 1.7,
         opacity: visible ? 1 : 0, transition: 'opacity 0.35s ease',
       }}>
         {FACTS[idx]}

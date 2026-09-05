@@ -75,9 +75,9 @@ function SummaryCard({ summary }) {
         Extraction summary
       </p>
       {(veteranName || rank || unit) && (
-        <p style={{ fontSize: 12, color: '#1a1a18', marginBottom: 6, fontWeight: 500 }}>
+        <p style={{ fontSize: 12, color: '#211F19', marginBottom: 6, fontWeight: 500 }}>
           {[veteranName, rank, unit].filter(Boolean).join(' · ')}
-          {period && <span style={{ color: '#5f5e5a', fontWeight: 400 }}> · {period}</span>}
+          {period && <span style={{ color: '#5C5646', fontWeight: 400 }}> · {period}</span>}
         </p>
       )}
       {ratingOverall && (
@@ -90,18 +90,18 @@ function SummaryCard({ summary }) {
       )}
       {awards?.length > 0 && (
         <div style={{ marginBottom: 8 }}>
-          <p style={{ fontSize: 11, color: '#5f5e5a', marginBottom: 4 }}>
+          <p style={{ fontSize: 11, color: '#5C5646', marginBottom: 4 }}>
             Awards found: {awards.join(', ')}
           </p>
         </div>
       )}
       {keyBullets?.length > 0 && (
         <div>
-          <p style={{ fontSize: 11, fontWeight: 600, color: '#1a1a18', marginBottom: 4 }}>Key accomplishments extracted:</p>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#211F19', marginBottom: 4 }}>Key accomplishments extracted:</p>
           {keyBullets.map((b, i) => (
             <div key={i} style={{ display: 'flex', gap: 6, marginBottom: 4, alignItems: 'flex-start' }}>
               <span style={{ color: '#0A7868', flexShrink: 0, marginTop: 1 }}>•</span>
-              <p style={{ fontSize: 12, color: '#1a1a18', lineHeight: 1.55 }}>{b}</p>
+              <p style={{ fontSize: 12, color: '#211F19', lineHeight: 1.55 }}>{b}</p>
             </div>
           ))}
         </div>
@@ -120,7 +120,7 @@ function JstSummaryCard({ summary }) {
         JST processed successfully
       </p>
       {(veteranName || rank) && (
-        <p style={{ fontSize: 12, color: '#1a1a18', marginBottom: 8, fontWeight: 500 }}>
+        <p style={{ fontSize: 12, color: '#211F19', marginBottom: 8, fontWeight: 500 }}>
           {[veteranName, rank].filter(Boolean).join(' · ')}
         </p>
       )}
@@ -128,25 +128,25 @@ function JstSummaryCard({ summary }) {
         {coursesFound != null && (
           <div style={{ background: '#fff', border: '1px solid #B8DDB8', borderRadius: 8, padding: '6px 12px', textAlign: 'center' }}>
             <p style={{ fontSize: 18, fontWeight: 800, color: '#1B3A6B', lineHeight: 1 }}>{coursesFound}</p>
-            <p style={{ fontSize: 10, color: '#5f5e5a' }}>Courses found</p>
+            <p style={{ fontSize: 10, color: '#5C5646' }}>Courses found</p>
           </div>
         )}
         {occupationsFound != null && (
           <div style={{ background: '#fff', border: '1px solid #B8DDB8', borderRadius: 8, padding: '6px 12px', textAlign: 'center' }}>
             <p style={{ fontSize: 18, fontWeight: 800, color: '#1B3A6B', lineHeight: 1 }}>{occupationsFound}</p>
-            <p style={{ fontSize: 10, color: '#5f5e5a' }}>Occupations found</p>
+            <p style={{ fontSize: 10, color: '#5C5646' }}>Occupations found</p>
           </div>
         )}
         {totalAceHours != null && (
           <div style={{ background: '#fff', border: '1px solid #B8DDB8', borderRadius: 8, padding: '6px 12px', textAlign: 'center' }}>
             <p style={{ fontSize: 18, fontWeight: 800, color: '#C07A28', lineHeight: 1 }}>{totalAceHours}</p>
-            <p style={{ fontSize: 10, color: '#5f5e5a' }}>ACE credit hrs</p>
+            <p style={{ fontSize: 10, color: '#5C5646' }}>ACE credit hrs</p>
           </div>
         )}
       </div>
       {mosCodes?.length > 0 && (
-        <p style={{ fontSize: 11, color: '#5f5e5a' }}>
-          MOS codes identified: <strong style={{ color: '#1a1a18' }}>{mosCodes.join(', ')}</strong>
+        <p style={{ fontSize: 11, color: '#5C5646' }}>
+          MOS codes identified: <strong style={{ color: '#211F19' }}>{mosCodes.join(', ')}</strong>
         </p>
       )}
     </div>
@@ -309,14 +309,14 @@ export default function DocumentVaultTab() {
           Securely store your service documents so the AI can build accurate, record-based resumes and skill translations.
         </p>
         <div style={{
-          background: '#fff', border: '1px solid #E5E3DC', borderRadius: 16,
+          background: '#fff', border: '1px solid #D6CBA3', borderRadius: 16,
           padding: '40px 28px', textAlign: 'center', marginBottom: 20,
         }}>
           <p style={{ fontSize: 36, marginBottom: 16 }}>🔒</p>
-          <p style={{ fontSize: 16, fontWeight: 700, color: '#1a1a18', marginBottom: 10 }}>
+          <p style={{ fontSize: 16, fontWeight: 700, color: '#211F19', marginBottom: 10 }}>
             Sign in to access your Document Vault
           </p>
-          <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 24, maxWidth: 440, margin: '0 auto 24px' }}>
+          <p style={{ fontSize: 14, color: '#5C5646', lineHeight: 1.7, marginBottom: 24, maxWidth: 440, margin: '0 auto 24px' }}>
             Sign in to securely store your service documents. Your records are used to generate accurate, personalized resumes based on your actual military performance.
           </p>
           <button
@@ -333,10 +333,10 @@ export default function DocumentVaultTab() {
             { icon: '📊', title: 'Evaluation reports', desc: 'OERs and NCOERs contain your strongest leadership bullets — the AI uses them verbatim' },
             { icon: '📄', title: 'DD-214', desc: 'Your discharge record confirms your rank, MOS, and total time in service for accurate documentation' },
           ].map(c => (
-            <div key={c.title} style={{ flex: '1 1 180px', background: '#fff', border: '1px solid #E5E3DC', borderRadius: 12, padding: '14px 16px' }}>
+            <div key={c.title} style={{ flex: '1 1 180px', background: '#fff', border: '1px solid #D6CBA3', borderRadius: 12, padding: '14px 16px' }}>
               <p style={{ fontSize: 22, marginBottom: 8 }}>{c.icon}</p>
               <p style={{ fontSize: 13, fontWeight: 600, marginBottom: 4 }}>{c.title}</p>
-              <p style={{ fontSize: 12, color: '#5f5e5a', lineHeight: 1.55 }}>{c.desc}</p>
+              <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.55 }}>{c.desc}</p>
             </div>
           ))}
         </div>
@@ -357,7 +357,7 @@ export default function DocumentVaultTab() {
   // ── Authenticated view ─────────────────────────────────────────────────────
   return (
     <div>
-      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>
+      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#8F8768', marginBottom: 4 }}>
         Your Service Record
       </p>
       <p className="sec-title">Document Vault</p>
@@ -368,17 +368,17 @@ export default function DocumentVaultTab() {
       {/* Stats bar */}
       {totalDocs > 0 && (
         <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
-          <div style={{ flex: 1, background: '#fff', border: '1px solid #E5E3DC', borderRadius: 12, padding: '14px 16px', textAlign: 'center' }}>
+          <div style={{ flex: 1, background: '#fff', border: '1px solid #D6CBA3', borderRadius: 12, padding: '14px 16px', textAlign: 'center' }}>
             <p style={{ fontSize: 24, fontWeight: 800, color: '#1B3A6B', lineHeight: 1, marginBottom: 4 }}>{totalDocs}</p>
-            <p style={{ fontSize: 11, color: '#5f5e5a' }}>Documents stored</p>
+            <p style={{ fontSize: 11, color: '#5C5646' }}>Documents stored</p>
           </div>
-          <div style={{ flex: 1, background: '#fff', border: '1px solid #E5E3DC', borderRadius: 12, padding: '14px 16px', textAlign: 'center' }}>
+          <div style={{ flex: 1, background: '#fff', border: '1px solid #D6CBA3', borderRadius: 12, padding: '14px 16px', textAlign: 'center' }}>
             <p style={{ fontSize: 24, fontWeight: 800, color: '#0A7868', lineHeight: 1, marginBottom: 4 }}>{extractedCount}</p>
-            <p style={{ fontSize: 11, color: '#5f5e5a' }}>Ready for AI use</p>
+            <p style={{ fontSize: 11, color: '#5C5646' }}>Ready for AI use</p>
           </div>
           <div style={{ flex: 2, background: extractedCount === totalDocs && totalDocs > 0 ? '#F0F7EE' : '#FFFBF0', border: `1px solid ${extractedCount === totalDocs && totalDocs > 0 ? '#B8DDB8' : '#F5E0A0'}`, borderRadius: 12, padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 10 }}>
             <span style={{ fontSize: 20 }}>{extractedCount === totalDocs && totalDocs > 0 ? '✅' : '⏳'}</span>
-            <p style={{ fontSize: 12, color: '#1a1a18', lineHeight: 1.5 }}>
+            <p style={{ fontSize: 12, color: '#211F19', lineHeight: 1.5 }}>
               {extractedCount === totalDocs && totalDocs > 0
                 ? 'All documents processed. Resume Builder and Skills Translator will use your record.'
                 : `${totalDocs - extractedCount} document${totalDocs - extractedCount !== 1 ? 's' : ''} still processing.`}
@@ -389,7 +389,7 @@ export default function DocumentVaultTab() {
 
       {/* Category upload zones */}
       {loadingDocs ? (
-        <p style={{ fontSize: 13, color: '#b4b2a9', textAlign: 'center', padding: '32px 0' }}>Loading your vault…</p>
+        <p style={{ fontSize: 13, color: '#8F8768', textAlign: 'center', padding: '32px 0' }}>Loading your vault…</p>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           {VAULT_CATS.map(cat => {
@@ -401,17 +401,17 @@ export default function DocumentVaultTab() {
             const isJst = cat.id === 'jst'
 
             return (
-              <div key={cat.id} style={{ background: '#fff', border: `1px solid ${isJst ? '#C07A28' : '#E5E3DC'}`, borderRadius: 14, overflow: 'hidden' }}>
+              <div key={cat.id} style={{ background: '#fff', border: `1px solid ${isJst ? '#C07A28' : '#D6CBA3'}`, borderRadius: 14, overflow: 'hidden' }}>
                 {/* Category header */}
-                <div style={{ padding: '14px 18px', borderBottom: catDocs.length > 0 ? '1px solid #F0EDE6' : 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
+                <div style={{ padding: '14px 18px', borderBottom: catDocs.length > 0 ? '1px solid #ECE3C7' : 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
                       <span style={{ fontSize: 18 }}>{cat.icon}</span>
-                      <p style={{ fontSize: 14, fontWeight: 700, color: '#1a1a18' }}>{cat.label}</p>
-                      <span style={{ fontSize: 11, color: '#b4b2a9' }}>{cat.fullLabel}</span>
+                      <p style={{ fontSize: 14, fontWeight: 700, color: '#211F19' }}>{cat.label}</p>
+                      <span style={{ fontSize: 11, color: '#8F8768' }}>{cat.fullLabel}</span>
                       {isJst && <span style={{ fontSize: 10, fontWeight: 700, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.06em' }}>Recommended</span>}
                     </div>
-                    <p style={{ fontSize: 12, color: '#5f5e5a', marginLeft: 26, lineHeight: 1.6 }}>{cat.desc}</p>
+                    <p style={{ fontSize: 12, color: '#5C5646', marginLeft: 26, lineHeight: 1.6 }}>{cat.desc}</p>
                     {isJst && (
                       <div style={{ marginLeft: 26, marginTop: 10 }}>
                         <a
@@ -426,7 +426,7 @@ export default function DocumentVaultTab() {
                         >
                           Get your JST →
                         </a>
-                        <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.6, maxWidth: 420 }}>
+                        <p style={{ fontSize: 11, color: '#5C5646', lineHeight: 1.6, maxWidth: 420 }}>
                           Most veterans don't know this exists. Your JST documents every military course you completed and recommends college credit for them. It takes about 10 minutes to create an account and download your transcript.
                         </p>
                       </div>
@@ -435,9 +435,9 @@ export default function DocumentVaultTab() {
                   </div>
                   <div
                     style={{
-                      border: `2px dashed ${isDragOver ? '#1B3A6B' : '#d3d1c7'}`,
+                      border: `2px dashed ${isDragOver ? '#1B3A6B' : '#C2B588'}`,
                       borderRadius: 10, padding: '8px 14px', cursor: 'pointer',
-                      background: isDragOver ? '#EEF3FC' : '#FAFAF8',
+                      background: isDragOver ? '#EEF3FC' : '#E7E0C6',
                       transition: 'all .15s', flexShrink: 0, textAlign: 'center',
                       minWidth: 110,
                     }}
@@ -452,7 +452,7 @@ export default function DocumentVaultTab() {
                       <>
                         <p style={{ fontSize: 18, marginBottom: 2 }}>📎</p>
                         <p style={{ fontSize: 11, color: '#1B3A6B', fontWeight: 600 }}>Upload</p>
-                        <p style={{ fontSize: 10, color: '#b4b2a9' }}>{isJst ? 'PDF only' : 'PDF · DOCX · JPG · PNG'}</p>
+                        <p style={{ fontSize: 10, color: '#8F8768' }}>{isJst ? 'PDF only' : 'PDF · DOCX · JPG · PNG'}</p>
                       </>
                     )}
                     <input
@@ -478,7 +478,7 @@ export default function DocumentVaultTab() {
                       const isDeleteConfirm = deleteConfirm === doc.id
 
                       return (
-                        <div key={doc.id} style={{ borderTop: '1px solid #F0EDE6', paddingTop: 10, marginTop: 10 }}>
+                        <div key={doc.id} style={{ borderTop: '1px solid #ECE3C7', paddingTop: 10, marginTop: 10 }}>
                           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
                             <span style={{ fontSize: 20, flexShrink: 0, marginTop: 1 }}>
                               {doc.content_type?.startsWith('image/') ? '🖼️'
@@ -486,12 +486,12 @@ export default function DocumentVaultTab() {
                                 : '📄'}
                             </span>
                             <div style={{ flex: 1, minWidth: 0 }}>
-                              <p style={{ fontSize: 13, fontWeight: 600, color: '#1a1a18', marginBottom: 2, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                              <p style={{ fontSize: 13, fontWeight: 600, color: '#211F19', marginBottom: 2, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                                 {doc.filename}
                               </p>
                               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
-                                <p style={{ fontSize: 11, color: '#b4b2a9' }}>{fmtDate(doc.uploaded_at)}</p>
-                                {doc.file_size && <p style={{ fontSize: 11, color: '#b4b2a9' }}>{fmtSize(doc.file_size)}</p>}
+                                <p style={{ fontSize: 11, color: '#8F8768' }}>{fmtDate(doc.uploaded_at)}</p>
+                                {doc.file_size && <p style={{ fontSize: 11, color: '#8F8768' }}>{fmtSize(doc.file_size)}</p>}
                                 {isExtracting && (
                                   <span style={{ fontSize: 11, color: '#C07A28', fontWeight: 500 }}>⏳ Reading document…</span>
                                 )}
@@ -499,7 +499,7 @@ export default function DocumentVaultTab() {
                                   <span style={{ fontSize: 11, color: '#0A7868', fontWeight: 500 }}>✓ Ready for AI use</span>
                                 )}
                                 {!isExtracting && !hasExtracted && !extractErr && (
-                                  <span style={{ fontSize: 11, color: '#b4b2a9' }}>Pending extraction</span>
+                                  <span style={{ fontSize: 11, color: '#8F8768' }}>Pending extraction</span>
                                 )}
                                 {extractErr && (
                                   <span style={{ fontSize: 11, color: '#a32d2d' }}>⚠ {extractErr}</span>
@@ -510,7 +510,7 @@ export default function DocumentVaultTab() {
                               {hasExtracted && (
                                 <button
                                   onClick={() => setExpandedDoc(isExpanded ? null : doc.id)}
-                                  style={{ padding: '3px 10px', background: '#fff', border: '1px solid #d3d1c7', borderRadius: 7, fontSize: 11, cursor: 'pointer', fontFamily: 'inherit', color: '#1B3A6B' }}
+                                  style={{ padding: '3px 10px', background: '#fff', border: '1px solid #C2B588', borderRadius: 7, fontSize: 11, cursor: 'pointer', fontFamily: 'inherit', color: '#1B3A6B' }}
                                 >
                                   {isExpanded ? 'Hide' : 'Summary'}
                                 </button>
@@ -518,7 +518,7 @@ export default function DocumentVaultTab() {
                               {extractErr && (
                                 <button
                                   onClick={() => extractDoc(doc)}
-                                  style={{ padding: '3px 10px', background: '#fff', border: '1px solid #d3d1c7', borderRadius: 7, fontSize: 11, cursor: 'pointer', fontFamily: 'inherit', color: '#C07A28' }}
+                                  style={{ padding: '3px 10px', background: '#fff', border: '1px solid #C2B588', borderRadius: 7, fontSize: 11, cursor: 'pointer', fontFamily: 'inherit', color: '#C07A28' }}
                                 >
                                   Retry
                                 </button>
@@ -534,7 +534,7 @@ export default function DocumentVaultTab() {
                                   </button>
                                   <button
                                     onClick={() => setDeleteConfirm(null)}
-                                    style={{ padding: '3px 8px', background: '#fff', border: '1px solid #d3d1c7', borderRadius: 7, fontSize: 11, cursor: 'pointer', fontFamily: 'inherit', color: '#5f5e5a' }}
+                                    style={{ padding: '3px 8px', background: '#fff', border: '1px solid #C2B588', borderRadius: 7, fontSize: 11, cursor: 'pointer', fontFamily: 'inherit', color: '#5C5646' }}
                                   >
                                     Cancel
                                   </button>
@@ -542,7 +542,7 @@ export default function DocumentVaultTab() {
                               ) : (
                                 <button
                                   onClick={() => setDeleteConfirm(doc.id)}
-                                  style={{ padding: '3px 8px', background: '#fff', border: '1px solid #d3d1c7', borderRadius: 7, fontSize: 11, cursor: 'pointer', fontFamily: 'inherit', color: '#a32d2d' }}
+                                  style={{ padding: '3px 8px', background: '#fff', border: '1px solid #C2B588', borderRadius: 7, fontSize: 11, cursor: 'pointer', fontFamily: 'inherit', color: '#a32d2d' }}
                                 >
                                   ×
                                 </button>
@@ -569,9 +569,9 @@ export default function DocumentVaultTab() {
       )}
 
       {/* Privacy note */}
-      <div style={{ marginTop: 24, padding: '14px 18px', background: '#F5F4F0', borderRadius: 10 }}>
-        <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.7 }}>
-          <strong style={{ color: '#1a1a18' }}>Security:</strong> Your documents are stored in a private, user-isolated storage bucket. Files are accessible only to your account. No other user can view, access, or retrieve your service records. Extracted text is used solely to improve your resume and skill translation results.
+      <div style={{ marginTop: 24, padding: '14px 18px', background: '#EFE7CD', borderRadius: 10 }}>
+        <p style={{ fontSize: 11, color: '#5C5646', lineHeight: 1.7 }}>
+          <strong style={{ color: '#211F19' }}>Security:</strong> Your documents are stored in a private, user-isolated storage bucket. Files are accessible only to your account. No other user can view, access, or retrieve your service records. Extracted text is used solely to improve your resume and skill translation results.
         </p>
       </div>
     </div>

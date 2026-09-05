@@ -47,10 +47,10 @@ export default function AboutTab() {
           <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 14 }}>
             Our mission
           </p>
-          <p style={{ fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 900, color: '#1a1a18', lineHeight: 1.1, marginBottom: 18, letterSpacing: '-.02em' }}>
+          <p style={{ fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 900, color: '#211F19', lineHeight: 1.1, marginBottom: 18, letterSpacing: '-.02em' }}>
             To replace empty thanks<br />with real tools.
           </p>
-          <p style={{ fontSize: 16, color: '#5f5e5a', lineHeight: 1.8 }}>
+          <p style={{ fontSize: 16, color: '#5C5646', lineHeight: 1.8 }}>
             Every feature in TYFMS — the skills translator, the identity guide, the peer network,
             the goal tracker — exists because field research identified something veterans
             actually need and too rarely find in one place. The work is ongoing. So is the transition.
@@ -67,7 +67,7 @@ export default function AboutTab() {
               strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <p style={{ fontSize: 13, fontWeight: 700, color: '#1B3A6B', marginBottom: 5 }}>Regulation Backed</p>
-          <p style={{ fontSize: 11, color: '#5f5e5a', lineHeight: 1.55, maxWidth: 160 }}>
+          <p style={{ fontSize: 11, color: '#5C5646', lineHeight: 1.55, maxWidth: 160 }}>
             Answers sourced from{' '}
             <span style={{ color: '#C07A28', fontWeight: 600 }}>38 CFR Federal Regulations</span>
           </p>
@@ -96,8 +96,8 @@ export default function AboutTab() {
         ].map(c => (
           <div key={c.title} className="card">
             <span style={{ fontSize: 28, display: 'block', marginBottom: 12 }}>{c.icon}</span>
-            <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 8 }}>{c.title}</p>
-            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75 }}>{c.body}</p>
+            <p style={{ fontSize: 14, fontWeight: 600, color: '#211F19', marginBottom: 8 }}>{c.title}</p>
+            <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.75 }}>{c.body}</p>
           </div>
         ))}
       </div>
@@ -133,8 +133,8 @@ export default function AboutTab() {
         {RESEARCH_POINTS.map(p => (
           <div key={p.title} className="card">
             <span style={{ fontSize: 30, display: 'block', marginBottom: 12 }}>{p.icon}</span>
-            <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 8 }}>{p.title}</p>
-            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75 }}>{p.body}</p>
+            <p style={{ fontSize: 14, fontWeight: 600, color: '#211F19', marginBottom: 8 }}>{p.title}</p>
+            <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.75 }}>{p.body}</p>
           </div>
         ))}
       </div>
@@ -144,17 +144,17 @@ export default function AboutTab() {
         <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 8 }}>
           Origin story
         </p>
-        <p style={{ fontSize: 16, fontWeight: 600, color: '#1a1a18', marginBottom: 14 }}>
+        <p style={{ fontSize: 16, fontWeight: 600, color: '#211F19', marginBottom: 14 }}>
           Built from field research, not assumptions
         </p>
-        <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.85, marginBottom: 12 }}>
+        <p style={{ fontSize: 14, color: '#211F19', lineHeight: 1.85, marginBottom: 12 }}>
           TYFMS began as a research project into veteran identity transition — specifically, how
           service members reconstruct their professional identity after separation. The research
           involved extended conversations with veterans at different stages: recent separatees
           navigating campus life, mid-career veterans pivoting to second careers, and senior leaders
           who could name exactly what helped.
         </p>
-        <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.85 }}>
+        <p style={{ fontSize: 14, color: '#211F19', lineHeight: 1.85 }}>
           What emerged was not a checklist or a program. It was a picture of how identity
           reconstruction actually works — what accelerates it, what stalls it, and what most
           institutional programs miss entirely. TYFMS is an attempt to put that picture in the
@@ -169,10 +169,10 @@ export default function AboutTab() {
           <p style={{ fontSize: 11, fontWeight: 600, color: '#1B3A6B', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 8 }}>
             Schlossberg's Transition Theory
           </p>
-          <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 10 }}>
+          <p style={{ fontSize: 14, fontWeight: 600, color: '#211F19', marginBottom: 10 }}>
             The 4S framework behind every TYFMS feature
           </p>
-          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75, marginBottom: 10 }}>
+          <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.75, marginBottom: 10 }}>
             TYFMS is built on Nancy K. Schlossberg's Transition Theory — one of the most robust
             and widely validated frameworks in adult transition research. First published in 1981
             and refined over decades, the theory identifies four factors that determine whether
@@ -182,14 +182,14 @@ export default function AboutTab() {
             and <strong>Strategies</strong> (the actions taken). Schlossberg's research showed
             that these four factors — not luck, not timing alone — predict transition outcomes.
           </p>
-          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75, marginBottom: 10 }}>
+          <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.75, marginBottom: 10 }}>
             For veterans, the military-to-civilian transition is one of the most structurally
             complex role changes an adult can navigate. The entire institutional identity —
             rank, unit, mission, belonging — dissolves almost overnight. Schlossberg's framework
             provides a language for what veterans actually experience and a roadmap for addressing
             each dimension systematically rather than by accident.
           </p>
-          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75 }}>
+          <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.75 }}>
             Every feature in TYFMS maps to at least one of the 4S factors. The Skills Translator
             and Identity Guide address <em>Self</em>. The Path assessment clarifies <em>Situation</em>.
             The Veteran Network builds <em>Support</em>. The Resume Builder, Resources, and
@@ -198,7 +198,7 @@ export default function AboutTab() {
             who transitions well — and who doesn't.
           </p>
         </div>
-        <p style={{ fontSize: 11, color: '#b4b2a9', lineHeight: 1.6, paddingLeft: 4 }}>
+        <p style={{ fontSize: 11, color: '#8F8768', lineHeight: 1.6, paddingLeft: 4 }}>
           Source: Schlossberg, N. K. (1981). A model for analyzing human adaptation to transition.
           The Counseling Psychologist, 9(2), 2–18. See also: Anderson, M. L., Goodman, J., &amp;
           Schlossberg, N. K. (2012). Counseling adults in transition (4th ed.).
@@ -207,10 +207,10 @@ export default function AboutTab() {
 
       {/* Built by */}
       <div className="card" style={{ marginBottom: 8, textAlign: 'center', padding: '24px 20px' }}>
-        <p style={{ fontSize: 22, fontWeight: 800, color: '#1a1a18', marginBottom: 8, letterSpacing: '-.01em' }}>
+        <p style={{ fontSize: 22, fontWeight: 800, color: '#211F19', marginBottom: 8, letterSpacing: '-.01em' }}>
           Built by veterans, for veterans.
         </p>
-        <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.75, maxWidth: 480, margin: '0 auto' }}>
+        <p style={{ fontSize: 14, color: '#5C5646', lineHeight: 1.75, maxWidth: 480, margin: '0 auto' }}>
           Every tool in TYFMS exists because veterans told us what was missing. The research is real.
           The people it was built for are real. The gap it fills is real.
         </p>

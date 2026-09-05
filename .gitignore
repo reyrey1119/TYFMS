@@ -12,3 +12,4 @@ dist
 vite.config.dev.mjs
 AUDIT-FINDINGS.md
 public/*.pdf
+.env*

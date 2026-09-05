@@ -148,12 +148,12 @@ export default function NetworkTab() {
     <div>
       {/* Intro section */}
       <div style={{ marginBottom: 28 }}>
-        <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Building Your Support</p>
+        <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#8F8768', marginBottom: 4 }}>Building Your Support</p>
         <p className="sec-title">Find your people.</p>
         <p style={{ fontSize: 18, fontWeight: 700, color: '#1B3A6B', marginBottom: 14, lineHeight: 1.3 }}>
           Veterans who have been exactly where you are.
         </p>
-        <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7, marginBottom: 10 }}>
+        <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.7, marginBottom: 10 }}>
           Research consistently shows that strong support — a mentor who gets it, a peer two months
           ahead of you, someone who will be honest — is one of the top predictors of a smooth transition.
           It is not a bonus. It is part of the plan.
@@ -172,25 +172,25 @@ export default function NetworkTab() {
             { icon: '🗺️', title: 'Real career guidance', desc: 'Learn what actually worked — not textbook advice, but lived experience' },
             { icon: '💬', title: 'Veteran-to-veteran honesty', desc: 'No corporate fluff. Direct, practical, real talk from people who get it' },
           ].map(b => (
-            <div key={b.title} style={{ flex: '1 1 160px', background: '#fff', border: '1px solid #E5E3DC', borderRadius: 12, padding: '14px 16px' }}>
+            <div key={b.title} style={{ flex: '1 1 160px', background: '#fff', border: '1px solid #D6CBA3', borderRadius: 12, padding: '14px 16px' }}>
               <p style={{ fontSize: 22, marginBottom: 8 }}>{b.icon}</p>
-              <p style={{ fontSize: 13, fontWeight: 600, marginBottom: 4, color: '#1a1a18' }}>{b.title}</p>
-              <p style={{ fontSize: 12, color: '#5f5e5a', lineHeight: 1.55 }}>{b.desc}</p>
+              <p style={{ fontSize: 13, fontWeight: 600, marginBottom: 4, color: '#211F19' }}>{b.title}</p>
+              <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.55 }}>{b.desc}</p>
             </div>
           ))}
         </div>
 
         {/* Live stats */}
         {stats !== null && (stats.mentors > 0 || stats.mentees > 0) && (
-          <div style={{ display: 'flex', background: '#fff', border: '1px solid #E5E3DC', borderRadius: 12, overflow: 'hidden' }}>
+          <div style={{ display: 'flex', background: '#fff', border: '1px solid #D6CBA3', borderRadius: 12, overflow: 'hidden' }}>
             {[
               { value: stats.mentors, label: 'Mentors', color: '#1B3A6B' },
               { value: stats.mentees, label: 'Mentees', color: '#0A7868' },
               { value: stats.mentors + stats.mentees, label: 'Total veterans', color: '#C07A28' },
             ].map((s, i) => (
-              <div key={s.label} style={{ flex: 1, padding: '16px 12px', textAlign: 'center', borderLeft: i > 0 ? '1px solid #E5E3DC' : 'none' }}>
+              <div key={s.label} style={{ flex: 1, padding: '16px 12px', textAlign: 'center', borderLeft: i > 0 ? '1px solid #D6CBA3' : 'none' }}>
                 <p style={{ fontSize: 28, fontWeight: 700, color: s.color, lineHeight: 1, marginBottom: 4 }}>{s.value}</p>
-                <p style={{ fontSize: 11, color: '#5f5e5a' }}>{s.label}</p>
+                <p style={{ fontSize: 11, color: '#5C5646' }}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -229,7 +229,7 @@ export default function NetworkTab() {
             </div>
             <label style={{ display: 'block', marginBottom: 6 }}>
               Specialties{' '}
-              <span style={{ fontSize: 11, color: '#b4b2a9', fontWeight: 400 }}>(select all that apply)</span>
+              <span style={{ fontSize: 11, color: '#8F8768', fontWeight: 400 }}>(select all that apply)</span>
             </label>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 10 }}>
               {SPECIALTIES.map(s => (
@@ -237,9 +237,9 @@ export default function NetworkTab() {
                   key={s} type="button" onClick={() => toggleSpecialty(s)}
                   style={{
                     padding: '3px 9px', fontSize: 11, borderRadius: 20,
-                    border: specialties.includes(s) ? '1px solid #1B3A6B' : '1px solid #d3d1c7',
+                    border: specialties.includes(s) ? '1px solid #1B3A6B' : '1px solid #C2B588',
                     background: specialties.includes(s) ? '#e8eef7' : '#fff',
-                    color: specialties.includes(s) ? '#1B3A6B' : '#5f5e5a',
+                    color: specialties.includes(s) ? '#1B3A6B' : '#5C5646',
                     cursor: 'pointer', fontFamily: 'inherit',
                   }}
                 >
@@ -247,7 +247,7 @@ export default function NetworkTab() {
                 </button>
               ))}
             </div>
-            <label>Brief intro <span style={{ fontSize: 11, color: '#b4b2a9', fontWeight: 400 }}>(100 chars max)</span></label>
+            <label>Brief intro <span style={{ fontSize: 11, color: '#8F8768', fontWeight: 400 }}>(100 chars max)</span></label>
             <input type="text" value={bio} onChange={e => setBio(e.target.value)} maxLength={100} placeholder="e.g. 11A, 8 years, now in cybersecurity" style={{ marginBottom: 10 }} />
             <label>How to reach you</label>
             <input type="text" value={contact} onChange={e => setContact(e.target.value)} placeholder="LinkedIn URL or email address" style={{ marginBottom: 14 }} />
@@ -290,13 +290,13 @@ export default function NetworkTab() {
           </div>
 
           {searchDone && profiles.length > 0 && (
-            <p style={{ fontSize: 11, color: '#b4b2a9', marginBottom: 10 }}>
+            <p style={{ fontSize: 11, color: '#8F8768', marginBottom: 10 }}>
               {mentorCount} mentor{mentorCount !== 1 ? 's' : ''} · {menteeCount} mentee{menteeCount !== 1 ? 's' : ''}
             </p>
           )}
 
           {searchDone && profiles.length === 0 && (
-            <p style={{ fontSize: 13, color: '#5f5e5a', padding: '.5rem 0' }}>
+            <p style={{ fontSize: 13, color: '#5C5646', padding: '.5rem 0' }}>
               No matches found. Try broadening your search, or be the first to join.
             </p>
           )}
@@ -314,13 +314,13 @@ export default function NetworkTab() {
                   <Avatar name={p.name} />
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 6 }}>
-                      <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 2 }}>{p.name}</p>
+                      <p style={{ fontSize: 14, fontWeight: 600, color: '#211F19', marginBottom: 2 }}>{p.name}</p>
                       <span className={ROLE_CLASS[p.role] || 'bb'} style={{ flexShrink: 0, fontSize: 10, padding: '2px 7px' }}>{p.role}</span>
                     </div>
-                    <p style={{ fontSize: 12, color: '#5f5e5a' }}>{p.branch} · {p.mos}</p>
+                    <p style={{ fontSize: 12, color: '#5C5646' }}>{p.branch} · {p.mos}</p>
                   </div>
                 </div>
-                {p.bio && <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 8, lineHeight: 1.5 }}>{p.bio}</p>}
+                {p.bio && <p style={{ fontSize: 13, color: '#5C5646', marginBottom: 8, lineHeight: 1.5 }}>{p.bio}</p>}
                 {Array.isArray(p.specialties) && p.specialties.length > 0 && (
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginBottom: 8 }}>
                     {p.specialties.map(s => (
@@ -362,20 +362,20 @@ export default function NetworkTab() {
             <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', marginBottom: 16 }}>
               <Avatar name={selectedProfile.name} size={56} />
               <div style={{ flex: 1 }}>
-                <p style={{ fontSize: 18, fontWeight: 700, color: '#1a1a18', marginBottom: 4 }}>{selectedProfile.name}</p>
-                <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 8 }}>{selectedProfile.branch} · {selectedProfile.mos}</p>
+                <p style={{ fontSize: 18, fontWeight: 700, color: '#211F19', marginBottom: 4 }}>{selectedProfile.name}</p>
+                <p style={{ fontSize: 13, color: '#5C5646', marginBottom: 8 }}>{selectedProfile.branch} · {selectedProfile.mos}</p>
                 <span className={ROLE_CLASS[selectedProfile.role] || 'bb'}>{selectedProfile.role}</span>
               </div>
-              <button onClick={() => setSelectedProfile(null)} style={{ background: 'none', border: 'none', fontSize: 24, cursor: 'pointer', color: '#888', lineHeight: 1, padding: 0, flexShrink: 0 }}>×</button>
+              <button onClick={() => setSelectedProfile(null)} style={{ background: 'none', border: 'none', fontSize: 24, cursor: 'pointer', color: '#726B4E', lineHeight: 1, padding: 0, flexShrink: 0 }}>×</button>
             </div>
 
             {selectedProfile.bio && (
-              <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.7, marginBottom: 16 }}>{selectedProfile.bio}</p>
+              <p style={{ fontSize: 14, color: '#211F19', lineHeight: 1.7, marginBottom: 16 }}>{selectedProfile.bio}</p>
             )}
 
             {Array.isArray(selectedProfile.specialties) && selectedProfile.specialties.length > 0 && (
               <div style={{ marginBottom: 20 }}>
-                <p style={{ fontSize: 11, color: '#b4b2a9', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 8 }}>Specialties</p>
+                <p style={{ fontSize: 11, color: '#8F8768', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 8 }}>Specialties</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {selectedProfile.specialties.map(s => (
                     <span key={s} style={{ fontSize: 11, padding: '3px 10px', background: '#f0f4ff', color: '#1B3A6B', borderRadius: 20, border: '1px solid #d0dbf0' }}>{s}</span>

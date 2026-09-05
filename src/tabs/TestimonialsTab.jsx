@@ -116,19 +116,19 @@ export default function TestimonialsTab() {
       {/* Stories */}
       {loadingStories ? (
         <div style={{ display: 'flex', gap: 10, alignItems: 'center', padding: '16px 0', marginBottom: 32 }}>
-          <span className="search-spinner" style={{ width: 14, height: 14, borderColor: 'rgba(26,26,24,.2)', borderTopColor: '#1a1a18' }} />
-          <p style={{ fontSize: 13, color: '#5f5e5a' }}>Loading stories…</p>
+          <span className="search-spinner" style={{ width: 14, height: 14, borderColor: 'rgba(26,26,24,.2)', borderTopColor: '#211F19' }} />
+          <p style={{ fontSize: 13, color: '#5C5646' }}>Loading stories…</p>
         </div>
       ) : testimonials.length === 0 ? (
         <div style={{
           padding: '36px 24px', textAlign: 'center', marginBottom: 40,
-          background: '#f9f8f5', borderRadius: 12, border: '1px dashed #d3d1c7',
+          background: '#EFE7CD', borderRadius: 12, border: '1px dashed #C2B588',
         }}>
           <p style={{ fontSize: 28, marginBottom: 12 }}>⭐</p>
-          <p style={{ fontSize: 15, fontWeight: 600, color: '#1a1a18', marginBottom: 8 }}>
+          <p style={{ fontSize: 15, fontWeight: 600, color: '#211F19', marginBottom: 8 }}>
             Be the first to share your story.
           </p>
-          <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.7 }}>
+          <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.7 }}>
             Real testimonials from real veterans will appear here once submitted and reviewed.
           </p>
         </div>
@@ -143,8 +143,8 @@ export default function TestimonialsTab() {
               <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 12, flexWrap: 'wrap' }}>
                 <Avatar name={t.name} />
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 2 }}>{t.name}</p>
-                  <p style={{ fontSize: 12, color: '#5f5e5a' }}>
+                  <p style={{ fontSize: 14, fontWeight: 600, color: '#211F19', marginBottom: 2 }}>{t.name}</p>
+                  <p style={{ fontSize: 12, color: '#5C5646' }}>
                     {t.branch} · {t.mos}
                     {t.years_out && <span> · {t.years_out} out</span>}
                   </p>
@@ -153,7 +153,7 @@ export default function TestimonialsTab() {
                   <span className="bg" style={{ fontSize: 10, flexShrink: 0 }}>{t.feature_used}</span>
                 )}
               </div>
-              <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.8, fontStyle: 'italic' }}>
+              <p style={{ fontSize: 14, color: '#211F19', lineHeight: 1.8, fontStyle: 'italic' }}>
                 "{t.story}"
               </p>
             </div>
@@ -166,16 +166,16 @@ export default function TestimonialsTab() {
         {submitted ? (
           <div style={{ textAlign: 'center', padding: '28px 0' }}>
             <p style={{ fontSize: 32, marginBottom: 14 }}>🙏</p>
-            <p style={{ fontSize: 16, fontWeight: 600, color: '#1a1a18', marginBottom: 10 }}>Thank you for sharing.</p>
-            <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.75, maxWidth: 400, margin: '0 auto' }}>
+            <p style={{ fontSize: 16, fontWeight: 600, color: '#211F19', marginBottom: 10 }}>Thank you for sharing.</p>
+            <p style={{ fontSize: 14, color: '#5C5646', lineHeight: 1.75, maxWidth: 400, margin: '0 auto' }}>
               Your story has been submitted and will be reviewed by a human before it goes live.
               It may be exactly what another veteran needs to take their first step.
             </p>
           </div>
         ) : (
           <>
-            <p style={{ fontSize: 15, fontWeight: 600, color: '#1a1a18', marginBottom: 4 }}>Add your story</p>
-            <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.65, marginBottom: 20 }}>
+            <p style={{ fontSize: 15, fontWeight: 600, color: '#211F19', marginBottom: 4 }}>Add your story</p>
+            <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.65, marginBottom: 20 }}>
               If TYFMS helped you — even a little — your words could be the thing that convinces
               another veteran to take the first step. It takes two minutes, and it stays in your words.
             </p>
@@ -214,7 +214,7 @@ export default function TestimonialsTab() {
             </div>
 
             <div style={{ marginBottom: 12 }}>
-              <label>Which feature helped you most? <span style={{ fontSize: 11, color: '#b4b2a9', fontWeight: 400 }}>(optional)</span></label>
+              <label>Which feature helped you most? <span style={{ fontSize: 11, color: '#8F8768', fontWeight: 400 }}>(optional)</span></label>
               <select value={featureUsed} onChange={e => setFeatureUsed(e.target.value)}>
                 <option value="">Select one…</option>
                 {FEATURES.map(f => <option key={f}>{f}</option>)}
@@ -224,7 +224,7 @@ export default function TestimonialsTab() {
             <div style={{ marginBottom: 16 }}>
               <label>
                 Your story{' '}
-                <span style={{ fontSize: 11, color: story.length > 230 ? '#a32d2d' : '#b4b2a9', fontWeight: 400 }}>
+                <span style={{ fontSize: 11, color: story.length > 230 ? '#a32d2d' : '#8F8768', fontWeight: 400 }}>
                   ({250 - story.length} characters remaining)
                 </span>
               </label>
@@ -244,7 +244,7 @@ export default function TestimonialsTab() {
               <p style={{ fontSize: 13, color: '#a32d2d', marginTop: 8 }}>{submitError}</p>
             )}
 
-            <p style={{ fontSize: 11, color: '#b4b2a9', marginTop: 14, lineHeight: 1.65 }}>
+            <p style={{ fontSize: 11, color: '#8F8768', marginTop: 14, lineHeight: 1.65 }}>
               All stories are reviewed by a human before publishing. We never share your contact
               information. Your words are yours — we just give them a place to live.
             </p>

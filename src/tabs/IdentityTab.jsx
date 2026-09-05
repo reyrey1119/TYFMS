@@ -56,7 +56,7 @@ const OPENING =
   "Welcome to the TYFMS Identity Guide. I'm here to help you work through one of the most important — and most overlooked — parts of transition: figuring out who you are when the uniform comes off.\n\nThis isn't a checklist. It's a conversation. Start wherever feels right.\n\nWhat's been the hardest part of your transition so far?"
 
 const PHASE_MAP = [
-  { min: 0, label: null, color: '#b4b2a9' },
+  { min: 0, label: null, color: '#8F8768' },
   { min: 1, label: 'Awareness', color: '#C07A28' },
   { min: 3, label: 'Exploration', color: '#1B3A6B' },
   { min: 6, label: 'Articulation', color: '#7c3aad' },
@@ -255,11 +255,11 @@ export default function IdentityTab() {
 
   return (
     <div>
-      <div style={{ width: '100%', maxHeight: 220, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#f5f4f0', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+      <div style={{ width: '100%', maxHeight: 220, borderRadius: 12, marginBottom: 20, overflow: 'hidden', background: '#EFE7CD', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
         <img src="/identity.png" alt="Identity guide" style={{ width: '100%', maxHeight: 220, objectFit: 'contain', objectPosition: 'top', display: 'block' }} />
       </div>
 
-      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Knowing Your Self</p>
+      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#8F8768', marginBottom: 4 }}>Knowing Your Self</p>
       <p className="sec-title">Identity guide</p>
       <p className="sec-sub">
         Know what job you want but struggling to explain who you are in interviews and on paper? This is where you figure that out.
@@ -296,11 +296,11 @@ export default function IdentityTab() {
                   height: 8, borderRadius: 4, cursor: 'pointer', transition: 'all .2s',
                   background: reflectionAnswers[q.id]?.trim()
                     ? q.color
-                    : i === reflectionStep ? '#1B3A6B' : '#E5E3DC',
+                    : i === reflectionStep ? '#1B3A6B' : '#D6CBA3',
                 }}
               />
             ))}
-            <p style={{ fontSize: 11, color: '#b4b2a9', marginLeft: 6 }}>
+            <p style={{ fontSize: 11, color: '#8F8768', marginLeft: 6 }}>
               {reflectionStep + 1} of {REFLECTION_QUESTIONS.length}
             </p>
           </div>
@@ -310,14 +310,14 @@ export default function IdentityTab() {
             <div key={q.id}>
               <div style={{
                 display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 14,
-                padding: '12px 14px', background: '#fff', border: '1px solid #E5E3DC',
+                padding: '12px 14px', background: '#fff', border: '1px solid #D6CBA3',
                 borderLeft: `4px solid ${q.color}`, borderRadius: '0 10px 10px 0',
               }}>
                 <div>
                   <p style={{ fontSize: 10, fontWeight: 600, color: q.color, textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 4 }}>
                     {q.factor}
                   </p>
-                  <p style={{ fontSize: 14, color: '#1a1a18', fontWeight: 500, lineHeight: 1.55 }}>{q.question}</p>
+                  <p style={{ fontSize: 14, color: '#211F19', fontWeight: 500, lineHeight: 1.55 }}>{q.question}</p>
                 </div>
               </div>
               <textarea
@@ -326,7 +326,7 @@ export default function IdentityTab() {
                 placeholder={q.placeholder}
                 rows={3}
                 style={{
-                  width: '100%', fontSize: 13, borderRadius: 8, border: '1px solid #d3d1c7',
+                  width: '100%', fontSize: 13, borderRadius: 8, border: '1px solid #C2B588',
                   padding: '10px 12px', fontFamily: 'inherit', resize: 'vertical',
                   boxSizing: 'border-box', lineHeight: 1.6,
                 }}
@@ -336,8 +336,8 @@ export default function IdentityTab() {
                   <button
                     onClick={() => setReflectionStep(s => s - 1)}
                     style={{
-                      padding: '8px 16px', background: '#fff', border: '1px solid #d3d1c7',
-                      borderRadius: 8, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', color: '#5f5e5a',
+                      padding: '8px 16px', background: '#fff', border: '1px solid #C2B588',
+                      borderRadius: 8, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', color: '#5C5646',
                     }}
                   >
                     Back
@@ -348,7 +348,7 @@ export default function IdentityTab() {
                     onClick={() => setReflectionStep(s => s + 1)}
                     disabled={!reflectionAnswers[q.id]?.trim()}
                     style={{
-                      padding: '8px 18px', background: reflectionAnswers[q.id]?.trim() ? '#1B3A6B' : '#d3d1c7',
+                      padding: '8px 18px', background: reflectionAnswers[q.id]?.trim() ? '#1B3A6B' : '#C2B588',
                       border: 'none', borderRadius: 8, fontSize: 13,
                       cursor: reflectionAnswers[q.id]?.trim() ? 'pointer' : 'default',
                       fontFamily: 'inherit', color: '#fff', fontWeight: 500,
@@ -373,7 +373,7 @@ export default function IdentityTab() {
                   onClick={() => setReflectionsComplete(true)}
                   style={{
                     padding: '8px 14px', background: 'none', border: 'none',
-                    fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', color: '#b4b2a9',
+                    fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', color: '#8F8768',
                   }}
                 >
                   Skip for now
@@ -407,14 +407,14 @@ export default function IdentityTab() {
       {phase.label && (
         <div style={{
           display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16,
-          padding: '10px 14px', background: '#fff', border: '1px solid #E5E3DC',
+          padding: '10px 14px', background: '#fff', border: '1px solid #D6CBA3',
           borderLeft: `4px solid ${phase.color}`, borderRadius: '0 10px 10px 0',
         }}>
           <div>
             <p style={{ fontSize: 10, fontWeight: 600, color: phase.color, textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 1 }}>
               Identity phase
             </p>
-            <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18' }}>{phase.label}</p>
+            <p style={{ fontSize: 14, fontWeight: 600, color: '#211F19' }}>{phase.label}</p>
           </div>
           <div style={{ marginLeft: 'auto', display: 'flex', gap: 4 }}>
             {['Awareness', 'Exploration', 'Articulation', 'Integration'].map((p, i) => {
@@ -424,7 +424,7 @@ export default function IdentityTab() {
               return (
                 <div key={p} style={{
                   width: 8, height: 8, borderRadius: '50%',
-                  background: active ? pColors[i] : '#E5E3DC',
+                  background: active ? pColors[i] : '#D6CBA3',
                 }} title={p} />
               )
             })}
@@ -434,7 +434,7 @@ export default function IdentityTab() {
 
       {/* Session status */}
       {useDb && (
-        <p style={{ fontSize: 11, color: '#b4b2a9', marginBottom: 10 }}>
+        <p style={{ fontSize: 11, color: '#8F8768', marginBottom: 10 }}>
           {sessionLoaded && messages.length > 1 ? '✓ Session saved to your account' : 'Session will be saved automatically'}
         </p>
       )}
@@ -447,7 +447,7 @@ export default function IdentityTab() {
           </div>
         ))}
         {loading && (
-          <div className="chat-bubble-ai" style={{ color: '#b4b2a9', fontStyle: 'italic' }}>
+          <div className="chat-bubble-ai" style={{ color: '#8F8768', fontStyle: 'italic' }}>
             Thinking…
           </div>
         )}
@@ -457,7 +457,7 @@ export default function IdentityTab() {
       {/* Conversation starters (shown only at start) */}
       {userMsgCount === 0 && !loading && (
         <div style={{ marginBottom: 12 }}>
-          <p style={{ fontSize: 11, color: '#b4b2a9', marginBottom: 8, fontWeight: 500 }}>
+          <p style={{ fontSize: 11, color: '#8F8768', marginBottom: 8, fontWeight: 500 }}>
             NOT SURE WHERE TO START? TAP ONE:
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -466,13 +466,13 @@ export default function IdentityTab() {
                 key={s}
                 onClick={() => send(s)}
                 style={{
-                  padding: '9px 14px', background: '#fff', border: '1px solid #E5E3DC',
+                  padding: '9px 14px', background: '#fff', border: '1px solid #D6CBA3',
                   borderRadius: 8, cursor: 'pointer', fontFamily: 'inherit', fontSize: 13,
-                  color: '#1a1a18', textAlign: 'left', lineHeight: 1.5,
+                  color: '#211F19', textAlign: 'left', lineHeight: 1.5,
                   transition: 'border-color .12s',
                 }}
                 onMouseEnter={e => e.currentTarget.style.borderColor = '#C07A28'}
-                onMouseLeave={e => e.currentTarget.style.borderColor = '#E5E3DC'}
+                onMouseLeave={e => e.currentTarget.style.borderColor = '#D6CBA3'}
               >
                 {s}
               </button>
@@ -510,11 +510,11 @@ export default function IdentityTab() {
 
       {/* Identity statement generator */}
       {userMsgCount >= 6 && (
-        <div style={{ marginTop: 20, padding: '16px 18px', background: '#fff', border: '1px solid #E5E3DC', borderRadius: 12 }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: '#1a1a18', marginBottom: 4 }}>
+        <div style={{ marginTop: 20, padding: '16px 18px', background: '#fff', border: '1px solid #D6CBA3', borderRadius: 12 }}>
+          <p style={{ fontSize: 13, fontWeight: 600, color: '#211F19', marginBottom: 4 }}>
             Identity statement
           </p>
-          <p style={{ fontSize: 13, color: '#5f5e5a', marginBottom: 12, lineHeight: 1.6 }}>
+          <p style={{ fontSize: 13, color: '#5C5646', marginBottom: 12, lineHeight: 1.6 }}>
             Based on this conversation, generate a 2–3 sentence professional identity statement you can use in interviews, LinkedIn, and networking introductions.
           </p>
           {!statement ? (
@@ -533,17 +533,17 @@ export default function IdentityTab() {
             </button>
           ) : (
             <div>
-              <div style={{ padding: '12px 14px', background: '#F5F4F0', borderRadius: 8, marginBottom: 10 }}>
-                <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.75, fontStyle: 'italic' }}>{statement}</p>
+              <div style={{ padding: '12px 14px', background: '#EFE7CD', borderRadius: 8, marginBottom: 10 }}>
+                <p style={{ fontSize: 14, color: '#211F19', lineHeight: 1.75, fontStyle: 'italic' }}>{statement}</p>
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
                 <button
                   onClick={copyStatement}
                   style={{
                     padding: '6px 14px', background: statementCopied ? '#0A7868' : '#fff',
-                    border: '1px solid #E5E3DC', borderRadius: 8, fontSize: 12,
+                    border: '1px solid #D6CBA3', borderRadius: 8, fontSize: 12,
                     cursor: 'pointer', fontFamily: 'inherit',
-                    color: statementCopied ? '#fff' : '#5f5e5a',
+                    color: statementCopied ? '#fff' : '#5C5646',
                   }}
                 >
                   {statementCopied ? '✓ Copied' : 'Copy'}
@@ -552,8 +552,8 @@ export default function IdentityTab() {
                   onClick={generateStatement}
                   disabled={statementLoading}
                   style={{
-                    padding: '6px 14px', background: 'none', border: '1px solid #E5E3DC',
-                    borderRadius: 8, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', color: '#5f5e5a',
+                    padding: '6px 14px', background: 'none', border: '1px solid #D6CBA3',
+                    borderRadius: 8, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', color: '#5C5646',
                   }}
                 >
                   Regenerate
@@ -568,7 +568,7 @@ export default function IdentityTab() {
         <button
           onClick={clearChat}
           style={{
-            marginTop: 12, background: 'none', border: 'none', color: '#b4b2a9',
+            marginTop: 12, background: 'none', border: 'none', color: '#8F8768',
             fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', padding: 0,
           }}
         >

@@ -76,18 +76,18 @@ export default function FeedbackTab() {
       <div>
         <div className="card" style={{ textAlign: 'center', padding: '48px 24px', marginBottom: 24 }}>
           <p style={{ fontSize: 36, marginBottom: 16 }}>🎖️</p>
-          <p style={{ fontSize: 20, fontWeight: 700, color: '#1a1a18', marginBottom: 10, letterSpacing: '-.01em' }}>
+          <p style={{ fontSize: 20, fontWeight: 700, color: '#211F19', marginBottom: 10, letterSpacing: '-.01em' }}>
             Thank you for the feedback.
           </p>
-          <p style={{ fontSize: 14, color: '#5f5e5a', lineHeight: 1.7, maxWidth: 380, margin: '0 auto' }}>
+          <p style={{ fontSize: 14, color: '#5C5646', lineHeight: 1.7, maxWidth: 380, margin: '0 auto' }}>
             Every piece of feedback shapes the next version of TYFMS. Your input is taken seriously.
           </p>
         </div>
         <button
           onClick={reset}
           style={{
-            padding: '8px 18px', background: 'none', border: '1px solid #d3d1c7',
-            borderRadius: 8, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', color: '#5f5e5a',
+            padding: '8px 18px', background: 'none', border: '1px solid #C2B588',
+            borderRadius: 8, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', color: '#5C5646',
           }}
         >
           Submit more feedback
@@ -108,7 +108,7 @@ export default function FeedbackTab() {
       <div className="card" style={{ marginBottom: 20 }}>
         {/* Star rating */}
         <div style={{ marginBottom: 20 }}>
-          <label style={{ fontSize: 13, fontWeight: 500, color: '#1a1a18', marginBottom: 10, display: 'block' }}>
+          <label style={{ fontSize: 13, fontWeight: 500, color: '#211F19', marginBottom: 10, display: 'block' }}>
             Overall rating
           </label>
           <div style={{ display: 'flex', gap: 8 }}>
@@ -121,7 +121,7 @@ export default function FeedbackTab() {
                 style={{
                   background: 'none', border: 'none', cursor: 'pointer', padding: 0,
                   fontSize: 36, lineHeight: 1,
-                  color: star <= (hovered || rating) ? '#C07A28' : '#d3d1c7',
+                  color: star <= (hovered || rating) ? '#C07A28' : '#C2B588',
                   transition: 'color .1s',
                 }}
               >
@@ -130,7 +130,7 @@ export default function FeedbackTab() {
             ))}
           </div>
           {rating > 0 && (
-            <p style={{ fontSize: 12, color: '#5f5e5a', marginTop: 6 }}>
+            <p style={{ fontSize: 12, color: '#5C5646', marginTop: 6 }}>
               {rating === 1 ? 'Needs major improvement' : rating === 2 ? 'Below expectations' : rating === 3 ? 'Meets expectations' : rating === 4 ? 'Really useful' : 'Excellent — exactly what veterans need'}
             </p>
           )}

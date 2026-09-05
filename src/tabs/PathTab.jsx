@@ -200,11 +200,11 @@ export default function PathTab() {
           {countdown > 0 ? (
             <>
               <p style={{ fontSize: 32, fontWeight: 800, color: '#C07A28', marginBottom: 8 }}>{countdown}</p>
-              <p style={{ fontSize: 14, color: '#5f5e5a' }}>Your results unlock in {countdown} second{countdown !== 1 ? 's' : ''}…</p>
+              <p style={{ fontSize: 14, color: '#5C5646' }}>Your results unlock in {countdown} second{countdown !== 1 ? 's' : ''}…</p>
             </>
           ) : (
             <>
-              <p style={{ fontSize: 15, fontWeight: 500, color: '#1a1a18', marginBottom: 16 }}>Your archetype is ready.</p>
+              <p style={{ fontSize: 15, fontWeight: 500, color: '#211F19', marginBottom: 16 }}>Your archetype is ready.</p>
               <button className="btn-g" onClick={() => setPhase('results')} style={{ maxWidth: 260, margin: '0 auto' }}>
                 See my results
               </button>
@@ -226,9 +226,9 @@ export default function PathTab() {
           <p style={{ fontSize: 11, fontWeight: 600, color: a.color, textTransform: 'uppercase', letterSpacing: '.15em', marginBottom: 8 }}>
             Your archetype
           </p>
-          <p style={{ fontSize: 28, fontWeight: 800, color: '#1a1a18', marginBottom: 6, letterSpacing: '-.01em' }}>{a.label}</p>
+          <p style={{ fontSize: 28, fontWeight: 800, color: '#211F19', marginBottom: 6, letterSpacing: '-.01em' }}>{a.label}</p>
           <p style={{ fontSize: 14, fontWeight: 500, color: a.color, marginBottom: 16 }}>{a.tagline}</p>
-          <p style={{ fontSize: 14, color: '#1a1a18', lineHeight: 1.75 }}>{a.desc}</p>
+          <p style={{ fontSize: 14, color: '#211F19', lineHeight: 1.75 }}>{a.desc}</p>
         </div>
 
         <div className="grid-2" style={{ marginBottom: 20 }}>
@@ -237,7 +237,7 @@ export default function PathTab() {
             {a.roles.map(r => (
               <div key={r} style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 7 }}>
                 <div style={{ width: 6, height: 6, borderRadius: '50%', background: a.color, flexShrink: 0 }} />
-                <p style={{ fontSize: 13, color: '#1a1a18' }}>{r}</p>
+                <p style={{ fontSize: 13, color: '#211F19' }}>{r}</p>
               </div>
             ))}
           </div>
@@ -246,7 +246,7 @@ export default function PathTab() {
             {a.sectors.map(s => (
               <div key={s} style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 7 }}>
                 <div style={{ width: 6, height: 6, borderRadius: '50%', background: a.color, flexShrink: 0 }} />
-                <p style={{ fontSize: 13, color: '#1a1a18' }}>{s}</p>
+                <p style={{ fontSize: 13, color: '#211F19' }}>{s}</p>
               </div>
             ))}
           </div>
@@ -258,8 +258,8 @@ export default function PathTab() {
         </div>
 
         <button onClick={restart} style={{
-          padding: '10px 20px', background: 'none', border: '1px solid #d3d1c7',
-          borderRadius: 8, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', color: '#5f5e5a',
+          padding: '10px 20px', background: 'none', border: '1px solid #C2B588',
+          borderRadius: 8, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', color: '#5C5646',
         }}>
           Retake the assessment
         </button>
@@ -269,7 +269,7 @@ export default function PathTab() {
 
   return (
     <div>
-      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#b4b2a9', marginBottom: 4 }}>Understanding Your Situation</p>
+      <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', color: '#8F8768', marginBottom: 4 }}>Understanding Your Situation</p>
       <p className="sec-title">Find your path.</p>
       <p className="sec-sub">
         Not sure what career fits you? Answer 12 questions and get a personalized civilian career roadmap
@@ -281,35 +281,35 @@ export default function PathTab() {
         <p style={{ fontSize: 11, fontWeight: 600, color: '#C07A28', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 8 }}>
           What is a career archetype?
         </p>
-        <p style={{ fontSize: 14, fontWeight: 600, color: '#1a1a18', marginBottom: 10, lineHeight: 1.4 }}>
+        <p style={{ fontSize: 14, fontWeight: 600, color: '#211F19', marginBottom: 10, lineHeight: 1.4 }}>
           Your archetype is the strategic lens that focuses your job search.
         </p>
-        <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75, marginBottom: 10 }}>
+        <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.75, marginBottom: 10 }}>
           Most transition tools match your MOS to a job list. That's useful — but it skips the harder question:
           how do you actually think, lead, and operate? Your archetype captures that pattern — based on how you
           made decisions, solved problems, and built teams in service — and maps it directly to the civilian roles
           where veterans like you thrive.
         </p>
-        <p style={{ fontSize: 13, color: '#5f5e5a', lineHeight: 1.75 }}>
+        <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.75 }}>
           You'll walk away with a named archetype, a tailored set of target roles and sectors, and a career
           translation tip written specifically for how you show up in a civilian room.
         </p>
       </div>
 
       {/* Progress bar */}
-      <div style={{ background: '#f5f4f0', borderRadius: 8, height: 6, marginBottom: 24, overflow: 'hidden' }}>
+      <div style={{ background: '#EFE7CD', borderRadius: 8, height: 6, marginBottom: 24, overflow: 'hidden' }}>
         <div style={{
           height: '100%', borderRadius: 8,
           width: `${(answered / QUESTIONS.length) * 100}%`, transition: 'width .2s', background: '#C07A28',
         }} />
       </div>
-      <p style={{ fontSize: 12, color: '#5f5e5a', marginBottom: 20, marginTop: -18 }}>
+      <p style={{ fontSize: 12, color: '#5C5646', marginBottom: 20, marginTop: -18 }}>
         {answered} of {QUESTIONS.length} answered
       </p>
 
       {QUESTIONS.map((q, qi) => (
         <div key={qi} className="card" style={{ marginBottom: 12 }}>
-          <p style={{ fontSize: 14, fontWeight: 500, color: '#1a1a18', marginBottom: 12, lineHeight: 1.5 }}>
+          <p style={{ fontSize: 14, fontWeight: 500, color: '#211F19', marginBottom: 12, lineHeight: 1.5 }}>
             {qi + 1}. {q.q}
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -319,10 +319,10 @@ export default function PathTab() {
                 onClick={() => setAnswer(qi, oi)}
                 style={{
                   padding: '9px 14px', borderRadius: 8, border: '1px solid',
-                  borderColor: answers[qi] === oi ? '#C07A28' : '#d3d1c7',
+                  borderColor: answers[qi] === oi ? '#C07A28' : '#C2B588',
                   background: answers[qi] === oi ? '#FDF4E7' : '#fff',
                   cursor: 'pointer', fontFamily: 'inherit', fontSize: 13,
-                  color: answers[qi] === oi ? '#8A5F1A' : '#1a1a18',
+                  color: answers[qi] === oi ? '#8A5F1A' : '#211F19',
                   textAlign: 'left', lineHeight: 1.5, transition: 'all .12s',
                 }}
               >

@@ -48,12 +48,12 @@ export default function AdminTab() {
         {avg && ` · avg rating ${avg} / 5`}
       </p>
 
-      {loading && <p style={{ color: '#5f5e5a', fontSize: 14 }}>Loading…</p>}
+      {loading && <p style={{ color: '#5C5646', fontSize: 14 }}>Loading…</p>}
       {error && <p style={{ color: '#a32d2d', fontSize: 14 }}>{error}</p>}
 
       {!loading && !error && rows.length === 0 && (
         <div className="card" style={{ textAlign: 'center', padding: '40px 24px' }}>
-          <p style={{ color: '#5f5e5a', fontSize: 14 }}>No submissions yet.</p>
+          <p style={{ color: '#5C5646', fontSize: 14 }}>No submissions yet.</p>
         </div>
       )}
 
@@ -61,11 +61,11 @@ export default function AdminTab() {
         <div key={row.id} className="card" style={{ marginBottom: 12 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
             <div>
-              <p style={{ fontWeight: 600, fontSize: 14, color: '#1a1a18', marginBottom: 2 }}>
+              <p style={{ fontWeight: 600, fontSize: 14, color: '#211F19', marginBottom: 2 }}>
                 {row.name || 'Anonymous'}
               </p>
               {row.email && (
-                <p style={{ fontSize: 12, color: '#5f5e5a' }}>{row.email}</p>
+                <p style={{ fontSize: 12, color: '#5C5646' }}>{row.email}</p>
               )}
             </div>
             <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 16 }}>
@@ -83,7 +83,7 @@ export default function AdminTab() {
           </div>
           {row.message && (
             <p style={{
-              fontSize: 13, color: '#3a3a38', lineHeight: 1.7,
+              fontSize: 13, color: '#2A2820', lineHeight: 1.7,
               whiteSpace: 'pre-wrap', background: '#F7F5EF',
               padding: '10px 12px', borderRadius: 8,
             }}>

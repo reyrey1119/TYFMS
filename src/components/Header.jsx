@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { useAuth } from '../context/AuthContext'
 import AuthModal from './AuthModal'
+import { Icon } from './icons'
 
 export default function Header({ onSearch, onNavigateHome, onMenu, menuPulse }) {
   const { user, signOut, deleteAccount, supabaseEnabled } = useAuth()
@@ -103,7 +104,7 @@ export default function Header({ onSearch, onNavigateHome, onMenu, menuPulse }) 
                 onChange={e => { setQuery(e.target.value); setSearchError('') }}
                 placeholder="Search — try &quot;GI Bill&quot; or &quot;resume&quot;"
                 style={{
-                  width: 190, border: `1px solid ${searchError ? 'rgba(239,99,99,0.7)' : 'rgba(159,186,159,0.4)'}`,
+                  width: 190, border: `1px solid ${searchError ? 'rgba(239,99,99,0.7)' : 'rgba(201,185,138,0.4)'}`,
                   borderRadius: 8, padding: '7px 10px', fontSize: 12,
                   background: 'rgba(255,255,255,0.08)', color: '#fff',
                   fontFamily: 'inherit', outline: 'none',
@@ -128,7 +129,7 @@ export default function Header({ onSearch, onNavigateHome, onMenu, menuPulse }) 
 
           {/* Mobile search icon */}
           <button className="header-search-icon" onClick={openMobileSearch} aria-label="Search">
-            🔍
+            <Icon name="search" size={19} />
           </button>
 
           {/* Hamburger — mobile only, opens slide-up tab sheet */}
@@ -138,7 +139,7 @@ export default function Header({ onSearch, onNavigateHome, onMenu, menuPulse }) 
             aria-label="All features"
             style={{ position: 'relative' }}
           >
-            ☰
+            <Icon name="menu" size={17} />
             {menuPulse && <span className="menu-dot" aria-hidden="true" />}
           </button>
 
@@ -148,12 +149,12 @@ export default function Header({ onSearch, onNavigateHome, onMenu, menuPulse }) 
               {user ? (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <span className="header-auth-email" style={{ fontSize: 11, color: '#9fba9f' }}>{user.email}</span>
+                    <span className="header-auth-email" style={{ fontSize: 11, color: '#C9B98A' }}>{user.email}</span>
                     <button
                       onClick={signOut}
                       style={{
-                        padding: '5px 10px', background: 'transparent', border: '1px solid #3a5a3a',
-                        borderRadius: 8, color: '#9fba9f', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
+                        padding: '5px 10px', background: 'transparent', border: '1px solid #5A4F2E',
+                        borderRadius: 8, color: '#C9B98A', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit',
                         minHeight: 32,
                       }}
                     >
@@ -217,8 +218,8 @@ export default function Header({ onSearch, onNavigateHome, onMenu, menuPulse }) 
               type="button"
               onClick={() => { setMobileSearchOpen(false); setSearchError(''); setQuery('') }}
               style={{
-                background: 'none', border: '1px solid #3a5a3a', borderRadius: 8,
-                color: '#9fba9f', fontSize: 14, cursor: 'pointer', padding: '8px 12px',
+                background: 'none', border: '1px solid #5A4F2E', borderRadius: 8,
+                color: '#C9B98A', fontSize: 14, cursor: 'pointer', padding: '8px 12px',
                 fontFamily: 'inherit', flexShrink: 0, minHeight: 44,
               }}
             >
