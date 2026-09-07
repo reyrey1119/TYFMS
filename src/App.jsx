@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import AdUnit from './components/AdUnit'
+import NativeAds from './components/NativeAds'
 import OnboardingModal from './components/OnboardingModal'
 import HomeTab from './tabs/HomeTab'
 import TranslatorTab from './tabs/TranslatorTab'
@@ -283,6 +284,7 @@ export default function App() {
 
   return (
     <>
+      <NativeAds />
       <Header onSearch={handleSearch} onNavigateHome={() => navigate('home')} onMenu={() => {}} menuPulse={false} />
 
       <Sidebar onTabClick={navigate} />

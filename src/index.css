@@ -307,14 +307,17 @@ header input:focus { border-color: rgba(201,185,138,.7) !important; box-shadow: 
   .bottom-nav {
     display: flex;
     position: fixed;
-    bottom: 0; left: 0; right: 0;
+    /* --native-ad-height is set by NativeAds.jsx inside the iOS/Android app
+       shell, so the bar sits above the OS-drawn ad banner instead of under it.
+       Always 0px on the website. */
+    bottom: var(--native-ad-height, 0px); left: 0; right: 0;
     z-index: 150;
     background: #fff;
     border-top: 1px solid #D6CBA3;
     padding-bottom: env(safe-area-inset-bottom, 4px);
     box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
   }
-  .container { padding-bottom: 96px; }
+  .container { padding-bottom: calc(96px + var(--native-ad-height, 0px)); }
 }
 
 /* Mobile search panel (shown/hidden via React state) */
