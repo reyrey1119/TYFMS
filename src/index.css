@@ -441,7 +441,7 @@ header input:focus { border-color: rgba(201,185,138,.7) !important; box-shadow: 
 }
 .menu-sheet {
   position: absolute;
-  bottom: 0;
+  bottom: var(--native-ad-height, 0px); /* clear the native app's ad banner */
   left: 0;
   right: 0;
   background: #fff;
