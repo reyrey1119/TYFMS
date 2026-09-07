@@ -20,6 +20,12 @@ export default function NativeAds() {
 
       const { AdMob } = await import('@capacitor-community/admob')
 
+      // The banner is drawn by the OS on top of the webview, so the web UI
+      // must leave room for it. A standard BANNER is 50pt tall — reserve that
+      // right away, then let bannerAdSizeChanged correct it to the real value.
+      const setReservedHeight = px => document.documentElement.style.setProperty('--native-ad-height', `${Math.round(px)}px`)
+      setReservedHeight(50)
+
       try {
         // iOS 14.5+ requires this consent prompt before ads can use IDFA
         // for personalization. Declining still shows ads — just non-personalized.
@@ -28,21 +34,19 @@ export default function NativeAds() {
         await AdMob.initialize({ initializeForTesting: true })
         if (cancelled) return
 
-        // Reserve space above the bottom tab bar so the native banner
-        // (drawn by the OS, not the webview) doesn't cover it.
-        const setReservedHeight = px => document.documentElement.style.setProperty('--native-ad-height', `${px}px`)
-        await AdMob.addListener('bannerAdSizeChanged', info => setReservedHeight(info.height || 0))
+        await AdMob.addListener('bannerAdSizeChanged', info => setReservedHeight(info?.height ? info.height : 50))
         await AdMob.addListener('bannerAdFailedToLoad', () => setReservedHeight(0))
 
         await AdMob.showBanner({
           adId: ADMOB_TEST_BANNER_ID_IOS,
-          adSize: 'ADAPTIVE_BANNER',
+          adSize: 'BANNER',
           position: 'BOTTOM_CENTER',
           margin: 0,
           isTesting: true,
         })
       } catch {
         // Ad SDK failing to load should never break the app itself.
+        setReservedHeight(0)
       }
     }
 
