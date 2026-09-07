@@ -4,11 +4,15 @@ import { useEffect } from 'react'
 // On the website, Capacitor.isNativePlatform() is false and this renders
 // nothing; AdUnit.jsx (AdSense) keeps handling ads there.
 //
-// Uses Google's public TEST ad unit IDs until real AdMob IDs are issued —
-// swap ADMOB_APP_ID / BANNER_AD_UNIT_ID below once the AdMob account exists,
-// and update the AdMob application identifier in ios/App/App/Info.plist
-// (GADApplicationIdentifier) to match.
-const ADMOB_TEST_BANNER_ID_IOS = 'ca-app-pub-3940256099942544/2934735716'
+// Real AdMob IDs for the "TYFMS" iOS app (publisher pub-1329301779873532).
+// The matching app ID lives in ios/App/App/Info.plist (GADApplicationIdentifier).
+const BANNER_AD_UNIT_ID_IOS = 'ca-app-pub-1329301779873532/7559441680'
+
+// While true, every ad request is a TEST request (test creatives, no revenue,
+// no risk of invalid-traffic flags from our own testing). Flip to false only
+// when the app is live on the App Store and the AdMob account is fully
+// approved with payment info in place.
+const USE_TEST_ADS = true
 
 export default function NativeAds() {
   useEffect(() => {
@@ -31,18 +35,18 @@ export default function NativeAds() {
         // for personalization. Declining still shows ads — just non-personalized.
         await AdMob.requestTrackingAuthorization().catch(() => {})
 
-        await AdMob.initialize({ initializeForTesting: true })
+        await AdMob.initialize({ initializeForTesting: USE_TEST_ADS })
         if (cancelled) return
 
         await AdMob.addListener('bannerAdSizeChanged', info => setReservedHeight(info?.height ? info.height : 50))
         await AdMob.addListener('bannerAdFailedToLoad', () => setReservedHeight(0))
 
         await AdMob.showBanner({
-          adId: ADMOB_TEST_BANNER_ID_IOS,
+          adId: BANNER_AD_UNIT_ID_IOS,
           adSize: 'BANNER',
           position: 'BOTTOM_CENTER',
           margin: 0,
-          isTesting: true,
+          isTesting: USE_TEST_ADS,
         })
       } catch {
         // Ad SDK failing to load should never break the app itself.
