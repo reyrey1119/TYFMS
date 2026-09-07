@@ -251,6 +251,46 @@ export default function HomeTab({ onNavigate }) {
         </div>
       )}
 
+      {/* Start here — the two tools people come for, front and centre */}
+      <p className="mono-tag" style={{ fontSize: 11, color: '#8F8768', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 12 }}>
+        Start here
+      </p>
+      <div className="grid-2" style={{ gap: 14, marginBottom: 14 }}>
+        {HELP_CARDS.filter(c => c.tab === 'translator' || c.tab === 'resume').map(c => (
+          <div
+            key={c.tab}
+            className="card audience-card"
+            style={{ padding: '24px 22px', cursor: 'pointer', display: 'flex', flexDirection: 'column', borderColor: '#1B3A6B' }}
+            onClick={() => onNavigate(c.tab)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onNavigate(c.tab) }}
+          >
+            <span style={{ color: '#C07A28', marginBottom: 12, display: 'block' }}><Icon name={c.icon} size={28} /></span>
+            <p style={{ fontFamily: "'Zilla Slab', Georgia, serif", fontWeight: 700, fontSize: 19, color: '#1B3A6B', marginBottom: 8 }}>{c.title}</p>
+            <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.65, flex: 1 }}>{c.body}</p>
+            <p style={{ marginTop: 16, fontSize: 13.5, fontWeight: 700, color: '#C07A28' }}>{c.buttonText}</p>
+          </div>
+        ))}
+      </div>
+      {HELP_CARDS.filter(c => c.tab === 'path').map(c => (
+        <button
+          key={c.tab}
+          onClick={() => onNavigate(c.tab)}
+          style={{
+            width: '100%', display: 'flex', alignItems: 'center', gap: 12, textAlign: 'left',
+            background: '#fff', border: '1px solid #D6CBA3', borderRadius: 4, padding: '14px 18px',
+            marginBottom: 48, cursor: 'pointer', fontFamily: 'inherit',
+          }}
+        >
+          <span style={{ color: '#C07A28', flexShrink: 0 }}><Icon name={c.icon} size={20} /></span>
+          <span style={{ flex: 1, minWidth: 0 }}>
+            <span style={{ display: 'block', fontWeight: 700, fontSize: 13.5, color: '#211F19' }}>Not sure which fits you?</span>
+            <span style={{ display: 'block', fontSize: 12.5, color: '#5C5646' }}>Answer 12 questions and get a personalized career direction.</span>
+          </span>
+          <span style={{ fontSize: 13, fontWeight: 700, color: '#C07A28', flexShrink: 0 }}>{c.buttonText}</span>
+        </button>
+      ))}
 
       {/* Daily tip */}
       <div style={{
@@ -267,27 +307,6 @@ export default function HomeTab({ onNavigate }) {
           </div>
           <p style={{ fontSize: 13, color: '#211F19', lineHeight: 1.7 }}>{todaysTip.tip}</p>
         </div>
-      </div>
-
-      {/* Who this is for */}
-      <p className="cat-label" style={{ marginBottom: 14 }}>Where are you in your transition?</p>
-      <div className="grid-3" style={{ marginBottom: 52 }}>
-        {HELP_CARDS.map(c => (
-          <div
-            key={c.title}
-            className="card audience-card"
-            style={{ padding: '28px 22px', cursor: 'pointer', display: 'flex', flexDirection: 'column' }}
-            onClick={() => onNavigate(c.tab)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onNavigate(c.tab) }}
-          >
-            <span style={{ color: '#C07A28', marginBottom: 12, display: 'block' }}><Icon name={c.icon} size={26} /></span>
-            <p style={{ fontWeight: 700, fontSize: 15, color: '#211F19', marginBottom: 10 }}>{c.title}</p>
-            <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.7, flex: 1 }}>{c.body}</p>
-            <p style={{ marginTop: 16, fontSize: 13, fontWeight: 600, color: '#C07A28' }}>{c.buttonText}</p>
-          </div>
-        ))}
       </div>
 
       {/* Why We Built This */}
