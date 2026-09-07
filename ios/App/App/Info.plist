@@ -66,10 +66,8 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-	<!-- AdMob — using Google's TEST application ID. Replace with the real
-	     AdMob app ID (ca-app-pub-XXXXXXXX~XXXXXXXX) once the AdMob account exists. -->
 	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-3940256099942544~1458002511</string>
+	<string>ca-app-pub-1329301779873532~3847427384</string>
 	<!-- Shown in the App Tracking Transparency prompt (requestTrackingAuthorization). -->
 	<key>NSUserTrackingUsageDescription</key>
 	<string>TYFMS is free because of ads. Allowing tracking lets us show ads that are more relevant to you — you can decline and still use every tool.</string>
