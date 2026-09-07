@@ -3,6 +3,7 @@ import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
+import { trackEvent } from '../lib/analytics'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force', 'National Guard', 'Reserve']
 
@@ -105,6 +106,7 @@ body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos, 
 const data = await r.json()
 if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
 setResults(data)
+trackEvent('translate_completed', { branch, has_certs: existingCerts.length > 0 })
 if (useDb && saveProfile) {
 saveProfile({ mos: mos.trim(), branch, rank, target_industries: data.targetIndustries || null })
 }
@@ -129,6 +131,7 @@ body: JSON.stringify({ action: 'resume', branch, mos, rank, yos, ...results }),
 const data = await r.json()
 if (!r.ok) { setResumeError(data.error || 'Something went wrong.'); return }
 setResume(data.resume)
+trackEvent('resume_generated', { source: 'translator' })
 } catch {
 setResumeError('Could not reach the server. Try again.')
 } finally {
@@ -144,6 +147,7 @@ setTimeout(() => setCopied(false), 2000)
 }
 
 function downloadResume() {
+trackEvent('resume_downloaded', { format: 'txt', source: 'translator' })
 const blob = new Blob([resume], { type: 'text/plain' })
 const url = URL.createObjectURL(blob)
 const a = document.createElement('a')
