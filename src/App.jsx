@@ -22,12 +22,9 @@ import FeedbackTab from './tabs/FeedbackTab'
 import AdminTab from './tabs/AdminTab'
 import { Icon } from './components/icons'
 import { useAuth } from './context/AuthContext'
+import { trackEvent } from './lib/analytics'
 
 const ADMIN_EMAIL = 'reyrey1119@gmail.com'
-
-function trackEvent(name, params = {}) {
-  try { window.gtag?.('event', name, params) } catch {}
-}
 
 // ── Navigation structure ──────────────────────────────────────────────────────
 // The two tools people come here for get top billing everywhere; everything
@@ -251,7 +248,7 @@ export default function App() {
         {activeTab === 'about'        && <AboutTab />}
         {activeTab === 'path'         && <PathTab />}
         {activeTab === 'translator'   && <TranslatorTab onGoToResume={(data) => { setResumePrefill(data); navigate('resume') }} />}
-        {activeTab === 'resume'       && <ResumeTab prefill={resumePrefill} onTrackEvent={trackEvent} />}
+        {activeTab === 'resume'       && <ResumeTab prefill={resumePrefill} />}
         {activeTab === 'identity'     && <IdentityTab />}
         {activeTab === 'network'      && <NetworkTab />}
         {activeTab === 'trends'       && <CareerTrendsTab />}
