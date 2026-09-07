@@ -4,9 +4,10 @@
 // blocked — if the ad can't load, or anything goes wrong, the callback still
 // runs promptly.
 
-// TODO: replace with the real "TYFMS resume download" interstitial ad unit ID
-// once it's created in AdMob (Apps → TYFMS → Ad units → Add ad unit → Interstitial).
-const INTERSTITIAL_AD_UNIT_ID_IOS = 'ca-app-pub-3940256099942544/4411468910' // Google test ID
+// Real "TYFMS resume download" interstitial unit. USE_TEST_ADS stays true (the
+// SDK serves Google's test creative regardless of the unit ID) until the app is
+// live on the App Store — flip it to false then, and never tap your own live ads.
+const INTERSTITIAL_AD_UNIT_ID_IOS = 'ca-app-pub-1329301779873532/2127256808'
 const USE_TEST_ADS = true
 
 let lastBreak = 0
