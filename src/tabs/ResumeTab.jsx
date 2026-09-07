@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import AdUnit from '../components/AdUnit'
 import { withAdBreak } from '../lib/appAds'
+import { trackEvent } from '../lib/analytics'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -671,6 +672,7 @@ export default function ResumeTab({ prefill }) {
       const data = await r.json()
       if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
       setResume(data.resume)
+      trackEvent('resume_generated', { source: 'builder', format: mode })
       if (jobContext) {
         setScoringLoading(true)
         try {
@@ -686,9 +688,15 @@ export default function ResumeTab({ prefill }) {
     finally { setLoading(false) }
   }
 
-  function downloadPDF() { withAdBreak(() => window.print()) }
+  function downloadPDF() {
+    trackEvent('resume_downloaded', { format: 'pdf', source: 'builder' })
+    withAdBreak(() => window.print())
+  }
 
-  function downloadDOCX() { withAdBreak(buildAndSaveDocx) }
+  function downloadDOCX() {
+    trackEvent('resume_downloaded', { format: 'docx', source: 'builder' })
+    withAdBreak(buildAndSaveDocx)
+  }
 
   async function buildAndSaveDocx() {
     if (!resume) return
