@@ -30,68 +30,43 @@ function trackEvent(name, params = {}) {
 }
 
 // ── Navigation structure ──────────────────────────────────────────────────────
+// The two tools people come here for get top billing everywhere; everything
+// else lives one tap away under "Tools" / "More".
 
-const SECTIONS = [
+const PRIMARY = [
+  { id: 'home',       icon: 'home',     label: 'Home',              short: 'Home' },
+  { id: 'translator', icon: 'bolt',     label: 'Skills translator', short: 'Translate' },
+  { id: 'resume',     icon: 'document', label: 'Resume builder',    short: 'Resume' },
+]
+
+const GROUPS = [
   {
-    id: 'where',
-    icon: 'home',
-    label: 'Where You Are',
-    navLabel: 'Where',
+    id: 'tools', icon: 'clipboard', label: 'Tools', navLabel: 'Tools',
     tabs: [
-      { id: 'home',     icon: 'home',    label: 'Home' },
-      { id: 'path',     icon: 'compass', label: 'Find your path' },
-    ],
-  },
-  {
-    id: 'who',
-    icon: 'user',
-    label: 'Who You Are',
-    navLabel: 'Who You Are',
-    tabs: [
-      { id: 'identity',   icon: 'chat', label: 'Identity guide' },
-      { id: 'translator', icon: 'bolt', label: 'Skills translator' },
-      { id: 'vault',      icon: 'lock', label: 'Document Vault' },
-    ],
-  },
-  {
-    id: 'network',
-    icon: 'handshake',
-    label: 'Your Network',
-    navLabel: 'Network',
-    tabs: [
-      { id: 'network',   icon: 'handshake', label: 'Networking' },
-      { id: 'resources', icon: 'book',      label: 'Resources' },
-    ],
-  },
-  {
-    id: 'plan',
-    icon: 'clipboard',
-    label: 'Your Plan',
-    navLabel: 'Your Plan',
-    tabs: [
-      { id: 'resume',       icon: 'document',    label: 'Resume builder' },
+      { id: 'path',         icon: 'compass',     label: 'Find your path' },
+      { id: 'identity',     icon: 'chat',        label: 'Identity guide' },
+      { id: 'vault',        icon: 'lock',        label: 'Document Vault' },
+      { id: 'network',      icon: 'handshake',   label: 'Networking' },
+      { id: 'resources',    icon: 'book',        label: 'Resources' },
       { id: 'trends',       icon: 'trend',       label: 'Career trends' },
       { id: 'applications', icon: 'clipboard',   label: 'Application tracker' },
       { id: 'tracker',      icon: 'checkCircle', label: 'Progress tracker' },
     ],
   },
   {
-    id: 'more',
-    icon: 'menu',
-    label: 'More',
-    navLabel: 'More',
+    id: 'more', icon: 'menu', label: 'More', navLabel: 'More',
     tabs: [
-      { id: 'about',       icon: 'info',      label: 'About' },
-      { id: 'testimonials', icon: 'star',     label: 'Testimonials' },
-      { id: 'feedback',    icon: 'lightbulb', label: 'Feedback' },
+      { id: 'about',        icon: 'info',      label: 'About' },
+      { id: 'testimonials', icon: 'star',      label: 'Testimonials' },
+      { id: 'feedback',     icon: 'lightbulb', label: 'Feedback' },
     ],
   },
 ]
 
-const ALL_TABS = SECTIONS.flatMap(s => s.tabs)
+const ALL_TABS = [...PRIMARY, ...GROUPS.flatMap(g => g.tabs)]
 
-function getSectionForTab(tabId) {
-  return SECTIONS.find(s => s.tabs.some(t => t.id === tabId)) || SECTIONS[0]
+function groupForTab(tabId) {
+  return GROUPS.find(g => g.tabs.some(t => t.id === tabId)) || null
 }
 
 const INITIAL_TAB = (() => {
@@ -107,14 +82,12 @@ export default function App() {
   const { user } = useAuth()
   const isAdmin = user?.email === ADMIN_EMAIL
   const [activeTab, setActiveTab] = useState(INITIAL_TAB)
-  // All sections open by default; each toggles independently
-  const [openSections, setOpenSections] = useState(() => new Set(SECTIONS.map(s => s.id)))
-  const [sectionSheet, setSectionSheet] = useState(null) // section id or null
+  const [sectionSheet, setSectionSheet] = useState(null) // group id or null
   const [searchResult, setSearchResult] = useState(null)
   const [showPrivacy, setShowPrivacy] = useState(false)
   const [resumePrefill, setResumePrefill] = useState(null)
 
-  const activeSection = getSectionForTab(activeTab)
+  const activeGroup = groupForTab(activeTab)
 
   // Persist active tab + analytics, and reset scroll so each tab starts at the top
   useEffect(() => {
@@ -138,70 +111,50 @@ export default function App() {
 
   function clearSearch() { setSearchResult(null) }
 
-  // Mobile bottom bar: always open the sheet for that section on any tap
-  function handleBottomSectionTap(section) {
-    setSectionSheet(section.id)
-  }
-
-  // Desktop sidebar: each section toggles independently
-  function handleSidebarSectionToggle(sectionId) {
-    setOpenSections(prev => {
-      const next = new Set(prev)
-      if (next.has(sectionId)) next.delete(sectionId)
-      else next.add(sectionId)
-      return next
-    })
-  }
-
-  const sheetSection = sectionSheet ? SECTIONS.find(s => s.id === sectionSheet) : null
+  const sheetGroup = sectionSheet ? GROUPS.find(g => g.id === sectionSheet) : null
 
   // Reusable sidebar renderer
   function Sidebar({ onTabClick }) {
     return (
       <nav className="sidebar" aria-label="Main navigation">
-        {SECTIONS.map(section => {
-          const isSectionActive = section.id === activeSection.id
-          const isOpen = openSections.has(section.id)
-          return (
-            <div key={section.id} className="sidebar-section">
-              <button
-                className={`sidebar-section-btn${isSectionActive ? ' active' : ''}${isOpen ? ' open' : ''}`}
-                onClick={() => handleSidebarSectionToggle(section.id)}
-                aria-expanded={isOpen}
-              >
-                <span className="sidebar-section-icon"><Icon name={section.icon} size={16} /></span>
-                <span className="sidebar-section-label">{section.label}</span>
-                <span className="sidebar-chevron" aria-hidden="true" />
-              </button>
-              {isOpen && (
-                <div className="sidebar-subtabs">
-                  {section.tabs.map(tab => (
-                    <button
-                      key={tab.id}
-                      className={`sidebar-btn${tab.id === activeTab ? ' on' : ''}`}
-                      onClick={() => onTabClick(tab.id)}
-                    >
-                      <span className="sidebar-icon"><Icon name={tab.icon} size={15} /></span>
-                      <span className="sidebar-label">{tab.label}</span>
-                    </button>
-                  ))}
-                </div>
+        <div className="sidebar-primary">
+          {PRIMARY.map(tab => (
+            <button
+              key={tab.id}
+              className={`sidebar-btn sidebar-btn-primary${tab.id === activeTab ? ' on' : ''}`}
+              onClick={() => onTabClick(tab.id)}
+            >
+              <span className="sidebar-icon"><Icon name={tab.icon} size={17} /></span>
+              <span className="sidebar-label">{tab.label}</span>
+            </button>
+          ))}
+        </div>
+        {GROUPS.map(group => (
+          <div key={group.id} className="sidebar-section">
+            <div className="sidebar-group-label">{group.label}</div>
+            <div className="sidebar-subtabs">
+              {group.tabs.map(tab => (
+                <button
+                  key={tab.id}
+                  className={`sidebar-btn${tab.id === activeTab ? ' on' : ''}`}
+                  onClick={() => onTabClick(tab.id)}
+                >
+                  <span className="sidebar-icon"><Icon name={tab.icon} size={15} /></span>
+                  <span className="sidebar-label">{tab.label}</span>
+                </button>
+              ))}
+              {group.id === 'more' && isAdmin && (
+                <button
+                  className={`sidebar-btn${activeTab === 'admin' ? ' on' : ''}`}
+                  onClick={() => onTabClick('admin')}
+                >
+                  <span className="sidebar-icon"><Icon name="shield" size={15} /></span>
+                  <span className="sidebar-label">Admin</span>
+                </button>
               )}
             </div>
-          )
-        })}
-        {isAdmin && (
-          <div className="sidebar-section">
-            <button
-              className={`sidebar-btn${activeTab === 'admin' ? ' on' : ''}`}
-              onClick={() => onTabClick('admin')}
-              style={{ marginTop: 8 }}
-            >
-              <span className="sidebar-icon"><Icon name="shield" size={15} /></span>
-              <span className="sidebar-label">Admin</span>
-            </button>
           </div>
-        )}
+        ))}
       </nav>
     )
   }
@@ -316,34 +269,45 @@ export default function App() {
 
       {/* ── Bottom nav — shown at ≤1024px ──────────────────────────── */}
       <div className="bottom-nav" role="navigation" aria-label="Main navigation">
-        {SECTIONS.map(section => {
-          const isActive = section.id === activeSection.id
+        {PRIMARY.map(tab => (
+          <button
+            key={tab.id}
+            className={`bottom-nav-btn${activeTab === tab.id ? ' on' : ''}`}
+            onClick={() => navigate(tab.id)}
+            aria-label={tab.label}
+          >
+            <span className="bottom-nav-icon"><Icon name={tab.icon} size={21} /></span>
+            <span className="bottom-nav-label">{tab.short}</span>
+          </button>
+        ))}
+        {GROUPS.map(group => {
+          const isActive = group.id === activeGroup?.id
           return (
             <button
-              key={section.id}
+              key={group.id}
               className={`bottom-nav-btn${isActive ? ' on' : ''}`}
-              onClick={() => handleBottomSectionTap(section)}
-              aria-label={section.label}
+              onClick={() => setSectionSheet(group.id)}
+              aria-label={group.label}
             >
-              <span className="bottom-nav-icon"><Icon name={section.icon} size={21} /></span>
-              <span className="bottom-nav-label">{section.navLabel}</span>
+              <span className="bottom-nav-icon"><Icon name={group.icon} size={21} /></span>
+              <span className="bottom-nav-label">{group.navLabel}</span>
             </button>
           )
         })}
       </div>
 
-      {/* ── Section subtab sheet (mobile) ──────────────────────────── */}
-      {sheetSection && (
+      {/* ── Group sheet (mobile) ──────────────────────────── */}
+      {sheetGroup && (
         <div className="menu-sheet-overlay" onClick={() => setSectionSheet(null)}>
           <div className="menu-sheet" onClick={e => e.stopPropagation()}>
             <div className="menu-sheet-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <Icon name={sheetSection.icon} size={20} />
-                <p style={{ fontSize: 16, fontWeight: 700, color: '#211F19' }}>{sheetSection.label}</p>
+                <Icon name={sheetGroup.icon} size={20} />
+                <p style={{ fontSize: 16, fontWeight: 700, color: '#211F19' }}>{sheetGroup.label}</p>
               </div>
               <button className="menu-sheet-close" onClick={() => setSectionSheet(null)}>×</button>
             </div>
-            {sheetSection.tabs.map(tab => (
+            {sheetGroup.tabs.map(tab => (
               <button
                 key={tab.id}
                 className={`menu-sheet-item${tab.id === activeTab ? ' active' : ''}`}
@@ -356,6 +320,15 @@ export default function App() {
                 )}
               </button>
             ))}
+            {sheetGroup.id === 'more' && isAdmin && (
+              <button
+                className={`menu-sheet-item${activeTab === 'admin' ? ' active' : ''}`}
+                onClick={() => navigate('admin')}
+              >
+                <span className="menu-sheet-icon"><Icon name="shield" size={17} /></span>
+                <span style={{ flex: 1, textAlign: 'left' }}>Admin</span>
+              </button>
+            )}
           </div>
         </div>
       )}
