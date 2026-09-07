@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import AdUnit from '../components/AdUnit'
+import { withAdBreak } from '../lib/appAds'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -685,9 +686,11 @@ export default function ResumeTab({ prefill }) {
     finally { setLoading(false) }
   }
 
-  function downloadPDF() { window.print() }
+  function downloadPDF() { withAdBreak(() => window.print()) }
 
-  async function downloadDOCX() {
+  function downloadDOCX() { withAdBreak(buildAndSaveDocx) }
+
+  async function buildAndSaveDocx() {
     if (!resume) return
     setDocxError('')
     setDocxBuilding(true)
@@ -736,14 +739,31 @@ export default function ResumeTab({ prefill }) {
 
       const doc = new Document({ sections: [{ properties: {}, children }] })
       const blob = await Packer.toBlob(doc)
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `${(name || 'resume').trim().replace(/[^a-z0-9]+/gi, '_') || 'resume'}.docx`
-      document.body.appendChild(a)
-      a.click()
-      a.remove()
-      URL.revokeObjectURL(url)
+      const filename = `${(name || 'resume').trim().replace(/[^a-z0-9]+/gi, '_') || 'resume'}.docx`
+
+      const { Capacitor } = await import('@capacitor/core')
+      if (Capacitor.isNativePlatform()) {
+        // WKWebView ignores <a download>; write the file and open the share sheet.
+        const base64 = await new Promise((res, rej) => {
+          const r = new FileReader()
+          r.onerror = rej
+          r.onload = () => res(String(r.result).split(',')[1])
+          r.readAsDataURL(blob)
+        })
+        const { Filesystem, Directory } = await import('@capacitor/filesystem')
+        const { Share } = await import('@capacitor/share')
+        const written = await Filesystem.writeFile({ path: filename, data: base64, directory: Directory.Cache })
+        await Share.share({ title: filename, url: written.uri })
+      } else {
+        const url = URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = filename
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+        URL.revokeObjectURL(url)
+      }
     } catch {
       setDocxError('Could not build the Word document. Try again.')
     } finally {
