@@ -1,0 +1,20 @@
+{
+  "appId": "com.tyfms.app",
+  "appName": "TYFMS",
+  "webDir": "dist",
+  "server": {
+    "url": "https://www.tyfms.com",
+    "cleartext": false
+  },
+  "ios": {
+    "contentInset": "automatic",
+    "backgroundColor": "#13213A"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 800,
+      "backgroundColor": "#13213A",
+      "showSpinner": false
+    }
+  }
+}
