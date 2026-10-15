@@ -135,13 +135,16 @@ test('training, credentials and assignments stay distinct and rank-gated', async
   assert.equal(e5.developmental_assignments, '')
 })
 
-test('provenance (source, version, URL, PDF page) reaches the caller', async () => {
+test('provenance (source, version, URL, PDF page) reaches the caller, per section', async () => {
   const r = await run(financeEnlisted(), body('E-7'))
   assert.equal(r.sources[0].publicationNumber, 'SYNTHETIC PAM 1')
   assert.equal(r.sources[0].url, 'https://example.army.mil/synthetic.pdf')
   assert.equal(r.sources[0].publicationDate, '2024-07-19')
   assert.ok(r.sources[0].lastChecked)
-  assert.ok(r.passages.some(p => p.section === 'rank_duties' && p.pdfPages === '10'))
+  const rankSection = r.sections.find(sec => sec.section === 'rank_duties')
+  assert.equal(rankSection.pdfPages, '10')
+  assert.equal(rankSection.sourceId, r.sources[0].id)
+  assert.equal(rankSection.sourceRef, 'S1')
 })
 
 test('a grade with no stored section gets no invented rank scope', async () => {
@@ -327,10 +330,104 @@ test('prompt block treats reference as typical, not as what the person did', asy
   const unconfirmed = referencePromptBlock(ref)
   assert.match(unconfirmed, /NOT a record of what this person did/)
   assert.match(unconfirmed, /NOT confirmed/)
-  assert.match(unconfirmed, /a recommendation, not proof it was completed/)
-  assert.match(unconfirmed, /possible, not confirmed/)
+  assert.match(unconfirmed, /Recommended training \(not proof it was completed\)/)
+  assert.match(unconfirmed, /Possible assignments \(not confirmed\)/)
+  assert.match(unconfirmed, /\[S1 p\.10\]/, 'each line cites its own source and page')
   assert.match(unconfirmed, /<<<REFERENCE_DATA/)
   assert.match(referencePromptBlock(ref, { confirmed: true }), /CONFIRMED they performed/)
+})
+
+// ── components (Active / Reserve / Guard) ────────────────────────────────────
+
+const officerWithComponents = () => fakeSupabase({
+  reference_sources: [source({ id: 'fc', personnel_category: 'officer' })],
+  reference_passages: [
+    passage({ source_id: 'fc', personnel_category: 'officer', occupation_code: '36A', rank_band: null, components: null, section_type: 'general_duties', body: 'Branch-wide text.' }),
+    passage({ source_id: 'fc', personnel_category: 'officer', occupation_code: '36A', rank_band: 'O-3', components: 'active', section_type: 'assignments', body: 'Active Captain assignments.' }),
+    passage({ source_id: 'fc', personnel_category: 'officer', occupation_code: '36A', rank_band: 'O-1..O-3', components: 'reserve', section_type: 'assignments', body: 'Reserve company-grade assignments.' }),
+    passage({ source_id: 'fc', personnel_category: 'officer', occupation_code: '36A', rank_band: 'O-1..O-3', components: 'guard', section_type: 'assignments', body: 'Guard company-grade assignments.' }),
+    passage({ source_id: 'fc', personnel_category: 'officer', occupation_code: '36A', rank_band: 'O-1..O-3', components: 'reserve,guard', section_type: 'general_duties', heading: 'RC', body: 'Both Reserve and Guard.' }),
+  ],
+})
+const offBody = (rank, component) => ({ branch: 'Army', mos_afsc: '36A', rank, ...(component ? { component } : {}) })
+
+test('each component gets only its own passages', async () => {
+  const db = officerWithComponents()
+  const active = await run(db, offBody('O-3', 'active'))
+  const reserve = await run(db, offBody('O-3', 'reserve'))
+  const guard = await run(db, offBody('O-3', 'guard'))
+  assert.match(active.developmental_assignments, /Active Captain/)
+  assert.ok(!/Reserve company|Guard company/.test(active.developmental_assignments))
+  assert.equal(reserve.developmental_assignments, 'Reserve company-grade assignments.')
+  assert.equal(guard.developmental_assignments, 'Guard company-grade assignments.')
+  assert.match(reserve.duties_and_responsibilities, /Both Reserve and Guard/)
+  assert.match(guard.duties_and_responsibilities, /Both Reserve and Guard/)
+  assert.ok(!/Both Reserve and Guard/.test(active.duties_and_responsibilities))
+})
+
+test('no component chosen: only passages that apply to every component, plus a prompt to choose', async () => {
+  const r = await run(officerWithComponents(), offBody('O-3'))
+  assert.equal(r.duties_and_responsibilities, 'Branch-wide text.')
+  assert.equal(r.developmental_assignments, '')
+  assert.match(r.componentNote, /Active, Reserve, National Guard/)
+  assert.match(r.componentNote, /Choose your component/)
+})
+
+test('promotion criteria are stored but never returned or sent to a model', async () => {
+  const db = fakeSupabase({
+    reference_sources: [source()],
+    reference_passages: [
+      passage({ body: 'Duties.' }),
+      passage({ section_type: 'promotion_criteria', rank_band: 'E-6', body: 'Board selection indicators.' }),
+    ],
+  })
+  const r = await run(db, body('E-6'))
+  assert.ok(!JSON.stringify(r).includes('Board selection indicators'))
+  assert.ok(!referencePromptBlock(r).includes('Board selection indicators'))
+})
+
+// ── every displayed section maps to ITS source ───────────────────────────────
+
+test('with two sources, each section is attributed to the source it came from', async () => {
+  const db = fakeSupabase({
+    reference_sources: [
+      source({ id: 'aaa', publication_number: 'PAM ONE', official_url: 'https://example.army.mil/one.pdf', publication_date: '2024-07-19', last_checked_at: daysAgo(5) }),
+      source({ id: 'bbb', publication_number: 'PAM TWO', official_url: 'https://example.army.mil/two.pdf', publication_date: '2025-09-10', last_checked_at: daysAgo(300) }),
+    ],
+    reference_passages: [
+      passage({ source_id: 'aaa', section_type: 'general_duties', body: 'From the first.', pdf_page_start: 7 }),
+      passage({ source_id: 'bbb', section_type: 'training', rank_band: 'E-5', body: 'From the second.', pdf_page_start: 12 }),
+    ],
+  })
+  const r = await run(db, body('E-5'))
+  const first = r.sections.find(s => s.text === 'From the first.')
+  const second = r.sections.find(s => s.text === 'From the second.')
+  const srcOf = sec => r.sources.find(s => s.id === sec.sourceId)
+  assert.equal(srcOf(first).publicationNumber, 'PAM ONE')
+  assert.equal(srcOf(first).url, 'https://example.army.mil/one.pdf')
+  assert.equal(first.pdfPages, '7')
+  assert.equal(srcOf(second).publicationNumber, 'PAM TWO')
+  assert.equal(srcOf(second).url, 'https://example.army.mil/two.pdf')
+  assert.equal(second.pdfPages, '12')
+  assert.notEqual(first.sourceRef, second.sourceRef)
+  assert.equal(srcOf(first).status, 'verified')
+  assert.equal(srcOf(second).status, 'stale', 'status is reported per source')
+  assert.equal(r.status, 'stale', 'overall status is the worst of its sources')
+  const block = referencePromptBlock(r)
+  assert.match(block, new RegExp(`\\[${first.sourceRef} p\\.7\\].*From the first`))
+  assert.match(block, new RegExp(`\\[${second.sourceRef} p\\.12\\].*From the second`))
+})
+
+test('a source that contributes no displayed section is not reported', async () => {
+  const db = fakeSupabase({
+    reference_sources: [source({ id: 'aaa' }), source({ id: 'bbb', publication_number: 'UNUSED' })],
+    reference_passages: [
+      passage({ source_id: 'aaa', body: 'Used.' }),
+      passage({ source_id: 'bbb', section_type: 'training', rank_band: 'E-9', body: 'Not for E-5.' }),
+    ],
+  })
+  const r = await run(db, body('E-5'))
+  assert.deepEqual(r.sources.map(s => s.publicationNumber), ['SYNTHETIC PAM 1'])
 })
 
 // ── client guards ────────────────────────────────────────────────────────────

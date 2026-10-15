@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "node scripts/seed-trends.js && vite build",
     "preview": "vite preview",
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "reference:import": "node scripts/import-reference-source.js",
+    "reference:verify": "node scripts/verify-reference-bundle.js",
+    "reference:review": "node scripts/review-listing.js",
+    "reference:approve": "node scripts/approve-reference-source.js"
   },
   "dependencies": {
     "@capacitor-community/admob": "^8.1.0",
@@ -28,7 +32,9 @@
     "rollup": "^4.29.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10",
     "@vitejs/plugin-react": "4.3.1",
+    "pdf-parse": "^2.4.5",
     "vite": "5.4.8"
   }
 }

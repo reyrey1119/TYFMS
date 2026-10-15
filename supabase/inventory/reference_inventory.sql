@@ -35,3 +35,37 @@ where schemaname = 'public'
     'usmc_mos_reference', 'mil_reference_cache'
   )
 order by tablename, policyname;
+
+-- ── 4) How do the LEGACY rows store rank sections? (read-only) ───────────────
+-- The legacy tables have no rank column. These show whether rank-specific text
+-- was kept at all, or flattened into one duties/goals blob. Send me the output.
+-- (If a table or column name differs from your project, just tell me the error.)
+
+select 'mos_reference_enlisted' as table_name, mos_code as code, title,
+       length(duties) as duties_chars, length(goals) as goals_chars,
+       left(duties, 300) as duties_start, left(goals, 300) as goals_start
+from public.mos_reference_enlisted
+where mos_code in ('42A', '36B', '25U', '91X')
+order by mos_code;
+
+select mos_code,
+       (coalesce(duties, '') ~* 'staff sergeant|sergeant first class|master sergeant|sergeant major') as rank_names_in_duties,
+       (coalesce(goals,  '') ~* 'staff sergeant|sergeant first class|master sergeant|sergeant major') as rank_names_in_goals,
+       (coalesce(duties, '') ~* 'basic leader course|advanced leader course|senior leader course|sergeants major academy') as pme_in_duties
+from public.mos_reference_enlisted
+where mos_code in ('42A', '36B');
+
+select 'aoc_reference_officer' as table_name, aoc_code as code, title,
+       length(characteristics) as characteristics_chars, length(development) as development_chars,
+       left(characteristics, 300) as characteristics_start, left(development, 300) as development_start
+from public.aoc_reference_officer
+where aoc_code in ('36A', '42B', '42H')
+order by aoc_code;
+
+-- Any duplicate codes (they would break exact-match lookups)?
+select 'mos_reference_enlisted' as table_name, mos_code as code, count(*) from public.mos_reference_enlisted group by mos_code having count(*) > 1
+union all
+select 'aoc_reference_officer', aoc_code, count(*) from public.aoc_reference_officer group by aoc_code having count(*) > 1;
+
+-- Is the old rank-less cache table still holding rows? (the app no longer reads it)
+select count(*) as cached_rows, min(fetched_at) as oldest, max(fetched_at) as newest from public.mil_reference_cache;

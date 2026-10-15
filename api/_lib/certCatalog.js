@@ -35,12 +35,18 @@ export const CERT_CATALOG = [
   { name: 'Certified Maintenance & Reliability Professional (CMRP)', aliases: ['CMRP'], provider: 'SMRP', url: 'https://smrp.org/Certification/Get-Certified/Certification-Offerings-Process/' },
   { name: 'Certified Maintenance & Reliability Technician (CMRT)',   aliases: ['CMRT'], provider: 'SMRP', url: 'https://smrp.org/Certification/Get-Certified/Certification-Offerings-Process/' },
 
-  // Human resources (provider home pages; choose the specific credential there)
-  { name: 'HR certifications (PHR / SPHR / aPHR)', aliases: ['PHR', 'SPHR', 'aPHR'], provider: 'HR Certification Institute', url: 'https://www.hrci.org/' },
-  { name: 'SHRM-CP / SHRM-SCP', aliases: ['SHRM-CP', 'SHRM-SCP'], provider: 'SHRM',   url: 'https://www.shrm.org/credentials' },
+  // Human resources — one entry per credential level
+  { name: 'Associate Professional in Human Resources (aPHR)', aliases: ['aPHR'], provider: 'HR Certification Institute', url: 'https://www.hrci.org/certifications/individual-certifications/aphr' },
+  { name: 'Professional in Human Resources (PHR)',            aliases: ['PHR'],  provider: 'HR Certification Institute', url: 'https://www.hrci.org/certifications/individual-certifications/phr' },
+  { name: 'Senior Professional in Human Resources (SPHR)',    aliases: ['SPHR'], provider: 'HR Certification Institute', url: 'https://www.hrci.org/certifications/individual-certifications/sphr' },
+  { name: 'SHRM Certified Professional (SHRM-CP)',            aliases: ['SHRM-CP'],  provider: 'SHRM', url: 'https://www.shrm.org/credentials/certification/shrm-cp' },
+  { name: 'SHRM Senior Certified Professional (SHRM-SCP)',    aliases: ['SHRM-SCP'], provider: 'SHRM', url: 'https://www.shrm.org/credentials/certification/shrm-scp' },
 
-  // Healthcare
-  { name: 'Emergency Medical Technician / Paramedic (NREMT)', aliases: ['EMT-Basic', 'EMT-Advanced', 'Paramedic (NREMT-P)'], provider: 'NREMT', url: 'https://www.nremt.org/' },
+  // Healthcare — NREMT publishes one examination page per pair of levels, so two
+  // entries share a page; each is still its own credential.
+  { name: 'Emergency Medical Technician (EMT)',           aliases: ['EMT-Basic', 'EMT'], provider: 'NREMT', url: 'https://www.nremt.org/Pages/Examinations/EMR-and-EMT-Certification-Examinations', urlNote: 'This NREMT page also covers Emergency Medical Responder.' },
+  { name: 'Advanced Emergency Medical Technician (AEMT)', aliases: ['EMT-Advanced', 'AEMT'], provider: 'NREMT', url: 'https://www.nremt.org/Pages/Examinations/AEMT-and-Paramedic-Certification-Examinations', urlNote: 'This NREMT page also covers Paramedic.' },
+  { name: 'Paramedic',                                    aliases: ['Paramedic (NREMT-P)', 'NREMT-P'], provider: 'NREMT', url: 'https://www.nremt.org/Pages/Examinations/AEMT-and-Paramedic-Certification-Examinations', urlNote: 'This NREMT page also covers Advanced EMT.' },
   { name: 'Certified Professional Coder (CPC)', aliases: ['Medical Coding (CPC)', 'CPC'], provider: 'AAPC', url: 'https://www.aapc.com/certifications/cpc/' },
   { name: 'Certified Phlebotomy Technician (CPT)', aliases: ['Phlebotomy Technician'], provider: 'National Healthcareer Association', url: 'https://www.nhanow.com/certification/ptcs' },
 
@@ -72,7 +78,7 @@ export function verifyRecommendations(recommended, held = []) {
     const cert = findCert(rec?.name)
     if (!cert || seen.has(cert.name) || heldNames.has(cert.name)) continue
     seen.add(cert.name)
-    out.push({ name: cert.name, why: String(rec.why || '').slice(0, 300), provider: cert.provider, url: cert.url })
+    out.push({ name: cert.name, why: String(rec.why || '').slice(0, 300), provider: cert.provider, url: cert.url, ...(cert.urlNote ? { urlNote: cert.urlNote } : {}) })
   }
   return out
 }

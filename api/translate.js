@@ -3,7 +3,7 @@
 
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
-import { retrieveReference, referencePromptBlock, parsePayGrade } from './_lib/milReference.js'
+import { retrieveReference, referencePromptBlock, parsePayGrade, validateReferenceRequest } from './_lib/milReference.js'
 import { CERT_NAMES_FOR_PROMPT, verifyRecommendations } from './_lib/certCatalog.js'
 
 const JUNIOR_YOS = ['Less than 1 year', '1–2 years']
@@ -25,6 +25,10 @@ export default async function handler(req, res) {
 
   const { action = 'translate', branch, component, mos, rank, yos, existingCerts, milDuties, confirmReferenceDuties, vaultContext } = req.body || {}
   if (!mos) return res.status(400).json({ error: 'MOS/AFSC is required.' })
+
+  // Reject bad or missing branch / rank / component BEFORE any paid model call.
+  const checked = validateReferenceRequest({ branch, component, mos_afsc: mos, rank })
+  if (!checked.ok) return res.status(400).json({ error: checked.result.message, status: checked.result.status, missing: checked.result.missing })
 
   // ── TRANSLATE MOS → CIVILIAN ──────────────────────────────────────────────
   if (action === 'translate') {
@@ -97,27 +101,38 @@ For certifications: recommend up to 3 and choose ONLY from this verified list, u
   }
 
   // ── RESUME DRAFT (from translator results) ────────────────────────────────
+  // This quick draft writes ONLY what the person told us. It never turns an
+  // occupation code, a rank, or an AI-translated skill list into duties they
+  // performed: with no duties supplied, every bullet is an [ADD: ...] prompt.
   if (action === 'resume') {
     const { civilianTitles, transferableSkills, careerPaths, targetIndustries } = req.body || {}
+    const described = (milDuties || '').trim().slice(0, 2000)
+
+    const dutiesBlock = described
+      ? `DUTIES THE PERSON DESCRIBED (their own words — the ONLY source for experience bullets):\n${described}`
+      : 'The person has not described any duties. Do not write any duty, task, or accomplishment. Every experience bullet must be an [ADD: ...] prompt.'
 
     const prompt = `You are an expert resume writer specializing in military-to-civilian transitions. Create a resume DRAFT the person will finish with their own facts.
 
-Military background:
+Military background (a label for the document, not evidence of any duty):
 - Branch: ${branch}
 - Occupational code: ${mos}
 ${rank ? `- Rank: ${rank}` : ''}
 ${yos ? `- Years of service: ${yos}` : ''}
 
-Civilian profile (AI-translated — suggestions, not facts about this person):
-- Target titles: ${(civilianTitles || []).join(', ')}
-- Key skills: ${(transferableSkills || []).join(', ')}
-- Career paths: ${(careerPaths || []).map(p => p.title).join(', ')}
-- Target industries: ${(targetIndustries || []).join(', ')}
+${dutiesBlock}
+
+Civilian profile (AI-translated suggestions about where skills could apply — NOT facts about this person):
+- Possible target titles: ${(civilianTitles || []).join(', ')}
+- Possible skills: ${(transferableSkills || []).join(', ')}
+- Possible career paths: ${(careerPaths || []).map(p => p.title).join(', ')}
+- Possible industries: ${(targetIndustries || []).join(', ')}
 
 HARD RULES:
-- Never invent numbers, team sizes, budgets, results, clearances, degrees, certifications, or leadership roles. Where a fact is needed and you do not have it, write a bracketed prompt that starts with ADD, for example [ADD: number of people you supervised, if any].
-- Write bullets about duties common to the specialty in careful language ("Operated...", "Maintained...") only for the entry-level tasks the code itself implies; leave scope, scale and outcomes as ADD prompts.
-- Do not claim a certification or clearance unless it appears above.
+- EXPERIENCE: write a bullet only if it restates something in the person's described duties above. Never infer a duty, task, system, supervisory role, or accomplishment from the occupational code, the rank, or the suggestions above. Where a bullet is needed and the person has not told you, write a bracketed prompt, for example [ADD: a task you performed in this role] or [ADD: number of people you supervised, if any].
+- Never invent numbers, team sizes, budgets, results, clearances, degrees, certifications, or leadership roles.
+- Do not state years of experience unless given above.
+- Do not claim a certification or clearance.
 
 Write a draft with these exact sections, separated by blank lines:
 
@@ -125,15 +140,16 @@ Write a draft with these exact sections, separated by blank lines:
 [City, State] | [Phone] | [Email] | [LinkedIn URL]
 
 PROFESSIONAL SUMMARY
-3-4 sentences. Civilian language only. No military jargon. Do not state years of experience unless given above.
+2-3 sentences, civilian language, no military jargon. Describe only what the person's described duties support; if none, write [ADD: 2-3 sentences about the work you have actually done].
 
 CORE COMPETENCIES
-List 12 skills relevant to the target roles, formatted as three columns of four (use " | " to separate columns).
+[CONFIRM: keep only skills you can demonstrate; delete the rest]
+List up to 12 of the possible skills above, three columns of four (use " | " to separate columns).
 
 PROFESSIONAL EXPERIENCE
-[Civilian Job Title equivalent] | [Branch of Service]
+[Civilian Job Title equivalent — confirm it fits what you did] | [Branch of Service]
 [Start Year] – [End Year]
-• 4-5 bullet points with strong action verbs. Put each missing number or outcome in an [ADD: ...] prompt.
+• 3-5 bullets. Each is either a restatement of a described duty or an [ADD: ...] prompt.
 
 EDUCATION & TRAINING
 [ADD: your degree, institution, year — or delete this line]

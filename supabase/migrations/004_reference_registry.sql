@@ -8,8 +8,6 @@
 --
 -- Run in the Supabase SQL editor. Safe to run more than once.
 
-create extension if not exists pgcrypto;
-
 -- One row per publication (or chapter of one) that passages were extracted from.
 create table if not exists public.reference_sources (
   id                 uuid primary key default gen_random_uuid(),

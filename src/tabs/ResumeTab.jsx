@@ -6,7 +6,7 @@ import { withAdBreak } from '../lib/appAds'
 import { trackEvent } from '../lib/analytics'
 import MilReferenceCard from '../components/MilReferenceCard'
 import { makeLatestGuard, makeSingleFlight } from '../lib/latestOnly'
-import { COMPONENT_OPTIONS, splitLegacyBranch, isJuniorContext } from '../lib/rank'
+import { COMPONENT_OPTIONS, splitLegacyBranch, isJuniorContext, rankProblem } from '../lib/rank'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -660,6 +660,8 @@ export default function ResumeTab({ prefill }) {
 
   async function doGenerate() {
     if (!form.mos.trim()) { setError('Please enter your MOS, AFSC, or rate code in Step 3.'); return }
+    const rp = rankProblem(form.rank)
+    if (rp) { setError(rp + ' (Step 3)'); return }
     setError(''); setResume(''); setScoreData(null); setLoading(true)
     const jobContext = form.jobDescription.trim() || (jobData
       ? `Job Title: ${jobData.title || ''}\nCompany: ${jobData.company || ''}\nRequired Skills: ${jobData.skills || ''}\nKey Responsibilities: ${jobData.responsibilities || ''}`

@@ -2,7 +2,7 @@
 
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
-import { retrieveReference, referencePromptBlock } from './_lib/milReference.js'
+import { retrieveReference, referencePromptBlock, validateReferenceRequest } from './_lib/milReference.js'
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
@@ -19,6 +19,10 @@ export default async function handler(req, res) {
   } = req.body || {}
 
   if (!mos?.trim()) return res.status(400).json({ error: 'MOS, AFSC, or rate code is required.' })
+
+  // Reject bad or missing branch / rank / component BEFORE any paid model call.
+  const checked = validateReferenceRequest({ branch, component, mos_afsc: mos, rank })
+  if (!checked.ok) return res.status(400).json({ error: checked.result.message, status: checked.result.status, missing: checked.result.missing })
 
   const companyContext = targetCompany?.trim()
     ? `The veteran is targeting: ${targetCompany.trim()}. Tailor tone, skills, ATS keywords, and language to that company's known culture, values, and priorities.`

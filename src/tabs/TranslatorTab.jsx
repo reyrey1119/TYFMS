@@ -6,7 +6,7 @@ import { supabase } from '../lib/supabase'
 import { trackEvent } from '../lib/analytics'
 import MilReferenceCard from '../components/MilReferenceCard'
 import { makeLatestGuard, makeSingleFlight } from '../lib/latestOnly'
-import { COMPONENT_OPTIONS, splitLegacyBranch, isJuniorContext } from '../lib/rank'
+import { COMPONENT_OPTIONS, splitLegacyBranch, isJuniorContext, rankProblem } from '../lib/rank'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 
@@ -109,6 +109,8 @@ function translate() { return flight.current(doTranslate) }
 
 async function doTranslate() {
 if (!mos.trim()) { setError('Please enter your MOS, AFSC, or rate code.'); return }
+const rp = rankProblem(rank)
+if (rp) { setError(rp); return }
 setError('')
 setResults(null)
 setResume('')
@@ -135,6 +137,8 @@ setLoading(false)
 
 async function buildResume() {
 if (!results) return
+const rp = rankProblem(rank)
+if (rp) { setResumeError(rp); return }
 setResumeError('')
 setResume('')
 setResumeLoading(true)
@@ -142,7 +146,7 @@ try {
 const r = await fetch('/api/translate', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ action: 'resume', branch, mos, rank, yos, ...results }),
+body: JSON.stringify({ action: 'resume', branch, component, mos, rank, yos, milDuties: milDuties.trim(), ...results }),
 })
 const data = await r.json()
 if (!r.ok) { setResumeError(data.error || 'Something went wrong.'); return }
@@ -423,6 +427,7 @@ These are examples of where your skills can apply, not job-placement promises. O
 <p style={{ fontWeight: 600, fontSize: 14, marginBottom: 3, color: '#211F19' }}>{c.name}</p>
 <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.6 }}>{c.why}</p>
 {c.url && <p style={{ fontSize: 12, marginTop: 4 }}><a href={c.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1B3A6B' }}>{c.provider ? `${c.provider} — ` : ''}official details</a></p>}
+{c.urlNote && <p style={{ fontSize: 11, color: '#8F8768', marginTop: 2 }}>{c.urlNote}</p>}
 </div>
 </div>
 ))}

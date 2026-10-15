@@ -93,8 +93,16 @@ export default function MilReferenceCard({
 
   const tone = TONES[s] ? s : 'plain'
   const t = TONES[tone]
-  const source = data.sources?.[0]
-  const covers = [data.duties_and_responsibilities, data.rank_specific_expectations, data.training_recommendations, data.credential_recommendations, data.developmental_assignments, data.development_notes, data.key_skills].some(Boolean)
+  const sources = data.sources || []
+  const sections = data.sections || []
+  const sourceById = Object.fromEntries(sources.map(src => [src.id, src]))
+  const hasDraftText = s === 'ai_only' && (data.duties_and_responsibilities || data.key_skills)
+  const SECTION_TITLES = {
+    general_duties: 'Typical duties', rank_duties: 'Expected at this grade', assignments: 'Possible assignments (not confirmed)',
+    training: 'Recommended training (not proof it was completed)', credentials: 'Recommended credentials (not proof they were earned)',
+    self_development: 'Self-development', lifelong_learning: 'Lifelong learning', development: 'Career development guidance', prerequisites: 'Prerequisites',
+  }
+  const COMPONENT_TITLES = { active: 'Active', reserve: 'Reserve', guard: 'National Guard' }
 
   return (
     <Box tone={tone}>
@@ -105,43 +113,58 @@ export default function MilReferenceCard({
         <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.5, marginBottom: 6 }}>
           This draft was written by an AI model, not taken from an official publication. It may be incomplete or wrong. Edit it into your own words before using it.
         </p>
+      ) : sources.length > 0 ? (
+        <div style={{ marginBottom: 6 }}>
+          {sources.map(src => (
+            <p key={src.id} style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.5, marginBottom: 2 }}>
+              <strong>{src.ref}</strong> · {[src.publicationNumber, src.chapter].filter(Boolean).join(', ') || src.title}
+              {src.publicationDate && <> · published {fmtDate(src.publicationDate)}</>}
+              {src.lastChecked && <> · checked {fmtDate(src.lastChecked)}</>}
+              {src.status === 'stale' && <> · <em>not re-checked recently</em></>}
+              {src.url && <> · <a href={src.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1B3A6B' }}>View source</a></>}
+            </p>
+          ))}
+        </div>
       ) : (
-        <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.5, marginBottom: 6 }}>
-          {data.document_source}
-          {source?.publicationDate && <> · published {fmtDate(source.publicationDate)}</>}
-          {source?.lastChecked && <> · last checked {fmtDate(source.lastChecked)}</>}
-          {source?.url && <> · <a href={source.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1B3A6B' }}>View source</a></>}
-        </p>
+        <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.5, marginBottom: 6 }}>{data.document_source}</p>
       )}
 
-      {data.passages?.some(p => p.pdfPages) && (
-        <p style={{ fontSize: 11, color: '#8F8768', marginBottom: 6 }}>
-          PDF {data.passages.filter(p => p.pdfPages).map(p => `p. ${p.pdfPages}`).filter((v, i, a) => a.indexOf(v) === i).join(', ')}
-        </p>
-      )}
       {data.codeNote && <p style={{ fontSize: 12, color: '#5C5646', marginBottom: 6 }}>{data.codeNote}</p>}
       {data.rank_note && <p style={{ fontSize: 12, color: '#5C5646', marginBottom: 6 }}>{data.rank_note}</p>}
+      {data.componentNote && <p style={{ fontSize: 12, color: '#8A5416', marginBottom: 6 }}>{data.componentNote}</p>}
 
-      <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.5, marginBottom: covers ? 6 : 0 }}>
+      <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.5, marginBottom: (sections.length || hasDraftText) ? 6 : 0 }}>
         This describes what the specialty{rank ? ` at ${rank}` : ''} typically involves. It is not a record of what <em>you</em> did, and recommended training or assignments are not proof anyone completed them.
         {juniorContext && ' If you are still in training, separate what you have trained on from what you have actually performed.'}
       </p>
 
-      {covers && (
+      {(sections.length > 0 || hasDraftText) && (
         <details style={{ fontSize: 12, color: '#5C5646' }}>
           <summary style={{ cursor: 'pointer', color: '#1B3A6B', fontWeight: 600 }}>See what this covers</summary>
-          <div style={{ marginTop: 6, maxHeight: 220, overflowY: 'auto', lineHeight: 1.55, whiteSpace: 'pre-wrap' }}>
-            {[
-              ['Typical duties', data.duties_and_responsibilities],
-              ['At this grade', data.rank_specific_expectations],
-              ['Key skills', data.key_skills],
-              ['Recommended training', data.training_recommendations],
-              ['Recommended credentials', data.credential_recommendations],
-              ['Possible developmental assignments', data.developmental_assignments],
-              ['Development notes', data.development_notes],
-            ].filter(([, v]) => v).map(([k, v]) => (
-              <p key={k} style={{ marginBottom: 6 }}><strong>{k}:</strong> {v}</p>
-            ))}
+          <div style={{ marginTop: 6, maxHeight: 260, overflowY: 'auto', lineHeight: 1.55 }}>
+            {sections.map((sec, i) => {
+              const src = sourceById[sec.sourceId]
+              return (
+                <div key={i} style={{ marginBottom: 8 }}>
+                  <p style={{ fontWeight: 700, color: '#211F19' }}>
+                    {SECTION_TITLES[sec.section] || sec.section}{sec.heading ? ` — ${sec.heading}` : ''}
+                    {sec.rankBand && <span style={{ fontWeight: 400, color: '#8F8768' }}> · {sec.rankBand}</span>}
+                    {sec.components && <span style={{ fontWeight: 400, color: '#8F8768' }}> · {sec.components.split(',').map(c => COMPONENT_TITLES[c] || c).join(' / ')}</span>}
+                  </p>
+                  <p style={{ whiteSpace: 'pre-wrap' }}>{sec.text}</p>
+                  <p style={{ fontSize: 11, color: '#8F8768' }}>
+                    {src ? <>{sec.sourceRef} · {[src.publicationNumber, src.chapter].filter(Boolean).join(', ') || src.title}</> : 'Stored text — source version not recorded'}
+                    {sec.pdfPages && <> · PDF p. {sec.pdfPages}</>}
+                  </p>
+                </div>
+              )
+            })}
+            {hasDraftText && (
+              <>
+                {data.duties_and_responsibilities && <p style={{ marginBottom: 6, whiteSpace: 'pre-wrap' }}><strong>Draft tasks:</strong> {data.duties_and_responsibilities}</p>}
+                {data.key_skills && <p style={{ marginBottom: 6 }}><strong>Draft skills:</strong> {data.key_skills}</p>}
+              </>
+            )}
           </div>
         </details>
       )}
@@ -153,7 +176,7 @@ export default function MilReferenceCard({
         </button>
       )}
 
-      {confirmable && s !== 'ai_only' && (
+      {confirmable && s !== 'ai_only' && sections.length > 0 && (
         <label style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginTop: 10, fontSize: 12, color: '#211F19', cursor: 'pointer' }}>
           <input type="checkbox" checked={!!confirmed} onChange={e => onConfirmChange?.(e.target.checked)} style={{ marginTop: 2 }} />
           <span>I personally performed these typical duties — you may write them as my experience. <span style={{ color: '#8F8768' }}>(Leave unchecked and your resume uses this only for wording; add your own details below.)</span></span>

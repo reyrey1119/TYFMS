@@ -1,0 +1,91 @@
+{
+  "id": "army-fc-officer-2025-09-10",
+  "profile": "officer-branch",
+  "pdf_sha256": "996719b2544d7d2b1c38579f16778d45122aef534941fc147f51322da8be1eef",
+  "source": {
+    "branch": "Army",
+    "personnel_category": "officer",
+    "publication_number": "Finance and Comptroller Branch (10 September 2025)",
+    "title": "Finance and Comptroller Branch officer career guide",
+    "career_field": "Finance and Comptroller (branch code 36A)",
+    "proponent": "Commandant, U.S. Army Finance and Comptroller School (Proponency Division), Fort Jackson, SC",
+    "official_url": "https://api.army.mil/e2/c/downloads/2025/09/10/640a0b16/fc-10sep25.pdf",
+    "publication_date": "2025-09-10",
+    "effective_date": null,
+    "last_checked_at": "2026-10-15T00:00:00Z",
+    "notes": "Date printed on page 1: 10 September 2025. As checked 2026-10-15 the Army G-1 page's Finance link text still shows an older April 2024 path, but the link target is this 10 Sep 2025 file. Figures 1-4 (development models) are images and their content is NOT extracted; assignment tables inside them are therefore not in the registry. Section 4 states there are no warrant officers in the FC branch."
+  },
+  "occupations": [
+    {
+      "code": "36A",
+      "title": "Finance and Comptroller Officer"
+    }
+  ],
+  "skipLinePatterns": [
+    "^(Finance and Comptroller )?Figure \\d+\\."
+  ],
+  "sections": {
+    "1": {
+      "mode": "intro",
+      "heading": "Branch introduction",
+      "components": null,
+      "items": [
+        {
+          "match": "^Purpose",
+          "section_type": "general_duties"
+        },
+        {
+          "match": "^Functions",
+          "section_type": "general_duties"
+        },
+        {
+          "match": "^Proponent",
+          "skip": true,
+          "reason": "proponent contact details (phone numbers), not career guidance"
+        }
+      ]
+    },
+    "2": {
+      "mode": "intro",
+      "heading": "Required officer characteristics",
+      "components": null,
+      "items": [
+        {
+          "match": "^Branch transfer",
+          "section_type": "prerequisites"
+        },
+        {
+          "match": "^Required training",
+          "section_type": "training"
+        },
+        {
+          "match": ".",
+          "section_type": "general_duties"
+        }
+      ]
+    },
+    "3": {
+      "mode": "grades",
+      "heading": "Regular Army officer development",
+      "components": "active"
+    },
+    "4": {
+      "mode": "single",
+      "section_type": "development",
+      "personnel_category": "warrant",
+      "rank_band": "W-1..W-5",
+      "heading": "Warrant officers",
+      "components": null
+    },
+    "5": {
+      "mode": "grades",
+      "heading": "Reserve Component officer development",
+      "components": "reserve"
+    },
+    "6": {
+      "mode": "grades",
+      "heading": "Army National Guard officer development",
+      "components": "guard"
+    }
+  }
+}
