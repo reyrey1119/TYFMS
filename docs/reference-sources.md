@@ -100,4 +100,56 @@ A newly issued edition gets a **new manifest** (new SHA-256, new `id`). Import i
 
 ### Getting real data into a preview
 
-Imports go in as `unreviewed`, and retrieval serves only `approved` sources, so nothing appears until you load and approve. The registry tables are separate from the legacy tables, and production (`main`) does not read them, so loading them does not change the live site; only a build of this branch reads the registry. Run migrations 004 and 005, then the three import files, then approve after review. Vercel normally builds a preview for a pushed branch automatically, but no preview URL was visible from here.
+Imports go in as `unreviewed`, and retrieval serves only `approved` sources, so nothing appears until you load and approve. The registry tables are separate from the legacy tables, and production (`main`) does not read them, so loading them does not change the live site; only a build of this branch reads the registry. Run migrations 004, 005 and 006, then the three import files, then approve after review. Vercel normally builds a preview for a pushed branch automatically, but no preview URL was visible from here.
+
+
+## Extraction approval and generation safeguards (migration 006)
+
+Apply 006 after 004 and 005. It adds an extraction fingerprint and revokes any
+existing approval that has no fingerprint. Every import, including an identical
+reimport, now resets approval and clears the reviewer and review timestamp.
+Approval SQL targets the exact bundle fingerprint and returns the updated row.
+If it returns zero rows, stop: the database contains a different extraction.
+Generate approval SQL from the bundle currently being reviewed, not an old copy.
+
+The content fingerprint includes source metadata and all extracted passage
+mappings, not only the PDF checksum. The runtime cache includes this fingerprint,
+so correcting a rank/component mapping in the same PDF cannot keep an old answer
+cached after the corrected extraction is approved.
+
+Both generators only use registry context with status `verified`. Legacy rows,
+AI drafts, missing sections and references overdue for a currency check are not
+authoritative generator context. Without a reviewed reference or personal duty/
+service-record facts, the translator asks the person to describe tasks before
+making a paid model call. The resume builder can still produce a template, but
+must leave unprovided experience as prompts. This is a safeguard, not a claim that
+model output is error-free: the connected preview and output still need review.
+
+## Full Army coverage remains outstanding
+
+`data/reference/corpus/source-audit.json` accounts for the 125 collected PDFs,
+with official URLs, download timestamps and verified file checksums. Reproduce:
+
+```sh
+npm run reference:audit -- --corpus /path/to/TYFMS-Military-References
+```
+
+The audit does not import or approve a source. Existing bundles cover 42A, 36B
+and 36A (including the Finance guide's no-warrant statement), not every specialty
+in their publications. All remaining occupational mappings must be reviewed.
+Do not describe the collection as a complete or current live reference database.
+
+For each source, record every chapter/section as imported, superseded,
+not-applicable, future-effective or pending review. A skipped chapter needs an
+explicit reason. Use classification specifications to check exact codes and
+grade eligibility; a skill level is not interchangeable with a pay grade without
+a documented mapping. Keep Active, Reserve and Guard scopes separate. Review
+image-only charts visually or transcribe them with page attribution and a second
+check; nonempty extracted text does not establish figure coverage. Resolve
+conflicting editions and future effective dates before approving current use.
+
+Full rollout requires a specialty-by-grade-by-component coverage matrix checked
+against the applicable publications, verified source-page text, database import
+and RLS checks, and real connected-preview checks in the translator and resume
+builder. Download success, character coverage and passing tests are separate
+checks; none alone proves complete, current occupational coverage.
