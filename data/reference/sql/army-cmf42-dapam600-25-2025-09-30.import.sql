@@ -4,14 +4,18 @@
 begin;
 insert into public.reference_sources
   (id, branch, personnel_category, publication_number, title, chapter, career_field, proponent, official_url,
-   publication_date, effective_date, last_checked_at, checksum_sha256, ingestion_status, review_status, notes, extraction_tool, import_batch)
+   publication_date, effective_date, last_checked_at, checksum_sha256, ingestion_status, review_status, notes, extraction_tool, import_batch, content_sha256)
 values ('445534c6-3df0-5148-a006-78993ad8b6cd', 'Army', 'enlisted', 'DA PAM 600-25', 'Adjutant General (AG) Corps (Career Management Field 42) Career Progression Plan', null, 'CMF 42', 'Commandant, Adjutant General School (Personnel and Leader Development Division), Fort Jackson, SC', 'https://api.army.mil/e2/c/downloads/2025/10/01/4a0dd790/cmf-42-da-pam-600-25-30-sep-25.pdf',
-   '2025-09-30', null, '2026-10-15T00:00:00Z', 'd38d44c162b77882c726f65d2374e057b0a1a6ac747deeaae9414b4445286744', 'extracted', 'unreviewed', 'Date basis: the 30 Sep 2025 date comes from the official file name and the Army G-1 listing (https://www.army.mil/g-1), checked 2026-10-15. The PDF body prints no date. The official download is byte-identical (same SHA-256) to the copy supplied by the project owner. This edition also contains MOS 42R/42S/42T chapters, which are NOT imported here. A separate CMF 42T/79 publication dated 9 Sep 2026 is listed on G-1 and may supersede the 42T chapter of this edition.', 'pdf-parse 2.4.5', 'army-cmf42-dapam600-25-2025-09-30@2026-10-15')
+   '2025-09-30', null, '2026-10-15T00:00:00Z', 'd38d44c162b77882c726f65d2374e057b0a1a6ac747deeaae9414b4445286744', 'extracted', 'unreviewed', 'Date basis: the 30 Sep 2025 date comes from the official file name and the Army G-1 listing (https://www.army.mil/g-1), checked 2026-10-15. The PDF body prints no date. The official download is byte-identical (same SHA-256) to the copy supplied by the project owner. This edition also contains MOS 42R/42S/42T chapters, which are NOT imported here. A separate CMF 42T/79 publication dated 9 Sep 2026 is listed on G-1 and may supersede the 42T chapter of this edition.', 'pdf-parse 2.4.5', 'army-cmf42-dapam600-25-2025-09-30@2026-10-15', 'cdc779349ec5ca79ac232147ebcd1b52cccea6a38b8c6670529be75ff420375a')
 on conflict (id) do update set
   publication_number = excluded.publication_number, title = excluded.title, career_field = excluded.career_field, proponent = excluded.proponent,
   official_url = excluded.official_url, publication_date = excluded.publication_date, last_checked_at = excluded.last_checked_at,
   checksum_sha256 = excluded.checksum_sha256, ingestion_status = 'extracted', notes = excluded.notes,
-  extraction_tool = excluded.extraction_tool, import_batch = excluded.import_batch;
+  extraction_tool = excluded.extraction_tool, import_batch = excluded.import_batch,
+  branch = excluded.branch, personnel_category = excluded.personnel_category,
+  chapter = excluded.chapter, effective_date = excluded.effective_date,
+  content_sha256 = excluded.content_sha256,
+  review_status = 'unreviewed', reviewed_by = null, reviewed_at = null;
 delete from public.reference_passages where source_id = '445534c6-3df0-5148-a006-78993ad8b6cd';
 insert into public.reference_passages
   (id, source_id, branch, personnel_category, occupation_code, occupation_title, section_type, rank_band, components, heading, chapter, body, body_sha256, pdf_page_start, pdf_page_end, printed_page, sort_order)
