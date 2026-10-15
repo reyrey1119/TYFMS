@@ -4,14 +4,18 @@
 begin;
 insert into public.reference_sources
   (id, branch, personnel_category, publication_number, title, chapter, career_field, proponent, official_url,
-   publication_date, effective_date, last_checked_at, checksum_sha256, ingestion_status, review_status, notes, extraction_tool, import_batch)
+   publication_date, effective_date, last_checked_at, checksum_sha256, ingestion_status, review_status, notes, extraction_tool, import_batch, content_sha256)
 values ('a494f860-7b94-5225-8353-49f9a654bd1c', 'Army', 'enlisted', 'DA PAM 600-25', 'Finance and Comptroller (CMF 36) Career Progression Plan', null, 'CMF 36', 'Commandant, U.S. Army Finance and Comptroller School (Proponency Division), Fort Jackson, SC', 'https://api.army.mil/e2/c/downloads/2024/07/19/be500779/cmf-36-da-pam-600-25-19-jul-24.pdf',
-   '2024-07-19', null, '2026-10-15T00:00:00Z', '799eb94c0eb379df17e07d5037d2a3cc391eb89644ec982d0eda37fab526b660', 'extracted', 'unreviewed', 'Date basis: 19 Jul 2024 comes from the official file name, the server Last-Modified header, and the Army G-1 listing (checked 2026-10-15). The PDF body prints no date. A separate CMF 36 board brief dated 25 Aug 2025 is a different document and is not imported.', 'pdf-parse 2.4.5', 'army-cmf36-dapam600-25-2024-07-19@2026-10-15')
+   '2024-07-19', null, '2026-10-15T00:00:00Z', '799eb94c0eb379df17e07d5037d2a3cc391eb89644ec982d0eda37fab526b660', 'extracted', 'unreviewed', 'Date basis: 19 Jul 2024 comes from the official file name, the server Last-Modified header, and the Army G-1 listing (checked 2026-10-15). The PDF body prints no date. A separate CMF 36 board brief dated 25 Aug 2025 is a different document and is not imported.', 'pdf-parse 2.4.5', 'army-cmf36-dapam600-25-2024-07-19@2026-10-15', '1be78b389551f618bd3d4bd25e31b495e7c589e5f00e770b0a2dfb7729bda0fc')
 on conflict (id) do update set
   publication_number = excluded.publication_number, title = excluded.title, career_field = excluded.career_field, proponent = excluded.proponent,
   official_url = excluded.official_url, publication_date = excluded.publication_date, last_checked_at = excluded.last_checked_at,
   checksum_sha256 = excluded.checksum_sha256, ingestion_status = 'extracted', notes = excluded.notes,
-  extraction_tool = excluded.extraction_tool, import_batch = excluded.import_batch;
+  extraction_tool = excluded.extraction_tool, import_batch = excluded.import_batch,
+  branch = excluded.branch, personnel_category = excluded.personnel_category,
+  chapter = excluded.chapter, effective_date = excluded.effective_date,
+  content_sha256 = excluded.content_sha256,
+  review_status = 'unreviewed', reviewed_by = null, reviewed_at = null;
 delete from public.reference_passages where source_id = 'a494f860-7b94-5225-8353-49f9a654bd1c';
 insert into public.reference_passages
   (id, source_id, branch, personnel_category, occupation_code, occupation_title, section_type, rank_band, components, heading, chapter, body, body_sha256, pdf_page_start, pdf_page_end, printed_page, sort_order)
