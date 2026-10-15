@@ -3,6 +3,7 @@
 
 import { createClient } from '@supabase/supabase-js'
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
+import { retrieveReference } from './_lib/milReference.js'
 
 function getSupabase() {
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
@@ -143,211 +144,29 @@ function parseJsonResult(text) {
 }
 
 
-async function milReference(apiKey, supabase, { branch, mos_afsc, rank }) {
-  if (!mos_afsc?.trim() || !branch?.trim()) return { error: 'Branch and MOS/AFSC are required.' }
-
-  const mosCleaned = mos_afsc.trim().toUpperCase()
-
-  const rankUpper = (rank || '').toUpperCase().trim()
-  const isEnlisted = rankUpper.startsWith('E-') ||
-    ['E1','E2','E3','E4','E5','E6','E7','E8','E9'].includes(rankUpper.replace('-',''))
-  const isWarrant = rankUpper.startsWith('W-') ||
-    ['W1','W2','W3','W4','W5'].includes(rankUpper.replace('-',''))
-  const isOfficer = rankUpper.startsWith('O-') ||
-    ['O1','O2','O3','O4','O5','O6','O7','O8','O9','O10'].includes(rankUpper.replace('-',''))
-  console.log('[mil-reference] rank:', rank, '| rankUpper:', rankUpper, '| isEnlisted:', isEnlisted, '| isWarrant:', isWarrant, '| isOfficer:', isOfficer)
-
-  const component = isOfficer ? 'officer'
-    : isWarrant ? 'warrant_officer'
-    : 'enlisted'
-
-  const cacheKey = `${branch}_${component}_${mosCleaned}`.replace(/[\s/]+/g, '_')
-
-  if (supabase) {
-    try {
-      const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
-      const { data: cached } = await supabase
-        .from('mil_reference_cache')
-        .select('extracted_content')
-        .eq('cache_key', cacheKey)
-        .gte('fetched_at', thirtyDaysAgo)
-        .maybeSingle()
-      if (cached?.extracted_content) {
-        console.log('[mil-reference] cache HIT for ' + cacheKey)
-        return cached.extracted_content
-      }
-    } catch {}
-  }
-
-  const componentLabel = component === 'officer' ? 'Commissioned Officer'
-    : component === 'warrant_officer' ? 'Warrant Officer'
-    : 'Enlisted'
-
-  const docSource = branch === 'Army'
-    ? (component === 'enlisted' ? 'DA PAM 600-25' : 'DA PAM 600-3')
-    : branch === 'Air Force'
-    ? (component === 'enlisted' ? 'DAFECD (Oct 2025)' : 'DAFOCD (Oct 2025)')
-    : branch === 'Marine Corps'
-    ? 'MCO 1200.17'
-    : branch === 'Navy'
-    ? 'NAVPERS 18068F'
-    : 'Military Career Management Publication'
-
-  const jsonSchema = `{
-  "duty_title": "<official job title — use the real ${branch} designation for ${mosCleaned}>",
-  "document_source": "${docSource}",
-  "duties_and_responsibilities": "<5-7 specific duties at this rank level. Name actual systems, equipment, doctrinal tasks, and organizational responsibilities>",
-  "key_skills": "<10-12 specific skills and technical competencies, comma-separated>",
-  "rank_specific_expectations": "<supervision scope, decision authority, and leadership requirements for a ${rank || 'service member'} in this specialty>",
-  "civilian_translation_hints": "<5-6 civilian job titles, industries, or certifications this maps to, with one sentence each>"
-}`
-
-  async function cacheAndReturn(result, source) {
-    const tagged = { ...result, _source: source }
-    if (supabase) {
-      try {
-        await supabase.from('mil_reference_cache').upsert({
-          cache_key: cacheKey, document_source: docSource,
-          extracted_content: tagged, fetched_at: new Date().toISOString(),
-        }, { onConflict: 'cache_key' })
-      } catch {}
-    }
-    return tagged
-  }
-
-  // ── Path 1a: Query aoc_reference_officer table (Army officers/WOs) ──────────
-  if (branch === 'Army' && component !== 'enlisted' && supabase) {
-    try {
-      let { data: row } = await supabase
-        .from('aoc_reference_officer')
-        .select('title, branch, characteristics, development')
-        .eq('aoc_code', mosCleaned)
-        .maybeSingle()
-      if (!row) {
-        const prefix = mosCleaned.slice(0, 2)
-        const { data: rows } = await supabase
-          .from('aoc_reference_officer')
-          .select('title, branch, characteristics, development')
-          .like('aoc_code', `${prefix}%`)
-          .limit(1)
-        row = rows?.[0] || null
-      }
-      if (row) {
-        console.log('[mil-reference] cache MISS - queried database for ' + cacheKey)
-        const result = {
-          duty_title: row.title,
-          document_source: 'DA PAM 600-3',
-          duties_and_responsibilities: row.characteristics || '',
-          key_skills: row.development || '',
-          rank_specific_expectations: '',
-          civilian_translation_hints: '',
-        }
-        return cacheAndReturn(result, 'database')
-      }
-    } catch {}
-  }
-
-  // ── Path 1b: Query mos_reference_enlisted table (Army enlisted) ──────────
-  if (branch === 'Army' && component === 'enlisted' && supabase) {
-    const { data: row } = await supabase
-      .from('mos_reference_enlisted')
-      .select('title, duties, goals')
-      .eq('mos_code', mosCleaned)
-      .maybeSingle()
-    if (row) {
-      console.log('[mil-reference] cache MISS - queried database for ' + cacheKey)
-      const result = {
-        duty_title: row.title,
-        document_source: 'DA PAM 600-25',
-        duties_and_responsibilities: row.duties || '',
-        key_skills: row.goals || '',
-        rank_specific_expectations: '',
-        civilian_translation_hints: '',
-      }
-      return cacheAndReturn(result, 'database')
-    }
-  }
-
-  // ── Path 1c: Query navy_rating_reference table (Navy) ────────────────────────
-  if (branch === 'Navy' && supabase) {
-    const { data: row } = await supabase
-      .from('navy_rating_reference')
-      .select('title, duties, source')
-      .eq('rating_code', mosCleaned)
-      .maybeSingle()
-    if (row) {
-      console.log('[mil-reference] cache MISS - queried database for ' + cacheKey)
-      return cacheAndReturn({
-        duty_title: row.title,
-        document_source: row.source || 'NAVPERS 18068F',
-        duties_and_responsibilities: row.duties || '',
-        key_skills: '',
-        rank_specific_expectations: '',
-        civilian_translation_hints: '',
-      }, 'database')
-    }
-  }
-
-  // ── Path 1d: Query usmc_mos_reference table (Marine Corps) ───────────────────
-  if (branch === 'Marine Corps' && supabase) {
-    const { data: row } = await supabase
-      .from('usmc_mos_reference')
-      .select('title, duties, source')
-      .eq('mos_code', mosCleaned)
-      .maybeSingle()
-    if (row) {
-      console.log('[mil-reference] cache MISS - queried database for ' + cacheKey)
-      return cacheAndReturn({
-        duty_title: row.title,
-        document_source: row.source || 'MCO 1200.17',
-        duties_and_responsibilities: row.duties || '',
-        key_skills: '',
-        rank_specific_expectations: '',
-        civilian_translation_hints: '',
-      }, 'database')
-    }
-  }
-
-  // ── Path 2: Knowledge-based fallback (all branches, all components) ────────
-  const branchPubRef = branch === 'Army'
-    ? (isEnlisted ? 'DA PAM 600-25' : 'DA PAM 600-3')
-    : branch === 'Air Force'
-    ? (isEnlisted ? 'DAFECD' : 'DAFOCD')
-    : branch === 'Marine Corps'
-    ? 'MCBUL 1200 Marine Corps MOS Manual'
-    : branch === 'Navy'
-    ? 'Navy Rating manuals and MILPERSMAN'
-    : 'applicable career management publications'
-
-  const knowledgePrompt = `You are a military career analyst with expert knowledge of U.S. military career management publications including DA PAM 600-3, DA PAM 600-25, DAFOCD, DAFECD, MCBUL 1200, and Navy rating manuals.
-
-CRITICAL: You are describing ONLY the specific MOS/AFSC/Rating code "${mosCleaned}" in the ${branch}. Do NOT substitute a different MOS code. Do NOT describe any adjacent, similar, or default MOS. The duty_title field MUST be the official title for "${mosCleaned}" specifically.
-
-DOCUMENT SELECTION: The rank is ${rank || 'not specified'} — this is a ${componentLabel}. You MUST use ${branchPubRef} exclusively. Do NOT reference any other career management publication.
-
-Describe the official duties, key skills, and rank-level expectations for ${mosCleaned} at rank ${rank || 'not specified'} in the ${branch} based on ${branchPubRef}.
+// Retrieval (rank-aware, versioned, honestly labeled) lives in
+// api/_lib/milReference.js. This file only supplies the optional AI draft used
+// when nothing is stored for a code.
+async function aiSuggestDraft(apiKey, { branch, occupation, category }) {
+  const prompt = `You are drafting a SHORT, general description of a military specialty so a person can edit it into their own words.
 
 Branch: ${branch}
-Component: ${componentLabel}
-MOS/AFSC/Rating: ${mosCleaned}
-Rank: ${rank || 'Not specified'}
-Source document: ${docSource}
+Personnel category: ${category}
+Specialty code: ${occupation}
 
-Return ONLY a valid JSON object — no markdown, no preamble. The duty_title MUST reference "${mosCleaned}" explicitly:
-${jsonSchema}
+Rules:
+- Describe only what you are confident this exact code is. If you are not confident the code exists in this branch, return {"unknown": true} and nothing else.
+- Do NOT name, cite, or imply any specific publication, regulation, or "official" source.
+- Do NOT state rank-level scope, number of people led, budgets, or command responsibilities.
+- Describe typical tasks for the specialty in general, in plain language.
 
-Be specific and accurate. Reference actual systems, doctrinal tasks, equipment, and terminology authentic to ${mosCleaned} in the ${branch}. Do not invent duties that are not associated with this specific code.`
-
-  try {
-    const data = await callClaude(apiKey, [{ role: 'user', content: knowledgePrompt }])
-    if (data.error) return { error: data.error.message }
-    const result = parseJsonResult((data.content || []).map(i => i.text || '').join(''))
-    if (!result) return { error: 'Could not extract duty information.' }
-    console.log('[mil-reference] cache MISS - used AI knowledge for ' + cacheKey)
-    return cacheAndReturn(result, 'knowledge')
-  } catch {
-    return { error: 'Could not retrieve duty description. Please describe your primary duties below.' }
-  }
+Return ONLY valid JSON, no markdown:
+{"duty_title": "<title for ${occupation}>", "duties_and_responsibilities": "<4-6 typical tasks, one sentence each>", "key_skills": "<8-10 skills, comma-separated>"}`
+  const data = await callClaude(apiKey, [{ role: 'user', content: prompt }], 700)
+  if (data.error) return null
+  const result = parseJsonResult((data.content || []).map(i => i.text || '').join(''))
+  if (!result || result.unknown || !result.duty_title) return null
+  return result
 }
 
 // ── interview-prep ────────────────────────────────────────────────────────────
@@ -663,6 +482,16 @@ export default async function handler(req, res) {
       SUPABASE_SERVICE_ROLE_KEY: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
     })
 
+    // Stored references need no AI key; the key only enables the labeled AI draft.
+    if (action === 'mil-reference') {
+      const result = await retrieveReference({
+        supabase: getSupabase(),
+        body: params,
+        aiSuggest: apiKey ? req => aiSuggestDraft(apiKey, req) : null,
+      })
+      return res.status(200).json(result)
+    }
+
     if (!apiKey) return res.status(500).json({ error: 'API key not configured.' })
 
     if (action === 'fetch-job') {
@@ -671,17 +500,6 @@ export default async function handler(req, res) {
     }
     if (action === 'score-resume') {
       const result = await scoreResume(apiKey, params)
-      return result.error ? res.status(400).json(result) : res.status(200).json(result)
-    }
-    if (action === 'mil-reference') {
-      const supabaseUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
-      const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY
-      let supabase = null
-      try { supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null } catch (e) {
-        console.error('[mil-reference] createClient threw:', e.message)
-      }
-      console.log('[mil-reference] supabase init:', !!supabaseUrl, !!supabaseKey, !!supabase)
-      const result = await milReference(apiKey, supabase, params)
       return result.error ? res.status(400).json(result) : res.status(200).json(result)
     }
     if (action === 'interview-prep') {

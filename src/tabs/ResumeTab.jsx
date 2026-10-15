@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import AdUnit from '../components/AdUnit'
 import { withAdBreak } from '../lib/appAds'
 import { trackEvent } from '../lib/analytics'
+import MilReferenceCard from '../components/MilReferenceCard'
+import { makeLatestGuard, makeSingleFlight } from '../lib/latestOnly'
+import { COMPONENT_OPTIONS, splitLegacyBranch, isJuniorContext } from '../lib/rank'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -40,6 +43,8 @@ function initForm(prefill) {
     name: '', email: '', phone: '', location: '', linkedin: '',
     jobUrl: '', jobDescription: '',
     branch: prefill?.branch || 'Army',
+    component: prefill?.component || '',
+    confirmReference: false,
     mos: prefill?.mos || '',
     rank: prefill?.rank || '',
     yos: prefill?.yos || '',
@@ -574,7 +579,7 @@ export default function ResumeTab({ prefill }) {
 
   useEffect(() => {
     if (!prefill) return
-    setForm(prev => ({ ...prev, branch: prefill.branch || 'Army', mos: prefill.mos || prev.mos, rank: prefill.rank || prev.rank, yos: prefill.yos || prev.yos }))
+    setForm(prev => ({ ...prev, branch: prefill.branch || 'Army', component: prefill.component || prev.component, mos: prefill.mos || prev.mos, rank: prefill.rank || prev.rank, yos: prefill.yos || prev.yos }))
     setStep(2)
   }, [prefill])
 
@@ -587,37 +592,46 @@ export default function ResumeTab({ prefill }) {
   useEffect(() => {
     if (!profile || prefill || profileApplied) return
     if (profile.branch || profile.rank) {
+      const saved = splitLegacyBranch(profile.branch)
       setForm(prev => ({
         ...prev,
-        branch: profile.branch || prev.branch,
+        branch: saved.branch && BRANCHES.includes(saved.branch) ? saved.branch : prev.branch,
+        component: saved.component || prev.component,
         rank: profile.rank || prev.rank,
       }))
       setProfileApplied(true)
     }
   }, [profile])
 
+  const refGuard = useRef(makeLatestGuard())
   useEffect(() => {
-    if (step !== 3 || !form.mos.trim() || !form.rank) return
-    const mos = form.mos.trim(), branch = form.branch, rank = form.rank
+    // Any input change invalidates lookups still in flight for the old inputs.
+    refGuard.current.invalidate()
+    setMilRefData(null)
+    setMilRefStatus('idle') // hide the old card at once; no stale or empty flash while debouncing
+    if (step !== 3) return
+    if (!form.mos.trim()) { setMilRefStatus('idle'); return }
+    if (!form.rank) { setMilRefStatus('needs_rank'); return }
+    const { mos, branch, component, rank } = { mos: form.mos.trim(), branch: form.branch, component: form.component, rank: form.rank }
+    const ticket = refGuard.current.next()
     const timer = setTimeout(async () => {
-      if (!['Army', 'Air Force', 'Navy', 'Marine Corps'].includes(branch)) { setMilRefStatus('unsupported'); return }
-      setMilRefStatus('loading'); setMilRefData(null)
+      setMilRefStatus('loading')
       try {
         const r = await fetch('/api/resume-tools', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'mil-reference', branch, mos_afsc: mos, rank }),
+          body: JSON.stringify({ action: 'mil-reference', branch, component, mos_afsc: mos, rank }),
         })
         const data = await r.json()
+        if (!refGuard.current.isCurrent(ticket)) return
         if (!r.ok || data.error) { setMilRefStatus('failed'); return }
-        setMilRefData(data); setMilRefStatus('found')
-      } catch { setMilRefStatus('failed') }
+        setMilRefData(data); setMilRefStatus('done')
+      } catch { if (refGuard.current.isCurrent(ticket)) setMilRefStatus('failed') }
     }, 700)
     return () => clearTimeout(timer)
-  }, [step, form.mos, form.rank, form.branch])
+  }, [step, form.mos, form.rank, form.branch, form.component])
 
   function set(field, val) {
     setForm(prev => ({ ...prev, [field]: val }))
-    if (field === 'mos' || field === 'branch') { setMilRefStatus('idle'); setMilRefData(null) }
   }
   function setJob(id, f, v) { setForm(prev => ({ ...prev, prevJobs: prev.prevJobs.map(j => j.id === id ? { ...j, [f]: v } : j) })) }
   function setEdu(id, f, v) { setForm(prev => ({ ...prev, education: prev.education.map(e => e.id === id ? { ...e, [f]: v } : e) })) }
@@ -641,7 +655,10 @@ export default function ResumeTab({ prefill }) {
     finally { setJobFetching(false) }
   }
 
-  async function generate() {
+  const generateFlight = useRef(makeSingleFlight())
+  function generate() { return generateFlight.current(doGenerate) }
+
+  async function doGenerate() {
     if (!form.mos.trim()) { setError('Please enter your MOS, AFSC, or rate code in Step 3.'); return }
     setError(''); setResume(''); setScoreData(null); setLoading(true)
     const jobContext = form.jobDescription.trim() || (jobData
@@ -658,7 +675,8 @@ export default function ResumeTab({ prefill }) {
           summaryTone: form.summaryTone,
           additionalContext: form.additionalContext.trim(),
           jobDescription: jobContext,
-          milReference: milRefData,
+          component: form.component,
+          confirmReferenceDuties: !!form.confirmReference,
           milDuties: form.milDuties.trim(),
           education: form.education.filter(e => e.school.trim() || e.degreeType),
           contact: { name: form.name, email: form.email, phone: form.phone, location: form.location, linkedin: form.linkedin },
@@ -913,7 +931,7 @@ export default function ResumeTab({ prefill }) {
               </F>
             </div>
             <div className="grid-2">
-              <F label="Rank" hint="(optional)">
+              <F label="Rank / pay grade" hint="(needed for rank-specific guidance)">
                 <select value={form.rank} onChange={e => set('rank', e.target.value)}>
                   <option value="">Select rank</option>
                   {Object.entries(RANKS).map(([group, ranks]) => (
@@ -929,6 +947,11 @@ export default function ResumeTab({ prefill }) {
                 </select>
               </F>
             </div>
+            <F label="Component" hint="(optional)">
+              <select value={form.component} onChange={e => set('component', e.target.value)}>
+                {COMPONENT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+              </select>
+            </F>
             <F label="Security clearance" mb={0}>
               <select value={form.clearance} onChange={e => set('clearance', e.target.value)}>
                 <option value="">None / Not applicable</option>
@@ -938,59 +961,27 @@ export default function ResumeTab({ prefill }) {
             </F>
           </div>
 
-          {/* Mil Reference Lookup */}
-          {milRefStatus === 'loading' && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 14, padding: '12px 14px', background: '#E7E0C6', borderRadius: 10, border: '1px solid #D6CBA3' }}>
-              <span className="search-spinner" />
-              <p style={{ fontSize: 12, color: '#5C5646' }}>Looking up official duty description from military career publications…</p>
-            </div>
-          )}
-          {milRefStatus === 'found' && milRefData && milRefData._source === 'pdf' && (
-            <div style={{ marginTop: 14, background: '#F0F7EE', borderRadius: 10, padding: '14px 16px', border: '1px solid #9DC99A' }}>
-              <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6614', marginBottom: 6 }}>✓ Official duty description found</p>
-              <p style={{ fontSize: 13, fontWeight: 700, color: '#211F19', marginBottom: 3 }}>{milRefData.duty_title}</p>
-              <p style={{ fontSize: 10, color: '#5C5646', marginBottom: milRefData.key_skills ? 8 : 0 }}>Source: {milRefData.document_source}</p>
-              {milRefData.key_skills && <p style={{ fontSize: 11, color: '#5C5646', lineHeight: 1.55 }}>Key skills: {milRefData.key_skills}</p>}
-              <p style={{ fontSize: 10, color: '#1a6614', marginTop: 8, opacity: 0.8 }}>This description will be used to accurately generate your {isCv ? 'CV' : 'resume'}.</p>
-            </div>
-          )}
-          {milRefStatus === 'found' && milRefData && milRefData._source === 'database' && (
-            <div style={{ marginTop: 14, background: '#F0F7EE', borderRadius: 10, padding: '14px 16px', border: '1px solid #9DC99A' }}>
-              <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6614', marginBottom: 6 }}>✓ Duty description loaded from {milRefData.document_source}</p>
-              <p style={{ fontSize: 13, fontWeight: 700, color: '#211F19', marginBottom: 3 }}>{milRefData.duty_title}</p>
-              {milRefData.key_skills && <p style={{ fontSize: 11, color: '#5C5646', lineHeight: 1.55, marginBottom: 8 }}>Key skills: {milRefData.key_skills}</p>}
-              <p style={{ fontSize: 10, color: '#1a6614', marginTop: 8, opacity: 0.8 }}>This description will be used to accurately generate your {isCv ? 'CV' : 'resume'}.</p>
-            </div>
-          )}
-          {milRefStatus === 'found' && milRefData && milRefData._source !== 'pdf' && milRefData._source !== 'database' && (
-            <div style={{ marginTop: 14, background: '#E8F5F3', borderRadius: 10, padding: '14px 16px', border: '1px solid #0A7868' }}>
-              <p style={{ fontSize: 11, fontWeight: 700, color: '#0A7868', marginBottom: 6 }}>✓ Duty description loaded from AI knowledge</p>
-              <p style={{ fontSize: 13, fontWeight: 700, color: '#211F19', marginBottom: 3 }}>{milRefData.duty_title}</p>
-              <p style={{ fontSize: 10, color: '#5C5646', marginBottom: milRefData.key_skills ? 8 : 0 }}>Official publication unavailable — using trained knowledge of {form.mos.trim().toUpperCase()} from {milRefData.document_source}</p>
-              {milRefData.key_skills && <p style={{ fontSize: 11, color: '#5C5646', lineHeight: 1.55 }}>Key skills: {milRefData.key_skills}</p>}
-              <p style={{ fontSize: 10, color: '#0A7868', marginTop: 8, opacity: 0.8 }}>This description will be injected into your {isCv ? 'CV' : 'resume'} generation.</p>
-            </div>
-          )}
-          {milRefStatus === 'failed' && (
-            <div style={{ marginTop: 14, background: '#E7E0C6', borderRadius: 10, padding: '14px 16px', border: '1px solid #C2B588' }}>
-              <p style={{ fontSize: 12, fontWeight: 600, color: '#5C5646', marginBottom: 4 }}>Official duty description not available</p>
-              <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.55, marginBottom: 10 }}>Your {isCv ? 'CV' : 'resume'} will still generate using AI knowledge of your MOS. Optionally describe your duties below for a more tailored result.</p>
-              <F label="Primary duties" hint="(optional)" mb={0}>
-                <textarea value={form.milDuties} onChange={e => set('milDuties', e.target.value)} placeholder="Describe your primary duties, equipment operated, systems managed, teams led, and key responsibilities…" style={{ minHeight: 80 }} />
+          {/* Mil Reference Lookup — honest status, never implies these are your duties */}
+          <div style={{ marginTop: 14 }}>
+            <MilReferenceCard
+              status={milRefStatus}
+              data={milRefData}
+              rank={form.rank}
+              juniorContext={isJuniorContext(form.rank, form.yos)}
+              onUseDraft={text => set('milDuties', (form.milDuties ? form.milDuties + '\n' : '') + text)}
+              onPickCode={code => set('mos', code)}
+              confirmable
+              confirmed={form.confirmReference}
+              onConfirmChange={v => set('confirmReference', v)}
+            />
+            {!['idle', 'needs_rank', 'loading'].includes(milRefStatus) && (
+              <F label={isJuniorContext(form.rank, form.yos) ? 'What have you trained on, practiced, or actually done?' : 'What did you actually do?'} hint="(optional, but your own words make a more accurate resume)" mb={0}>
+                <textarea value={form.milDuties} onChange={e => set('milDuties', e.target.value)}
+                  placeholder={isJuniorContext(form.rank, form.yos) ? 'Training completed, tasks practiced, and any duties you have actually performed. It is fine to say you have not supervised anyone yet.' : 'Describe your primary duties, equipment operated, systems managed, and key responsibilities. Include numbers only if they are real.'}
+                  style={{ minHeight: 80 }} />
               </F>
-            </div>
-          )}
-          {milRefStatus === 'unsupported' && form.mos.trim() && (
-            <div style={{ marginTop: 14, padding: '12px 14px', background: '#E7E0C6', borderRadius: 10, border: '1px dashed #C2B588' }}>
-              <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.6 }}>
-                Automatic duty lookup is available for <strong>Army</strong>, <strong>Air Force</strong>, <strong>Navy</strong>, and <strong>Marine Corps</strong>.
-                Coast Guard and Space Force support is coming soon.
-              </p>
-              <F label="Primary duties" hint="(optional)" mb={0} style={{ marginTop: 12 }}>
-                <textarea value={form.milDuties} onChange={e => set('milDuties', e.target.value)} placeholder="Describe your primary duties, equipment operated, systems managed, and key responsibilities…" style={{ minHeight: 64, marginTop: 8 }} />
-              </F>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       )
 

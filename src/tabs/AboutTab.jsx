@@ -1,4 +1,5 @@
 import FunFact from '../components/FunFact'
+import SupportTYFMS from '../components/SupportTYFMS'
 
 const RESEARCH_POINTS = [
   {
@@ -216,6 +217,7 @@ export default function AboutTab() {
         </p>
       </div>
 
+      <SupportTYFMS />
       <FunFact />
     </div>
   )
