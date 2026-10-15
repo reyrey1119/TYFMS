@@ -19,7 +19,7 @@
 // Files under api/_lib/ are not deployed as their own Vercel Functions, so this
 // is safe to import from handlers.
 
-export const SCHEMA_VERSION = 'ref-v2'
+export const SCHEMA_VERSION = 'ref-v3'
 export const STALE_AFTER_DAYS = 135 // ~ one quarter plus slack for the quarterly check
 
 export const SUPPORTED_BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
@@ -144,7 +144,7 @@ function publicSource(s) {
 
 function sourceVersionTag(sources) {
   return sources
-    .map(s => `${s.id}:${s.checksum_sha256 || s.publication_date || 'unhashed'}`)
+    .map(s => `${s.id}:${s.content_sha256 || s.checksum_sha256 || s.publication_date || 'unhashed'}`)
     .sort()
     .join('+')
 }
