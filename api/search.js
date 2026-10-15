@@ -1,5 +1,5 @@
 // Resource IDs available for resourceMatch field:
-// vagov, myhealthevet, accessva, ebenefits, nrd, va-navigator,
+// vagov, myhealthevet, accessva, nrd, va-navigator,
 // va-education, gi-bill-tool, goarmyed, sva, dea,
 // va-home-loan,
 // vets-dol, hiring-our-heroes, onet, linkedin-veterans, usajobs,
@@ -28,7 +28,6 @@ CORE VA PORTALS:
 - vagov | VA.gov | va.gov | Primary gateway for all VA benefits, claims, healthcare, disability ratings, appeals
 - myhealthevet | My HealtheVet | myhealth.va.gov | Online VA health portal — prescriptions, medical records, secure messaging, appointments
 - accessva | AccessVA | access.va.gov | Gateway to specialized VA tools: QuickSubmit document uploads, VetBiz for veteran businesses
-- ebenefits | eBenefits | ebenefits.va.gov | GI Bill enrollment, Home Loan certificates, legacy benefits management
 
 RESOURCE DIRECTORIES:
 - nrd | National Resource Directory | nrd.gov | 16,000+ vetted resources: homeless assistance, employment, legal aid, financial help
@@ -222,7 +221,7 @@ ${summaryInstruction}
 8. NEVER return an error. Always give a helpful response.
 9. Choose the most relevant tab: home, translator, resume, identity, network, trends, tracker, path, resources.
 10. Set resourceMatch to a comma-separated list of the most relevant resource IDs (up to 4) from this list only:
-    vagov, myhealthevet, accessva, ebenefits, nrd, va-navigator, va-education, gi-bill-tool, goarmyed, sva, dea, va-home-loan, vets-dol, hiring-our-heroes, onet, linkedin-veterans, usajobs, tricare, fry-scholarship, teb, sbp, dic, deers, military-onesource, caregiver, va-dvs, crisis-line, make-connection, give-hour
+    vagov, myhealthevet, accessva, nrd, va-navigator, va-education, gi-bill-tool, goarmyed, sva, dea, va-home-loan, vets-dol, hiring-our-heroes, onet, linkedin-veterans, usajobs, tricare, fry-scholarship, teb, sbp, dic, deers, military-onesource, caregiver, va-dvs, crisis-line, make-connection, give-hour
 
 Respond with ONLY valid JSON on one line (no markdown, no code blocks, no extra text):
 {"tab":"<tab_id>","summary":"<answer — must start with Per 38 CFR... if regulation text was provided>","sectionHint":"<specific resource name or category>","resourceMatch":"<comma-separated resource ids>"}`

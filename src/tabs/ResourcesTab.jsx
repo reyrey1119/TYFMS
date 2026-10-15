@@ -17,7 +17,6 @@ const RESOURCES = [
       { id: 'vagov', title: 'VA.gov', badge: 'Main portal', cls: 'bb', desc: 'Primary gateway for all VA benefits, claims, healthcare, and services', url: 'https://www.va.gov', urlText: 'va.gov' },
       { id: 'myhealthevet', title: 'My HealtheVet', badge: 'Health', cls: 'bb', desc: 'Manage prescriptions, medical records, and VA appointments online', url: 'https://www.myhealth.va.gov', urlText: 'myhealth.va.gov' },
       { id: 'accessva', title: 'AccessVA', badge: 'Portal', cls: 'bb', desc: 'Gateway to specialized VA tools including QuickSubmit document upload and VetBiz', url: 'https://access.va.gov', urlText: 'access.va.gov' },
-      { id: 'vagov-account', title: 'VA.gov account', badge: 'Benefits', cls: 'bb', desc: 'Sign in to apply for and manage VA benefits online — claims, health care, GI Bill, and more. (The old eBenefits site is no longer online.)', url: 'https://www.va.gov/', urlText: 'va.gov' },
     ],
   },
   {

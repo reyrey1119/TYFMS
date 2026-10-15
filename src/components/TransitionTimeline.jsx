@@ -10,7 +10,7 @@ const PHASES = [
     items: [
       'File your VA disability claim at va.gov',
       'Obtain certified copies of your DD-214',
-      'Set up your eBenefits account',
+      'Set up your VA.gov account',
       'Apply for VA healthcare enrollment',
       'Open a SkillBridge or TAP follow-up if applicable',
     ],
