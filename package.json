@@ -11,7 +11,8 @@
     "reference:import": "node scripts/import-reference-source.js",
     "reference:verify": "node scripts/verify-reference-bundle.js",
     "reference:review": "node scripts/review-listing.js",
-    "reference:approve": "node scripts/approve-reference-source.js"
+    "reference:approve": "node scripts/approve-reference-source.js",
+    "reference:audit": "node scripts/audit-reference-corpus.js"
   },
   "dependencies": {
     "@capacitor-community/admob": "^8.1.0",
