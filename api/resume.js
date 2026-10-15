@@ -1,5 +1,6 @@
 // POST /api/resume  — full resume builder (used by ResumeTab)
 
+import { reviewedGenerationReference, NO_REVIEWED_REFERENCE } from './_lib/generationEvidence.js'
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
 import { retrieveReference, referencePromptBlock, validateReferenceRequest } from './_lib/milReference.js'
@@ -75,7 +76,10 @@ export default async function handler(req, res) {
   try {
     reference = await retrieveReference({ supabase: getSupabase(), body: { branch, component, mos_afsc: mos, rank } })
   } catch { reference = null }
-  const referenceBlock = referencePromptBlock(reference, { confirmed: !!confirmReferenceDuties })
+  const reviewed = reviewedGenerationReference(reference)
+  const referenceBlock = reviewed
+    ? referencePromptBlock(reviewed, { confirmed: !!confirmReferenceDuties })
+    : '\n\n' + NO_REVIEWED_REFERENCE
   const dutiesBlock = milDuties?.trim()
     ? `\n\nDUTIES THE PERSON DESCRIBED (their own words — the most reliable account of what they did; use as the primary source for the Professional Experience section):\n${milDuties.trim().slice(0, 2000)}`
     : ''
