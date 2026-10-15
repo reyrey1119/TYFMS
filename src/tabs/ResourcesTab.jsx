@@ -17,7 +17,7 @@ const RESOURCES = [
       { id: 'vagov', title: 'VA.gov', badge: 'Main portal', cls: 'bb', desc: 'Primary gateway for all VA benefits, claims, healthcare, and services', url: 'https://www.va.gov', urlText: 'va.gov' },
       { id: 'myhealthevet', title: 'My HealtheVet', badge: 'Health', cls: 'bb', desc: 'Manage prescriptions, medical records, and VA appointments online', url: 'https://www.myhealth.va.gov', urlText: 'myhealth.va.gov' },
       { id: 'accessva', title: 'AccessVA', badge: 'Portal', cls: 'bb', desc: 'Gateway to specialized VA tools including QuickSubmit document upload and VetBiz', url: 'https://access.va.gov', urlText: 'access.va.gov' },
-      { id: 'ebenefits', title: 'eBenefits', badge: 'Benefits', cls: 'bb', desc: 'GI Bill enrollment, Home Loan certificates, and legacy benefits management', url: 'https://www.ebenefits.va.gov', urlText: 'ebenefits.va.gov' },
+      { id: 'vagov-account', title: 'VA.gov account', badge: 'Benefits', cls: 'bb', desc: 'Sign in to apply for and manage VA benefits online — claims, health care, GI Bill, and more. (The old eBenefits site is no longer online.)', url: 'https://www.va.gov/', urlText: 'va.gov' },
     ],
   },
   {
@@ -38,7 +38,7 @@ const RESOURCES = [
       { id: 'gi-bill-tool', title: 'GI Bill Comparison Tool', badge: 'Schools', cls: 'bg', desc: 'Compare GI Bill benefits at schools nationwide before making a decision', url: 'https://www.va.gov/gi-bill-comparison-tool', urlText: 'va.gov/gi-bill-comparison-tool' },
       { id: 'goarmyed', title: 'GoArmyEd', badge: 'Army TA', cls: 'bg', desc: 'Tuition assistance portal for active Army soldiers', url: 'https://www.goarmyed.com', urlText: 'goarmyed.com' },
       { id: 'sva', title: 'Student Veterans of America', badge: 'Network', cls: 'bg', desc: 'Peer network and advocacy for student veterans on campus nationwide', url: 'https://studentveterans.org', urlText: 'studentveterans.org' },
-      { id: 'dea', title: 'DEA Chapter 35', badge: 'Dependents', cls: 'bg', desc: 'Up to 45 months of education benefits for spouses and children of permanently disabled or deceased veterans', url: 'https://www.va.gov/education/survivor-dependent-education-assistance', urlText: 'va.gov/education/survivor-dependent' },
+      { id: 'dea', title: 'DEA Chapter 35', badge: 'Dependents', cls: 'bg', desc: 'Up to 45 months of education benefits for spouses and children of permanently disabled or deceased veterans', url: 'https://www.va.gov/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance/', urlText: 'va.gov/…/dependents-education-assistance' },
     ],
   },
   {
@@ -67,9 +67,9 @@ const RESOURCES = [
     grid: 'grid-2',
     items: [
       { id: 'tricare', title: 'TRICARE', badge: 'Health', cls: 'bb', desc: 'Military healthcare for family members including spouses and children under 21 (or 23 if full-time student)', url: 'https://www.tricare.mil', urlText: 'tricare.mil' },
-      { id: 'fry-scholarship', title: 'Fry Scholarship', badge: 'Education', cls: 'bg', desc: 'Education benefits for children and surviving spouses of service members who died in the line of duty after Sept 10, 2001', url: 'https://www.va.gov/education/survivor-dependent-education-assistance/fry-scholarship', urlText: 'va.gov/education/fry-scholarship' },
+      { id: 'fry-scholarship', title: 'Fry Scholarship', badge: 'Education', cls: 'bg', desc: 'Education benefits for children and surviving spouses of service members who died in the line of duty after Sept 10, 2001', url: 'https://www.va.gov/family-and-caregiver-benefits/education-and-careers/fry-scholarship/', urlText: 'va.gov/…/fry-scholarship' },
       { id: 'teb', title: 'GI Bill Transfer (TEB)', badge: 'Dependents', cls: 'bg', desc: 'Active duty members with 6+ years of service can transfer unused Post-9/11 GI Bill to spouse or children — must apply before leaving active duty', url: 'https://milconnect.dmdc.osd.mil', urlText: 'milconnect.dmdc.osd.mil' },
-      { id: 'sbp', title: 'Survivor Benefit Plan (SBP)', badge: 'Survivors', cls: 'bb', desc: 'DoD annuity providing up to 55% of retirement pay to survivors of retired service members — must be elected at retirement', url: 'https://www.dfas.mil/sbp', urlText: 'dfas.mil/sbp' },
+      { id: 'sbp', title: 'Survivor Benefit Plan (SBP)', badge: 'Survivors', cls: 'bb', desc: 'DoD annuity providing up to 55% of retirement pay to survivors of retired service members — must be elected at retirement', url: 'https://www.dfas.mil/RetiredMilitary/provide/sbp/', urlText: 'dfas.mil/…/sbp' },
       { id: 'dic', title: 'Dependency & Indemnity Compensation (DIC)', badge: 'Survivors', cls: 'bb', desc: 'Monthly tax-free benefit for surviving spouses and children of veterans who died from service-connected conditions', url: 'https://www.va.gov/disability/dependency-indemnity-compensation', urlText: 'va.gov/disability/dic' },
       { id: 'deers', title: 'DEERS', badge: 'Enrollment', cls: 'bb', desc: 'Defense Enrollment Eligibility Reporting System — mandatory enrollment for military dependents to access TRICARE and other benefits', url: 'https://milconnect.dmdc.osd.mil', urlText: 'milconnect.dmdc.osd.mil' },
       { id: 'military-onesource', title: 'Military OneSource', badge: 'Support', cls: 'bg', desc: 'Free 24/7 support — financial counseling, relocation assistance, childcare referrals, 12 free non-medical counseling sessions', url: 'https://www.militaryonesource.mil', urlText: 'militaryonesource.mil' },
