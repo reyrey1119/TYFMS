@@ -4,14 +4,18 @@
 begin;
 insert into public.reference_sources
   (id, branch, personnel_category, publication_number, title, chapter, career_field, proponent, official_url,
-   publication_date, effective_date, last_checked_at, checksum_sha256, ingestion_status, review_status, notes, extraction_tool, import_batch)
+   publication_date, effective_date, last_checked_at, checksum_sha256, ingestion_status, review_status, notes, extraction_tool, import_batch, content_sha256)
 values ('a6b40ab7-9883-5645-a496-0e2393fba45b', 'Army', 'officer', 'Finance and Comptroller Branch (10 September 2025)', 'Finance and Comptroller Branch officer career guide', null, 'Finance and Comptroller (branch code 36A)', 'Commandant, U.S. Army Finance and Comptroller School (Proponency Division), Fort Jackson, SC', 'https://api.army.mil/e2/c/downloads/2025/09/10/640a0b16/fc-10sep25.pdf',
-   '2025-09-10', null, '2026-10-15T00:00:00Z', '996719b2544d7d2b1c38579f16778d45122aef534941fc147f51322da8be1eef', 'extracted', 'unreviewed', 'Date printed on page 1: 10 September 2025. As checked 2026-10-15 the Army G-1 page''s Finance link text still shows an older April 2024 path, but the link target is this 10 Sep 2025 file. Figures 1-4 (development models) are images and their content is NOT extracted; assignment tables inside them are therefore not in the registry. Section 4 states there are no warrant officers in the FC branch.', 'pdf-parse 2.4.5', 'army-fc-officer-2025-09-10@2026-10-15')
+   '2025-09-10', null, '2026-10-15T00:00:00Z', '996719b2544d7d2b1c38579f16778d45122aef534941fc147f51322da8be1eef', 'extracted', 'unreviewed', 'Date printed on page 1: 10 September 2025. As checked 2026-10-15 the Army G-1 page''s Finance link text still shows an older April 2024 path, but the link target is this 10 Sep 2025 file. Figures 1-4 (development models) are images and their content is NOT extracted; assignment tables inside them are therefore not in the registry. Section 4 states there are no warrant officers in the FC branch.', 'pdf-parse 2.4.5', 'army-fc-officer-2025-09-10@2026-10-15', 'd259b02cbc1386e70f3c566a9be194cae2de974440385172810ae800fd9e7136')
 on conflict (id) do update set
   publication_number = excluded.publication_number, title = excluded.title, career_field = excluded.career_field, proponent = excluded.proponent,
   official_url = excluded.official_url, publication_date = excluded.publication_date, last_checked_at = excluded.last_checked_at,
   checksum_sha256 = excluded.checksum_sha256, ingestion_status = 'extracted', notes = excluded.notes,
-  extraction_tool = excluded.extraction_tool, import_batch = excluded.import_batch;
+  extraction_tool = excluded.extraction_tool, import_batch = excluded.import_batch,
+  branch = excluded.branch, personnel_category = excluded.personnel_category,
+  chapter = excluded.chapter, effective_date = excluded.effective_date,
+  content_sha256 = excluded.content_sha256,
+  review_status = 'unreviewed', reviewed_by = null, reviewed_at = null;
 delete from public.reference_passages where source_id = 'a6b40ab7-9883-5645-a496-0e2393fba45b';
 insert into public.reference_passages
   (id, source_id, branch, personnel_category, occupation_code, occupation_title, section_type, rank_band, components, heading, chapter, body, body_sha256, pdf_page_start, pdf_page_end, printed_page, sort_order)
