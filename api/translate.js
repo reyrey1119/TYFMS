@@ -4,6 +4,7 @@
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
 import { retrieveReference, referencePromptBlock, parsePayGrade, validateReferenceRequest } from './_lib/milReference.js'
+import { reviewedGenerationReference, NO_REVIEWED_REFERENCE } from './_lib/generationEvidence.js'
 import { CERT_NAMES_FOR_PROMPT, verifyRecommendations } from './_lib/certCatalog.js'
 
 const JUNIOR_YOS = ['Less than 1 year', '1–2 years']
@@ -42,7 +43,17 @@ export default async function handler(req, res) {
     try {
       ref = await retrieveReference({ supabase: getSupabase(), body: { branch, component, mos_afsc: mos, rank } })
     } catch { ref = null }
-    const referenceBlock = referencePromptBlock(ref, { confirmed: !!confirmReferenceDuties })
+    const reviewed = reviewedGenerationReference(ref)
+    if (!reviewed && !milDuties?.trim() && !vaultContext?.trim()) {
+      return res.status(422).json({
+        status: 'needs_experience', referenceStatus: ref?.status || 'none',
+        error: 'A reviewed reference is not available for this specialty and rank yet. Describe the tasks you performed or practiced in the duties field so we can translate your experience accurately.',
+        missing: ['milDuties'],
+      })
+    }
+    const referenceBlock = reviewed
+      ? referencePromptBlock(reviewed, { confirmed: !!confirmReferenceDuties })
+      : '\n\n' + NO_REVIEWED_REFERENCE
 
     const dutiesBlock = milDuties?.trim()
       ? `\n\nDUTIES THE PERSON DESCRIBED (their own words — the most reliable account of what they did):\n${milDuties.trim().slice(0, 2000)}`
@@ -68,7 +79,7 @@ ${certsLine}${referenceBlock}${dutiesBlock}${vaultBlock}${juniorBlock}
 
 RULES:
 - Describe what the specialty typically involves, and what the person confirmed. Never state personnel counts, budgets, results, clearances, certifications, or leadership roles the person did not give you.
-- Rank sets the likely SCOPE of responsibility; it is not proof of experience.
+- Rank selects the applicable reviewed reference sections. Rank alone is never proof of duties, skills or experience.
 - Civilian titles and industries are examples of where these skills can apply, not job-placement promises.
 
 Respond ONLY with valid JSON, no markdown, no extra text:
