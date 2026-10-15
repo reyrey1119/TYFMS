@@ -75,7 +75,7 @@ test('a valid translation still reaches the model once, and invented certificati
     certifications: [{ name: 'Certified Maintenance Manager (CMM)', why: 'invented' }, { name: 'CMRP', why: 'real' }],
   }))
   const res = mockRes()
-  await (await translate())(mockReq({ action: 'translate', branch: 'Army', mos: '91X', rank: 'E-7' }), res)
+  await (await translate())(mockReq({ action: 'translate', branch: 'Army', mos: '91X', rank: 'E-7', milDuties: 'I inspected maintenance records.' }), res)
   assert.equal(res.code, 200)
   assert.equal(modelCalls.length, 1)
   assert.deepEqual(res.body.certifications.map(c => c.name), ['Certified Maintenance & Reliability Professional (CMRP)'])
@@ -117,4 +117,34 @@ test('full resume builder prompt forbids estimating numbers and listing certific
   assert.ok(!/credible estimates/.test(prompt))
   assert.match(prompt, /ADD YOUR CERTIFICATIONS HERE/)
   assert.ok(!/real civilian certifications directly relevant/.test(prompt))
+})
+
+
+test('translator with no reviewed reference or personal facts stops before a paid call', async () => {
+  stubModel('{}')
+  const res = mockRes()
+  await (await translate())(mockReq({ branch: 'Army', mos: '91X', rank: 'E-7' }), res)
+  assert.equal(res.code, 422)
+  assert.equal(res.body.status, 'needs_experience')
+  assert.deepEqual(res.body.missing, ['milDuties'])
+  assert.equal(modelCalls.length, 0)
+})
+
+test('translator can use personal facts when source coverage is missing, without guessing code-based duties', async () => {
+  stubModel('{"certifications":[]}')
+  const res = mockRes()
+  await (await translate())(mockReq({ branch: 'Army', mos: '91X', rank: 'E-7', milDuties: 'I reconciled maintenance records.' }), res)
+  assert.equal(res.code, 200)
+  assert.equal(modelCalls.length, 1)
+  const prompt = promptOf(modelCalls[0])
+  assert.match(prompt, /Do not infer duties, skills, systems, training, leadership scope or credentials from the occupational code or rank/)
+  assert.match(prompt, /I reconciled maintenance records/)
+})
+
+test('resume builder without a reviewed reference explicitly forbids code-based experience', async () => {
+  stubModel('draft')
+  const res = mockRes()
+  await (await resume())(mockReq({ branch: 'Army', mos: '36B', rank: 'E-5' }), res)
+  assert.equal(res.code, 200)
+  assert.match(promptOf(modelCalls[0]), /Do not infer duties, skills, systems, training, leadership scope or credentials from the occupational code or rank/)
 })
