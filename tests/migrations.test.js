@@ -10,12 +10,12 @@ import assert from 'node:assert/strict'
 import { readFile, readdir } from 'node:fs/promises'
 import { newDb, supabaseOn } from './helpers/pgliteSupabase.js'
 import { retrieveReference, clearReferenceCache } from '../api/_lib/milReference.js'
-import { approveSql } from '../scripts/lib/bundleSql.js'
+import { approveSql, importSql } from '../scripts/lib/bundleSql.js'
 import { loadBundles } from './helpers/bundleDb.js'
 
 const MIG = new URL('../supabase/migrations/', import.meta.url).pathname
 const SQL = new URL('../data/reference/sql/', import.meta.url).pathname
-const migrationFiles = (await readdir(MIG)).filter(f => /^00[45]_/.test(f)).sort()
+const migrationFiles = (await readdir(MIG)).filter(f => /^00[456]_/.test(f)).sort()
 const importFiles = (await readdir(SQL)).filter(f => f.endsWith('.import.sql')).sort()
 const NOW = Date.parse('2026-10-16T00:00:00Z')
 
@@ -108,4 +108,48 @@ test('END TO END in Postgres: imported + approved real data â†’ real retrieval â
   const g = await retrieveReference({ supabase: sb, now: NOW, body: { branch: 'Army', mos_afsc: '36A', rank: 'O-3', component: 'guard' } })
   assert.match(g.sections.map(s => s.text).join(' '), /ARNG/)
   assert.equal(g.sources[0].publicationDate, '2025-09-10')
+})
+
+
+test('changed reimport revokes approval, hides passages, and rejects an old approval script', async () => {
+  const db = await migrated()
+  const [original] = await loadBundles(['army-cmf42'])
+  await db.exec(importSql(original))
+  await db.exec(approveSql(original, 'First reviewer'))
+  const sb = supabaseOn(db, 'anon')
+  const visible = async () => (await sb.from('reference_passages').select('source_id')).data.length
+  assert.ok(await visible() > 0)
+  const changed = structuredClone(original)
+  changed.passages[0].body += ' Changed extraction for regression test.'
+  await db.exec(importSql(changed))
+  assert.equal(await visible(), 0, 'new extraction cannot inherit old approval')
+  const row = (await db.query('select review_status, reviewed_by, reviewed_at from reference_sources')).rows[0]
+  assert.deepEqual(row, { review_status: 'unreviewed', reviewed_by: null, reviewed_at: null })
+  await db.exec(approveSql(original, 'Outdated approval'))
+  assert.equal(await visible(), 0, 'approval generated for an older extraction must do nothing')
+  await db.exec(approveSql(changed, 'New reviewer'))
+  assert.ok(await visible() > 0)
+  await db.close()
+})
+
+test('same-PDF mapping correction invalidates cached rank passages after reapproval', async () => {
+  const db = await migrated()
+  const [original] = await loadBundles(['army-cmf42'])
+  await db.exec(importSql(original))
+  await db.exec(approveSql(original, 'First reviewer'))
+  const sb = supabaseOn(db, 'anon')
+  const body = { branch: 'Army', mos_afsc: '42A', rank: 'E-6' }
+  clearReferenceCache()
+  const before = await retrieveReference({ supabase: sb, now: NOW, body })
+  const target = original.passages.find(p => before.sections.some(s => s.text === p.body))
+  assert.ok(target)
+  const changed = structuredClone(original)
+  const newText = 'Corrected extraction used only in the database regression test.'
+  changed.passages.find(p => p.id === target.id).body = newText
+  await db.exec(importSql(changed))
+  await db.exec(approveSql(changed, 'Second reviewer'))
+  // No cache clear: same source UUID and PDF checksum, different extraction.
+  const after = await retrieveReference({ supabase: sb, now: NOW + 1000, body })
+  assert.ok(after.sections.some(s => s.text === newText), 'old cache must not survive a changed extraction')
+  await db.close()
 })
