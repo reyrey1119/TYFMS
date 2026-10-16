@@ -4,7 +4,6 @@ import AdUnit from '../components/AdUnit'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import { trackEvent } from '../lib/analytics'
-import MilReferenceCard from '../components/MilReferenceCard'
 import { makeLatestGuard, makeSingleFlight } from '../lib/latestOnly'
 import { splitLegacyBranch, isJuniorContext, rankProblem } from '../lib/rank'
 
@@ -69,6 +68,7 @@ const [certToAdd, setCertToAdd] = useState('')
 const [milRefData, setMilRefData] = useState(null)
 const [milRefStatus, setMilRefStatus] = useState('idle')
 const [milDuties, setMilDuties] = useState('')
+const dutiesInput = useRef(null)
 
 const refGuard = useRef(makeLatestGuard())
 useEffect(() => {
@@ -109,6 +109,11 @@ async function doTranslate() {
 if (!mos.trim()) { setError('Please enter your MOS, AFSC, or rate code.'); return }
 const rp = rankProblem(rank)
 if (rp) { setError(rp); return }
+if (milRefData?.status !== 'verified' && !milDuties.trim() && !vaultContext.trim()) {
+setError('Add a few tasks you performed or trained on so we can translate your experience.');
+dutiesInput.current?.focus();
+return
+}
 setError('')
 setResults(null)
 setResume('')
@@ -323,29 +328,21 @@ style={{ background: 'none', border: 'none', color: '#0A7868', cursor: 'pointer'
 </div>
 )}
 </div>
-<MilReferenceCard
-status={milRefStatus}
-data={milRefData}
-rank={rank}
-juniorContext={isJuniorContext(rank, yos)}
-onUseDraft={text => setMilDuties(prev => (prev ? prev + '\n' : '') + text)}
-onPickCode={code => setMos(code)}
-/>
-{!['idle', 'needs_rank', 'loading'].includes(milRefStatus) && (
+
 <div style={{ marginBottom: 12 }}>
 <label style={{ display: 'block', marginBottom: 6 }}>
 {isJuniorContext(rank, yos) ? 'What have you trained on, practiced, or actually done?' : 'What did you actually do?'}{' '}
-<span style={{ fontSize: 11, color: '#8F8768', fontWeight: 400 }}>(optional — your own words make the result more accurate)</span>
+<span style={{ fontSize: 11, color: '#8F8768', fontWeight: 400 }}>{milRefData?.status === 'verified' || vaultContext ? '(optional — add detail to personalize your results)' : '(add a few tasks to translate your experience)'}</span>
 </label>
 <textarea
+ref={dutiesInput}
 value={milDuties}
-onChange={e => setMilDuties(e.target.value)}
+onChange={e => { setMilDuties(e.target.value); setError('') }}
 placeholder={isJuniorContext(rank, yos) ? 'e.g. Completed advanced training on radio systems; practiced setting up antennas; have not yet supervised anyone' : 'e.g. Maintained and operated radio communications systems, trained junior soldiers on SINCGARS...'}
 rows={3}
 style={{ width: '100%', fontSize: 13, borderRadius: 6, border: '1px solid #C2B588', padding: '7px 9px', fontFamily: 'inherit', resize: 'vertical', boxSizing: 'border-box' }}
 />
 </div>
-)}
 <button className="btn-g" onClick={translate} disabled={loading}>
 {loading ? 'Analyzing your military experience...' : 'Translate my experience'}
 </button>

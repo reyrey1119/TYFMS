@@ -48,7 +48,7 @@ export default async function handler(req, res) {
     if (!reviewed && !milDuties?.trim() && !vaultContext?.trim()) {
       return res.status(422).json({
         status: 'needs_experience', referenceStatus: ref?.status || 'none',
-        error: 'A reviewed reference is not available for this specialty and rank yet. Describe the tasks you performed or practiced in the duties field so we can translate your experience accurately.',
+        error: 'Add a few tasks you performed or trained on so we can translate your experience.',
         missing: ['milDuties'],
       })
     }
