@@ -1,5 +1,5 @@
 // Resource IDs available for resourceMatch field:
-// vagov, myhealthevet, accessva, ebenefits, nrd, va-navigator,
+// vagov, myhealthevet, accessva, nrd, va-navigator,
 // va-education, gi-bill-tool, goarmyed, sva, dea,
 // va-home-loan,
 // vets-dol, hiring-our-heroes, onet, linkedin-veterans, usajobs,
@@ -28,7 +28,6 @@ CORE VA PORTALS:
 - vagov | VA.gov | va.gov | Primary gateway for all VA benefits, claims, healthcare, disability ratings, appeals
 - myhealthevet | My HealtheVet | myhealth.va.gov | Online VA health portal — prescriptions, medical records, secure messaging, appointments
 - accessva | AccessVA | access.va.gov | Gateway to specialized VA tools: QuickSubmit document uploads, VetBiz for veteran businesses
-- ebenefits | eBenefits | ebenefits.va.gov | GI Bill enrollment, Home Loan certificates, legacy benefits management
 
 RESOURCE DIRECTORIES:
 - nrd | National Resource Directory | nrd.gov | 16,000+ vetted resources: homeless assistance, employment, legal aid, financial help
@@ -37,9 +36,9 @@ RESOURCE DIRECTORIES:
 EDUCATION:
 - va-education | VA Education and Training | va.gov/education | GI Bill benefits, school enrollment verification, education awards management
 - gi-bill-tool | GI Bill Comparison Tool | va.gov/gi-bill-comparison-tool | Compare GI Bill benefits at schools nationwide
-- goarmyed | GoArmyEd | goarmyed.com | Army tuition assistance portal for active soldiers
+- goarmyed | ArmyIgnitED | www.armyignited.army.mil | Army education portal for eligible Soldiers requesting tuition and credentialing assistance
 - sva | Student Veterans of America | studentveterans.org | Peer network and advocacy for student veterans on campus
-- dea | DEA Chapter 35 | va.gov/education/survivor-dependent-education-assistance | Up to 45 months of education benefits for spouses/children of permanently disabled or deceased veterans
+- dea | DEA Chapter 35 | va.gov/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance/ | Education benefits for eligible spouses/children; up to 36 months for training started on or after August 1, 2018, up to 45 months for earlier starts
 
 HOME LOANS:
 - va-home-loan | VA Home Loans | va.gov/housing-assistance/home-loans | No down payment, no PMI, competitive rates for eligible veterans and surviving spouses
@@ -53,9 +52,9 @@ EMPLOYMENT:
 
 FAMILY AND DEPENDENT BENEFITS:
 - tricare | TRICARE | tricare.mil | Military healthcare for dependents: spouses, children under 21 (or 23 if full-time student)
-- fry-scholarship | Fry Scholarship | va.gov/education/fry-scholarship | Education for children/spouses of service members who died in line of duty after Sept 10, 2001
-- teb | GI Bill Transfer (TEB) | milconnect.dmdc.osd.mil | Transfer unused Post-9/11 GI Bill to spouse or children — requires 6+ years service + 4-year commitment; MUST apply before leaving active duty
-- sbp | Survivor Benefit Plan (SBP) | dfas.mil/sbp | Up to 55% of retirement pay as annuity to survivors of retired service members — elected at retirement
+- fry-scholarship | Fry Scholarship | va.gov/family-and-caregiver-benefits/education-and-careers/fry-scholarship/ | Education for eligible children and surviving spouses of service members or Selected Reserve members who died on or after September 11, 2001; VA eligibility conditions apply
+- teb | GI Bill Transfer (TEB) | milconnect.dmdc.osd.mil | Eligible active-duty and Selected Reserve members may request transfers to dependents; DoD approval, service obligations and DEERS enrollment rules apply; see va.gov/education/transfer-post-9-11-gi-bill-benefits/ for current conditions and exceptions
+- sbp | Survivor Benefit Plan (SBP) | www.dfas.mil/RetiredMilitary/provide/sbp/ | Survivor annuity for eligible beneficiaries; coverage, benefit amounts and enrollment rules depend on the member and their election
 - dic | Dependency and Indemnity Compensation (DIC) | va.gov/disability/dic | Monthly tax-free benefit for surviving spouses/children of veterans who died from service-connected conditions
 - deers | DEERS | milconnect.dmdc.osd.mil | Defense Enrollment Eligibility Reporting System — mandatory for dependents to access TRICARE and other benefits
 - military-onesource | Military OneSource | militaryonesource.mil | Free 24/7 family support: financial counseling, relocation, childcare, 12 free counseling sessions
@@ -222,7 +221,7 @@ ${summaryInstruction}
 8. NEVER return an error. Always give a helpful response.
 9. Choose the most relevant tab: home, translator, resume, identity, network, trends, tracker, path, resources.
 10. Set resourceMatch to a comma-separated list of the most relevant resource IDs (up to 4) from this list only:
-    vagov, myhealthevet, accessva, ebenefits, nrd, va-navigator, va-education, gi-bill-tool, goarmyed, sva, dea, va-home-loan, vets-dol, hiring-our-heroes, onet, linkedin-veterans, usajobs, tricare, fry-scholarship, teb, sbp, dic, deers, military-onesource, caregiver, va-dvs, crisis-line, make-connection, give-hour
+    vagov, myhealthevet, accessva, nrd, va-navigator, va-education, gi-bill-tool, goarmyed, sva, dea, va-home-loan, vets-dol, hiring-our-heroes, onet, linkedin-veterans, usajobs, tricare, fry-scholarship, teb, sbp, dic, deers, military-onesource, caregiver, va-dvs, crisis-line, make-connection, give-hour
 
 Respond with ONLY valid JSON on one line (no markdown, no code blocks, no extra text):
 {"tab":"<tab_id>","summary":"<answer — must start with Per 38 CFR... if regulation text was provided>","sectionHint":"<specific resource name or category>","resourceMatch":"<comma-separated resource ids>"}`

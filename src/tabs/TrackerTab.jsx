@@ -9,7 +9,7 @@ id: 'p1', num: 1, range: 'Month 1', title: 'Paperwork & Benefits', color: '#1B3A
 milestones: [
 { id: 'm1', text: 'File your VA disability claim at va.gov' },
 { id: 'm2', text: 'Obtain certified copies of your DD-214' },
-{ id: 'm3', text: 'Set up your eBenefits / VA.gov account' },
+{ id: 'm3', text: 'Set up your VA.gov account' },
 { id: 'm4', text: 'Apply for VA healthcare enrollment' },
 { id: 'm5', text: 'Review TRICARE transition options' },
 ],
