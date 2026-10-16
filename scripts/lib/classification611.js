@@ -317,7 +317,7 @@ export function parseOfficerChart(pages) {
 }
 
 const OFFICER_HEADING = /^(?:[a-z]{1,2}|(?:\d+-)?\d+)\.\s+(.{2,110}?)\s*\((?:AOC\s+)?(\d{2}[A-Z](?:\s*(?:,|and|&|\/)\s*\d{2}[A-Z])*)\)(?:\.?\s*\([^)]*\))*\.?(?:\s+\S.*)?$/i
-const OFFICER_LABEL = /^(?:\(\d\)|[a-z]\.?)?\s*(Educational [Rr]equirements|Restrictions?|Description of duties|Special qualifications|Special grading of positions|Unique duty positions?|Skill identifiers|Physical demands|Description of positions|Functional area qualifications|Qualifications)\b/i
+const OFFICER_LABEL = /^(?:\(\d\)|[a-z]\.?)?\s*(Educational [Rr]equirements|Restrictions?|Positions? coding|Description of duties|Special qualifications|Special grading of positions|Unique duty positions?|Skill identifiers|Physical demands|Description of positions|Functional area qualifications|Qualifications)\b/i
 const BRANCH_HEADING = /^3\s*[-–—]\s*\d+/
 // A lettered item that opens a different section (requirements, identifiers, the next AOC's heading) ends the item before it.
 const OFFICER_SECTION_END = /^[a-z]{1,2}\s?\.\s+(?:Physical|Skill [Ii]dentifiers|Special personnel|AOC \d{2}[A-Z] (?:qualifications|skill)|Associated|Qualifications|.{2,100}\(\s*(?:AOC\s+)?\d{2}[A-Z]\s*\))/
@@ -356,7 +356,7 @@ export function importOfficerChapter(pages) {
       let de = sec.findIndex((l, k) => k > di && (OFFICER_LABEL.test(l.text) || OFFICER_SECTION_END.test(l.text)) && !/Description of duties/i.test(l.text))
       if (de < 0) de = Math.min(sec.length, di + 40)
       const dl = sec.slice(di, de)
-      const text = joinLines(dl).replace(/^(?:\(\d\)|[a-z]\.)?\s*(?:AOC\s+\d{2}[A-Z]\s+)?Description of duties[.:]?\s*/i, '').trim()
+      const text = joinLines(dl).replace(/^(?:\(?\d\)|[a-z]\.?)?\s*(?:AOC\s+\d{2}[A-Z]\s+)?Description of duties[.:]?\s*/i, '').trim()
       if (text.length > 30) passages.push({ section_type: 'general_duties', rank_band: null, heading: 'Description of duties', body: text, pdf_page_start: Math.min(...dl.map(l => l.page)), pdf_page_end: Math.max(...dl.map(l => l.page)), cumulative: false })
     }
     const gi = labelAt(/Special grading of positions/i)
@@ -364,14 +364,14 @@ export function importOfficerChapter(pages) {
     if (gi >= 0) {
       let ge = sec.findIndex((l, k) => k > gi && (OFFICER_LABEL.test(l.text) || OFFICER_SECTION_END.test(l.text))); if (ge < 0) ge = Math.min(sec.length, gi + 4)
       const gl = sec.slice(gi, ge)
-      gradeNote = joinLines(gl).replace(/^(?:\(\d\)|[a-z]\.)?\s*Special grading of positions[.:]?\s*/i, '').trim()
+      gradeNote = joinLines(gl).replace(/^(?:\(?\d\)|[a-z]\.?)?\s*Special grading of positions[.:]?\s*/i, '').trim()
       if (gradeNote && !/^none\.?$/i.test(gradeNote)) passages.push({ section_type: 'grades_authorized', rank_band: null, heading: 'Special grading of positions', body: gradeNote, pdf_page_start: gl[0].page, pdf_page_end: gl.at(-1).page, cumulative: false })
     }
     const ui = labelAt(/Unique duty positions?/i)
     if (ui >= 0) {
       let ue = sec.findIndex((l, k) => k > ui && (OFFICER_LABEL.test(l.text) || OFFICER_SECTION_END.test(l.text))); if (ue < 0) ue = Math.min(sec.length, ui + 40)
       const ul = sec.slice(ui, ue)
-      const text = joinLines(ul).replace(/^(?:\(\d\)|[a-z]\.)?\s*Unique duty positions?[.:]?\s*/i, '').trim()
+      const text = joinLines(ul).replace(/^(?:\(?\d\)|[a-z]\.?)?\s*Unique duty positions?[.:]?\s*/i, '').trim()
       if (text.length > 10) passages.push({ section_type: 'assignments', rank_band: null, heading: 'Unique duty positions', body: text, pdf_page_start: ul[0].page, pdf_page_end: ul.at(-1).page, cumulative: false })
     }
     const mk = parseMarkers(lines[h.i].text)

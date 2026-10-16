@@ -15,13 +15,13 @@ where id = '02d64a4e-2798-564f-95fb-4d9f2b83ec25'
   and content_sha256 = '40b4459b669038d841522eccd244743d16fd63c186d9a6724d5cec9f7a6efcfa'
 returning id, title, content_sha256, review_status;
 
--- fingerprint 695532a39426…  (365 passages)
--- scope: DA PAM 611-21 ch. 3 (officer AOC descriptions). Every passage checked verbatim; 7 pages viewed: 63N, 67E, 64A, 60G, 15A (random, same seed; 17X has no description) plus 89E, 90A.
+-- fingerprint ce1c603aa3fd…  (363 passages)
+-- scope: DA PAM 611-21 ch. 3 (officer AOC descriptions). Every passage checked verbatim; 7 pages viewed: 63N, 67E, 64A, 60G, 15A (random, same seed; 17X has no description) plus 89E, 90A. After the visual review a final boundary fix trimmed neighbouring labels ("Position coding", a stray "5)") off 26 passages; all passages were re-verified verbatim and the 47D, 47J, 47U and 18A text was re-read.
 -- Approve army-611-21-officer-ch3. Run only after reviewing the extraction against the PDF.
 update public.reference_sources
 set review_status = 'approved', reviewed_by = 'Claude Sonnet 5.5 (AI-assisted: automated verbatim, structure and line-accounting checks on every passage, plus visual comparison of 27 sampled PDF pages against the stored text, 2026-10-16), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.', reviewed_at = now(), last_checked_at = coalesce(last_checked_at, now())
 where id = '7a6a4906-e811-5fb6-97fc-206842efb40c'
-  and content_sha256 = '695532a394262165bdf0dfdc3c1d1b3d9799eec64368cad4ab9cf6a5044d70ea'
+  and content_sha256 = 'ce1c603aa3fdbe4c4f4fdf133d21d0db8be197e03bb950772f052565ec3d0ebe'
 returning id, title, content_sha256, review_status;
 
 -- fingerprint 69ef6b5aab4f…  (286 passages)
