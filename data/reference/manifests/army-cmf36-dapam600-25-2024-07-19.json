@@ -1,0 +1,80 @@
+{
+  "id": "army-cmf36-dapam600-25-2024-07-19",
+  "profile": "enlisted-cmf",
+  "pdf_sha256": "799eb94c0eb379df17e07d5037d2a3cc391eb89644ec982d0eda37fab526b660",
+  "source": {
+    "branch": "Army",
+    "personnel_category": "enlisted",
+    "publication_number": "DA PAM 600-25",
+    "title": "Finance and Comptroller (CMF 36) Career Progression Plan",
+    "career_field": "CMF 36",
+    "proponent": "Commandant, U.S. Army Finance and Comptroller School (Proponency Division), Fort Jackson, SC",
+    "official_url": "https://api.army.mil/e2/c/downloads/2024/07/19/be500779/cmf-36-da-pam-600-25-19-jul-24.pdf",
+    "publication_date": "2024-07-19",
+    "effective_date": null,
+    "last_checked_at": "2026-10-15T00:00:00Z",
+    "notes": "Date basis: 19 Jul 2024 comes from the official file name, the server Last-Modified header, and the Army G-1 listing (checked 2026-10-15). The PDF body prints no date. A separate CMF 36 board brief dated 25 Aug 2025 is a different document and is not imported. Review correction 2026-10-16: Chapter 6 mixes text for the whole Reserve Component with ARNG-only text; paragraph a(1) and items e and f are tagged Guard-only (see componentRules in the manifest). LIMITATIONS: Only MOS 36B is included. Chapter 5 only points to an online career map. In the Reserve/Guard chapter, one sentence in item d mentions ARNG promotion regulations inside otherwise Reserve Component text."
+  },
+  "chapters": {
+    "1": {
+      "kind": "skip",
+      "reason": "CMF-wide duties overview, not attached to 36B."
+    },
+    "2": {
+      "kind": "skip",
+      "reason": "CMF-wide transformation overview, not attached to 36B."
+    },
+    "3": {
+      "kind": "rank-guidance",
+      "occupations": [
+        {
+          "code": "36B",
+          "title": "Financial Management Technician"
+        }
+      ],
+      "mapping_note": "Chapter 3 is general CMF 36 career guidance by rank; attached to 36B, the only enlisted MOS in this document."
+    },
+    "4": {
+      "kind": "mos-chapter",
+      "occupations": [
+        {
+          "code": "36B",
+          "title": "Financial Management Technician"
+        }
+      ]
+    },
+    "5": {
+      "kind": "skip",
+      "reason": "Points to the Army Career Tracker; contains no guidance text."
+    },
+    "6": {
+      "kind": "component-chapter",
+      "components": "reserve,guard",
+      "occupations": [
+        {
+          "code": "36B",
+          "title": "Financial Management Technician"
+        }
+      ],
+      "componentRules": [
+        {
+          "item": "a",
+          "paragraph": 1,
+          "components": "guard",
+          "reason": "Paragraph (1) describes the ARNG dual Title 10 / Title 32 mission and says the ARNG CMF 36 field is managed identically to the RA with exceptions."
+        },
+        {
+          "item": "e",
+          "components": "guard",
+          "reason": "Item e (Special Assignments) is about ARNG Soldiers: no Generating Force assignments, ARNG recruiting closed, Title 10/32 AGR program."
+        },
+        {
+          "item": "f",
+          "components": "guard",
+          "reason": "Item f (Additional training) is based on the dual mission of the ARNG and State active-duty missions."
+        }
+      ]
+    }
+  },
+  "skipLinePatterns": []
+}

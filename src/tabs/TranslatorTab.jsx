@@ -1,11 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import { trackEvent } from '../lib/analytics'
+import MilReferenceCard from '../components/MilReferenceCard'
+import { makeLatestGuard, makeSingleFlight } from '../lib/latestOnly'
+import { COMPONENT_OPTIONS, splitLegacyBranch, isJuniorContext, rankProblem } from '../lib/rank'
 
-const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force', 'National Guard', 'Reserve']
+const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 
 const CERT_GROUPS = [
 { label: 'Cybersecurity & IT', certs: ['CompTIA Security+', 'CompTIA Network+', 'CompTIA A+', 'CompTIA CySA+', 'CompTIA CASP+', 'Certified Ethical Hacker (CEH)', 'CISSP', 'CISM', 'AWS Cloud Practitioner', 'AWS Solutions Architect', 'Microsoft Azure Fundamentals', 'Azure Administrator', 'Google Cloud Associate', 'Cisco CCNA', 'Cisco CCNP', 'Splunk Core Certified User', 'Palo Alto PCNSA'] },
@@ -47,10 +50,13 @@ const [branch, setBranch] = useState('Army')
 const [mos, setMos] = useState('')
 const [rank, setRank] = useState('')
 
+const [component, setComponent] = useState('')
 const [profileApplied, setProfileApplied] = useState(false)
 useEffect(() => {
 if (!profile || profileApplied) return
-if (profile.branch && BRANCHES.includes(profile.branch)) setBranch(profile.branch)
+const saved = splitLegacyBranch(profile.branch)
+if (saved.branch && BRANCHES.includes(saved.branch)) setBranch(saved.branch)
+if (saved.component) setComponent(saved.component)
 if (profile.rank) setRank(profile.rank)
 if (profile.mos) setMos(profile.mos)
 setProfileApplied(true)
@@ -66,24 +72,31 @@ const [milRefData, setMilRefData] = useState(null)
 const [milRefStatus, setMilRefStatus] = useState('idle')
 const [milDuties, setMilDuties] = useState('')
 
+const refGuard = useRef(makeLatestGuard())
 useEffect(() => {
-if (!mos.trim() || !rank) { setMilRefStatus('idle'); setMilRefData(null); return }
+// Any input change invalidates lookups still in flight for the old inputs.
+refGuard.current.invalidate()
+setMilRefData(null)
+setMilRefStatus('idle') // hide the old card at once; no stale or empty flash while debouncing
+if (!mos.trim()) { setMilRefStatus('idle'); return }
+if (!rank) { setMilRefStatus('needs_rank'); return }
+const ticket = refGuard.current.next()
 const timer = setTimeout(async () => {
-if (!['Army', 'Air Force', 'Navy', 'Marine Corps'].includes(branch)) { setMilRefStatus('unsupported'); return }
-setMilRefStatus('loading'); setMilRefData(null)
+setMilRefStatus('loading')
 try {
 const r = await fetch('/api/resume-tools', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ action: 'mil-reference', branch, mos_afsc: mos.trim(), rank }),
+body: JSON.stringify({ action: 'mil-reference', branch, component, mos_afsc: mos.trim(), rank }),
 })
 const data = await r.json()
+if (!refGuard.current.isCurrent(ticket)) return
 if (!r.ok || data.error) { setMilRefStatus('failed'); return }
-setMilRefData(data); setMilRefStatus('found')
-} catch { setMilRefStatus('failed') }
+setMilRefData(data); setMilRefStatus('done')
+} catch { if (refGuard.current.isCurrent(ticket)) setMilRefStatus('failed') }
 }, 700)
 return () => clearTimeout(timer)
-}, [mos, rank, branch])
+}, [mos, rank, branch, component])
 
 // Resume builder state
 const [resumeLoading, setResumeLoading] = useState(false)
@@ -91,8 +104,13 @@ const [resume, setResume] = useState('')
 const [resumeError, setResumeError] = useState('')
 const [copied, setCopied] = useState(false)
 
-async function translate() {
+const flight = useRef(makeSingleFlight())
+function translate() { return flight.current(doTranslate) }
+
+async function doTranslate() {
 if (!mos.trim()) { setError('Please enter your MOS, AFSC, or rate code.'); return }
+const rp = rankProblem(rank)
+if (rp) { setError(rp); return }
 setError('')
 setResults(null)
 setResume('')
@@ -101,7 +119,7 @@ try {
 const r = await fetch('/api/translate', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos, existingCerts, milReference: milRefData, milDuties: milDuties.trim(), vaultContext: vaultContext || undefined }),
+body: JSON.stringify({ action: 'translate', branch, component, mos: mos.trim(), rank, yos, existingCerts, milDuties: milDuties.trim(), vaultContext: vaultContext || undefined }),
 })
 const data = await r.json()
 if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
@@ -119,6 +137,8 @@ setLoading(false)
 
 async function buildResume() {
 if (!results) return
+const rp = rankProblem(rank)
+if (rp) { setResumeError(rp); return }
 setResumeError('')
 setResume('')
 setResumeLoading(true)
@@ -126,7 +146,7 @@ try {
 const r = await fetch('/api/translate', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ action: 'resume', branch, mos, rank, yos, ...results }),
+body: JSON.stringify({ action: 'resume', branch, component, mos, rank, yos, milDuties: milDuties.trim(), ...results }),
 })
 const data = await r.json()
 if (!r.ok) { setResumeError(data.error || 'Something went wrong.'); return }
@@ -203,7 +223,7 @@ padding: '12px 16px', background: '#F0F7EE', border: '1px solid #B8DDB8', border
 <div className="grid-2" style={{ marginBottom: 12 }}>
 <div>
 <label>Branch of service</label>
-<select value={branch} onChange={e => { setBranch(e.target.value); setMilRefData(null); setMilRefStatus('idle') }}>
+<select value={branch} onChange={e => setBranch(e.target.value)}>
 {BRANCHES.map(b => <option key={b}>{b}</option>)}
 </select>
 </div>
@@ -212,7 +232,7 @@ padding: '12px 16px', background: '#F0F7EE', border: '1px solid #B8DDB8', border
 <input
 type="text"
 value={mos}
-onChange={e => { setMos(e.target.value); setMilRefData(null); setMilRefStatus('idle') }}
+onChange={e => setMos(e.target.value)}
 onKeyDown={e => e.key === 'Enter' && translate()}
 placeholder="e.g. 25U, 6F0X1, IT"
 />
@@ -220,9 +240,9 @@ placeholder="e.g. 25U, 6F0X1, IT"
 </div>
 <div className="grid-2" style={{ marginBottom: 16 }}>
 <div>
-<label>Rank (optional)</label>
+<label>Rank / pay grade</label>
 <select value={rank} onChange={e => setRank(e.target.value)}>
-<option value="">Select rank (optional)</option>
+<option value="">Select your rank</option>
 <optgroup label="Enlisted">
 <option>E-1</option><option>E-2</option><option>E-3</option>
 <option>E-4</option><option>E-5</option><option>E-6</option>
@@ -248,6 +268,12 @@ placeholder="e.g. 25U, 6F0X1, IT"
 ))}
 </select>
 </div>
+</div>
+<div style={{ marginBottom: 16 }}>
+<label>Component (optional)</label>
+<select value={component} onChange={e => setComponent(e.target.value)}>
+{COMPONENT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+</select>
 </div>
 <div style={{ marginBottom: 16 }}>
 <label style={{ display: 'block', marginBottom: 8 }}>
@@ -304,46 +330,27 @@ style={{ background: 'none', border: 'none', color: '#0A7868', cursor: 'pointer'
 </div>
 )}
 </div>
-{milRefStatus === 'loading' && (
-<div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', background: '#EFE7CD', borderRadius: 8, marginBottom: 12, fontSize: 13, color: '#5C5646' }}>
-<span style={{ display: 'inline-block', width: 14, height: 14, border: '2px solid #0A7868', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.7s linear infinite', flexShrink: 0 }} />
-Looking up official duty description...
-</div>
-)}
-{milRefStatus === 'found' && milRefData && milRefData._source === 'pdf' && (
-<div style={{ background: '#e8f5f3', border: '1px solid #0A7868', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
-<p style={{ color: '#0A7868', fontWeight: 600, marginBottom: 2 }}>✓ Official duty description found</p>
-<p style={{ color: '#5C5646', fontSize: 12 }}>{milRefData.duty_title} — {milRefData.document_source}</p>
-</div>
-)}
-{milRefStatus === 'found' && milRefData && milRefData._source === 'database' && (
-<div style={{ background: '#e8f5f3', border: '1px solid #0A7868', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
-<p style={{ color: '#0A7868', fontWeight: 600, marginBottom: 2 }}>✓ Duty description loaded from {milRefData.document_source}</p>
-<p style={{ color: '#5C5646', fontSize: 12 }}>{milRefData.duty_title}</p>
-</div>
-)}
-{milRefStatus === 'found' && milRefData && milRefData._source !== 'pdf' && milRefData._source !== 'database' && (
-<div style={{ background: '#e8f0f5', border: '1px solid #2d7a8a', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
-<p style={{ color: '#2d7a8a', fontWeight: 600, marginBottom: 2 }}>✓ Duty description loaded from AI knowledge</p>
-<p style={{ color: '#5C5646', fontSize: 12 }}>Official publication unavailable — using trained knowledge of {mos.trim().toUpperCase()} from {milRefData.document_source}</p>
-</div>
-)}
-{milRefStatus === 'failed' && (
-<div style={{ background: '#EFE7CD', border: '1px solid #C2B588', borderRadius: 8, padding: '10px 14px', marginBottom: 12, fontSize: 13 }}>
-<p style={{ color: '#5C5646', fontWeight: 600, marginBottom: 4 }}>Official duty description not available</p>
-<p style={{ color: '#5C5646', fontSize: 12, marginBottom: 8, lineHeight: 1.5 }}>Your translation will still run using AI knowledge of your MOS. Optionally describe your duties below for a more tailored result.</p>
+<MilReferenceCard
+status={milRefStatus}
+data={milRefData}
+rank={rank}
+juniorContext={isJuniorContext(rank, yos)}
+onUseDraft={text => setMilDuties(prev => (prev ? prev + '\n' : '') + text)}
+onPickCode={code => setMos(code)}
+/>
+{!['idle', 'needs_rank', 'loading'].includes(milRefStatus) && (
+<div style={{ marginBottom: 12 }}>
+<label style={{ display: 'block', marginBottom: 6 }}>
+{isJuniorContext(rank, yos) ? 'What have you trained on, practiced, or actually done?' : 'What did you actually do?'}{' '}
+<span style={{ fontSize: 11, color: '#8F8768', fontWeight: 400 }}>(optional — your own words make the result more accurate)</span>
+</label>
 <textarea
 value={milDuties}
 onChange={e => setMilDuties(e.target.value)}
-placeholder="e.g. Maintained and operated radio communications systems, trained junior soldiers on SINCGARS..."
+placeholder={isJuniorContext(rank, yos) ? 'e.g. Completed advanced training on radio systems; practiced setting up antennas; have not yet supervised anyone' : 'e.g. Maintained and operated radio communications systems, trained junior soldiers on SINCGARS...'}
 rows={3}
 style={{ width: '100%', fontSize: 13, borderRadius: 6, border: '1px solid #C2B588', padding: '7px 9px', fontFamily: 'inherit', resize: 'vertical', boxSizing: 'border-box' }}
 />
-</div>
-)}
-{milRefStatus === 'unsupported' && (
-<div style={{ background: '#EFE7CD', border: '1px solid #C2B588', borderRadius: 8, padding: '8px 14px', marginBottom: 12, fontSize: 12, color: '#5C5646' }}>
-Official duty lookup is available for Army, Air Force, Navy, and Marine Corps. Translation will still run using your MOS/rate.
 </div>
 )}
 <button className="btn-g" onClick={translate} disabled={loading}>
@@ -358,6 +365,30 @@ Official duty lookup is available for Army, Air Force, Navy, and Marine Corps. T
 <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
 {results.civilianTitles.map(t => <span key={t} className="bg">{t}</span>)}
 </div>
+
+{results.civilianTranslation && results.civilianTranslation.length > 0 && (
+<div style={{ marginBottom: 20 }}>
+<p className="cat-label">How this translates to civilian work</p>
+<div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 10 }}>
+{results.civilianTranslation.map((t, i) => (
+<div key={i} className="card" style={{ padding: '12px 14px' }}>
+<p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', color: '#8F8768', marginBottom: 2 }}>Military skill or task</p>
+<p style={{ fontWeight: 600, fontSize: 14, marginBottom: 8, color: '#211F19' }}>{t.militarySkill}</p>
+<p style={{ fontSize: 13, color: '#211F19', lineHeight: 1.6, marginBottom: 6 }}>{t.civilianEquivalent}</p>
+{t.civilianFunctions && t.civilianFunctions.length > 0 && (
+<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 8 }}>
+{t.civilianFunctions.map(f => <span key={f} className="ba">{f}</span>)}
+</div>
+)}
+<p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.55 }}><strong>To check:</strong> {t.verify}</p>
+</div>
+))}
+</div>
+<p style={{ fontSize: 11, color: '#8F8768', marginTop: 8, lineHeight: 1.5 }}>
+These are examples of where your skills can apply, not job-placement promises. Only claim what you actually did.
+</p>
+</div>
+)}
 
 <p className="cat-label">Transferable skills</p>
 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(140px,1fr))', gap: 6, marginBottom: 20 }}>
@@ -387,6 +418,7 @@ Official duty lookup is available for Army, Air Force, Navy, and Marine Corps. T
 {results.certifications && results.certifications.length > 0 && (
 <div style={{ marginBottom: 24 }}>
 <p className="cat-label">Certifications to pursue</p>
+<p style={{ fontSize: 11, color: '#8F8768', marginTop: 4 }}>Credentials are earned from the provider; military experience does not grant one automatically.</p>
 <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 10 }}>
 {results.certifications.map(c => (
 <div key={c.name} className="card" style={{ display: 'flex', gap: 12, alignItems: 'flex-start', padding: '12px 14px' }}>
@@ -394,6 +426,8 @@ Official duty lookup is available for Army, Air Force, Navy, and Marine Corps. T
 <div>
 <p style={{ fontWeight: 600, fontSize: 14, marginBottom: 3, color: '#211F19' }}>{c.name}</p>
 <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.6 }}>{c.why}</p>
+{c.url && <p style={{ fontSize: 12, marginTop: 4 }}><a href={c.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1B3A6B' }}>{c.provider ? `${c.provider} — ` : ''}official details</a></p>}
+{c.urlNote && <p style={{ fontSize: 11, color: '#8F8768', marginTop: 2 }}>{c.urlNote}</p>}
 </div>
 </div>
 ))}
@@ -413,7 +447,7 @@ Ready to build your full resume?
 Your branch, MOS, rank, and years of service will be pre-filled automatically.
 </p>
 <button
-onClick={() => onGoToResume && onGoToResume({ branch, mos, rank, yos })}
+onClick={() => onGoToResume && onGoToResume({ branch, component, mos, rank, yos, milDuties: milDuties.trim() })}
 style={{
 width: '100%', padding: '13px 20px', background: '#C07A28',
 border: 'none', borderRadius: 10, color: '#fff', fontSize: 14,

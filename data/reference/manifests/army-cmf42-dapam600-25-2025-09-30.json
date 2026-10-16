@@ -1,0 +1,64 @@
+{
+  "id": "army-cmf42-dapam600-25-2025-09-30",
+  "profile": "enlisted-cmf",
+  "pdf_sha256": "d38d44c162b77882c726f65d2374e057b0a1a6ac747deeaae9414b4445286744",
+  "source": {
+    "branch": "Army",
+    "personnel_category": "enlisted",
+    "publication_number": "DA PAM 600-25",
+    "title": "Adjutant General (AG) Corps (Career Management Field 42) Career Progression Plan",
+    "career_field": "CMF 42",
+    "proponent": "Commandant, Adjutant General School (Personnel and Leader Development Division), Fort Jackson, SC",
+    "official_url": "https://api.army.mil/e2/c/downloads/2025/10/01/4a0dd790/cmf-42-da-pam-600-25-30-sep-25.pdf",
+    "publication_date": "2025-09-30",
+    "effective_date": null,
+    "last_checked_at": "2026-10-15T00:00:00Z",
+    "notes": "Date basis: the 30 Sep 2025 date comes from the official file name and the Army G-1 listing (https://www.army.mil/g-1), checked 2026-10-15. The PDF body prints no date. The official download is byte-identical (same SHA-256) to the copy supplied by the project owner. This edition also contains MOS 42R/42S/42T chapters, which are NOT imported here. A separate CMF 42T/79 publication dated 9 Sep 2026 is listed on G-1 and may supersede the 42T chapter of this edition. LIMITATIONS: Only MOS 42A is included from this edition (the musician, special-band and recruiter chapters are not). Chapter 5 only points to an online career map. The guide's own promotion-board criteria are stored but not shown."
+  },
+  "occupations_note": "Only MOS 42A is imported from this document.",
+  "chapters": {
+    "1": {
+      "kind": "skip",
+      "reason": "CMF-wide overview. It also describes Army Bands and recruiting, so it is not attached to 42A."
+    },
+    "2": {
+      "kind": "skip",
+      "reason": "CMF-wide transformation overview, not attached to 42A."
+    },
+    "3": {
+      "kind": "rank-guidance",
+      "occupations": [
+        {
+          "code": "42A",
+          "title": "Human Resources Specialist"
+        }
+      ],
+      "mapping_note": "Chapter 3 is general CMF 42 career guidance by rank. It is attached to 42A (an HR-oriented chapter) as a mapping decision that a reviewer should confirm."
+    },
+    "4": {
+      "kind": "mos-chapter",
+      "occupations": [
+        {
+          "code": "42A",
+          "title": "Human Resources Specialist"
+        }
+      ]
+    },
+    "5": {
+      "kind": "skip",
+      "reason": "Points to the Professional Development Model on the Army G-1 website; contains no guidance text."
+    },
+    "6": {
+      "kind": "component-chapter",
+      "components": "reserve,guard",
+      "occupations": [
+        {
+          "code": "42A",
+          "title": "Human Resources Specialist"
+        }
+      ]
+    }
+  },
+  "defaultSkipReason": "Other MOS (42R musician, 42S special bands, 42T talent acquisition): out of scope for 42A.",
+  "skipLinePatterns": []
+}
