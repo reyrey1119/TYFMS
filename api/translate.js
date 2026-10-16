@@ -103,7 +103,8 @@ For certifications: recommend up to 3 and choose ONLY from this verified list, u
     try {
       // The quotes make the answer longer than it used to be; if the reply is cut off or is not valid JSON, ask once more.
       let result = null
-      for (let attempt = 0; attempt < 2 && !result; attempt++) {
+      let grounded = null
+      for (let attempt = 0; attempt < 2 && !grounded; attempt++) {
         const r = await fetch('https://api.anthropic.com/v1/messages', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
@@ -116,21 +117,24 @@ For certifications: recommend up to 3 and choose ONLY from this verified list, u
         const data = await r.json()
         if (data.error) return res.status(400).json({ error: data.error.message })
         const txt = (data.content || []).map(i => i.text || '').join('').replace(/```json|```/g, '').trim()
-        try { result = JSON.parse(txt) } catch { console.error('[translate] model reply was not valid JSON', { attempt, stop_reason: data.stop_reason, chars: txt.length }) }
+        try { result = JSON.parse(txt) } catch { console.error('[translate] model reply was not valid JSON', { attempt, stop_reason: data.stop_reason, chars: txt.length }); continue }
+        // Check where every entry actually comes from. The quote has to be in the official text for this grade or in
+        // what the person provided; anything else is dropped rather than shown as fact. If nothing survives, ask once more.
+        const g = groundEntries(result.civilianTranslation, {
+          reference: reviewed,
+          personal: [
+            { label: 'what you described', text: (milDuties || '').slice(0, 2000) },
+            { label: 'your uploaded records', text: (vaultContext || '').slice(0, 6000) },
+          ],
+          referenceSectionLabels: SECTION_LABELS,
+        })
+        if (g.kept.length) grounded = g
+        else console.error('[translate] no entry could be traced to the reference or the person', { attempt, entries: Array.isArray(result.civilianTranslation) ? result.civilianTranslation.length : 0 })
       }
       if (!result) return res.status(500).json({ error: 'Translation failed. Please try again.' })
       result.certifications = verifyRecommendations(result.certifications, existingCerts)
 
-      // Check where every entry actually comes from. The quote has to be in the official text for this grade or in
-      // what the person provided; anything else is dropped rather than shown as fact.
-      const { kept, dropped } = groundEntries(result.civilianTranslation, {
-        reference: reviewed,
-        personal: [
-          { label: 'what you described', text: (milDuties || '').slice(0, 2000) },
-          { label: 'your uploaded records', text: (vaultContext || '').slice(0, 6000) },
-        ],
-        referenceSectionLabels: SECTION_LABELS,
-      })
+      const { kept, dropped } = grounded || { kept: [], dropped: [] }
       if (!kept.length) return res.status(502).json({ error: 'We could not produce a translation we can trace to your specialty reference or to what you provided. Please try again.' })
       result.civilianTranslation = kept
       result.translationBasis = {

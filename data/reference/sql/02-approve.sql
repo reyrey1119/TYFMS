@@ -24,13 +24,13 @@ where id = '7a6a4906-e811-5fb6-97fc-206842efb40c'
   and content_sha256 = '4f3e9c9a0690b698e26a981b3dd5c52b9f92e3112cd3982e3523ee6e8f64c07f'
 returning id, title, content_sha256, review_status;
 
--- fingerprint 45f6b12863d2…  (278 passages)
--- scope: DA PAM 611-21 ch. 8b (warrant officer duties by grade). Every passage checked verbatim; 8 pages viewed: 140A, 125D, 150U, 270A, 420C (random, same seed) plus 351L, 923A, 155-family structure. After that review, passages that only point elsewhere ("see MOS 948B", "(see AR 614-115)", a lead-in ending "as described below:", a "Personnel Only" skill level) were removed and are listed in the bundle report; all remaining passages were re-verified verbatim.
+-- fingerprint 6f33be924cb4…  (278 passages)
+-- scope: DA PAM 611-21 ch. 8b (warrant officer duties by grade). Every passage checked verbatim; 8 pages viewed: 140A, 125D, 150U, 270A, 420C (random, same seed) plus 351L, 923A, 155-family structure. After that review, passages that only point elsewhere ("see MOS 948B", "(see AR 614-115)", a lead-in ending "as described below:", a "Personnel Only" skill level) were removed and are listed in the bundle report; all remaining passages were re-verified verbatim. Final change: the warrant cumulative-duty flag now uses the same pattern as the enlisted one (flag only; passage text unchanged, re-verified verbatim).
 -- Approve army-611-21-warrant-ch8b. Run only after reviewing the extraction against the PDF.
 update public.reference_sources
 set review_status = 'approved', reviewed_by = 'Claude Sonnet 5.5 (AI-assisted: automated verbatim, structure and line-accounting checks on every passage, plus visual comparison of 27 sampled PDF pages against the stored text, 2026-10-16), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.', reviewed_at = now(), last_checked_at = coalesce(last_checked_at, now())
 where id = '3021ff69-4dd8-5576-afdb-49874e1d8e20'
-  and content_sha256 = '45f6b12863d209ba5598cc4c1a1e3abd7029a3f84b32722348781a2384be0f23'
+  and content_sha256 = '6f33be924cb4901dd90fdef87f052ecdd34a92e8852ad38768f117576897d63d'
 returning id, title, content_sha256, review_status;
 
 -- fingerprint dc76a020456c…  (67 passages)

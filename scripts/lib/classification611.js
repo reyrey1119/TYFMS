@@ -284,7 +284,7 @@ export function importWarrantChapter(pages, chart) {
         const all = [{ ...sg.head[0], text: first.slice(m[0].length) }, ...sg.lines].filter(l => l.text)
         const text = joinLines(all).replace(/^must\s*[-–—]*\s*/i, '').trim()
         if (/does not apply/i.test(text) || text.length < 15) { ctx.skipped.push({ code: b.codes.join('/'), page: sg.head[0].page, why: 'grade band marked "does not apply" or empty', text: first.slice(0, 60) }); continue }
-        passages.push({ section_type: 'rank_duties', rank_band: bandOf(tokens), heading: `Duties — ${m[1].replace(/\s+/g, '')}`, body: text, pdf_page_start: Math.min(...all.map(l => l.page)), pdf_page_end: Math.max(...all.map(l => l.page)), cumulative: /perform(?:s)? (?:the )?duties described in paragraph/i.test(text) })
+        passages.push({ section_type: 'rank_duties', rank_band: bandOf(tokens), heading: `Duties — ${m[1].replace(/\s+/g, '')}`, body: text, pdf_page_start: Math.min(...all.map(l => l.page)), pdf_page_end: Math.max(...all.map(l => l.page)), cumulative: CUMULATIVE_RE.test(text) })
       }
       if (!passages.length) issues.push('duties item produced no passages')
     }

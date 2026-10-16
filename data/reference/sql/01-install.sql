@@ -2297,7 +2297,7 @@ insert into public.reference_sources
   (id, branch, personnel_category, publication_number, title, chapter, career_field, proponent, official_url,
    publication_date, effective_date, last_checked_at, checksum_sha256, ingestion_status, review_status, notes, extraction_tool, import_batch, content_sha256)
 values ('3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', 'DA PAM 611-21', 'Military Occupational Classification and Structure — warrant officer MOS specifications (chapter 8b)', 'Chapter 8b', 'All Army warrant officer MOS', 'Military Personnel Structure & Plans Division (DAPE-PRP), HQDA ODCS G-1', 'https://api.army.mil/e2/c/downloads/2025/12/04/720183c2/chapter-8b-wo-specifications.pdf',
-   '2025-11-01', null, '2026-10-16T00:00:00Z', '80d150f0ff150d248d22118285a7dc2744136b7b0ae535d798ec1d67b59fbb65', 'extracted', 'unreviewed', 'Date basis: the DA PAM 611-21 (Smartbook) cover reads "End of Fiscal Year 2025 … November 2025"; no day is stated, so the 1st is used. The chapter was posted on api.army.mil on 2025-12-04. Individual specifications carry their own effective dates (e.g. "Effective 202610"); those are stored per passage, not per source. Duties are stored by grade band (WO1/CW2, CW3, CW4, CW5). Warrant officer grades are stored as W-1..W-5. Shared specifications (e.g. the aviator families) are stored once per code that the specification names. LIMITATIONS: licensing, prerequisites, qualifications, SQI/ASI and grading items are skipped as requirements. The structure chart (ch. 8a, dated November 2024) lags the specifications: 280A, 390A and 490B appear only in ch. 8b.', 'pdf-parse 2.4.5', 'army-611-21-warrant-ch8b@2026-10-16', '45f6b12863d209ba5598cc4c1a1e3abd7029a3f84b32722348781a2384be0f23')
+   '2025-11-01', null, '2026-10-16T00:00:00Z', '80d150f0ff150d248d22118285a7dc2744136b7b0ae535d798ec1d67b59fbb65', 'extracted', 'unreviewed', 'Date basis: the DA PAM 611-21 (Smartbook) cover reads "End of Fiscal Year 2025 … November 2025"; no day is stated, so the 1st is used. The chapter was posted on api.army.mil on 2025-12-04. Individual specifications carry their own effective dates (e.g. "Effective 202610"); those are stored per passage, not per source. Duties are stored by grade band (WO1/CW2, CW3, CW4, CW5). Warrant officer grades are stored as W-1..W-5. Shared specifications (e.g. the aviator families) are stored once per code that the specification names. LIMITATIONS: licensing, prerequisites, qualifications, SQI/ASI and grading items are skipped as requirements. The structure chart (ch. 8a, dated November 2024) lags the specifications: 280A, 390A and 490B appear only in ch. 8b.', 'pdf-parse 2.4.5', 'army-611-21-warrant-ch8b@2026-10-16', '6f33be924cb4901dd90fdef87f052ecdd34a92e8852ad38768f117576897d63d')
 on conflict (id) do update set
   publication_number = excluded.publication_number, title = excluded.title, career_field = excluded.career_field, proponent = excluded.proponent,
   official_url = excluded.official_url, publication_date = excluded.publication_date, last_checked_at = excluded.last_checked_at,
@@ -2373,7 +2373,7 @@ values
 (l) May serve as Geospatial Engineer and GEOINT Observer-Controller and Trainer to observe units and their Battle Staffs during training exercises on Army and Joint Training Centers.
 (m) May serve as a Detachment Commander.
 (n) May serve as an instructor at the Warrant Officer Career College and US Army Engineer School (USAES).
-(o) May serve on the Joint or Combined Staff.', '7cc68462a2fec46ba749134fcbb0fb37f1d72273eda25ffc79ff8a72b144bef1', 13, 14, null, 5, null, null, false, null),
+(o) May serve on the Joint or Combined Staff.', '7cc68462a2fec46ba749134fcbb0fb37f1d72273eda25ffc79ff8a72b144bef1', 13, 14, null, 5, null, null, true, null),
   ('24ff8bb9-2250-58a3-ab06-d9c5e9dc2a61', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '125D', 'GEOSPATIAL ENGINEERING TECHNICIAN', 'rank_duties', 'W-4', null, 'Duties — CW4', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Manages, directs, plans, and performs duties shown in paragraph g(2).
 (b) Serves as the principal advisor to senior staff members, decision, and policy makers on GEOINT and Geospatial Engineering operations, training, policies, and procedures.
 (c) Consolidates geospatial requirements from Army Service Component Command (ASCC) staffs for the submission of an annual priority list to the National Geospatial-Intelligence Agency (NGA) for production to meet ongoing and future operations.
@@ -2383,7 +2383,7 @@ values
 (g) May serve as a Writer / Instructor at USAES.
 (h) May serve on the Joint or Combined Staff.
 (i) May serve as HRC EN WO Assignments Manager.
-(j) May serve as USAES EN WO Proponent Coordinator.', '0b5f3c7b8fbe95329b52e2ba6f32b2c3ce0afff1497b6fd6e39c5c48c58f055c', 14, 14, null, 6, null, null, false, null),
+(j) May serve as USAES EN WO Proponent Coordinator.', '0b5f3c7b8fbe95329b52e2ba6f32b2c3ce0afff1497b6fd6e39c5c48c58f055c', 14, 14, null, 6, null, null, true, null),
   ('2f469446-f381-5cd2-97eb-c87ca6e274f3', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '125D', 'GEOSPATIAL ENGINEERING TECHNICIAN', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Performs duties shown in paragraph g(3).
 (b)Delivers master-level technical and tactical expertise on the primary duties of technical leader, manager, multidiscipline geospatial integrator, and advisor.
 (c) Provide direction, guidance, resources, assistance, and supervision necessary for subordinates to perform their duties.
@@ -2398,7 +2398,7 @@ values
 (l) May serve on the Corps of Engineers Staff.
 (m) May serve as a Capabilities Branch Chief.
 (n) May serve as the RCWO of the EN Branch.
-(o) Senior Field Grade Warrant Officers must have completed the WO Senior Service Education Course prior to nomination for specified CW5 billets.', 'd3dfa6ca4c27c31f0ff80b9c1d66836d07ab07f668a4592f1aef5c14d34facc8', 14, 15, null, 7, null, null, false, null),
+(o) Senior Field Grade Warrant Officers must have completed the WO Senior Service Education Course prior to nomination for specified CW5 billets.', 'd3dfa6ca4c27c31f0ff80b9c1d66836d07ab07f668a4592f1aef5c14d34facc8', 14, 15, null, 7, null, null, true, null),
   ('6b15c647-67bf-54d6-bb58-c069ddc065a8', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '131A', 'TARGETING TECHNICIAN', 'rank_duties', 'W-1..W-2', null, 'Duties — WO1/CW2', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', 'As a Target Acquisition Platoon Leader, Field Artillery Intelligence Officer and/or Targeting officer:
 (a) Plans, organizes, implements, monitors, and evaluates operations, threat environment, and unit maintenance of field artillery radar systems.
 (b) Provides advice on technical and tactical employment of field artillery radar systems.
@@ -2454,7 +2454,7 @@ values
 (j) Assist in the development of unit Field Standard Operating Procedures (FSOP), Tactical Standard Operating Procedures (TSOP), and internal operating procedures.', '1434bec0c8aabee538080a1b303dc3f17f5ac0aa5117658fd0db5817ec74e293', 19, 20, null, 12, null, null, false, null),
   ('b2e4dc74-901d-5ac9-82b6-3644da63e451', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '140A', 'AIR AND MISSILE DEFENSE (AMD) SYSTEMS INTEGRATOR', 'rank_duties', 'W-3', null, 'Duties — CW3', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Perform duties as described in paragraph g(1).
 (b) Serves as an instructor, writer, training developer and evaluator for MOS related service schools.
-(c) Advises the commander at brigade and corps levels on C2 systems capabilities and integration procedures providing the multi-system interface into the joint/combined arena.', 'c3eb323a5f815a567021aef05bc04018438af194f686be34beb76266765e3717', 20, 20, null, 13, null, null, false, null),
+(c) Advises the commander at brigade and corps levels on C2 systems capabilities and integration procedures providing the multi-system interface into the joint/combined arena.', 'c3eb323a5f815a567021aef05bc04018438af194f686be34beb76266765e3717', 20, 20, null, 13, null, null, true, null),
   ('b2e10d73-2698-5a9d-9816-5126aac3bc8f', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '140A', 'AIR AND MISSILE DEFENSE (AMD) SYSTEMS INTEGRATOR', 'rank_duties', 'W-4', null, 'Duties — CW4', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Perform duties described in paragraph g(2).
 (b) Interfaces with senior level commanders from all services and gives input for the integration and tactical deployment procedures of the Army''s C2 systems.
 (c) Advises the commander at brigade and corps levels on C2 systems capabilities and integration procedures providing the multi-system interface into the joint area.
@@ -2553,9 +2553,9 @@ values
 (e) Establishes and maintains a unit level Aircrew Training Program (ATP).
 (f) Supervises employment of TUASs to conduct air reconnaissance/target detection or target engagement.', '658adb908db418347ca005cb58b297e0d799bf0b9d94a7eaa0ababdb1d00ddae', 31, 31, null, 28, null, null, false, null),
   ('55384156-22ab-5990-9630-b278b1e059ea', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '150U', 'UNMANNED AIRCRAFT SYSTEMS OPERATIONS TECHNICIAN', 'rank_duties', 'W-3', null, 'Duties — CW3', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Performs all duties outlined in paragraph g(1).
-(b) Develops and instructs newly appointed warrant officers during their entry level training.', 'd2aa3196d17d4310932228608f2663a2f7a3013d9ed920a9ae8fd51b0a7c04c7', 32, 32, null, 29, null, null, false, null),
-  ('38512c0b-a194-51bd-b6b8-dd25c0b66db9', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '150U', 'UNMANNED AIRCRAFT SYSTEMS OPERATIONS TECHNICIAN', 'rank_duties', 'W-4', null, 'Duties — CW4', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', 'Performs all duties outlined in paragraph g (2).', '46a94e5ba74dbaaf00a6e2ceda557afca8dfd4b05c108b850849b2b19d606a5c', 32, 32, null, 30, null, null, false, null),
-  ('8345989c-37e5-5082-a0d2-b69c4140e7a8', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '150U', 'UNMANNED AIRCRAFT SYSTEMS OPERATIONS TECHNICIAN', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', 'Performs all duties outlined in paragraph g (3).', '0683b3ae8a61d78580c14d796fadbbc8acf4b604030860ec062626ca6e4c0764', 32, 32, null, 31, null, null, false, null),
+(b) Develops and instructs newly appointed warrant officers during their entry level training.', 'd2aa3196d17d4310932228608f2663a2f7a3013d9ed920a9ae8fd51b0a7c04c7', 32, 32, null, 29, null, null, true, null),
+  ('38512c0b-a194-51bd-b6b8-dd25c0b66db9', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '150U', 'UNMANNED AIRCRAFT SYSTEMS OPERATIONS TECHNICIAN', 'rank_duties', 'W-4', null, 'Duties — CW4', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', 'Performs all duties outlined in paragraph g (2).', '46a94e5ba74dbaaf00a6e2ceda557afca8dfd4b05c108b850849b2b19d606a5c', 32, 32, null, 30, null, null, true, null),
+  ('8345989c-37e5-5082-a0d2-b69c4140e7a8', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '150U', 'UNMANNED AIRCRAFT SYSTEMS OPERATIONS TECHNICIAN', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', 'Performs all duties outlined in paragraph g (3).', '0683b3ae8a61d78580c14d796fadbbc8acf4b604030860ec062626ca6e4c0764', 32, 32, null, 31, null, null, true, null),
   ('9ec08dc9-ced7-5bed-9769-3ae21c7a3275', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '151A', 'AVIATION MAINTENANCE TECHNICIAN (NONRATED)', 'rank_duties', 'W-1..W-2', null, 'Duties — WO1/CW2', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Manages aircraft maintenance based on a thorough knowledge of aircraft maintenance requirements for power plants, power trains, electrical systems, avionics, armament systems, mechanics and pneudraulics.
 (b) Manages removal, disassembly, inspection, repair, assembly, installation, maintenance operational checks and adjustments of aircraft structures, components and subsystems.
 (c) Manages the maintenance of technical publication libraries.
@@ -2788,7 +2788,7 @@ values
   ('c8bc7bb7-1048-5069-b140-9a305ac80f82', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '154C', 'CH-47D PILOT', 'rank_duties', 'W-4', null, 'Duties — CW4', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Performs duties described in paragraph g(1)(a) through (b) above.
 (b) Performs duties as an IP, ASO, MTP or tactical operations officer in Special Operations Aviation.', 'bdf89f924f361ac5e85b783f0ae2bddebcb026f69569429f56fb24dc240ea8ba', 42, 42, null, 86, null, null, true, null),
   ('457e48af-39be-5582-b8ea-a434e15c5f7d', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '154C', 'CH-47D PILOT', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Performs duties as described in paragraph g(1)(a) through (b) above.
-(b) Performs duties as a SIP, ASO, MTFE or tactical operations officer in special operations aviation.', '50afb548e520d1fe972b9295b1652d8c27a18c5ccac07a728290f1b73a6447cf', 42, 42, null, 87, null, null, false, null),
+(b) Performs duties as a SIP, ASO, MTFE or tactical operations officer in special operations aviation.', '50afb548e520d1fe972b9295b1652d8c27a18c5ccac07a728290f1b73a6447cf', 42, 42, null, 87, null, null, true, null),
   ('1ab0c5f5-7892-597f-b108-82d7b9cd4947', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '154E', 'MH-47 PILOT', 'rank_duties', 'W-1..W-2', null, 'Duties — WO1/CW2', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Plans flights, ascertains factors such as load, weight, fuel supply, route, altitudes or schedules as necessary to safely accomplish mission.
 (b) Supervises loading and unloading of aircraft to ensure load stability, balance and adherence to aircraft load limitations.
 (c) Pilots and commands assigned aircraft under tactical and non-tactical conditions for military purposes.
@@ -2806,7 +2806,7 @@ values
   ('d4ed926a-44f5-51e0-8136-597e813c2409', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '154E', 'MH-47 PILOT', 'rank_duties', 'W-4', null, 'Duties — CW4', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Performs duties described in paragraph g(1)(a) through (b) above.
 (b) Performs duties as an IP, ASO, MTP or tactical operations officer in Special Operations Aviation.', 'bdf89f924f361ac5e85b783f0ae2bddebcb026f69569429f56fb24dc240ea8ba', 42, 42, null, 90, null, null, true, null),
   ('7eee4ef5-407c-5aa0-8054-335cc5d485f3', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '154E', 'MH-47 PILOT', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Performs duties as described in paragraph g(1)(a) through (b) above.
-(b) Performs duties as a SIP, ASO, MTFE or tactical operations officer in special operations aviation.', '50afb548e520d1fe972b9295b1652d8c27a18c5ccac07a728290f1b73a6447cf', 42, 42, null, 91, null, null, false, null),
+(b) Performs duties as a SIP, ASO, MTFE or tactical operations officer in special operations aviation.', '50afb548e520d1fe972b9295b1652d8c27a18c5ccac07a728290f1b73a6447cf', 42, 42, null, 91, null, null, true, null),
   ('f7352898-8878-5cd1-8cfd-0b39ba7fb903', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '154F', 'CH-47F PILOT', 'rank_duties', 'W-1..W-2', null, 'Duties — WO1/CW2', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Plans flights, ascertains factors such as load, weight, fuel supply, route, altitudes or schedules as necessary to safely accomplish mission.
 (b) Supervises loading and unloading of aircraft to ensure load stability, balance and adherence to aircraft load limitations.
 (c) Pilots and commands assigned aircraft under tactical and non-tactical conditions for military purposes.
@@ -2824,7 +2824,7 @@ values
   ('8995b210-2683-5550-af88-5f60a3e10abe', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '154F', 'CH-47F PILOT', 'rank_duties', 'W-4', null, 'Duties — CW4', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Performs duties described in paragraph g(1)(a) through (b) above.
 (b) Performs duties as an IP, ASO, MTP or tactical operations officer in Special Operations Aviation.', 'bdf89f924f361ac5e85b783f0ae2bddebcb026f69569429f56fb24dc240ea8ba', 42, 42, null, 94, null, null, true, null),
   ('203f4a2a-cb5b-5e7d-b1e0-e5566f9adbff', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '154F', 'CH-47F PILOT', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Performs duties as described in paragraph g(1)(a) through (b) above.
-(b) Performs duties as a SIP, ASO, MTFE or tactical operations officer in special operations aviation.', '50afb548e520d1fe972b9295b1652d8c27a18c5ccac07a728290f1b73a6447cf', 42, 42, null, 95, null, null, false, null),
+(b) Performs duties as a SIP, ASO, MTFE or tactical operations officer in special operations aviation.', '50afb548e520d1fe972b9295b1652d8c27a18c5ccac07a728290f1b73a6447cf', 42, 42, null, 95, null, null, true, null),
   ('c98d8a1d-05a5-57a9-8ba7-e01b701951dc', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '155A', 'FIXED WING AVIATOR (AIRCRAFT NONSPECIFIC)', 'rank_duties', 'W-1..W-2', null, 'Duties — WO1/CW2', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Plans flights, ascertains factors such as load, weight, fuel supply, route, altitudes or schedules as necessary to safely accomplish mission.
 (b) Supervises loading and unloading of aircraft to ensure load stability, balance and adherence to aircraft load limitations.
 (c) Pilots and commands assigned aircraft under tactical and nontactical conditions for military purposes.
@@ -3200,7 +3200,7 @@ values
 (h) May serve as a Detachment Commander.
 (i) May serve as an instructor at the WOCC, or at 111 th MI BDE.
 (j) May serve on the Joint or Combined Staff.
-(k) May serve as a Doctrine or Capabilities Developer.', '57fa9c677d2b64a25a043d215bdacc15e3a0ba0eaf97a7fc16f361ae19a8815c', 81, 82, null, 155, null, null, false, null),
+(k) May serve as a Doctrine or Capabilities Developer.', '57fa9c677d2b64a25a043d215bdacc15e3a0ba0eaf97a7fc16f361ae19a8815c', 81, 82, null, 155, null, null, true, null),
   ('f94be0ff-6fad-5f6f-8b8d-c20ac9f699b5', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '350G', 'GEOSPATIAL INTELLIGENCE IMAGERY TECHNICIAN', 'rank_duties', 'W-4', null, 'Duties — CW4', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Manages, directs, plans, and performs duties shown in paragraph g(1) and g(2).
 (b) Serves as the principal advisor to senior staff members, decision, and policy makers on GEOINT operations, training, policies, and procedures.
 (c) Directs GEOINT operational coordination with Joint, Interagency, Intergovernmental, and Multinational partners.
@@ -3209,7 +3209,7 @@ values
 (f) May serve as an instructor at the WOCC, or at 111 th MI BDE.
 (g) May serve on the Joint or Combined Staff.
 (h) May serve as a Doctrine or Capabilities Developer.
-(i) May serve as HRC MI WO Assignments Manager.', '5d2f260528edbe82d3f7a9bdd2db1ca85126506a40ff580587ba25f797b44985', 82, 82, null, 156, null, null, false, null),
+(i) May serve as HRC MI WO Assignments Manager.', '5d2f260528edbe82d3f7a9bdd2db1ca85126506a40ff580587ba25f797b44985', 82, 82, null, 156, null, null, true, null),
   ('a9f41771-d998-56ab-b79e-3d12d4ba06e0', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '350G', 'GEOSPATIAL INTELLIGENCE IMAGERY TECHNICIAN', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) MI CW5s are proficient in the duties described in the duties paragraphs of one or more MI WO MOSs.
 (b) MI CW5s are branch technical experts and master-level technical and tactical experts who perform the primary duties of technical leader, manager, multidiscipline intelligence integrator, and advisor.
 (c) Provide direction, guidance, resources, assistance, and supervision necessary for subordinates to perform their duties.
@@ -3255,7 +3255,7 @@ values
 (j) May serve as an instructor at the WOCC, or at 111 th MI BDE.
 (k) May serve on the Joint or Combined Staff.
 (l) May serve as a Doctrine or Capabilities Developer.
-(m) May serve as the HRC MI WO Assignments Manager.', '474be00526858a14849f0d22c195eb3219880b6beb41e7827c41e4fb47711396', 85, 85, null, 160, null, null, false, null),
+(m) May serve as the HRC MI WO Assignments Manager.', '474be00526858a14849f0d22c195eb3219880b6beb41e7827c41e4fb47711396', 85, 85, null, 160, null, null, true, null),
   ('88d86edd-95f0-517e-82da-955c9e04fc57', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '351L', 'COUNTERINTELLIGENCE TECHNICIAN', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) MI CW5s are proficient in the duties described in the duties paragraphs of one or more MI WO MOSs.
 (b) MI CW5s are branch technical experts and master-level technical and tactical experts who perform the primary duties of technical leader, manager, multidiscipline intelligence integrator, and advisor.
 (c) Provide direction, guidance, resources, assistance, and supervision necessary for subordinates to perform their duties.
@@ -3305,7 +3305,7 @@ values
 (g) Performs duties of HUMINT Operations staff officer in a G/J/C2X.
 (h) Conducts all HUMINT operations IAW applicable laws, policies, treaties, regulations, and unit SOP.
 (i) May serve as the HRC MI WO Assignments Manager.
-(j) May serve as the MI WO Proponent.', '88e8de05b374de95f5f60f6eeac229ae0702ca9e207bb0f5032770c00fd7da73', 88, 88, null, 164, '2024-10-01', null, false, null),
+(j) May serve as the MI WO Proponent.', '88e8de05b374de95f5f60f6eeac229ae0702ca9e207bb0f5032770c00fd7da73', 88, 88, null, 164, '2024-10-01', null, true, null),
   ('6d28bbee-dc28-5d05-a7c3-a1dfdb3b6855', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '351M', 'HUMAN INTELLIGENCE COLLECTION TECHNICIAN', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Manages, directs and performs duties shown in paragraph g(1), g(2), and g(3).
 (b) MI CW5s are proficient in the duties described in the duties paragraphs of one or more MI WO MOSs.
 (c) Develops and integrates policy governing interrogation operations, source operations, debriefing operations, screening operations, intelligence liaison operations, and HUMINT analysis for Army, Unified Combatant Command (UCC), DoD, and National Agency.
@@ -3325,7 +3325,7 @@ values
 (k) May serve as a Capabilities Branch Chief.
 (l) May serve as the MI WO Proponent.
 (m) May serve as the CCWO of the MI Branch.
-(n) MI Senior Field Grade Warrant Officers must have competed the WO Senior Service Education Course prior to nomination for specified CW5 billets.', '2b650a1ea88867e89ef07421d224e1a7227a8f503de9f4b7228a562be867e535', 88, 89, null, 165, '2024-10-01', null, false, null),
+(n) MI Senior Field Grade Warrant Officers must have competed the WO Senior Service Education Course prior to nomination for specified CW5 billets.', '2b650a1ea88867e89ef07421d224e1a7227a8f503de9f4b7228a562be867e535', 88, 89, null, 165, '2024-10-01', null, true, null),
   ('9e4e7c69-340e-5d2c-a504-ebc7ab3856a1', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '351Z', 'ATTACHE INTELLIGENCE OPERATIONS TECHNICIAN', 'rank_duties', 'W-1..W-2', null, 'Duties — WO1/CW2', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Leads joint operations and administrative support teams in Defense Attaché Offices (DAO) at diplomatic missions worldwide.
 (b) Serves as principle advisor to the Senior Defense Official/Defense Attaché (SDO/DATT) and ensures operations are conducted in accordance with requisite policies.
 (c) Represents the Department of Defense (DOD as diplomat and conducts liaison with host nation and third country officials per diplomatic protocols.
@@ -3368,7 +3368,7 @@ values
 (g) May serve as a Detachment Commander.
 (h) May serve as an instructor at the WOCC, or at 111 th MI BDE.
 (i) May serve on the Joint or Combined Staff.
-(j) May serve as a Doctrine or Capabilities Developer.', '60cf0f0e8908b7672a117d6766773ff0b5a5557ee0d88156cceec89fd5440edf', 94, 94, null, 171, null, null, false, null),
+(j) May serve as a Doctrine or Capabilities Developer.', '60cf0f0e8908b7672a117d6766773ff0b5a5557ee0d88156cceec89fd5440edf', 94, 94, null, 171, null, null, true, null),
   ('b6ea7537-8491-570d-ad9c-5df569ceee56', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '352N', 'SIGNALS INTELLIGENCE ANALYSIS TECHNICIAN', 'rank_duties', 'W-4', null, 'Duties — CW4', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Manages, directs and performs duties shown in paragraph g(1) and g(2)
 (b) Serves as principal advisor to senior staff members, decision, and policy makers on training, policies, procedures, and SIGINT operations in all domains.
 (c) Directs, plans and conducts SIGINT coordination with Joint, Interagency, Intergovernmental, and Multinational partners.
@@ -3379,7 +3379,7 @@ values
 (h) May serve as an instructor at the WOCC, or at 111 th MI BDE.
 (i) May serve on the Joint or Combined Staff.
 (j) May serve as a Doctrine or Capabilities Developer.
-(k) May serve as the HRC MI WO Assignments Manager.', '1f58b88d5aafd9e40d4ad9e04e8900a731923581343f8162c5bd27fba488b684', 94, 94, null, 172, null, null, false, null),
+(k) May serve as the HRC MI WO Assignments Manager.', '1f58b88d5aafd9e40d4ad9e04e8900a731923581343f8162c5bd27fba488b684', 94, 94, null, 172, null, null, true, null),
   ('2ee566b0-08c7-5567-bf17-04a893e77fdf', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '352N', 'SIGNALS INTELLIGENCE ANALYSIS TECHNICIAN', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) MI CW5s are proficient in the duties described in the duties paragraphs of one or more MI WO MOSs.
 (b) MI CW5s are branch technical experts and master-level technical and tactical experts who perform the primary duties of technical leader, manager, multidiscipline intelligence integrator, and advisor.
 (c) Provide direction, guidance, resources, assistance, and supervision necessary for subordinates to perform their duties.
@@ -3417,7 +3417,7 @@ values
 (g) May serve as an instructor at the WOCC, or at 111 th MI BDE.
 (h) May serve on the Joint or Combined Staff.
 (i) May serve as a Doctrine or Capabilities Developer.
-(j) May serve as the HRC MI WO Assignments Manager.', 'e8dcbea99dee8159ef652dce0a3098cedc25817656387e596fa65b58b2bb393e', 97, 97, null, 176, '2022-11-01', null, false, null),
+(j) May serve as the HRC MI WO Assignments Manager.', 'e8dcbea99dee8159ef652dce0a3098cedc25817656387e596fa65b58b2bb393e', 97, 97, null, 176, '2022-11-01', null, true, null),
   ('0cde7290-178e-5e9d-bbe5-91c22e3d937a', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '352S', 'SIGNALS COLLECTOR TECHNICIAN', 'rank_duties', 'W-5', null, 'Duties — CW5', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) MI CW5s are proficient in the duties described in the duties paragraphs of one or more MI WO MOSs.
 (b) MI CW5s are branch technical experts and master-level technical and tactical experts who perform the primary duties of technical leader, manager, multidiscipline intelligence integrator, and advisor.
 (c) Provide direction, guidance, resources, assistance, and supervision necessary for subordinates to perform their duties.
@@ -3649,7 +3649,7 @@ values
 (c) Provides technical advice and assistance in regards to CBRN operations in CBRN BDEs, to include all aspects of training, personnel, doctrine, force structure, requirements and use/maintenance of CBRN operations systems.
 (d) Develop, review and updates the life-cycle management of the CBRN technician’s structure and force.
 (e) Perform duties as proponent level personnel systems integrator.
-(f) Instructs and monitors students in a service school environment.', '7caa7b4ae8a161f0522071cc7027d3ba9b72aa3c743def432b6378eb1f1e6a28', 119, 119, null, 217, null, null, false, null),
+(f) Instructs and monitors students in a service school environment.', '7caa7b4ae8a161f0522071cc7027d3ba9b72aa3c743def432b6378eb1f1e6a28', 119, 119, null, 217, null, null, true, null),
   ('e921bdf5-d9ad-5184-88ff-6851ff68cdea', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '880A', 'MARINE DECK OFFICER', 'rank_duties', 'W-1..W-2', null, 'Duties — WO1/CW2', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Commands Army Class A1 vessels operating on lakes, bays, sounds, and coastal waters.
 (b) Is responsible for proper operation of vessel including discipline of crew and seaworthiness of vessel.
 (c) Navigates vessel using nautical charts, area plotting sheets, compass, sextant, terrestrial bearings, and electronic navigational aids.
@@ -3936,7 +3936,7 @@ values
 (c) Performs in both manual and automated property book accounting environments with the related functions associated with accurate property accountability.
 (d) Monitors and performs evaluations of subordinate supply operations per Command Supply Discipline Program (CSDP) and AR 710-2.
 (e) Conducts financial inventory accounting as applied to the Army''s budgeting system.
-(f) Complies with appropriate regulations, forms and procedures pertaining to property books, hand receipts and other property accounting documents.', '43cf6dd4df9f2069167e70a40b18113f7e867ff11f9d707d8a6e36483b7e759f', 144, 144, null, 251, null, null, false, null),
+(f) Complies with appropriate regulations, forms and procedures pertaining to property books, hand receipts and other property accounting documents.', '43cf6dd4df9f2069167e70a40b18113f7e867ff11f9d707d8a6e36483b7e759f', 144, 144, null, 251, null, null, true, null),
   ('3683d194-3572-5a3e-ad55-f99295196aee', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '920A', 'PROPERTY ACCOUNTING TECHNICIAN', 'rank_duties', 'W-3', null, 'Duties — CW3', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Performs duties described in paragraph g(1).
 (b) Serves as the senior Property Accounting Technician in mid-level management positions; generally at the brigade/group/regiment level; positions requiring a level of independence from supervision. Additionally, may serve as the Assistant Division Property Book Officer, or as the senior technician in the Reports Branch of DISCOM.
 (c) Provides internal and external training and technical advice to junior Property Accounting Technicians.', '31606caed77287ee5f3d96bdba687d5a6a9a712568e1a719710c39adfc83befe', 144, 145, null, 252, null, null, true, null),
@@ -4031,7 +4031,7 @@ values
 (f) Estimate requirements for personnel, equipment, user/organizational maintenance and repair of petroleum distribution facilities.
 (g) Review, consolidate and prepare technical reports associated with POL activities in assigned unit. Supervise quality surveillance operation.
 (h) Assist command and staff officers in appraisals of petroleum operations. Assist in coordination and implementation of operations, training programs, administrative matters and communication activities.
-(i) Develop standard operating procedures and performs administrative duties related to the petroleum operation.', '8ffa6e17c088cf3d0ba841641de9eea3c99c39600f239cb7836fc8d1b9df564e', 153, 153, null, 267, null, null, false, null),
+(i) Develop standard operating procedures and performs administrative duties related to the petroleum operation.', '8ffa6e17c088cf3d0ba841641de9eea3c99c39600f239cb7836fc8d1b9df564e', 153, 153, null, 267, null, null, true, null),
   ('bd1b44f4-bc95-5251-b0d7-9863a969d783', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '923A', 'PETROLEUM TECHNICIAN', 'rank_duties', 'W-3', null, 'Duties — CW3', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Perform duties described in paragraph g(1).
 (b) Serves as the senior petroleum technician in mid-level management positions; generally at the material manager level in Division/COSCOM.
 (c) Serves as a team leader or member at the following:
@@ -4050,7 +4050,7 @@ values
 (b) Serves as the most senior petroleum technician in positions that require unusual depth and breadth of technical knowledge for functional training and curriculum development or major systems integration skills.
 (c) Provides technical advice and assistance in regards to petroleum activities worldwide, to include all aspects of training, personnel, doctrine, force structure, research and development and requirements.
 (d) Develop, review and updates the life-cycle management of the petroleum technician’s structure and force.
-(e) Perform duties as proponent level personnel systems integrator.', '85cbfb4f95c2d9a3966243b4cc2d54aa37caf20ae1ad00485e7672f567397df6', 154, 154, null, 270, null, null, false, null),
+(e) Perform duties as proponent level personnel systems integrator.', '85cbfb4f95c2d9a3966243b4cc2d54aa37caf20ae1ad00485e7672f567397df6', 154, 154, null, 270, null, null, true, null),
   ('569add83-83eb-5c1f-9968-cf613dd445d9', '3021ff69-4dd8-5576-afdb-49874e1d8e20', 'Army', 'warrant', '948B', 'ELECTRONIC SYSTEMS MAINTENANCE WARRANT OFFICER', 'rank_duties', 'W-1..W-2', null, 'Duties — WO1/CW2', 'DA PAM 611-21, ch. 8 (warrant officer specifications)', '(a) Establishes section safety and crime/security prevention programs that ensures adherence to safety and crime/security prevention policies, practices, and regulations associated with these programs are followed.
 (b) Manages personnel, equipment, and facility assets for the installation, operation, repair, maintenance, and modification of radio, radar, computer, electronic data processing, controlled cryptographic items, television, fiber optical, radiological and related communications equipment and associated tools, test and accessory equipment. Establishes section SOPs and instructions to ensure that a proper work environment is maintained. Ensures all assigned personnel adhere to maintenance schedules, The Army Maintenance Management Systems (TAMMS), Quality Assurance and Quality Control (QA-QC) procedures, and all Logistics Information Systems (LIS)
 (c) Ensures that personnel are trained to use the tools, test equipment, applicable publications for the completion of the mission and are trained in automation skill relevant to their duties.

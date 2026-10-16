@@ -250,6 +250,22 @@ test('a reply that is cut off or not JSON is retried once, then fails cleanly', 
   assert.ok(modelCalls.every(c => c.max_tokens >= 4000), 'room for the quotes')
 })
 
+test('if nothing in the first reply can be traced, the model is asked once more before giving up', async () => {
+  const ref = await retrieveReference({ supabase: null, now: NOW, body: { branch: 'Army', mos_afsc: '25B', rank: 'E-6' } })
+  const quote = ref.sections.find(s => s.section === 'rank_duties').text.split(/\s+/).slice(0, 12).join(' ')
+  const replies = [
+    { civilianTranslation: [{ basis: 'publication', evidence: 'words that appear nowhere in the publication', militarySkill: 'x', civilianEquivalent: 'y' }] },
+    { civilianTranslation: [{ basis: 'publication', evidence: quote, militarySkill: 'x', civilianEquivalent: 'y' }], certifications: [] },
+  ]
+  let n = 0
+  globalThis.fetch = async (url, opts) => { modelCalls.push(JSON.parse(opts.body)); return { json: async () => ({ content: [{ type: 'text', text: JSON.stringify(replies[Math.min(n++, 1)]) }] }) } }
+  const res = mockRes()
+  await (await translate())(mockReq({ action: 'translate', branch: 'Army', mos: '25B', rank: 'E-6' }), res)
+  assert.equal(res.code, 200)
+  assert.equal(n, 2)
+  assert.equal(res.body.civilianTranslation.length, 1)
+})
+
 // ── resumes keep scope and accomplishments apart ──────────────────────────────────────────────
 
 test('quick resume: publication entries become SPECIALTY SCOPE, personal ones become YOUR ACCOMPLISHMENTS, and the server re-checks the labels', async () => {

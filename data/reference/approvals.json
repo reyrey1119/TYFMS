@@ -18,11 +18,11 @@
   },
   {
    "manifest_id": "army-611-21-warrant-ch8b",
-   "fingerprint": "45f6b12863d209ba5598cc4c1a1e3abd7029a3f84b32722348781a2384be0f23",
+   "fingerprint": "6f33be924cb4901dd90fdef87f052ecdd34a92e8852ad38768f117576897d63d",
    "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, structure and line-accounting checks on every passage, plus visual comparison of 27 sampled PDF pages against the stored text, 2026-10-16), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
    "reviewed_at": "2026-10-16T12:00:00Z",
    "method": "automated-checks-plus-sampled-visual-review",
-   "scope": "DA PAM 611-21 ch. 8b (warrant officer duties by grade). Every passage checked verbatim; 8 pages viewed: 140A, 125D, 150U, 270A, 420C (random, same seed) plus 351L, 923A, 155-family structure. After that review, passages that only point elsewhere (\"see MOS 948B\", \"(see AR 614-115)\", a lead-in ending \"as described below:\", a \"Personnel Only\" skill level) were removed and are listed in the bundle report; all remaining passages were re-verified verbatim."
+   "scope": "DA PAM 611-21 ch. 8b (warrant officer duties by grade). Every passage checked verbatim; 8 pages viewed: 140A, 125D, 150U, 270A, 420C (random, same seed) plus 351L, 923A, 155-family structure. After that review, passages that only point elsewhere (\"see MOS 948B\", \"(see AR 614-115)\", a lead-in ending \"as described below:\", a \"Personnel Only\" skill level) were removed and are listed in the bundle report; all remaining passages were re-verified verbatim. Final change: the warrant cumulative-duty flag now uses the same pattern as the enlisted one (flag only; passage text unchanged, re-verified verbatim)."
   },
   {
    "manifest_id": "army-cmf36-dapam600-25-2024-07-19",
