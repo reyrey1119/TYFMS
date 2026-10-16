@@ -428,6 +428,7 @@ These are examples of where your skills can apply, not job-placement promises. O
 <p style={{ fontSize: 13, color: '#5C5646', lineHeight: 1.6 }}>{c.why}</p>
 {c.url && <p style={{ fontSize: 12, marginTop: 4 }}><a href={c.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1B3A6B' }}>{c.provider ? `${c.provider} — ` : ''}official details</a></p>}
 {c.urlNote && <p style={{ fontSize: 11, color: '#8F8768', marginTop: 2 }}>{c.urlNote}</p>}
+{c.eligibility && <p style={{ fontSize: 11, color: '#8A5416', marginTop: 2 }}>{c.eligibility}</p>}
 </div>
 </div>
 ))}

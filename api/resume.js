@@ -1,6 +1,7 @@
 // POST /api/resume  — full resume builder (used by ResumeTab)
 
-import { reviewedGenerationReference, NO_REVIEWED_REFERENCE } from './_lib/generationEvidence.js'
+import { reviewedGenerationReference, NO_REVIEWED_REFERENCE, NO_EMBELLISHMENT, codeIdentityBlock } from './_lib/generationEvidence.js'
+import { officialTitle } from './_lib/armyCodeStatus.js'
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
 import { retrieveReference, referencePromptBlock, validateReferenceRequest } from './_lib/milReference.js'
@@ -79,11 +80,18 @@ export default async function handler(req, res) {
   const reviewed = reviewedGenerationReference(reference)
   const referenceBlock = reviewed
     ? referencePromptBlock(reviewed, { confirmed: !!confirmReferenceDuties })
-    : '\n\n' + NO_REVIEWED_REFERENCE
+    : '\n\n' + NO_REVIEWED_REFERENCE + codeIdentityBlock({ branch: checked.req.branch, category: checked.req.category, code: checked.req.occupation })
   const dutiesBlock = milDuties?.trim()
     ? `\n\nDUTIES THE PERSON DESCRIBED (their own words — the most reliable account of what they did; use as the primary source for the Professional Experience section):\n${milDuties.trim().slice(0, 2000)}`
     : ''
   const milRefBlock = referenceBlock + dutiesBlock
+
+  // The position line states the OFFICIAL military title (DA PAM 611-21) so the model cannot invent a job title or
+  // a different specialty. A civilian equivalent, if any, is a suggestion the person must confirm.
+  const officialMilTitle = checked.req.branch === 'Army' ? officialTitle(checked.req.category, checked.req.occupation) : null
+  const positionLine = officialMilTitle
+    ? `${officialMilTitle} (${mos.trim().toUpperCase()}) [optional: add a civilian-equivalent title ONLY as [CONFIRM: ...]]`
+    : `[ADD: your military job title] (${mos.trim().toUpperCase()})`
 
   // Build military positions block for multi-position experience
   const validMilPositions = Array.isArray(milPositions)
@@ -110,7 +118,7 @@ export default async function handler(req, res) {
   // Build the experience section template
   const experienceTemplate = validMilPositions.length > 0
     ? validMilPositions.map(p =>
-        `[Translate "${p.mos || p.title}" to civilian job title] | ${branch || 'U.S. Military'}
+        `${p.title?.trim() ? p.title.trim() : `[ADD: military job title] (${p.mos || ''})`} [optional: a civilian-equivalent title ONLY as [CONFIRM: ...]] | ${branch || 'U.S. Military'}
 ${p.startDate || '[Start Year]'} – ${p.present ? 'Present' : (p.endDate || '[End Year]')}
 • [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
@@ -118,7 +126,7 @@ ${p.startDate || '[Start Year]'} – ${p.present ? 'Present' : (p.endDate || '[E
 • [Technical or systems competency relevant to target role]
 • [Outcome or impact bullet — include a measurable result only if the person provided one]`
       ).join('\n\n')
-    : `[Translated Civilian Job Title] | ${branch || 'U.S. Military'}
+    : `${positionLine} | ${branch || 'U.S. Military'}
 [Start Year] – [End Year]
 • [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
@@ -153,7 +161,8 @@ CRITICAL RULES:
 6. Section headers use ─────────────────────────────────────────────── as dividers${hasClearance ? '\n7. Show clearance on its own line after contact info' : ''}${!hasEducation ? '\n8. EDUCATION section must show exactly: ADD YOUR EDUCATION HERE — never invent degrees' : ''}
 9. ANTI-AI LANGUAGE: Never use em dashes — replace with commas or periods. Never use: leverage, utilize, synergize, robust, holistic, in order to, it is worth noting, as previously mentioned, going forward, moving forward. Active voice throughout.
 10. VARY SENTENCE LENGTH: Mix short punchy statements (6-8 words) with longer detailed ones (15-20 words). Do not write vague claims like "significantly improved"; either state a result the person gave you or leave an [ADD: ...] prompt.
-11. TRUTHFULNESS: reference text, rank and specialty describe what is typical, not what this person did. Numbers, counts, scores, durations, team sizes and named systems in reference text are general facts about the specialty: never copy one into this person's experience unless they gave it to you. Never invent personnel counts, budgets, results, clearances, certifications, awards, degrees, or leadership assignments. Do not give command-level, division-level, or MEPS-level experience to anyone who did not state it.
+11. POSITION TITLES AND EMBELLISHMENT: ${NO_EMBELLISHMENT} Use the position line exactly as given in the format below.
+12. TRUTHFULNESS: reference text, rank and specialty describe what is typical, not what this person did. Numbers, counts, scores, durations, team sizes and named systems in reference text are general facts about the specialty: never copy one into this person's experience unless they gave it to you. Never invent personnel counts, budgets, results, clearances, certifications, awards, degrees, or leadership assignments. Do not give command-level, division-level, or MEPS-level experience to anyone who did not state it.
 
 OUTPUT — plain text only, no markdown, follow this exact format:
 
@@ -214,7 +223,7 @@ Return only the resume text — no preamble, no commentary, no markdown.`
 
     const cvExperienceTemplate = validMilPositions.length > 0
       ? validMilPositions.map(p =>
-          `[Translate "${p.mos || p.title}" to civilian job title] | ${branch || 'U.S. Military'}
+          `${p.title?.trim() ? p.title.trim() : `[ADD: military job title] (${p.mos || ''})`} [optional: a civilian-equivalent title ONLY as [CONFIRM: ...]] | ${branch || 'U.S. Military'}
 ${p.startDate || '[Start Year]'} – ${p.present ? 'Present' : (p.endDate || '[End Year]')}
 • [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
@@ -223,7 +232,7 @@ ${p.startDate || '[Start Year]'} – ${p.present ? 'Present' : (p.endDate || '[E
 • [Leadership or policy outcome]
 • [Outcome or impact bullet]`
         ).join('\n\n')
-      : `[Translated Civilian Job Title] | ${branch || 'U.S. Military'}
+      : `${positionLine} | ${branch || 'U.S. Military'}
 [Start Year] – [End Year]
 • [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
@@ -256,7 +265,7 @@ CRITICAL RULES:
 1. NEVER use military acronyms without civilian translation
 2. Use strong action verbs throughout
 3. NUMBERS AND SCOPE: use a number, team size, budget, or result ONLY if the person provided it. Never estimate one from rank or specialty. Where a number would help and you do not have it, write [ADD: ...]. Never invent personnel counts, budgets, clearances, certifications, awards, degrees, or command-level experience; reference text describes what is typical, not what this person did
-4. NO em dashes — use commas or periods instead
+4. NO em dashes — use commas or periods instead. ${NO_EMBELLISHMENT} Use the position line exactly as given in the format below.
 5. NO filler words: leverage, utilize, synergize, robust, holistic
 6. Active voice throughout
 7. PROFESSIONAL SUMMARY: One flowing paragraph of 5-6 sentences. Open with core identity (years of experience only if given). Tailor to federal/academic/senior leadership context. End with a forward-looking statement. No bullets, no placeholders.

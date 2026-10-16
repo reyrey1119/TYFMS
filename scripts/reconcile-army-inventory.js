@@ -248,6 +248,11 @@ if (values.module) {
   // and the chart rows 88A/91A/92A are marked "del 2610". This links the two; it does not claim an AOC-to-AOC mapping.
   const RELATED = { 'officer:88A': 'DA PAM 611-21 ch. 3 (PDF p. 159) establishes a Logistics branch (90) effective October 2026.', 'officer:91A': 'DA PAM 611-21 ch. 3 (PDF p. 159) establishes a Logistics branch (90) effective October 2026.', 'officer:92A': 'DA PAM 611-21 ch. 3 (PDF p. 159) establishes a Logistics branch (90) effective October 2026.' }
   const data = { enlisted: {}, officer: {}, warrant: {} }
+  // Official titles for EVERY listed code (not only the exceptions). The title is the one verified fact the generators
+  // may state about what a code is when no reviewed reference exists.
+  const cleanTitle = t => String(t || '').replace(/,?\s*CMF\s*\d+.*$/i, '').replace(/\s+MOS\s+\d{2}[A-Z].*$/i, '').replace(/\s+/g, ' ').replace(/[\s,;:—-]+$/, '').trim().slice(0, 110)
+  const titles = { enlisted: {}, officer: {}, warrant: {} }
+  for (const r of rows) { const t = cleanTitle(r.titles[0]); if (t) titles[r.category][r.code] = t }
   for (const r of rows) {
     const interesting = r.status !== 'current' || r.scheduled_change || r.scheduled_rescission || r.component_restriction || r.guide_predates_classification_change
     if (!interesting) continue
@@ -271,6 +276,8 @@ if (values.module) {
 export const ARMY_CODE_STATUS_AS_OF = '${ASOF}'
 export const ARMY_CODE_STATUS_SOURCES = ${JSON.stringify(report.generated_from)}
 export const ARMY_CODE_STATUS_DATA = ${JSON.stringify(data, null, 1)}
+// Official title of every listed code, from the same classification chapters.
+export const ARMY_CODE_TITLES = ${JSON.stringify(titles, null, 1)}
 `
   await mkdir(path.dirname(values.module), { recursive: true })
   await writeFile(values.module, body)

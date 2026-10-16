@@ -172,3 +172,38 @@ test('a repeat lookup of a rescinded code makes no model call and no outside req
   assert.equal(res.body.status, 'historical')
   assert.deepEqual(outside, [], 'no PDF download, no model call, no outside request of any kind')
 })
+
+// ── with no reviewed reference, a code's identity is its OFFICIAL title and nothing from memory ──
+
+test('translator grounds an uncovered code in its official title and forbids guessing (15M is the MQ-1 Repairer)', async () => {
+  stubModel('{}')
+  const res = mockRes()
+  await (await translate())(mockReq({ action: 'translate', branch: 'Army', mos: '15M', rank: 'E-4', milDuties: 'SYNTHETIC: followed a checklist in a class.' }), res)
+  const prompt = promptOf(modelCalls[0])
+  assert.match(prompt, /OFFICIAL TITLE of Army occupational code 15M \(DA PAM 611-21\): "MQ-1 Repairer"/)
+  assert.match(prompt, /only verified fact about what the code is/)
+  assert.match(prompt, /Do not add results, effects, qualities or benefits/)
+  assert.match(prompt, /do not name specific regulations, forms, systems or equipment/)
+  assert.match(prompt, /requires several years of qualifying experience \(for example PMP or CISSP\)/)
+  assert.ok(!/UH-72/.test(prompt))
+})
+
+test('resume builder states the official military title on the position line, with a civilian title only as [CONFIRM]', async () => {
+  stubModel('resume')
+  const res = mockRes()
+  await (await resume())(mockReq({ branch: 'Army', mos: '40A', rank: 'O-3', milDuties: 'SYNTHETIC: tracked passes in a simulator.' }), res)
+  const prompt = promptOf(modelCalls[0])
+  assert.match(prompt, /SPACE OPERATIONS \(40A\) \[optional: add a civilian-equivalent title ONLY as \[CONFIRM: \.\.\.\]\] \| Army/)
+  assert.ok(!/\[Translated Civilian Job Title\]/.test(prompt), 'the template no longer asks the model to invent a civilian job title')
+  assert.match(prompt, /OFFICIAL TITLE of Army occupational code 40A/)
+  assert.match(prompt, /Do not invent a civilian job title as if the person held it/)
+})
+
+test('a code with no official title in the classification gets an ADD prompt, not a guess', async () => {
+  stubModel('resume')
+  const res = mockRes()
+  await (await resume())(mockReq({ branch: 'Army', mos: 'ZZZ9', rank: 'E-5', milDuties: 'SYNTHETIC.' }), res)
+  const prompt = promptOf(modelCalls[0])
+  assert.match(prompt, /\[ADD: your military job title\] \(ZZZ9\) \| Army/)
+  assert.ok(!/OFFICIAL TITLE of Army occupational code ZZZ9/.test(prompt))
+})

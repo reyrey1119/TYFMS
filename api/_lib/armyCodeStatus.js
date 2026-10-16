@@ -5,7 +5,12 @@
 // carry a scheduled change / component limit are listed. Absence means "no special status found", never
 // "verified current".
 
-import { ARMY_CODE_STATUS_DATA, ARMY_CODE_STATUS_AS_OF } from './armyCodeStatus.data.js'
+import { ARMY_CODE_STATUS_DATA, ARMY_CODE_STATUS_AS_OF, ARMY_CODE_TITLES } from './armyCodeStatus.data.js'
+
+// Official title of an Army code from DA PAM 611-21 (null if the document gives none).
+export function officialTitle(category, code) {
+  return ARMY_CODE_TITLES[category]?.[code] || null
+}
 
 export function armyCodeStatus(category, code) {
   return ARMY_CODE_STATUS_DATA[category]?.[code] || null

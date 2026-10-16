@@ -14,7 +14,7 @@ const TONES = {
 const HEADLINES = {
   verified:   'Verified reference',
   stale:      'Reference not re-checked recently',
-  unverified: 'Stored reference — publication version not recorded',
+  unverified: 'Stored reference — publication version not recorded (may be out of date)',
   ai_only:    'No official reference on file — AI-written draft',
 }
 

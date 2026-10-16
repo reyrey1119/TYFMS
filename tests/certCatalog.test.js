@@ -57,3 +57,10 @@ test('a shared provider page is disclosed rather than implied to be level-specif
   const shared = CERT_CATALOG.filter(c => c.provider === 'NREMT')
   assert.ok(shared.length === 3 && shared.every(c => c.urlNote), 'each NREMT entry says its page also covers another level')
 })
+
+test('credentials with experience requirements carry the provider-stated requirement', () => {
+  const out = verifyRecommendations([{ name: 'PMP', why: 'x' }, { name: 'CISSP', why: 'y' }, { name: 'Security+', why: 'z' }])
+  assert.match(out.find(o => /PMP|Project Management/.test(o.name)).eligibility, /3\+ years of experience leading projects/)
+  assert.match(out.find(o => o.name === 'CISSP').eligibility, /5 years of required work experience/)
+  assert.equal(out.find(o => /Security\+/.test(o.name)).eligibility, undefined, 'no eligibility claim is made for credentials where none was verified')
+})

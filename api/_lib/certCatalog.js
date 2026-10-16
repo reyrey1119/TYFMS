@@ -17,7 +17,7 @@ export const CERT_CATALOG = [
   { name: 'CompTIA CySA+',      aliases: ['CySA+'],              provider: 'CompTIA',  url: 'https://www.comptia.org/en-us/certifications/cybersecurity-analyst/' },
   { name: 'CompTIA SecurityX',  aliases: ['CASP+', 'CompTIA CASP+'], provider: 'CompTIA', url: 'https://www.comptia.org/en-us/certifications/securityx/' },
   { name: 'Certified Ethical Hacker (CEH)', aliases: ['CEH'],    provider: 'EC-Council', url: 'https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh-v13-north-america/' },
-  { name: 'CISSP',              aliases: [],                     provider: 'ISC2',     url: 'https://www.isc2.org/certifications/cissp' },
+  { name: 'CISSP',              aliases: [],                     provider: 'ISC2',     url: 'https://www.isc2.org/certifications/cissp', eligibility: 'ISC2 lists 5 years of required work experience.' },
   { name: 'CISM',               aliases: [],                     provider: 'ISACA',    url: 'https://www.isaca.org/credentialing/cism' },
   { name: 'AWS Certified Cloud Practitioner',        aliases: ['AWS Cloud Practitioner'],   provider: 'Amazon Web Services', url: 'https://aws.amazon.com/certification/certified-cloud-practitioner/' },
   { name: 'AWS Certified Solutions Architect – Associate', aliases: ['AWS Solutions Architect'], provider: 'Amazon Web Services', url: 'https://aws.amazon.com/certification/certified-solutions-architect-associate/' },
@@ -27,7 +27,7 @@ export const CERT_CATALOG = [
   { name: 'Cisco CCNA',         aliases: ['CCNA'],               provider: 'Cisco',    url: 'https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html' },
 
   // Project, operations & quality
-  { name: 'Project Management Professional (PMP)', aliases: ['PMP'], provider: 'Project Management Institute', url: 'https://www.pmi.org/certifications/project-management-pmp' },
+  { name: 'Project Management Professional (PMP)', aliases: ['PMP'], provider: 'Project Management Institute', url: 'https://www.pmi.org/certifications/project-management-pmp', eligibility: 'PMI lists 3+ years of experience leading projects (less with a four-year degree and some programs).' },
   { name: 'Certified ScrumMaster (CSM)', aliases: ['Agile Scrum Master', 'CSM'], provider: 'Scrum Alliance', url: 'https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster' },
   { name: 'Six Sigma Green Belt (CSSGB)', aliases: ['Six Sigma Green Belt'], provider: 'ASQ', url: 'https://asq.org/cert/six-sigma-green-belt' },
 
@@ -78,7 +78,7 @@ export function verifyRecommendations(recommended, held = []) {
     const cert = findCert(rec?.name)
     if (!cert || seen.has(cert.name) || heldNames.has(cert.name)) continue
     seen.add(cert.name)
-    out.push({ name: cert.name, why: String(rec.why || '').slice(0, 300), provider: cert.provider, url: cert.url, ...(cert.urlNote ? { urlNote: cert.urlNote } : {}) })
+    out.push({ name: cert.name, why: String(rec.why || '').slice(0, 300), provider: cert.provider, url: cert.url, ...(cert.urlNote ? { urlNote: cert.urlNote } : {}), ...(cert.eligibility ? { eligibility: `${cert.eligibility} Check the provider's current requirements.` } : {}) })
   }
   return out
 }

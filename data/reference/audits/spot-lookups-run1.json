@@ -1,0 +1,289 @@
+{
+ "base": "https://www.tyfms.com",
+ "ran_at": "2026-10-16T01:41:06.012Z",
+ "generate": false,
+ "codes": [
+  {
+   "category": "enlisted",
+   "code": "25E",
+   "title": "Electromagnetic Spectrum Manager",
+   "lookups": [
+    {
+     "rank": "E-6",
+     "component": "active",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 2,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      1211,
+      401
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "E-7",
+     "component": "reserve",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 2,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      258,
+      320
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "E-6",
+     "component": "guard",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 2,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      677,
+      346
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": []
+  },
+  {
+   "category": "enlisted",
+   "code": "92Z",
+   "title": "Senior Noncommissioned Logistician",
+   "lookups": [
+    {
+     "rank": "E-8",
+     "component": "active",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 1,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": "The career guide for 92Z is older than its latest classification change; duties may have changed since the guide was written.",
+     "repeat_same": true,
+     "ms": [
+      281,
+      530
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "E-9",
+     "component": "guard",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 1,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": "The career guide for 92Z is older than its latest classification change; duties may have changed since the guide was written.",
+     "repeat_same": true,
+     "ms": [
+      202,
+      273
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": []
+  },
+  {
+   "category": "enlisted",
+   "code": "15M",
+   "title": "MQ-1 Repairer",
+   "lookups": [
+    {
+     "rank": "E-4",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 15M. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      360,
+      322
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "E-6",
+     "component": "reserve",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 15M. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      282,
+      321
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": []
+  },
+  {
+   "category": "officer",
+   "code": "47M",
+   "title": "USMA, Professor of Chemistry",
+   "lookups": [
+    {
+     "rank": "O-5",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 47M. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      497,
+      289
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "O-6",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 47M. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      345,
+      309
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": []
+  },
+  {
+   "category": "officer",
+   "code": "40A",
+   "title": "Space Operations",
+   "lookups": [
+    {
+     "rank": "O-3",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 40A. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      445,
+      285
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "O-5",
+     "component": "guard",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 40A. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      313,
+      359
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": []
+  },
+  {
+   "category": "officer",
+   "code": "51C",
+   "title": "Contract and Industrial Management",
+   "lookups": [
+    {
+     "rank": "O-3",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 51C. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      320,
+      407
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "O-5",
+     "component": "reserve",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 51C. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      277,
+      245
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": []
+  }
+ ]
+}

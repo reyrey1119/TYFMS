@@ -4,7 +4,7 @@
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
 import { retrieveReference, referencePromptBlock, parsePayGrade, validateReferenceRequest } from './_lib/milReference.js'
-import { reviewedGenerationReference, NO_REVIEWED_REFERENCE } from './_lib/generationEvidence.js'
+import { reviewedGenerationReference, NO_REVIEWED_REFERENCE, NO_EMBELLISHMENT, codeIdentityBlock } from './_lib/generationEvidence.js'
 import { CERT_NAMES_FOR_PROMPT, verifyRecommendations } from './_lib/certCatalog.js'
 
 const JUNIOR_YOS = ['Less than 1 year', '1–2 years']
@@ -53,7 +53,7 @@ export default async function handler(req, res) {
     }
     const referenceBlock = reviewed
       ? referencePromptBlock(reviewed, { confirmed: !!confirmReferenceDuties })
-      : '\n\n' + NO_REVIEWED_REFERENCE
+      : '\n\n' + NO_REVIEWED_REFERENCE + codeIdentityBlock({ branch: checked.req.branch, category: checked.req.category, code: checked.req.occupation })
 
     const dutiesBlock = milDuties?.trim()
       ? `\n\nDUTIES THE PERSON DESCRIBED (their own words — the most reliable account of what they did):\n${milDuties.trim().slice(0, 2000)}`
@@ -80,6 +80,9 @@ ${certsLine}${referenceBlock}${dutiesBlock}${vaultBlock}${juniorBlock}
 RULES:
 - Describe what the specialty typically involves, and what the person confirmed. Never state personnel counts, budgets, results, clearances, certifications, or leadership roles the person did not give you.
 - Rank selects the applicable reviewed reference sections. Rank alone is never proof of duties, skills or experience.
+- ${NO_EMBELLISHMENT}
+- Do not write an entry about "military training as <code>" or "military service" in general, and do not describe what the occupational code involves beyond its official title (when given) and what the person said.
+- In each "verify" field ask a general question (for example whether they used any written procedures or records); do not name specific regulations, forms, systems or equipment.
 - Numbers, counts, scores, team sizes and named systems in the reference describe the specialty in general. Do not attribute any of them to this person unless they stated it.
 - Civilian titles and industries are examples of where these skills can apply, not job-placement promises.
 
@@ -88,7 +91,7 @@ Respond ONLY with valid JSON, no markdown, no extra text:
 
 For civilianTranslation: give 4 to 6 entries, concrete and short. In "verify", phrase it as a check for the person ("Confirm whether you personally ran...") rather than a claim about them.
 
-For certifications: recommend up to 3 and choose ONLY from this verified list, using the exact names given: ${CERT_NAMES_FOR_PROMPT}. Recommending a certification means the person could pursue it — military experience does not earn one automatically. Do NOT recommend certifications they already hold. If none fit, return an empty array.`
+For certifications: recommend up to 3 and choose ONLY from this verified list, using the exact names given: ${CERT_NAMES_FOR_PROMPT}. Recommending a certification means the person could pursue it — military experience does not earn one automatically. Do not recommend a credential whose provider requires several years of qualifying experience (for example PMP or CISSP) unless the person described that experience. Do NOT recommend certifications they already hold. If none fit, return an empty array.`
 
     try {
       const r = await fetch('https://api.anthropic.com/v1/messages', {
@@ -145,6 +148,8 @@ HARD RULES:
 - Never invent numbers, team sizes, budgets, results, clearances, degrees, certifications, or leadership roles.
 - Do not state years of experience unless given above.
 - Do not claim a certification or clearance.
+- ${NO_EMBELLISHMENT}
+${codeIdentityBlock({ branch: checked.req.branch, category: checked.req.category, code: checked.req.occupation })}
 
 Write a draft with these exact sections, separated by blank lines:
 
