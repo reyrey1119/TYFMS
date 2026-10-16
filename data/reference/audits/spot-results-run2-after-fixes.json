@@ -1,0 +1,837 @@
+{
+ "base": "https://www.tyfms.com",
+ "ran_at": "2026-10-16T02:17:58.461Z",
+ "generate": true,
+ "codes": [
+  {
+   "category": "enlisted",
+   "code": "25E",
+   "title": "Electromagnetic Spectrum Manager",
+   "lookups": [
+    {
+     "rank": "E-6",
+     "component": "active",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 2,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      857,
+      238
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "E-7",
+     "component": "reserve",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 2,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      308,
+      369
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "E-6",
+     "component": "guard",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 2,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      189,
+      301
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": [
+    {
+     "rank": "E-6",
+     "component": null,
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 27797,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "unverified",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 11463,
+      "chars": 2597,
+      "add_prompts": 3
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Spectrum Planning Technician — confirm whether your training and tasks match this description]\",\"[CONFIRM: Radio Frequency Coordinator (Entry Level) — confirm whether your training and tasks match this description]\",\"[CONFIRM: Telecommunications Planning Analyst (Entry Level) — confirm whether your tasks match this description]\"],\"transferableSkills\":[\"Familiarity with radio frequency planning concepts introduced through structured classroom training\",\"Experience working within a database environment to practice frequency assignment workflows\",\"Exposure to systematic planning processes within a regulated technical domain\",\"Ability to follow procedural frameworks used in spectrum management tasks\",\"Foundational understanding of electromagnetic spectrum principles as an occupational specialty holder\",\"Discipline and structured learning developed through military technical training programs\"],\"certifications\":[\"CompTIA Network+\",\"CompTIA A+\",\"CompTIA Security+\"],\"civilianTranslation\":[{\"militarySkill\":\"Practiced radio frequency planning using a training database\",\"civilianEquivalent\":\"Used a software-based database environment to work through frequency assignment exercises as part of formal technical instruction\",\"civilianFunctions\":[\"Entering or retrieving frequency data within a structured database interface\",\"Applying planning rules or parameters learned in classroom instruction to database exercises\"],\"verify\":\"Confirm whether you personally entered data, ran queries, or generated any outputs in the training database, and whether you still have any records or screenshots of that work.\"},{\"militarySkill\":\"Completed classroom instruction as an Electromagnetic Spectrum Manager\",\"civilianEquivalent\":\"Completed formal technical training in the principles and procedures associated with electromagnetic spectrum management\",\"civilianFunctions\":[\"Studying regulatory or procedural frameworks for spectrum use\",\"Learning to apply planning concepts through guided exercises\"],\"verify\":\"Confirm whether you received any written materials, course completion documents, or training records from this instruction that you can describe or reference.\"},{\"militarySkill\":\"Worked within a structured military occupational training environment\",\"civilianEquivalent\":\"Followed systematic procedures and technical guidelines within a highly structured learning and compliance environment\",\"civilianFunctions\":[\"Adhering to defined process steps when completing technical tasks\",\"Operating within a framework where accuracy and procedure compliance are expected\"],\"verify\":\"Confirm whether you used any written checklists, reference guides, or procedural documents during your training exercises.\"},{\"militarySkill\":\"Exposure to frequency coordination concepts as part of specialty training\",\"civilianEquivalent\":\"Gained foundational awareness of how radio frequency assignments are planned and coordinated to avoid interference between users\",\"civilianFunctions\":[\"Understanding basic concepts of frequency deconfliction and spectrum allocation\",\"Recognizing how different users or systems compete for limited spectrum resources\"],\"verify\":\"Confirm whether your training covered any specific coordination scenarios or interference-avoidance concepts you can describe in your own words.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nArmy veteran with a background in electromagnetic spectrum management, bringing disciplined analytical thinking and structured training in radio frequency planning to the civilian workforce. Formal instruction in frequency planning principles built a foundation in spectrum coordination concepts and database-driven planning processes. That training, combined with the precision and attention to detail developed through military service, translates directly into technical and operations roles that demand accuracy and methodical process execution. Ready to deliver focused, detail-oriented work from day one.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nRadio Frequency Planning               Spectrum Management Concepts           Database Navigation\nTechnical Training & Instruction       Analytical Problem Solving             Attention to Detail\nProcess Adherence                      Team Collaboration                     Data Entry & Records Management\nWritten Communication                  Organizational Skills                  Adaptability\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nElectromagnetic Spectrum Manager [CONFIRM: Spectrum Planning Technician or RF Coordination Analyst] | United States Army\n[Start Year] – [End Year]\n• Completed structured classroom instruction in radio frequency planning methods and spectrum coordination principles.\n• Practiced frequency planning exercises using a training database, developing familiarity with spectrum management workflows and data entry processes.\n• Applied database navigation skills to execute planning scenarios, building working knowledge of frequency deconfliction concepts.\n• [ADD: any additional duties, tasks, or responsibilities you performed during your service]\n• [ADD: any equipment, systems, or software you worked with, if applicable]\n• [ADD: number of people you supervised, if any, or delete this prompt if you did not supervise anyone]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    },
+    {
+     "rank": "E-7",
+     "component": "reserve",
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 29038,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "unverified",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 10988,
+      "chars": 2393,
+      "add_prompts": 6
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Spectrum Coordination Analyst]\",\"[CONFIRM: Frequency Planning Technician]\",\"[CONFIRM: Radio Frequency (RF) Coordination Specialist]\"],\"transferableSkills\":[\"Familiarity with radio frequency planning concepts learned through structured classroom instruction\",\"Use of a database tool to practice frequency assignments in a training environment\",\"Exposure to the official title and scope of electromagnetic spectrum management as a discipline\",\"Ability to follow structured learning curricula in a technical subject area\",\"Attention to procedural detail in a technical planning context\",\"[ADD: Any additional skills this person can describe from their reserve service or other experience]\"],\"certifications\":[\"CompTIA Network+\",\"CompTIA Security+\",\"CompTIA A+\"],\"civilianTranslation\":[{\"militarySkill\":\"Electromagnetic Spectrum Manager (Electro Spectrum Mgr) — official Army occupational title\",\"civilianEquivalent\":\"Person trained in the field of managing and coordinating use of radio frequencies across different users and purposes\",\"civilianFunctions\":[\"Understanding how frequency bands are organized and assigned to prevent interference\",\"Learning the regulatory and procedural framework that governs spectrum use\"],\"verify\":\"Confirm whether you can describe, in your own words, what electromagnetic spectrum management means and how frequency conflicts are avoided — this foundational knowledge is something you can speak to in interviews.\"},{\"militarySkill\":\"Practiced radio frequency planning using a training database in a classroom\",\"civilianEquivalent\":\"Hands-on practice entering, querying, or reviewing frequency data in a structured software environment\",\"civilianFunctions\":[\"Navigating a database interface to locate or input frequency-related records\",\"Applying classroom concepts to simulated planning scenarios\"],\"verify\":\"Confirm whether the training database you used had specific data fields you can describe (for example, frequency ranges, geographic areas, or user types), and whether you completed any exercises or scenarios you could walk an employer through.\"},{\"militarySkill\":\"Classroom-based technical training in a specialized military occupational specialty\",\"civilianEquivalent\":\"Completion of formal, structured instruction in a technical subject area with defined learning objectives\",\"civilianFunctions\":[\"Absorbing and applying technical concepts in a disciplined learning environment\",\"Demonstrating the ability to learn complex regulatory or procedural material\"],\"verify\":\"Confirm whether you received a certificate of completion, transcript, or any formal record of the training you completed, as these documents can support your resume.\"},{\"militarySkill\":\"[ADD: Any additional duties performed during reserve service periods this person can describe]\",\"civilianEquivalent\":\"[ADD: To be completed once the person describes additional tasks]\",\"civilianFunctions\":[\"[ADD: First function]\",\"[ADD: Second function]\"],\"verify\":\"Confirm whether there are other tasks, tools, or responsibilities from your drill weekends or annual training that you have not yet described — those details will strengthen this profile.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nArmy veteran with nearly a decade of service in electromagnetic spectrum management, bringing a disciplined, structured approach to technical problem-solving and planning. Trained in radio frequency planning concepts through formal coursework, with a foundation in spectrum coordination processes and technical analysis. Focused, detail-oriented, and ready to build on that foundation in a civilian environment that values precision and process. Committed to growing fast, contributing early, and delivering reliable work from day one.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nRadio Frequency Planning               Spectrum Management Concepts           Technical Analysis\nData Entry and Records Management      Classroom and Formal Training          Process Adherence\nAttention to Detail                    Database Navigation                    Military Discipline\nWritten Communication                  Schedule and Task Coordination         Problem Solving\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nElectromagnetic Spectrum Manager (Electro Spectrum Mgr) [CONFIRM: Spectrum Planning Analyst or Frequency Coordinator] | Army\n[ADD: Start Year] – [ADD: End Year]\n• Practiced radio frequency planning using a training database during structured classroom instruction.\n• Completed formal Army training in electromagnetic spectrum management processes and foundational planning concepts.\n• [ADD: any additional duties, tasks, or responsibilities you performed during your service]\n• [ADD: number of people you supervised, if any]\n• [ADD: any systems, tools, or software you worked with outside of classroom training]\n• [ADD: any additional roles, assignments, or collateral duties you held during your service]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92Z",
+   "title": "Senior Noncommissioned Logistician",
+   "lookups": [
+    {
+     "rank": "E-8",
+     "component": "active",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 1,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": "The career guide for 92Z is older than its latest classification change; duties may have changed since the guide was written.",
+     "repeat_same": true,
+     "ms": [
+      482,
+      291
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "E-9",
+     "component": "guard",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 1,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": "The career guide for 92Z is older than its latest classification change; duties may have changed since the guide was written.",
+     "repeat_same": true,
+     "ms": [
+      240,
+      289
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": [
+    {
+     "rank": "E-8",
+     "component": null,
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 23950,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "unverified",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 12395,
+      "chars": 2788,
+      "add_prompts": 12
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Supply Chain Analyst — if you reviewed records as part of a formal analysis process]\",\"[CONFIRM: Inventory Control Specialist — if your record review involved checking quantities or discrepancies]\",\"[CONFIRM: Logistics Coordinator — if your review supported movement or distribution planning]\"],\"transferableSkills\":[\"Reviewing supply records for accuracy and completeness\",\"Following structured procedures in a training or exercise environment\",\"Attention to detail when working with documentation\",\"[ADD: Any supervisory, leadership, or team coordination experience you have had]\",\"[ADD: Any software, systems, or databases you have used in your work]\",\"[ADD: Any formal training, certifications, or coursework you have completed]\"],\"certifications\":[\"Certified Supply Chain Professional (CSCP)\",\"Certified in Planning and Inventory Management (CPIM)\",\"Six Sigma Green Belt (CSSGB)\"],\"civilianTranslation\":[{\"militarySkill\":\"Supply record review\",\"civilianEquivalent\":\"Examining inventory or procurement documents to check their contents against established criteria\",\"civilianFunctions\":[\"Comparing recorded data against source documents\",\"Identifying missing or inconsistent entries in supply records\"],\"verify\":\"Confirm whether you personally worked through a checklist or written procedure when reviewing those records, or whether the review was open-ended.\"},{\"militarySkill\":\"Working within a training exercise context\",\"civilianEquivalent\":\"Applying job procedures in a structured, scenario-based environment rather than live operations\",\"civilianFunctions\":[\"Executing tasks according to exercise guidelines\",\"Practicing workflow steps in a controlled setting\"],\"verify\":\"Confirm whether the exercise had a written scenario, an evaluator, or a debrief you participated in, and whether any output you produced was reviewed by someone else.\"},{\"militarySkill\":\"[ADD: Any coordination or communication tasks you performed related to logistics]\",\"civilianEquivalent\":\"[ADD: Describe what you actually did — for example, did you contact other people, fill out forms, or brief anyone on what you found?]\",\"civilianFunctions\":[\"[ADD: First function]\",\"[ADD: Second function]\"],\"verify\":\"Confirm whether you communicated findings or questions to anyone else during or after the record review, and in what format.\"},{\"militarySkill\":\"[ADD: Any planning, tracking, or reporting tasks from your 16–20 years of service]\",\"civilianEquivalent\":\"[ADD: Describe what you tracked, planned, or reported — the more specific you can be, the stronger this entry will be]\",\"civilianFunctions\":[\"[ADD: First function]\",\"[ADD: Second function]\"],\"verify\":\"Confirm whether you have maintained, submitted, or audited any reports or tracking documents in your career beyond this training exercise.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nA Senior Noncommissioned Logistician with between 16 and 20 years of Army service, bringing a career built on logistics operations and supply chain work to the civilian workforce. The foundation of this background is direct, hands-on experience with supply records and logistics processes developed across a long military career. That experience translates directly into civilian roles that demand attention to detail, organized recordkeeping, and a methodical approach to supply chain and operations tasks. Ready to bring disciplined work habits and a logistics-focused mindset to an organization that values accuracy and process integrity.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nSupply Chain Operations          Records Management               Logistics Coordination\nInventory Control                Process Documentation             Materials Tracking\nOperations Support               Data Review and Auditing          Compliance Monitoring\nOrganizational Administration    Workflow Management              Attention to Detail\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nSenior Noncommissioned Logistician | United States Army\n[ADD: Start Year] – [ADD: End Year]\n\n• [ADD: number of people you supervised, if any, and describe the scope of that responsibility here]\n• Reviewed supply records as part of logistics operations, applying a detail-oriented approach to documentation and data accuracy.\n• [ADD: additional duties you performed beyond supply records review, such as inventory management, coordination tasks, or reporting responsibilities]\n• [ADD: any systems, software, or databases you used to manage supply or logistics data]\n• [ADD: any measurable results, improvements, or outcomes from your work, such as error rates addressed, records volumes handled, or timelines met]\n\n[ADD: Earlier Position Title if applicable] | United States Army\n[ADD: Start Year] – [ADD: End Year]\n\n• [ADD: describe your duties in this role]\n• [ADD: describe any responsibilities, accomplishments, or scope of work from this period]\n• [ADD: include any team involvement, systems used, or processes you supported]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    },
+    {
+     "rank": "E-9",
+     "component": "guard",
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 21693,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "unverified",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 10526,
+      "chars": 2323,
+      "add_prompts": 6
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Supply Records Reviewer — confirm whether this reflects your actual scope]\",\"[CONFIRM: Logistics Records Analyst — confirm whether this reflects your actual scope]\",\"[CONFIRM: Inventory Documentation Specialist — confirm whether this reflects your actual scope]\"],\"transferableSkills\":[\"Reviewing supply records for accuracy and completeness\",\"Familiarity with logistics documentation processes\",\"Attention to detail in records examination\",\"Understanding of supply chain record formats\",\"[ADD: Any additional skills you used or developed during 20+ years of service]\",\"[ADD: Any tools, software, or written procedures you used when reviewing records]\"],\"certifications\":[\"Certified Supply Chain Professional (CSCP)\",\"Certified in Planning and Inventory Management (CPIM)\",\"Six Sigma Green Belt (CSSGB)\"],\"civilianTranslation\":[{\"militarySkill\":\"Supply records review\",\"civilianEquivalent\":\"Examining supply and inventory records to check for completeness or discrepancies, as done in logistics or procurement audit functions\",\"civilianFunctions\":[\"Reading and interpreting supply documentation\",\"Identifying what information is present or missing in a record set\"],\"verify\":\"Confirm whether you personally reviewed physical records, digital records, or both, and whether you used any written procedures or checklists when doing so.\"},{\"militarySkill\":\"Logistics documentation familiarity\",\"civilianEquivalent\":\"Working knowledge of how supply and inventory records are structured, which is relevant to roles in procurement, warehouse administration, or records management\",\"civilianFunctions\":[\"Understanding the purpose and structure of supply documentation\",\"Recognizing record fields relevant to inventory tracking\"],\"verify\":\"Confirm whether you can describe the types of records you reviewed and what each section of those records was intended to capture.\"},{\"militarySkill\":\"[ADD: Describe any coordination or communication you did related to the records review]\",\"civilianEquivalent\":\"[ADD: Once confirmed, this can be translated into a civilian equivalent]\",\"civilianFunctions\":[\"[ADD: Function 1]\",\"[ADD: Function 2]\"],\"verify\":\"Confirm whether you worked with others during the records review, and if so, what your specific role in that interaction was.\"},{\"militarySkill\":\"[ADD: Describe any reporting, note-taking, or documentation you produced as part of the review]\",\"civilianEquivalent\":\"[ADD: Once confirmed, this can be translated into a civilian equivalent]\",\"civilianFunctions\":[\"[ADD: Function 1]\",\"[ADD: Function 2]\"],\"verify\":\"Confirm whether you produced any written output — such as notes, summaries, or flags — as a result of reviewing the records.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nA Senior Noncommissioned Logistician with more than 20 years of Army service, bringing a career built on logistics operations and supply chain management to the civilian workforce. Trained to work within structured, process-driven environments, this professional applies a methodical approach to reviewing records, maintaining accuracy, and supporting operational continuity. That background translates directly into civilian roles that demand attention to detail, process adherence, and the ability to manage information under real conditions. The result for any employer is a disciplined professional who gets work done right.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nLogistics Operations              Supply Chain Management           Records Review\nProcess Improvement               Inventory Control                 Data Accuracy\nOperational Planning              Documentation Management          Compliance Adherence\nMaterials Management              Organizational Leadership         Quality Assurance\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nSenior Noncommissioned Logistician [CONFIRM: Logistics Manager or Supply Chain Specialist] | U.S. Army\n[ADD: Start Year] – [ADD: End Year]\n• [ADD: number of people supervised, if any, and scope of responsibility]\n• Reviewed supply records as part of a structured exercise in records examination and documentation analysis.\n• [ADD: any additional duties, responsibilities, or assignments you held during your service]\n• [ADD: any systems, tools, or platforms you worked with during your career]\n• [ADD: any measurable outcomes, results, or achievements you can speak to from your service]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15M",
+   "title": "MQ-1 Repairer",
+   "lookups": [
+    {
+     "rank": "E-4",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 15M. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      624,
+      1029
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "E-6",
+     "component": "reserve",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 15M. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      445,
+      404
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": [
+    {
+     "rank": "E-4",
+     "component": null,
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 27881,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "none",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 10053,
+      "chars": 2273,
+      "add_prompts": 2
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Aviation Maintenance Trainee — confirm whether you completed or are still in training]\",\"[CONFIRM: Quality Control Inspector Trainee — confirm whether inspection tasks were graded or evaluated]\",\"[CONFIRM: Technical Procedures Follower / Checklist Operator — confirm the scope of your inspection work]\"],\"transferableSkills\":[\"Following written technical checklists in a structured, step-by-step manner\",\"Conducting hands-on inspection of a training aircraft model under supervision\",\"Attention to procedural detail in a safety-conscious environment\",\"Ability to work within a structured training curriculum\",\"Familiarity with the general discipline and documentation culture of aviation maintenance environments\",\"[ADD: Any additional skills you used during training — tools handled, records completed, teamwork roles, etc.]\"],\"certifications\":[\"Certified Maintenance & Reliability Technician (CMRT)\",\"Six Sigma Green Belt (CSSGB)\",\"CompTIA A+\"],\"civilianTranslation\":[{\"militarySkill\":\"Following a checklist to inspect a training aircraft model\",\"civilianEquivalent\":\"Using written inspection procedures to examine equipment in a systematic, step-by-step sequence\",\"civilianFunctions\":[\"Applying documented procedures to physical inspection tasks\",\"Identifying what to look for on a component by following a structured guide\"],\"verify\":\"Confirm whether you personally ran through the checklist independently or followed along with an instructor guiding each step.\"},{\"militarySkill\":\"Performing inspection tasks during a formal class setting\",\"civilianEquivalent\":\"Completing hands-on technical training tasks in an instructional environment\",\"civilianFunctions\":[\"Practicing technical procedures under evaluated conditions\",\"Applying classroom knowledge to a physical training exercise\"],\"verify\":\"Confirm whether your inspection was assessed or graded, and whether you received any written record of completing it.\"},{\"militarySkill\":\"Working within a structured military training program\",\"civilianEquivalent\":\"Participating in a formal, standards-driven technical training curriculum\",\"civilianFunctions\":[\"Learning to operate within regulated, safety-conscious procedures\",\"Demonstrating discipline and consistency required in technical environments\"],\"verify\":\"Confirm whether you completed the full training course or are still in progress, and whether you received a certificate or course completion record.\"},{\"militarySkill\":\"[ADD: Any tools, equipment, or materials you personally handled during the inspection]\",\"civilianEquivalent\":\"[ADD: Once confirmed, this can be described as hands-on tool use or equipment handling in a technical setting]\",\"civilianFunctions\":[\"[ADD: Describe what you physically did with any tools or equipment]\",\"[ADD: Note whether use was supervised, demonstrated, or independent]\"],\"verify\":\"Confirm whether you personally used any tools or test equipment during the inspection, and if so, what type.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nArmy-trained MQ-1 Repairer with a foundation in structured inspection procedures and attention to technical detail. Disciplined and process-oriented, with direct experience applying standardized checklists to assess aircraft components in a training environment. Brings military work ethic, adaptability, and a commitment to following technical procedures accurately. Ready to contribute to a team that values precision, dependability, and a strong will to learn.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nInspection Procedures          Checklist Execution            Technical Documentation\nAttention to Detail            Preventive Maintenance         Process Adherence\nQuality Control                Safety Compliance              Aircraft Systems Familiarization\nTeam Collaboration             Troubleshooting Support        Procedure-Based Work\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nMQ-1 Repairer (Army Occupational Specialty: MQ-1 Repairer) | United States Army\n[Start Year] – [End Year]\n• Executed structured inspection procedures on a training aircraft model by following a standardized checklist during formal coursework.\n• Applied technical inspection steps systematically, working through each checkpoint in sequence as required by the training curriculum.\n• Gained foundational exposure to aircraft component inspection in a controlled, instruction-led environment.\n• [ADD: any additional duties, tasks, or responsibilities you performed beyond the training inspection described above]\n• [ADD: number of instructors, peers, or team members you worked alongside, if relevant]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    },
+    {
+     "rank": "E-6",
+     "component": "reserve",
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 32611,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "none",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 10607,
+      "chars": 2370,
+      "add_prompts": 4
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [
+        "1"
+       ],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Aircraft Maintenance Technician — confirm whether your inspections covered systems beyond the training context you described]\",\"[CONFIRM: Quality Control Inspector — confirm whether you reviewed others' work or documented findings in any official record]\",\"[CONFIRM: Technical Procedures Specialist — confirm whether you used or maintained written procedures as part of your role]\"],\"transferableSkills\":[\"Following structured inspection checklists in a technical environment\",\"Attention to procedural detail in a hands-on maintenance context\",\"Working with physical aircraft hardware in a training setting\",\"Familiarity with the occupational scope of MQ-1 Repairer duties as defined by Army title DA PAM 611-21\",\"[ADD: Any additional technical skills, tools, or systems you used during your 7–8 years of reserve service]\",\"[ADD: Any teamwork, communication, or organizational skills developed outside the one inspection task you described]\"],\"certifications\":[\"Certified Maintenance & Reliability Technician (CMRT)\",\"Six Sigma Green Belt (CSSGB)\",\"CompTIA A+\"],\"civilianTranslation\":[{\"militarySkill\":\"Checklist-based inspection of a training aircraft model\",\"civilianEquivalent\":\"Using a written procedure to systematically examine a physical asset and confirm each step is completed\",\"civilianFunctions\":[\"Working through a structured inspection sequence on physical equipment\",\"Confirming each checklist item is addressed before moving to the next\"],\"verify\":\"Confirm whether you personally worked through every item on the checklist yourself, or whether you observed an instructor demonstrate it\"},{\"militarySkill\":\"Hands-on contact with a training aircraft model\",\"civilianEquivalent\":\"Physical familiarity with aircraft hardware in a structured learning environment\",\"civilianFunctions\":[\"Identifying and locating components on a physical aircraft structure\",\"Handling equipment according to the procedures in the training context\"],\"verify\":\"Confirm whether you touched, adjusted, or removed any components, or whether contact was limited to visual inspection only\"},{\"militarySkill\":\"Participation in a maintenance-related training course\",\"civilianEquivalent\":\"Completion of formal technical instruction in an aircraft maintenance specialty\",\"civilianFunctions\":[\"Demonstrating understanding of maintenance concepts introduced in the course\",\"Applying classroom procedures to a practical exercise\"],\"verify\":\"Confirm whether you received a certificate, transcript, or official record showing completion of this training, and what the course was formally called\"},{\"militarySkill\":\"Operating within a structured military technical environment over 7–8 years as a reserve soldier\",\"civilianEquivalent\":\"Sustained participation in a disciplined, procedure-driven organization over multiple years\",\"civilianFunctions\":[\"[ADD: Describe specific tasks or duties you performed during your reserve service beyond the training inspection]\",\"[ADD: Describe any recurring responsibilities, schedules, or equipment you worked with during drill or annual training periods]\"],\"verify\":\"Confirm whether your reserve duties during this period included any hands-on maintenance, inspections, or support tasks on actual aircraft or related equipment\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nArmy veteran with approximately seven to eight years of service, bringing a disciplined, detail-focused approach to hands-on technical work. Trained as an MQ-1 Repairer, with foundational exposure to structured inspection procedures and checklist-based quality processes. That background translates directly into civilian roles that demand precision, procedural compliance, and a methodical work ethic. The right employer gets a dependable professional who follows process carefully and shows up ready to do the job right.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nInspection Procedures              Checklist Compliance               Quality Control\nAttention to Detail                Procedural Adherence               Technical Documentation\nSafety Awareness                   Equipment Inspection               Process Compliance\nOrganizational Skills              Team Collaboration                 [ADD: additional skill]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nMQ-1 Repairer [CONFIRM: Aircraft Maintenance Technician or Inspection Technician] | Army\n[Start Year] – [End Year]\n• Executed structured, checklist-based inspections on a training aircraft model during formal coursework.\n• Applied standardized inspection procedures, following each step in sequence to complete the assigned task.\n• Demonstrated proficiency in reading and following technical documentation during hands-on training activities.\n• [ADD: any additional duties, tasks, or responsibilities you performed during your service]\n• [ADD: any leadership duties, if applicable, such as number of people you guided or trained]\n• [ADD: any measurable results, outcomes, or accomplishments from your time in service]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "47M",
+   "title": "USMA, Professor of Chemistry",
+   "lookups": [
+    {
+     "rank": "O-5",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 47M. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      573,
+      668
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "O-6",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 47M. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      391,
+      312
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": [
+    {
+     "rank": "O-5",
+     "component": null,
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 32324,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "none",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 11612,
+      "chars": 2570,
+      "add_prompts": 12
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Chemistry Instructor or Lecturer]\",\"[CONFIRM: Curriculum Developer – Science]\",\"[CONFIRM: Technical Writer – Chemistry or STEM]\"],\"transferableSkills\":[\"Breaking down complex chemistry concepts into structured learning material\",\"Preparing written instructional content for an academic audience\",\"Organizing scientific information into a logical, teachable sequence\",\"[ADD: Any additional subject-matter expertise in chemistry sub-disciplines]\",\"[ADD: Any use of assessment, grading, or student feedback tools]\",\"[ADD: Any experience presenting or delivering the prepared material]\"],\"certifications\":[\"Project Management Professional (PMP)\",\"Certified ScrumMaster (CSM)\",\"Six Sigma Green Belt (CSSGB)\"],\"civilianTranslation\":[{\"militarySkill\":\"Preparing lecture notes on chemistry basics\",\"civilianEquivalent\":\"Developing written instructional content for a course or training program\",\"civilianFunctions\":[\"Organizing foundational concepts into a readable, structured format\",\"Producing draft teaching materials for review or classroom use\"],\"verify\":\"Confirm whether you used any written template, style guide, or institutional format when preparing the notes, and whether they were reviewed or approved by anyone.\"},{\"militarySkill\":\"Selecting and sequencing chemistry content for a practice class\",\"civilianEquivalent\":\"Curriculum scoping — choosing which topics to cover and in what order\",\"civilianFunctions\":[\"Identifying the appropriate level and scope of content for a target audience\",\"Arranging topics so each one builds on the previous\"],\"verify\":\"Confirm whether you made those sequencing decisions independently or followed a course outline someone else provided.\"},{\"militarySkill\":\"[ADD: Delivery or presentation of chemistry lecture material — not yet described]\",\"civilianEquivalent\":\"Live or recorded classroom instruction\",\"civilianFunctions\":[\"[ADD: Standing up and teaching a class if this occurred]\",\"[ADD: Answering student questions or facilitating discussion if this occurred]\"],\"verify\":\"Confirm whether you actually delivered any lectures or instruction, even informally or in a practice setting, and if so, to whom.\"},{\"militarySkill\":\"[ADD: Supervision or mentorship of students, junior faculty, or staff — not yet described]\",\"civilianEquivalent\":\"Academic advising or team leadership in an educational setting\",\"civilianFunctions\":[\"[ADD: Advising or guiding learners if this occurred]\",\"[ADD: Coordinating with other instructors or staff if this occurred]\"],\"verify\":\"Confirm whether you directed, supervised, or formally mentored any individuals during your time in this role.\"},{\"militarySkill\":\"[ADD: Laboratory or research activity — not yet described]\",\"civilianEquivalent\":\"Applied chemistry lab work or scientific research support\",\"civilianFunctions\":[\"[ADD: Conducting or overseeing lab experiments if this occurred]\",\"[ADD: Documenting procedures or results if this occurred]\"],\"verify\":\"Confirm whether your duties included any laboratory work, research projects, or scientific data collection, and whether you kept any written records of that work.\"},{\"militarySkill\":\"[ADD: Assessment or evaluation design — not yet described]\",\"civilianEquivalent\":\"Creating quizzes, exams, or competency checks for a course\",\"civilianFunctions\":[\"[ADD: Writing test questions or rubrics if this occurred]\",\"[ADD: Evaluating or grading student work if this occurred]\"],\"verify\":\"Confirm whether you designed or administered any form of student assessment, even in a draft or practice context.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nA chemistry professional with a background in academic instruction and scientific communication, built over a career in the U.S. Army. Skilled at translating complex chemical concepts into clear, structured educational content for diverse audiences. That foundation in curriculum preparation and scientific literacy transfers directly to roles in education, research support, technical writing, and chemistry-adjacent industries. Brings a disciplined, methodical approach to every project. Ready to deliver clear thinking, precise communication, and strong subject-matter knowledge from day one.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nChemistry Fundamentals          Curriculum Development          Instructional Design\nTechnical Writing               Educational Content Creation    Scientific Communication\nLecture Preparation             Academic Instruction            Attention to Detail\nResearch Support                Documentation                   Analytical Thinking\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nUSMA, PROFESSOR OF CHEMISTRY (Army Occupational Code: 47M) [CONFIRM: Chemistry Instructor or Academic Faculty] | U.S. Army\n[ADD: Start Year] – [ADD: End Year]\n• Prepared lecture notes covering chemistry fundamentals for use in a classroom instructional setting.\n• [ADD: any additional duties you performed in this or other roles during your service]\n• [ADD: number of students or personnel you instructed, if applicable]\n• [ADD: any tools, laboratory equipment, software, or systems you worked with]\n• [ADD: any projects, course topics, assessments, or outcomes you can describe]\n\n[ADD: Earlier Position Title, if applicable] | U.S. Army\n[ADD: Start Year] – [ADD: End Year]\n• [ADD: duties or responsibilities from this period of service]\n• [ADD: duties or responsibilities from this period of service]\n• [ADD: duties or responsibilities from this period of service]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    },
+    {
+     "rank": "O-6",
+     "component": null,
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 26807,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "none",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 9953,
+      "chars": 2208,
+      "add_prompts": 3
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Instructor or Lecturer — Chemistry or Physical Sciences]\",\"[CONFIRM: Curriculum Developer — Science Education]\",\"[CONFIRM: Training Content Specialist — Technical or Scientific Topics]\"],\"transferableSkills\":[\"Translating technical or scientific content into structured instructional material\",\"Organizing complex subject matter into a logical sequence for a learning audience\",\"Written communication in a technical or academic context\",\"Preparing educational content from source material\",\"[ADD: Any additional skills this person can describe from their own experience]\",\"[ADD: Any tools, platforms, or methods used in preparing or delivering instructional content]\"],\"certifications\":[\"Certified ScrumMaster (CSM)\",\"Six Sigma Green Belt (CSSGB)\"],\"civilianTranslation\":[{\"militarySkill\":\"Preparing lecture notes on chemistry basics\",\"civilianEquivalent\":\"Developing written instructional content on a technical subject for a defined audience\",\"civilianFunctions\":[\"Breaking down foundational concepts into structured written form\",\"Organizing technical information to support learner comprehension\"],\"verify\":\"Confirm whether you used any written templates, style guides, or formatting standards when preparing those notes, and whether any review process applied before they were used.\"},{\"militarySkill\":\"Preparing material for a practice class\",\"civilianEquivalent\":\"Designing or staging instructional sessions for a specific learning objective\",\"civilianFunctions\":[\"Scoping lesson content to match a defined learning goal\",\"Assembling materials in advance of a scheduled instructional event\"],\"verify\":\"Confirm whether the practice class involved an actual audience, whether you delivered the session yourself, and whether you received or recorded any feedback on the material.\"},{\"militarySkill\":\"[ADD: Describe any other tasks performed in this role — for example, advising students, grading, developing assessments, coordinating with other instructors, or managing course schedules]\",\"civilianEquivalent\":\"[ADD: To be completed once the person describes additional duties]\",\"civilianFunctions\":[\"[ADD: Specific function 1]\",\"[ADD: Specific function 2]\"],\"verify\":\"Confirm whether you performed any duties beyond preparing notes — such as delivering instruction, evaluating learners, or contributing to curriculum design — and be ready to describe them specifically.\"},{\"militarySkill\":\"[ADD: Describe any supervision, mentoring, or coordination activities if applicable]\",\"civilianEquivalent\":\"[ADD: To be completed once the person confirms any such activities]\",\"civilianFunctions\":[\"[ADD: Specific function 1]\",\"[ADD: Specific function 2]\"],\"verify\":\"Confirm whether you coordinated with colleagues, supported other instructors, or had any responsibility for scheduling or course logistics, even informally.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nA career Army officer and chemistry educator with more than 20 years of military service, bringing a disciplined academic foundation to civilian roles in education, science, and research. Experienced in translating complex chemistry concepts into accessible instructional content for classroom settings. Clear communicator who builds structured, learner-centered materials from the ground up. Ready to deliver focused, well-organized instruction and content development from day one.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nChemistry Instruction               Curriculum Development               Lecture Design\nScience Communication               Instructional Materials Creation      Academic Program Support\nWritten Communication               Adult Learning Principles             Classroom Facilitation\nAttention to Detail                 Content Organization                  STEM Education\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nUSMA, PROFESSOR OF CHEMISTRY (Army Occupational Specialty 47M) [CONFIRM: Chemistry Instructor or Faculty Member] | U.S. Army\n[Start Year] – [End Year]\n• Prepared lecture notes on chemistry basics for a practice class setting.\n• [ADD: Describe any other instructional duties you performed, such as course topics covered, class formats, or subject areas taught.]\n• [ADD: Describe any administrative, research, or academic support tasks you performed in this or any other role.]\n• [ADD: List any positions you held prior to this assignment, including dates and primary responsibilities.]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "40A",
+   "title": "Space Operations",
+   "lookups": [
+    {
+     "rank": "O-3",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 40A. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      1143,
+      716
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "O-5",
+     "component": "guard",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 40A. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      511,
+      615
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": [
+    {
+     "rank": "O-3",
+     "component": null,
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 28240,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "none",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 10846,
+      "chars": 2495,
+      "add_prompts": 2
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Satellite Tracking Technician — confirm if your work involved tracking satellite passes in an operational or near-operational context]\",\"[CONFIRM: Space Operations Analyst — confirm if you analyzed data or produced reports from tracking activity]\",\"[CONFIRM: Geospatial or Orbital Data Technician — confirm if your tracking work involved interpreting positional or orbital data]\"],\"transferableSkills\":[\"Monitoring dynamic data in a simulated operational environment\",\"Following structured procedures in a technical training context\",\"Attention to detail while tracking time-sensitive positional information\",\"Working within a military technical specialty focused on space operations\",\"[ADD: Any teamwork or coordination skills demonstrated during simulator training]\",\"[ADD: Any written or verbal reporting associated with training exercises]\"],\"certifications\":[\"CompTIA A+\",\"CompTIA Network+\",\"AWS Certified Cloud Practitioner\"],\"civilianTranslation\":[{\"militarySkill\":\"Tracking satellite passes in a training simulator\",\"civilianEquivalent\":\"Monitoring moving objects or data feeds on a display interface in a controlled environment\",\"civilianFunctions\":[\"Observing and logging positional or status changes on a screen-based system\",\"Responding to changing data within a procedural framework\"],\"verify\":\"Confirm whether you personally ran the simulator controls, recorded any outputs, or followed a written checklist during tracking exercises — and whether any instructor or evaluator reviewed your work.\"},{\"militarySkill\":\"Operating within a space operations occupational context\",\"civilianEquivalent\":\"Familiarity with the domain vocabulary and operational concepts of satellite and space tracking environments\",\"civilianFunctions\":[\"Understanding the structure of space-based tracking workflows at an introductory level\",\"Communicating in technical terms used in space or orbital operations settings\"],\"verify\":\"Confirm whether your simulator training included instruction on orbital mechanics, pass windows, or specific tracking concepts — and whether you can describe those concepts in your own words to an interviewer.\"},{\"militarySkill\":\"[ADD: Any written procedures or records used during simulator sessions]\",\"civilianEquivalent\":\"[ADD: Procedure-following or documentation skills — add once confirmed]\",\"civilianFunctions\":[\"[ADD: Confirm whether you completed logs, checklists, or after-action notes during training]\",\"[ADD: Confirm whether you used any technical manuals or reference materials]\"],\"verify\":\"Confirm whether you personally completed any written records, logs, or evaluation forms as part of your simulator training.\"},{\"militarySkill\":\"[ADD: Any coordination or communication with others during training exercises]\",\"civilianEquivalent\":\"[ADD: Teamwork or information-sharing in a technical environment — add once confirmed]\",\"civilianFunctions\":[\"[ADD: Confirm whether you communicated tracking data to a classmate, instructor, or simulated operator]\",\"[ADD: Confirm whether exercises involved a team or were conducted individually]\"],\"verify\":\"Confirm whether your simulator sessions were individual or involved working alongside others, and whether you exchanged information with anyone during the exercise.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nArmy officer with a background in space operations, bringing disciplined analytical thinking and technical training to civilian roles that demand precision and attention to detail. Trained in tracking satellite activity within a simulation environment, this experience built a foundation in orbital mechanics concepts, data monitoring, and systematic observation. That combination of military structure and technical exposure translates directly into roles requiring process discipline, data tracking, and methodical problem-solving. Ready to deliver focused, reliable performance from day one.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nData Monitoring                    Analytical Thinking                Process Discipline\nTechnical Training                 Simulation Operations              Orbital Concepts Awareness\nAttention to Detail                Mission Planning Concepts          Documentation\nDecision Making                    Cross-Functional Coordination      Critical Thinking\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nSPACE OPERATIONS OFFICER [CONFIRM: Operations Analyst, Technical Analyst, or related civilian title] | United States Army\n[Start Year] – [End Year]\n• Tracked satellite passes using a training simulator, applying systematic observation methods to monitor orbital activity and record findings accurately.\n• Executed data monitoring tasks within a structured simulation environment, maintaining consistent performance across training scenarios.\n• Applied foundational knowledge of space operations concepts to interpret and record simulated satellite tracking data.\n• [ADD: Describe any additional duties, responsibilities, or projects you held during this period]\n• [ADD: Note whether you supervised any personnel, managed any resources, or contributed to any team initiatives]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    },
+    {
+     "rank": "O-5",
+     "component": "guard",
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 29264,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "none",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 12237,
+      "chars": 2703,
+      "add_prompts": 11
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Satellite Tracking Technician — confirm whether your simulator work reflects real operational procedures]\",\"[CONFIRM: Space Operations Analyst — confirm whether your training activities map to analyst-level responsibilities]\",\"[CONFIRM: Geospatial or Orbital Data Technician — confirm whether you worked with orbital or positional data formats]\"],\"transferableSkills\":[\"Monitoring and tracking moving objects or data points over time\",\"Operating specialized simulation or software environments\",\"Attention to procedural detail in a structured training context\",\"[ADD: Any analytical or data-interpretation skills you applied during tracking exercises]\",\"[ADD: Any coordination or communication skills used during simulator sessions]\",\"[ADD: Any written logs, reports, or records you produced during training]\"],\"certifications\":[\"CompTIA A+\",\"CompTIA Network+\",\"AWS Certified Cloud Practitioner\"],\"civilianTranslation\":[{\"militarySkill\":\"Tracking satellite passes in a training simulator\",\"civilianEquivalent\":\"Monitoring the position or movement of objects using specialized software in a controlled environment\",\"civilianFunctions\":[\"Observing and recording data from a moving-object tracking interface\",\"Following structured procedures within a simulation platform\"],\"verify\":\"Confirm whether you personally ran the simulator controls, or whether you observed while someone else operated it — and whether you recorded any outputs from those sessions.\"},{\"militarySkill\":\"Space Operations specialty (Army MOS 40A)\",\"civilianEquivalent\":\"Familiarity with the domain of space-based systems operations through official military occupational training\",\"civilianFunctions\":[\"Exposure to the concepts and vocabulary of satellite and space operations\",\"Completion of formal military occupational training in a space operations field\"],\"verify\":\"Confirm what formal courses or training pipelines you completed under this specialty code, and whether you received any certificates of completion from those courses.\"},{\"militarySkill\":\"[ADD: Any procedures or checklists followed during simulator use]\",\"civilianEquivalent\":\"Following step-by-step operational procedures in a technical environment\",\"civilianFunctions\":[\"Reading and applying written or digital procedural guidance\",\"Executing tasks in a defined sequence within a controlled system\"],\"verify\":\"Confirm whether your simulator sessions required you to follow written procedures, and whether you were evaluated on how accurately you followed them.\"},{\"militarySkill\":\"[ADD: Any data you read, entered, or interpreted during tracking exercises]\",\"civilianEquivalent\":\"Interpreting numerical or positional data displayed in a software interface\",\"civilianFunctions\":[\"Reading time-sensitive data from a display or dashboard\",\"Recognizing changes in tracked data and responding within the simulation\"],\"verify\":\"Confirm whether you interpreted any numbers, coordinates, or status indicators during your simulator work, and whether you were required to act on or record what you observed.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nArmy officer with 16 to 20 years of service, specializing in space operations within a structured military environment. Trained in tracking satellite passes and working within simulation-based technical environments, with a career built on discipline, attention to detail, and mission focus. Brings a strong foundation in operational processes and technical monitoring to civilian roles that require precision and analytical thinking. Ready to deliver consistent, methodical performance from day one.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nSpace Operations                     Satellite Pass Tracking              Simulation-Based Training\nTechnical Monitoring                 Operational Analysis                 Data Tracking\nProcess Adherence                    Situational Awareness                Mission Planning Support\nAttention to Detail                  Cross-Functional Coordination        Analytical Problem Solving\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nSPACE OPERATIONS OFFICER [CONFIRM: Space Systems Analyst / Operations Specialist] | U.S. Army\n[ADD: Start Year] – [ADD: End Year]\n• Tracked satellite passes using a training simulator as part of space operations coursework and mission readiness activities.\n• [ADD: Describe any additional duties you performed during your service, including planning, coordination, or reporting tasks.]\n• [ADD: Describe any teams, projects, or operational environments you supported, even in a training capacity.]\n• Applied simulation-based tools to practice monitoring orbital data and satellite movement within a structured training environment.\n• [ADD: Describe any results, performance outcomes, or evaluations tied to your simulator work or training performance.]\n\n[ADD: Earlier Role Title] | U.S. Army\n[ADD: Start Year] – [ADD: End Year]\n• [ADD: Describe duties performed in this role.]\n• [ADD: Describe any responsibilities, tasks, or contributions from this period.]\n• [ADD: Describe any outcomes, environments, or skills developed during this assignment.]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "51C",
+   "title": "Contract and Industrial Management",
+   "lookups": [
+    {
+     "rank": "O-3",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 51C. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      664,
+      614
+     ],
+     "ai_origin": false
+    },
+    {
+     "rank": "O-5",
+     "component": "reserve",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 51C. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      512,
+      410
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": [
+    {
+     "rank": "O-3",
+     "component": null,
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 25498,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "none",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 12017,
+      "chars": 2856,
+      "add_prompts": 12
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Contracting Specialist]\",\"[CONFIRM: Procurement Analyst]\",\"[CONFIRM: Contract Administrator]\"],\"transferableSkills\":[\"Familiarity with contract file structure and documentation review\",\"Exposure to acquisition and procurement concepts through formal coursework\",\"Attention to document detail gained during file review exercises\",\"Understanding of the contracting lifecycle at a foundational level\",\"[ADD: Any additional skills developed during service, such as communication, analysis, or coordination]\",\"[ADD: Any software, tools, or written procedures used during training or duties]\"],\"certifications\":[\"Certified Supply Chain Professional (CSCP)\",\"Certified in Planning and Inventory Management (CPIM)\",\"Six Sigma Green Belt (CSSGB)\"],\"civilianTranslation\":[{\"militarySkill\":\"Contract file review (course context)\",\"civilianEquivalent\":\"Reviewing contract documents for completeness and organization, as practiced during formal training\",\"civilianFunctions\":[\"Examining contract files to understand their structure and required components\",\"Identifying what documentation belongs in a contract file\"],\"verify\":\"Confirm whether you reviewed actual files, practice files, or case studies, and whether you used any written checklists or procedures during that review.\"},{\"militarySkill\":\"Exposure to Contract and Industrial Management concepts\",\"civilianEquivalent\":\"Foundational knowledge of contracting principles as taught in a structured acquisition course\",\"civilianFunctions\":[\"Understanding basic stages of the contracting process\",\"Recognizing the purpose and use of different contract file elements\"],\"verify\":\"Confirm what topics the course covered and whether you completed any graded assessments, case analyses, or practical exercises you could describe to an employer.\"},{\"militarySkill\":\"[ADD: Any procurement or acquisition tasks performed outside of coursework]\",\"civilianEquivalent\":\"[ADD: Describe what you actually did if you performed any on-the-job contracting duties]\",\"civilianFunctions\":[\"[ADD: Specific task or function]\",\"[ADD: Specific task or function]\"],\"verify\":\"Confirm whether you performed any contracting or procurement tasks in an operational or duty assignment, beyond the course described.\"},{\"militarySkill\":\"[ADD: Any analytical or administrative tasks performed during service]\",\"civilianEquivalent\":\"[ADD: Describe the work in plain language if applicable]\",\"civilianFunctions\":[\"[ADD: Specific function]\",\"[ADD: Specific function]\"],\"verify\":\"Confirm whether you used any forms, tracking tools, databases, or written procedures in any duty role during your service that you could speak to in an interview.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nArmy officer with a background in contract and industrial management, bringing a foundation in contract review and acquisition processes to civilian procurement and business operations roles. Disciplined, detail-oriented, and comfortable working within structured regulatory environments where accuracy and compliance matter. Equally effective working independently or as part of a cross-functional team. Ready to contribute immediately to an organization that values sound judgment and a methodical approach to contracts and procurement.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nContract Review                    Acquisition Processes                Compliance Management\nDocument Analysis                  Regulatory Adherence                 Procurement Support\nAttention to Detail                Business Operations                  Risk Awareness\nContract Administration            Organizational Skills                Written Communication\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nCONTRACT AND INDUSTRIAL MANAGEMENT (Army Occupational Code 51C) [CONFIRM: Contracts Analyst, Procurement Specialist, or Acquisition Coordinator] | Army\n[ADD: Start Year] – [ADD: End Year]\n• Reviewed sample contract files during formal coursework in contract and industrial management.\n• [ADD: Describe any contracts work, purchasing activity, or acquisition tasks you performed in your actual assignments, including any systems or databases you used.]\n• [ADD: Describe any coordination you performed with vendors, contracting officers, or other stakeholders, if applicable.]\n• [ADD: Describe any additional duties, collateral assignments, or functional responsibilities you held during your service.]\n• [ADD: Note any measurable contributions, completed projects, or process improvements you were part of, with specific details where possible.]\n\n[ADD: Earlier Position Title, if applicable] | Army\n[ADD: Start Year] – [ADD: End Year]\n• [ADD: Describe responsibilities or tasks from this period of service.]\n• [ADD: Describe any leadership, coordination, or analytical work performed.]\n• [ADD: Include any notable contributions or results, with numbers or specifics if you have them.]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    },
+    {
+     "rank": "O-5",
+     "component": "reserve",
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 24411,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "none",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 10269,
+      "chars": 2275,
+      "add_prompts": 6
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Contracting Specialist — confirm whether your coursework and file review support this title]\",\"[CONFIRM: Procurement Analyst — confirm whether your coursework and file review support this title]\",\"[CONFIRM: Contract Administrator — confirm whether your coursework and file review support this title]\"],\"transferableSkills\":[\"Familiarity with contract file structure and documentation through coursework review\",\"Exposure to contract and industrial management concepts at the field-grade level\",\"Ability to read and interpret contract documents\",\"[ADD: Any analytical, writing, or research skills used during the course]\",\"[ADD: Any collaboration or communication skills developed in a reserve or course setting]\",\"[ADD: Any relevant professional skills from civilian employment during reserve service]\"],\"certifications\":[\"Certified Supply Chain Professional (CSCP)\",\"Certified in Planning and Inventory Management (CPIM)\",\"Six Sigma Green Belt (CSSGB)\"],\"civilianTranslation\":[{\"militarySkill\":\"Contract file review during coursework\",\"civilianEquivalent\":\"Reviewing contract documents for structure, content, and completeness in an academic or training setting\",\"civilianFunctions\":[\"Reading and interpreting contract documentation\",\"Understanding how contract files are organized and what they must contain\"],\"verify\":\"Confirm whether you reviewed real contract files, sample files, or case studies, and whether you produced any written analysis or notes as part of that review.\"},{\"militarySkill\":\"Study of Contract and Industrial Management as an Army occupational specialty\",\"civilianEquivalent\":\"Foundational knowledge of procurement and contracting principles gained through formal military training\",\"civilianFunctions\":[\"Understanding the vocabulary and structure of contract and procurement processes\",\"Recognizing the stages and documentation involved in a contracting lifecycle\"],\"verify\":\"Confirm whether the course covered specific topics such as cost analysis, source selection, or contract types, and whether you completed any graded assessments or practical exercises.\"},{\"militarySkill\":\"[ADD: Any additional tasks performed in a reserve contracting or administrative capacity]\",\"civilianEquivalent\":\"[ADD: Describe what you actually did during drill periods or any activation]\",\"civilianFunctions\":[\"[ADD: Task 1]\",\"[ADD: Task 2]\"],\"verify\":\"Confirm whether you performed any contracting-related duties outside of coursework, such as during drill weekends, annual training, or mobilization.\"},{\"militarySkill\":\"[ADD: Any leadership, coordination, or staff work performed in your reserve role]\",\"civilianEquivalent\":\"[ADD: Describe the scope and nature of that work in plain language]\",\"civilianFunctions\":[\"[ADD: Function 1]\",\"[ADD: Function 2]\"],\"verify\":\"Confirm whether you held any staff planning, advisory, or coordination duties in your unit, and whether you produced any written products such as briefs, analyses, or recommendations.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nArmy Officer with a background in Contract and Industrial Management, bringing disciplined analytical thinking and professional development in acquisition and contracting principles to the civilian workforce. Trained in reviewing contract documentation, with a commitment to accuracy, compliance, and process integrity that translates directly to procurement, contract administration, and vendor management roles. Organized, detail-oriented, and comfortable operating within structured regulatory environments. Ready to deliver careful, compliant contract support from day one.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nContract Review                    Document Analysis                    Regulatory Compliance\nAcquisition Principles             Procurement Support                  Contract Administration\nVendor Management                  Risk Awareness                       Policy Interpretation\nProcess Adherence                  Professional Development              Organizational Skills\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nCONTRACT AND INDUSTRIAL MANAGEMENT [CONFIRM: Contract Analyst / Contracting Officer Representative] | Army\n[ADD: Start Year] – [ADD: End Year]\n• Reviewed sample contract files during formal coursework in Contract and Industrial Management.\n• [ADD: any additional duties, responsibilities, or tasks you performed during your service]\n• [ADD: any systems, tools, or databases you worked with, if applicable]\n• [ADD: number of people you supervised, if any]\n• [ADD: any budgets, contract values, or dollar amounts you were responsible for, if applicable]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    }
+   ]
+  }
+ ]
+}

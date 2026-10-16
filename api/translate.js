@@ -6,6 +6,7 @@ import { getSupabase } from './_lib/db.js'
 import { retrieveReference, referencePromptBlock, parsePayGrade, validateReferenceRequest } from './_lib/milReference.js'
 import { reviewedGenerationReference, NO_REVIEWED_REFERENCE, NO_EMBELLISHMENT, codeIdentityBlock } from './_lib/generationEvidence.js'
 import { CERT_NAMES_FOR_PROMPT, verifyRecommendations } from './_lib/certCatalog.js'
+import { annotateUnsupportedClaims } from './_lib/claimLint.js'
 
 const JUNIOR_YOS = ['Less than 1 year', '1–2 years']
 
@@ -190,8 +191,9 @@ Return only the resume text. No markdown, no extra commentary.`
       })
       const data = await r.json()
       if (data.error) return res.status(400).json({ error: data.error.message })
-      const resume = (data.content || []).map(i => i.text || '').join('')
-      return res.status(200).json({ resume })
+      const raw = (data.content || []).map(i => i.text || '').join('')
+      const { text: resume, flagged } = annotateUnsupportedClaims(raw, [milDuties, branch, mos, rank, yos].filter(Boolean).join(' '))
+      return res.status(200).json({ resume, unsupportedClaimLines: flagged.length })
     } catch {
       return res.status(500).json({ error: 'Resume generation failed. Please try again.' })
     }

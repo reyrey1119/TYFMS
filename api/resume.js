@@ -2,6 +2,7 @@
 
 import { reviewedGenerationReference, NO_REVIEWED_REFERENCE, NO_EMBELLISHMENT, codeIdentityBlock } from './_lib/generationEvidence.js'
 import { officialTitle } from './_lib/armyCodeStatus.js'
+import { annotateUnsupportedClaims } from './_lib/claimLint.js'
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
 import { retrieveReference, referencePromptBlock, validateReferenceRequest } from './_lib/milReference.js'
@@ -360,8 +361,14 @@ Return only the CV text — no preamble, no commentary, no markdown.`
     })
     const data = await r.json()
     if (data.error) return res.status(400).json({ error: data.error.message })
-    const resume = (data.content || []).map(i => i.text || '').join('')
-    return res.status(200).json({ resume })
+    const raw = (data.content || []).map(i => i.text || '').join('')
+    // Everything the person supplied (NOT the job posting, which is third-party text) is what a claim word may rest on.
+    const supplied = [milDuties, additionalContext, additionalSkills, awards, clearance, summaryTone, vaultContext, jstContext,
+      ...(Array.isArray(prevJobs) ? prevJobs.map(j => `${j.title || ''} ${j.employer || ''} ${j.description || ''}`) : []),
+      ...(Array.isArray(milPositions) ? milPositions.map(p => `${p.title || ''} ${p.duties || ''}`) : []),
+      cvExtras ? JSON.stringify(cvExtras) : '', mos, rank, branch, positionLine].filter(Boolean).join(' ')
+    const { text: resume, flagged } = annotateUnsupportedClaims(raw, supplied)
+    return res.status(200).json({ resume, unsupportedClaimLines: flagged.length })
   } catch {
     return res.status(500).json({ error: 'Resume generation failed. Please try again.' })
   }
