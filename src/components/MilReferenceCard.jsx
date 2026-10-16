@@ -102,7 +102,6 @@ export default function MilReferenceCard({
     training: 'Recommended training (not proof it was completed)', credentials: 'Recommended credentials (not proof they were earned)',
     self_development: 'Self-development', lifelong_learning: 'Lifelong learning', development: 'Career development guidance', prerequisites: 'Prerequisites',
   }
-  const COMPONENT_TITLES = { active: 'Active', reserve: 'Reserve', guard: 'National Guard' }
 
   return (
     <Box tone={tone}>
@@ -132,7 +131,6 @@ export default function MilReferenceCard({
 
       {data.codeNote && <p style={{ fontSize: 12, color: '#5C5646', marginBottom: 6 }}>{data.codeNote}</p>}
       {data.rank_note && <p style={{ fontSize: 12, color: '#5C5646', marginBottom: 6 }}>{data.rank_note}</p>}
-      {data.componentNote && <p style={{ fontSize: 12, color: '#8A5416', marginBottom: 6 }}>{data.componentNote}</p>}
 
       <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.5, marginBottom: (sections.length || hasDraftText) ? 6 : 0 }}>
         This is background information about the specialty. Only sections explicitly labeled for a grade describe that grade. It is not a record of what <em>you</em> did, and recommended training or assignments are not proof anyone completed them.
@@ -150,7 +148,6 @@ export default function MilReferenceCard({
                   <p style={{ fontWeight: 700, color: '#211F19' }}>
                     {SECTION_TITLES[sec.section] || sec.section}{sec.heading ? ` — ${sec.heading}` : ''}
                     {sec.rankBand && <span style={{ fontWeight: 400, color: '#8F8768' }}> · {sec.rankBand}</span>}
-                    {sec.components && <span style={{ fontWeight: 400, color: '#8F8768' }}> · {sec.components.split(',').map(c => COMPONENT_TITLES[c] || c).join(' / ')}</span>}
                   </p>
                   <p style={{ whiteSpace: 'pre-wrap' }}>{sec.text}</p>
                   <p style={{ fontSize: 11, color: '#8F8768' }}>

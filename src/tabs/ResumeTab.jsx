@@ -6,7 +6,7 @@ import { withAdBreak } from '../lib/appAds'
 import { trackEvent } from '../lib/analytics'
 import MilReferenceCard from '../components/MilReferenceCard'
 import { makeLatestGuard, makeSingleFlight } from '../lib/latestOnly'
-import { COMPONENT_OPTIONS, splitLegacyBranch, isJuniorContext, rankProblem } from '../lib/rank'
+import { splitLegacyBranch, isJuniorContext, rankProblem } from '../lib/rank'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -43,7 +43,6 @@ function initForm(prefill) {
     name: '', email: '', phone: '', location: '', linkedin: '',
     jobUrl: '', jobDescription: '',
     branch: prefill?.branch || 'Army',
-    component: prefill?.component || '',
     confirmReference: false,
     mos: prefill?.mos || '',
     rank: prefill?.rank || '',
@@ -579,7 +578,7 @@ export default function ResumeTab({ prefill }) {
 
   useEffect(() => {
     if (!prefill) return
-    setForm(prev => ({ ...prev, branch: prefill.branch || 'Army', component: prefill.component || prev.component, mos: prefill.mos || prev.mos, rank: prefill.rank || prev.rank, yos: prefill.yos || prev.yos, milDuties: prefill.milDuties || prev.milDuties }))
+    setForm(prev => ({ ...prev, branch: prefill.branch || 'Army', mos: prefill.mos || prev.mos, rank: prefill.rank || prev.rank, yos: prefill.yos || prev.yos, milDuties: prefill.milDuties || prev.milDuties }))
     setStep(2)
   }, [prefill])
 
@@ -596,7 +595,6 @@ export default function ResumeTab({ prefill }) {
       setForm(prev => ({
         ...prev,
         branch: saved.branch && BRANCHES.includes(saved.branch) ? saved.branch : prev.branch,
-        component: saved.component || prev.component,
         rank: profile.rank || prev.rank,
       }))
       setProfileApplied(true)
@@ -612,14 +610,14 @@ export default function ResumeTab({ prefill }) {
     if (step !== 3) return
     if (!form.mos.trim()) { setMilRefStatus('idle'); return }
     if (!form.rank) { setMilRefStatus('needs_rank'); return }
-    const { mos, branch, component, rank } = { mos: form.mos.trim(), branch: form.branch, component: form.component, rank: form.rank }
+    const { mos, branch, rank } = { mos: form.mos.trim(), branch: form.branch, rank: form.rank }
     const ticket = refGuard.current.next()
     const timer = setTimeout(async () => {
       setMilRefStatus('loading')
       try {
         const r = await fetch('/api/resume-tools', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'mil-reference', branch, component, mos_afsc: mos, rank }),
+          body: JSON.stringify({ action: 'mil-reference', branch, mos_afsc: mos, rank }),
         })
         const data = await r.json()
         if (!refGuard.current.isCurrent(ticket)) return
@@ -628,7 +626,7 @@ export default function ResumeTab({ prefill }) {
       } catch { if (refGuard.current.isCurrent(ticket)) setMilRefStatus('failed') }
     }, 700)
     return () => clearTimeout(timer)
-  }, [step, form.mos, form.rank, form.branch, form.component])
+  }, [step, form.mos, form.rank, form.branch])
 
   function set(field, val) {
     setForm(prev => ({ ...prev, [field]: val }))
@@ -677,7 +675,6 @@ export default function ResumeTab({ prefill }) {
           summaryTone: form.summaryTone,
           additionalContext: form.additionalContext.trim(),
           jobDescription: jobContext,
-          component: form.component,
           confirmReferenceDuties: !!form.confirmReference,
           milDuties: form.milDuties.trim(),
           education: form.education.filter(e => e.school.trim() || e.degreeType),
@@ -949,11 +946,7 @@ export default function ResumeTab({ prefill }) {
                 </select>
               </F>
             </div>
-            <F label="Component" hint="(optional)">
-              <select value={form.component} onChange={e => set('component', e.target.value)}>
-                {COMPONENT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-              </select>
-            </F>
+
             <F label="Security clearance" mb={0}>
               <select value={form.clearance} onChange={e => set('clearance', e.target.value)}>
                 <option value="">None / Not applicable</option>

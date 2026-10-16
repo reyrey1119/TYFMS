@@ -516,7 +516,6 @@ export function referencePromptBlock(ref, { confirmed = false } = {}) {
       ? 'The person has CONFIRMED they performed the typical duties above. You may write them as performed, in civilian language. Assignments, training and credentials are still only what is recommended or possible unless the person said otherwise.'
       : 'The person has NOT confirmed which of these duties they performed. Use the reference for vocabulary and context only. Write about duties only when the person described them; otherwise phrase as what the role typically involves, or leave a bracketed [ADD: ...] prompt.',
     ref.rank_note,
-    ref.componentNote,
   ]
   return '\n\n' + lines.filter(Boolean).join('\n')
 }

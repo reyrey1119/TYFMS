@@ -6,7 +6,7 @@ import { supabase } from '../lib/supabase'
 import { trackEvent } from '../lib/analytics'
 import MilReferenceCard from '../components/MilReferenceCard'
 import { makeLatestGuard, makeSingleFlight } from '../lib/latestOnly'
-import { COMPONENT_OPTIONS, splitLegacyBranch, isJuniorContext, rankProblem } from '../lib/rank'
+import { splitLegacyBranch, isJuniorContext, rankProblem } from '../lib/rank'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 
@@ -50,13 +50,11 @@ const [branch, setBranch] = useState('Army')
 const [mos, setMos] = useState('')
 const [rank, setRank] = useState('')
 
-const [component, setComponent] = useState('')
 const [profileApplied, setProfileApplied] = useState(false)
 useEffect(() => {
 if (!profile || profileApplied) return
 const saved = splitLegacyBranch(profile.branch)
 if (saved.branch && BRANCHES.includes(saved.branch)) setBranch(saved.branch)
-if (saved.component) setComponent(saved.component)
 if (profile.rank) setRank(profile.rank)
 if (profile.mos) setMos(profile.mos)
 setProfileApplied(true)
@@ -87,7 +85,7 @@ try {
 const r = await fetch('/api/resume-tools', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ action: 'mil-reference', branch, component, mos_afsc: mos.trim(), rank }),
+body: JSON.stringify({ action: 'mil-reference', branch, mos_afsc: mos.trim(), rank }),
 })
 const data = await r.json()
 if (!refGuard.current.isCurrent(ticket)) return
@@ -96,7 +94,7 @@ setMilRefData(data); setMilRefStatus('done')
 } catch { if (refGuard.current.isCurrent(ticket)) setMilRefStatus('failed') }
 }, 700)
 return () => clearTimeout(timer)
-}, [mos, rank, branch, component])
+}, [mos, rank, branch])
 
 // Resume builder state
 const [resumeLoading, setResumeLoading] = useState(false)
@@ -119,7 +117,7 @@ try {
 const r = await fetch('/api/translate', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ action: 'translate', branch, component, mos: mos.trim(), rank, yos, existingCerts, milDuties: milDuties.trim(), vaultContext: vaultContext || undefined }),
+body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos, existingCerts, milDuties: milDuties.trim(), vaultContext: vaultContext || undefined }),
 })
 const data = await r.json()
 if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
@@ -146,7 +144,7 @@ try {
 const r = await fetch('/api/translate', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ action: 'resume', branch, component, mos, rank, yos, milDuties: milDuties.trim(), ...results }),
+body: JSON.stringify({ action: 'resume', branch, mos, rank, yos, milDuties: milDuties.trim(), ...results }),
 })
 const data = await r.json()
 if (!r.ok) { setResumeError(data.error || 'Something went wrong.'); return }
@@ -269,12 +267,7 @@ placeholder="e.g. 25U, 6F0X1, IT"
 </select>
 </div>
 </div>
-<div style={{ marginBottom: 16 }}>
-<label>Component (optional)</label>
-<select value={component} onChange={e => setComponent(e.target.value)}>
-{COMPONENT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-</select>
-</div>
+
 <div style={{ marginBottom: 16 }}>
 <label style={{ display: 'block', marginBottom: 8 }}>
 Certifications you already hold{' '}
@@ -448,7 +441,7 @@ Ready to build your full resume?
 Your branch, MOS, rank, and years of service will be pre-filled automatically.
 </p>
 <button
-onClick={() => onGoToResume && onGoToResume({ branch, component, mos, rank, yos, milDuties: milDuties.trim() })}
+onClick={() => onGoToResume && onGoToResume({ branch, mos, rank, yos, milDuties: milDuties.trim() })}
 style={{
 width: '100%', padding: '13px 20px', background: '#C07A28',
 border: 'none', borderRadius: 10, color: '#fff', fontSize: 14,
