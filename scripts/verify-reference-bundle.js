@@ -52,7 +52,7 @@ result.checks.verbatimOnClaimedPages = verbatim
 let overlaps = 0
 const seen = new Map()
 for (const p of bundle.passages) {
-  const key = [p.occupation_code, p.personnel_category, p.section_type, p.rank_band, p.components, normalizeSpace(p.body)].join('|')
+  const key = [p.occupation_code, p.personnel_category, p.section_type, p.rank_band, p.components, p.effective_from ?? '', p.effective_to ?? '', normalizeSpace(p.body)].join('|')
   if (seen.has(key)) { overlaps++; result.failures.push(`DUPLICATE passage stored twice: [${p.occupation_code} ${p.section_type} ${p.rank_band || '-'}] "${normalizeSpace(p.body).slice(0, 50)}…"`) }
   seen.set(key, true)
 }

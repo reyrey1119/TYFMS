@@ -1,6 +1,6 @@
 # Military reference sources — what is imported, what is verified, what is not
 
-Last updated 2026-10-15. If something is not listed as verified, it is not verified.
+Last updated 2026-10-16. If something is not listed as verified, it is not verified.
 
 ## How lookups work (unchanged architecture)
 
@@ -32,6 +32,34 @@ The CMF 42 file supplied by the project owner is byte-identical (same SHA-256) t
 **Chapters deliberately not imported** (listed per bundle in `data/reference/bundles/*.bundle.json` → `report.skippedChapters`): CMF-wide overviews (Ch. 1–2), pointer-only chapters (Ch. 5), and in CMF 42 every other MOS — 42R musician, 42S special bands, 42T talent acquisition (Ch. 7–15, PDF pp. 15–79). They are present in the PDF and absent from the registry, and a test asserts none of their text can appear in a 42A result.
 
 **Mapping decision to confirm:** CMF-wide "Recommended career management, by rank" (Ch. 3) is attached to the document's own MOS (42A, 36B). It is general CMF guidance, so a reviewer should confirm that attachment.
+
+## DA PAM 611-21: the primary source for every Army specialty (added 2026-10-16)
+
+The Army's classification pamphlet (Smartbook, **November 2025**; chapter files posted to api.army.mil on 2025-12-04; no day is printed, so the 1st is stored) states what every enlisted MOS, warrant officer specialty and officer AOC does. It is the one uniform source, so it is what lets **MOS/AOC + rank alone** produce a translation without the person typing duties. The G-1 page lists no newer or superseding edition (checked 2026-10-16; Appendix A is a 2022 file and is not used).
+
+| Imported chapter | Passages | Specialties with text | What is stored |
+|---|---|---|---|
+| Ch. 10c, enlisted MOS specifications | 853 | 194 codes (178 current) | "Major duties" and the duties of each skill level, mapped to grades by Table 9-2 (SL1 = E-1..E-4, SL2 = E-5 ... SL6 = E-9) |
+| Ch. 8b, warrant officer specifications | 286 | 75 codes (75 current) | Duties for WO1/CW2, CW3, CW4, CW5 |
+| Ch. 3, officer branches and functional areas | 365 | 168 codes (157 current) | Description of duties, special grading of positions, unique duty positions |
+
+Where a specification changes on a stated date ("Effective 202610") each passage carries its own effective window and only the one in force today is returned (e.g. 92Y). Skill-level text that says "performs the duties of the preceding level" brings the lower level along, marked as included for that reason. Requirements, physical demands, ASIs, restrictions and standards-of-grade tables are **not** imported (they are rules about the MOS, not what it does). Lines skipped from each block are counted in `data/reference/bundles/army-611-21-*.bundle.json` → `report`.
+
+**How it was checked.** (1) Every passage is verbatim on the PDF pages it cites, re-read independently by `scripts/verify-reference-bundle.js` (853/853, 286/286, 365/365; zero duplicates; `CLASS611_DIR=… npm test` repeats it). (2) Structure checks: every `(n) MOSC xxY n O` skill-level paragraph in the chapter text is either stored or is a "(Personnel Only)" administrative level; no passage contains a requirements-section label; stored grades compared with the structure chart. (3) Visual comparison of rendered PDF pages with the stored text, **27 pages**: the 8 enlisted MOS, 5 warrant specialties and 6 officer AOCs drawn at random (seed `review-611-21-2026-10-16`; 17X has no description) plus 92Y (two dated versions), 351L, 923A, 89E, 90A. It found and fixed: stray printed page numbers inside text, requirements text swallowed into the last skill level, a two-column layout joining one section's label to another's text, a trailing "Major" fragment, and sections the PDF prints twice. This was done by an AI model, not a human subject-matter expert; the review record is in `data/reference/approvals.json`. It is a sample plus complete automated checks, not a page-by-page review of the roughly 700 pages involved.
+
+**Gaps (exact).**
+- Officer AOCs with no description in the chapter (30 of 187 current): 17X, 37X, 38X, 46X, 48X, 49W, 49X, 50A, 56X, 60V, 64Z, 65X (designation / immaterial codes and sections the pamphlet does not describe), and the Health Services functional areas 70A-70K, 71A-71F, 72A-72D, 73A-73B (listed only in the structure chart). These get the official title and a request for the person's own tasks.
+- Warrant grades where the pamphlet gives no duties of its own: 919A CW3 ("See MOS 915T") and 915E CW4. 140X is a MOS-immaterial code.
+- Enlisted codes the pamphlet describes only with "major duties" and no per-grade text (about 18 current ones, e.g. 12A, 15K, 31Z, 51C): general duties only, and the answer says no grade-specific text exists.
+- 35Z and 46Y have text only at their senior grades.
+- Rescinded, future-effective, special-reporting and immaterial codes get no current specialty reference by design.
+- DA PAM 600-25 / 600-3 career-development guidance (training, credentials, assignments by rank) is still imported for only 42A, 36B and 36A. The other guides in the collected set (59 enlisted and about 40 officer files) are not imported. A guide is also only a place to look: 32 current enlisted MOS have a guide older than their latest classification change.
+- Component-specific guidance (Reserve/Guard) exists only in those three guides and is not shown, because the component choice was removed from the app.
+- Air Force and the other services remain deferred.
+
+## Where the data lives at run time
+
+The reviewed data **ships with the app** (`api/_lib/referenceStore.data.js`, generated by `scripts/build-reference-store.js` from `data/reference/approvals.json` + the bundles). The build refuses a bundle whose content fingerprint differs from the reviewed one, and a test fails if the committed file is out of date. Lookups read it directly: no database, download or model call. The Supabase registry (migrations 004-007, `data/reference/sql/01-install.sql` and `02-approve.sql`) is still supported and is read in addition; a source that exists in both is read from the shipped copy. Claude has no database connection and by design does not pull the service-role key out of Vercel, so the SQL has **not** been run: running it is optional now, and is only needed if you want the same data visible in the database.
 
 ## What was checked, and how
 

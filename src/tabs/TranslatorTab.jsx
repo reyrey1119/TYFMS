@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
+import ResumeNotice from '../components/ResumeNotice'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import { trackEvent } from '../lib/analytics'
 import { makeLatestGuard, makeSingleFlight } from '../lib/latestOnly'
 import { splitLegacyBranch, isJuniorContext, rankProblem } from '../lib/rank'
+import { referenceUsable, entryOrigin, sourceLine } from '../lib/reference'
 
 const BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
 
@@ -109,8 +111,10 @@ async function doTranslate() {
 if (!mos.trim()) { setError('Please enter your MOS, AFSC, or rate code.'); return }
 const rp = rankProblem(rank)
 if (rp) { setError(rp); return }
-if (milRefData?.status !== 'verified' && !milDuties.trim() && !vaultContext.trim()) {
-setError('Add a few tasks you performed or trained on so we can translate your experience.');
+// MOS/AOC + rank is enough when the official publication has a description for them; the server decides.
+// Only stop here when the lookup has finished and found nothing usable and the person gave us nothing else.
+if (!referenceUsable(milRefData) && milRefStatus === 'done' && !milDuties.trim() && !vaultContext.trim()) {
+setError(milRefData?.message || 'Add a few tasks you performed or trained on so we can translate your experience.');
 dutiesInput.current?.focus();
 return
 }
@@ -125,7 +129,11 @@ headers: { 'Content-Type': 'application/json' },
 body: JSON.stringify({ action: 'translate', branch, mos: mos.trim(), rank, yos, existingCerts, milDuties: milDuties.trim(), vaultContext: vaultContext || undefined }),
 })
 const data = await r.json()
-if (!r.ok) { setError(data.error || 'Something went wrong.'); return }
+if (!r.ok) {
+setError(data.error || 'Something went wrong.')
+if (data.status === 'needs_experience') dutiesInput.current?.focus()
+return
+}
 setResults(data)
 trackEvent('translate_completed', { branch, has_certs: existingCerts.length > 0 })
 if (useDb && saveProfile) {
@@ -149,7 +157,7 @@ try {
 const r = await fetch('/api/translate', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ action: 'resume', branch, mos, rank, yos, milDuties: milDuties.trim(), ...results }),
+body: JSON.stringify({ action: 'resume', branch, mos, rank, yos, milDuties: milDuties.trim(), vaultContext: vaultContext || undefined, ...results }),
 })
 const data = await r.json()
 if (!r.ok) { setResumeError(data.error || 'Something went wrong.'); return }
@@ -332,7 +340,7 @@ style={{ background: 'none', border: 'none', color: '#0A7868', cursor: 'pointer'
 <div style={{ marginBottom: 12 }}>
 <label style={{ display: 'block', marginBottom: 6 }}>
 {isJuniorContext(rank, yos) ? 'What have you trained on, practiced, or actually done?' : 'What did you actually do?'}{' '}
-<span style={{ fontSize: 11, color: '#8F8768', fontWeight: 400 }}>{milRefData?.status === 'verified' || vaultContext ? '(optional — add detail to personalize your results)' : '(add a few tasks to translate your experience)'}</span>
+<span style={{ fontSize: 11, color: '#8F8768', fontWeight: 400 }}>{referenceUsable(milRefData) || vaultContext || milRefStatus !== 'done' ? '(optional — add detail to personalize your results)' : '(add a few tasks to translate your experience)'}</span>
 </label>
 <textarea
 ref={dutiesInput}
@@ -360,9 +368,11 @@ style={{ width: '100%', fontSize: 13, borderRadius: 6, border: '1px solid #C2B58
 <div style={{ marginBottom: 20 }}>
 <p className="cat-label">How this translates to civilian work</p>
 <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 10 }}>
-{results.civilianTranslation.map((t, i) => (
+{[...results.civilianTranslation].sort((a, b) => (a.basis === 'personal' ? 0 : 1) - (b.basis === 'personal' ? 0 : 1)).map((t, i) => (
 <div key={i} className="card" style={{ padding: '12px 14px' }}>
-<p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', color: '#8F8768', marginBottom: 2 }}>Military skill or task</p>
+<p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', color: t.basis === 'personal' ? '#0A7868' : '#8F8768', marginBottom: 2 }}>
+{t.basis === 'personal' ? 'Your experience' : 'Typical for your specialty and rank'} · {entryOrigin(t)}
+</p>
 <p style={{ fontWeight: 600, fontSize: 14, marginBottom: 8, color: '#211F19' }}>{t.militarySkill}</p>
 <p style={{ fontSize: 13, color: '#211F19', lineHeight: 1.6, marginBottom: 6 }}>{t.civilianEquivalent}</p>
 {t.civilianFunctions && t.civilianFunctions.length > 0 && (
@@ -375,8 +385,10 @@ style={{ width: '100%', fontSize: 13, borderRadius: 6, border: '1px solid #C2B58
 ))}
 </div>
 <p style={{ fontSize: 11, color: '#8F8768', marginTop: 8, lineHeight: 1.5 }}>
-These are examples of where your skills can apply, not job-placement promises. Only claim what you actually did.
+{results.translationBasis?.personal ? '' : 'Nothing here is based on your own tasks yet: these describe what the role typically involves. Add what you actually did above and translate again to personalize it. '}
+{sourceLine(results.reference)} These are examples of where your skills can apply, not job-placement promises. Only claim what you actually did.
 </p>
+{results.reference?.gradeNote && <p style={{ fontSize: 11, color: '#8F8768', marginTop: 4, lineHeight: 1.5 }}>{results.reference.gradeNote}</p>}
 </div>
 )}
 
@@ -463,6 +475,7 @@ civilian language — ready to customize with your actual details.
 
 {resume && (
 <div style={{ marginTop: 16 }}>
+<ResumeNotice text={resume} />
 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, flexWrap: 'wrap', gap: 8 }}>
 <p style={{ fontSize: 13, fontWeight: 500, color: '#211F19' }}>Your resume draft</p>
 <div style={{ display: 'flex', gap: 8 }}>

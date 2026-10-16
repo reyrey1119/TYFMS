@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import AdUnit from '../components/AdUnit'
+import ResumeNotice from '../components/ResumeNotice'
 import { withAdBreak } from '../lib/appAds'
 import { trackEvent } from '../lib/analytics'
 import { makeLatestGuard, makeSingleFlight } from '../lib/latestOnly'
@@ -1252,6 +1253,7 @@ export default function ResumeTab({ prefill }) {
 
         {resume && (
           <div style={{ marginTop: 16 }}>
+            <ResumeNotice text={resume} />
             <div style={{ display: 'flex', gap: 10, marginBottom: 12, flexWrap: 'wrap' }}>
               <button onClick={downloadPDF} style={{ flex: '1 1 160px', padding: '13px 20px', background: '#1B3A6B', border: 'none', borderRadius: 10, color: '#fff', fontSize: 14, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
                 ⬇ Download PDF

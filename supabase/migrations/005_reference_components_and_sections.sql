@@ -32,7 +32,8 @@ alter table public.reference_passages
     'credentials',         -- recommended civilian credentials/certifications
     'development',         -- general career-development guidance
     'prerequisites',
-    'promotion_criteria'
+    'promotion_criteria',
+    'grades_authorized'    -- added with 007; listed here too so re-running 005 after 007 never rejects existing rows
   ));
 
 -- Where in the document this came from, and a fingerprint for review diffs.

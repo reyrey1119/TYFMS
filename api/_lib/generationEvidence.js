@@ -1,8 +1,9 @@
-// Official specialty context must come from a reviewed, recently checked source.
-// Legacy rows and model-written drafts may be displayed with their warning, but
-// must not become authoritative inputs to either generator.
+// Official specialty context must come from a reviewed source of an official publication.
+// Legacy rows and model-written drafts may be displayed with their warning, but must not become
+// authoritative inputs to either generator. A reviewed source that has simply not been re-checked recently
+// ('stale') is still the official text; it is used, and the person is told it was last checked on a given date.
 export function reviewedGenerationReference(reference) {
-  return reference?.status === 'verified' && reference.sections?.length
+  return (reference?.status === 'verified' || reference?.status === 'stale') && reference.sections?.length
     ? reference
     : null
 }

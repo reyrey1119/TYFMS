@@ -19,9 +19,10 @@
 // Files under api/_lib/ are not deployed as their own Vercel Functions, so this
 // is safe to import from handlers.
 
-import { armyCodeStatus, describeCodeStatus } from './armyCodeStatus.js'
+import { armyCodeStatus, describeCodeStatus, authorizedGrades } from './armyCodeStatus.js'
+import { bundledPassages, bundledSource } from './referenceStore.js'
 
-export const SCHEMA_VERSION = 'ref-v3'
+export const SCHEMA_VERSION = 'ref-v4'
 export const STALE_AFTER_DAYS = 135 // ~ one quarter plus slack for the quarterly check
 
 export const SUPPORTED_BRANCHES = ['Army', 'Air Force', 'Navy', 'Marine Corps', 'Coast Guard', 'Space Force']
@@ -73,8 +74,8 @@ export function rankBandContains(band, payGrade) {
 
 // Cache keys carry everything that can change the answer, so an E-5 result can
 // never be served to an E-7 and a revised publication never hits an old entry.
-export function buildCacheKey({ branch, component, category, occupation, payGrade, sourceVersion }) {
-  return [SCHEMA_VERSION, branch, component || 'any', category, occupation, payGrade, sourceVersion || 'none'].join('|')
+export function buildCacheKey({ branch, component, category, occupation, payGrade, sourceVersion, asOf }) {
+  return [SCHEMA_VERSION, branch, component || 'any', category, occupation, payGrade, sourceVersion || 'none', ...(asOf ? [asOf] : [])].join('|')
 }
 
 // Validates the user-supplied fields. Returns { ok:true, req } or { ok:false, result }.
@@ -201,6 +202,7 @@ const SECTION_FIELDS = {
   lifelong_learning: 'lifelong_learning',
   development: 'development_notes',
   prerequisites: 'prerequisites',
+  grades_authorized: 'grades_authorized',
 }
 
 export const SECTION_LABELS = {
@@ -213,12 +215,13 @@ export const SECTION_LABELS = {
   lifelong_learning: 'Lifelong learning',
   development: 'Career development guidance',
   prerequisites: 'Prerequisites',
+  grades_authorized: 'Special grading of positions (what grade positions are coded at)',
 }
 
 const EMPTY_FIELDS = {
   duties_and_responsibilities: '', rank_specific_expectations: '', training_recommendations: '',
   credential_recommendations: '', developmental_assignments: '', self_development: '',
-  lifelong_learning: '', development_notes: '', prerequisites: '', key_skills: '',
+  lifelong_learning: '', development_notes: '', prerequisites: '', grades_authorized: '', key_skills: '',
 }
 
 // null/'' = applies to every component. A request with no component only
@@ -236,18 +239,54 @@ function pdfPageLabel(p) {
   return p.pdf_page_end && p.pdf_page_end > p.pdf_page_start ? `${p.pdf_page_start}-${p.pdf_page_end}` : String(p.pdf_page_start)
 }
 
+const dayOf = now => new Date(now).toISOString().slice(0, 10)
+
+// A passage can carry its own effective window (a specification that changes on a stated date).
+export function passageInForce(p, day) {
+  return (!p.effective_from || p.effective_from <= day) && (!p.effective_to || day < p.effective_to)
+}
+
+function lowestGrade(band) {
+  const first = String(band || '').split(',')[0].split('..')[0]
+  return parsePayGrade(first)?.grade ?? null
+}
+
+// Duties written "also performs the duties of the lower level" are chained down so the lower level's text is
+// included with it, from the same source and the same version of the specification.
+function chainLower(selected, live) {
+  const out = [...selected]
+  const have = new Set(selected)
+  for (const start of selected.filter(p => p.cumulative && p.section_type === 'rank_duties')) {
+    let cur = start
+    while (cur && cur.cumulative) {
+      const curLow = lowestGrade(cur.rank_band)
+      const lower = live
+        .filter(q => q.source_id === cur.source_id && q.section_type === 'rank_duties' && q.occupation_code === cur.occupation_code
+          && (q.effective_from || null) === (cur.effective_from || null) && q.rank_band && lowestGrade(q.rank_band) !== null && lowestGrade(q.rank_band) < curLow)
+        .sort((a, b) => lowestGrade(b.rank_band) - lowestGrade(a.rank_band))[0]
+      if (!lower) break
+      if (!have.has(lower)) { out.push({ ...lower, _included_for: cur.rank_band }); have.add(lower) }
+      cur = lower
+    }
+  }
+  return out
+}
+
 // Build the displayed sections. Every section carries the id of the source it
 // came from; the field strings below are only a convenience view of the same
 // sections and never merge text across sources without saying which.
-function assembleFromPassages(passages, req) {
-  const eligible = passages.filter(p => SECTION_FIELDS[p.section_type] && rankBandContains(p.rank_band, req.payGrade))
+function assembleFromPassages(passages, req, now) {
+  const day = dayOf(now)
+  const live = passages.filter(p => passageInForce(p, day))
+  const direct = live.filter(p => SECTION_FIELDS[p.section_type] && rankBandContains(p.rank_band, req.payGrade))
+  const eligible = chainLower(direct, live)
   const shown = eligible.filter(p => componentMatches(p.components, req.component))
-  const hidden = eligible.filter(p => !componentMatches(p.components, req.component))
-  shown.sort((a, b) => (a.source_id === b.source_id ? 0 : String(a.source_id) < String(b.source_id) ? -1 : 1) || (a.sort_order || 0) - (b.sort_order || 0))
+  const bandOrder = p => (lowestGrade(p.rank_band) ?? -1)
+  shown.sort((a, b) => (a.source_id === b.source_id ? 0 : String(a.source_id) < String(b.source_id) ? -1 : 1) || (a.section_type === 'rank_duties' && b.section_type === 'rank_duties' ? bandOrder(b) - bandOrder(a) : 0) || (a.sort_order || 0) - (b.sort_order || 0))
 
   const sections = shown.map(p => ({
     section: p.section_type,
-    heading: p.heading || null,
+    heading: (p.heading || null) && (p._included_for ? `${p.heading} (included because the ${p._included_for} text also covers the lower level)` : p.heading),
     rankBand: p.rank_band || null,
     components: p.components || null,
     chapter: p.chapter || null,
@@ -255,6 +294,8 @@ function assembleFromPassages(passages, req) {
     pdfPages: pdfPageLabel(p),
     printedPage: p.printed_page || null,
     sourceId: p.source_id,
+    ...(p._included_for ? { includedForLowerLevel: true } : {}),
+    ...(p.skill_level ? { skillLevel: p.skill_level } : {}),
   }))
 
   const fields = { ...EMPTY_FIELDS }
@@ -264,41 +305,67 @@ function assembleFromPassages(passages, req) {
     fields[key] = fields[key] ? `${fields[key]}\n\n${piece}` : piece
   }
 
-  const hiddenComponents = [...new Set(hidden.flatMap(p => String(p.components).split(',').map(c => c.trim())))]
-  const componentNote = !req.component && hiddenComponents.length
-    ? `This source also has guidance specific to ${hiddenComponents.map(c => COMPONENT_NAMES[c] || c).join(', ')}. Choose your component to include it.`
-    : null
-
   return {
     duty_title: (shown.find(p => p.occupation_title) || eligible.find(p => p.occupation_title) || {}).occupation_title || '',
     sections,
     hasRankSection: sections.some(s => s.rankBand),
-    componentNote,
+    componentNote: null,
     ...fields,
   }
 }
 
+// What the publication says about THIS grade, in plain words, when there is no grade-specific text to show.
+function gradeNote(req, content) {
+  const range = req.branch === 'Army' ? authorizedGrades(req.category, req.occupation) : null
+  const rangeText = range ? ` DA PAM 611-21 lists ${req.occupation} for ${range.replace('..', ' to ')}.` : ''
+  if (content.hasRankSection) return range && !rankBandContains(range, req.payGrade) ? `${req.payGrade} is outside the grades DA PAM 611-21 lists for ${req.occupation} (${range.replace('..', ' to ')}).` : null
+  if (range && !rankBandContains(range, req.payGrade)) return `${req.payGrade} is outside the grades DA PAM 611-21 lists for ${req.occupation} (${range.replace('..', ' to ')}); the description below is general and rank-level scope is not assumed.`
+  if (req.category === 'officer') {
+    return `DA PAM 611-21 describes this AOC in general rather than grade by grade, so the description below applies to every grade it is authorized at.${rangeText}`
+  }
+  return `DA PAM 611-21 gives no separate duties for ${req.payGrade} in this specialty; only the general description is shown, and rank-level scope is not assumed.${rangeText}`
+}
+
 async function fromRegistry(supabase, req, code, now) {
-  const { ids, registryAvailable } = await findPassageSourceIds(supabase, req, code)
-  if (!registryAvailable || ids.length === 0) return null
-  const sources = await loadApprovedSources(supabase, ids, now)
+  // 1. Reference data that ships with the app (reviewed; fingerprint-checked when built).
+  const shipped = bundledPassages(req.branch, req.category, code)
+  const shippedSources = [...new Set(shipped.map(p => p.source_id))].map(bundledSource)
+    .filter(s => s && (!s.effective_date || Date.parse(s.effective_date) <= now))
+
+  // 2. Approved rows in the Supabase registry. A source that also ships with the app is read from the app copy.
+  let dbSources = []
+  if (supabase) {
+    try {
+      const { ids } = await findPassageSourceIds(supabase, req, code)
+      const dbIds = ids.filter(id => !bundledSource(id))
+      if (dbIds.length) dbSources = await loadApprovedSources(supabase, dbIds, now)
+    } catch (err) {
+      if (shippedSources.length === 0) throw err
+      console.error('[mil-reference] registry unavailable, using bundled reference data only:', err.message)
+    }
+  }
+  const sources = [...shippedSources, ...dbSources]
   if (sources.length === 0) return null
 
-  const key = buildCacheKey({ ...req, occupation: code, sourceVersion: sourceVersionTag(sources) })
+  const key = buildCacheKey({ ...req, occupation: code, sourceVersion: sourceVersionTag(sources), asOf: dayOf(now) })
   let content
   const hit = registryCache.get(key)
   if (hit && now - hit.at < CACHE_TTL_MS) {
     content = hit.content
   } else {
-    const { data, error } = await supabase
-      .from('reference_passages')
-      .select('source_id, occupation_title, section_type, rank_band, components, heading, chapter, body, pdf_page_start, pdf_page_end, printed_page, sort_order')
-      .in('source_id', sources.map(s => s.id))
-      .eq('branch', req.branch)
-      .eq('personnel_category', req.category)
-      .eq('occupation_code', code)
-    if (error) throw new Error(error.message || 'passage query failed')
-    content = assembleFromPassages(data || [], req)
+    let rows = shipped.filter(p => shippedSources.some(s => s.id === p.source_id))
+    if (dbSources.length) {
+      const { data, error } = await supabase
+        .from('reference_passages')
+        .select('*')
+        .in('source_id', dbSources.map(s => s.id))
+        .eq('branch', req.branch)
+        .eq('personnel_category', req.category)
+        .eq('occupation_code', code)
+      if (error) throw new Error(error.message || 'passage query failed')
+      rows = rows.concat(data || [])
+    }
+    content = assembleFromPassages(rows, req, now)
     if (registryCache.size >= CACHE_MAX) registryCache.delete(registryCache.keys().next().value)
     registryCache.set(key, { at: now, content })
   }
@@ -307,9 +374,11 @@ async function fromRegistry(supabase, req, code, now) {
   // each with its own status, and numbered S1, S2... in a stable order.
   const used = sources.filter(s => content.sections.some(sec => sec.sourceId === s.id)).sort((a, b) => String(a.id) < String(b.id) ? -1 : 1)
   if (used.length === 0 && content.sections.length === 0) {
-    // Registry knows the code, but nothing applies to this grade/component.
-    const gapNote = content.componentNote || `No stored section applies to ${req.payGrade}${req.component ? ` (${COMPONENT_NAMES[req.component]})` : ''} for this source.`
-    return { ...gapShape(), status: sourceStatus(sources, now), ...content, sources: sources.map((s, i) => ({ ...publicSource(s), ref: `S${i + 1}`, status: sourceStatus([s], now) })), document_source: sources.map(s => s.publication_number || s.title).join(' · '), rank_note: gapNote, _origin: 'registry' }
+    // The publication is on file for this code, but it has no text for this grade (or component, or date). Say so,
+    // and do not present it as a usable reference: the person describes their own tasks instead.
+    const range = req.branch === 'Army' ? authorizedGrades(req.category, req.occupation) : null
+    const cite = sources.map(s => s.publication_number || s.title).join(', ')
+    return gap({ ...req }, 'none', `${cite} lists ${req.occupation}${range ? ` for ${range.replace('..', ' to ')}` : ''} but gives no duties text for ${req.payGrade}${req.component ? ` (${COMPONENT_NAMES[req.component]})` : ''}. Describe your own tasks below and your result will be built from what you tell us.`)
   }
   const refOf = Object.fromEntries(used.map((s, i) => [s.id, `S${i + 1}`]))
   const sections = content.sections.map(sec => ({ ...sec, sourceRef: refOf[sec.sourceId] }))
@@ -321,9 +390,7 @@ async function fromRegistry(supabase, req, code, now) {
     sections,
     sources: used.map(s => ({ ...publicSource(s), ref: refOf[s.id], status: sourceStatus([s], now) })),
     document_source: used.map(s => [s.publication_number, s.chapter].filter(Boolean).join(', ') || s.title).join(' · '),
-    rank_note: content.hasRankSection
-      ? null
-      : `No section specific to ${req.payGrade} is stored for this specialty. Only general specialty guidance is shown; rank-level scope is not assumed.`,
+    rank_note: gradeNote(req, { ...content, hasRankSection: content.hasRankSection }) ,
     _origin: 'registry',
   }
 }
@@ -427,24 +494,22 @@ export async function retrieveReference({ supabase, body, aiSuggest, now = Date.
   }
   const withNote = r => (statusNote ? { ...r, codeNote: [r.codeNote, statusNote].filter(Boolean).join(' ') } : r)
 
-  if (supabase) {
-    try {
-      let found = await fromRegistry(supabase, req, code, now)
-      if (!found) found = await fromLegacy(supabase, req, code)
-      if (!found) {
-        const alias = await resolveHistoricalCode(supabase, req, code)
-        if (alias) {
-          codeNote = alias.note
-          found = await fromRegistry(supabase, req, alias.currentCode, now) || await fromLegacy(supabase, req, alias.currentCode)
-        }
+  try {
+    let found = await fromRegistry(supabase, req, code, now)
+    if (!found && supabase) found = await fromLegacy(supabase, req, code)
+    if (!found) {
+      const alias = supabase ? await resolveHistoricalCode(supabase, req, code) : null
+      if (alias) {
+        codeNote = alias.note
+        found = await fromRegistry(supabase, req, alias.currentCode, now) || await fromLegacy(supabase, req, alias.currentCode)
       }
-      if (found) return withNote({ ...found, request, ...(codeNote ? { codeNote } : {}) })
-      if (req.branch === 'Army' && req.category !== 'enlisted') similar = await similarArmyOfficerCodes(supabase, code)
-    } catch (err) {
-      console.error('[mil-reference] source lookup failed:', err.message)
-      // Fall through: a broken source is reported as a gap, never papered over.
-      return gap(request, 'source_error', 'The stored reference could not be read right now. Describe your duties below and your result will still be built from what you tell us.')
     }
+    if (found) return withNote({ ...found, request, ...(codeNote ? { codeNote } : {}) })
+    if (supabase && req.branch === 'Army' && req.category !== 'enlisted') similar = await similarArmyOfficerCodes(supabase, code)
+  } catch (err) {
+    console.error('[mil-reference] source lookup failed:', err.message)
+    // Fall through: a broken source is reported as a gap, never papered over.
+    return gap(request, 'source_error', 'The stored reference could not be read right now. Describe your duties below and your result will still be built from what you tell us.')
   }
 
   // Nothing stored for this code. A model-written draft is allowed only as a

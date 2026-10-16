@@ -8,6 +8,8 @@
 //   CMF36_PDF=/path/cmf-36-da-pam-600-25-19-jul-24.pdf \
 //   FC_PDF=/path/fc-10sep25.pdf  npm test
 //
+//   CLASS611_DIR=/path/to/Classification-611-21  npm test     (DA PAM 611-21 chapters 10c, 8b and 3)
+//
 // Without a PDF its tests are SKIPPED (shown as skipped, never as passed).
 
 import { test } from 'node:test'
@@ -24,6 +26,19 @@ const DOCS = [
   { env: 'CMF36_PDF', bundle: 'army-cmf36-dapam600-25-2024-07-19', headings: [], bandOf: {} },
   { env: 'FC_PDF', bundle: 'army-fc-officer-2025-09-10', headings: [], bandOf: {} },
 ]
+
+// DA PAM 611-21: three chapter PDFs in one folder.
+const CLASS611 = process.env.CLASS611_DIR
+for (const [bundle, file] of [['army-611-21-enlisted-ch10c', 'chapter-10c-enlisted-mos-specifications.pdf'], ['army-611-21-warrant-ch8b', 'chapter-8b-wo-specifications.pdf'], ['army-611-21-officer-ch3', 'chapter-3-officer-branches-and-fas.pdf']]) {
+  test(`${bundle}: PDF is the exact file that was imported, and every passage is verbatim on the pages it cites`, { skip: !CLASS611 && 'set CLASS611_DIR to the Classification-611-21 folder to run this' }, () => {
+    const r = spawnSync(process.execPath, ['scripts/verify-reference-bundle.js', '--bundle', `data/reference/bundles/${bundle}.bundle.json`, '--pdf', `${CLASS611}/${file}`, '--out', '/tmp/tyfms-verify'], { encoding: 'utf8' })
+    assert.equal(r.status, 0, r.stdout.slice(-1500) + r.stderr)
+    assert.match(r.stdout, /PDF checksum matches bundle: true/)
+    const m = r.stdout.match(/passages verbatim on claimed PDF pages: (\d+)\/(\d+)/)
+    assert.ok(m && m[1] === m[2], `every passage must be verbatim: ${m && m[0]}`)
+    assert.match(r.stdout, /duplicate passages: 0/)
+  })
+}
 
 for (const d of DOCS) {
   const path = process.env[d.env]

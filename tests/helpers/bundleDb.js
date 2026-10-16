@@ -11,6 +11,9 @@ import { fakeSupabase } from './fakeSupabase.js'
 
 const BUNDLES = new URL('../../data/reference/bundles/', import.meta.url).pathname
 
+// The three career-guide sources that existed before DA PAM 611-21 was imported (42A, 36B, 36A).
+export const PILOT = ['army-cmf42', 'army-cmf36', 'army-fc']
+
 export async function loadBundles(ids) {
   const files = (await readdir(BUNDLES)).filter(f => f.endsWith('.bundle.json')).filter(f => !ids || ids.some(id => f.startsWith(id)))
   return Promise.all(files.map(async f => JSON.parse(await readFile(path.join(BUNDLES, f), 'utf8'))))

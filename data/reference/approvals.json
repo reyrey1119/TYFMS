@@ -1,0 +1,52 @@
+{
+ "approvals": [
+  {
+   "manifest_id": "army-611-21-enlisted-ch10c",
+   "fingerprint": "40b4459b669038d841522eccd244743d16fd63c186d9a6724d5cec9f7a6efcfa",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, structure and line-accounting checks on every passage, plus visual comparison of 27 sampled PDF pages against the stored text, 2026-10-16), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-16T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 611-21 ch. 10c (enlisted MOS duties by skill level). Every passage checked verbatim against the PDF pages it cites; 12 pages viewed: 88H, 25B, 18C, 40D, 94R, 25H, 35N, 11Z, 92Y (two dated versions); the 8 MOS were drawn at random (seed review-611-21-2026-10-16)."
+  },
+  {
+   "manifest_id": "army-611-21-officer-ch3",
+   "fingerprint": "695532a394262165bdf0dfdc3c1d1b3d9799eec64368cad4ab9cf6a5044d70ea",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, structure and line-accounting checks on every passage, plus visual comparison of 27 sampled PDF pages against the stored text, 2026-10-16), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-16T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 611-21 ch. 3 (officer AOC descriptions). Every passage checked verbatim; 7 pages viewed: 63N, 67E, 64A, 60G, 15A (random, same seed; 17X has no description) plus 89E, 90A."
+  },
+  {
+   "manifest_id": "army-611-21-warrant-ch8b",
+   "fingerprint": "69ef6b5aab4f98b2974a6c72985cb1f997ec9a074fd2c1c11b7c44a50434ec92",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, structure and line-accounting checks on every passage, plus visual comparison of 27 sampled PDF pages against the stored text, 2026-10-16), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-16T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 611-21 ch. 8b (warrant officer duties by grade). Every passage checked verbatim; 8 pages viewed: 140A, 125D, 150U, 270A, 420C (random, same seed) plus 351L, 923A, 155-family structure."
+  },
+  {
+   "manifest_id": "army-cmf36-dapam600-25-2024-07-19",
+   "fingerprint": "dc76a020456cda4091863375d648d8787b3e313ebc9bb30188c1a94ecf843d70",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted, page-by-page visual review of every imported PDF page, 2026-10-16), authorized by project owner Rey Rodriguez",
+   "reviewed_at": "2026-10-16T12:00:00Z",
+   "method": "page-by-page-visual-review",
+   "scope": "Every imported PDF page rendered and compared with the stored passages (see docs/reference-sources.md)."
+  },
+  {
+   "manifest_id": "army-cmf42-dapam600-25-2025-09-30",
+   "fingerprint": "2c3e82810f45f142ff50e76968f2bae827343dc2a95c08541f26c76828c821cc",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted, page-by-page visual review of every imported PDF page, 2026-10-16), authorized by project owner Rey Rodriguez",
+   "reviewed_at": "2026-10-16T12:00:00Z",
+   "method": "page-by-page-visual-review",
+   "scope": "Every imported PDF page rendered and compared with the stored passages (see docs/reference-sources.md)."
+  },
+  {
+   "manifest_id": "army-fc-officer-2025-09-10",
+   "fingerprint": "ba13a1190ea297ba67db93ec911ada1e166d1a0d828f2ee87f4df2a10bf5cf8c",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted, page-by-page visual review of every imported PDF page, 2026-10-16), authorized by project owner Rey Rodriguez",
+   "reviewed_at": "2026-10-16T12:00:00Z",
+   "method": "page-by-page-visual-review",
+   "scope": "Every imported PDF page rendered and compared with the stored passages (see docs/reference-sources.md)."
+  }
+ ]
+}

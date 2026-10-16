@@ -40,6 +40,10 @@ for (const entry of inventory) {
   if (matching.length) {
     disposition = 'partially_mapped_not_live_verified'
     note = 'Bundles cover only the occupations listed below. Neither full-document coverage nor database approval/deployment is established by this audit.'
+    if (entry.group === 'Classification-611-21') {
+      disposition = 'imported_duties_sampled_review'
+      note = 'Duties (by skill level or grade) imported from this chapter; verbatim on the cited pages for every passage, visually compared on a sample. Requirements, physical demands, ASIs and standards-of-grade tables are not imported. See data/reference/approvals.json for the review scope.'
+    }
   }
   sources.push({
     path: entry.relative_path, group: entry.group, label: entry.label,

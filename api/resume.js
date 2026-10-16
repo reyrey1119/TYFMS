@@ -2,7 +2,7 @@
 
 import { reviewedGenerationReference, NO_REVIEWED_REFERENCE, NO_EMBELLISHMENT, codeIdentityBlock } from './_lib/generationEvidence.js'
 import { officialTitle } from './_lib/armyCodeStatus.js'
-import { annotateUnsupportedClaims } from './_lib/claimLint.js'
+import { markScopeBullets, annotateResume } from './_lib/scopeMarkers.js'
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
 import { retrieveReference, referencePromptBlock, validateReferenceRequest } from './_lib/milReference.js'
@@ -85,7 +85,15 @@ export default async function handler(req, res) {
   const dutiesBlock = milDuties?.trim()
     ? `\n\nDUTIES THE PERSON DESCRIBED (their own words — the most reliable account of what they did; use as the primary source for the Professional Experience section):\n${milDuties.trim().slice(0, 2000)}`
     : ''
-  const milRefBlock = referenceBlock + dutiesBlock
+  // With a reviewed reference the experience entry is written in two parts so the document itself shows which lines are
+  // the official description of the role and which are the person's own accomplishments.
+  const useScope = !!reviewed && !confirmReferenceDuties
+  const scopePubs = (reviewed?.sources || []).map(s => s.publicationNumber).filter(Boolean).join(', ') || 'the official publication'
+  const scopeInstructions = useScope
+    ? `\n\nSPECIALTY SCOPE RULES: In the experience entry for ${mos.trim().toUpperCase()}, the SPECIALTY SCOPE part restates ONLY duties found in the REFERENCE_DATA block above, in plain civilian language, 3 to 6 bullets, each starting with "[CONFIRM] ". They describe the role, not this person: never add a number, system, team size or result that is not in the reference, and never write them as the person's accomplishments. The YOUR ACCOMPLISHMENTS part uses only what the person wrote, their positions, awards and uploaded records; where those give nothing, write [ADD: ...] prompts. Never move a SPECIALTY SCOPE line into YOUR ACCOMPLISHMENTS.`
+    : ''
+  const milRefBlock = referenceBlock + dutiesBlock + scopeInstructions
+  const scopeFacts = reviewed ? (reviewed.sections || []).map(s => s.text).join(' ') : ''
 
   // The position line states the OFFICIAL military title (DA PAM 611-21) so the model cannot invent a job title or
   // a different specialty. A civilian equivalent, if any, is a suggestion the person must confirm.
@@ -116,12 +124,21 @@ export default async function handler(req, res) {
 
   const targetLabel = targetCompany?.trim() || 'this employer'
 
+  const SCOPE_HEADING = `SPECIALTY SCOPE (from ${scopePubs}; typical of this role at ${rank?.trim() || 'your grade'}. Keep only what you did)
+• [CONFIRM] [restate one typical duty from the reference in civilian language]
+• [CONFIRM] [restate another typical duty from the reference]
+• [CONFIRM] [restate another typical duty from the reference]
+YOUR ACCOMPLISHMENTS (only what you told us or your records show)
+`
+  const appliesToPrimary = p => !p || !p.mos?.trim() || p.mos.trim().toUpperCase() === mos.trim().toUpperCase()
+  const scopeBlock = p => (useScope && appliesToPrimary(p) ? SCOPE_HEADING : '')
+
   // Build the experience section template
   const experienceTemplate = validMilPositions.length > 0
     ? validMilPositions.map(p =>
         `${p.title?.trim() ? p.title.trim() : `[ADD: military job title] (${p.mos || ''})`} [optional: a civilian-equivalent title ONLY as [CONFIRM: ...]] | ${branch || 'U.S. Military'}
 ${p.startDate || '[Start Year]'} – ${p.present ? 'Present' : (p.endDate || '[End Year]')}
-• [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
+${scopeBlock(p)}• [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
 • [Technical or systems competency relevant to target role]
@@ -129,7 +146,7 @@ ${p.startDate || '[Start Year]'} – ${p.present ? 'Present' : (p.endDate || '[E
       ).join('\n\n')
     : `${positionLine} | ${branch || 'U.S. Military'}
 [Start Year] – [End Year]
-• [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
+${scopeBlock(null)}• [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
 • [Technical or systems competency relevant to target role]
@@ -226,7 +243,7 @@ Return only the resume text — no preamble, no commentary, no markdown.`
       ? validMilPositions.map(p =>
           `${p.title?.trim() ? p.title.trim() : `[ADD: military job title] (${p.mos || ''})`} [optional: a civilian-equivalent title ONLY as [CONFIRM: ...]] | ${branch || 'U.S. Military'}
 ${p.startDate || '[Start Year]'} – ${p.present ? 'Present' : (p.endDate || '[End Year]')}
-• [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
+${scopeBlock(p)}• [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
 • [Technical or systems competency]
@@ -235,7 +252,7 @@ ${p.startDate || '[Start Year]'} – ${p.present ? 'Present' : (p.endDate || '[E
         ).join('\n\n')
       : `${positionLine} | ${branch || 'U.S. Military'}
 [Start Year] – [End Year]
-• [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
+${scopeBlock(null)}• [Scope bullet — ADD ONLY IF TRUE: people supervised, budget managed, geographic scale; delete this line if none applies]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
 • [Achievement with a strong action verb — include a number only if the person gave you a real one]
 • [Technical or systems competency]
@@ -367,8 +384,8 @@ Return only the CV text — no preamble, no commentary, no markdown.`
       ...(Array.isArray(prevJobs) ? prevJobs.map(j => `${j.title || ''} ${j.employer || ''} ${j.description || ''}`) : []),
       ...(Array.isArray(milPositions) ? milPositions.map(p => `${p.title || ''} ${p.duties || ''}`) : []),
       cvExtras ? JSON.stringify(cvExtras) : '', mos, rank, branch, positionLine].filter(Boolean).join(' ')
-    const { text: resume, flagged } = annotateUnsupportedClaims(raw, supplied)
-    return res.status(200).json({ resume, unsupportedClaimLines: flagged.length })
+    const { text: resume, flagged } = annotateResume(markScopeBullets(raw), { personalFacts: supplied, scopeFacts })
+    return res.status(200).json({ resume, unsupportedClaimLines: flagged.length, hasSpecialtyScope: useScope })
   } catch {
     return res.status(500).json({ error: 'Resume generation failed. Please try again.' })
   }

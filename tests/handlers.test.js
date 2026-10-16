@@ -4,6 +4,8 @@
 
 import { test, beforeEach, afterEach } from 'node:test'
 import assert from 'node:assert/strict'
+import { useBundledReference } from '../api/_lib/referenceStore.js'
+useBundledReference(false)   // these tests exercise the Supabase registry path with their own data; see tests/bundledReference.test.js for the shipped data
 
 const realFetch = globalThis.fetch
 const realEnv = { ...process.env }
@@ -71,7 +73,7 @@ test('mil-reference: a missing rank asks the user and never calls the model', as
 test('a valid translation still reaches the model once, and invented certifications are dropped', async () => {
   stubModel(JSON.stringify({
     civilianTitles: ['a'], transferableSkills: ['b'], careerPaths: [], targetIndustries: [], identityTip: 't',
-    civilianTranslation: [{ militarySkill: 's', civilianEquivalent: 'c', civilianFunctions: ['f'], verify: 'v' }],
+    civilianTranslation: [{ basis: 'personal', evidence: 'I inspected maintenance records', militarySkill: 's', civilianEquivalent: 'c', civilianFunctions: ['f'], verify: 'v' }],
     certifications: [{ name: 'Certified Maintenance Manager (CMM)', why: 'invented' }, { name: 'CMRP', why: 'real' }],
   }))
   const res = mockRes()
@@ -91,7 +93,7 @@ test('quick resume draft with no described duties tells the model to write none'
   assert.equal(res.code, 200)
   const prompt = promptOf(modelCalls[0])
   assert.match(prompt, /has not described any duties/)
-  assert.match(prompt, /Every experience bullet must be an \[ADD: \.\.\.\] prompt/)
+  assert.match(prompt, /write only \[ADD: \.\.\.\] prompts/)
   assert.match(prompt, /Never infer a duty, task, system, supervisory role, or accomplishment from the occupational code/)
   assert.ok(!/common to the specialty/i.test(prompt), 'the old "duties common to the specialty" license is gone')
   assert.ok(!/implies/i.test(prompt))
@@ -103,7 +105,7 @@ test('quick resume draft with described duties uses only those as experience sou
   await (await translate())(mockReq({ action: 'resume', branch: 'Army', mos: '36B', rank: 'E-5', milDuties: 'Processed travel vouchers for a 40-person unit.', civilianTitles: ['Accountant'] }), res)
   const prompt = promptOf(modelCalls[0])
   assert.match(prompt, /Processed travel vouchers for a 40-person unit\./)
-  assert.match(prompt, /the ONLY source for experience bullets/)
+  assert.match(prompt, /WHAT THE PERSON DESCRIBED \(their own words\)/)
   assert.ok(!/has not described any duties/.test(prompt))
 })
 
@@ -132,7 +134,7 @@ test('translator with no reviewed reference or personal facts stops before a pai
 })
 
 test('translator can use personal facts when source coverage is missing, without guessing code-based duties', async () => {
-  stubModel('{"certifications":[]}')
+  stubModel(JSON.stringify({ civilianTranslation: [{ basis: 'personal', evidence: 'I reconciled maintenance records', militarySkill: 'Reconciled records', civilianEquivalent: 'Records reconciliation', civilianFunctions: [], verify: 'v' }], certifications: [] }))
   const res = mockRes()
   await (await translate())(mockReq({ branch: 'Army', mos: '91X', rank: 'E-7', milDuties: 'I reconciled maintenance records.' }), res)
   assert.equal(res.code, 200)

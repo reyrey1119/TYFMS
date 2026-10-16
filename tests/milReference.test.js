@@ -8,6 +8,8 @@
 
 import { test, beforeEach } from 'node:test'
 import assert from 'node:assert/strict'
+import { useBundledReference } from '../api/_lib/referenceStore.js'
+useBundledReference(false)   // these tests exercise the Supabase registry path with their own data; see tests/bundledReference.test.js for the shipped data
 import {
   parsePayGrade, normalizeOccupation, rankBandContains, buildCacheKey,
   validateReferenceRequest, retrieveReference, referencePromptBlock,
@@ -151,7 +153,7 @@ test('a grade with no stored section gets no invented rank scope', async () => {
   const r = await run(financeEnlisted(), body('E-9'))
   assert.equal(r.status, 'verified')
   assert.equal(r.rank_specific_expectations, '')
-  assert.match(r.rank_note, /No section specific to E-9/)
+  assert.match(r.rank_note, /gives no separate duties for E-9/)
 })
 
 test('Finance officer: O-2 and O-5 resolve to their own bands', async () => {
@@ -375,12 +377,11 @@ test('each component gets only its own passages', async () => {
   assert.ok(!/Both Reserve and Guard/.test(active.duties_and_responsibilities))
 })
 
-test('no component chosen: only passages that apply to every component, plus a prompt to choose', async () => {
+test('no component chosen: only passages that apply to every component (the component choice was removed from the app, so no prompt is shown)', async () => {
   const r = await run(officerWithComponents(), offBody('O-3'))
   assert.equal(r.duties_and_responsibilities, 'Branch-wide text.')
   assert.equal(r.developmental_assignments, '')
-  assert.match(r.componentNote, /Active, Reserve, National Guard/)
-  assert.match(r.componentNote, /Choose your component/)
+  assert.equal(r.componentNote, null)
 })
 
 test('promotion criteria are stored but never returned or sent to a model', async () => {

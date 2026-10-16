@@ -14,11 +14,13 @@
 
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { useBundledReference } from '../api/_lib/referenceStore.js'
+useBundledReference(false)   // these tests exercise the Supabase registry path with their own data; see tests/bundledReference.test.js for the shipped data
 import { retrieveReference, referencePromptBlock, clearReferenceCache } from '../api/_lib/milReference.js'
-import { loadBundles, dbFromBundles } from './helpers/bundleDb.js'
+import { loadBundles, dbFromBundles, PILOT } from './helpers/bundleDb.js'
 
 const NOW = Date.parse('2026-10-16T00:00:00Z')
-const bundles = await loadBundles()
+const bundles = await loadBundles(PILOT)
 const have = id => bundles.some(b => b.manifest_id.startsWith(id))
 const get = async (mos, rank, component, branch = 'Army') => {
   clearReferenceCache()
@@ -113,7 +115,7 @@ test('42A: Reserve/Guard chapter appears only when the component is Reserve or G
   const guard = await get('42A', 'E-6', 'guard')
   const isRC = s => s.components === 'reserve,guard'
   assert.ok(!none.sections.some(isRC) && !active.sections.some(isRC))
-  assert.match(none.componentNote, /Reserve, National Guard.*Choose your component/)
+  assert.equal(none.componentNote, null, 'the component choice was removed from the app, so no prompt is shown')
   assert.equal(active.componentNote, null)
   assert.ok(reserve.sections.some(isRC) && guard.sections.some(isRC))
   assert.match(text(reserve), /Garrison Operations|Battle Assemblies/)
@@ -200,10 +202,10 @@ test('36A: grades map to the document headings (Lieutenant, Captain, Major, LTC,
   }
 })
 
-test('36A: with no component chosen, nothing component-specific is shown and the user is asked', { skip: !have('army-fc-officer') }, async () => {
+test('36A: with no component chosen, nothing component-specific is shown', { skip: !have('army-fc-officer') }, async () => {
   const r = await get('36A', 'O-3')
   assert.ok(r.sections.every(s => !s.components))
-  assert.match(r.componentNote, /Active, Reserve, National Guard/)
+  assert.equal(r.componentNote, null)
 })
 
 test('36A: warrant officers get the document\'s own statement that none exist, not made-up guidance', { skip: !have('army-fc-officer') }, async () => {

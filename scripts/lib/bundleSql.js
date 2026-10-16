@@ -51,10 +51,10 @@ on conflict (id) do update set
   review_status = 'unreviewed', reviewed_by = null, reviewed_at = null;`)
   out.push(`delete from public.reference_passages where source_id = ${q(s.id)};`)
   out.push(`insert into public.reference_passages
-  (id, source_id, branch, personnel_category, occupation_code, occupation_title, section_type, rank_band, components, heading, chapter, body, body_sha256, pdf_page_start, pdf_page_end, printed_page, sort_order)
+  (id, source_id, branch, personnel_category, occupation_code, occupation_title, section_type, rank_band, components, heading, chapter, body, body_sha256, pdf_page_start, pdf_page_end, printed_page, sort_order, effective_from, effective_to, cumulative, skill_level)
 values`)
   out.push(bundle.passages.map(p =>
-    `  (${q(p.id)}, ${q(s.id)}, ${q(p.branch)}, ${q(p.personnel_category)}, ${q(p.occupation_code)}, ${q(p.occupation_title)}, ${q(p.section_type)}, ${q(p.rank_band)}, ${q(p.components)}, ${q(p.heading)}, ${q(p.chapter)}, ${q(p.body)}, ${q(p.body_sha256)}, ${n(p.pdf_page_start)}, ${n(p.pdf_page_end)}, ${q(p.printed_page)}, ${n(p.sort_order)})`
+    `  (${q(p.id)}, ${q(s.id)}, ${q(p.branch)}, ${q(p.personnel_category)}, ${q(p.occupation_code)}, ${q(p.occupation_title)}, ${q(p.section_type)}, ${q(p.rank_band)}, ${q(p.components)}, ${q(p.heading)}, ${q(p.chapter)}, ${q(p.body)}, ${q(p.body_sha256)}, ${n(p.pdf_page_start)}, ${n(p.pdf_page_end)}, ${q(p.printed_page)}, ${n(p.sort_order)}, ${q(p.effective_from)}, ${q(p.effective_to)}, ${p.cumulative ? 'true' : 'false'}, ${n(p.skill_level)})`
   ).join(',\n') + ';')
   out.push('commit;')
   return out.join('\n') + '\n'

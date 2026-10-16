@@ -7,15 +7,17 @@
 
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { useBundledReference } from '../api/_lib/referenceStore.js'
+useBundledReference(false)   // these tests exercise the Supabase registry path with their own data; see tests/bundledReference.test.js for the shipped data
 import { readFile, readdir } from 'node:fs/promises'
 import { newDb, supabaseOn } from './helpers/pgliteSupabase.js'
 import { retrieveReference, clearReferenceCache } from '../api/_lib/milReference.js'
 import { approveSql, importSql } from '../scripts/lib/bundleSql.js'
-import { loadBundles } from './helpers/bundleDb.js'
+import { loadBundles, PILOT } from './helpers/bundleDb.js'
 
 const MIG = new URL('../supabase/migrations/', import.meta.url).pathname
 const SQL = new URL('../data/reference/sql/', import.meta.url).pathname
-const migrationFiles = (await readdir(MIG)).filter(f => /^00[456]_/.test(f)).sort()
+const migrationFiles = (await readdir(MIG)).filter(f => /^00[4567]_/.test(f)).sort()
 const importFiles = (await readdir(SQL)).filter(f => f.endsWith('.import.sql')).sort()
 const NOW = Date.parse('2026-10-16T00:00:00Z')
 
@@ -103,11 +105,35 @@ test('END TO END in Postgres: imported + approved real data â†’ real retrieval â
   assert.equal(r.status, 'verified')
   assert.match(r.training_recommendations, /Advanced Leader Course; Promotion to SFC requires ALC graduation/)
   assert.ok(!/Basic Leader Course/.test(r.training_recommendations))
-  assert.equal(r.sources[0].publicationDate, '2025-09-30')
-  assert.ok(r.sections.every(s => s.sourceId === r.sources[0].id && /^\d+(-\d+)?$/.test(s.pdfPages)))
+  const guide = r.sources.find(x => x.publicationNumber === 'DA PAM 600-25')
+  assert.equal(guide.publicationDate, '2025-09-30')
+  assert.ok(r.sections.every(s => r.sources.some(x => x.ref === s.sourceRef) && /^\d+(-\d+)?$/.test(s.pdfPages)))
+  assert.ok(r.sources.some(x => x.publicationNumber === 'DA PAM 611-21'), 'the classification publication is a source for 42A as well')
   const g = await retrieveReference({ supabase: sb, now: NOW, body: { branch: 'Army', mos_afsc: '36A', rank: 'O-3', component: 'guard' } })
   assert.match(g.sections.map(s => s.text).join(' '), /ARNG/)
-  assert.equal(g.sources[0].publicationDate, '2025-09-10')
+  assert.equal(g.sources.find(x => /Finance and Comptroller/.test(x.title)).publicationDate, '2025-09-10')
+})
+
+test('DA PAM 611-21 in Postgres: new passage columns round-trip and drive version and grade selection', async () => {
+  const db = await migrated()
+  for (const f of importFiles) await db.exec(await readFile(SQL + f, 'utf8'))
+  for (const b of await loadBundles()) await db.exec(approveSql(b, 'Reviewer (test)'))
+  const cols = (await db.query(`select column_name from information_schema.columns where table_name='reference_passages'`)).rows.map(r => r.column_name)
+  for (const c of ['effective_from', 'effective_to', 'cumulative', 'skill_level']) assert.ok(cols.includes(c), `missing column ${c}`)
+  const sb = supabaseOn(db, 'anon')
+  clearReferenceCache()
+  // 92Y has two dated specifications; as of 2026-10-16 the 2026-10-01 one applies, never both.
+  const y = await retrieveReference({ supabase: sb, now: NOW, body: { branch: 'Army', mos_afsc: '92Y', rank: 'E-5' } })
+  assert.equal(y.status, 'verified')
+  assert.equal(y.sections.filter(s => s.section === 'rank_duties' && s.rankBand === 'E-5').length, 1, 'exactly one E-5 specification is in force')
+  // The same specialty before the newer specification took effect gets the older one.
+  clearReferenceCache()
+  const older = await retrieveReference({ supabase: sb, now: Date.parse('2026-01-15T00:00:00Z'), body: { branch: 'Army', mos_afsc: '92Y', rank: 'E-5' } })
+  assert.notEqual(older.sections.find(s => s.rankBand === 'E-5').text, y.sections.find(s => s.rankBand === 'E-5').text)
+  // An E-5 whose skill-level text says "performs the duties of the preceding level" also gets the lower level.
+  clearReferenceCache()
+  const r = await retrieveReference({ supabase: sb, now: NOW, body: { branch: 'Army', mos_afsc: '35F', rank: 'E-6' } })
+  assert.ok(r.sections.some(s => s.rankBand === 'E-6') && r.sections.some(s => s.rankBand === 'E-5' && s.includedForLowerLevel), 'cumulative duties are chained down')
 })
 
 

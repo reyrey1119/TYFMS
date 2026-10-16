@@ -46,53 +46,37 @@ async function pagesOf(rel) {
 }
 
 import { parseMarkers, statusOf as statusOfAt } from './lib/codeStatus.js'
+import { importEnlistedChapter, parseWarrantChart, importWarrantChapter } from './lib/classification611.js'
 const statusOf = (versions, kind, inherited) => statusOfAt(versions, kind, inherited, ASOF)
 
 // ── enlisted: ch.10c headings ────────────────────────────────────────────────
 async function enlisted() {
   const rel = 'Classification-611-21/chapter-10c-enlisted-mos-specifications.pdf'
   const { sha, pages } = await pagesOf(rel)
+  // Heading-anchored parse: the official headings contain typos, so a regex on "10-NNX." alone misses codes.
+  const parsed = importEnlistedChapter(pages)
   const byCode = new Map()
-  for (const p of pages) {
-    const lines = p.text.split('\n').map(l => l.replace(/\s+/g, ' ').trim())
-    lines.forEach((l, i) => {
-      const m = l.match(/^10[-–](\d{2}[A-Z])\.\s*(.*)$/)
-      if (!m) return
-      const heading = [m[2], lines[i + 1] || ''].join(' ').replace(/\s+a\. Major duties.*$/i, '').trim()
-      const kind = /Special Reporting Code/i.test(heading) ? (/Immaterial/i.test(heading) ? 'immaterial' : 'special_reporting') : 'mos'
-      const title = heading.replace(/^(MOS\s+)?\d{2}[A-Z]\s*[-–—]*\s*/i, '').replace(/^Position Special Reporting Code \(SRC\)\s*\d{2}[A-Z]\s*[-–—]*\s*/i, '').replace(/\s*\((?:Effective|Eff|Rescind)[^)]*\)?/gi, '').replace(/,?\s*CMF \d+.*$/i, '').trim()
-      const rec = { page: p.num, kind, heading: heading.slice(0, 220), title: title.slice(0, 120), ...parseMarkers(heading) }
-      if (!byCode.has(m[1])) byCode.set(m[1], [])
-      byCode.get(m[1]).push(rec)
-    })
+  for (const [code, list] of parsed.byCode) {
+    byCode.set(code, list.map(v => {
+      const kind = /Special Reporting Code/i.test(v.heading) ? (/Immaterial/i.test(v.heading) ? 'immaterial' : 'special_reporting') : 'mos'
+      return { page: v.startPage, kind, heading: v.heading, title: v.title, effective_from: v.effective_from, rescinded_from: v.rescinded_from, flags: v.flags, component_restriction: v.component_restriction, acasp: /ACASP/i.test(v.heading) }
+    }))
   }
-  return { rel, sha, byCode }
+  return { rel, sha, byCode, parsed }
 }
 
-// ── warrant: ch.8a chart + ch.8b headings/markers ───────────────────────────
+// ── warrant: ch.8a chart + ch.8b specifications ──────────────────────────────
 async function warrant() {
   const a = await pagesOf('Classification-611-21/chapter-8a-wo-branches-and-aocs.pdf')
   const b = await pagesOf('Classification-611-21/chapter-8b-wo-specifications.pdf')
+  const chart = parseWarrantChart(a.pages)
+  const parsed = importWarrantChapter(b.pages, chart)
   const byCode = new Map()
   const add = (code, rec) => { if (!byCode.has(code)) byCode.set(code, []); byCode.get(code).push(rec) }
-  for (const p of a.pages) for (const raw of p.text.split('\n')) {
-    const m = raw.replace(/\s+/g, ' ').trim().match(/^(\d{3}[A-Z]) (\d) ?[-–] ?(\d) (.+)$/)
-    if (m) add(m[1], { page: p.num, kind: 'chart', grades: `W-${m[2]}..W-${m[3]}`, title: m[4].replace(/\(\s*(?:del|add)[^)]*\)?/gi, '').replace(/\s+[A-Z0-9](?: [A-Z0-9])*$/, '').trim().slice(0, 90), ...parseMarkers(m[4]) })
-  }
-  for (const p of b.pages) {
-    const lines = p.text.split('\n').map(l => l.replace(/\s+/g, ' ').trim())
-    lines.forEach((l, i) => {
-      const h = l.match(/^8[-–](\d{3}[A-Z])\.\s*(.*)$/)
-      if (h) {
-        const heading = [h[2], lines[i + 1] || ''].join(' ').trim()
-        add(h[1], { page: p.num, kind: /immaterial/i.test(heading) ? 'immaterial' : 'specification', heading: heading.slice(0, 200), ...parseMarkers(heading) })
-        return
-      }
-      const row = l.match(/^(\d{3}[A-Z]) [A-Za-z].*\((?:Effective|Eff|Rescind)/i)
-      if (row) add(row[1], { page: p.num, kind: 'table_marker', heading: l.slice(0, 160), ...parseMarkers(l) })
-    })
-  }
-  return { sha: { chart: a.sha, specs: b.sha }, byCode }
+  for (const [code, c] of chart) add(code, { page: c.page, kind: 'chart', grades: `W-${c.lo}..W-${c.hi}`, title: c.title, ...c.markers })
+  for (const [code, list] of parsed.byCode) for (const v of list) add(code, { page: v.startPage, kind: 'specification', heading: v.heading, title: v.title, effective_from: v.effective_from, rescinded_from: v.rescinded_from, flags: v.flags })
+  for (const code of parsed.report.immaterialCodes || []) add(code, { page: 0, kind: 'immaterial', title: 'Branch/MOS immaterial' })
+  return { sha: { chart: a.sha, specs: b.sha }, byCode, chart, parsed }
 }
 
 // ── officer: ch.3 chart ──────────────────────────────────────────────────────
@@ -185,6 +169,7 @@ function reconcile(category, byCode, guideByMos, branchEvents) {
     const titles = [...new Set(versions.map(v => v.title).filter(Boolean))]
     const row = {
       category, code, status: st.status, ...st,
+      grades: versions.map(v => v.grades).find(Boolean) || null,
       titles, component_restriction: [...new Set(versions.map(v => v.component_restriction).filter(Boolean))].join('; ') || null,
       versions: versions.map(v => ({ page: v.page, kind: v.kind, effective_from: v.effective_from, rescinded_from: v.rescinded_from, heading: v.heading || v.title })),
       flags,
@@ -253,6 +238,9 @@ if (values.module) {
   const cleanTitle = t => String(t || '').replace(/,?\s*CMF\s*\d+.*$/i, '').replace(/\s+MOS\s+\d{2}[A-Z].*$/i, '').replace(/\s+/g, ' ').replace(/[\s,;:—-]+$/, '').trim().slice(0, 110)
   const titles = { enlisted: {}, officer: {}, warrant: {} }
   for (const r of rows) { const t = cleanTitle(r.titles[0]); if (t) titles[r.category][r.code] = t }
+  // Authorized grade range per officer AOC / warrant specialty, from the structure charts (ch. 3, ch. 8a).
+  const grades = { officer: {}, warrant: {} }
+  for (const r of rows) if (r.grades && grades[r.category]) grades[r.category][r.code] = r.grades
   for (const r of rows) {
     const interesting = r.status !== 'current' || r.scheduled_change || r.scheduled_rescission || r.component_restriction || r.guide_predates_classification_change
     if (!interesting) continue
@@ -278,6 +266,8 @@ export const ARMY_CODE_STATUS_SOURCES = ${JSON.stringify(report.generated_from)}
 export const ARMY_CODE_STATUS_DATA = ${JSON.stringify(data, null, 1)}
 // Official title of every listed code, from the same classification chapters.
 export const ARMY_CODE_TITLES = ${JSON.stringify(titles, null, 1)}
+// Authorized grade range of each officer AOC and warrant specialty, from the structure charts.
+export const ARMY_CODE_GRADES = ${JSON.stringify(grades)}
 `
   await mkdir(path.dirname(values.module), { recursive: true })
   await writeFile(values.module, body)

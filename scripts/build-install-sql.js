@@ -4,14 +4,17 @@
 //   data/reference/sql/02-approve.sql   approval of the exact extraction fingerprints that were reviewed, with the reviewer recorded
 // Both are idempotent. Approval only succeeds if the stored fingerprint still matches the reviewed bundle.
 //
-//   node scripts/build-install-sql.js --reviewer "Name or description of the actual reviewer" [--only id1,id2]
+//   node scripts/build-install-sql.js [--only id1,id2]
+//
+// Who reviewed each source, and exactly what was reviewed, comes from data/reference/approvals.json (the same record the
+// bundled app data is built from). A source with no approval record is imported but never approved.
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { parseArgs } from 'node:util'
 import { importSql, approveSql, bundleContentHash } from './lib/bundleSql.js'
 
-const { values } = parseArgs({ options: { reviewer: { type: 'string' }, only: { type: 'string' }, out: { type: 'string', default: 'data/reference/sql' } } })
-if (!values.reviewer?.trim()) { console.error('--reviewer is required: record who actually reviewed these sources.'); process.exit(2) }
+const { values } = parseArgs({ options: { only: { type: 'string' }, out: { type: 'string', default: 'data/reference/sql' } } })
+const approvals = JSON.parse(await readFile('data/reference/approvals.json', 'utf8')).approvals
 
 const bundleDir = 'data/reference/bundles'
 const only = values.only ? values.only.split(',') : null
@@ -25,12 +28,14 @@ for (const m of migrations) install += `-- ===== supabase/migrations/${m} =====\
 for (const b of bundles) install += `-- ===== import: ${b.manifest_id} =====\n${importSql(b)}\n`
 install += `-- Check: every source should now be 'unreviewed' with a content fingerprint.\nselect id, publication_number, career_field, review_status, left(content_sha256, 12) as fingerprint, publication_date from public.reference_sources order by career_field;\n`
 
-let approve = header(`02-approve.sql — approves ${bundles.length} reviewed extraction(s)`)
-approve += `-- Reviewer recorded in the database: ${values.reviewer.trim()}\n-- Each statement matches on the exact content fingerprint. If a source was re-imported with different content\n-- since it was reviewed, it matches 0 rows and stays unreviewed.\n\n`
-for (const b of bundles) approve += `-- fingerprint ${bundleContentHash(b).slice(0, 12)}…  (${b.passages.length} passages)\n${approveSql(b, values.reviewer.trim())}\n`
+const approved = bundles.map(b => ({ b, a: approvals.find(x => x.manifest_id === b.manifest_id && x.fingerprint === bundleContentHash(b)) })).filter(x => x.a)
+const skipped = bundles.filter(b => !approved.some(x => x.b === b)).map(b => b.manifest_id)
+let approve = header(`02-approve.sql — approves ${approved.length} reviewed extraction(s)`)
+approve += `-- The reviewer recorded in the database is the one in data/reference/approvals.json for each source (see "scope" there for what was checked).\n-- Each statement matches on the exact content fingerprint. If a source was re-imported with different content\n-- since it was reviewed, it matches 0 rows and stays unreviewed.\n${skipped.length ? `-- Not approved here (no matching review record): ${skipped.join(', ')}\n` : ''}\n`
+for (const { b, a } of approved) approve += `-- fingerprint ${bundleContentHash(b).slice(0, 12)}…  (${b.passages.length} passages)\n-- scope: ${a.scope.replace(/\n/g, ' ')}\n${approveSql(b, a.reviewer)}\n`
 approve += `-- Check: all reviewed sources approved; reviewer and time recorded.\nselect publication_number, career_field, review_status, reviewed_by, reviewed_at, left(content_sha256, 12) as fingerprint from public.reference_sources order by career_field;\n`
 
 await writeFile(path.join(values.out, '01-install.sql'), install)
 await writeFile(path.join(values.out, '02-approve.sql'), approve)
-console.log(`wrote 01-install.sql (${(install.length / 1024).toFixed(0)} KB) and 02-approve.sql for ${bundles.length} sources; fingerprints:`)
+console.log(`wrote 01-install.sql (${(install.length / 1024).toFixed(0)} KB) and 02-approve.sql for ${approved.length} of ${bundles.length} sources; fingerprints:`)
 for (const b of bundles) console.log('  ', b.manifest_id, bundleContentHash(b).slice(0, 16))
