@@ -13,6 +13,13 @@ export const ARMY_CODE_STATUS_DATA = {
    "pdf_page": 2,
    "basis": "classification_heading"
   },
+  "00E": {
+   "status": "special_reporting",
+   "title": "Sergeant Major (SGM) MOS Immaterial",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 2,
+   "basis": "classification_heading"
+  },
   "00F": {
    "status": "immaterial",
    "title": "Position Special Reporting Code (SRC) 00F—MOS Immaterial NGB",
@@ -55,6 +62,13 @@ export const ARMY_CODE_STATUS_DATA = {
    "pdf_page": 8,
    "basis": "classification_heading"
   },
+  "00N": {
+   "status": "special_reporting",
+   "title": "Sergeant Major (SGM)/ Command Sergeant Major (CSM) Cyber/Signal Immaterial",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 5,
+   "basis": "classification_heading"
+  },
   "00P": {
    "status": "special_reporting",
    "title": "Position Special Reporting Code (SRC) 00P— Command Sergeant Major (CSM) Force Sustainment",
@@ -67,6 +81,13 @@ export const ARMY_CODE_STATUS_DATA = {
    "title": "Position Special Reporting Code (SRC) 00R— Command Sergeant Major (CSM) Infantry/Armor Immaterial",
    "source": "DA PAM 611-21, ch. 10c",
    "pdf_page": 10,
+   "basis": "classification_heading"
+  },
+  "00S": {
+   "status": "special_reporting",
+   "title": "Special Duty Assignment AFSC",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 6,
    "basis": "classification_heading"
   },
   "00T": {
@@ -83,11 +104,109 @@ export const ARMY_CODE_STATUS_DATA = {
    "pdf_page": 12,
    "basis": "classification_heading"
   },
+  "09B": {
+   "status": "special_reporting",
+   "title": "Trainee, Unassigned",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 7,
+   "basis": "classification_heading"
+  },
+  "09C": {
+   "status": "special_reporting",
+   "title": "Trainee, Language",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 7,
+   "basis": "classification_heading"
+  },
+  "09D": {
+   "status": "special_reporting",
+   "title": "College Trainee",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 8,
+   "basis": "classification_heading"
+  },
+  "09E": {
+   "status": "special_reporting",
+   "title": "Trainee, Language, Fort Allen PR",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 7,
+   "basis": "classification_heading"
+  },
+  "09G": {
+   "status": "special_reporting",
+   "title": "National Guard on Active Duty Medical Hold",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 8,
+   "basis": "classification_heading"
+  },
+  "09H": {
+   "status": "special_reporting",
+   "title": "U.S. Army Reserve on Active Duty Medical Hold",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 8,
+   "basis": "classification_heading"
+  },
+  "09J": {
+   "status": "special_reporting",
+   "title": "GED Completion Program",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 8,
+   "basis": "classification_heading"
+  },
+  "09M": {
+   "status": "special_reporting",
+   "title": "Delayed Trainee",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 8,
+   "basis": "classification_heading"
+  },
+  "09N": {
+   "status": "special_reporting",
+   "title": "Nurse Corps Candidate",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 8,
+   "basis": "classification_heading"
+  },
+  "09Q": {
+   "status": "special_reporting",
+   "title": "Army Legal Immigrant Healthcare Professional Officer Candidate",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 8,
+   "basis": "classification_heading"
+  },
+  "09R": {
+   "status": "special_reporting",
+   "title": "Simultaneous Membership Program Participant",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 8,
+   "basis": "classification_heading"
+  },
+  "09S": {
+   "status": "special_reporting",
+   "title": "Commissioned Officer Candidate",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 8,
+   "basis": "classification_heading"
+  },
+  "09T": {
+   "status": "special_reporting",
+   "title": "College Student Officer Program (CSOP) Army National Guard",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 9,
+   "basis": "classification_heading"
+  },
   "09U": {
    "status": "special_reporting",
    "title": "Personnel Special Reporting Code (SRC) 09U— Unqualified in Authorized Army",
    "source": "DA PAM 611-21, ch. 10c",
    "pdf_page": 16,
+   "basis": "classification_heading"
+  },
+  "09W": {
+   "status": "special_reporting",
+   "title": "Warrant Officer Candidate",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 9,
    "basis": "classification_heading"
   },
   "12M": {
@@ -105,6 +224,13 @@ export const ARMY_CODE_STATUS_DATA = {
    "source": "DA PAM 611-21, ch. 10c",
    "pdf_page": 68,
    "basis": "dated_marker_on_code"
+  },
+  "14X": {
+   "status": "special_reporting",
+   "title": "Space and Missile Defense Operations",
+   "source": "DA PAM 611-21, ch. 10c",
+   "pdf_page": 9,
+   "basis": "classification_heading"
   },
   "15E": {
    "status": "rescinded",
@@ -422,6 +548,170 @@ export const ARMY_CODE_STATUS_DATA = {
   }
  },
  "officer": {
+  "00A": {
+   "status": "special_reporting",
+   "title": "Duties unassigned",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 5,
+   "basis": "classification_heading"
+  },
+  "00B": {
+   "status": "special_reporting",
+   "title": "General officer",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 5,
+   "basis": "classification_heading"
+  },
+  "00C": {
+   "status": "special_reporting",
+   "title": "Relieved from duty sick in hospital or quarters",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 5,
+   "basis": "classification_heading"
+  },
+  "00D": {
+   "status": "special_reporting",
+   "title": "Newly commissioned officers awaiting entry on active duty or active duty for training for",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 5,
+   "basis": "classification_heading"
+  },
+  "00E": {
+   "status": "special_reporting",
+   "title": "Student officer",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 5,
+   "basis": "classification_heading"
+  },
+  "01A": {
+   "status": "immaterial",
+   "title": "Officer Generalist",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 5,
+   "basis": "classification_heading"
+  },
+  "01B": {
+   "status": "immaterial",
+   "title": "Aviation/Infantry/Armor/Military Intelligence Immaterial",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 6,
+   "basis": "classification_heading"
+  },
+  "01C": {
+   "status": "immaterial",
+   "title": "Chemical/Engineer/Military Police Immaterial",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 6,
+   "basis": "classification_heading"
+  },
+  "01D": {
+   "status": "immaterial",
+   "title": "Financial Management/Adjutant General Immaterial",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 6,
+   "basis": "classification_heading"
+  },
+  "01F": {
+   "status": "immaterial",
+   "title": "Special Forces/Civil Affairs/Psychological Operations Immaterial",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 6,
+   "basis": "classification_heading"
+  },
+  "01G": {
+   "status": "immaterial",
+   "title": "Cyber/Signal/Military Intelligence/Space Operations Immaterial",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 6,
+   "basis": "classification_heading"
+  },
+  "01M": {
+   "status": "immaterial",
+   "title": "Officer Generalist Grade Immaterial",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 6,
+   "basis": "classification_heading"
+  },
+  "02A": {
+   "status": "immaterial",
+   "title": "Combat Arms Generalist",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 6,
+   "basis": "classification_heading"
+  },
+  "02B": {
+   "status": "immaterial",
+   "title": "Infantry/Armor Immaterial",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 6,
+   "basis": "classification_heading"
+  },
+  "02C": {
+   "status": "immaterial",
+   "title": "Infantry/Armor/Field Artillery/Engineer Immaterial",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 7,
+   "basis": "classification_heading"
+  },
+  "02D": {
+   "status": "special_reporting",
+   "title": "Infantry/Armor/Special Forces",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 7,
+   "basis": "classification_heading"
+  },
+  "02E": {
+   "status": "immaterial",
+   "title": "Air Defense Artillery/Field Artillery Immaterial",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 7,
+   "basis": "classification_heading"
+  },
+  "03A": {
+   "status": "rescinded",
+   "title": "Logistics / Infantry-Armor Immaterial (deleted)",
+   "rescinded_from": "1993-10-01",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 39,
+   "basis": "dated_marker_on_code"
+  },
+  "04A": {
+   "status": "rescinded",
+   "title": "Personnel Immaterial (deleted)",
+   "rescinded_from": "2000-10-01",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 39,
+   "basis": "dated_marker_on_code"
+  },
+  "05A": {
+   "status": "immaterial",
+   "title": "AMEDD Immaterial",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 7,
+   "basis": "classification_heading"
+  },
+  "09A": {
+   "status": "rescinded",
+   "title": "Software Operations (deleted; became AOC 28A)",
+   "rescinded_from": "2025-08-01",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 39,
+   "basis": "dated_marker_on_code"
+  },
+  "09G": {
+   "status": "special_reporting",
+   "title": "National Guard on active-duty medical hold",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 5,
+   "basis": "classification_heading"
+  },
+  "09H": {
+   "status": "special_reporting",
+   "title": "U",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 5,
+   "basis": "classification_heading"
+  },
   "88A": {
    "status": "rescinded",
    "title": "TRANSPORTATION, GENERAL",
@@ -440,6 +730,22 @@ export const ARMY_CODE_STATUS_DATA = {
    "basis": "dated_marker_on_code",
    "related": "DA PAM 611-21 ch. 3 (PDF p. 159) establishes a Logistics branch (90) effective October 2026."
   },
+  "91B": {
+   "status": "rescinded",
+   "title": "Maintenance Management",
+   "rescinded_from": "2026-10-01",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 161,
+   "basis": "dated_marker_on_branch"
+  },
+  "91D": {
+   "status": "rescinded",
+   "title": "Munitions Materiel Management",
+   "rescinded_from": "2026-10-01",
+   "source": "DA PAM 611-21, ch. 3",
+   "pdf_page": 162,
+   "basis": "dated_marker_on_branch"
+  },
   "92A": {
    "status": "rescinded",
    "title": "QUARTERMASTER, GENERAL",
@@ -451,6 +757,34 @@ export const ARMY_CODE_STATUS_DATA = {
   }
  },
  "warrant": {
+  "001A": {
+   "status": "special_reporting",
+   "title": "Unqualified in Authorized Warrant Officer MOS",
+   "source": "DA PAM 611-21, ch. 8a/8b",
+   "pdf_page": 1,
+   "basis": "classification_heading"
+  },
+  "002A": {
+   "status": "special_reporting",
+   "title": "Patient",
+   "source": "DA PAM 611-21, ch. 8a/8b",
+   "pdf_page": 1,
+   "basis": "classification_heading"
+  },
+  "003A": {
+   "status": "special_reporting",
+   "title": "Student",
+   "source": "DA PAM 611-21, ch. 8a/8b",
+   "pdf_page": 1,
+   "basis": "classification_heading"
+  },
+  "004A": {
+   "status": "special_reporting",
+   "title": "Duties unassigned or in transit",
+   "source": "DA PAM 611-21, ch. 8a/8b",
+   "pdf_page": 1,
+   "basis": "classification_heading"
+  },
   "011A": {
    "status": "immaterial",
    "title": "Branch/MOS immaterial",
@@ -463,6 +797,20 @@ export const ARMY_CODE_STATUS_DATA = {
    "title": "Branch/MOS immaterial",
    "source": "DA PAM 611-21, ch. 8a/8b",
    "pdf_page": null,
+   "basis": "classification_heading"
+  },
+  "019G": {
+   "status": "special_reporting",
+   "title": "NATIONAL GUARD ON ACTIVE DUTY MEDICAL HOLD",
+   "source": "DA PAM 611-21, ch. 8a/8b",
+   "pdf_page": 7,
+   "basis": "classification_heading"
+  },
+  "019H": {
+   "status": "special_reporting",
+   "title": "U.S. ARMY RESERVE ON ACTIVE DUTY MEDICAL HOLD",
+   "source": "DA PAM 611-21, ch. 8a/8b",
+   "pdf_page": 7,
    "basis": "classification_heading"
   },
   "140X": {
@@ -494,19 +842,36 @@ export const ARMY_CODE_STATUS_DATA = {
 export const ARMY_CODE_TITLES = {
  "enlisted": {
   "00D": "Position Special Reporting Code (SRC) 00D—Special Duty Assignment",
+  "00E": "Sergeant Major (SGM) MOS Immaterial",
   "00F": "Position Special Reporting Code (SRC) 00F—MOS Immaterial NGB",
   "00G": "Position Special Reporting Code (SRC) 00G—MOS Immaterial USAR",
   "00J": "Position Special Reporting Code (SRC) 00J— Command Sergeant Major (CSM) Engineer/Signal/Military Police/Milita",
   "00K": "Position Special Reporting Code (SRC) 00K— Command Sergeant Major (CSM) Maneuver Support (MS)/Logistics",
   "00L": "Position Special Reporting Code (SRC) 00L— Command Sergeant Major (CSM) Logistics",
   "00M": "Position Special Reporting Code (SRC) 00M—MOS Grade Immaterial",
+  "00N": "Sergeant Major (SGM)/ Command Sergeant Major (CSM) Cyber/Signal Immaterial",
   "00P": "Position Special Reporting Code (SRC) 00P— Command Sergeant Major (CSM) Force Sustainment",
   "00R": "Position Special Reporting Code (SRC) 00R— Command Sergeant Major (CSM) Infantry/Armor Immaterial",
+  "00S": "Special Duty Assignment AFSC",
   "00T": "Position Special Reporting Code (SRC) 00T— Command Sergeant Major (CSM) Infantry/Armor/Field Artillery/Combat",
   "00X": "Position Special Reporting Code (SRC) 00X— Command Sergeant Major (CSM)",
   "00Z": "Nominative Command Sergeant Major/Sergeant Major (CSM/SGM)",
   "08H": "Army Equestrian",
+  "09B": "Trainee, Unassigned",
+  "09C": "Trainee, Language",
+  "09D": "College Trainee",
+  "09E": "Trainee, Language, Fort Allen PR",
+  "09G": "National Guard on Active Duty Medical Hold",
+  "09H": "U.S. Army Reserve on Active Duty Medical Hold",
+  "09J": "GED Completion Program",
+  "09M": "Delayed Trainee",
+  "09N": "Nurse Corps Candidate",
+  "09Q": "Army Legal Immigrant Healthcare Professional Officer Candidate",
+  "09R": "Simultaneous Membership Program Participant",
+  "09S": "Commissioned Officer Candidate",
+  "09T": "College Student Officer Program (CSOP) Army National Guard",
   "09U": "Personnel Special Reporting Code (SRC) 09U— Unqualified in Authorized Army",
+  "09W": "Warrant Officer Candidate",
   "11B": "Infantryman",
   "11C": "Indirect Fire Infantryman (Indrct Fire Infmn)",
   "11Z": "Infantry Senior Sergeant (Inf Sr SGT)",
@@ -538,6 +903,7 @@ export const ARMY_CODE_TITLES = {
   "14H": "Air Defense (AD) Enhanced Early Warning System Operator",
   "14P": "Air and Missile Defense (AMD) Crewmember",
   "14T": "Patriot Launching Station Enhanced Operator/Maintainer (Patriot LS Enh Opr/Maint)",
+  "14X": "Space and Missile Defense Operations",
   "14Z": "Air Defense Artillery Senior Sergeant",
   "15B": "Aircraft Powerplant Repairer (Acft Powerplant Rep)",
   "15C": "MQ-1 Operator",
@@ -689,6 +1055,29 @@ export const ARMY_CODE_TITLES = {
   "94Z": "Senior Electronic Maintenance Supervisor (Sr Elect Maint Supv)"
  },
  "officer": {
+  "00A": "Duties unassigned",
+  "00B": "General officer",
+  "00C": "Relieved from duty sick in hospital or quarters",
+  "00D": "Newly commissioned officers awaiting entry on active duty or active duty for training for",
+  "00E": "Student officer",
+  "01A": "Officer Generalist",
+  "01B": "Aviation/Infantry/Armor/Military Intelligence Immaterial",
+  "01C": "Chemical/Engineer/Military Police Immaterial",
+  "01D": "Financial Management/Adjutant General Immaterial",
+  "01F": "Special Forces/Civil Affairs/Psychological Operations Immaterial",
+  "01G": "Cyber/Signal/Military Intelligence/Space Operations Immaterial",
+  "01M": "Officer Generalist Grade Immaterial",
+  "02A": "Combat Arms Generalist",
+  "02B": "Infantry/Armor Immaterial",
+  "02C": "Infantry/Armor/Field Artillery/Engineer Immaterial",
+  "02D": "Infantry/Armor/Special Forces",
+  "02E": "Air Defense Artillery/Field Artillery Immaterial",
+  "03A": "Logistics / Infantry-Armor Immaterial (deleted)",
+  "04A": "Personnel Immaterial (deleted)",
+  "05A": "AMEDD Immaterial",
+  "09A": "Software Operations (deleted; became AOC 28A)",
+  "09G": "National Guard on active-duty medical hold",
+  "09H": "U",
   "11A": "INFANTRY",
   "12A": "ENGINEER",
   "13A": "FIELD ARTILLERY, GENERAL",
@@ -755,6 +1144,7 @@ export const ARMY_CODE_TITLES = {
   "48P": "ASIA-PACIFIC",
   "48X": "FOREIGN AREA OFFICER",
   "49A": "OPERATIONS RESEARCH/SYSTEMS ANALYSIS",
+  "49B": "Artificial Intelligence/Machine Learning Officer",
   "49W": "TRAINED, ORSA",
   "49X": "UNTRAINED, ORSA",
   "50A": "FORCE DEVELOPMENT",
@@ -787,6 +1177,7 @@ export const ARMY_CODE_TITLES = {
   "60R": "CHILD NEUROLOGIST",
   "60S": "OPHTHALMOLOGIST",
   "60T": "OTOLARYNGOLOGIST",
+  "60U": "Child Psychiatrist",
   "60V": "NEUROLOGIST",
   "60W": "PSYCHIATRIST",
   "60X": "CRITICAL CARE MEDICINE OFFICER",
@@ -878,11 +1269,19 @@ export const ARMY_CODE_TITLES = {
   "89E": "EXPLOSIVE ORDNANCE DISPOSAL",
   "90A": "LOGISTICS",
   "91A": "MAINTENANCE & MUNITIONS MATERIEL OFFICER",
+  "91B": "Maintenance Management",
+  "91D": "Munitions Materiel Management",
   "92A": "QUARTERMASTER, GENERAL"
  },
  "warrant": {
+  "001A": "Unqualified in Authorized Warrant Officer MOS",
+  "002A": "Patient",
+  "003A": "Student",
+  "004A": "Duties unassigned or in transit",
   "011A": "Branch/MOS immaterial",
   "011M": "Branch/MOS immaterial",
+  "019G": "NATIONAL GUARD ON ACTIVE DUTY MEDICAL HOLD",
+  "019H": "U.S. ARMY RESERVE ON ACTIVE DUTY MEDICAL HOLD",
   "120A": "CONSTRUCTION ENGINEERING TECHNICIAN",
   "125D": "GEOSPATIAL ENGINEERING TECHNICIAN",
   "131A": "TARGETING TECHNICIAN",

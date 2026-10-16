@@ -46,7 +46,7 @@ async function pagesOf(rel) {
 }
 
 import { parseMarkers, statusOf as statusOfAt } from './lib/codeStatus.js'
-import { importEnlistedChapter, parseWarrantChart, importWarrantChapter } from './lib/classification611.js'
+import { importEnlistedChapter, parseWarrantChart, importWarrantChapter, importOfficerChapter } from './lib/classification611.js'
 const statusOf = (versions, kind, inherited) => statusOfAt(versions, kind, inherited, ASOF)
 
 // ── enlisted: ch.10c headings ────────────────────────────────────────────────
@@ -92,6 +92,9 @@ async function officer() {
       byCode.get(m[1]).push({ page: p.num, kind: 'chart', grades: `O-${m[2]}..O-${m[3]}`, title: m[4].replace(/\(\s*(?:del|add)[^)]*\)?/gi, '').trim().slice(0, 90), ...parseMarkers(m[4]) })
     })
   }
+  // AOCs that have their own section in the chapter but no row in the structure chart (49B, 60U, 91B, 91D).
+  const prose = importOfficerChapter(pages)
+  for (const [code, m] of prose.chartMissing) if (!byCode.has(code)) byCode.set(code, [{ page: m.page, kind: 'prose_only', title: m.title, ...parseMarkers(m.title) }])
   // Branch-level dated headings: "3-90. Logistics (90) (...) (Effective 202610)", "3-24. Ordnance (91) (Rescind 202610)",
   // "3-60-62. Medical Corps (60-62) (...)". They apply to every AOC whose first two digits fall in that branch.
   const branchEvents = new Map()
@@ -186,6 +189,44 @@ function reconcile(category, byCode, guideByMos, branchEvents) {
 }
 
 const [en, wo, of, gd] = await Promise.all([enlisted(), warrant(), officer(), guides()])
+
+// ── reporting / status / immaterial codes defined outside the specification chapters ──────────────────────────
+// They identify a status or a position-coding convention, not a job, so they have no duties to import. They are in the
+// inventory so that every code the publication defines is accounted for with its page.
+async function extras() {
+  const add = (map, code, rec) => { if (!map.has(code)) map.set(code, []); map.get(code).push(rec) }
+  const found = { enlisted: 0, warrant: 0, officer: 0 }
+  // officer ch.2: lettered list of reporting classifications and immaterial/generalist codes
+  const c2 = await pagesOf('Classification-611-21/chapter-2-officer-classification.pdf')
+  for (const p of c2.pages) for (const raw of p.text.split('\n')) {
+    const m = raw.replace(/\s+/g, ' ').trim().match(/^[a-z]\.\s+(0\d[A-Z])\s*[-–—]+\s*([^.(]+)/)
+    if (!m || of.byCode.has(m[1])) continue
+    add(of.byCode, m[1], { page: p.num, kind: /Immaterial|Generalist/i.test(m[2]) ? 'immaterial' : 'special_reporting', title: m[2].trim(), chapter: 'ch. 2' }); found.officer++
+  }
+  // officer ch.2 structure table: deleted codes that have no lettered entry (D = deleted; month taken from the table)
+  for (const [code, title, date, page] of [['03A', 'Logistics / Infantry-Armor Immaterial (deleted)', '1993-10-01', 39], ['04A', 'Personnel Immaterial (deleted)', '2000-10-01', 39], ['09A', 'Software Operations (deleted; became AOC 28A)', '2025-08-01', 39]])
+    if (!of.byCode.has(code)) { add(of.byCode, code, { page, kind: 'mos', title, rescinded_from: date, chapter: 'ch. 2 table' }); found.officer++ }
+  // warrant ch.7 reporting codes, and the two medical-hold codes that appear only in the ch.8a chart
+  const c7 = await pagesOf('Classification-611-21/chapter-7-wo-special-reporting-codes.pdf')
+  for (const p of c7.pages) for (const raw of p.text.split('\n')) {
+    const m = raw.replace(/\s+/g, ' ').trim().match(/^[a-d]\.\s+Reporting code (\d{3}[A-Z]), ([^.]+)\./)
+    if (m && !wo.byCode.has(m[1])) { add(wo.byCode, m[1], { page: p.num, kind: 'special_reporting', title: m[2].trim(), chapter: 'ch. 7' }); found.warrant++ }
+  }
+  const c8a = await pagesOf('Classification-611-21/chapter-8a-wo-branches-and-aocs.pdf')
+  for (const p of c8a.pages) for (const raw of p.text.split('\n')) {
+    const m = raw.replace(/\s+/g, ' ').trim().match(/^(019[GH]) (.+)$/)
+    if (m && !wo.byCode.has(m[1])) { add(wo.byCode, m[1], { page: p.num, kind: 'special_reporting', title: m[2].trim(), chapter: 'ch. 8a chart' }); found.warrant++ }
+  }
+  // enlisted ch.14 special reporting codes and duty assignment codes
+  const c14 = await pagesOf('Classification-611-21/chapter-14-enlisted-special-reporting-codes.pdf')
+  for (const p of c14.pages) for (const raw of p.text.split('\n')) {
+    const m = raw.replace(/\s+/g, ' ').trim().match(/^14-\d+\.\s+(.*?)\s*\((00[A-Z]|09[A-Z]|14X)\)/)
+    if (m && !en.byCode.has(m[2])) { add(en.byCode, m[2], { page: p.num, kind: 'special_reporting', title: m[1].trim(), chapter: 'ch. 14' }); found.enlisted++ }
+  }
+  return found
+}
+const extraFound = await extras()
+console.error('reporting/status codes added from other chapters:', JSON.stringify(extraFound))
 const rows = [...reconcile('enlisted', en.byCode, gd.byMos), ...reconcile('warrant', wo.byCode), ...reconcile('officer', of.byCode, null, of.branchEvents)]
 
 // rescinded → possible successor: another current code whose title/heading text names the old code

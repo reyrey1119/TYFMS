@@ -48,7 +48,7 @@ NOT ESTABLISHED: a downloaded or text-extracted PDF is not a reviewed specialty/
 | Classification-611-21/cover-page.pdf | classification_review | None |
 | Classification-611-21/chapter-1-introduction.pdf | classification_review | None |
 | Classification-611-21/chapter-2-officer-classification.pdf | classification_review | None |
-| Classification-611-21/chapter-3-officer-branches-and-fas.pdf | imported_duties_sampled_review | 160 codes (army-611-21-officer-ch3) |
+| Classification-611-21/chapter-3-officer-branches-and-fas.pdf | imported_duties_sampled_review | 165 codes (army-611-21-officer-ch3) |
 | Classification-611-21/chapter-3a-officer-physical-requirements.pdf | classification_review | None |
 | Classification-611-21/chapter-4-officer-skill-identifiers.pdf | classification_review | None |
 | Classification-611-21/chapter-5-officer-standards-of-grade.pdf | classification_review | None |
@@ -58,7 +58,7 @@ NOT ESTABLISHED: a downloaded or text-extracted PDF is not a reviewed specialty/
 | Classification-611-21/chapter-7-wo-special-reporting-codes.pdf | classification_review | None |
 | Classification-611-21/chapter-8-wo-base-chapter.pdf | classification_review | None |
 | Classification-611-21/chapter-8a-wo-branches-and-aocs.pdf | classification_review | None |
-| Classification-611-21/chapter-8b-wo-specifications.pdf | imported_duties_sampled_review | 75 codes (army-611-21-warrant-ch8b) |
+| Classification-611-21/chapter-8b-wo-specifications.pdf | imported_duties_sampled_review | 74 codes (army-611-21-warrant-ch8b) |
 | Classification-611-21/chapter-8c-wo-sg-tables.pdf | classification_review | None |
 | Classification-611-21/chapter-8d-wo-rehyical-requirements.pdf | classification_review | None |
 | Classification-611-21/chapter-9-enlisted-classification-system.pdf | classification_review | None |

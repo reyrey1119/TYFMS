@@ -589,7 +589,7 @@
       "bundles": [
         {
           "id": "army-611-21-officer-ch3",
-          "passages": 365,
+          "passages": 372,
           "occupations": [
             "officer:11A",
             "officer:12A",
@@ -652,6 +652,7 @@
             "officer:48J",
             "officer:48P",
             "officer:49A",
+            "officer:49B",
             "officer:51A",
             "officer:51C",
             "officer:51R",
@@ -680,6 +681,8 @@
             "officer:60R",
             "officer:60S",
             "officer:60T",
+            "officer:60U",
+            "officer:60V",
             "officer:60W",
             "officer:60X",
             "officer:61A",
@@ -750,6 +753,8 @@
             "officer:89E",
             "officer:90A",
             "officer:91A",
+            "officer:91B",
+            "officer:91D",
             "officer:92A"
           ]
         }
@@ -886,7 +891,7 @@
       "bundles": [
         {
           "id": "army-611-21-warrant-ch8b",
-          "passages": 286,
+          "passages": 278,
           "occupations": [
             "warrant:120A",
             "warrant:125D",
@@ -931,7 +936,6 @@
             "warrant:350G",
             "warrant:351L",
             "warrant:351M",
-            "warrant:351Y",
             "warrant:351Z",
             "warrant:352N",
             "warrant:352S",
@@ -1059,7 +1063,7 @@
       "bundles": [
         {
           "id": "army-611-21-enlisted-ch10c",
-          "passages": 853,
+          "passages": 851,
           "occupations": [
             "enlisted:00D",
             "enlisted:00F",

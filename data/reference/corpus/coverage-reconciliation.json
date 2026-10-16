@@ -1,0 +1,4689 @@
+{
+ "as_of": "2026-10-16",
+ "categories": {
+  "enlisted": {
+   "register": 212,
+   "imported_description": 178,
+   "imported_not_served": 4,
+   "general_only": 18,
+   "exceptions": 18,
+   "by_status": {
+    "special_reporting": 24,
+    "immaterial": 6,
+    "current": 178,
+    "rescinded": 3,
+    "future_effective": 1
+   },
+   "by_reason": {
+    "special_reporting_or_immaterial": 30,
+    "general_duties_only": 18,
+    "rescinded": 3,
+    "grade_cross_reference_only": 1,
+    "future_effective": 1
+   },
+   "imported_codes_not_in_register": [],
+   "codes_with_any_import": 194
+  },
+  "warrant": {
+   "register": 84,
+   "imported_description": 74,
+   "imported_not_served": 0,
+   "general_only": 0,
+   "exceptions": 10,
+   "by_status": {
+    "special_reporting": 6,
+    "immaterial": 3,
+    "current": 75
+   },
+   "by_reason": {
+    "special_reporting_or_immaterial": 9,
+    "grade_cross_reference_only": 11,
+    "cross_reference_only": 1
+   },
+   "imported_codes_not_in_register": [],
+   "codes_with_any_import": 74
+  },
+  "officer": {
+   "register": 217,
+   "imported_description": 160,
+   "imported_not_served": 5,
+   "general_only": 0,
+   "exceptions": 52,
+   "by_status": {
+    "special_reporting": 8,
+    "immaterial": 12,
+    "rescinded": 8,
+    "current": 189
+   },
+   "by_reason": {
+    "special_reporting_or_immaterial": 20,
+    "rescinded": 8,
+    "designation_only": 8,
+    "chart_only_no_section": 3,
+    "medical_service_corps_no_description": 18
+   },
+   "imported_codes_not_in_register": [],
+   "codes_with_any_import": 165
+  }
+ },
+ "rows": [
+  {
+   "category": "enlisted",
+   "code": "00D",
+   "title": "Position Special Reporting Code (SRC) 00D—Special Duty Assignment",
+   "status": "special_reporting",
+   "imported": "general_duties",
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 2
+  },
+  {
+   "category": "enlisted",
+   "code": "00E",
+   "title": "Sergeant Major (SGM) MOS Immaterial",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 2
+  },
+  {
+   "category": "enlisted",
+   "code": "00F",
+   "title": "Position Special Reporting Code (SRC) 00F—MOS Immaterial NGB",
+   "status": "immaterial",
+   "imported": "general_duties",
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 3
+  },
+  {
+   "category": "enlisted",
+   "code": "00G",
+   "title": "Position Special Reporting Code (SRC) 00G—MOS Immaterial USAR",
+   "status": "immaterial",
+   "imported": "general_duties",
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 4
+  },
+  {
+   "category": "enlisted",
+   "code": "00J",
+   "title": "Position Special Reporting Code (SRC) 00J— Command Sergeant Major (CSM) Engineer/Signal/Military Police/Milita",
+   "status": "immaterial",
+   "imported": "general_duties",
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 5
+  },
+  {
+   "category": "enlisted",
+   "code": "00K",
+   "title": "Position Special Reporting Code (SRC) 00K— Command Sergeant Major (CSM) Maneuver Support (MS)/Logistics",
+   "status": "special_reporting",
+   "imported": "general_duties",
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 6
+  },
+  {
+   "category": "enlisted",
+   "code": "00L",
+   "title": "Position Special Reporting Code (SRC) 00L— Command Sergeant Major (CSM) Logistics",
+   "status": "special_reporting",
+   "imported": "general_duties",
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 7
+  },
+  {
+   "category": "enlisted",
+   "code": "00M",
+   "title": "Position Special Reporting Code (SRC) 00M—MOS Grade Immaterial",
+   "status": "immaterial",
+   "imported": "general_duties",
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 8
+  },
+  {
+   "category": "enlisted",
+   "code": "00N",
+   "title": "Sergeant Major (SGM)/ Command Sergeant Major (CSM) Cyber/Signal Immaterial",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 5
+  },
+  {
+   "category": "enlisted",
+   "code": "00P",
+   "title": "Position Special Reporting Code (SRC) 00P— Command Sergeant Major (CSM) Force Sustainment",
+   "status": "special_reporting",
+   "imported": "general_duties",
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 9
+  },
+  {
+   "category": "enlisted",
+   "code": "00R",
+   "title": "Position Special Reporting Code (SRC) 00R— Command Sergeant Major (CSM) Infantry/Armor Immaterial",
+   "status": "immaterial",
+   "imported": "general_duties",
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 10
+  },
+  {
+   "category": "enlisted",
+   "code": "00S",
+   "title": "Special Duty Assignment AFSC",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 6
+  },
+  {
+   "category": "enlisted",
+   "code": "00T",
+   "title": "Position Special Reporting Code (SRC) 00T— Command Sergeant Major (CSM) Infantry/Armor/Field Artillery/Combat ",
+   "status": "immaterial",
+   "imported": "general_duties",
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 11
+  },
+  {
+   "category": "enlisted",
+   "code": "00X",
+   "title": "Position Special Reporting Code (SRC) 00X— Command Sergeant Major (CSM)",
+   "status": "special_reporting",
+   "imported": "general_duties",
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 12
+  },
+  {
+   "category": "enlisted",
+   "code": "00Z",
+   "title": "Nominative Command Sergeant Major/Sergeant Major (CSM/SGM)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 13
+  },
+  {
+   "category": "enlisted",
+   "code": "08H",
+   "title": "Army Equestrian",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 14
+  },
+  {
+   "category": "enlisted",
+   "code": "09B",
+   "title": "Trainee, Unassigned",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 7
+  },
+  {
+   "category": "enlisted",
+   "code": "09C",
+   "title": "Trainee, Language",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 7
+  },
+  {
+   "category": "enlisted",
+   "code": "09D",
+   "title": "College Trainee",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 8
+  },
+  {
+   "category": "enlisted",
+   "code": "09E",
+   "title": "Trainee, Language, Fort Allen PR",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 7
+  },
+  {
+   "category": "enlisted",
+   "code": "09G",
+   "title": "National Guard on Active Duty Medical Hold",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 8
+  },
+  {
+   "category": "enlisted",
+   "code": "09H",
+   "title": "U.S. Army Reserve on Active Duty Medical Hold",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 8
+  },
+  {
+   "category": "enlisted",
+   "code": "09J",
+   "title": "GED Completion Program",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 8
+  },
+  {
+   "category": "enlisted",
+   "code": "09M",
+   "title": "Delayed Trainee",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 8
+  },
+  {
+   "category": "enlisted",
+   "code": "09N",
+   "title": "Nurse Corps Candidate",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 8
+  },
+  {
+   "category": "enlisted",
+   "code": "09Q",
+   "title": "Army Legal Immigrant Healthcare Professional Officer Candidate",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 8
+  },
+  {
+   "category": "enlisted",
+   "code": "09R",
+   "title": "Simultaneous Membership Program Participant",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 8
+  },
+  {
+   "category": "enlisted",
+   "code": "09S",
+   "title": "Commissioned Officer Candidate",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 8
+  },
+  {
+   "category": "enlisted",
+   "code": "09T",
+   "title": "College Student Officer Program (CSOP) Army National Guard",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 9
+  },
+  {
+   "category": "enlisted",
+   "code": "09U",
+   "title": "Personnel Special Reporting Code (SRC) 09U— Unqualified in Authorized Army",
+   "status": "special_reporting",
+   "imported": "general_duties",
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import (the chapter does print a description, kept in the data but never served as a specialty reference).",
+   "page": 16
+  },
+  {
+   "category": "enlisted",
+   "code": "09W",
+   "title": "Warrant Officer Candidate",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 9
+  },
+  {
+   "category": "enlisted",
+   "code": "11B",
+   "title": "Infantryman",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "enlisted",
+   "code": "11C",
+   "title": "Indirect Fire Infantryman (Indrct Fire Infmn)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 20
+  },
+  {
+   "category": "enlisted",
+   "code": "11Z",
+   "title": "Infantry Senior Sergeant (Inf Sr SGT)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 22
+  },
+  {
+   "category": "enlisted",
+   "code": "12A",
+   "title": "12A Engineer Senior Sergeant",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 24
+  },
+  {
+   "category": "enlisted",
+   "code": "12B",
+   "title": "Combat Engineer",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 25
+  },
+  {
+   "category": "enlisted",
+   "code": "12C",
+   "title": "Bridge Crewmember",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 27
+  },
+  {
+   "category": "enlisted",
+   "code": "12D",
+   "title": "Diver",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 29
+  },
+  {
+   "category": "enlisted",
+   "code": "12G",
+   "title": "Quarrying Specialist (National Guard Only)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 31
+  },
+  {
+   "category": "enlisted",
+   "code": "12H",
+   "title": "Construction Engineering Supervisor (Const Engr Supv)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 32
+  },
+  {
+   "category": "enlisted",
+   "code": "12K",
+   "title": "Plumber",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 33
+  },
+  {
+   "category": "enlisted",
+   "code": "12M",
+   "title": "Firefighter",
+   "status": "rescinded",
+   "imported": "general_duties+rank_duties",
+   "exception": "Not current: rescinded effective 2025-10-01.",
+   "page": 34
+  },
+  {
+   "category": "enlisted",
+   "code": "12N",
+   "title": "Horizontal Construction Engineer (Horiz Const Engineer)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 37
+  },
+  {
+   "category": "enlisted",
+   "code": "12P",
+   "title": "Prime Power Production Specialist (PPPS)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 39
+  },
+  {
+   "category": "enlisted",
+   "code": "12Q",
+   "title": "Powerline Distribution Specialist (Reserve Components) (Powerline Dist Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 41
+  },
+  {
+   "category": "enlisted",
+   "code": "12R",
+   "title": "Interior Electrician",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 42
+  },
+  {
+   "category": "enlisted",
+   "code": "12T",
+   "title": "Technical Engineer (Tech Engr)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 43
+  },
+  {
+   "category": "enlisted",
+   "code": "12W",
+   "title": "Carpentry and Masonry Specialist (Carpentry & Masonry Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 44
+  },
+  {
+   "category": "enlisted",
+   "code": "12X",
+   "title": "General Engineering Supervisor (Gen Engr Supv)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 45
+  },
+  {
+   "category": "enlisted",
+   "code": "12Y",
+   "title": "Geospatial Engineer",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 46
+  },
+  {
+   "category": "enlisted",
+   "code": "12Z",
+   "title": "Combat Engineering Senior Sergeant (Combat Engr Sr SGT)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 48
+  },
+  {
+   "category": "enlisted",
+   "code": "13B",
+   "title": "Cannon Crewmember",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 49
+  },
+  {
+   "category": "enlisted",
+   "code": "13F",
+   "title": "Joint Fire Support Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 51
+  },
+  {
+   "category": "enlisted",
+   "code": "13J",
+   "title": "Fire Control Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 54
+  },
+  {
+   "category": "enlisted",
+   "code": "13M",
+   "title": "Multiple Launch Rocket System (MLRS)/High Mobility Artillery Rocket System (HIMARS) Crewmember (MLRS/HIMARS)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 56
+  },
+  {
+   "category": "enlisted",
+   "code": "13R",
+   "title": "Field Artillery (FA) Weapons Locating Radar (WLR) Specialist (FA WLR Spc)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 58
+  },
+  {
+   "category": "enlisted",
+   "code": "13Z",
+   "title": "Field Artillery Senior Sergeant (FA Sr Sgt)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 60
+  },
+  {
+   "category": "enlisted",
+   "code": "14E",
+   "title": "Patriot Fire Control Enhanced Operator/Maintainer (PATRIOT Fire Ctrl Enh Opr/Maint)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 62
+  },
+  {
+   "category": "enlisted",
+   "code": "14G",
+   "title": "Air Defense (AD) Battle Management System Operator",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 64
+  },
+  {
+   "category": "enlisted",
+   "code": "14H",
+   "title": "Air Defense (AD) Enhanced Early Warning System Operator",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 66
+  },
+  {
+   "category": "enlisted",
+   "code": "14P",
+   "title": "Air and Missile Defense (AMD) Crewmember",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 68
+  },
+  {
+   "category": "enlisted",
+   "code": "14T",
+   "title": "Patriot Launching Station Enhanced Operator/Maintainer (Patriot LS Enh Opr/Maint)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 70
+  },
+  {
+   "category": "enlisted",
+   "code": "14X",
+   "title": "Space and Missile Defense Operations",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 9
+  },
+  {
+   "category": "enlisted",
+   "code": "14Z",
+   "title": "Air Defense Artillery Senior Sergeant",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 72
+  },
+  {
+   "category": "enlisted",
+   "code": "15B",
+   "title": "Aircraft Powerplant Repairer (Acft Powerplant Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 73
+  },
+  {
+   "category": "enlisted",
+   "code": "15C",
+   "title": "MQ-1 Operator",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 75
+  },
+  {
+   "category": "enlisted",
+   "code": "15D",
+   "title": "Aircraft Powertrain Repairer (Acft Powertrain Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 77
+  },
+  {
+   "category": "enlisted",
+   "code": "15E",
+   "title": "Tactical Unmanned Aircraft System (TUAS) Repairer",
+   "status": "rescinded",
+   "imported": "general_duties+rank_duties",
+   "exception": "Not current: rescinded effective 2026-10-01.",
+   "page": 79
+  },
+  {
+   "category": "enlisted",
+   "code": "15F",
+   "title": "Aircraft Electrician (Acft Elec)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 83
+  },
+  {
+   "category": "enlisted",
+   "code": "15G",
+   "title": "Aircraft Structural Repairer (Acft Structural Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 85
+  },
+  {
+   "category": "enlisted",
+   "code": "15H",
+   "title": "Aircraft Pneudraulics Repairer (Acft Pneudraulics Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 87
+  },
+  {
+   "category": "enlisted",
+   "code": "15K",
+   "title": "Aircraft Components Repair Supervisor (Acft Comp Repair Supv)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 89
+  },
+  {
+   "category": "enlisted",
+   "code": "15L",
+   "title": "Armament/Electrical/Avionics Repair Supervisor (Arm/Elect/Avionics Rep Supv)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 90
+  },
+  {
+   "category": "enlisted",
+   "code": "15M",
+   "title": "MQ-1 Repairer",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 91
+  },
+  {
+   "category": "enlisted",
+   "code": "15N",
+   "title": "Avionic Mechanic",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 93
+  },
+  {
+   "category": "enlisted",
+   "code": "15P",
+   "title": "Aviation Operations Specialist (Aviation Ops Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 95
+  },
+  {
+   "category": "enlisted",
+   "code": "15Q",
+   "title": "Air Traffic Control (ATC) Operator",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 97
+  },
+  {
+   "category": "enlisted",
+   "code": "15R",
+   "title": "AH-64 Attack Helicopter Repairer (AH-64 Attack Hel Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 100
+  },
+  {
+   "category": "enlisted",
+   "code": "15T",
+   "title": "UH-60 Helicopter Repairer /Aircrew Member (UH-60 Hel Rep/ACM)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 102
+  },
+  {
+   "category": "enlisted",
+   "code": "15U",
+   "title": "CH-47 Helicopter Repairer/Aircrew Member (CH-47 Hel Rep/ACM)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 104
+  },
+  {
+   "category": "enlisted",
+   "code": "15W",
+   "title": "Tactical Unmanned Aircraft System (TUAS) Operator",
+   "status": "rescinded",
+   "imported": "general_duties+rank_duties",
+   "exception": "Not current: rescinded effective 2026-10-01.",
+   "page": 106
+  },
+  {
+   "category": "enlisted",
+   "code": "15X",
+   "title": "Tactical Unmanned Aircraft System (TUAS) Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 110
+  },
+  {
+   "category": "enlisted",
+   "code": "15Y",
+   "title": "AH-64 Armament/Electrical/Avionics Systems Repairer (AH-64 Arm/Elect/Avionics Sys Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 112
+  },
+  {
+   "category": "enlisted",
+   "code": "15Z",
+   "title": "Aviation Senior Sergeant (Avn Sr SGT)",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): \"Supervises personnel performing duties of CMF 15 Aviation as described below:\" (ch. 10c p. 114)",
+   "page": 114
+  },
+  {
+   "category": "enlisted",
+   "code": "17C",
+   "title": "Cyber Operations Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 116
+  },
+  {
+   "category": "enlisted",
+   "code": "17E",
+   "title": "Electronic Warfare Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 118
+  },
+  {
+   "category": "enlisted",
+   "code": "17Z",
+   "title": "Cyberspace and Electromagnetic Activities (CEMA) Senior Sergeant (CEMA Sr SGT)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 120
+  },
+  {
+   "category": "enlisted",
+   "code": "18B",
+   "title": "Special Forces Weapons Sergeant (SF Wpns SGT)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 121
+  },
+  {
+   "category": "enlisted",
+   "code": "18C",
+   "title": "Special Forces Engineer Sergeant (SF Engr SGT)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 123
+  },
+  {
+   "category": "enlisted",
+   "code": "18D",
+   "title": "Special Forces Medical Sergeant, (SF Med SGT)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 125
+  },
+  {
+   "category": "enlisted",
+   "code": "18E",
+   "title": "Special Forces Communications Sergeant (SF Comm SGT)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 127
+  },
+  {
+   "category": "enlisted",
+   "code": "18F",
+   "title": "Special Forces Intelligence Sergeant (SF Intel SGT)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 129
+  },
+  {
+   "category": "enlisted",
+   "code": "18Z",
+   "title": "Special Forces Operations Sergeant, (SF OPS SGT)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 131
+  },
+  {
+   "category": "enlisted",
+   "code": "19C",
+   "title": "Bradley Crewmember",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 132
+  },
+  {
+   "category": "enlisted",
+   "code": "19D",
+   "title": "Cavalry Scout",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 135
+  },
+  {
+   "category": "enlisted",
+   "code": "19K",
+   "title": "Armor Crewmember",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 137
+  },
+  {
+   "category": "enlisted",
+   "code": "19Z",
+   "title": "Armor Senior Sergeant",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 140
+  },
+  {
+   "category": "enlisted",
+   "code": "25B",
+   "title": "Information Technology Specialist (Info Tech Spec)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 142
+  },
+  {
+   "category": "enlisted",
+   "code": "25D",
+   "title": "Cyber Network Defender",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 144
+  },
+  {
+   "category": "enlisted",
+   "code": "25E",
+   "title": "Electromagnetic Spectrum Manager (Electro Spectrum Mgr)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 146
+  },
+  {
+   "category": "enlisted",
+   "code": "25H",
+   "title": "Network Communication Systems Specialist (Net Com Sys Spec)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 148
+  },
+  {
+   "category": "enlisted",
+   "code": "25S",
+   "title": "Satellite Communication Systems Specialist (SATCOM Sys Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 150
+  },
+  {
+   "category": "enlisted",
+   "code": "25U",
+   "title": "Signal Operations Support Specialist (Sig Ops Spt Spc)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 152
+  },
+  {
+   "category": "enlisted",
+   "code": "25Z",
+   "title": "Senior Signal Sergeant",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 154
+  },
+  {
+   "category": "enlisted",
+   "code": "27D",
+   "title": "Paralegal Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 156
+  },
+  {
+   "category": "enlisted",
+   "code": "31B",
+   "title": "Military Police",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 158
+  },
+  {
+   "category": "enlisted",
+   "code": "31D",
+   "title": "CID Special Agent",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 160
+  },
+  {
+   "category": "enlisted",
+   "code": "31E",
+   "title": "Corrections and Detention Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 162
+  },
+  {
+   "category": "enlisted",
+   "code": "31K",
+   "title": "Working Dog Handler",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 165
+  },
+  {
+   "category": "enlisted",
+   "code": "31Z",
+   "title": "Senior Military Police Sergeant",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 167
+  },
+  {
+   "category": "enlisted",
+   "code": "35F",
+   "title": "Intelligence Analyst (Intel Analyst)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 168
+  },
+  {
+   "category": "enlisted",
+   "code": "35G",
+   "title": "Geospatial Intelligence Imagery Analyst",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 170
+  },
+  {
+   "category": "enlisted",
+   "code": "35L",
+   "title": "Counterintelligence (CI) Agent",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 172
+  },
+  {
+   "category": "enlisted",
+   "code": "35M",
+   "title": "Human Intelligence Collector (HUMINT Collector)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 174
+  },
+  {
+   "category": "enlisted",
+   "code": "35N",
+   "title": "Signals Intelligence Analyst (SIGINT Analyst)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 177
+  },
+  {
+   "category": "enlisted",
+   "code": "35P",
+   "title": "Signals Intelligence (SIGINT) Voice Interceptor",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 179
+  },
+  {
+   "category": "enlisted",
+   "code": "35S",
+   "title": "Signals Acquisition/Exploitation Analyst",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 182
+  },
+  {
+   "category": "enlisted",
+   "code": "35T",
+   "title": "Military Intelligence (MI) Systems Maintainer/Integrator, (MI Sys Mntr/Intgr)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 184
+  },
+  {
+   "category": "enlisted",
+   "code": "35Z",
+   "title": "Intelligence Senior Sergeant",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Specification gives duties for the senior skill levels only (E-8, E-9).",
+   "page": 186
+  },
+  {
+   "category": "enlisted",
+   "code": "36B",
+   "title": "Financial Management Technician",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 188
+  },
+  {
+   "category": "enlisted",
+   "code": "37F",
+   "title": "Psychological Operations Specialist, (PO Specialist)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 190
+  },
+  {
+   "category": "enlisted",
+   "code": "38B",
+   "title": "Civil Affairs Specialist (CA Specialist) (USAR Only)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 193
+  },
+  {
+   "category": "enlisted",
+   "code": "38R",
+   "title": "Civil Reconnaissance Sergeant (CR SGT) (Active Component Only)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 195
+  },
+  {
+   "category": "enlisted",
+   "code": "38W",
+   "title": "Civil Affairs Medical Sergeant (CA Medical SGT) (Active Component Only)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 197
+  },
+  {
+   "category": "enlisted",
+   "code": "38Z",
+   "title": "Civil Affairs Senior Sergeant (Active Component Only)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 199
+  },
+  {
+   "category": "enlisted",
+   "code": "40D",
+   "title": "Space Operations Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 201
+  },
+  {
+   "category": "enlisted",
+   "code": "42A",
+   "title": "Human Resources Specialist (HR SPC)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 203
+  },
+  {
+   "category": "enlisted",
+   "code": "42R",
+   "title": "Musician",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 205
+  },
+  {
+   "category": "enlisted",
+   "code": "42S",
+   "title": "Special Band Musician",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 210
+  },
+  {
+   "category": "enlisted",
+   "code": "42T",
+   "title": "42T Talent Acquisition Specialist (Active Component and USAR)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 212
+  },
+  {
+   "category": "enlisted",
+   "code": "46S",
+   "title": "Public Affairs Mass Communication Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 214
+  },
+  {
+   "category": "enlisted",
+   "code": "46T",
+   "title": "Mass Communications Systems Engineer (Mass Comm Sys Eng)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 216
+  },
+  {
+   "category": "enlisted",
+   "code": "46V",
+   "title": "Visual Information Specialist (Visual InfoSp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 220
+  },
+  {
+   "category": "enlisted",
+   "code": "46Y",
+   "title": "Visual Information Operations Chief (VI Op Chief)",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Specification gives duties for the senior skill levels only (E-8, E-9).",
+   "page": 221
+  },
+  {
+   "category": "enlisted",
+   "code": "46Z",
+   "title": "Chief Public Affairs NCO",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 222
+  },
+  {
+   "category": "enlisted",
+   "code": "51C",
+   "title": "Contracting Noncommissioned Officer (NCO)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 223
+  },
+  {
+   "category": "enlisted",
+   "code": "56M",
+   "title": "Religious Affairs Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 227
+  },
+  {
+   "category": "enlisted",
+   "code": "68A",
+   "title": "Biomedical Equipment Specialist (Biomed Eq Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 230
+  },
+  {
+   "category": "enlisted",
+   "code": "68B",
+   "title": "Orthopedic Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 232
+  },
+  {
+   "category": "enlisted",
+   "code": "68C",
+   "title": "Practical Nursing Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 234
+  },
+  {
+   "category": "enlisted",
+   "code": "68D",
+   "title": "Operating Room Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 236
+  },
+  {
+   "category": "enlisted",
+   "code": "68E",
+   "title": "Dental Specialist (Dental Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 238
+  },
+  {
+   "category": "enlisted",
+   "code": "68F",
+   "title": "Physical Therapy Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 241
+  },
+  {
+   "category": "enlisted",
+   "code": "68G",
+   "title": "Patient Administration Specialist (Patient Admin Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 243
+  },
+  {
+   "category": "enlisted",
+   "code": "68H",
+   "title": "Optical Laboratory Specialist (Optical Lab Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 245
+  },
+  {
+   "category": "enlisted",
+   "code": "68J",
+   "title": "Medical Logistics Specialist (Medical Log Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 247
+  },
+  {
+   "category": "enlisted",
+   "code": "68K",
+   "title": "Medical Laboratory Specialist (Medical Lab Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 248
+  },
+  {
+   "category": "enlisted",
+   "code": "68L",
+   "title": "Occupational Therapy Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 250
+  },
+  {
+   "category": "enlisted",
+   "code": "68M",
+   "title": "Nutrition Care Specialist (Nutr Care Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 252
+  },
+  {
+   "category": "enlisted",
+   "code": "68P",
+   "title": "Radiology Specialist (Radiology Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 254
+  },
+  {
+   "category": "enlisted",
+   "code": "68Q",
+   "title": "Pharmacy Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 256
+  },
+  {
+   "category": "enlisted",
+   "code": "68R",
+   "title": "Veterinary Food Inspection Specialist (Vet Food Insp Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 258
+  },
+  {
+   "category": "enlisted",
+   "code": "68S",
+   "title": "Preventive Medicine Specialist (Pvnt Med Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 260
+  },
+  {
+   "category": "enlisted",
+   "code": "68T",
+   "title": "Animal Care Specialist (Animal Care Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 262
+  },
+  {
+   "category": "enlisted",
+   "code": "68V",
+   "title": "Respiratory Specialist (Respiratory Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 264
+  },
+  {
+   "category": "enlisted",
+   "code": "68W",
+   "title": "68W Combat Medic Specialist (Combat Medic Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 266
+  },
+  {
+   "category": "enlisted",
+   "code": "68X",
+   "title": "Behavioral Health Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 268
+  },
+  {
+   "category": "enlisted",
+   "code": "68Y",
+   "title": "Eye Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 269
+  },
+  {
+   "category": "enlisted",
+   "code": "68Z",
+   "title": "Chief Medical NCO (Ch Med NCO)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 271
+  },
+  {
+   "category": "enlisted",
+   "code": "74D",
+   "title": "Chemical, Biological, Radiological and Nuclear (CBRN) Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 272
+  },
+  {
+   "category": "enlisted",
+   "code": "79R",
+   "title": "Recruiter (Active Component and USAR)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 274
+  },
+  {
+   "category": "enlisted",
+   "code": "79S",
+   "title": "Career Counselor (Active Component)",
+   "status": "future_effective",
+   "imported": "general_duties+rank_duties",
+   "exception": "Not current yet: effective 2027-10-01.",
+   "page": 276
+  },
+  {
+   "category": "enlisted",
+   "code": "79T",
+   "title": "Recruiting and Retention NCO (Army National Guard of the United States/ Recruiter and Retention NCO)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 279
+  },
+  {
+   "category": "enlisted",
+   "code": "79V",
+   "title": "Army Reserve Career Counselor (Army Reserve)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 282
+  },
+  {
+   "category": "enlisted",
+   "code": "88H",
+   "title": "Cargo Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 285
+  },
+  {
+   "category": "enlisted",
+   "code": "88K",
+   "title": "Watercraft Operator",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 286
+  },
+  {
+   "category": "enlisted",
+   "code": "88L",
+   "title": "Watercraft Engineer",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 288
+  },
+  {
+   "category": "enlisted",
+   "code": "88M",
+   "title": "Motor Transport Operator",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 290
+  },
+  {
+   "category": "enlisted",
+   "code": "88N",
+   "title": "Transportation Management Coordinator (Trans Mgt Coord)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 292
+  },
+  {
+   "category": "enlisted",
+   "code": "88P",
+   "title": "Railway Equipment Repairer (USAR only)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 294
+  },
+  {
+   "category": "enlisted",
+   "code": "88U",
+   "title": "Railway Specialist (USAR only)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 295
+  },
+  {
+   "category": "enlisted",
+   "code": "88Z",
+   "title": "Transportation Senior Sergeant (Transportation Sr SGT)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 297
+  },
+  {
+   "category": "enlisted",
+   "code": "89A",
+   "title": "Ammunition Stock Control and Accounting Specialist (Ammo Stk Con/Acctg Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 298
+  },
+  {
+   "category": "enlisted",
+   "code": "89B",
+   "title": "Ammunition Specialist (Ammo Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 299
+  },
+  {
+   "category": "enlisted",
+   "code": "89D",
+   "title": "Explosive Ordnance Disposal (EOD) Specialist (EOD Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 300
+  },
+  {
+   "category": "enlisted",
+   "code": "91A",
+   "title": "M1 Abrams Tank System Maintainer (M1 Abrams Tank Sys Maint)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 302
+  },
+  {
+   "category": "enlisted",
+   "code": "91B",
+   "title": "Wheeled Vehicle Mechanic",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 303
+  },
+  {
+   "category": "enlisted",
+   "code": "91C",
+   "title": "Utilities Equipment Repairer (Util Equip Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 305
+  },
+  {
+   "category": "enlisted",
+   "code": "91D",
+   "title": "Tactical Power Generation Specialist (Tac Pwr Gen Spec)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 306
+  },
+  {
+   "category": "enlisted",
+   "code": "91E",
+   "title": "Allied Trades Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 307
+  },
+  {
+   "category": "enlisted",
+   "code": "91F",
+   "title": "Small Arms/Towed Artillery Repairer (Small Arms/Towed Arty Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 308
+  },
+  {
+   "category": "enlisted",
+   "code": "91H",
+   "title": "Tracked Vehicle Repairer (Tracked Veh Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 309
+  },
+  {
+   "category": "enlisted",
+   "code": "91J",
+   "title": "Quartermaster and Chemical Equipment Repairer (QM & Chem Equip Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 310
+  },
+  {
+   "category": "enlisted",
+   "code": "91L",
+   "title": "Construction Equipment Repairer (Const Equip Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 311
+  },
+  {
+   "category": "enlisted",
+   "code": "91M",
+   "title": "Bradley Fighting Vehicle System Maintainer (BFVS Maint)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 313
+  },
+  {
+   "category": "enlisted",
+   "code": "91P",
+   "title": "Self-Propelled Artillery Systems Mechanic (Self-Prop Arty Sys Mech)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 314
+  },
+  {
+   "category": "enlisted",
+   "code": "91S",
+   "title": "Stryker Systems Maintainer, Stryker Sys Maint",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 316
+  },
+  {
+   "category": "enlisted",
+   "code": "91X",
+   "title": "Maintenance Supervisor (Maint Supv)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 318
+  },
+  {
+   "category": "enlisted",
+   "code": "91Z",
+   "title": "Senior Maintenance Supervisor (SR Maint Supervisor)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 319
+  },
+  {
+   "category": "enlisted",
+   "code": "92A",
+   "title": "Automated Logistical Specialist (Auto Log Spec)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 320
+  },
+  {
+   "category": "enlisted",
+   "code": "92F",
+   "title": "Petroleum Supply Specialist (Petro Sup SPC)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 324
+  },
+  {
+   "category": "enlisted",
+   "code": "92G",
+   "title": "Culinary Specialist",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 327
+  },
+  {
+   "category": "enlisted",
+   "code": "92L",
+   "title": "Petroleum Laboratory Specialist (Petro Lab SPC)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 329
+  },
+  {
+   "category": "enlisted",
+   "code": "92M",
+   "title": "Fatality Management Specialist (Fatality Management SPC)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 330
+  },
+  {
+   "category": "enlisted",
+   "code": "92R",
+   "title": "Parachute Rigger",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 332
+  },
+  {
+   "category": "enlisted",
+   "code": "92S",
+   "title": "Shower and Laundry Specialist (S&L SPC)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 334
+  },
+  {
+   "category": "enlisted",
+   "code": "92W",
+   "title": "Water Treatment Specialist (Water Trmt SPC)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 336
+  },
+  {
+   "category": "enlisted",
+   "code": "92Y",
+   "title": "Unit Supply Specialist (Unit Supply SPEC)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 337
+  },
+  {
+   "category": "enlisted",
+   "code": "92Z",
+   "title": "Senior Noncommissioned Logistician",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 340
+  },
+  {
+   "category": "enlisted",
+   "code": "94A",
+   "title": "Land Combat Electronic Missile System Repairer",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 343
+  },
+  {
+   "category": "enlisted",
+   "code": "94D",
+   "title": "Air Traffic Control Equipment Repairer (ATC Equip Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 344
+  },
+  {
+   "category": "enlisted",
+   "code": "94E",
+   "title": "Radio Equipment Repairer",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 346
+  },
+  {
+   "category": "enlisted",
+   "code": "94F",
+   "title": "Computer/Detection Systems Repairer (Comp/Det Sys Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 348
+  },
+  {
+   "category": "enlisted",
+   "code": "94H",
+   "title": "Test, Measurement, and Diagnostic Equipment (TMDE) Maintenance Support Specialist (TMDE Maint Spt Sp)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 350
+  },
+  {
+   "category": "enlisted",
+   "code": "94M",
+   "title": "Radar Repairer (Radar Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 352
+  },
+  {
+   "category": "enlisted",
+   "code": "94P",
+   "title": "Multiple Launch Rocket System (MLRS) Repairer (MLRS Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 353
+  },
+  {
+   "category": "enlisted",
+   "code": "94R",
+   "title": "Avionics and Survivability Equipment Repairer (Avionics/Surv Eq Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 354
+  },
+  {
+   "category": "enlisted",
+   "code": "94S",
+   "title": "Patriot System Repairer (Patriot Sys Rep)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 356
+  },
+  {
+   "category": "enlisted",
+   "code": "94T",
+   "title": "Short Range Air Defense System Repairer",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 358
+  },
+  {
+   "category": "enlisted",
+   "code": "94W",
+   "title": "Electronic Maintenance Supervisor (Elect Maint Supv)",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 359
+  },
+  {
+   "category": "enlisted",
+   "code": "94Y",
+   "title": "Automatic Test Systems Operator/Maintainer",
+   "status": "current",
+   "imported": "general_duties+rank_duties",
+   "exception": null,
+   "page": 360
+  },
+  {
+   "category": "enlisted",
+   "code": "94Z",
+   "title": "Senior Electronic Maintenance Supervisor (Sr Elect Maint Supv)",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": "Description imported, but the pamphlet gives only general (\"major\") duties for this MOS, no per-grade text; answers say so and invent no rank scope.",
+   "page": 361
+  },
+  {
+   "category": "warrant",
+   "code": "001A",
+   "title": "Unqualified in Authorized Warrant Officer MOS",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 1
+  },
+  {
+   "category": "warrant",
+   "code": "002A",
+   "title": "Patient",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 1
+  },
+  {
+   "category": "warrant",
+   "code": "003A",
+   "title": "Student",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 1
+  },
+  {
+   "category": "warrant",
+   "code": "004A",
+   "title": "Duties unassigned or in transit",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 1
+  },
+  {
+   "category": "warrant",
+   "code": "011A",
+   "title": "Branch/MOS immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": null
+  },
+  {
+   "category": "warrant",
+   "code": "011M",
+   "title": "Branch/MOS immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": null
+  },
+  {
+   "category": "warrant",
+   "code": "019G",
+   "title": "NATIONAL GUARD ON ACTIVE DUTY MEDICAL HOLD",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 7
+  },
+  {
+   "category": "warrant",
+   "code": "019H",
+   "title": "U.S. ARMY RESERVE ON ACTIVE DUTY MEDICAL HOLD",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 7
+  },
+  {
+   "category": "warrant",
+   "code": "120A",
+   "title": "CONSTRUCTION ENGINEERING TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "125D",
+   "title": "GEOSPATIAL ENGINEERING TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "131A",
+   "title": "TARGETING TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "140A",
+   "title": "AIR AND MISSILE DEFENSE (AMD) SYSTEMS INTEGRATOR",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "140K",
+   "title": "AIR AND MISSILE DEFENSE (AMD) SYSTEMS TACTICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "140L",
+   "title": "AIR AND MISSILE DEFENSE (AMD) SYSTEMS TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "140X",
+   "title": "AIR DEFENSE ARTILLERY (ADA) IMMATERIAL",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "150A",
+   "title": "AIR TRAFFIC AND AIR SPACE MANAGEMENT TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "150U",
+   "title": "UNMANNED AIRCRAFT SYSTEMS OPERATIONS TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "151A",
+   "title": "AVIATION MAINTENANCE TECHNICIAN (NONRATED)",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "152B",
+   "title": "OH-58A/C SCOUT PILOT (RC)",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "152C",
+   "title": "OH-6 PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "152D",
+   "title": "OH-58D PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "152E",
+   "title": "AH-64E PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "152F",
+   "title": "AH-64A ATTACK PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "152H",
+   "title": "AH-64D ATTACK PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "153A",
+   "title": "ROTARY WING AVIATOR (AIRCRAFT NONSPECIFIC)",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "153B",
+   "title": "UH-1 PILOT (RC)",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "warrant",
+   "code": "153D",
+   "title": "UH-60 PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "153E",
+   "title": "MH-60 PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "153L",
+   "title": "UH-72A PILOT (RC ONLY)",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "153M",
+   "title": "UH-60M PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "154C",
+   "title": "CH-47D PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "154E",
+   "title": "MH-47 PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "154F",
+   "title": "CH-47F PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "155A",
+   "title": "FIXED WING AVIATOR (AIRCRAFT NONSPECIFIC)",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "155E",
+   "title": "C-12 PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "155F",
+   "title": "JET AIRCRAFT PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "155G",
+   "title": "0-5A/EO-5B/RC-7 PILOT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "170A",
+   "title": "CYBER WARFARE TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "170B",
+   "title": "ELECTRONIC WARFARE TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "170D",
+   "title": "CYBER CAPABILITIES DEVELOPER TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "180A",
+   "title": "SPECIAL FORCES WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "255A",
+   "title": "DATA OPERATIONS WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "255N",
+   "title": "NETWORK OPERATIONS WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "255S",
+   "title": "CYBERSPACE DEFENSE WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): \"CW5 must see MOS 255Z.\" (ch. 8b p. 65)",
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "255Z",
+   "title": "SENIOR SIGNAL WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): \"WO1/CW2/CW3/CW4 does not apply.\" (ch. 8b p. 66)",
+   "page": 3
+  },
+  {
+   "category": "warrant",
+   "code": "270A",
+   "title": "LEGAL ADMINISTRATOR",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "280A",
+   "title": "Software Operations Technician",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 70
+  },
+  {
+   "category": "warrant",
+   "code": "311A",
+   "title": "CID SPECIAL AGENT",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "350F",
+   "title": "ALL SOURCE INTELLIGENCE TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "350G",
+   "title": "GEOSPATIAL INTELLIGENCE IMAGERY TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "351L",
+   "title": "COUNTERINTELLIGENCE TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "351M",
+   "title": "HUMAN INTELLIGENCE COLLECTION TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "351Y",
+   "title": "AREA INTELLIGENCE TECHNICIAN",
+   "status": "current",
+   "imported": null,
+   "exception": "The pamphlet gives only a cross-reference for duties, no description: W-1..W-2 \"(see AR 614-115).\" (ch. 8b p. 90); W-3 \"(see AR 614-115).\" (ch. 8b p. 90); W-4 \"(see AR 614-115).\" (ch. 8b p. 90); W-5 \"(see AR 614-115).\" (ch. 8b p. 90)",
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "351Z",
+   "title": "ATTACHE INTELLIGENCE OPERATIONS TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "352N",
+   "title": "SIGNALS INTELLIGENCE ANALYSIS TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "352S",
+   "title": "SIGNALS COLLECTOR TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "353T",
+   "title": "INTELLIGENCE SYSTEMS INTEGRATION AND MAINTENANCE TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "390A",
+   "title": "Robotics Technician",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 101
+  },
+  {
+   "category": "warrant",
+   "code": "420A",
+   "title": "HUMAN RESOURCES TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "420C",
+   "title": "BANDMASTER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "420T",
+   "title": "TALENT ACQUISITION TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "490B",
+   "title": "Artificial Intelligence and Machine Learning Operations Technician",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 111
+  },
+  {
+   "category": "warrant",
+   "code": "640A",
+   "title": "FOOD SAFETY OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "670A",
+   "title": "HEALTH SERVICES MAINTENANCE TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "740A",
+   "title": "CHEMICAL, BIOLOGICAL, RADIOLOGICAL AND NUCLEAR (CBRN) WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "880A",
+   "title": "MARINE DECK OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "881A",
+   "title": "MARINE ENGINEERING OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "882A",
+   "title": "MOBILITY OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "890A",
+   "title": "AMMUNITION TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "warrant",
+   "code": "913A",
+   "title": "ARMAMENT SYSTEMS MAINTENANCE WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): \"CW5--see MOS 915E.\" (ch. 8b p. 130)",
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "914A",
+   "title": "ALLIED TRADES WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): \"CW5—-see MOS 915E.\" (ch. 8b p. 132)",
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "915A",
+   "title": "AUTOMOTIVE MAINTENANCE WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "915E",
+   "title": "SENIOR AUTOMOTIVE MAINTENANCE WARRANT OFFICER/SENIOR ORDNANCE LOGISTICS WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): W-1..W-3 \"and CW4--see feeder MOS qualifications.\" (ch. 8b p. 136)",
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "915S",
+   "title": "STRYKER MAINTENANCE WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): \"CW5 see MOS 915E.\" (ch. 8b p. 139)",
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "915T",
+   "title": "TRACK MAINTENANCE WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): \"CW5 see MOS 915E.\" (ch. 8b p. 142)",
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "919A",
+   "title": "ENGINEER EQUIPMENT MAINTENANCE WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): \"CW3—See MOS 915T\" (ch. 8b p. 143); \"CW4—See MOS 915T.\" (ch. 8b p. 143); \"CW5—See MOS 915E.\" (ch. 8b p. 143)",
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "920A",
+   "title": "PROPERTY ACCOUNTING TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "920B",
+   "title": "SUPPLY SYSTEMS TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "921A",
+   "title": "AIRDROP SYSTEMS TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "922A",
+   "title": "FOOD SERVICE TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "923A",
+   "title": "PETROLEUM TECHNICIAN",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "948B",
+   "title": "ELECTRONIC SYSTEMS MAINTENANCE WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): \"CW5 must see MOS 948E.\" (ch. 8b p. 156)",
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "948D",
+   "title": "ELECTRONIC MISSILE SYSTEMS MAINTENANCE WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): \"CW5 must see MOS 948E.\" (ch. 8b p. 159)",
+   "page": 5
+  },
+  {
+   "category": "warrant",
+   "code": "948E",
+   "title": "SENIOR ELECTRONICS MAINTENANCE WARRANT OFFICER",
+   "status": "current",
+   "imported": "rank_duties",
+   "exception": "Description imported, but part of the pamphlet text only points elsewhere or introduces what follows, and gives no duties of its own (not stored): W-1..W-2 \"see MOS 948B or MOS 948D.\" (ch. 8b p. 160); W-3 \"see MOS 948B or MOS 948D.\" (ch. 8b p. 160); W-4 \"see MOS 948B or MOS 948D\" (ch. 8b p. 160)",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "00A",
+   "title": "Duties unassigned",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "00B",
+   "title": "General officer",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "00C",
+   "title": "Relieved from duty sick in hospital or quarters",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "00D",
+   "title": "Newly commissioned officers awaiting entry on active duty or active duty for training for",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "00E",
+   "title": "Student officer",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "01A",
+   "title": "Officer Generalist",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "01B",
+   "title": "Aviation/Infantry/Armor/Military Intelligence Immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "01C",
+   "title": "Chemical/Engineer/Military Police Immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "01D",
+   "title": "Financial Management/Adjutant General Immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "01F",
+   "title": "Special Forces/Civil Affairs/Psychological Operations Immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "01G",
+   "title": "Cyber/Signal/Military Intelligence/Space Operations Immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "01M",
+   "title": "Officer Generalist Grade Immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "02A",
+   "title": "Combat Arms Generalist",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "02B",
+   "title": "Infantry/Armor Immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "02C",
+   "title": "Infantry/Armor/Field Artillery/Engineer Immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "02D",
+   "title": "Infantry/Armor/Special Forces",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "02E",
+   "title": "Air Defense Artillery/Field Artillery Immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "03A",
+   "title": "Logistics / Infantry-Armor Immaterial (deleted)",
+   "status": "rescinded",
+   "imported": null,
+   "exception": "Not current: rescinded effective 1993-10-01.",
+   "page": 39
+  },
+  {
+   "category": "officer",
+   "code": "04A",
+   "title": "Personnel Immaterial (deleted)",
+   "status": "rescinded",
+   "imported": null,
+   "exception": "Not current: rescinded effective 2000-10-01.",
+   "page": 39
+  },
+  {
+   "category": "officer",
+   "code": "05A",
+   "title": "AMEDD Immaterial",
+   "status": "immaterial",
+   "imported": null,
+   "exception": "MOS/AOC-immaterial code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "09A",
+   "title": "Software Operations (deleted; became AOC 28A)",
+   "status": "rescinded",
+   "imported": null,
+   "exception": "Not current: rescinded effective 2025-08-01.",
+   "page": 39
+  },
+  {
+   "category": "officer",
+   "code": "09G",
+   "title": "National Guard on active-duty medical hold",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "09H",
+   "title": "U",
+   "status": "special_reporting",
+   "imported": null,
+   "exception": "Special reporting / status code: a reporting or position-coding convention, not a job specialty, so it has no duties to import.",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "11A",
+   "title": "INFANTRY",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "officer",
+   "code": "12A",
+   "title": "ENGINEER",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "officer",
+   "code": "13A",
+   "title": "FIELD ARTILLERY, GENERAL",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "officer",
+   "code": "14A",
+   "title": "AIR DEFENSE ARTILLERY OFFICER",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "officer",
+   "code": "15A",
+   "title": "AVIATION, GENERAL",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "officer",
+   "code": "15B",
+   "title": "AVIATION COMBINED ARMS OPERATIONS",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "officer",
+   "code": "15C",
+   "title": "AVIATION ALL-SOURCE INTELLIGENCE",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "officer",
+   "code": "15D",
+   "title": "AVIATION MAINTENANCE OFFICER",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 2
+  },
+  {
+   "category": "officer",
+   "code": "17A",
+   "title": "CYBER WARFARE OFFICER",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "officer",
+   "code": "17B",
+   "title": "CYBER ELECTROMAGNETIC WARFARE OFFICER",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "officer",
+   "code": "17D",
+   "title": "CYBER CAPABILITY DEVELOPMENT OFFICER",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "officer",
+   "code": "17X",
+   "title": "CYBER OFFICER DESIGNATED",
+   "status": "current",
+   "imported": null,
+   "exception": "Designation / classification-only AOC, not a job: p. 51: \"AOC 17X is for personnel classification only upon designation ... will not be used to code positions.\"",
+   "page": 3
+  },
+  {
+   "category": "officer",
+   "code": "18A",
+   "title": "SPECIAL FORCES",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "officer",
+   "code": "19A",
+   "title": "ARMOR",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "officer",
+   "code": "25A",
+   "title": "SIGNAL, GENERAL",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "officer",
+   "code": "26A",
+   "title": "NETWORK SYSTEMS ENGINEERING",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 16
+  },
+  {
+   "category": "officer",
+   "code": "26B",
+   "title": "DATA SYSTEMS ENGINEERING",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 16
+  },
+  {
+   "category": "officer",
+   "code": "26Z",
+   "title": "DATA NETWORK ENGINEERING",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 16
+  },
+  {
+   "category": "officer",
+   "code": "27A",
+   "title": "JUDGE ADVOCATE GENERAL",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "officer",
+   "code": "27B",
+   "title": "MILITARY JUDGE",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 3
+  },
+  {
+   "category": "officer",
+   "code": "28A",
+   "title": "SOFTWARE OPERATIONS",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 16
+  },
+  {
+   "category": "officer",
+   "code": "30A",
+   "title": "INFORMATION OPERATIONS OFFICER",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 16
+  },
+  {
+   "category": "officer",
+   "code": "31A",
+   "title": "MILITARY POLICE",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "officer",
+   "code": "35A",
+   "title": "INTELLIGENCE OFFICER",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "officer",
+   "code": "35B",
+   "title": "STRATEGIC INTELLIGENCE OFFICER",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "officer",
+   "code": "36A",
+   "title": "FINANCE AND COMPTROLLER",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "officer",
+   "code": "37A",
+   "title": "PSYCHOLOGICAL OPERATIONS",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "officer",
+   "code": "37X",
+   "title": "PSYCHOLOGICAL OPERATIONS, DESIGNATED",
+   "status": "current",
+   "imported": null,
+   "exception": "Designation / classification-only AOC, not a job: p. 74: \"AOC 37X is used for personnel classification only ... not used to code positions.\"",
+   "page": 4
+  },
+  {
+   "category": "officer",
+   "code": "38A",
+   "title": "CIVIL AFFAIRS (RESERVE FORCES ONLY)",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "officer",
+   "code": "38G",
+   "title": "MILITARY GOVERNMENT (USAR ONLY)",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "officer",
+   "code": "38S",
+   "title": "CIVIL AFFAIRS OFFICER SPECIAL OPERATIONS (SO)",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 4
+  },
+  {
+   "category": "officer",
+   "code": "38X",
+   "title": "CIVIL AFFAIRS, DESIGNATED",
+   "status": "current",
+   "imported": null,
+   "exception": "Designation / classification-only AOC, not a job: p. 77: \"AOC 38X is used for personnel classification only ... not used to code positions.\"",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "40A",
+   "title": "SPACE OPERATIONS",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 16
+  },
+  {
+   "category": "officer",
+   "code": "40C",
+   "title": "ARMY ASTRONAUT",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 16
+  },
+  {
+   "category": "officer",
+   "code": "42B",
+   "title": "HUMAN RESOURCES OFFICER",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "42C",
+   "title": "ARMY MUSIC",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "42H",
+   "title": "SENIOR HUMAN RESOURCES OFFICER",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "46A",
+   "title": "PUBLIC AFFAIRS, GENERAL",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 16
+  },
+  {
+   "category": "officer",
+   "code": "46X",
+   "title": "PUBLIC AFFAIRS DESIGNEE",
+   "status": "current",
+   "imported": null,
+   "exception": "Designation / classification-only AOC, not a job: p. 83: \"AOC 46X will be assigned upon designation as a FA 46 officer\" (untrained public affairs officer).",
+   "page": 16
+  },
+  {
+   "category": "officer",
+   "code": "47A",
+   "title": "USMA, PROFESSOR",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "officer",
+   "code": "47C",
+   "title": "USMA, PROFESSOR OF ENGLISH",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "officer",
+   "code": "47D",
+   "title": "USMA, PROFESSOR OF ELECTRICAL ENGINEERING AND COMPUTER SCIENCE",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "officer",
+   "code": "47E",
+   "title": "USMA, PROFESSOR OF LAW",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "officer",
+   "code": "47F",
+   "title": "USMA, PROFESSOR OF SYSTEMS ENGINEERING",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "officer",
+   "code": "47G",
+   "title": "USMA, PROFESSOR OF FOREIGN LANGUAGES",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "officer",
+   "code": "47H",
+   "title": "USMA, PROFESSOR OF PHYSICS",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "officer",
+   "code": "47J",
+   "title": "USMA, PROFESSOR OF SOCIAL SCIENCES",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "officer",
+   "code": "47K",
+   "title": "USMA, PROFESSOR OF HISTORY",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "officer",
+   "code": "47L",
+   "title": "USMA, PROFESSOR OF BEHAVIORAL SCIENCES AND LEADERSHIP",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 17
+  },
+  {
+   "category": "officer",
+   "code": "47M",
+   "title": "USMA, PROFESSOR OF CHEMISTRY",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 18
+  },
+  {
+   "category": "officer",
+   "code": "47N",
+   "title": "USMA, PROFESSOR OF MATHEMATICAL SCIENCES",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 18
+  },
+  {
+   "category": "officer",
+   "code": "47P",
+   "title": "USMA, PROFESSOR OF GEOGRAPHY AND ENVIRONMENTAL ENGINEERING",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 18
+  },
+  {
+   "category": "officer",
+   "code": "47Q",
+   "title": "USMA, PROFESSOR AND ASSOCIATE DEAN",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 18
+  },
+  {
+   "category": "officer",
+   "code": "47R",
+   "title": "USMA, PROFESSOR OF CIVIL AND MECHANICAL ENGINEERING",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 18
+  },
+  {
+   "category": "officer",
+   "code": "47S",
+   "title": "USMA, PROFESSOR OF PHYSICAL EDUCATION",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 18
+  },
+  {
+   "category": "officer",
+   "code": "47T",
+   "title": "USMA, PROFESSOR OF LEADER DEVELOPMENT AND ORGANIZATIONAL LEARNING",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 18
+  },
+  {
+   "category": "officer",
+   "code": "47U",
+   "title": "USMA, PROFESSOR OF MILITARY INSTRUCTION AND ETHICS",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 18
+  },
+  {
+   "category": "officer",
+   "code": "47V",
+   "title": "USMA, PROFESSOR OF ARMY CYBER",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 18
+  },
+  {
+   "category": "officer",
+   "code": "47W",
+   "title": "USMA, PROFESSOR OF THE ARMY WAR COLLEGE",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 18
+  },
+  {
+   "category": "officer",
+   "code": "48B",
+   "title": "WESTERN HEMISPHERE",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 19
+  },
+  {
+   "category": "officer",
+   "code": "48E",
+   "title": "EUROPE AND EURASIA",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 19
+  },
+  {
+   "category": "officer",
+   "code": "48G",
+   "title": "MIDEAST/NORTH AFRICA",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 19
+  },
+  {
+   "category": "officer",
+   "code": "48J",
+   "title": "AFRICA, SOUTH OF THE SAHARA",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 19
+  },
+  {
+   "category": "officer",
+   "code": "48P",
+   "title": "ASIA-PACIFIC",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 19
+  },
+  {
+   "category": "officer",
+   "code": "48X",
+   "title": "FOREIGN AREA OFFICER",
+   "status": "current",
+   "imported": null,
+   "exception": "Designation / classification-only AOC, not a job: p. 93: \"AOC 48X is used to code positions only in Tables of ...\" (immaterial; classifies newly designated FAOs).",
+   "page": 19
+  },
+  {
+   "category": "officer",
+   "code": "49A",
+   "title": "OPERATIONS RESEARCH/SYSTEMS ANALYSIS",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 19
+  },
+  {
+   "category": "officer",
+   "code": "49B",
+   "title": "Artificial Intelligence/Machine Learning Officer",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 95
+  },
+  {
+   "category": "officer",
+   "code": "49W",
+   "title": "TRAINED, ORSA",
+   "status": "current",
+   "imported": null,
+   "exception": "Designation / classification-only AOC, not a job: p. 95: \"AOC 49W will be assigned upon completion of ORSA MAC ... will not be used to code positions.\"",
+   "page": 19
+  },
+  {
+   "category": "officer",
+   "code": "49X",
+   "title": "UNTRAINED, ORSA",
+   "status": "current",
+   "imported": null,
+   "exception": "Designation / classification-only AOC, not a job: p. 95: \"AOC 49X will be assigned upon designation as a FA 49 officer ... will not be used to code positions.\"",
+   "page": 19
+  },
+  {
+   "category": "officer",
+   "code": "50A",
+   "title": "FORCE DEVELOPMENT",
+   "status": "current",
+   "imported": null,
+   "exception": "Listed in the officer structure chart (p. 19, \"Force Development\"); chapter 3 has no section describing it.",
+   "page": 19
+  },
+  {
+   "category": "officer",
+   "code": "51A",
+   "title": "SYSTEMS DEVELOPMENT",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 20
+  },
+  {
+   "category": "officer",
+   "code": "51C",
+   "title": "CONTRACT AND INDUSTRIAL MANAGEMENT",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 20
+  },
+  {
+   "category": "officer",
+   "code": "51R",
+   "title": "SYSTEMS AUTOMATION ACQUISITION AND ENGINEERING",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 20
+  },
+  {
+   "category": "officer",
+   "code": "51S",
+   "title": "RESEARCH AND ENGINEERING",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 20
+  },
+  {
+   "category": "officer",
+   "code": "51T",
+   "title": "TEST AND EVALUATION",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 20
+  },
+  {
+   "category": "officer",
+   "code": "51Z",
+   "title": "ACQUISITION",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 20
+  },
+  {
+   "category": "officer",
+   "code": "52B",
+   "title": "NUCLEAR AND COUNTERING WEAPONS OF MASS DESTRUCTION (CWMD)",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 20
+  },
+  {
+   "category": "officer",
+   "code": "56A",
+   "title": "COMMAND AND UNIT CHAPLAIN",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "56D",
+   "title": "CLINICAL PASTORAL EDUCATOR",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "56X",
+   "title": "CHAPLAIN CANDIDATE",
+   "status": "current",
+   "imported": null,
+   "exception": "Designation / classification-only AOC, not a job: p. 105: \"AOC 56X will be assigned upon designation of a Branch 56 officer\" (chaplain candidate; retained until training is complete).",
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "57A",
+   "title": "SIMULATIONS OPERATIONS OFFICER",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 20
+  },
+  {
+   "category": "officer",
+   "code": "58A",
+   "title": "MARKETING OFFICER",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 20
+  },
+  {
+   "category": "officer",
+   "code": "59A",
+   "title": "STRATEGIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 21
+  },
+  {
+   "category": "officer",
+   "code": "60A",
+   "title": "OPERATIONAL MEDICINE",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 5
+  },
+  {
+   "category": "officer",
+   "code": "60B",
+   "title": "NUCLEAR MEDICINE OFFICER",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "60C",
+   "title": "PREVENTIVE MEDICINE OFFICER",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "60D",
+   "title": "OCCUPATIONAL MEDICINE OFFICER",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "60G",
+   "title": "GASTROENTEROLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "60H",
+   "title": "CARDIOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "60J",
+   "title": "OBSTETRICIAN AND GYNECOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "60K",
+   "title": "UROLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "60L",
+   "title": "DERMATOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "60M",
+   "title": "ALLERGIST, CLINICAL IMMUNOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 6
+  },
+  {
+   "category": "officer",
+   "code": "60N",
+   "title": "CRITICAL CARE MEDICINE (CCM) ANESTHESIOLOGY",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "60P",
+   "title": "PEDIATRICIAN",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "60Q",
+   "title": "PEDIATRIC SUB-SPECIALIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "60R",
+   "title": "CHILD NEUROLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "60S",
+   "title": "OPHTHALMOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "60T",
+   "title": "OTOLARYNGOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "60U",
+   "title": "Child Psychiatrist",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 113
+  },
+  {
+   "category": "officer",
+   "code": "60V",
+   "title": "NEUROLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "60W",
+   "title": "PSYCHIATRIST",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "60X",
+   "title": "CRITICAL CARE MEDICINE OFFICER",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 7
+  },
+  {
+   "category": "officer",
+   "code": "61A",
+   "title": "NEPHROLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 8
+  },
+  {
+   "category": "officer",
+   "code": "61B",
+   "title": "MEDICAL ONCOLOGIST/HEMATOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 8
+  },
+  {
+   "category": "officer",
+   "code": "61C",
+   "title": "ENDOCRINOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 8
+  },
+  {
+   "category": "officer",
+   "code": "61D",
+   "title": "RHEUMATOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 8
+  },
+  {
+   "category": "officer",
+   "code": "61E",
+   "title": "CLINICAL PHARMACOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 8
+  },
+  {
+   "category": "officer",
+   "code": "61F",
+   "title": "INTERNIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 8
+  },
+  {
+   "category": "officer",
+   "code": "61G",
+   "title": "INFECTIOUS DISEASE OFFICER",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 8
+  },
+  {
+   "category": "officer",
+   "code": "61H",
+   "title": "FAMILY MEDICINE",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 8
+  },
+  {
+   "category": "officer",
+   "code": "61J",
+   "title": "GENERAL SURGEON",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 8
+  },
+  {
+   "category": "officer",
+   "code": "61K",
+   "title": "THORACIC SURGEON",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 9
+  },
+  {
+   "category": "officer",
+   "code": "61L",
+   "title": "PLASTIC SURGEON",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 9
+  },
+  {
+   "category": "officer",
+   "code": "61M",
+   "title": "ORTHOPEDIC SURGEON",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 9
+  },
+  {
+   "category": "officer",
+   "code": "61N",
+   "title": "FLIGHT SURGEON",
+   "status": "current",
+   "imported": "general_duties+grades_authorized",
+   "exception": null,
+   "page": 9
+  },
+  {
+   "category": "officer",
+   "code": "61P",
+   "title": "PHYSIATRIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 9
+  },
+  {
+   "category": "officer",
+   "code": "61Q",
+   "title": "RADIATION ONCOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 9
+  },
+  {
+   "category": "officer",
+   "code": "61R",
+   "title": "DIAGNOSTIC RADIOLOGIST",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 9
+  },
+  {
+   "category": "officer",
+   "code": "61U",
+   "title": "PATHOLOGIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 9
+  },
+  {
+   "category": "officer",
+   "code": "61W",
+   "title": "PERIPHERAL VASCULAR SURGEON",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 9
+  },
+  {
+   "category": "officer",
+   "code": "61Z",
+   "title": "NEUROSURGEON",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 10
+  },
+  {
+   "category": "officer",
+   "code": "62A",
+   "title": "EMERGENCY PHYSICIAN",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 10
+  },
+  {
+   "category": "officer",
+   "code": "62B",
+   "title": "FIELD SURGEON",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 10
+  },
+  {
+   "category": "officer",
+   "code": "62Z",
+   "title": "GENERAL MEDICAL OFFICER",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 10
+  },
+  {
+   "category": "officer",
+   "code": "63A",
+   "title": "GENERAL DENTIST",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 10
+  },
+  {
+   "category": "officer",
+   "code": "63B",
+   "title": "COMPREHENSIVE DENTIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 10
+  },
+  {
+   "category": "officer",
+   "code": "63D",
+   "title": "PERIODONTIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 10
+  },
+  {
+   "category": "officer",
+   "code": "63E",
+   "title": "ENDODONTIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 10
+  },
+  {
+   "category": "officer",
+   "code": "63F",
+   "title": "PROSTHODONTIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 11
+  },
+  {
+   "category": "officer",
+   "code": "63H",
+   "title": "PUBLIC HEALTH DENTIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 11
+  },
+  {
+   "category": "officer",
+   "code": "63K",
+   "title": "PEDIATRIC DENTIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 11
+  },
+  {
+   "category": "officer",
+   "code": "63M",
+   "title": "ORTHODONTIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 11
+  },
+  {
+   "category": "officer",
+   "code": "63N",
+   "title": "ORAL AND MAXILLOFACIAL SURGEON",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 11
+  },
+  {
+   "category": "officer",
+   "code": "63P",
+   "title": "ORAL PATHOLOGIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 11
+  },
+  {
+   "category": "officer",
+   "code": "63R",
+   "title": "EXECUTIVE DENTIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 11
+  },
+  {
+   "category": "officer",
+   "code": "64A",
+   "title": "FIELD VETERINARY SERVICE",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 11
+  },
+  {
+   "category": "officer",
+   "code": "64B",
+   "title": "VETERINARY PREVENTIVE MEDICINE",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 11
+  },
+  {
+   "category": "officer",
+   "code": "64C",
+   "title": "VETERINARY LABORATORY ANIMAL MEDICINE",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 12
+  },
+  {
+   "category": "officer",
+   "code": "64D",
+   "title": "VETERINARY PATHOLOGY",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 12
+  },
+  {
+   "category": "officer",
+   "code": "64E",
+   "title": "VETERINARY BIOMEDICAL SCIENTIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 12
+  },
+  {
+   "category": "officer",
+   "code": "64F",
+   "title": "VETERINARY CLINICAL MEDICINE",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 12
+  },
+  {
+   "category": "officer",
+   "code": "64Z",
+   "title": "SENIOR VETERINARIAN (IMMATERIAL)",
+   "status": "current",
+   "imported": null,
+   "exception": "Listed in the officer structure chart (p. 12, \"Senior Veterinarian (Immaterial)\"); no section describes it.",
+   "page": 12
+  },
+  {
+   "category": "officer",
+   "code": "65A",
+   "title": "OCCUPATIONAL THERAPY",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 12
+  },
+  {
+   "category": "officer",
+   "code": "65B",
+   "title": "PHYSICAL THERAPY",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 12
+  },
+  {
+   "category": "officer",
+   "code": "65C",
+   "title": "DIETITIAN",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 12
+  },
+  {
+   "category": "officer",
+   "code": "65D",
+   "title": "PHYSICIAN ASSISTANT",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 12
+  },
+  {
+   "category": "officer",
+   "code": "65X",
+   "title": "SPECIALIST ALLIED OPERATIONS",
+   "status": "current",
+   "imported": null,
+   "exception": "Listed in the officer structure chart (p. 13, \"Specialist Allied Operations\"); p. 136 mentions \"specialty training (65X)\" but gives no description of duties.",
+   "page": 13
+  },
+  {
+   "category": "officer",
+   "code": "66B",
+   "title": "ARMY PUBLIC HEALTH NURSE",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 13
+  },
+  {
+   "category": "officer",
+   "code": "66C",
+   "title": "PSYCHIATRIC/BEHAVIORAL HEALTH NURSE",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 13
+  },
+  {
+   "category": "officer",
+   "code": "66E",
+   "title": "PERIOPERATIVE NURSE",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 13
+  },
+  {
+   "category": "officer",
+   "code": "66F",
+   "title": "NURSE ANESTHETIST",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 13
+  },
+  {
+   "category": "officer",
+   "code": "66G",
+   "title": "OBSTETRIC AND GYNECOLOGIC NURSE",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 13
+  },
+  {
+   "category": "officer",
+   "code": "66H",
+   "title": "MEDICAL-SURGICAL NURSE",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 13
+  },
+  {
+   "category": "officer",
+   "code": "66N",
+   "title": "GENERALIST NURSE",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 13
+  },
+  {
+   "category": "officer",
+   "code": "66P",
+   "title": "FAMILY NURSE PRACTITIONER",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 13
+  },
+  {
+   "category": "officer",
+   "code": "66R",
+   "title": "PSYCHIATRIC/BEHAVIORAL HEALTH NURSE PRACTITIONER",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 14
+  },
+  {
+   "category": "officer",
+   "code": "66S",
+   "title": "CRITICAL CARE NURSING",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 14
+  },
+  {
+   "category": "officer",
+   "code": "66T",
+   "title": "EMERGENCY NURSING",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 14
+  },
+  {
+   "category": "officer",
+   "code": "66W",
+   "title": "CERTIFIED NURSE MIDWIFE",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 14
+  },
+  {
+   "category": "officer",
+   "code": "67A",
+   "title": "HEALTH SERVICES",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 14
+  },
+  {
+   "category": "officer",
+   "code": "67B",
+   "title": "ALLIED SCIENCES",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 14
+  },
+  {
+   "category": "officer",
+   "code": "67C",
+   "title": "PREVENTIVE MEDICINE SCIENCES",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 14
+  },
+  {
+   "category": "officer",
+   "code": "67D",
+   "title": "BEHAVIORAL SCIENCES",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 14
+  },
+  {
+   "category": "officer",
+   "code": "67E",
+   "title": "PHARMACY",
+   "status": "current",
+   "imported": "general_duties",
+   "exception": null,
+   "page": 14
+  },
+  {
+   "category": "officer",
+   "code": "67F",
+   "title": "OPTOMETRY",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 15
+  },
+  {
+   "category": "officer",
+   "code": "67G",
+   "title": "PODIATRY",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 15
+  },
+  {
+   "category": "officer",
+   "code": "67J",
+   "title": "AEROMEDICAL EVACUATION",
+   "status": "current",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": null,
+   "page": 15
+  },
+  {
+   "category": "officer",
+   "code": "70A",
+   "title": "HEALTH CARE ADMINISTRATION",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 21
+  },
+  {
+   "category": "officer",
+   "code": "70B",
+   "title": "HEALTH SERVICES ADMINISTRATION",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 21
+  },
+  {
+   "category": "officer",
+   "code": "70C",
+   "title": "HEALTH SERVICES COMPTROLLER",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 21
+  },
+  {
+   "category": "officer",
+   "code": "70D",
+   "title": "HEALTH SERVICES SYSTEMS MANAGEMENT",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 21
+  },
+  {
+   "category": "officer",
+   "code": "70E",
+   "title": "PATIENT ADMINISTRATION",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 21
+  },
+  {
+   "category": "officer",
+   "code": "70F",
+   "title": "HEALTH SERVICES HUMAN RESOURCES",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 21
+  },
+  {
+   "category": "officer",
+   "code": "70H",
+   "title": "HEALTH SERVICES PLANS, OPERATIONS, INTELLIGENCE, SECURITY, AND TRAINING",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 21
+  },
+  {
+   "category": "officer",
+   "code": "70K",
+   "title": "HEALTH SERVICES MATERIEL",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 21
+  },
+  {
+   "category": "officer",
+   "code": "71A",
+   "title": "MICROBIOLOGY",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 22
+  },
+  {
+   "category": "officer",
+   "code": "71B",
+   "title": "BIOCHEMISTRY",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 22
+  },
+  {
+   "category": "officer",
+   "code": "71E",
+   "title": "CLINICAL LABORATORY",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 22
+  },
+  {
+   "category": "officer",
+   "code": "71F",
+   "title": "RESEARCH PSYCHOLOGY",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 22
+  },
+  {
+   "category": "officer",
+   "code": "72A",
+   "title": "NUCLEAR MEDICAL SCIENCE",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 22
+  },
+  {
+   "category": "officer",
+   "code": "72B",
+   "title": "ENTOMOLOGY",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 22
+  },
+  {
+   "category": "officer",
+   "code": "72C",
+   "title": "AUDIOLOGY",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 22
+  },
+  {
+   "category": "officer",
+   "code": "72D",
+   "title": "ENVIRONMENTAL SCIENCE AND ENGINEERING",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 22
+  },
+  {
+   "category": "officer",
+   "code": "73A",
+   "title": "SOCIAL WORK",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 23
+  },
+  {
+   "category": "officer",
+   "code": "73B",
+   "title": "CLINICAL PSYCHOLOGY",
+   "status": "current",
+   "imported": null,
+   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "page": 23
+  },
+  {
+   "category": "officer",
+   "code": "74A",
+   "title": "CHEMICAL, BIOLOGICAL, RADIOLOGICAL AND NUCLEAR (CBRN)",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 15
+  },
+  {
+   "category": "officer",
+   "code": "88A",
+   "title": "TRANSPORTATION, GENERAL",
+   "status": "rescinded",
+   "imported": "assignments+general_duties",
+   "exception": "Not current: rescinded effective 2026-10-01.",
+   "page": 15
+  },
+  {
+   "category": "officer",
+   "code": "89E",
+   "title": "EXPLOSIVE ORDNANCE DISPOSAL",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 23
+  },
+  {
+   "category": "officer",
+   "code": "90A",
+   "title": "LOGISTICS",
+   "status": "current",
+   "imported": "assignments+general_duties",
+   "exception": null,
+   "page": 15
+  },
+  {
+   "category": "officer",
+   "code": "91A",
+   "title": "MAINTENANCE & MUNITIONS MATERIEL OFFICER",
+   "status": "rescinded",
+   "imported": "assignments+general_duties",
+   "exception": "Not current: rescinded effective 2026-10-01.",
+   "page": 15
+  },
+  {
+   "category": "officer",
+   "code": "91B",
+   "title": "Maintenance Management",
+   "status": "rescinded",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": "Not current: rescinded effective 2026-10-01.",
+   "page": 161
+  },
+  {
+   "category": "officer",
+   "code": "91D",
+   "title": "Munitions Materiel Management",
+   "status": "rescinded",
+   "imported": "assignments+general_duties",
+   "exception": "Not current: rescinded effective 2026-10-01.",
+   "page": 162
+  },
+  {
+   "category": "officer",
+   "code": "92A",
+   "title": "QUARTERMASTER, GENERAL",
+   "status": "rescinded",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": "Not current: rescinded effective 2026-10-01.",
+   "page": 15
+  }
+ ],
+ "unaccounted": []
+}

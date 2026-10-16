@@ -3673,94 +3673,6 @@
    "id": "6d28bbee-dc28-5d05-a7c3-a1dfdb3b6855"
   },
   {
-   "occupation_code": "351Y",
-   "occupation_title": "AREA INTELLIGENCE TECHNICIAN",
-   "branch": "Army",
-   "personnel_category": "warrant",
-   "section_type": "rank_duties",
-   "rank_band": "W-1..W-2",
-   "components": null,
-   "heading": "Duties — WO1/CW2",
-   "chapter": "DA PAM 611-21, ch. 8 (warrant officer specifications)",
-   "body": "(see AR 614-115).",
-   "pdf_page_start": 90,
-   "pdf_page_end": 90,
-   "printed_page": null,
-   "effective_from": null,
-   "effective_to": null,
-   "cumulative": false,
-   "skill_level": null,
-   "sort_order": 166,
-   "body_sha256": "bc437b419602c06bb0a95906eb85e6243fc770da4a3ef7360cccf79d1abf5680",
-   "id": "70930394-c4fa-595b-bbef-8725ca710120"
-  },
-  {
-   "occupation_code": "351Y",
-   "occupation_title": "AREA INTELLIGENCE TECHNICIAN",
-   "branch": "Army",
-   "personnel_category": "warrant",
-   "section_type": "rank_duties",
-   "rank_band": "W-3",
-   "components": null,
-   "heading": "Duties — CW3",
-   "chapter": "DA PAM 611-21, ch. 8 (warrant officer specifications)",
-   "body": "(see AR 614-115).",
-   "pdf_page_start": 90,
-   "pdf_page_end": 90,
-   "printed_page": null,
-   "effective_from": null,
-   "effective_to": null,
-   "cumulative": false,
-   "skill_level": null,
-   "sort_order": 167,
-   "body_sha256": "bc437b419602c06bb0a95906eb85e6243fc770da4a3ef7360cccf79d1abf5680",
-   "id": "420e623b-deb9-5d0e-8c71-e5bc85b55cf9"
-  },
-  {
-   "occupation_code": "351Y",
-   "occupation_title": "AREA INTELLIGENCE TECHNICIAN",
-   "branch": "Army",
-   "personnel_category": "warrant",
-   "section_type": "rank_duties",
-   "rank_band": "W-4",
-   "components": null,
-   "heading": "Duties — CW4",
-   "chapter": "DA PAM 611-21, ch. 8 (warrant officer specifications)",
-   "body": "(see AR 614-115).",
-   "pdf_page_start": 90,
-   "pdf_page_end": 90,
-   "printed_page": null,
-   "effective_from": null,
-   "effective_to": null,
-   "cumulative": false,
-   "skill_level": null,
-   "sort_order": 168,
-   "body_sha256": "bc437b419602c06bb0a95906eb85e6243fc770da4a3ef7360cccf79d1abf5680",
-   "id": "613b32fd-2d8a-5e9a-b8e8-d7868632afe5"
-  },
-  {
-   "occupation_code": "351Y",
-   "occupation_title": "AREA INTELLIGENCE TECHNICIAN",
-   "branch": "Army",
-   "personnel_category": "warrant",
-   "section_type": "rank_duties",
-   "rank_band": "W-5",
-   "components": null,
-   "heading": "Duties — CW5",
-   "chapter": "DA PAM 611-21, ch. 8 (warrant officer specifications)",
-   "body": "(see AR 614-115).",
-   "pdf_page_start": 90,
-   "pdf_page_end": 90,
-   "printed_page": null,
-   "effective_from": null,
-   "effective_to": null,
-   "cumulative": false,
-   "skill_level": null,
-   "sort_order": 169,
-   "body_sha256": "bc437b419602c06bb0a95906eb85e6243fc770da4a3ef7360cccf79d1abf5680",
-   "id": "7b4965b4-0884-5681-b4ab-728777bbd103"
-  },
-  {
    "occupation_code": "351Z",
    "occupation_title": "ATTACHE INTELLIGENCE OPERATIONS TECHNICIAN",
    "branch": "Army",
@@ -3778,9 +3690,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 170,
+   "sort_order": 166,
    "body_sha256": "0d53c47abb8ebae8485f8145a6c7c45071727dceb7a3178b71141be557a70708",
-   "id": "583b986b-2e29-55de-a7b2-c560fa502417"
+   "id": "9e4e7c69-340e-5d2c-a504-ebc7ab3856a1"
   },
   {
    "occupation_code": "351Z",
@@ -3800,9 +3712,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 171,
+   "sort_order": 167,
    "body_sha256": "14264511246161b8f5017cab13ee6251f62ee02bf6cc01f98c9f4f70f16e99c6",
-   "id": "99cd6b62-580f-5ee3-972e-a86780e4c541"
+   "id": "bc1f50ea-d2a0-569b-a3ab-cbf8ccd5160e"
   },
   {
    "occupation_code": "351Z",
@@ -3822,9 +3734,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 172,
+   "sort_order": 168,
    "body_sha256": "67924d1b2690570a1766069234ff3ab4b748b0469052ecc9c50c6e151139fa9e",
-   "id": "bbb8d71e-cad7-5cca-8445-8e873e27efae"
+   "id": "b88f337f-7f45-5b8e-844d-5908d0216ebc"
   },
   {
    "occupation_code": "351Z",
@@ -3844,9 +3756,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 173,
+   "sort_order": 169,
    "body_sha256": "10abb5618353d4899d4f0022a75d4b6519be0dd46ff638f1b47bb7ac69126e74",
-   "id": "80d1ba9f-bac9-58fe-8d50-246f8244a7e9"
+   "id": "7dac30d7-0b6e-593f-9452-68954c53f87f"
   },
   {
    "occupation_code": "352N",
@@ -3866,9 +3778,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 174,
+   "sort_order": 170,
    "body_sha256": "f0b8013519c5b3b5289e3c3b17380c8975dd170042d0e983517ba92a213a5fc7",
-   "id": "660c87d2-7dc6-5f25-ad51-de34a3eaba95"
+   "id": "43fc926c-cb8e-55d3-85c9-1d9599980177"
   },
   {
    "occupation_code": "352N",
@@ -3888,9 +3800,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 175,
+   "sort_order": 171,
    "body_sha256": "60cf0f0e8908b7672a117d6766773ff0b5a5557ee0d88156cceec89fd5440edf",
-   "id": "93efd304-65ba-511b-b289-995d62ce2914"
+   "id": "4e210336-58b2-50a9-9b68-be68ca255235"
   },
   {
    "occupation_code": "352N",
@@ -3910,9 +3822,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 176,
+   "sort_order": 172,
    "body_sha256": "1f58b88d5aafd9e40d4ad9e04e8900a731923581343f8162c5bd27fba488b684",
-   "id": "a64249e8-91aa-5dca-b9d2-139daf8568d0"
+   "id": "b6ea7537-8491-570d-ad9c-5df569ceee56"
   },
   {
    "occupation_code": "352N",
@@ -3932,9 +3844,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 177,
+   "sort_order": 173,
    "body_sha256": "18d34e705e10958fe557227ec8964b83ccc8ca1a5516243f5014765bbaa678d7",
-   "id": "13903205-c32e-5e3d-9bc5-d2e489caca0c"
+   "id": "2ee566b0-08c7-5567-bf17-04a893e77fdf"
   },
   {
    "occupation_code": "352S",
@@ -3954,9 +3866,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 178,
+   "sort_order": 174,
    "body_sha256": "fd47437e7cb2567e107da65d8baeb80893825b035251cac431721135d758c607",
-   "id": "575ee7b8-7b30-529d-a365-aa6e728cba28"
+   "id": "e20eba4f-b3cc-56b5-ba49-c8dcfba0c49a"
   },
   {
    "occupation_code": "352S",
@@ -3976,9 +3888,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 179,
+   "sort_order": 175,
    "body_sha256": "f58bb57b67db0fc84d405e2542dc448a43852de71481766b0a6b653fe52b072e",
-   "id": "8ae34ae6-2d84-56a3-965b-0e857fcbc470"
+   "id": "7f95e8ee-009d-5ccf-a182-5752e6713c7f"
   },
   {
    "occupation_code": "352S",
@@ -3998,9 +3910,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 180,
+   "sort_order": 176,
    "body_sha256": "e8dcbea99dee8159ef652dce0a3098cedc25817656387e596fa65b58b2bb393e",
-   "id": "a77af511-12ee-54d6-86fa-1a87d6c4b861"
+   "id": "018ee43a-7f59-5daf-9715-5a01f5825c41"
   },
   {
    "occupation_code": "352S",
@@ -4020,9 +3932,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 181,
+   "sort_order": 177,
    "body_sha256": "39e0d43ef615efdd48447f5400d02370d7f808bb093e1ecd7b8f20489498de87",
-   "id": "f51fc934-15b5-574a-98db-caaeb485d464"
+   "id": "0cde7290-178e-5e9d-bbe5-91c22e3d937a"
   },
   {
    "occupation_code": "353T",
@@ -4042,9 +3954,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 182,
+   "sort_order": 178,
    "body_sha256": "bf73a029e1b71a25c462b7a774a4e9d2e97b06589a1510e3a4362b044fc1b104",
-   "id": "0abbd798-aa97-57bc-a42b-08cfe028931b"
+   "id": "47bbe5fc-6df5-5f16-ad81-3e4ec41457c2"
   },
   {
    "occupation_code": "353T",
@@ -4064,9 +3976,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 183,
+   "sort_order": 179,
    "body_sha256": "4aedfdd9b69029748316d8238953776976fcffa38861cdc310fe2c35c6952975",
-   "id": "07e037a7-a0d3-58b6-bd44-9f694d515154"
+   "id": "7384b367-0d2b-5146-928e-7374cfcdef05"
   },
   {
    "occupation_code": "353T",
@@ -4086,9 +3998,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 184,
+   "sort_order": 180,
    "body_sha256": "03416b8bead1402932047982621c69ec287ce12cb2da7aa47881fc4faf145cef",
-   "id": "ecd3ca53-0475-5434-b277-4a5ae3541633"
+   "id": "79390725-3315-5ebc-b1ca-b32ea07a4ad9"
   },
   {
    "occupation_code": "353T",
@@ -4108,9 +4020,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 185,
+   "sort_order": 181,
    "body_sha256": "b16354cdb6e6c2e07d397d37216281b5865fdea5184a8c60da67f064a5243a8d",
-   "id": "22438f78-053d-5abf-87ce-642823f913e4"
+   "id": "ffe23a9e-2779-59ad-ba7f-7674b43cb930"
   },
   {
    "occupation_code": "390A",
@@ -4130,9 +4042,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 186,
+   "sort_order": 182,
    "body_sha256": "869f5f07ea2807eacbf45dd0d1cc9f21a504db5c3ecf5adf6c8abeef0f4a009b",
-   "id": "b8aaa810-11f9-5b90-88d8-ecfea7701d77"
+   "id": "670dd7a0-2e86-52b9-bc10-9bd9029d7c21"
   },
   {
    "occupation_code": "390A",
@@ -4152,9 +4064,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 187,
+   "sort_order": 183,
    "body_sha256": "6dc6793b1ea95cd54d000f8fb6670ca00ad4b8e86f322628c16e87e011ba4db5",
-   "id": "35d5095f-da6c-51a6-b9c8-399f05302170"
+   "id": "fdaba315-cb44-5e96-a596-12718de2da37"
   },
   {
    "occupation_code": "390A",
@@ -4174,9 +4086,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 188,
+   "sort_order": 184,
    "body_sha256": "f8529652394ce73d4706f82589dcd5db50bdb4e2d7d31d660b119a4300c10ab1",
-   "id": "286cd8cc-a9e3-50f9-95a0-9b2d06877d64"
+   "id": "1c697a57-28c1-51d4-98ef-853ced749802"
   },
   {
    "occupation_code": "390A",
@@ -4196,9 +4108,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 189,
+   "sort_order": 185,
    "body_sha256": "b9349c9c9ecb447b014b615577aa80abb74435f1f85053d62e029a0a1f0bab1e",
-   "id": "94e459c5-d3b1-5a1d-a0cc-a19ad1c5b478"
+   "id": "67ddca53-b733-529b-9083-97e897d836d4"
   },
   {
    "occupation_code": "420A",
@@ -4218,9 +4130,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 190,
+   "sort_order": 186,
    "body_sha256": "11486c8ce7695040ef7faddf5e86a0007ed869a7eef0e563161404ae8ba37b95",
-   "id": "70a08e2f-463f-560d-a6f9-9c4281cd9820"
+   "id": "3bcff7d4-3d7d-51b1-b016-fa82e5054c01"
   },
   {
    "occupation_code": "420A",
@@ -4240,9 +4152,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 191,
+   "sort_order": 187,
    "body_sha256": "80f48fc3fea1ee1209acab936c299c87ffd58ed5f90c932decfcc7cf86ba1ac0",
-   "id": "5054a828-9bc3-5aff-b7b4-3ea698d0fd6b"
+   "id": "07183121-d906-57cb-a7f1-0b3d1104243e"
   },
   {
    "occupation_code": "420A",
@@ -4262,9 +4174,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 192,
+   "sort_order": 188,
    "body_sha256": "2b2c0c5c4c2f058a659bede4e62eaefc70fb4711eab11e435e1cdbcfa21c4793",
-   "id": "a9eb1aa3-c908-5d97-bc2c-511eed6871da"
+   "id": "17fcc4c3-bef6-581b-be04-8ab360d1ab8c"
   },
   {
    "occupation_code": "420A",
@@ -4284,9 +4196,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 193,
+   "sort_order": 189,
    "body_sha256": "180b46d306b7c1e67fbda556b6e79c01245af4eee6c1150c0354cdb884534d6d",
-   "id": "754e7d53-1994-5ce2-9fa9-439e1e8e187a"
+   "id": "6d912ba1-e217-5be1-9bbe-5767a2831e73"
   },
   {
    "occupation_code": "420C",
@@ -4306,9 +4218,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 194,
+   "sort_order": 190,
    "body_sha256": "0cc333d8585b757eaa6d764df4001a18edb02ed342b7ec90d7ce28c68987ffe9",
-   "id": "ce4b6d27-3a29-524a-8c84-de561e49c893"
+   "id": "e3e2ebff-ea9a-54a4-8532-67d735d8072d"
   },
   {
    "occupation_code": "420C",
@@ -4328,9 +4240,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 195,
+   "sort_order": 191,
    "body_sha256": "26cc31010a6bb69250005e39b9c8c5d88e2feeb8ad386f1d29f45d57c7ce8edd",
-   "id": "0d36d786-d8bc-5e2b-b07e-a95712f7d9fa"
+   "id": "4cfece4e-6e4f-5b7d-b79d-084addde8f83"
   },
   {
    "occupation_code": "420C",
@@ -4350,9 +4262,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 196,
+   "sort_order": 192,
    "body_sha256": "be7a7dd7cfb05538330aac84609579917dda36798eb8772a36a7057128349b66",
-   "id": "e30ef33e-aeb3-5168-b85b-f8340497f9e8"
+   "id": "4b7cb525-3268-5a17-8322-4873bd3d2ab4"
   },
   {
    "occupation_code": "420C",
@@ -4372,9 +4284,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 197,
+   "sort_order": 193,
    "body_sha256": "00d02af115817e85135009ece2d177312a994952c07cd80337597c3ec5d85641",
-   "id": "8c6f4c97-e7b1-566b-a99e-26b6d49ab967"
+   "id": "34ce0776-c90d-563d-9ef7-e8cf94ba16cd"
   },
   {
    "occupation_code": "420T",
@@ -4394,9 +4306,9 @@
    "effective_to": "2027-10-01",
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 198,
+   "sort_order": 194,
    "body_sha256": "fdf28426cdd7ddc21bc540a4da55004fd558e344c07c031af633426563e2a55f",
-   "id": "c49fe7aa-9e97-5971-9099-a4e1156d7569"
+   "id": "10db868c-783b-5958-8d28-3867d05b9dd3"
   },
   {
    "occupation_code": "420T",
@@ -4416,9 +4328,9 @@
    "effective_to": "2027-10-01",
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 199,
+   "sort_order": 195,
    "body_sha256": "7ba981a808b80be54a31d84338c391775b472add78ad7f84c2fc1a9fb0e9aa41",
-   "id": "1b386394-0683-505b-828e-4bb2467a1dc6"
+   "id": "d7704b24-966e-54ca-903a-5e3130039e1b"
   },
   {
    "occupation_code": "420T",
@@ -4438,9 +4350,9 @@
    "effective_to": "2027-10-01",
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 200,
+   "sort_order": 196,
    "body_sha256": "7925199d76d3a2cc0bcf2502c08539416c6c9d626589962218d25e543e5de345",
-   "id": "cb5e0a8d-eb35-52bc-bd6c-372c9efc63c6"
+   "id": "2469cc1a-4df5-537a-b303-c3b84782a10f"
   },
   {
    "occupation_code": "420T",
@@ -4460,9 +4372,9 @@
    "effective_to": "2027-10-01",
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 201,
+   "sort_order": 197,
    "body_sha256": "c5075d9cf1b3e255b87cd254706ed631f327c1c7f897a82af8bbad397bc22e4d",
-   "id": "95391d0d-f707-56e0-8fce-8aa3bc22ea51"
+   "id": "d34c4281-18fa-5736-8380-9a39b4b5716c"
   },
   {
    "occupation_code": "420T",
@@ -4482,9 +4394,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 202,
+   "sort_order": 198,
    "body_sha256": "fdf28426cdd7ddc21bc540a4da55004fd558e344c07c031af633426563e2a55f",
-   "id": "4b6346df-9670-53b7-8759-a4960edbd6c8"
+   "id": "503affc5-eb9c-58cd-b5a6-f37c03399ce0"
   },
   {
    "occupation_code": "420T",
@@ -4504,9 +4416,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 203,
+   "sort_order": 199,
    "body_sha256": "7ba981a808b80be54a31d84338c391775b472add78ad7f84c2fc1a9fb0e9aa41",
-   "id": "518beae2-1f39-56d3-b13c-a18c3a34cabd"
+   "id": "9eddf42d-1d7c-59c9-8ad9-7340402fa9f9"
   },
   {
    "occupation_code": "420T",
@@ -4526,9 +4438,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 204,
+   "sort_order": 200,
    "body_sha256": "9f4e3c2498ee26351ef3ced26ad267a849ebaaba36f20fdcec51432f0bf1ff02",
-   "id": "fc91ff98-4d19-565d-979a-12d177fa8b44"
+   "id": "ff81278c-40b2-5033-8f21-d44b2fe7c377"
   },
   {
    "occupation_code": "420T",
@@ -4548,9 +4460,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 205,
+   "sort_order": 201,
    "body_sha256": "d683d023a98379485b0b6849d83d48618470f97b88ed91d92ce90e813d165e5c",
-   "id": "adb84076-5e6e-5002-ad35-38b0a2115c84"
+   "id": "6ca82d61-af07-5a25-b7dc-adca6962e2b0"
   },
   {
    "occupation_code": "490B",
@@ -4570,9 +4482,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 206,
+   "sort_order": 202,
    "body_sha256": "9510be595b23daa91fa0f90688fe1f6a725db5b80960c051a9d31d7dd840522a",
-   "id": "41a5e5fb-b8f8-5c34-9ba1-0662af5165c2"
+   "id": "9d0d33c7-1da1-52d0-b9eb-d9af44da226d"
   },
   {
    "occupation_code": "490B",
@@ -4592,9 +4504,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 207,
+   "sort_order": 203,
    "body_sha256": "64ccea453ec0ca485e6c085bfa73f00618b3c536ce1133f9407832a875e7a0cb",
-   "id": "70006878-189b-50f0-a14c-a00980842d48"
+   "id": "0e03b901-652a-5b9d-ae4d-bd5f4f475f1d"
   },
   {
    "occupation_code": "490B",
@@ -4614,9 +4526,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 208,
+   "sort_order": 204,
    "body_sha256": "9b1a4e16eb406f79d8b650927cdf6b0ff3f7e66deb8231dc7fe71006373f7497",
-   "id": "7fcd7194-8328-5ef5-b50a-ab86dc585f32"
+   "id": "abe7317b-d4cb-50d8-bfcf-a2ada4899db9"
   },
   {
    "occupation_code": "490B",
@@ -4636,9 +4548,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 209,
+   "sort_order": 205,
    "body_sha256": "bb54ed4ec658c39c61e6513781f95521f5aba0f8d112a582a53408b2b4cc553f",
-   "id": "2c373ef8-6ca5-59f4-bbd2-7aca55a7b7ac"
+   "id": "1a4df53a-4903-5cf8-b732-323190bda15a"
   },
   {
    "occupation_code": "640A",
@@ -4658,9 +4570,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 210,
+   "sort_order": 206,
    "body_sha256": "c1ca93be1d044b306c2952c0f60e9ca91884d130a12ade8893bc6855436cd074",
-   "id": "f449c785-aca0-53cb-a590-37b0a7b5368a"
+   "id": "15f4c250-9716-5336-bd47-0a9b3746c05d"
   },
   {
    "occupation_code": "640A",
@@ -4680,9 +4592,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 211,
+   "sort_order": 207,
    "body_sha256": "6dd1161286a54e215bbfa0ed486c1d9026c7714f521f710c1c48b8361186e570",
-   "id": "cf1b6c42-b365-55a0-969b-bb27cb5ca791"
+   "id": "62de6568-9eab-5e2f-af04-50105f59746a"
   },
   {
    "occupation_code": "640A",
@@ -4702,9 +4614,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 212,
+   "sort_order": 208,
    "body_sha256": "b53ceb8fb9912f08f147f104c9efae53f941eb9ab6d856dab60a4ca5f85e85df",
-   "id": "ca64247c-e272-5929-a455-31c281f67f12"
+   "id": "b97ae166-24bb-56ab-a4be-f341a5ab44b3"
   },
   {
    "occupation_code": "640A",
@@ -4724,9 +4636,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 213,
+   "sort_order": 209,
    "body_sha256": "a807a860b4a4780519221f5ee92f59304905d469f221d0e929e3dfd5167fc836",
-   "id": "999c23e5-dd57-5cbe-8ae0-c969190085b8"
+   "id": "52407072-6dd2-5db7-a1f0-919cec3d5a17"
   },
   {
    "occupation_code": "670A",
@@ -4746,9 +4658,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 214,
+   "sort_order": 210,
    "body_sha256": "4bfb218643a5e42b7fa6f87792f08227f18a125f27c56f22726eb046befd719f",
-   "id": "fee0545c-c2f2-58e6-9d9c-1fba07193260"
+   "id": "c805cc7a-d977-5992-b1c9-a116c0cf6b85"
   },
   {
    "occupation_code": "670A",
@@ -4768,9 +4680,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 215,
+   "sort_order": 211,
    "body_sha256": "5cd717177a761d5e5ea8fa089a1433e669485c3858e4748cbc822f8c7dca9173",
-   "id": "5f86fa31-73e2-5fd3-8ad2-234b5d1d1798"
+   "id": "a6c4c9bf-a3cd-5ae2-b2f5-2ae6564f4549"
   },
   {
    "occupation_code": "670A",
@@ -4790,9 +4702,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 216,
+   "sort_order": 212,
    "body_sha256": "20e7e90f068c73f4483396bded07c852eecc385cf4cc0a8d218fa18f312c515f",
-   "id": "9eabf727-8f37-5be4-b9be-d527a196158f"
+   "id": "b3c04841-5668-5ae7-9804-12474e5fca7f"
   },
   {
    "occupation_code": "670A",
@@ -4812,9 +4724,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 217,
+   "sort_order": 213,
    "body_sha256": "3ad27b5aec693f099fe97e360276e064b31420b36e9cc6f6bb9c39d801e2250c",
-   "id": "b7ebbcb7-8720-56ff-a327-b51c51316adb"
+   "id": "bb802dc9-e8b7-5798-b063-68ffb21ddad5"
   },
   {
    "occupation_code": "740A",
@@ -4834,9 +4746,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 218,
+   "sort_order": 214,
    "body_sha256": "3f8c9d5b09b90894d91707526ffa2d6729e20c4e68d767d9cf39d82b60fe65c6",
-   "id": "82d5c046-0e1b-5565-9521-3c72037d0e2e"
+   "id": "18d3cc67-6530-5bb7-9258-e55c8aa5f391"
   },
   {
    "occupation_code": "740A",
@@ -4856,9 +4768,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 219,
+   "sort_order": 215,
    "body_sha256": "ae2e3b6394190d002c66175083332057fc469c10a9504b071e6d70100b63f237",
-   "id": "ef451b51-bc20-57b0-8758-dcb601284550"
+   "id": "f3e341bb-4da9-5233-8a3e-9d645713de1c"
   },
   {
    "occupation_code": "740A",
@@ -4878,9 +4790,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 220,
+   "sort_order": 216,
    "body_sha256": "21f7a4b3adb824472be4503941610ec3943a9e62ec08663ea49d8f0a3f0f6995",
-   "id": "d172751c-8dcf-5df9-89fb-207f445e93e8"
+   "id": "84ef9206-958c-544a-8d0e-25f3449c04aa"
   },
   {
    "occupation_code": "740A",
@@ -4900,9 +4812,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 221,
+   "sort_order": 217,
    "body_sha256": "7caa7b4ae8a161f0522071cc7027d3ba9b72aa3c743def432b6378eb1f1e6a28",
-   "id": "573bcdad-f107-5a33-aab2-c548ef6b95fc"
+   "id": "4c6804bb-eb38-545f-9962-0019ecd8e32b"
   },
   {
    "occupation_code": "880A",
@@ -4922,9 +4834,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 222,
+   "sort_order": 218,
    "body_sha256": "9376762cdd6d88a0fccbbaccafee937c1c85db637b1f9bc1ab477689a1195216",
-   "id": "5713ca78-2e7b-5c90-8310-51fa135ac564"
+   "id": "e921bdf5-d9ad-5184-88ff-6851ff68cdea"
   },
   {
    "occupation_code": "880A",
@@ -4944,9 +4856,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 223,
+   "sort_order": 219,
    "body_sha256": "ebd375c0bf5e23a026353fa1f0eeb207ca99105cab7b6027cb3ff10fbbcaa7bb",
-   "id": "3d721ea4-a4c4-54f4-9e76-3be00f510d88"
+   "id": "d704f2e3-b73f-52ee-b096-fda01a7f3ceb"
   },
   {
    "occupation_code": "880A",
@@ -4966,9 +4878,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 224,
+   "sort_order": 220,
    "body_sha256": "c047c0fdf9823ab6bb5afa6de93118fcbbb5f126d9a23f048a4ee09bc2783516",
-   "id": "967eecbc-8629-5e49-906c-06662e495159"
+   "id": "1affc11a-55b4-5b98-a225-b109b09603c7"
   },
   {
    "occupation_code": "880A",
@@ -4988,9 +4900,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 225,
+   "sort_order": 221,
    "body_sha256": "cda1d7453f9d4e8a47f46fc25d5ab877202a946cf9709d711f1f380c8fefaf45",
-   "id": "57b9cde9-d3b9-5762-9b89-4b4026f1c3f3"
+   "id": "7453a20c-650b-5f54-a96b-9672dd60f420"
   },
   {
    "occupation_code": "881A",
@@ -5010,9 +4922,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 226,
+   "sort_order": 222,
    "body_sha256": "fa1e30d4ae0d0bd9a7eede9d952fcfded7547bdde4dde17db6552ed87c379171",
-   "id": "89664db5-7b42-5faf-a806-1cd9c0f0f50b"
+   "id": "708631e4-5311-53a8-8aff-d887b5ef9040"
   },
   {
    "occupation_code": "881A",
@@ -5032,9 +4944,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 227,
+   "sort_order": 223,
    "body_sha256": "aff4fcde4f841398242e229843b979550c6524d0500c75fcd886337299df5880",
-   "id": "124047e8-adb0-59e7-9aa4-5c820ca26fac"
+   "id": "b12e718a-70bf-5e86-8ddd-9af2de2d8467"
   },
   {
    "occupation_code": "881A",
@@ -5054,9 +4966,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 228,
+   "sort_order": 224,
    "body_sha256": "f033f47191b79b70c9fa43f1a948c8b009c4c196edf1d4d4ed96054195d69fed",
-   "id": "a40a5367-f033-5093-bb06-a9e4a35f302c"
+   "id": "3533bab9-162f-549d-bc87-77a52f222a97"
   },
   {
    "occupation_code": "881A",
@@ -5076,9 +4988,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 229,
+   "sort_order": 225,
    "body_sha256": "a087e3d51f09a03f139cbcafc3ea20b0e31152867c25bcedf718f5f3cb8fb9ad",
-   "id": "a124b7b7-fda4-55db-a331-2d6f279bd99f"
+   "id": "d4a049b6-3cac-5f17-8f2b-86329be68e14"
   },
   {
    "occupation_code": "882A",
@@ -5098,9 +5010,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 230,
+   "sort_order": 226,
    "body_sha256": "e545359a2efdb0cd3cd84351232ec99906093f6ed8a2b295027632f7ba77dbba",
-   "id": "a51b9bb8-8327-58b7-ad98-3a4108df13d7"
+   "id": "c5bd495b-141b-5388-8240-88dfdd506923"
   },
   {
    "occupation_code": "882A",
@@ -5120,9 +5032,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 231,
+   "sort_order": 227,
    "body_sha256": "16acfa4fcbc868426a9f43449a1cb2356a016ab1c8e7217c79c7678bf52ff4c2",
-   "id": "2cc4343e-378d-5076-8e4f-058ecf48229b"
+   "id": "d3892454-e61e-5804-8bff-5406ef7e6673"
   },
   {
    "occupation_code": "882A",
@@ -5142,9 +5054,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 232,
+   "sort_order": 228,
    "body_sha256": "c80c0108808e730bbccb8fc91741cadbb7882a6b1a25a8cd0d53fbc707892fc6",
-   "id": "e5a85f31-dfc4-5017-8b6f-8dd7c859838f"
+   "id": "9927d4be-8367-54ad-a794-6efdeade203f"
   },
   {
    "occupation_code": "882A",
@@ -5164,9 +5076,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 233,
+   "sort_order": 229,
    "body_sha256": "6825459978213442eb2f1c3ad67561f2fd731aa1d27fa3e70f443808d6d0b960",
-   "id": "c62ba62a-75c0-506a-9d91-eb4a98336c74"
+   "id": "f219e489-49f0-5e51-87c7-6067590abf91"
   },
   {
    "occupation_code": "890A",
@@ -5186,9 +5098,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 234,
+   "sort_order": 230,
    "body_sha256": "67cde610d2fef556e0efc804e43407e3bcf6fb4c57dd54f818e6633df1eec6a8",
-   "id": "cc10e997-a40b-5da5-9a94-a5f6aa858705"
+   "id": "be3e606d-c6ac-5911-857c-87f2a060116a"
   },
   {
    "occupation_code": "890A",
@@ -5208,9 +5120,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 235,
+   "sort_order": 231,
    "body_sha256": "1c5e45bab975739fe9d1dbc411557bd69587470c060a87b59250cc697fad7a55",
-   "id": "574fb1b3-59cc-5fa5-af31-b484f8d0af1e"
+   "id": "dc1f918d-812a-5d56-b3f3-8a42f447461c"
   },
   {
    "occupation_code": "890A",
@@ -5230,9 +5142,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 236,
+   "sort_order": 232,
    "body_sha256": "0ce1463d9fe306006509daf20524d9702892da0ef5b076823168bfc514e0d2cb",
-   "id": "8e823c61-ec75-5aa1-9b0e-d44c42a7f43c"
+   "id": "de94effb-745c-50d2-ac0b-39349964216b"
   },
   {
    "occupation_code": "890A",
@@ -5252,9 +5164,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 237,
+   "sort_order": 233,
    "body_sha256": "e742a252d74ecacedd78f41419b7a7a145aed2dea27a51f4f4c7e6934b773145",
-   "id": "b8ce56a7-93c8-5681-8c1b-9b4ef438eaf6"
+   "id": "151eb915-a57a-5ac3-ba75-dc67ffc77df4"
   },
   {
    "occupation_code": "913A",
@@ -5274,9 +5186,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 238,
+   "sort_order": 234,
    "body_sha256": "20cbd837a17314692c74668d129f8243ecc2b3781184e68e077a43ff4cb05b0d",
-   "id": "25da7a5e-38f0-597f-b098-5c0e9998868c"
+   "id": "610926b5-eb80-5650-a6fc-d8b36dd4ef45"
   },
   {
    "occupation_code": "913A",
@@ -5296,9 +5208,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 239,
+   "sort_order": 235,
    "body_sha256": "51341f9beb62dfc95f08339fe9b2894c223dd433bff9f3e1befae5ef0a5e888f",
-   "id": "49d256df-3e86-51f2-ba09-13a38ee908fb"
+   "id": "38fc3f0c-6da7-5dab-93d1-c3346e1b759f"
   },
   {
    "occupation_code": "913A",
@@ -5318,9 +5230,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 240,
+   "sort_order": 236,
    "body_sha256": "4495b28c4579d88a2797bf33c1ccf3af04f16756c24fe3b45353e5663f504478",
-   "id": "516a2aa4-378a-579a-a743-1842e3fb1444"
+   "id": "13c89942-3b91-515b-be26-60378e822969"
   },
   {
    "occupation_code": "914A",
@@ -5340,9 +5252,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 241,
+   "sort_order": 237,
    "body_sha256": "2d5dfe919b9713ec940c5ef9d7fcf98ffadef12ae6c7ceb9e6e771b2af1373b6",
-   "id": "2603ae79-7851-5a7e-ac00-597660eeba36"
+   "id": "2cdb4bc5-63a6-547c-ac48-e6c537b54a0e"
   },
   {
    "occupation_code": "914A",
@@ -5362,9 +5274,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 242,
+   "sort_order": 238,
    "body_sha256": "f2848c409a2c60d8092f26db50586e07cd6405b093e2a161e7b2769bfea74d2f",
-   "id": "bbc8f53c-66a8-523a-b46a-f079cdfae826"
+   "id": "f76d5759-21c6-5fe3-b0e9-d17cef1ba055"
   },
   {
    "occupation_code": "914A",
@@ -5384,9 +5296,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 243,
+   "sort_order": 239,
    "body_sha256": "56d9cd25764884489a3160818e3eea05ebf4efd57427999e262472c7db708019",
-   "id": "da584143-f615-5dcd-be15-cfd68630b77b"
+   "id": "6404405b-466e-5a62-9557-ab3fdbed009e"
   },
   {
    "occupation_code": "915A",
@@ -5406,9 +5318,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 244,
+   "sort_order": 240,
    "body_sha256": "b555fff052c86f796826fe5b52723f442d17714a82d039b6e88dc5a282665ad7",
-   "id": "5d21dbd5-1e10-50c3-bf51-c2384aa7d7dc"
+   "id": "f4b5fc0f-2c65-52a5-9201-b7cea5d991c9"
   },
   {
    "occupation_code": "915A",
@@ -5428,9 +5340,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 245,
+   "sort_order": 241,
    "body_sha256": "2fcb66d2d915774d11338494c69dd665b9dc3e4c8559040d0ce1500835d25938",
-   "id": "9c9d7625-e3aa-5c11-96ad-50a3bc4aa866"
+   "id": "e6f1514b-0ba2-5132-9ba3-f92ba2a4ac11"
   },
   {
    "occupation_code": "915A",
@@ -5450,31 +5362,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 246,
+   "sort_order": 242,
    "body_sha256": "62f1ec7969eb98a5761b00f9573a677fc84ff93c4bf771d92246c346695a172f",
-   "id": "206e66f7-2f51-59c6-bda2-788362c57aae"
-  },
-  {
-   "occupation_code": "915E",
-   "occupation_title": "SENIOR AUTOMOTIVE MAINTENANCE WARRANT OFFICER/SENIOR ORDNANCE LOGISTICS WARRANT OFFICER",
-   "branch": "Army",
-   "personnel_category": "warrant",
-   "section_type": "rank_duties",
-   "rank_band": "W-1..W-3",
-   "components": null,
-   "heading": "Duties — WO1/CW2/CW3",
-   "chapter": "DA PAM 611-21, ch. 8 (warrant officer specifications)",
-   "body": "and CW4--see feeder MOS qualifications.",
-   "pdf_page_start": 136,
-   "pdf_page_end": 136,
-   "printed_page": null,
-   "effective_from": "2025-10-01",
-   "effective_to": null,
-   "cumulative": false,
-   "skill_level": null,
-   "sort_order": 247,
-   "body_sha256": "4553d3229bc8a1af29b0939f04528cb9ffc813e6149a6ff747d1c929472f23ce",
-   "id": "64f81f12-524d-58ed-b0ba-71f672b060fa"
+   "id": "a7c3e1b4-922c-5b4d-9fb2-5e04bc921c2a"
   },
   {
    "occupation_code": "915E",
@@ -5494,9 +5384,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 248,
+   "sort_order": 243,
    "body_sha256": "b583636990a628397ddcfc5e3e726cbbdb98d746e2f9b969fdfd951e6a26f944",
-   "id": "723a7e4c-5b83-5e76-8e8e-614567cafe81"
+   "id": "52850be6-b496-5dba-878d-af6f413073bb"
   },
   {
    "occupation_code": "915S",
@@ -5516,9 +5406,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 249,
+   "sort_order": 244,
    "body_sha256": "623c31134461914277e69ec2905ea14326317e1ad62a1b547394b753e36fedd5",
-   "id": "11c91673-5d7e-58fd-8b54-ef2eb10a5161"
+   "id": "03f55a50-0d1a-5c4c-858f-96be0ba8c9c8"
   },
   {
    "occupation_code": "915S",
@@ -5538,9 +5428,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 250,
+   "sort_order": 245,
    "body_sha256": "2e775c84ee3650376f9e0d66b6959d70ccaf5f74203e62e23b15191490058a91",
-   "id": "1191a871-45a3-5703-9eee-cc4fb14e9311"
+   "id": "2a3943cb-5fa9-5aaf-b700-c7e3e95c65e0"
   },
   {
    "occupation_code": "915S",
@@ -5560,9 +5450,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 251,
+   "sort_order": 246,
    "body_sha256": "f69c4df089853e2ab64a8a99d41b11f0483db30075eba882e8b0bfc28eb71d0a",
-   "id": "644899f5-60ae-5140-b8a4-54bb59c22f31"
+   "id": "d6ecc671-1c2f-5390-98ea-1fc3b871fd84"
   },
   {
    "occupation_code": "915T",
@@ -5582,9 +5472,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 252,
+   "sort_order": 247,
    "body_sha256": "1c361abdd44a8a93ae18e3171536b43bd194acb6d9b7de1a13b6ca40e3c8a60b",
-   "id": "1690a4b8-a791-5ce0-9dd1-3b3798bba802"
+   "id": "c604bd7d-3c75-5eb4-ab3b-3fa158fb6552"
   },
   {
    "occupation_code": "915T",
@@ -5604,9 +5494,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 253,
+   "sort_order": 248,
    "body_sha256": "9c776c4ce456c503c163e4f5f2ff6b194c87b7d7ef07f44ad9d1742765056915",
-   "id": "2939f9c1-84c8-5bfe-86f8-0e266e511d9e"
+   "id": "f0d38c79-afb1-52e1-88e9-2ce2fb4d5135"
   },
   {
    "occupation_code": "915T",
@@ -5626,9 +5516,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 254,
+   "sort_order": 249,
    "body_sha256": "f69c4df089853e2ab64a8a99d41b11f0483db30075eba882e8b0bfc28eb71d0a",
-   "id": "8b514445-e25f-5816-aac4-b2eb860b044a"
+   "id": "c16861d1-e10c-52bc-96f8-0c3b929bf513"
   },
   {
    "occupation_code": "919A",
@@ -5648,9 +5538,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 255,
+   "sort_order": 250,
    "body_sha256": "593b6a04492bff837c1c23c54559b64b51ecc5b84e113fc190ff526fbe808a1c",
-   "id": "f00b72c9-398a-5cff-baf8-3b1b3045fe0b"
+   "id": "0989f949-2c03-5987-bf7e-6ece3f640483"
   },
   {
    "occupation_code": "920A",
@@ -5670,9 +5560,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 256,
+   "sort_order": 251,
    "body_sha256": "43cf6dd4df9f2069167e70a40b18113f7e867ff11f9d707d8a6e36483b7e759f",
-   "id": "16fd8111-2c2b-5d55-ba3a-2d1fa5333fd1"
+   "id": "5c5835be-d73c-5bf1-b8bd-6bdae65ed3fa"
   },
   {
    "occupation_code": "920A",
@@ -5692,9 +5582,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 257,
+   "sort_order": 252,
    "body_sha256": "31606caed77287ee5f3d96bdba687d5a6a9a712568e1a719710c39adfc83befe",
-   "id": "bad39d7d-e044-51aa-8289-e5ab6df30d3e"
+   "id": "3683d194-3572-5a3e-ad55-f99295196aee"
   },
   {
    "occupation_code": "920A",
@@ -5714,9 +5604,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 258,
+   "sort_order": 253,
    "body_sha256": "07d4d68700d6a6b439435b5c54858b0159ae941e85c4c6a5604a7759e7c96cfc",
-   "id": "151765f6-dfba-54b4-a8e8-0c479966e230"
+   "id": "2f51a463-68ff-5b39-920d-9b16b01b1684"
   },
   {
    "occupation_code": "920A",
@@ -5736,9 +5626,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 259,
+   "sort_order": 254,
    "body_sha256": "ba9e30f1a53ae5e1f15a21fa477caab37170ae6b46b2c366f7de8c54d6927063",
-   "id": "b72536d4-dfe9-5087-90c1-57ffd2c47d3b"
+   "id": "172abed7-d1cc-5919-8dfc-43c946a7fc0c"
   },
   {
    "occupation_code": "920B",
@@ -5758,9 +5648,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 260,
+   "sort_order": 255,
    "body_sha256": "a8c43f11c6ad07ee45901c20488edf2d8e691d376d6f464b4b1f4e26e1dba581",
-   "id": "67e4ad7f-229e-532f-9d35-0d7eb63fba54"
+   "id": "a6aaf774-4932-5e1b-a4d5-340fa839916b"
   },
   {
    "occupation_code": "920B",
@@ -5780,9 +5670,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 261,
+   "sort_order": 256,
    "body_sha256": "4d29ef60715f1c09dfba03b79765c4da07a05dd915f822060e7d806293db9567",
-   "id": "c73a2a0d-4448-5100-a624-a46c5aed9f27"
+   "id": "fb39698b-0e16-52f1-9d19-d53622092467"
   },
   {
    "occupation_code": "920B",
@@ -5802,9 +5692,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 262,
+   "sort_order": 257,
    "body_sha256": "1af70ad09f7a55bf966aad69322b50fa47f360d93fefd6d5f077ba9c3b9117fd",
-   "id": "be2a05f6-8f15-5c9b-b96a-8348533f1a88"
+   "id": "e415e10c-2fce-5072-ab24-1675b6e020c7"
   },
   {
    "occupation_code": "920B",
@@ -5824,9 +5714,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 263,
+   "sort_order": 258,
    "body_sha256": "e472509d65925d0ebc749459e526d86a40cc2ebd05aebb9c7c63aa750e903779",
-   "id": "305b79fe-8ef8-514d-bc0f-6bf91c652e76"
+   "id": "82e6931d-b7b6-5701-87a7-d5d8d3904f87"
   },
   {
    "occupation_code": "921A",
@@ -5846,9 +5736,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 264,
+   "sort_order": 259,
    "body_sha256": "83b223835ecb380e374fbd0e580b3fb436978500cec12a6fa51ba76ddb9fc2bc",
-   "id": "fd493ad4-141b-5c38-af3a-3d3640d044d5"
+   "id": "2beb7c04-2d59-5127-9b6d-ad537d9a2992"
   },
   {
    "occupation_code": "921A",
@@ -5868,9 +5758,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 265,
+   "sort_order": 260,
    "body_sha256": "93367c7344bcbb04c25784c3ddfdefcabbf4ecccd63bd068763b99882c1ae170",
-   "id": "b1c40d68-32dd-5857-a1fa-1e96dcc35553"
+   "id": "ec697c4e-0b2f-5207-9c21-e950245819d2"
   },
   {
    "occupation_code": "921A",
@@ -5890,9 +5780,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 266,
+   "sort_order": 261,
    "body_sha256": "8113b2d79837373249d52b1fc285834c9559b1d6371ba16a6ede61902aba4dc4",
-   "id": "862ff8a2-d652-5b1d-bcab-a29bafa75b57"
+   "id": "fe4764fc-1fbe-5294-bb64-ce6c7444d885"
   },
   {
    "occupation_code": "921A",
@@ -5912,9 +5802,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 267,
+   "sort_order": 262,
    "body_sha256": "5dae4ff1ea8ed348d2193c78615ca75c863b5f1f75ae8e4bae30d472201b7ccb",
-   "id": "8a273f4f-7da3-5ba6-8748-c0b000320027"
+   "id": "0069e653-8301-5c93-a356-a5fabe826300"
   },
   {
    "occupation_code": "922A",
@@ -5934,9 +5824,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 268,
+   "sort_order": 263,
    "body_sha256": "97dc7bec39a3b9d4c1844f9bd26b3d192ebc6b69aa41d4ccfa5c199c29046f65",
-   "id": "d74af937-7f9f-5565-949f-50dd2201cc03"
+   "id": "aa798944-0382-5b07-b32e-e8f72e271f46"
   },
   {
    "occupation_code": "922A",
@@ -5956,9 +5846,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 269,
+   "sort_order": 264,
    "body_sha256": "a06d053f155211ac9975b65dda504664b35b946d0ff06cc464fb7469660526bb",
-   "id": "6a1ec8de-bf66-5f4d-8373-793112a808cb"
+   "id": "39294d16-d232-5367-8f58-4cc10be75f23"
   },
   {
    "occupation_code": "922A",
@@ -5978,9 +5868,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 270,
+   "sort_order": 265,
    "body_sha256": "d0e63a2c92faa6d7689536da250f596aa240cf02d61ac0f966d96e6f0eadf0a9",
-   "id": "8c9c5468-48e0-5578-9503-faa5e5cd8b87"
+   "id": "cdc93b95-dcc7-534c-b72d-3d9da7d8abba"
   },
   {
    "occupation_code": "922A",
@@ -6000,9 +5890,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 271,
+   "sort_order": 266,
    "body_sha256": "b2d0c4eb52e180794f78e50192d10c35c3a5a7b6788fe6b8e010412bd56e0902",
-   "id": "0ab8270b-b8e8-577d-9595-28ae440e14fd"
+   "id": "ca5f72ea-8480-5d62-805c-36b8d052f6bf"
   },
   {
    "occupation_code": "923A",
@@ -6022,9 +5912,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 272,
+   "sort_order": 267,
    "body_sha256": "8ffa6e17c088cf3d0ba841641de9eea3c99c39600f239cb7836fc8d1b9df564e",
-   "id": "f32fdf06-03aa-58d1-bfca-683f8ad4e74c"
+   "id": "7c1f317a-6c98-565a-91b6-1ab185f98473"
   },
   {
    "occupation_code": "923A",
@@ -6044,9 +5934,9 @@
    "effective_to": null,
    "cumulative": true,
    "skill_level": null,
-   "sort_order": 273,
+   "sort_order": 268,
    "body_sha256": "72999310a8765d8b1a9b79d76ee7b00d196682a716aae27d80298813828ddc0b",
-   "id": "6aac725b-b0f7-5e3f-bbd7-3678b766d647"
+   "id": "bd1b44f4-bc95-5251-b0d7-9863a969d783"
   },
   {
    "occupation_code": "923A",
@@ -6066,9 +5956,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 274,
+   "sort_order": 269,
    "body_sha256": "e6e4f69ddd7d316d8e8a01780cc31c5df436f1dae4f626a90df2f5b843cc7b48",
-   "id": "d83add75-d8b0-5f3d-b7b4-68dfa417d939"
+   "id": "28bd5828-8a89-5c89-beed-6b9436295dc6"
   },
   {
    "occupation_code": "923A",
@@ -6088,9 +5978,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 275,
+   "sort_order": 270,
    "body_sha256": "85cbfb4f95c2d9a3966243b4cc2d54aa37caf20ae1ad00485e7672f567397df6",
-   "id": "385affc5-3c00-5c79-84c2-07ee9be7952d"
+   "id": "f30eca88-5251-5862-91df-623c2cc1f9a5"
   },
   {
    "occupation_code": "948B",
@@ -6110,9 +6000,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 276,
+   "sort_order": 271,
    "body_sha256": "ba4ef16ff4bf3e10f1f47e64b4ec86dfced4e91d99e47e014ce14f468312de0c",
-   "id": "64f08184-ccd3-52ea-beea-fae3cfb9e4c7"
+   "id": "569add83-83eb-5c1f-9968-cf613dd445d9"
   },
   {
    "occupation_code": "948B",
@@ -6132,9 +6022,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 277,
+   "sort_order": 272,
    "body_sha256": "2876f458bbb8bc60b78e30c8caa44f9ae8e4fa2e5e091c6ae4ad181062022c67",
-   "id": "f32efd4e-902c-55b2-b186-c835b3a8978a"
+   "id": "067525fa-0c95-5578-a364-9d2b70e8da67"
   },
   {
    "occupation_code": "948B",
@@ -6154,9 +6044,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 278,
+   "sort_order": 273,
    "body_sha256": "c9a0123024e4a2e49e2a836c501996edbfa94e204fd98b0135b1ca3dddba9ece",
-   "id": "21699aed-5308-5b87-8c13-ffc8d87a933d"
+   "id": "c6754d1e-8cfc-5183-a537-2d6825bdc19f"
   },
   {
    "occupation_code": "948D",
@@ -6176,9 +6066,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 279,
+   "sort_order": 274,
    "body_sha256": "e8eacb957f1ed448e0432c89b7d1d20c996e59d251d65574d2f4f0a84ce4118e",
-   "id": "17ddeb1e-3f59-5f66-8a5b-e5c2f03e92df"
+   "id": "113879cd-1c7e-5ee9-8f07-3497e359085f"
   },
   {
    "occupation_code": "948D",
@@ -6198,9 +6088,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 280,
+   "sort_order": 275,
    "body_sha256": "d7e0b6a075b083662522e495a88c7dfcc6f0e83b3fd9ff42a55361f75eb944e9",
-   "id": "eb05ff96-ad61-5698-a9b1-160a2b1e5e45"
+   "id": "b939dd05-4ef3-5dbf-abba-3490ee43dd4b"
   },
   {
    "occupation_code": "948D",
@@ -6220,75 +6110,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 281,
+   "sort_order": 276,
    "body_sha256": "333491f87402e1c65129ee9cda6ed4521a2aa637022dc91213cc82d881a9ff17",
-   "id": "d9160e44-826c-510c-9077-b28e13eba0e1"
-  },
-  {
-   "occupation_code": "948E",
-   "occupation_title": "SENIOR ELECTRONICS MAINTENANCE WARRANT OFFICER",
-   "branch": "Army",
-   "personnel_category": "warrant",
-   "section_type": "rank_duties",
-   "rank_band": "W-1..W-2",
-   "components": null,
-   "heading": "Duties — WO1/CW2",
-   "chapter": "DA PAM 611-21, ch. 8 (warrant officer specifications)",
-   "body": "see MOS 948B or MOS 948D.",
-   "pdf_page_start": 160,
-   "pdf_page_end": 160,
-   "printed_page": null,
-   "effective_from": null,
-   "effective_to": null,
-   "cumulative": false,
-   "skill_level": null,
-   "sort_order": 282,
-   "body_sha256": "e7bf029f99af6d56f80306069cbd77ff7bd8e578d154d0dcee57405a65aedd5f",
-   "id": "f2e910b9-0afb-57b2-bab9-558001e1799a"
-  },
-  {
-   "occupation_code": "948E",
-   "occupation_title": "SENIOR ELECTRONICS MAINTENANCE WARRANT OFFICER",
-   "branch": "Army",
-   "personnel_category": "warrant",
-   "section_type": "rank_duties",
-   "rank_band": "W-3",
-   "components": null,
-   "heading": "Duties — CW3",
-   "chapter": "DA PAM 611-21, ch. 8 (warrant officer specifications)",
-   "body": "see MOS 948B or MOS 948D.",
-   "pdf_page_start": 160,
-   "pdf_page_end": 160,
-   "printed_page": null,
-   "effective_from": null,
-   "effective_to": null,
-   "cumulative": false,
-   "skill_level": null,
-   "sort_order": 283,
-   "body_sha256": "e7bf029f99af6d56f80306069cbd77ff7bd8e578d154d0dcee57405a65aedd5f",
-   "id": "a66c81ab-30f2-59e7-8747-b6076c6719c9"
-  },
-  {
-   "occupation_code": "948E",
-   "occupation_title": "SENIOR ELECTRONICS MAINTENANCE WARRANT OFFICER",
-   "branch": "Army",
-   "personnel_category": "warrant",
-   "section_type": "rank_duties",
-   "rank_band": "W-4",
-   "components": null,
-   "heading": "Duties — CW4",
-   "chapter": "DA PAM 611-21, ch. 8 (warrant officer specifications)",
-   "body": "see MOS 948B or MOS 948D",
-   "pdf_page_start": 160,
-   "pdf_page_end": 160,
-   "printed_page": null,
-   "effective_from": null,
-   "effective_to": null,
-   "cumulative": false,
-   "skill_level": null,
-   "sort_order": 284,
-   "body_sha256": "bd4d65c88f21ae417849d1f9687eab836173c304101761aa2a5d3c51dc2434c6",
-   "id": "278f64c2-422b-5c5f-b488-10a9a7024151"
+   "id": "c9211ef0-ed3f-530e-84fc-0af25c034a17"
   },
   {
    "occupation_code": "948E",
@@ -6308,16 +6132,16 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 285,
+   "sort_order": 277,
    "body_sha256": "ee3d72682a5c641651ad15df0b72d9911b6931a7a106407e892a69e8ac2fb2bb",
-   "id": "030cb073-e7b2-5d1b-bf3e-dbc0616c9c16"
+   "id": "fa3e20d3-6069-5ad6-a12a-69a695e90086"
   }
  ],
  "report": {
   "codes": 75,
-  "passages": 286,
+  "passages": 278,
   "byType": {
-   "rank_duties": 286
+   "rank_duties": 278
   },
   "publicationRepeatsDropped": [
    {
@@ -6459,6 +6283,141 @@
     "rank_band": "W-5",
     "kept_pdf_page": 72,
     "repeated_pdf_page": 75
+   }
+  ],
+  "crossReferences": [
+   {
+    "code": "351Y",
+    "section": "rank_duties",
+    "rank_band": "W-1..W-2",
+    "pdf_page": 90,
+    "text": "(see AR 614-115)."
+   },
+   {
+    "code": "351Y",
+    "section": "rank_duties",
+    "rank_band": "W-3",
+    "pdf_page": 90,
+    "text": "(see AR 614-115)."
+   },
+   {
+    "code": "351Y",
+    "section": "rank_duties",
+    "rank_band": "W-4",
+    "pdf_page": 90,
+    "text": "(see AR 614-115)."
+   },
+   {
+    "code": "351Y",
+    "section": "rank_duties",
+    "rank_band": "W-5",
+    "pdf_page": 90,
+    "text": "(see AR 614-115)."
+   },
+   {
+    "code": "915E",
+    "section": "rank_duties",
+    "rank_band": "W-1..W-3",
+    "pdf_page": 136,
+    "text": "and CW4--see feeder MOS qualifications."
+   },
+   {
+    "code": "948E",
+    "section": "rank_duties",
+    "rank_band": "W-1..W-2",
+    "pdf_page": 160,
+    "text": "see MOS 948B or MOS 948D."
+   },
+   {
+    "code": "948E",
+    "section": "rank_duties",
+    "rank_band": "W-3",
+    "pdf_page": 160,
+    "text": "see MOS 948B or MOS 948D."
+   },
+   {
+    "code": "948E",
+    "section": "rank_duties",
+    "rank_band": "W-4",
+    "pdf_page": 160,
+    "text": "see MOS 948B or MOS 948D"
+   },
+   {
+    "code": "255S",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 65,
+    "text": "CW5 must see MOS 255Z."
+   },
+   {
+    "code": "255Z",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 66,
+    "text": "WO1/CW2/CW3/CW4 does not apply."
+   },
+   {
+    "code": "913A",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 130,
+    "text": "CW5--see MOS 915E."
+   },
+   {
+    "code": "914A",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 132,
+    "text": "CW5—-see MOS 915E."
+   },
+   {
+    "code": "915S",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 139,
+    "text": "CW5 see MOS 915E."
+   },
+   {
+    "code": "915T",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 142,
+    "text": "CW5 see MOS 915E."
+   },
+   {
+    "code": "919A",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 143,
+    "text": "CW3—See MOS 915T"
+   },
+   {
+    "code": "919A",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 143,
+    "text": "CW4—See MOS 915T."
+   },
+   {
+    "code": "919A",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 143,
+    "text": "CW5—See MOS 915E."
+   },
+   {
+    "code": "948B",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 156,
+    "text": "CW5 must see MOS 948E."
+   },
+   {
+    "code": "948D",
+    "section": "rank_duties",
+    "rank_band": null,
+    "pdf_page": 159,
+    "text": "CW5 must see MOS 948E."
    }
   ],
   "issues": [],

@@ -6,31 +6,31 @@
 -- Each statement matches on the exact content fingerprint. If a source was re-imported with different content
 -- since it was reviewed, it matches 0 rows and stays unreviewed.
 
--- fingerprint 40b4459b6690…  (853 passages)
--- scope: DA PAM 611-21 ch. 10c (enlisted MOS duties by skill level). Every passage checked verbatim against the PDF pages it cites; 12 pages viewed: 88H, 25B, 18C, 40D, 94R, 25H, 35N, 11Z, 92Y (two dated versions); the 8 MOS were drawn at random (seed review-611-21-2026-10-16).
+-- fingerprint 88e602fbcb06…  (851 passages)
+-- scope: DA PAM 611-21 ch. 10c (enlisted MOS duties by skill level). Every passage checked verbatim against the PDF pages it cites; 12 pages viewed: 88H, 25B, 18C, 40D, 94R, 25H, 35N, 11Z, 92Y (two dated versions); the 8 MOS were drawn at random (seed review-611-21-2026-10-16). After that review, passages that only point elsewhere ("see MOS 948B", "(see AR 614-115)", a lead-in ending "as described below:", a "Personnel Only" skill level) were removed and are listed in the bundle report; all remaining passages were re-verified verbatim.
 -- Approve army-611-21-enlisted-ch10c. Run only after reviewing the extraction against the PDF.
 update public.reference_sources
 set review_status = 'approved', reviewed_by = 'Claude Sonnet 5.5 (AI-assisted: automated verbatim, structure and line-accounting checks on every passage, plus visual comparison of 27 sampled PDF pages against the stored text, 2026-10-16), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.', reviewed_at = now(), last_checked_at = coalesce(last_checked_at, now())
 where id = '02d64a4e-2798-564f-95fb-4d9f2b83ec25'
-  and content_sha256 = '40b4459b669038d841522eccd244743d16fd63c186d9a6724d5cec9f7a6efcfa'
+  and content_sha256 = '88e602fbcb062278176ece166476e77bc2dd8e7db62a0612aefd38a8f5206c8f'
 returning id, title, content_sha256, review_status;
 
--- fingerprint ce1c603aa3fd…  (363 passages)
--- scope: DA PAM 611-21 ch. 3 (officer AOC descriptions). Every passage checked verbatim; 7 pages viewed: 63N, 67E, 64A, 60G, 15A (random, same seed; 17X has no description) plus 89E, 90A. After the visual review a final boundary fix trimmed neighbouring labels ("Position coding", a stray "5)") off 26 passages; all passages were re-verified verbatim and the 47D, 47J, 47U and 18A text was re-read.
+-- fingerprint 4f3e9c9a0690…  (372 passages)
+-- scope: DA PAM 611-21 ch. 3 (officer AOC descriptions). Every passage checked verbatim; 7 pages viewed: 63N, 67E, 64A, 60G, 15A (random, same seed; 17X has no description) plus 89E, 90A. After the visual review, boundary fixes were made and the 4 AOCs that have a section but no structure-chart row (49B, 60U, 91B, 91D) plus 60V (heading glued to the previous line) were added; their pages (95, 113, 161, 162) and 47D, 47J, 47U, 18A, 25A, 26A, 91D were re-read against the rendered pages, and every passage was re-verified verbatim.
 -- Approve army-611-21-officer-ch3. Run only after reviewing the extraction against the PDF.
 update public.reference_sources
 set review_status = 'approved', reviewed_by = 'Claude Sonnet 5.5 (AI-assisted: automated verbatim, structure and line-accounting checks on every passage, plus visual comparison of 27 sampled PDF pages against the stored text, 2026-10-16), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.', reviewed_at = now(), last_checked_at = coalesce(last_checked_at, now())
 where id = '7a6a4906-e811-5fb6-97fc-206842efb40c'
-  and content_sha256 = 'ce1c603aa3fdbe4c4f4fdf133d21d0db8be197e03bb950772f052565ec3d0ebe'
+  and content_sha256 = '4f3e9c9a0690b698e26a981b3dd5c52b9f92e3112cd3982e3523ee6e8f64c07f'
 returning id, title, content_sha256, review_status;
 
--- fingerprint 69ef6b5aab4f…  (286 passages)
--- scope: DA PAM 611-21 ch. 8b (warrant officer duties by grade). Every passage checked verbatim; 8 pages viewed: 140A, 125D, 150U, 270A, 420C (random, same seed) plus 351L, 923A, 155-family structure.
+-- fingerprint 45f6b12863d2…  (278 passages)
+-- scope: DA PAM 611-21 ch. 8b (warrant officer duties by grade). Every passage checked verbatim; 8 pages viewed: 140A, 125D, 150U, 270A, 420C (random, same seed) plus 351L, 923A, 155-family structure. After that review, passages that only point elsewhere ("see MOS 948B", "(see AR 614-115)", a lead-in ending "as described below:", a "Personnel Only" skill level) were removed and are listed in the bundle report; all remaining passages were re-verified verbatim.
 -- Approve army-611-21-warrant-ch8b. Run only after reviewing the extraction against the PDF.
 update public.reference_sources
 set review_status = 'approved', reviewed_by = 'Claude Sonnet 5.5 (AI-assisted: automated verbatim, structure and line-accounting checks on every passage, plus visual comparison of 27 sampled PDF pages against the stored text, 2026-10-16), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.', reviewed_at = now(), last_checked_at = coalesce(last_checked_at, now())
 where id = '3021ff69-4dd8-5576-afdb-49874e1d8e20'
-  and content_sha256 = '69ef6b5aab4f98b2974a6c72985cb1f997ec9a074fd2c1c11b7c44a50434ec92'
+  and content_sha256 = '45f6b12863d209ba5598cc4c1a1e3abd7029a3f84b32722348781a2384be0f23'
 returning id, title, content_sha256, review_status;
 
 -- fingerprint dc76a020456c…  (67 passages)

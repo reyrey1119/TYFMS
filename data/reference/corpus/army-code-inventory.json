@@ -11,29 +11,29 @@
  "NOT_ESTABLISHED": "A reconciled code list is not reviewed reference text. It says which codes the classification document lists and which are in force on the as-of date. Chart rows can omit codes whose headings are formatted differently; unclassified/flagged rows need a person.",
  "summary": {
   "enlisted": {
-   "total": 194,
+   "total": 212,
    "current": 178,
    "future_effective": 1,
    "rescinded": 3,
-   "special_reporting": 6,
+   "special_reporting": 24,
    "immaterial": 6,
    "unclassified": 0
   },
   "officer": {
-   "total": 190,
-   "current": 187,
+   "total": 217,
+   "current": 189,
    "future_effective": 0,
-   "rescinded": 3,
-   "special_reporting": 0,
-   "immaterial": 0,
+   "rescinded": 8,
+   "special_reporting": 8,
+   "immaterial": 12,
    "unclassified": 0
   },
   "warrant": {
-   "total": 78,
+   "total": 84,
    "current": 75,
    "future_effective": 0,
    "rescinded": 0,
-   "special_reporting": 0,
+   "special_reporting": 6,
    "immaterial": 3,
    "unclassified": 0
   }
@@ -43,19 +43,19 @@
    "dated_marker_on_code": 63,
    "dated_marker_on_branch": 0,
    "listed_without_dated_marker": 119,
-   "classification_heading": 12
+   "classification_heading": 30
   },
   "officer": {
-   "dated_marker_on_code": 5,
-   "dated_marker_on_branch": 64,
+   "dated_marker_on_code": 8,
+   "dated_marker_on_branch": 68,
    "listed_without_dated_marker": 121,
-   "classification_heading": 0
+   "classification_heading": 20
   },
   "warrant": {
    "dated_marker_on_code": 19,
    "dated_marker_on_branch": 0,
    "listed_without_dated_marker": 56,
-   "classification_heading": 3
+   "classification_heading": 9
   }
  },
  "coverage": {
@@ -543,6 +543,27 @@
   },
   {
    "category": "enlisted",
+   "code": "00E",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Sergeant Major (SGM) MOS Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 2,
+     "kind": "special_reporting",
+     "heading": "Sergeant Major (SGM) MOS Immaterial"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
    "code": "00F",
    "status": "immaterial",
    "basis": "classification_heading",
@@ -681,6 +702,27 @@
   },
   {
    "category": "enlisted",
+   "code": "00N",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Sergeant Major (SGM)/ Command Sergeant Major (CSM) Cyber/Signal Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 5,
+     "kind": "special_reporting",
+     "heading": "Sergeant Major (SGM)/ Command Sergeant Major (CSM) Cyber/Signal Immaterial"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
    "code": "00P",
    "status": "special_reporting",
    "basis": "classification_heading",
@@ -719,6 +761,27 @@
      "effective_from": null,
      "rescinded_from": null,
      "heading": "10-00R. Position Special Reporting Code (SRC) 00R— Command Sergeant Major (CSM) Infantry/Armor Immaterial, CMF 00"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "00S",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Special Duty Assignment AFSC"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 6,
+     "kind": "special_reporting",
+     "heading": "Special Duty Assignment AFSC"
     }
    ],
    "flags": [],
@@ -827,6 +890,279 @@
   },
   {
    "category": "enlisted",
+   "code": "09B",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Trainee, Unassigned"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 7,
+     "kind": "special_reporting",
+     "heading": "Trainee, Unassigned"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09C",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Trainee, Language"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 7,
+     "kind": "special_reporting",
+     "heading": "Trainee, Language"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09D",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "College Trainee"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 8,
+     "kind": "special_reporting",
+     "heading": "College Trainee"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09E",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Trainee, Language, Fort Allen PR"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 7,
+     "kind": "special_reporting",
+     "heading": "Trainee, Language, Fort Allen PR"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09G",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "National Guard on Active Duty Medical Hold"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 8,
+     "kind": "special_reporting",
+     "heading": "National Guard on Active Duty Medical Hold"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09H",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "U.S. Army Reserve on Active Duty Medical Hold"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 8,
+     "kind": "special_reporting",
+     "heading": "U.S. Army Reserve on Active Duty Medical Hold"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09J",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "GED Completion Program"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 8,
+     "kind": "special_reporting",
+     "heading": "GED Completion Program"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09M",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Delayed Trainee"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 8,
+     "kind": "special_reporting",
+     "heading": "Delayed Trainee"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09N",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Nurse Corps Candidate"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 8,
+     "kind": "special_reporting",
+     "heading": "Nurse Corps Candidate"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09Q",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Army Legal Immigrant Healthcare Professional Officer Candidate"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 8,
+     "kind": "special_reporting",
+     "heading": "Army Legal Immigrant Healthcare Professional Officer Candidate"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09R",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Simultaneous Membership Program Participant"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 8,
+     "kind": "special_reporting",
+     "heading": "Simultaneous Membership Program Participant"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09S",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Commissioned Officer Candidate"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 8,
+     "kind": "special_reporting",
+     "heading": "Commissioned Officer Candidate"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09T",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "College Student Officer Program (CSOP) Army National Guard"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 9,
+     "kind": "special_reporting",
+     "heading": "College Student Officer Program (CSOP) Army National Guard"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
    "code": "09U",
    "status": "special_reporting",
    "basis": "classification_heading",
@@ -842,6 +1178,27 @@
      "effective_from": null,
      "rescinded_from": null,
      "heading": "10-09U. Personnel Special Reporting Code (SRC) 09U— Unqualified in Authorized Army"
+    }
+   ],
+   "flags": [],
+   "guide": null,
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "09W",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Warrant Officer Candidate"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 9,
+     "kind": "special_reporting",
+     "heading": "Warrant Officer Candidate"
     }
    ],
    "flags": [],
@@ -1800,6 +2157,27 @@
     },
     "also_in": []
    },
+   "guide_predates_classification_change": false
+  },
+  {
+   "category": "enlisted",
+   "code": "14X",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Space and Missile Defense Operations"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 9,
+     "kind": "special_reporting",
+     "heading": "Space and Missile Defense Operations"
+    }
+   ],
+   "flags": [],
+   "guide": null,
    "guide_predates_classification_change": false
   },
   {
@@ -6230,6 +6608,82 @@
   },
   {
    "category": "warrant",
+   "code": "001A",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Unqualified in Authorized Warrant Officer MOS"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 1,
+     "kind": "special_reporting",
+     "heading": "Unqualified in Authorized Warrant Officer MOS"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "warrant",
+   "code": "002A",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Patient"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 1,
+     "kind": "special_reporting",
+     "heading": "Patient"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "warrant",
+   "code": "003A",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Student"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 1,
+     "kind": "special_reporting",
+     "heading": "Student"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "warrant",
+   "code": "004A",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Duties unassigned or in transit"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 1,
+     "kind": "special_reporting",
+     "heading": "Duties unassigned or in transit"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "warrant",
    "code": "011A",
    "status": "immaterial",
    "basis": "classification_heading",
@@ -6262,6 +6716,44 @@
      "page": 0,
      "kind": "immaterial",
      "heading": "Branch/MOS immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "warrant",
+   "code": "019G",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "NATIONAL GUARD ON ACTIVE DUTY MEDICAL HOLD"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 7,
+     "kind": "special_reporting",
+     "heading": "NATIONAL GUARD ON ACTIVE DUTY MEDICAL HOLD"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "warrant",
+   "code": "019H",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "U.S. ARMY RESERVE ON ACTIVE DUTY MEDICAL HOLD"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 7,
+     "kind": "special_reporting",
+     "heading": "U.S. ARMY RESERVE ON ACTIVE DUTY MEDICAL HOLD"
     }
    ],
    "flags": []
@@ -8417,6 +8909,449 @@
   },
   {
    "category": "officer",
+   "code": "00A",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Duties unassigned"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 5,
+     "kind": "special_reporting",
+     "heading": "Duties unassigned"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "00B",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "General officer"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 5,
+     "kind": "special_reporting",
+     "heading": "General officer"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "00C",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Relieved from duty sick in hospital or quarters"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 5,
+     "kind": "special_reporting",
+     "heading": "Relieved from duty sick in hospital or quarters"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "00D",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Newly commissioned officers awaiting entry on active duty or active duty for training for"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 5,
+     "kind": "special_reporting",
+     "heading": "Newly commissioned officers awaiting entry on active duty or active duty for training for"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "00E",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Student officer"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 5,
+     "kind": "special_reporting",
+     "heading": "Student officer"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "01A",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Officer Generalist"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 5,
+     "kind": "immaterial",
+     "heading": "Officer Generalist"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "01B",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Aviation/Infantry/Armor/Military Intelligence Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 6,
+     "kind": "immaterial",
+     "heading": "Aviation/Infantry/Armor/Military Intelligence Immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "01C",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Chemical/Engineer/Military Police Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 6,
+     "kind": "immaterial",
+     "heading": "Chemical/Engineer/Military Police Immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "01D",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Financial Management/Adjutant General Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 6,
+     "kind": "immaterial",
+     "heading": "Financial Management/Adjutant General Immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "01F",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Special Forces/Civil Affairs/Psychological Operations Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 6,
+     "kind": "immaterial",
+     "heading": "Special Forces/Civil Affairs/Psychological Operations Immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "01G",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Cyber/Signal/Military Intelligence/Space Operations Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 6,
+     "kind": "immaterial",
+     "heading": "Cyber/Signal/Military Intelligence/Space Operations Immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "01M",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Officer Generalist Grade Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 6,
+     "kind": "immaterial",
+     "heading": "Officer Generalist Grade Immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "02A",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Combat Arms Generalist"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 6,
+     "kind": "immaterial",
+     "heading": "Combat Arms Generalist"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "02B",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Infantry/Armor Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 6,
+     "kind": "immaterial",
+     "heading": "Infantry/Armor Immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "02C",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Infantry/Armor/Field Artillery/Engineer Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 7,
+     "kind": "immaterial",
+     "heading": "Infantry/Armor/Field Artillery/Engineer Immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "02D",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Infantry/Armor/Special Forces"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 7,
+     "kind": "special_reporting",
+     "heading": "Infantry/Armor/Special Forces"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "02E",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "Air Defense Artillery/Field Artillery Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 7,
+     "kind": "immaterial",
+     "heading": "Air Defense Artillery/Field Artillery Immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "03A",
+   "status": "rescinded",
+   "rescinded_from": "1993-10-01",
+   "basis": "dated_marker_on_code",
+   "grades": null,
+   "titles": [
+    "Logistics / Infantry-Armor Immaterial (deleted)"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 39,
+     "kind": "mos",
+     "rescinded_from": "1993-10-01",
+     "heading": "Logistics / Infantry-Armor Immaterial (deleted)"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "04A",
+   "status": "rescinded",
+   "rescinded_from": "2000-10-01",
+   "basis": "dated_marker_on_code",
+   "grades": null,
+   "titles": [
+    "Personnel Immaterial (deleted)"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 39,
+     "kind": "mos",
+     "rescinded_from": "2000-10-01",
+     "heading": "Personnel Immaterial (deleted)"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "05A",
+   "status": "immaterial",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "AMEDD Immaterial"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 7,
+     "kind": "immaterial",
+     "heading": "AMEDD Immaterial"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "09A",
+   "status": "rescinded",
+   "rescinded_from": "2025-08-01",
+   "basis": "dated_marker_on_code",
+   "grades": null,
+   "titles": [
+    "Software Operations (deleted; became AOC 28A)"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 39,
+     "kind": "mos",
+     "rescinded_from": "2025-08-01",
+     "heading": "Software Operations (deleted; became AOC 28A)"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "09G",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "National Guard on active-duty medical hold"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 5,
+     "kind": "special_reporting",
+     "heading": "National Guard on active-duty medical hold"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "09H",
+   "status": "special_reporting",
+   "basis": "classification_heading",
+   "grades": null,
+   "titles": [
+    "U"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 5,
+     "kind": "special_reporting",
+     "heading": "U"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
    "code": "11A",
    "status": "current",
    "basis": "listed_without_dated_marker",
@@ -9817,6 +10752,27 @@
   },
   {
    "category": "officer",
+   "code": "49B",
+   "status": "current",
+   "basis": "dated_marker_on_branch",
+   "grades": null,
+   "titles": [
+    "Artificial Intelligence/Machine Learning Officer"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 95,
+     "kind": "prose_only",
+     "effective_from": null,
+     "rescinded_from": null,
+     "heading": "Artificial Intelligence/Machine Learning Officer"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
    "code": "49W",
    "status": "current",
    "basis": "dated_marker_on_branch",
@@ -10483,6 +11439,27 @@
      "effective_from": null,
      "rescinded_from": null,
      "heading": "OTOLARYNGOLOGIST"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "60U",
+   "status": "current",
+   "basis": "dated_marker_on_branch",
+   "grades": null,
+   "titles": [
+    "Child Psychiatrist"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 113,
+     "kind": "prose_only",
+     "effective_from": null,
+     "rescinded_from": null,
+     "heading": "Child Psychiatrist"
     }
    ],
    "flags": []
@@ -12403,6 +13380,50 @@
      "effective_from": null,
      "rescinded_from": "2026-10-01",
      "heading": "MAINTENANCE & MUNITIONS MATERIEL OFFICER"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "91B",
+   "status": "rescinded",
+   "rescinded_from": "2026-10-01",
+   "basis": "dated_marker_on_branch",
+   "grades": null,
+   "titles": [
+    "Maintenance Management"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 161,
+     "kind": "prose_only",
+     "effective_from": null,
+     "rescinded_from": null,
+     "heading": "Maintenance Management"
+    }
+   ],
+   "flags": []
+  },
+  {
+   "category": "officer",
+   "code": "91D",
+   "status": "rescinded",
+   "rescinded_from": "2026-10-01",
+   "basis": "dated_marker_on_branch",
+   "grades": null,
+   "titles": [
+    "Munitions Materiel Management"
+   ],
+   "component_restriction": null,
+   "versions": [
+    {
+     "page": 162,
+     "kind": "prose_only",
+     "effective_from": null,
+     "rescinded_from": null,
+     "heading": "Munitions Materiel Management"
     }
    ],
    "flags": []

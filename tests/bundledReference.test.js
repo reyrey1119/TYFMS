@@ -17,6 +17,7 @@ import { bundleContentHash } from '../scripts/lib/bundleSql.js'
 import { buildStore } from '../scripts/build-reference-store.js'
 import { REFERENCE_STORE_SOURCES } from '../api/_lib/referenceStore.data.js'
 import { markScopeBullets, unmarkedScopeBullets } from '../api/_lib/scopeMarkers.js'
+import { buildReconciliation, renderMarkdown } from '../scripts/reconcile-imported-coverage.js'
 
 const NOW = Date.parse('2026-10-16T12:00:00Z')
 const root = new URL('../', import.meta.url)
@@ -341,21 +342,22 @@ test('every current warrant specialty answers at each grade in its range, except
     const [lo, hi] = (c.grades || 'W-2..W-5').split('..').map(x => +x.split('-')[1])
     for (let n = lo; n <= hi; n++) { const r = await lookup(c.code, `W-${n}`); if (r.status !== 'verified' || !r.sections.some(s => s.rankBand)) gaps.push(`${c.code}@W-${n}`) }
   }
-  // The publication gives no duties text of its own for these grades ("CW3--See MOS 915T", CW4 "see feeder MOS qualifications").
-  assert.deepEqual(gaps, ['915E@W-4', '919A@W-3'])
+  // The publication gives no duties text of its own for these: 351Y (only "(see AR 614-115)"), 915E CW4 ("see feeder MOS
+  // qualifications"), 919A CW3 ("See MOS 915T"), 948E CW2-CW4 is outside its listed range (W-5 only).
+  assert.deepEqual(gaps, ['351Y@W-2', '351Y@W-3', '351Y@W-4', '351Y@W-5', '915E@W-4', '919A@W-3'])
 })
 
 test('officer AOCs: exactly these current AOCs have no description in DA PAM 611-21 (pinned; a change must be deliberate)', async () => {
   const none = []
   for (const c of current('officer')) { const r = await lookup(c.code, 'O-3'); if (r.status !== 'verified') none.push(c.code) }
-  assert.deepEqual(none, ['17X', '37X', '38X', '46X', '48X', '49W', '49X', '50A', '56X', '60V', '64Z', '65X', '70A', '70B', '70C', '70D', '70E', '70F', '70H', '70K', '71A', '71B', '71E', '71F', '72A', '72B', '72C', '72D', '73A', '73B'])
-  assert.equal(current('officer').length - none.length, 157)
+  assert.deepEqual(none, ['17X', '37X', '38X', '46X', '48X', '49W', '49X', '50A', '56X', '64Z', '65X', '70A', '70B', '70C', '70D', '70E', '70F', '70H', '70K', '71A', '71B', '71E', '71F', '72A', '72B', '72C', '72D', '73A', '73B'])
+  assert.equal(current('officer').length - none.length, 160)
 })
 
 test('shipped data covers the counts the report states', () => {
   assert.equal(current('enlisted').length, 178)
   assert.equal(current('warrant').length, 75)
-  assert.equal(current('officer').length, 187)
+  assert.equal(current('officer').length, 189)
 })
 
 test('publication-only resume: the summary and competencies are marked as written from the role description', async () => {
@@ -366,4 +368,107 @@ test('publication-only resume: the summary and competencies are marked as writte
   modelCalls.length = 0
   await (await resume())(mockReq({ branch: 'Army', mos: '25B', rank: 'E-6', milDuties: 'I trained twelve new radio operators.' }), mockRes())
   assert.ok(!/PUBLICATION-ONLY DRAFT/.test(promptOf(modelCalls[0])), 'with the person\'s own details the summary may use them')
+})
+
+// ── every code in the register is imported or explained ───────────────────────────────────────
+
+const bundleOf = async id => JSON.parse(await readFile(new URL(`data/reference/bundles/${id}.bundle.json`, root), 'utf8'))
+
+test('every code in the register has an imported description or a documented exception, and the committed reconciliation is current', async () => {
+  const bundles = { enlisted: await bundleOf('army-611-21-enlisted-ch10c'), warrant: await bundleOf('army-611-21-warrant-ch8b'), officer: await bundleOf('army-611-21-officer-ch3') }
+  const r = buildReconciliation(inventory, bundles)
+  assert.deepEqual(r.unaccounted, [], 'codes that are neither imported nor explained')
+  assert.equal(await readFile(new URL('data/reference/corpus/coverage-reconciliation.json', root), 'utf8'), JSON.stringify(r, null, 1) + '\n', 'run: node scripts/reconcile-imported-coverage.js')
+  assert.equal(await readFile(new URL('data/reference/corpus/coverage-reconciliation.md', root), 'utf8'), renderMarkdown(r))
+  const c = r.categories
+  // the numbers the report states
+  assert.deepEqual([c.enlisted.register, c.warrant.register, c.officer.register], [212, 84, 217])
+  assert.deepEqual([c.enlisted.imported_description, c.warrant.imported_description, c.officer.imported_description], [178, 74, 160])
+  assert.equal(c.enlisted.imported_codes_not_in_register.length + c.warrant.imported_codes_not_in_register.length + c.officer.imported_codes_not_in_register.length, 0)
+  // register = specification headings + reporting/status codes defined in other chapters
+  assert.equal(c.enlisted.codes_with_any_import, 194)
+  assert.equal(c.warrant.codes_with_any_import, 74)
+  assert.equal(c.officer.codes_with_any_import, 165)
+})
+
+// ── the translator, personal-duties field empty, no Vault: every code at every grade ──────────
+
+const GRADES = { enlisted: [1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `E-${n}`), warrant: [1, 2, 3, 4, 5].map(n => `W-${n}`), officer: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `O-${n}`) }
+const bandHas = (band, rank) => {
+  if (!band) return true
+  const n = +rank.split('-')[1]
+  return band.split(',').some(part => { const [lo, hi] = part.split('..').map(x => +x.split('-')[1]); return n >= lo && n <= (hi ?? lo) })
+}
+const squashT = x => String(x).toLowerCase().replace(/[^a-z0-9]+/g, '')
+
+test('EXHAUSTIVE: every current code at every grade, empty duties and no Vault, gets only its own code\'s official text for that grade', async () => {
+  const bundles = { enlisted: await bundleOf('army-611-21-enlisted-ch10c'), warrant: await bundleOf('army-611-21-warrant-ch8b'), officer: await bundleOf('army-611-21-officer-ch3') }
+  const pilot = [await bundleOf('army-cmf42-dapam600-25-2025-09-30'), await bundleOf('army-cmf36-dapam600-25-2024-07-19'), await bundleOf('army-fc-officer-2025-09-10')]
+  const pilotFor = cat => pilot.flatMap(b => b.passages).filter(p => p.personnel_category === cat)
+  const byCode = {}
+  for (const cat of Object.keys(bundles)) { byCode[cat] = new Map(); for (const p of [...bundles[cat].passages, ...pilotFor(cat)]) { if (!byCode[cat].has(p.occupation_code)) byCode[cat].set(p.occupation_code, []); byCode[cat].get(p.occupation_code).push(p) } }
+  const handler = await translate()
+  const stats = { calls: 0, translated: 0, askedForDetails: 0, generalOnly: 0, withGradeText: 0 }
+  const problems = []
+  let lastPrompt = ''
+  globalThis.fetch = async (url, opts) => {
+    const body = JSON.parse(opts.body); lastPrompt = promptOf(body)
+    const block = (lastPrompt.match(/<<<REFERENCE_DATA\n([\s\S]*?)\nREFERENCE_DATA>>>/) || [])[1] || ''
+    const lines = block.split(/\n(?=\[S\d)/).filter(l => /^\[S\d/.test(l))
+    const words = lines[0].replace(/^\[[^\]]*\](?:\s*\[[^\]]*\])?\s*[^:]*:\s*/, '').split(/\s+/).slice(0, 12).join(' ')
+    return { json: async () => ({ content: [{ type: 'text', text: JSON.stringify({ civilianTranslation: [{ basis: 'publication', evidence: words, militarySkill: 'm', civilianEquivalent: 'c', civilianFunctions: [], verify: 'v' }], certifications: [] }) }] }) }
+  }
+  for (const cat of ['enlisted', 'warrant', 'officer']) {
+    for (const row of inventory.codes.filter(c => c.category === cat && c.status === 'current')) {
+      const mine = byCode[cat].get(row.code) || []
+      for (const rank of GRADES[cat]) {
+        stats.calls++
+        const res = mockRes()
+        lastPrompt = ''
+        await handler(mockReq({ action: 'translate', branch: 'Army', mos: row.code, rank, milDuties: '', vaultContext: '' }), res)
+        const where = `${row.code}@${rank}`
+        // what the register says should be available at this grade, as of the test date
+        const live = mine.filter(p => !p.components && (!p.effective_from || p.effective_from <= '2026-10-16') && (!p.effective_to || p.effective_to > '2026-10-16'))
+        const haveGradeText = live.some(p => p.section_type === 'rank_duties' && bandHas(p.rank_band, rank))
+        const haveGeneral = live.some(p => p.section_type === 'general_duties')
+        if (res.code === 422) {
+          stats.askedForDetails++
+          if (haveGradeText || haveGeneral) problems.push(`${where}: asked for details although the publication has text`)
+          continue
+        }
+        if (res.code !== 200) { problems.push(`${where}: HTTP ${res.code}`); continue }
+        stats.translated++
+        if (!haveGradeText && !haveGeneral) { problems.push(`${where}: translated with no official text`); continue }
+        const lines = (lastPrompt.match(/<<<REFERENCE_DATA\n([\s\S]*?)\nREFERENCE_DATA>>>/) || [])[1].split(/\n(?=\[S\d)/).filter(l => /^\[S\d/.test(l))
+        let sawGrade = false
+        for (const l of lines) {
+          const band = (l.match(/^\[S\d[^\]]*\]\s*(?:\[([EWO]-\d[^\]]*)\])?/) || [])[1] || null
+          const isRank = /Expected at this grade/.test(l)
+          const includedLower = /included because the .* text also covers the lower level/.test(l)
+          if (isRank) {
+            if (!band) problems.push(`${where}: rank section with no grade label`)
+            else if (!includedLower && !bandHas(band, rank)) problems.push(`${where}: shows ${band} text`)
+            else if (!includedLower) sawGrade = true
+          }
+          // the text must be this code's own text
+          const text = l.replace(/^\[[^\]]*\](?:\s*\[[^\]]*\])?\s*[^:]*:\s*/, '')
+          if (!mine.some(p => squashT(p.body).includes(squashT(text).slice(0, 80)))) problems.push(`${where}: a line that is not this code's text: ${text.slice(0, 50)}`)
+        }
+        if (sawGrade) stats.withGradeText++
+        else {
+          stats.generalOnly++
+          // nothing grade-specific exists, so none may be shown or implied
+          if (haveGradeText) problems.push(`${where}: grade text exists but was not shown`)
+          if (lines.some(l => /Expected at this grade/.test(l) && !/included because/.test(l))) problems.push(`${where}: rank-specific text shown for a grade without any`)
+          if (!/no separate duties for|rather than grade by grade|outside the grades/.test(lastPrompt)) problems.push(`${where}: general-only answer without the note saying so`)
+        }
+        // the specialty named in the prompt is the one asked for
+        if (!new RegExp(`Occupational code: ${row.code}\\b`).test(lastPrompt)) problems.push(`${where}: wrong code in prompt`)
+      }
+    }
+  }
+  console.log('EXHAUSTIVE', JSON.stringify(stats))
+  assert.deepEqual(problems.slice(0, 20), [], `${problems.length} problems`)
+  assert.ok(stats.calls > 3500, JSON.stringify(stats))
+  assert.ok(stats.withGradeText > 1000 && stats.generalOnly > 500, JSON.stringify(stats))
 })

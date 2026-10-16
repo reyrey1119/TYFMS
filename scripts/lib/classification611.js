@@ -29,11 +29,14 @@ export function flattenPages(pages) {
   // The printed page number is the first line of a page (a lone 1-3 digit number); it is not part of the text.
   // The two-column layout can put the next section's heading mid-line ("... operations. b. Physical demands rating ...").
   const INLINE_SECTION = /\s+(?=[b-z]\s?\.\s+(?:Physical demands?|Physical requirements|Qualifications?\b|Reclassification|Position coding|Restrictions?\b|Additional skill|Skill [Ii]dentifiers|Special personnel classification)\b)/
-  const INLINE_ITEM_LABEL = /\s+(?=\(\d\)\s*(?:Unique duty positions?|Special grading of positions|Description of duties|Special qualifications|Physical Demands? [Rr]ating)\b)/
+  // An AOC heading glued to the end of the previous item: "(5) Unique duty positions. None.t. Child Psychiatrist (60U)."
+  const INLINE_HEADING = /(?<=\S\.)\s*(?=[b-z]\.\s+[A-Z][^()]{3,80}\(\d{2}[A-Z]\)\.?\s*$)/
+  const INLINE_ITEM_LABEL = /\s+(?=\(?\d\)\s*(?:Unique duty positions?|Special grading of positions|Description of duties|Special qualifications?|Physical [Dd]emands?)\b)/
   for (const p of pages) p.text.split('\n').map(norm).filter(Boolean).forEach((t, k) => {
     if (k === 0 && /^\d{1,3}$/.test(t)) return
-    const cut = Math.max(t.search(INLINE_SECTION), t.search(INLINE_ITEM_LABEL))
-    if (cut > 8) { out.push({ page: p.num, text: t.slice(0, cut).trim(), i: out.length }); out.push({ page: p.num, text: t.slice(cut).trim(), i: out.length }) }
+    const cutH = t.search(INLINE_HEADING)
+    const cut = cutH > 3 ? cutH : Math.max(t.search(INLINE_SECTION), t.search(INLINE_ITEM_LABEL))
+    if (cut > 8 || cutH > 3) { out.push({ page: p.num, text: t.slice(0, cut).trim(), i: out.length }); out.push({ page: p.num, text: t.slice(cut).trim(), i: out.length }) }
     else out.push({ page: p.num, text: t, i: out.length })
   })
   return out
@@ -73,7 +76,7 @@ const SL_START = /^(?:\(\d+\)|[a-z]\.)\s*(?:MOSC|MOS)\s*(\d{2}[A-Z])\s?(\d)\s?[O
 const ITEM_START = /^[a-z]\s?\.\s/
 const REQ_RE = /^(?:Physical demands|Qualifications?\b|Additional skill identifiers?|Physical requirements|Prerequisites?|Special qualifications|Standards of grade|Physical profile)/i
 // "Performs duties shown in preceding level of skill" / "all duties of preceding skill level" / "mastery of the preceding skills"
-const CUMULATIVE_RE = /\b(?:preceding|previous|lower)\s+(?:skill\s+|grade\s+)?(?:levels?|skills|grades?)\b|duties\s+(?:shown|described)\s+(?:in|at)\s+(?:the\s+)?(?:preceding|previous|paragraphs?)\b|perform\w*\s+(?:the\s+)?(?:duties\s+)?(?:as\s+)?(?:described|shown)\s+(?:in|at)\s+paragraphs?/i
+const CUMULATIVE_RE = /\b(?:preceding|previous|lower)\s+(?:skill\s+|grade\s+)?(?:levels?|skills|grades?)\b|duties\s+(?:shown|described)\s+(?:in|at)\s+(?:the\s+)?(?:preceding|previous|paragraphs?)\b|perform\w*\s+(?:all\s+)?(?:the\s+)?(?:duties\s+)?(?:as\s+)?(?:described|shown|outlined)\s+(?:in|at)\s+paragraphs?/i
 const RESTRICTION_RE = /^(?:Restrictions?\b)/i
 const DUTY_LABEL_RE = /^(?:Major [Dd]uties|Duties\b)/i
 
@@ -129,7 +132,7 @@ export function parseEnlistedBlock(lines, block, ctx) {
     if (s.code !== code) issues.push(`skill-level paragraph names ${s.code}, block is ${code}`)
     const text = joinLines(lns).replace(/^(?:\(\d+\)|[a-z]\.)\s*(?:MOSC|MOS)\s*\d{2}[A-Z]\s?\d\s?[O0]\s*[.:]?\s*/i, '').trim()
     if (!SKILL_LEVEL_GRADE[s.level]) { issues.push(`unknown skill level ${s.level}`); return }
-    if (/^\(Personnel Only\)/i.test(text)) {
+    if (/^\(Personnel Only\b/i.test(text)) {
       ctx.skipped.push({ code, page: lns[0].page, why: 'administrative personnel-only skill level (identifies Soldiers accessed before the grade); not a duty description', text: text.slice(0, 70) })
       return
     }
@@ -317,7 +320,7 @@ export function parseOfficerChart(pages) {
 }
 
 const OFFICER_HEADING = /^(?:[a-z]{1,2}|(?:\d+-)?\d+)\.\s+(.{2,110}?)\s*\((?:AOC\s+)?(\d{2}[A-Z](?:\s*(?:,|and|&|\/)\s*\d{2}[A-Z])*)\)(?:\.?\s*\([^)]*\))*\.?(?:\s+\S.*)?$/i
-const OFFICER_LABEL = /^(?:\(\d\)|[a-z]\.?)?\s*(Educational [Rr]equirements|Restrictions?|Positions? coding|Description of duties|Special qualifications|Special grading of positions|Unique duty positions?|Skill identifiers|Physical demands|Description of positions|Functional area qualifications|Qualifications)\b/i
+const OFFICER_LABEL = /^(?:\(?\d\)|[a-z]\.?)?\s*(Educational [Rr]equirements|Restrictions?|Positions? coding|Description of duties|Special qualifications?|Special grading of positions|Unique duty positions?|Skill identifiers|Physical demands|Description of positions|Functional area qualifications|Qualifications)\b/i
 const BRANCH_HEADING = /^3\s*[-–—]\s*\d+/
 // A lettered item that opens a different section (requirements, identifiers, the next AOC's heading) ends the item before it.
 const OFFICER_SECTION_END = /^[a-z]{1,2}\s?\.\s+(?:Physical|Skill [Ii]dentifiers|Special personnel|AOC \d{2}[A-Z] (?:qualifications|skill)|Associated|Qualifications|.{2,100}\(\s*(?:AOC\s+)?\d{2}[A-Z]\s*\))/
@@ -326,12 +329,17 @@ export function importOfficerChapter(pages) {
   const { chart, lastChartPage, lines } = parseOfficerChart(pages)
   const prose = lines.filter(l => l.page > lastChartPage)
   const heads = []
+  const chartMissing = new Map()
   prose.forEach(l => {
     if (l.text.length > 170) return
     const m = l.text.match(OFFICER_HEADING)
     if (!m) return
-    const codes = m[2].match(/\d{2}[A-Z]/g).filter(c => chart.has(c))
-    if (codes.length) heads.push({ i: l.i, codes, title: m[1].trim(), page: l.page })
+    const all = m[2].match(/\d{2}[A-Z]/g)
+    const codes = all.filter(c => chart.has(c))
+    // A few AOCs have their own section but no row in the structure chart (49B, 60U, 91B, 91D). They are real, so they are kept.
+    const notInChart = all.filter(c => !chart.has(c) && /^[a-z]\./i.test(l.text) && all.length === 1)
+    for (const c of notInChart) chartMissing.set(c, { code: c, title: m[1].trim().replace(/\s*\([^)]*\)\s*$/, ''), page: l.page })
+    if (codes.length || notInChart.length) heads.push({ i: l.i, codes: [...codes, ...notInChart], title: m[1].trim(), page: l.page })
   })
   const branchStarts = prose.filter(l => BRANCH_HEADING.test(l.text)).map(l => l.i)
   const byCode = new Map()
@@ -376,13 +384,13 @@ export function importOfficerChapter(pages) {
     }
     const mk = parseMarkers(lines[h.i].text)
     for (const code of h.codes) {
-      const c = chart.get(code)
+      const c = chart.get(code) || { title: chartMissing.get(code)?.title || null, lo: null, hi: null }
       if (!byCode.has(code)) byCode.set(code, [])
-      byCode.get(code).push({ code, title: c.title, grades: [c.lo, c.hi], heading: lines[h.i].text.slice(0, 160), startPage: lines[h.i].page, endPage: lines[end - 1]?.page ?? lines[h.i].page, effective_from: mk.effective_from, rescinded_from: mk.rescinded_from, flags: mk.flags, passages: passages.map(p => ({ ...p })), sharedWith: h.codes.filter(x => x !== code), hasDescription: di >= 0 || unlabeled })
+      byCode.get(code).push({ code, title: c.title, grades: c.lo == null ? null : [c.lo, c.hi], heading: lines[h.i].text.slice(0, 160), startPage: lines[h.i].page, endPage: lines[end - 1]?.page ?? lines[h.i].page, effective_from: mk.effective_from, rescinded_from: mk.rescinded_from, flags: mk.flags, passages: passages.map(p => ({ ...p })), sharedWith: h.codes.filter(x => x !== code), hasDescription: di >= 0 || unlabeled })
     }
     if (di < 0 && !unlabeled) report.issues.push({ code: h.codes.join('/'), page: lines[h.i].page, msg: 'no "Description of duties" label in section' })
   })
   for (const [, list] of byCode) assignVersions(list)
   for (const [code] of chart) if (!byCode.has(code)) report.gaps.push(code)
-  return { byCode, chart, report, lines }
+  return { byCode, chart, chartMissing, report, lines }
 }
