@@ -134,7 +134,7 @@ export default function MilReferenceCard({
       {data.componentNote && <p style={{ fontSize: 12, color: '#8A5416', marginBottom: 6 }}>{data.componentNote}</p>}
 
       <p style={{ fontSize: 12, color: '#5C5646', lineHeight: 1.5, marginBottom: (sections.length || hasDraftText) ? 6 : 0 }}>
-        This describes what the specialty{rank ? ` at ${rank}` : ''} typically involves. It is not a record of what <em>you</em> did, and recommended training or assignments are not proof anyone completed them.
+        This is background information about the specialty. Only sections explicitly labeled for a grade describe that grade. It is not a record of what <em>you</em> did, and recommended training or assignments are not proof anyone completed them.
         {juniorContext && ' If you are still in training, separate what you have trained on from what you have actually performed.'}
       </p>
 
