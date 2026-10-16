@@ -176,12 +176,13 @@ async function findPassageSourceIds(supabase, req, code) {
   return { ids: [...new Set((data || []).map(r => r.source_id))], registryAvailable: true }
 }
 
-async function loadApprovedSources(supabase, ids) {
+async function loadApprovedSources(supabase, ids, now) {
   if (ids.length === 0) return []
   const { data, error } = await supabase.from('reference_sources').select('*').in('id', ids)
   if (error) throw new Error(error.message || 'source query failed')
-  // Only approved sources that nothing has superseded.
-  return (data || []).filter(s => s.review_status === 'approved' && !s.superseded_by)
+  // Approval does not make a future-effective publication applicable today.
+  return (data || []).filter(s => s.review_status === 'approved' && !s.superseded_by
+    && (!s.effective_date || Date.parse(s.effective_date) <= now))
 }
 
 // Which stored section types feed which result field. promotion_criteria is
@@ -277,7 +278,7 @@ function assembleFromPassages(passages, req) {
 async function fromRegistry(supabase, req, code, now) {
   const { ids, registryAvailable } = await findPassageSourceIds(supabase, req, code)
   if (!registryAvailable || ids.length === 0) return null
-  const sources = await loadApprovedSources(supabase, ids)
+  const sources = await loadApprovedSources(supabase, ids, now)
   if (sources.length === 0) return null
 
   const key = buildCacheKey({ ...req, occupation: code, sourceVersion: sourceVersionTag(sources) })
