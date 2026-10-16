@@ -80,6 +80,7 @@ ${certsLine}${referenceBlock}${dutiesBlock}${vaultBlock}${juniorBlock}
 RULES:
 - Describe what the specialty typically involves, and what the person confirmed. Never state personnel counts, budgets, results, clearances, certifications, or leadership roles the person did not give you.
 - Rank selects the applicable reviewed reference sections. Rank alone is never proof of duties, skills or experience.
+- Numbers, counts, scores, team sizes and named systems in the reference describe the specialty in general. Do not attribute any of them to this person unless they stated it.
 - Civilian titles and industries are examples of where these skills can apply, not job-placement promises.
 
 Respond ONLY with valid JSON, no markdown, no extra text:

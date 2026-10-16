@@ -72,10 +72,10 @@ export default function MilReferenceCard({
   const { status: s } = data
 
   // Gaps: nothing usable on file.
-  if (s === 'none' || s === 'source_error' || s === 'needs_input' || s === 'invalid_input') {
+  if (['none', 'source_error', 'needs_input', 'invalid_input', 'historical', 'future_effective', 'special_code'].includes(s)) {
     return (
       <Box tone="plain">
-        <p style={{ fontWeight: 600, marginBottom: 4 }}>{s === 'source_error' ? 'Reference temporarily unavailable' : 'No official reference on file'}</p>
+        <p style={{ fontWeight: 600, marginBottom: 4 }}>{{ source_error: 'Reference temporarily unavailable', historical: 'This code is no longer in force', future_effective: 'This code is not in force yet', special_code: 'Special code, not a job specialty' }[s] || 'No official reference on file'}</p>
         <p style={{ fontSize: 12, lineHeight: 1.5 }}>{data.message}</p>
         {data.similar?.length > 0 && onPickCode && (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 8 }}>
@@ -122,6 +122,7 @@ export default function MilReferenceCard({
               {src.lastChecked && <> · checked {fmtDate(src.lastChecked)}</>}
               {src.status === 'stale' && <> · <em>not re-checked recently</em></>}
               {src.url && <> · <a href={src.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1B3A6B' }}>View source</a></>}
+              {src.limitations && <span style={{ display: 'block', fontSize: 11, color: '#8A5416' }}>Not included: {src.limitations.replace(/^LIMITATIONS:\s*/i, '')}</span>}
             </p>
           ))}
         </div>

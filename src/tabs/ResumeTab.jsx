@@ -52,7 +52,7 @@ function initForm(prefill) {
     targetTitle: '', targetCompany: '', prevJobs: [],
     education: [],
     awards: '', additionalSkills: '', certifications: '',
-    summaryTone: '', additionalContext: '', milDuties: '',
+    summaryTone: '', additionalContext: '', milDuties: prefill?.milDuties || '',
   }
 }
 
@@ -579,7 +579,7 @@ export default function ResumeTab({ prefill }) {
 
   useEffect(() => {
     if (!prefill) return
-    setForm(prev => ({ ...prev, branch: prefill.branch || 'Army', component: prefill.component || prev.component, mos: prefill.mos || prev.mos, rank: prefill.rank || prev.rank, yos: prefill.yos || prev.yos }))
+    setForm(prev => ({ ...prev, branch: prefill.branch || 'Army', component: prefill.component || prev.component, mos: prefill.mos || prev.mos, rank: prefill.rank || prev.rank, yos: prefill.yos || prev.yos, milDuties: prefill.milDuties || prev.milDuties }))
     setStep(2)
   }, [prefill])
 

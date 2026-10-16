@@ -2,8 +2,8 @@
  "bundle": "army-cmf36-dapam600-25-2024-07-19",
  "checks": {
   "checksumMatches": true,
-  "passages": 66,
-  "verbatimOnClaimedPages": 66,
+  "passages": 67,
+  "verbatimOnClaimedPages": 67,
   "duplicatePassages": 0,
   "pdfCharsInImportedPages": 66617,
   "charsNotStored": 3458,

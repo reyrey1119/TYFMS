@@ -153,3 +153,45 @@ test('same-PDF mapping correction invalidates cached rank passages after reappro
   assert.ok(after.sections.some(s => s.text === newText), 'old cache must not survive a changed extraction')
   await db.close()
 })
+
+// ── the two files an administrator actually runs ─────────────────────────────
+
+test('01-install.sql then 02-approve.sql: inert until approved, visible after, and re-running install revokes approval', async () => {
+  const install = await readFile(SQL + '01-install.sql', 'utf8')
+  const approve = await readFile(SQL + '02-approve.sql', 'utf8')
+  const db = await newDb()
+  await db.exec(install)
+  await db.exec(install)                                   // idempotent
+  const sb = supabaseOn(db, 'anon')
+  const approvedCount = async () => Number((await db.query(`select count(*)::int c from public.reference_sources where review_status='approved'`)).rows[0].c)
+  assert.equal(await approvedCount(), 0)
+  assert.deepEqual((await sb.from('reference_passages').select('source_id').eq('occupation_code', '42A')).data, [], 'nothing visible before approval')
+
+  await db.exec(approve)
+  const bundles = await loadBundles()
+  assert.equal(await approvedCount(), bundles.length)
+  const row = (await db.query(`select reviewed_by from public.reference_sources limit 1`)).rows[0]
+  assert.match(row.reviewed_by, /Claude Sonnet 5\.5/)
+  assert.match(row.reviewed_by, /Rey Rodriguez/, 'the actual reviewer and authorizer are recorded')
+
+  clearReferenceCache()
+  const r = await retrieveReference({ supabase: sb, now: NOW, body: { branch: 'Army', mos_afsc: '42A', rank: 'E-5' } })
+  assert.equal(r.status, 'verified')
+
+  await db.exec(install)                                   // re-import: content is re-written, so approval must be revoked
+  assert.equal(await approvedCount(), 0, 're-running the install revokes approval until re-approved')
+  await db.exec(approve)
+  assert.equal(await approvedCount(), bundles.length)
+})
+
+test('approval is pinned to the reviewed fingerprint: a changed extraction cannot be approved by the old SQL', async () => {
+  const install = await readFile(SQL + '01-install.sql', 'utf8')
+  const approve = await readFile(SQL + '02-approve.sql', 'utf8')
+  const db = await newDb()
+  await db.exec(install)
+  await db.exec(`update public.reference_sources set content_sha256 = 'tampered' where career_field = 'CMF 42'`)
+  await db.exec(approve)
+  const rows = (await db.query(`select career_field, review_status from public.reference_sources order by career_field`)).rows
+  assert.equal(rows.find(r => r.career_field === 'CMF 42').review_status, 'unreviewed')
+  assert.ok(rows.filter(r => r.career_field !== 'CMF 42').every(r => r.review_status === 'approved'))
+})

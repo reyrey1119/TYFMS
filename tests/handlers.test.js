@@ -114,6 +114,7 @@ test('full resume builder prompt forbids estimating numbers and listing certific
   assert.equal(res.code, 200)
   const prompt = promptOf(modelCalls[0])
   assert.match(prompt, /ONLY if the person provided it/)
+  assert.match(prompt, /never copy one into this person's experience unless they gave it to you/)
   assert.ok(!/credible estimates/.test(prompt))
   assert.match(prompt, /ADD YOUR CERTIFICATIONS HERE/)
   assert.ok(!/real civilian certifications directly relevant/.test(prompt))
@@ -147,4 +148,27 @@ test('resume builder without a reviewed reference explicitly forbids code-based 
   await (await resume())(mockReq({ branch: 'Army', mos: '36B', rank: 'E-5' }), res)
   assert.equal(res.code, 200)
   assert.match(promptOf(modelCalls[0]), /Do not infer duties, skills, systems, training, leadership scope or credentials from the occupational code or rank/)
+})
+
+// ── lookups never call a model just to produce reference text ───────────────────────────────
+
+test('mil-reference for an unknown code makes no model call by default (AI drafts are opt-in)', async () => {
+  delete process.env.ENABLE_AI_DRAFTS
+  stubModel('{"duty_title":"Invented"}')
+  const res = mockRes()
+  await (await tools())(mockReq({ action: 'mil-reference', branch: 'Army', mos_afsc: 'ZZZ9', rank: 'E-5' }), res)
+  assert.equal(res.code, 200)
+  assert.equal(res.body.status, 'none')
+  assert.equal(modelCalls.length, 0)
+})
+
+test('a repeat lookup of a rescinded code makes no model call and no outside request', async () => {
+  const outside = []
+  const real = globalThis.fetch
+  globalThis.fetch = async (url, opts) => { outside.push(String(url)); return real(url, opts) }
+  const res = mockRes()
+  await (await tools())(mockReq({ action: 'mil-reference', branch: 'Army', mos_afsc: '15E', rank: 'E-5' }), res)
+  await (await tools())(mockReq({ action: 'mil-reference', branch: 'Army', mos_afsc: '15E', rank: 'E-5' }), res)
+  assert.equal(res.body.status, 'historical')
+  assert.deepEqual(outside, [], 'no PDF download, no model call, no outside request of any kind')
 })

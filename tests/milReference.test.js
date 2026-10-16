@@ -462,3 +462,51 @@ test('duplicate submit: a second click while one is running does nothing', async
   assert.equal(b, undefined)
   assert.equal(await run1(work), 'done', 'usable again once the first run finishes')
 })
+
+// ── DA PAM 611-21 code status (rescinded / future-effective / special codes) ─────────────────
+
+test('a rescinded enlisted MOS (15E) gets no current reference and says why, with the page', async () => {
+  let aiCalled = false
+  const db = fakeSupabase({ mos_reference_enlisted: [{ mos_code: '15E', title: 'Legacy 15E row', duties: 'Legacy duties.' }] })
+  const r = await run(db, body('E-5', '15E'), { aiSuggest: async () => { aiCalled = true; return { duty_title: 'x' } } })
+  assert.equal(r.status, 'historical')
+  assert.match(r.message, /rescinded effective October 2026/)
+  assert.match(r.message, /DA PAM 611-21, ch\. 10c, PDF p\. 81/)
+  assert.match(r.message, /still use it to describe past service/)
+  assert.deepEqual(r.sections, [])
+  assert.equal(aiCalled, false)
+  assert.equal(db.calls.length, 0, 'the stored table is not even consulted for a code that is not in force')
+})
+
+test('the same code string in another category is judged separately (officer 92A rescinded, enlisted 92A not)', async () => {
+  const off = await run(fakeSupabase({}), body('O-3', '92A'), { aiSuggest: null })
+  assert.equal(off.status, 'historical')
+  assert.match(off.message, /Logistics branch \(90\) effective October 2026/)
+  const enl = await run(fakeSupabase({}), body('E-5', '92A'), { aiSuggest: null })
+  assert.notEqual(enl.status, 'historical')
+})
+
+test('a future-effective MOS (79S) is not shown as current', async () => {
+  const r = await run(fakeSupabase({}), body('E-6', '79S'), { aiSuggest: null })
+  assert.equal(r.status, 'future_effective')
+  assert.match(r.message, /takes effect October 2027/)
+})
+
+test('special reporting and immaterial codes are explained as such', async () => {
+  const src = await run(fakeSupabase({}), body('E-7', '00D'), { aiSuggest: null })
+  assert.equal(src.status, 'special_code')
+  assert.match(src.message, /special reporting code/)
+  const imm = await run(fakeSupabase({}), body('E-8', '00M'), { aiSuggest: null })
+  assert.match(imm.message, /MOS-immaterial/)
+})
+
+test('a current code with a scheduled change still returns normally, with the change noted', async () => {
+  const r = await run(fakeSupabase({}), { branch: 'Army', mos_afsc: '420T', rank: 'W-3' }, { aiSuggest: null })
+  assert.equal(r.status, 'none')
+  assert.match(r.codeNote, /change to 420T takes effect October 2027/)
+})
+
+test('other branches are not affected by Army code status', async () => {
+  const r = await run(fakeSupabase({}), body('E-5', '15E', 'Navy'), { aiSuggest: null })
+  assert.notEqual(r.status, 'historical')
+})
