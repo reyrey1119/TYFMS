@@ -147,6 +147,27 @@ Three sources, covering **3 specialties**: enlisted MOS 42A and 36B, and officer
 
 Not attempted: the other CMF guides, the 39 officer DA PAM 600-3 branch pamphlets, and the 42T/79 edition. Verifying them to the same standard means reading every imported page (many hundreds), which was not done and should not be shortcut. The 125-PDF audit (`source-audit.md`) is the accounting of that remaining work, not coverage.
 
+## Post-deployment random spot check (2026-10-16)
+
+A supplement to the full audit above, **not** a coverage claim. Evidence: `data/reference/audits/` (plan, run 1 before fixes, run 2 after, run 3 focused confirmation). All personal experience used was clearly synthetic ("SYNTHETIC TEST PROFILE, not a real person").
+
+**Method.** `scripts/random-audit-sample.js`: SHA-256 of a fixed seed string, then a mulberry32 shuffle of the code-sorted pool of `current` codes in `army-code-inventory.json` (171 enlisted, 187 officer, as of 2026-10-15); first 3 enlisted and first 3 officer. The seed string was `tyfms-army-accuracy-6258126b0dd9eb50d8b8dd60b27d4ecb1fe57cb5`. It was meant to embed the full deployed commit hash but its tail was mistyped, so it is simply a fixed string set before any lookup; the draw is reproducible from it. Nothing was excluded or replaced afterwards. Drawn: enlisted **25E, 92Z, 15M**; officer **47M, 40A, 51C**. Ranks were taken from each code's documented structure (skill levels in DA PAM 611-21 for enlisted, the grade range in its officer chart).
+
+| Code | Ranks / components tested | Official sources compared | Lookup (production) | Result |
+|---|---|---|---|---|
+| 25E Electromagnetic Spectrum Manager | E-6 active, E-7 reserve, E-6 guard | 611-21 ch.10c PDF p.146 (spec); CMF 25 guide 25 Jun 2024, PDF p.10 | `unverified` legacy row; its text matches the CMF 25 guide verbatim (p.10) but the guide's duties section is only a pointer to 611-21; no rank or component content | **Honest, but no reviewed reference (gap).** Generation checks passed after fixes |
+| 92Z Senior Noncommissioned Logistician | E-8 active, E-9 guard | 611-21 ch.10c pp.340 (Effective 202610) and 342 (Eff 202510); CMF 92 guide 28 Jan 2025, PDF p.42 | `unverified` legacy row that is **out of date**: says duties of "92A and 92Y at the 6 skill level"; the CMF 92 guide names seven MOS and the current spec says "at the grade SFC" | **Gap, and a stored row contradicts the current spec.** Labeled "may be out of date" |
+| 15M MQ-1 Repairer | E-4 active, E-6 reserve | 611-21 ch.10c PDF p.91; CMF 15 guide 25 Aug 2026, PDF p.15 (Chapter 14) | `none` | **Gap.** Run 1 found the model calling it a "UH-72 Repairer" (wrong); fixed |
+| 47M USMA Professor of Chemistry | O-5, O-6 (chart grades 5-6), active | 611-21 ch.3 PDF p.18; DA PAM 600-3 FA 47 pamphlet "as of 13 April 2020" | `none` | **Gap** (the only pamphlet is dated 2020) |
+| 40A Space Operations | O-3 active, O-5 guard (chart grades 3-6) | 611-21 ch.3 PDF p.16; DA PAM 600-3 supplement whose summary of change is dated 25 Aug 2026 (file name says "final-draft") | `none` | **Gap.** Run 1 gave it an unrelated "Army Signal" line; fixed |
+| 51C Contract and Industrial Management | O-3 active, O-5 reserve (chart grades 2-6) | 611-21 ch.3 PDF p.20; DA PAM 600-3 Acquisition FA 51, 7 Nov 2022 | `none` | **Gap** |
+
+**What passed in every run, for all six codes and both ranks:** repeat lookups were identical and none came from an AI path; the translator refused with no personal facts (HTTP 422) before any model call; no invented numbers or credential claims appeared in the resume text; the translator-to-resume handoff carried branch, MOS, rank and the described tasks (checked through the API for all six and in the production UI for 25E).
+
+**What failed in run 1 (before fixes), all with no reviewed reference available:** 15M described as a UH-72 Repairer (official title: MQ-1 Repairer, confirmed by the CMF 15 guide); 40A given an "Army Signal" line; invented civilian job titles on the position line; effects the person never stated ("reducing the risk of missed discrepancies", "before sign-off"); PMP recommended to a trainee (PMI lists 3+ years leading projects). **Fixed:** every Army code's official title (from 611-21) is now the only thing the generators may say about what a code is; the position line states the official title with civilian equivalents only as `[CONFIRM: ...]`; a no-embellishment rule in all prompts; a deterministic check that annotates quality or result wording the person did not use; verified eligibility text on PMP and CISSP.
+
+**Residual limits.** The wording check covers a fixed list of claim words, not every possible embellishment (run 3 still showed "precision" and "procedural discipline" phrasing in a summary). With no reviewed reference, the model still produces civilian-sounding paraphrases of the person's own tasks; they are labeled and must be confirmed by the person. For none of the six was there a reviewed reference to compare returned content against, so "returned information matches the official PDF" could not be demonstrated for any of them; that is a coverage gap, not a pass.
+
 ## Installing and approving in Supabase
 
 ```sh

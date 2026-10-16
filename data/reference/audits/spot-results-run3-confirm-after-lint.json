@@ -1,0 +1,223 @@
+{
+ "base": "https://www.tyfms.com",
+ "ran_at": "2026-10-16T02:49:53.956Z",
+ "generate": true,
+ "codes": [
+  {
+   "category": "enlisted",
+   "code": "25E",
+   "title": "Electromagnetic Spectrum Manager",
+   "lookups": [
+    {
+     "rank": "E-6",
+     "component": "active",
+     "http": 200,
+     "status": "unverified",
+     "origin": "legacy",
+     "sections": 2,
+     "sources": [],
+     "message": "",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      809,
+      283
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": [
+    {
+     "rank": "E-6",
+     "component": null,
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 27173,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "unverified",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 11406,
+      "chars": 2592,
+      "add_prompts": 6
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Spectrum Planning Technician]\",\"[CONFIRM: Radio Frequency Coordination Analyst]\",\"[CONFIRM: Telecommunications Support Specialist]\"],\"transferableSkills\":[\"Familiarity with frequency planning concepts from structured classroom instruction\",\"Use of a database environment to look up and organize radio frequency information\",\"Exposure to the logic of electromagnetic spectrum coordination through training scenarios\",\"Ability to follow a structured planning process as practiced in a training setting\",\"Comfort working within technical subject matter that requires attention to detail\",\"Foundational understanding of how spectrum resources are allocated and tracked\"],\"certifications\":[\"CompTIA Network+\",\"CompTIA A+\",\"CompTIA Security+\"],\"civilianTranslation\":[{\"militarySkill\":\"Radio frequency planning using a training database\",\"civilianEquivalent\":\"Entering and retrieving frequency data in a structured database environment to support planning tasks\",\"civilianFunctions\":[\"Querying a database to identify available frequency resources\",\"Organizing frequency information according to planning criteria\"],\"verify\":\"Confirm whether you personally ran queries, entered data, or produced any outputs in the training database, and whether you still have any notes or exercises that show what steps you followed.\"},{\"militarySkill\":\"Classroom-based spectrum planning instruction\",\"civilianEquivalent\":\"Completing formal technical training in electromagnetic spectrum management concepts and procedures\",\"civilianFunctions\":[\"Learning the rules and logic that govern how radio frequencies are assigned\",\"Applying planning steps to practice scenarios in a controlled training environment\"],\"verify\":\"Confirm whether you received a certificate of completion, a training transcript, or any scored assessments from this instruction that you could share with an employer.\"},{\"militarySkill\":\"Working within the role of Electromagnetic Spectrum Manager (official Army title for 25E)\",\"civilianEquivalent\":\"Supporting the coordination and deconfliction of radio frequency use, as practiced in training\",\"civilianFunctions\":[\"Understanding the concept of frequency deconfliction to prevent interference\",\"Applying spectrum management terminology and frameworks learned in training\"],\"verify\":\"Confirm whether your training covered any written procedures, checklists, or reference guides, and whether you can describe the steps you practiced from memory or notes.\"},{\"militarySkill\":\"Navigating a technical training curriculum in a specialized military field\",\"civilianEquivalent\":\"Demonstrated ability to absorb and apply structured technical content in a specialized domain\",\"civilianFunctions\":[\"Following multi-step technical processes in a classroom setting\",\"Retaining and applying domain-specific rules and terminology\"],\"verify\":\"Confirm what topics your training covered so you can speak to them accurately in an interview without overstating operational experience.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nArmy veteran with a background in electromagnetic spectrum management, bringing disciplined analytical thinking and technical training to civilian roles. Trained in radio frequency planning principles through structured coursework and simulation-based exercises, building a foundation in spectrum coordination concepts. Detail-oriented and methodical, with the organizational habits developed through years of military service. Ready to apply technical training and structured problem-solving to contribute from day one.\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nRadio Frequency Concepts               Spectrum Coordination                  Technical Training\nFrequency Planning Fundamentals        Data Entry and Records Management       Attention to Detail\nAnalytical Thinking                    Process Adherence                      Team Collaboration\nWritten Communication                  Microsoft Office Suite                  Problem Solving\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nElectromagnetic Spectrum Manager (Electro Spectrum Mgr) | United States Army\n[ADD: Start Year] – [ADD: End Year]\n\n[CONFIRM: Spectrum Planning Technician or similar civilian-equivalent title]\n\n• Practiced radio frequency planning using a training database in a structured classroom environment, building foundational knowledge of spectrum management procedures.\n• Applied systematic methods to frequency coordination exercises, following established planning processes and technical guidelines.\n• [ADD: describe any additional tasks, projects, or responsibilities you held during your service beyond classroom training]\n• [ADD: number of people you supervised, if any, and any leadership or team responsibilities you held]\n• [ADD: any tools, software, or equipment you worked with outside of the training database]\n• [ADD: any collateral duties, additional assignments, or job functions performed during your service]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15M",
+   "title": "MQ-1 Repairer",
+   "lookups": [
+    {
+     "rank": "E-4",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 15M. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      511,
+      660
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": [
+    {
+     "rank": "E-4",
+     "component": null,
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 30330,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "none",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 11798,
+      "chars": 2686,
+      "add_prompts": 3
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Aircraft Maintenance Trainee — if you complete the full training program]\",\"[CONFIRM: Aviation Maintenance Technician Apprentice — if you gain hands-on aircraft system experience]\",\"[CONFIRM: Quality Inspection Technician — if you perform inspection duties professionally]\"],\"transferableSkills\":[\"Following structured inspection checklists with attention to sequence and completeness\",\"Working within a formal procedural framework in a safety-conscious environment\",\"Exposure to technical documentation and standardized inspection processes\",\"Discipline and accountability in a regulated training environment\",\"Ability to work methodically through multi-step technical tasks\",\"Familiarity with the culture and standards of aviation maintenance as a field\"],\"certifications\":[\"Certified Maintenance & Reliability Technician (CMRT)\",\"Six Sigma Green Belt (CSSGB)\",\"CompTIA A+\"],\"civilianTranslation\":[{\"militarySkill\":\"Following a checklist to inspect a training aircraft model during a class\",\"civilianEquivalent\":\"Performing a structured, step-by-step inspection of equipment using written procedures in a training context\",\"civilianFunctions\":[\"Applying written checklists to verify equipment condition in a defined order\",\"Practicing the inspection discipline used in regulated maintenance environments\"],\"verify\":\"Confirm whether you used an official written checklist or technical document during the inspection, and whether an instructor reviewed or signed off on your work.\"},{\"militarySkill\":\"Completing inspection tasks in a classroom or training environment\",\"civilianEquivalent\":\"Hands-on technical training in a structured learning environment focused on equipment inspection\",\"civilianFunctions\":[\"Practicing procedural compliance in a controlled setting\",\"Building foundational familiarity with inspection workflows before field application\"],\"verify\":\"Confirm whether this training was part of a formal course, and whether you received any record of completion, grade, or evaluation.\"},{\"militarySkill\":\"[ADD: Any additional inspection or maintenance tasks you performed — describe in your own words]\",\"civilianEquivalent\":\"[ADD: To be completed once you describe additional duties]\",\"civilianFunctions\":[\"[ADD: Task 1]\",\"[ADD: Task 2]\"],\"verify\":\"Confirm whether you performed any inspection or maintenance tasks outside of the classroom, such as in a shop, hangar, or field environment.\"},{\"militarySkill\":\"[ADD: Any tools, equipment, or test devices you used — describe in your own words]\",\"civilianEquivalent\":\"[ADD: To be completed once you describe the tools or equipment involved]\",\"civilianFunctions\":[\"[ADD: Tool-related function 1]\",\"[ADD: Tool-related function 2]\"],\"verify\":\"Confirm whether you personally operated any test equipment, hand tools, or diagnostic devices, and if so, describe what they were used for.\"},{\"militarySkill\":\"[ADD: Any records, logs, or documentation you filled out — describe in your own words]\",\"civilianEquivalent\":\"[ADD: To be completed once you describe any documentation duties]\",\"civilianFunctions\":[\"[ADD: Documentation function 1]\",\"[ADD: Documentation function 2]\"],\"verify\":\"Confirm whether you filled out, recorded, or submitted any paperwork, digital records, or inspection logs as part of your training or duties.\"},{\"militarySkill\":\"[ADD: Any safety or hazard procedures you were trained on — describe in your own words]\",\"civilianEquivalent\":\"[ADD: To be completed once you describe safety-related training or practices]\",\"civilianFunctions\":[\"[ADD: Safety function 1]\",\"[ADD: Safety function 2]\"],\"verify\":\"Confirm whether you received any formal safety briefings or completed safety-related training steps as part of your coursework.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nU.S. Army veteran with a background in aircraft maintenance fundamentals, bringing disciplined attention to detail and a strong foundation in inspection procedures to the civilian workforce. Trained in the Army's structured maintenance environment, with hands-on experience following technical inspection checklists on aircraft models. That training instilled a precise, process-driven approach that transfers directly to quality control, inspection, and technical support roles across manufacturing, aviation, and maintenance industries. Committed to showing up prepared, following procedures exactly, and contributing to a team that values accuracy and accountability. [CONFIRM: you did not describe this as \"accuracy\". Keep it only if it is true.]\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nInspection Procedures              Checklist Execution                Technical Documentation\nQuality Control Fundamentals       Attention to Detail                Process Adherence\nSafety Compliance                  Maintenance Awareness              Team Collaboration\nTechnical Training                 Workplace Discipline               Problem Identification\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nMQ-1 Repairer (Army Occupational Specialty: MQ-1 Repairer) [CONFIRM: Aircraft Maintenance Trainee or Inspection Technician Trainee] | U.S. Army\n[Start Year] – [End Year]\n\n• Executed structured inspection checklists on a training aircraft model as part of formal Army maintenance coursework.\n• Applied step-by-step technical procedures to complete aircraft inspections in a controlled training environment.\n• Practiced identifying inspection checkpoints and documenting findings in accordance with instructed procedures.\n• [ADD: any additional tasks, hands-on activities, or maintenance procedures you performed during training or duty assignments]\n• [ADD: number of training hours completed, if known]\n• [ADD: any duty assignments, work orders, or tasks performed outside of the classroom, if applicable]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "40A",
+   "title": "Space Operations",
+   "lookups": [
+    {
+     "rank": "O-3",
+     "component": "active",
+     "http": 200,
+     "status": "none",
+     "origin": "none",
+     "sections": 0,
+     "sources": [],
+     "message": "No official reference is on file for 40A. Describe your own duties below and your result will be built from what you tell us.",
+     "componentNote": null,
+     "codeNote": null,
+     "repeat_same": true,
+     "ms": [
+      465,
+      410
+     ],
+     "ai_origin": false
+    }
+   ],
+   "generation": [
+    {
+     "rank": "O-3",
+     "component": null,
+     "translator_without_facts": {
+      "http": 422,
+      "status": "needs_experience",
+      "refused_before_model_call": true
+     },
+     "translator_with_synthetic": {
+      "http": 200,
+      "ms": 30156,
+      "fields": [
+       "civilianTitles",
+       "transferableSkills",
+       "civilianTranslation",
+       "careerPaths",
+       "targetIndustries",
+       "identityTip",
+       "certifications",
+       "referenceStatus"
+      ],
+      "referenceStatus": "none",
+      "error": null
+     },
+     "resume": {
+      "http": 200,
+      "ms": 11593,
+      "chars": 2543,
+      "add_prompts": 5
+     },
+     "checks": [
+      {
+       "label": "translator",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      },
+      {
+       "label": "resume",
+       "numbersNotInInput": [],
+       "credentialWordsInText": []
+      }
+     ],
+     "translator_text": "{\"civilianTitles\":[\"[CONFIRM: Satellite Operations Technician — confirm whether your simulator work reflects hands-on operational tracking]\",\"[CONFIRM: Space Systems Analyst — confirm whether your training included analysis tasks beyond observation]\",\"[CONFIRM: Operations Center Technician — confirm whether you monitored or logged data in any structured format]\"],\"transferableSkills\":[\"Familiarity with satellite pass tracking concepts through simulator-based training\",\"Exposure to space operations terminology and procedures at the entry-practice level\",\"Ability to follow structured training scenarios in a technical environment\",\"Attention to sequential, time-sensitive data as practiced in a simulator context\",\"[ADD: Any written procedures, checklists, or logs you used during training]\",\"[ADD: Any team coordination, communication protocols, or shift handover practices from your time in service]\"],\"certifications\":[\"CompTIA A+\",\"CompTIA Network+\",\"AWS Certified Cloud Practitioner\"],\"civilianTranslation\":[{\"militarySkill\":\"Tracking satellite passes in a training simulator\",\"civilianEquivalent\":\"Monitoring moving objects or assets through a software interface and recording their status or position at set intervals\",\"civilianFunctions\":[\"Observing and logging position or status data displayed on a screen\",\"Recognizing patterns in object movement within a structured software environment\"],\"verify\":\"Confirm whether you personally ran the simulator controls, read data outputs, or recorded any results during those sessions — and whether any of that work was evaluated or documented.\"},{\"militarySkill\":\"Operating within a space operations training environment\",\"civilianEquivalent\":\"Working within a technical operations context that requires following defined procedures and responding to data displayed by specialized software\",\"civilianFunctions\":[\"Following step-by-step procedures in a technical setting\",\"Interpreting displayed data to determine a status or next action\"],\"verify\":\"Confirm whether you used any written procedures, reference guides, or scenario scripts during the simulator training, and whether those documents are ones you could describe to an employer.\"},{\"militarySkill\":\"[ADD: Any additional tasks performed outside the simulator — for example briefings, data entry, scheduling, or equipment checks]\",\"civilianEquivalent\":\"[ADD: Describe what those tasks involved so a civilian equivalent can be identified]\",\"civilianFunctions\":[\"[ADD: First function]\",\"[ADD: Second function]\"],\"verify\":\"Confirm whether you performed any duties beyond simulator sessions, such as contributing to shift logs, coordinating with other personnel, or supporting administrative tasks.\"},{\"militarySkill\":\"[ADD: Any supervisory, mentoring, or peer-support role, even informal]\",\"civilianEquivalent\":\"[ADD: To be completed if applicable]\",\"civilianFunctions\":[\"[ADD: First function]\",\"[ADD: Second function]\"],\"verify\":\"Confirm whether you ever assisted or oriented other trainees, even informally, during your time in this role — this can still be described as peer collaboration experience.\"}]}",
+     "resume_text": "Synthetic Tester | Nowhere, XX | synthetic@example.invalid | [phone]\n\n─────────────────────────────────────────────────────\nPROFESSIONAL SUMMARY\n─────────────────────────────────────────────────────\nArmy Space Operations officer with five to six years of service and a foundation in satellite tracking and space-based systems monitoring. Trained in time-sensitive data collection and the observation of orbital assets through simulation-based environments, bringing focused technical attention to roles that depend on precision and process discipline. Comfortable working within structured operational frameworks where accuracy in data handling and situational awareness directly supports mission outcomes. Ready to deliver consistent, detail-oriented performance in a civilian organization that values technical aptitude and a service-driven work ethic. [CONFIRM: you did not describe this as \"accuracy\", \"consistent\". Keep it only if it is true.]\n\n─────────────────────────────────────────────────────\nCORE COMPETENCIES\n─────────────────────────────────────────────────────\nSatellite Pass Tracking           Simulation-Based Training          Space Systems Awareness\nData Collection                   Operational Procedures             Situational Awareness\nTechnical Analysis                Process Adherence                  Systems Monitoring\nTime-Sensitive Operations         Attention to Detail                Training Environments\n\n─────────────────────────────────────────────────────\nPROFESSIONAL EXPERIENCE\n─────────────────────────────────────────────────────\n\nSPACE OPERATIONS (40A) | Army\n[ADD: Start Year] – [ADD: End Year]\n\n• Tracked satellite passes within a training simulator, applying procedural discipline to capture orbital data at precise intervals.\n• Executed simulation exercises designed to replicate real-world space operations conditions, building familiarity with satellite monitoring workflows.\n• [ADD: Describe any additional duties, tasks, or responsibilities you performed beyond simulator training.]\n• [ADD: Note any tools, software, or systems you worked with, even in a training context.]\n• [ADD: Include any teamwork, coordination with others, or contributions to a training program, if applicable.]\n\n─────────────────────────────────────────────────────\nEDUCATION\n─────────────────────────────────────────────────────\nADD YOUR EDUCATION HERE\n\n─────────────────────────────────────────────────────\nCERTIFICATIONS & TRAINING\n─────────────────────────────────────────────────────\nADD YOUR CERTIFICATIONS HERE"
+    }
+   ]
+  }
+ ]
+}

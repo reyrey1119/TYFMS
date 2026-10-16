@@ -1,0 +1,60 @@
+{
+ "seed": "tyfms-army-accuracy-6258126b0dd9eb50d8b8dd60b27d4ecb1fe57cb5",
+ "method": "scripts/random-audit-sample.js: SHA-256(seed) -> mulberry32 -> Fisher-Yates over the code-sorted pool of status=current codes in army-code-inventory.json (as of 2026-10-15); first 3 enlisted, first 3 officer; no exclusions or replacements",
+ "codes": [
+  {
+   "category": "enlisted",
+   "code": "25E",
+   "title": "Electromagnetic Spectrum Manager",
+   "synthetic": "SYNTHETIC TEST PROFILE, not a real person. I practiced planning radio frequencies using a training database in a classroom. I have not supervised anyone and I hold no certifications or clearance.",
+   "lookups": [
+    {
+     "rank": "E-6",
+     "component": "active"
+    }
+   ],
+   "generate": [
+    {
+     "rank": "E-6",
+     "yos": "5\u20136 years"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15M",
+   "title": "MQ-1 Repairer",
+   "synthetic": "SYNTHETIC TEST PROFILE, not a real person. I followed a checklist to inspect a training aircraft model during a class. I have not supervised anyone and I hold no certifications or clearance.",
+   "lookups": [
+    {
+     "rank": "E-4",
+     "component": "active"
+    }
+   ],
+   "generate": [
+    {
+     "rank": "E-4",
+     "yos": "1\u20132 years"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "40A",
+   "title": "Space Operations",
+   "synthetic": "SYNTHETIC TEST PROFILE, not a real person. I tracked satellite passes in a training simulator. I have not supervised anyone and I hold no certifications or clearance.",
+   "lookups": [
+    {
+     "rank": "O-3",
+     "component": "active"
+    }
+   ],
+   "generate": [
+    {
+     "rank": "O-3",
+     "yos": "5\u20136 years"
+    }
+   ]
+  }
+ ]
+}
