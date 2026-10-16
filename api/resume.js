@@ -1,5 +1,6 @@
 // POST /api/resume  — full resume builder (used by ResumeTab)
 
+import { reviewedGenerationReference, NO_REVIEWED_REFERENCE } from './_lib/generationEvidence.js'
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
 import { retrieveReference, referencePromptBlock, validateReferenceRequest } from './_lib/milReference.js'
@@ -75,7 +76,10 @@ export default async function handler(req, res) {
   try {
     reference = await retrieveReference({ supabase: getSupabase(), body: { branch, component, mos_afsc: mos, rank } })
   } catch { reference = null }
-  const referenceBlock = referencePromptBlock(reference, { confirmed: !!confirmReferenceDuties })
+  const reviewed = reviewedGenerationReference(reference)
+  const referenceBlock = reviewed
+    ? referencePromptBlock(reviewed, { confirmed: !!confirmReferenceDuties })
+    : '\n\n' + NO_REVIEWED_REFERENCE
   const dutiesBlock = milDuties?.trim()
     ? `\n\nDUTIES THE PERSON DESCRIBED (their own words — the most reliable account of what they did; use as the primary source for the Professional Experience section):\n${milDuties.trim().slice(0, 2000)}`
     : ''
@@ -149,7 +153,7 @@ CRITICAL RULES:
 6. Section headers use ─────────────────────────────────────────────── as dividers${hasClearance ? '\n7. Show clearance on its own line after contact info' : ''}${!hasEducation ? '\n8. EDUCATION section must show exactly: ADD YOUR EDUCATION HERE — never invent degrees' : ''}
 9. ANTI-AI LANGUAGE: Never use em dashes — replace with commas or periods. Never use: leverage, utilize, synergize, robust, holistic, in order to, it is worth noting, as previously mentioned, going forward, moving forward. Active voice throughout.
 10. VARY SENTENCE LENGTH: Mix short punchy statements (6-8 words) with longer detailed ones (15-20 words). Do not write vague claims like "significantly improved"; either state a result the person gave you or leave an [ADD: ...] prompt.
-11. TRUTHFULNESS: reference text, rank and specialty describe what is typical, not what this person did. Never invent personnel counts, budgets, results, clearances, certifications, awards, degrees, or leadership assignments. Do not give command-level, division-level, or MEPS-level experience to anyone who did not state it.
+11. TRUTHFULNESS: reference text, rank and specialty describe what is typical, not what this person did. Numbers, counts, scores, durations, team sizes and named systems in reference text are general facts about the specialty: never copy one into this person's experience unless they gave it to you. Never invent personnel counts, budgets, results, clearances, certifications, awards, degrees, or leadership assignments. Do not give command-level, division-level, or MEPS-level experience to anyone who did not state it.
 
 OUTPUT — plain text only, no markdown, follow this exact format:
 

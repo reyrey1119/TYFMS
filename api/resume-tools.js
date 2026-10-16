@@ -487,7 +487,9 @@ export default async function handler(req, res) {
       const result = await retrieveReference({
         supabase: getSupabase(),
         body: params,
-        aiSuggest: apiKey ? req => aiSuggestDraft(apiKey, req) : null,
+        // Lookups never call a model to produce reference text. An AI-written draft (labeled, unofficial) is
+        // available only if ENABLE_AI_DRAFTS=1 is set deliberately.
+        aiSuggest: apiKey && process.env.ENABLE_AI_DRAFTS === '1' ? req => aiSuggestDraft(apiKey, req) : null,
       })
       return res.status(200).json(result)
     }

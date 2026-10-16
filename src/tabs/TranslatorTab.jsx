@@ -447,7 +447,7 @@ Ready to build your full resume?
 Your branch, MOS, rank, and years of service will be pre-filled automatically.
 </p>
 <button
-onClick={() => onGoToResume && onGoToResume({ branch, component, mos, rank, yos })}
+onClick={() => onGoToResume && onGoToResume({ branch, component, mos, rank, yos, milDuties: milDuties.trim() })}
 style={{
 width: '100%', padding: '13px 20px', background: '#C07A28',
 border: 'none', borderRadius: 10, color: '#fff', fontSize: 14,

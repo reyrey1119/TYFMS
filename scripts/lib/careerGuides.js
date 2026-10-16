@@ -309,16 +309,37 @@ function parseRankGuidance(ctx, chapterLines) {
   })
 }
 
-function parseComponentChapter(ctx, chapterLines, components) {
+// Component chapters ("National Guard and Reserve Component") mix text for both components with text that is
+// specific to one. `rules` are explicit, human-reviewed overrides from the manifest:
+//   { item: "e", components: "guard" }                 -> the whole lettered item is Guard-only
+//   { item: "a", paragraph: 1, components: "guard" }   -> only numbered paragraph (1) of item a is Guard-only
+// Anything without a rule keeps the chapter's default components.
+function parseComponentChapter(ctx, chapterLines, components, rules = []) {
   const { items, lead } = splitLetteredItems(chapterLines, 'dot')
   if (lead.length) mkPassage(ctx, { section_type: 'general_duties', components, heading: 'Overview' }, lead)
   for (const item of items) {
     const first = stripEnumerator(item.lines[0].text)
-    const label = (first.match(/^([^.:]{2,60})[.:]/) || [])[1] || `Item ${item.letter}`
+    const label = ((first.match(/^([^.:]{2,60})[.:]/) || [])[1] || `Item ${item.letter}`).trim()
     const type = /qualification|prerequisite/i.test(label) ? 'prerequisites' : 'general_duties'
     const stripped = first.replace(/^[^.:]{2,60}[.:]\s*/, '')
     if (!stripped) ctx.mark(item.lines[0].i, 'label-only')
-    mkPassage(ctx, { section_type: type, components, heading: label.trim() }, [{ ...item.lines[0], text: stripped }, ...item.lines.slice(1)].filter(l => l.text))
+    const bodyLines = [{ ...item.lines[0], text: stripped }, ...item.lines.slice(1)].filter(l => l.text)
+    const itemRule = rules.find(r => r.item === item.letter && r.paragraph == null)
+    const itemComponents = itemRule?.components ?? components
+    const paraRules = rules.filter(r => r.item === item.letter && r.paragraph != null)
+    if (!paraRules.length) { mkPassage(ctx, { section_type: type, components: itemComponents, heading: label }, bodyLines); continue }
+    // split the item into its lead text and numbered paragraphs so each can carry its own component
+    const parts = []
+    let cur = { n: 0, lines: [] }
+    for (const l of bodyLines) {
+      const m = l.text.match(/^\((\d+)\)\s/)
+      if (m && Number(m[1]) === cur.n + 1) { if (cur.lines.length) parts.push(cur); cur = { n: Number(m[1]), lines: [l] } } else cur.lines.push(l)
+    }
+    if (cur.lines.length) parts.push(cur)
+    for (const part of parts) {
+      const rule = part.n ? paraRules.find(r => r.paragraph === part.n) : null
+      mkPassage(ctx, { section_type: type, components: rule?.components ?? itemComponents, heading: part.n ? `${label} (${part.n})` : label }, part.lines)
+    }
   }
 }
 
@@ -432,7 +453,7 @@ export function parseGuide({ manifest, lines, printedPages }) {
         ctx.mark(indexed[ch.k].i, 'chapter-heading')
         if (cfg.kind === 'rank-guidance') parseRankGuidance(ctx, chapterLines)
         else if (cfg.kind === 'mos-chapter') parseMosChapter(ctx, chapterLines)
-        else if (cfg.kind === 'component-chapter') parseComponentChapter(ctx, chapterLines, cfg.components)
+        else if (cfg.kind === 'component-chapter') parseComponentChapter(ctx, chapterLines, cfg.components, cfg.componentRules || [])
         else throw new Error(`unknown chapter kind ${cfg.kind}`)
       }
     })

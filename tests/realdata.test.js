@@ -145,6 +145,16 @@ test('36B: rank sections differ by grade and carry real pages', { skip: !have('a
   assert.ok(!(await get('36B', 'E-6', 'active')).sections.some(s => s.components))
 })
 
+test('36B: Guard-only text in the Reserve/Guard chapter never reaches an Army Reserve soldier', { skip: !have('army-cmf36') }, async () => {
+  const reserve = await get('36B', 'E-6', 'reserve')
+  const guard = await get('36B', 'E-6', 'guard')
+  const ARNG_ONLY = [/ARNG has a unique dual mission/, /Title 32/, /ARNG Soldiers have no opportunity to serve in\s+Generating Force/, /Recruit Sustainment Program/, /dual mission of the ARNG/]
+  for (const re of ARNG_ONLY) { assert.ok(!re.test(text(reserve)), `Reserve must not see ${re}`); assert.ok(re.test(text(guard)), `Guard must see ${re}`) }
+  // text that applies to the whole Reserve Component reaches both
+  for (const c of [reserve, guard]) assert.match(text(c), /To qualify for the 36B MOS, RC Soldiers must complete the Finance Technician Course/)
+  assert.ok(guard.sections.filter(s => s.components === 'guard').length >= 3)
+})
+
 test('36B: Star Credentials / Proponent Recommended are returned as credentials, per rank', { skip: !have('army-cmf36') }, async () => {
   const e5 = await get('36B', 'E-5')
   assert.match(e5.credential_recommendations, /Proponent Recommended: Certified Government Financial Manager \(CGFM\)/)
@@ -221,4 +231,25 @@ test('real sources are labeled with their real dates, and not-yet-reviewed sourc
   assert.equal(unreviewed.status, 'none', 'an imported-but-unapproved source must not be served')
   const stale = await retrieveReference({ supabase: dbFromBundles(bundles), now: Date.parse('2027-06-01T00:00:00Z'), body: { branch: 'Army', mos_afsc: '42A', rank: 'E-6' } })
   assert.equal(stale.status, 'stale', 'not re-checked for 7 months → stale, said plainly')
+})
+
+test('source limitations travel with the result (figures that were not extracted)', { skip: !have('army-fc-officer') }, async () => {
+  const r = await get('36A', 'O-3', 'active')
+  assert.match(r.sources[0].limitations, /Figures 1-4 \(PDF pages 8, 9, 12 and 13\) are images/)
+  const e = await get('42A', 'E-6')
+  assert.match(e.sources[0].limitations, /Only MOS 42A is included/)
+})
+
+test('reference numbers and named systems are fenced off from personal experience in the prompt', { skip: !have('army-cmf36') }, async () => {
+  const r = await get('36B', 'E-6')
+  assert.match(text(r), /five or more Soldiers/, 'the publication really does contain a typical team size')
+  assert.match(referencePromptBlock(r), /Never copy any of them into this person's experience unless the person stated it themselves/)
+})
+
+test('36B: promotion-board thresholds (ACFT scores) are stored but never returned', { skip: !have('army-cmf36') }, async () => {
+  for (const rank of ['E-5', 'E-6', 'E-7', 'E-8', 'E-9']) {
+    const r = await get('36B', rank)
+    assert.ok(!/ACFT Score/i.test(JSON.stringify(r)), rank)
+    assert.ok(!/Most Qualified|\bMQ:/.test(referencePromptBlock(r)), rank)
+  }
 })

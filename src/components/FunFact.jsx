@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react'
 
 const FACTS = [
-  "Veterans are 45% more likely to start a business than non-veterans — your mission mindset is a genuine competitive advantage.",
-  "The Post-9/11 GI Bill has helped over 2 million veterans and dependents pursue higher education since 2009.",
-  "Military training typically equates to 4–6 years of civilian work experience — you are not starting from zero.",
-  "Former military members hold CEO or senior leadership roles at more than 25 Fortune 500 companies.",
-  "The DoD has trained over 4,000 occupational specialties — nearly every civilian career has a direct military equivalent.",
-  "Veterans with a mentor are significantly more likely to land their target role within the first year of separation.",
-  "Over 200,000 service members transition out of the military each year — a network that large is a resource.",
-  "Research shows veterans' ability to lead under pressure is among the most valued traits by civilian hiring managers.",
-  "Veterans who proactively build civilian networks before separating report shorter and smoother transitions.",
-  "Identity reconstruction is hard work — but veterans who engage it directly report higher long-term career satisfaction.",
+  "Separate training you completed, tasks you practiced, and duties you performed when describing your experience.",
+  "Use numbers on your resume only when you can support them from your own records or experience.",
+  "Compare your experience with the requirements in the specific job posting you want to apply for.",
+  "List a certification as earned only if you hold it. Keep credentials you plan to pursue separate.",
+  "Translate military acronyms into plain language that a civilian employer can understand.",
+  "Ask someone in your target field to review whether your resume clearly explains your work.",
+  "A specialty reference describes possible duties and development paths. It does not establish what you personally did.",
+  "Check the publication date and source before relying on reference guidance.",
 ]
 
 export default function FunFact() {
@@ -30,7 +28,7 @@ export default function FunFact() {
 
   return (
     <div className="fun-fact" style={{ marginTop: 36 }}>
-      <p className="fun-label">Did you know?</p>
+      <p className="fun-label">Transition tip</p>
       <p style={{
         fontSize: 13, color: '#2A2820', lineHeight: 1.7,
         opacity: visible ? 1 : 0, transition: 'opacity 0.35s ease',

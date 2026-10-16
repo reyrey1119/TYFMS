@@ -1,7 +1,7 @@
 {
  "bundle_version": 1,
  "manifest_id": "army-fc-officer-2025-09-10",
- "import_batch": "army-fc-officer-2025-09-10@2026-10-15",
+ "import_batch": "army-fc-officer-2025-09-10@2026-10-16",
  "source": {
   "id": "a6b40ab7-9883-5645-a496-0e2393fba45b",
   "branch": "Army",
@@ -14,7 +14,7 @@
   "publication_date": "2025-09-10",
   "effective_date": null,
   "last_checked_at": "2026-10-15T00:00:00Z",
-  "notes": "Date printed on page 1: 10 September 2025. As checked 2026-10-15 the Army G-1 page's Finance link text still shows an older April 2024 path, but the link target is this 10 Sep 2025 file. Figures 1-4 (development models) are images and their content is NOT extracted; assignment tables inside them are therefore not in the registry. Section 4 states there are no warrant officers in the FC branch.",
+  "notes": "Date printed on page 1: 10 September 2025. As checked 2026-10-15 the Army G-1 page's Finance link text still shows an older April 2024 path, but the link target is this 10 Sep 2025 file. Figures 1-4 (development models) are images and their content is NOT extracted; assignment tables inside them are therefore not in the registry. Section 4 states there are no warrant officers in the FC branch. LIMITATIONS: The guide's Figures 1-4 (PDF pages 8, 9, 12 and 13) are images. Their lifecycle tables of assignments, courses and skills are not included here, so some assignments and courses listed only in those figures are missing.",
   "checksum_sha256": "996719b2544d7d2b1c38579f16778d45122aef534941fc147f51322da8be1eef",
   "extraction_tool": "pdf-parse 2.4.5",
   "chapter": null
