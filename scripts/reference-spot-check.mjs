@@ -60,8 +60,9 @@ for (const c of plan.codes) {
     const r = await post('/api/translate', { action: 'translate', branch: letter, mos: c.code, rank: call.rank, yos: '', milDuties: call.personal })
     const entries = r.json?.civilianTranslation || []
     const row = { category: c.category, code: c.code, rank: call.rank, personalTextGiven: !!call.personal, http: r.http, ms: r.ms, referenceStatus: r.json?.referenceStatus, entries: entries.length, error: r.json?.error || r.raw || null, translationBasis: r.json?.translationBasis, checks: {} }
-    row.checks.ok = r.http === 200 && entries.length > 0
-    if (!call.personal) row.checks.allPublication = entries.every(e => e.basis === 'publication' && e.source?.publication && e.evidence)
+    // A code whose publication text is only a cross-reference must ASK for details (HTTP 422, no model call), not make something up.
+    row.checks.ok = c.expectNeedsDetails && !call.personal ? r.http === 422 && r.json?.status === 'needs_experience' : r.http === 200 && entries.length > 0
+    if (c.expectNeedsDetails && !call.personal) { /* nothing to check beyond the 422 */ } else if (!call.personal) row.checks.allPublication = entries.every(e => e.basis === 'publication' && e.source?.publication && e.evidence)
     else row.checks.hasPersonalEntry = entries.some(e => e.basis === 'personal')
     if (pages) {
       const missing = entries.filter(e => e.basis === 'publication').filter(e => {
