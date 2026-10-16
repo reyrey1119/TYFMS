@@ -83,6 +83,7 @@ ${yos ? 'Years of service: ' + yos : ''}
 ${certsLine}${referenceBlock}${dutiesBlock}${vaultBlock}${juniorBlock}
 
 RULES:
+- Keep "evidence" short: 8 to 25 words. Keep every other field brief so the whole answer stays compact.
 - Two kinds of entry exist and they must never be blurred. basis "publication": what the official reference above says this specialty involves at this person's grade, written as what the role typically involves (never "you did"). basis "personal": something the person wrote or that appears in their uploaded records, written as what they did.
 - Every entry needs "evidence": the exact words, copied unchanged (8 to 30 words), from the REFERENCE_DATA block (for publication) or from the person's own text or records (for personal). Entries whose evidence cannot be found in those texts are discarded, so never paraphrase inside "evidence" and never quote one source for the other.
 - Rank selects the applicable reference sections. Rank alone is never proof of duties, skills or experience.
@@ -100,19 +101,24 @@ For civilianTranslation: give 5 to 8 entries, concrete and short, each with its 
 For certifications: recommend up to 3 and choose ONLY from this verified list, using the exact names given: ${CERT_NAMES_FOR_PROMPT}. Recommending a certification means the person could pursue it; military experience does not earn one automatically. Do not recommend a credential whose provider requires several years of qualifying experience (for example PMP or CISSP) unless the person described that experience. Do NOT recommend certifications they already hold. If none fit, return an empty array.`
 
     try {
-      const r = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-6',
-          max_tokens: 1800,
-          messages: [{ role: 'user', content: prompt }],
-        }),
-      })
-      const data = await r.json()
-      if (data.error) return res.status(400).json({ error: data.error.message })
-      const txt = (data.content || []).map(i => i.text || '').join('').replace(/```json|```/g, '').trim()
-      const result = JSON.parse(txt)
+      // The quotes make the answer longer than it used to be; if the reply is cut off or is not valid JSON, ask once more.
+      let result = null
+      for (let attempt = 0; attempt < 2 && !result; attempt++) {
+        const r = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-6',
+            max_tokens: 4096,
+            messages: [{ role: 'user', content: prompt }],
+          }),
+        })
+        const data = await r.json()
+        if (data.error) return res.status(400).json({ error: data.error.message })
+        const txt = (data.content || []).map(i => i.text || '').join('').replace(/```json|```/g, '').trim()
+        try { result = JSON.parse(txt) } catch { console.error('[translate] model reply was not valid JSON', { attempt, stop_reason: data.stop_reason, chars: txt.length }) }
+      }
+      if (!result) return res.status(500).json({ error: 'Translation failed. Please try again.' })
       result.certifications = verifyRecommendations(result.certifications, existingCerts)
 
       // Check where every entry actually comes from. The quote has to be in the official text for this grade or in

@@ -60,7 +60,7 @@ function stubModel({ nPublication = 3, personalQuotes = [], extraEntries = [] } 
     for (const q of personalQuotes) entries.push({ basis: 'personal', evidence: q, militarySkill: q, civilianEquivalent: 'civilian description of ' + q, civilianFunctions: ['f'], verify: 'v' })
     entries.push(...extraEntries)
     const reply = JSON.stringify({ civilianTitles: ['t'], transferableSkills: ['s'], careerPaths: [], targetIndustries: [], identityTip: 't', civilianTranslation: entries, certifications: [] })
-    return { json: async () => ({ content: [{ type: 'text', text: body.max_tokens > 1900 ? 'RESUME TEXT' : reply }] }) }
+    return { json: async () => ({ content: [{ type: 'text', text: /Respond ONLY with valid JSON/.test(prompt) ? reply : 'RESUME TEXT' }] }) }
   }
 }
 
@@ -236,6 +236,17 @@ test('if nothing the model wrote can be traced, the server refuses rather than s
   const res = mockRes()
   await (await translate())(mockReq({ action: 'translate', branch: 'Army', mos: '25B', rank: 'E-6' }), res)
   assert.equal(res.code, 502)
+})
+
+test('a reply that is cut off or not JSON is retried once, then fails cleanly', async () => {
+  let n = 0
+  const good = JSON.stringify({ civilianTranslation: [], certifications: [] })
+  globalThis.fetch = async (url, opts) => { n++; modelCalls.push(JSON.parse(opts.body)); return { json: async () => ({ stop_reason: 'max_tokens', content: [{ type: 'text', text: '{"civilianTitles":["a"' }] }) } }
+  const res = mockRes()
+  await (await translate())(mockReq({ action: 'translate', branch: 'Army', mos: '25B', rank: 'E-6' }), res)
+  assert.equal(res.code, 500)
+  assert.equal(n, 2, 'one retry, not a loop')
+  assert.ok(modelCalls.every(c => c.max_tokens >= 4000), 'room for the quotes')
 })
 
 // ── resumes keep scope and accomplishments apart ──────────────────────────────────────────────
