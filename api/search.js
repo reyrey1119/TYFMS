@@ -36,9 +36,9 @@ RESOURCE DIRECTORIES:
 EDUCATION:
 - va-education | VA Education and Training | va.gov/education | GI Bill benefits, school enrollment verification, education awards management
 - gi-bill-tool | GI Bill Comparison Tool | va.gov/gi-bill-comparison-tool | Compare GI Bill benefits at schools nationwide
-- goarmyed | GoArmyEd | goarmyed.com | Army tuition assistance portal for active soldiers
+- goarmyed | ArmyIgnitED | www.armyignited.army.mil | Army education portal for eligible Soldiers requesting tuition and credentialing assistance
 - sva | Student Veterans of America | studentveterans.org | Peer network and advocacy for student veterans on campus
-- dea | DEA Chapter 35 | va.gov/education/survivor-dependent-education-assistance | Up to 45 months of education benefits for spouses/children of permanently disabled or deceased veterans
+- dea | DEA Chapter 35 | va.gov/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance/ | Education benefits for eligible spouses/children; up to 36 months for training started on or after August 1, 2018, up to 45 months for earlier starts
 
 HOME LOANS:
 - va-home-loan | VA Home Loans | va.gov/housing-assistance/home-loans | No down payment, no PMI, competitive rates for eligible veterans and surviving spouses
@@ -52,9 +52,9 @@ EMPLOYMENT:
 
 FAMILY AND DEPENDENT BENEFITS:
 - tricare | TRICARE | tricare.mil | Military healthcare for dependents: spouses, children under 21 (or 23 if full-time student)
-- fry-scholarship | Fry Scholarship | va.gov/education/fry-scholarship | Education for children/spouses of service members who died in line of duty after Sept 10, 2001
-- teb | GI Bill Transfer (TEB) | milconnect.dmdc.osd.mil | Transfer unused Post-9/11 GI Bill to spouse or children — requires 6+ years service + 4-year commitment; MUST apply before leaving active duty
-- sbp | Survivor Benefit Plan (SBP) | dfas.mil/sbp | Up to 55% of retirement pay as annuity to survivors of retired service members — elected at retirement
+- fry-scholarship | Fry Scholarship | va.gov/family-and-caregiver-benefits/education-and-careers/fry-scholarship/ | Education for eligible children and surviving spouses of service members or Selected Reserve members who died on or after September 11, 2001; VA eligibility conditions apply
+- teb | GI Bill Transfer (TEB) | milconnect.dmdc.osd.mil | Eligible active-duty and Selected Reserve members may request transfers to dependents; DoD approval, service obligations and DEERS enrollment rules apply; see va.gov/education/transfer-post-9-11-gi-bill-benefits/ for current conditions and exceptions
+- sbp | Survivor Benefit Plan (SBP) | www.dfas.mil/RetiredMilitary/provide/sbp/ | Survivor annuity for eligible beneficiaries; coverage, benefit amounts and enrollment rules depend on the member and their election
 - dic | Dependency and Indemnity Compensation (DIC) | va.gov/disability/dic | Monthly tax-free benefit for surviving spouses/children of veterans who died from service-connected conditions
 - deers | DEERS | milconnect.dmdc.osd.mil | Defense Enrollment Eligibility Reporting System — mandatory for dependents to access TRICARE and other benefits
 - military-onesource | Military OneSource | militaryonesource.mil | Free 24/7 family support: financial counseling, relocation, childcare, 12 free counseling sessions
