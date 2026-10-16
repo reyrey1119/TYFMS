@@ -178,6 +178,20 @@ Enlisted guide chapters found in the 29 collected DA PAM 600-25 editions: 144 of
 
 Not attempted: the other CMF guides, the other officer DA PAM 600-3 branch pamphlets, and the 42T/79 edition. Verifying them to the same standard means reading every imported page (many hundreds), which was not done and should not be shortcut. The 125-PDF audit (`source-audit.md`) is the accounting of that remaining work, not coverage.
 
+## Release tests for the DA PAM 611-21 release (2026-10-16)
+
+All with the personal-duties field **empty** and no Vault documents, against the real model. Each row checks: HTTP 200, every entry labeled "publication" with a quote and a PDF page, and that quote found in the official PDF text (re-read independently) on the cited page; the cited grade is the requested grade or a lower one the text says it includes. `scripts/reference-spot-check.mjs`; draws by `scripts/random-audit-sample.js` (seeds `predeploy-611-21-2026-10-16`, `predeploy-warrant-2026-10-16`, `production-611-21-2026-10-16`; nothing excluded or replaced after the draw).
+
+| Run | Codes (ranks) | Result |
+|---|---|---|
+| Preview, build before the final data fixes | 08H, 15M, 68X, 47D, 63F, 56A at 2-3 ranks each, plus 1 personal bullet per code (23 calls) | 23 of 23 passed |
+| Preview, final data | the same six + 49B, 60U (added AOCs) + warrant 255N, 890A, and 351Y (a cross-reference-only code; it must ask for details, and did, HTTP 422 with no model call) (16 calls) | 16 of 16 passed |
+| Production, new random draw | 17E, 31B, 18F, 38A, 67E, 47A, 880A, 150U + 3 personal bullets (12 calls) | 11 passed; 150U CW4 failed (HTTP 502/429): its only text was "Performs all duties outlined in paragraph g (2)", which the warrant importer did not recognize as "includes the lower grades". Fixed (shared pattern, plus one retry when nothing can be traced) |
+| Preview with the fix | 150U W-4/W-5, 420C W-3, 155A W-3/W-4, 151A W-3 | 6 of 6 passed |
+| Production after the fix | 150U W-4, 25B E-6, 17A O-3, and the production UI with 25B E-6 and the duties box empty | passed; 150U W-4 now returns W-4 plus the W-3 and W-1..W-2 text it refers to |
+
+Exhaustive, no model (`tests/bundledReference.test.js`): every current code at every grade through the translator handler: 3,867 combinations; 3,527 produced a translation from that code's own text only, 340 asked for details because the publication has nothing for that code and grade, 0 showed another code's text or another grade's duties, and 2,196 had no grade-specific text and said so. Optional personal bullets and Vault text were tested with real-model calls (a "personal" entry appeared in every one) and in unit tests.
+
 ## Earlier post-deployment random spot check (2026-10-16, before DA PAM 611-21 was imported; superseded by the section below)
 
 A supplement to the full audit above, **not** a coverage claim. Evidence: `data/reference/audits/` (plan, run 1 before fixes, run 2 after, run 3 focused confirmation). All personal experience used was clearly synthetic ("SYNTHETIC TEST PROFILE, not a real person").
