@@ -1,0 +1,4 @@
+{
+  "note": "Chapter 5 is titled 'MOS 31B Professional Development Model' but its text is the 31D (CID Special Agent) chapter; the parser's title/content check withholds it, and it is imported here as 31D after reading the pages.",
+  "chapters": { "5": { "kind": "mos", "codes": ["31D"] } }
+}

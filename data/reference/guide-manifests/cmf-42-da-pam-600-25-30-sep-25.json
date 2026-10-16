@@ -1,0 +1,4 @@
+{
+  "excludeCodes": ["42A", "42T"],
+  "note": "42A is imported from a separately reviewed bundle. 42T is imported from the newer CMF 42T/79 edition (9 Sep 2026), which supersedes this edition's 42T chapter."
+}
