@@ -357,3 +357,13 @@ test('shipped data covers the counts the report states', () => {
   assert.equal(current('warrant').length, 75)
   assert.equal(current('officer').length, 187)
 })
+
+test('publication-only resume: the summary and competencies are marked as written from the role description', async () => {
+  globalThis.fetch = async (url, opts) => { modelCalls.push(JSON.parse(opts.body)); return { json: async () => ({ content: [{ type: 'text', text: 'resume' }] }) } }
+  const res = mockRes()
+  await (await resume())(mockReq({ branch: 'Army', mos: '25B', rank: 'E-6' }), res)
+  assert.match(promptOf(modelCalls[0]), /PUBLICATION-ONLY DRAFT/)
+  modelCalls.length = 0
+  await (await resume())(mockReq({ branch: 'Army', mos: '25B', rank: 'E-6', milDuties: 'I trained twelve new radio operators.' }), mockRes())
+  assert.ok(!/PUBLICATION-ONLY DRAFT/.test(promptOf(modelCalls[0])), 'with the person\'s own details the summary may use them')
+})

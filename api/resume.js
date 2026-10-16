@@ -92,6 +92,11 @@ export default async function handler(req, res) {
   const scopeInstructions = useScope
     ? `\n\nSPECIALTY SCOPE RULES: In the experience entry for ${mos.trim().toUpperCase()}, the SPECIALTY SCOPE part restates ONLY duties found in the REFERENCE_DATA block above, in plain civilian language, 3 to 6 bullets, each starting with "[CONFIRM] ". They describe the role, not this person: never add a number, system, team size or result that is not in the reference, and never write them as the person's accomplishments. The YOUR ACCOMPLISHMENTS part uses only what the person wrote, their positions, awards and uploaded records; where those give nothing, write [ADD: ...] prompts. Never move a SPECIALTY SCOPE line into YOUR ACCOMPLISHMENTS.`
     : ''
+  const hasPersonal = !!(milDuties?.trim() || vaultContext?.trim() || additionalContext?.trim() || (Array.isArray(milPositions) && milPositions.some(p => p.duties?.trim())))
+  // With only the publication to go on, the summary and the competency list are also "typical of the role", so they say so.
+  const publicationOnlyRule = useScope && !hasPersonal
+    ? `\n13. PUBLICATION-ONLY DRAFT (this rule overrides rules 5 and 7 where they conflict): the person gave no details of their own work, so the PROFESSIONAL SUMMARY is 2 to 3 plain sentences that begin with "[CONFIRM: written from the official role description, not from your records] " and state only the branch, the official title, years of service if given, and what the specialty involves in general (from REFERENCE_DATA). Do not describe personal qualities (disciplined, dependable, team-oriented, strong, passionate) or performance. The first line under CORE COMPETENCIES must be "[CONFIRM: these come from the specialty description; keep only skills you can demonstrate]".`
+    : ''
   const milRefBlock = referenceBlock + dutiesBlock + scopeInstructions
   const scopeFacts = reviewed ? (reviewed.sections || []).map(s => s.text).join(' ') : ''
 
@@ -180,7 +185,7 @@ CRITICAL RULES:
 9. ANTI-AI LANGUAGE: Never use em dashes — replace with commas or periods. Never use: leverage, utilize, synergize, robust, holistic, in order to, it is worth noting, as previously mentioned, going forward, moving forward. Active voice throughout.
 10. VARY SENTENCE LENGTH: Mix short punchy statements (6-8 words) with longer detailed ones (15-20 words). Do not write vague claims like "significantly improved"; either state a result the person gave you or leave an [ADD: ...] prompt.
 11. POSITION TITLES AND EMBELLISHMENT: ${NO_EMBELLISHMENT} Use the position line exactly as given in the format below.
-12. TRUTHFULNESS: reference text, rank and specialty describe what is typical, not what this person did. Numbers, counts, scores, durations, team sizes and named systems in reference text are general facts about the specialty: never copy one into this person's experience unless they gave it to you. Never invent personnel counts, budgets, results, clearances, certifications, awards, degrees, or leadership assignments. Do not give command-level, division-level, or MEPS-level experience to anyone who did not state it.
+12. TRUTHFULNESS: reference text, rank and specialty describe what is typical, not what this person did. Numbers, counts, scores, durations, team sizes and named systems in reference text are general facts about the specialty: never copy one into this person's experience unless they gave it to you. Never invent personnel counts, budgets, results, clearances, certifications, awards, degrees, or leadership assignments. Do not give command-level, division-level, or MEPS-level experience to anyone who did not state it.${publicationOnlyRule}
 
 OUTPUT — plain text only, no markdown, follow this exact format:
 
@@ -287,7 +292,7 @@ CRITICAL RULES:
 5. NO filler words: leverage, utilize, synergize, robust, holistic
 6. Active voice throughout
 7. PROFESSIONAL SUMMARY: One flowing paragraph of 5-6 sentences. Open with core identity (years of experience only if given). Tailor to federal/academic/senior leadership context. End with a forward-looking statement. No bullets, no placeholders.
-8. Section headers use ─────────────────────────────────────────────── as dividers${hasClearance ? '\n9. Show clearance prominently after contact info' : ''}
+8. Section headers use ─────────────────────────────────────────────── as dividers${hasClearance ? '\n9. Show clearance prominently after contact info' : ''}${publicationOnlyRule ? publicationOnlyRule.replace('13.', '10.') : ''}
 
 OUTPUT — plain text only, no markdown, follow this exact format:
 
