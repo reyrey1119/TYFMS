@@ -208,6 +208,16 @@ test('unreviewed and rejected sources are never served', async () => {
   }
 })
 
+test('an approved future-effective source stays hidden until its effective date', async () => {
+  const db = fakeSupabase({
+    reference_sources: [source({ effective_date: '2026-10-16' })],
+    reference_passages: [passage()],
+  })
+  assert.equal((await run(db, body('E-5'))).status, 'none')
+  const effective = await retrieveReference({ supabase: db, body: body('E-5'), now: Date.parse('2026-10-16T00:00:00Z') })
+  assert.equal(effective.status, 'verified')
+})
+
 test('a revised source supersedes the old one', async () => {
   const db = fakeSupabase({
     reference_sources: [
