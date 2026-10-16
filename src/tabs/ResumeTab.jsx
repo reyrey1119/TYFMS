@@ -4,7 +4,6 @@ import { supabase } from '../lib/supabase'
 import AdUnit from '../components/AdUnit'
 import { withAdBreak } from '../lib/appAds'
 import { trackEvent } from '../lib/analytics'
-import MilReferenceCard from '../components/MilReferenceCard'
 import { makeLatestGuard, makeSingleFlight } from '../lib/latestOnly'
 import { splitLegacyBranch, isJuniorContext, rankProblem } from '../lib/rank'
 
@@ -958,24 +957,12 @@ export default function ResumeTab({ prefill }) {
 
           {/* Mil Reference Lookup — honest status, never implies these are your duties */}
           <div style={{ marginTop: 14 }}>
-            <MilReferenceCard
-              status={milRefStatus}
-              data={milRefData}
-              rank={form.rank}
-              juniorContext={isJuniorContext(form.rank, form.yos)}
-              onUseDraft={text => set('milDuties', (form.milDuties ? form.milDuties + '\n' : '') + text)}
-              onPickCode={code => set('mos', code)}
-              confirmable
-              confirmed={form.confirmReference}
-              onConfirmChange={v => set('confirmReference', v)}
-            />
-            {!['idle', 'needs_rank', 'loading'].includes(milRefStatus) && (
-              <F label={isJuniorContext(form.rank, form.yos) ? 'What have you trained on, practiced, or actually done?' : 'What did you actually do?'} hint="(optional, but your own words make a more accurate resume)" mb={0}>
+
+              <F label={isJuniorContext(form.rank, form.yos) ? 'What have you trained on, practiced, or actually done?' : 'What did you actually do?'} hint="(describe your training and tasks to personalize your resume)" mb={0}>
                 <textarea value={form.milDuties} onChange={e => set('milDuties', e.target.value)}
                   placeholder={isJuniorContext(form.rank, form.yos) ? 'Training completed, tasks practiced, and any duties you have actually performed. It is fine to say you have not supervised anyone yet.' : 'Describe your primary duties, equipment operated, systems managed, and key responsibilities. Include numbers only if they are real.'}
                   style={{ minHeight: 80 }} />
               </F>
-            )}
           </div>
         </div>
       )
