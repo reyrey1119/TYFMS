@@ -21,7 +21,15 @@ const sleep = ms => new Promise(r => setTimeout(r, ms))
 const sent = []
 async function pace() { for (;;) { const now = Date.now(); while (sent.length && now - sent[0] > 605_000) sent.shift(); if (sent.length < 12) { sent.push(now); return } await sleep(605_000 - (now - sent[0]) + 500) } }
 
+// A dropped connection (curl exit 56) is retried; anything else is reported as the row's failure, never silently skipped.
 async function post(route, body) {
+  let last
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try { return await postOnce(route, body) } catch (e) { last = e; await sleep(5000) }
+  }
+  return { http: 0, json: null, ms: 0, raw: `request failed after 3 tries: ${String(last?.message || last).slice(0, 200)}` }
+}
+async function postOnce(route, body) {
   await pace()
   const t0 = Date.now()
   let text
@@ -99,6 +107,7 @@ for (const c of plan.codes) {
     }
     row.sample = entries.slice(0, 6).map(e => ({ basis: e.basis, evidence: e.evidence, pages: e.source?.pdfPages || null, grade: e.source?.grade || null, from: e.from || null, militarySkill: e.militarySkill }))
     results.rows.push(row)
+    await writeFile(values.out, JSON.stringify(results, null, 1) + '\n')   // kept up to date row by row
     console.log(c.code, call.rank, call.personal ? '(+bullet)' : '(empty)', r.http, entries.length, JSON.stringify(row.checks))
   }
 }

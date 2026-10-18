@@ -26,15 +26,15 @@ const DESIGNATION_ONLY = {
 }
 // AOCs that only code positions any officer of the corps may fill: not a job specialty. Reasons verified on the cited pages.
 const IMMATERIAL_POSITION = {
-  '64Z': 'Veterinary Corps AOC-immaterial position code: DA PAM 611-21 lists it in the structure chart (p. 12, "Senior Veterinarian (Immaterial)") with no section; the DA PAM 600-4 Veterinary Corps chapter (17 Dec 2021) says positions "coded 64Z ... mean that VC officers of any AOC can fill these positions" (p. 6) and lists them as "Branch immaterial positions (Coded AOC 64Z)" (p. 16). It is a position code, not an occupation, so it has no duties to import.',
-  '65X': 'Specialist Corps AOC-immaterial position code: DA PAM 611-21 lists it in the structure chart (p. 13, "Specialist Allied Operations") with no description; the DA PAM 600-4 Specialist Corps chapter (2 Feb 2022) lists "The coded AC SP AOC Immaterial (65X) positions" such as Corps Chief and Deputy Corps Chief (p. 8). It is a position code, not an occupation, so it has no duties to import.',
+  '64Z': 'AOC-immaterial position code: DA PAM 611-21\'s own structure chart title is "Senior Veterinarian (Immaterial)" (p. 12) and no section describes it. A Veterinary Corps chapter file (17 Dec 2021, currency unconfirmed, not imported) says positions coded 64Z can be filled by VC officers of any AOC (p. 6, p. 16), consistent with the 611-21 title. A position code, not an occupation, so no duties are imported.',
+  '65X': 'Listed in the DA PAM 611-21 structure chart (p. 13, "Specialist Allied Operations") with no description; p. 136 mentions "specialty training (65X)". A Specialist Corps chapter file (2 Feb 2022, currency unconfirmed, not imported) describes 65X as the coded AOC-immaterial position code (p. 8), which would make it a position code, not an occupation; that is not asserted here because the chapter could not be confirmed current. No description is imported.',
 }
 // Imported by mapping a section onto the AOC, with the reason.
 const MAPPED_NOTE = {
   '50A': 'Description imported from DA PAM 611-21 section 3-50 "Force Management (50)", p. 98: the section describes functional area 50, and the structure chart (p. 19) gives FA 50 exactly one AOC, 50A, titled "Force Development" there. The FA50 career pamphlet (25 Apr 2024) calls the functional area "Force Management" and refers to "50A coded" positions, so the title difference is the functional-area name versus the AOC title; both are recorded.',
 }
 const MSC_AOCS = ['70A', '70B', '70C', '70D', '70E', '70F', '70H', '70K', '71A', '71B', '71E', '71F', '72A', '72B', '72C', '72D', '73A', '73B']
-const MSC_REASON = 'Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: "will be further identified with branch code 67 (e.g., 70A67)"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.'
+const MSC_REASON = 'Medical Service Corps functional-area AOC: DA PAM 611-21 names it (branch description p. 149, structure chart, proponent tables) but gives no description of duties. A description exists in the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022) and is imported (army-600-4-20220223-medical-service-corps) but NOT approved or served: the chapter\'s status as the current edition, and its relationship to the base DA PAM 600-4 of 27 Apr 2023, could not be confirmed from an official listing (army.mil/armymedicine, the Army G-1 publications page and medcoe.army.mil list no DA PAM 600-4 chapter; armypubs.army.mil was unreachable).'
 const SENIOR_ONLY = { '35Z': 'Specification gives duties for the senior skill levels only (E-8, E-9).', '46Y': 'Specification gives duties for the senior skill levels only (E-8, E-9).' }
 
 // Bundles that describe codes DA PAM 611-21 lists without a description. Their passages count for the register.
@@ -44,9 +44,12 @@ const SUPPLEMENTS = {
 export async function loadReconciliationBundles(read = f => readFile(f, 'utf8')) {
   const bundles = {}
   for (const [cat, id] of Object.entries(BUNDLE)) bundles[cat] = JSON.parse(await read(`data/reference/bundles/${id}.bundle.json`))
+  // A supplement counts only while it is approved (served); an imported-but-unapproved bundle describes nothing to a user.
+  const approved = JSON.parse(await read('data/reference/approvals.json')).approvals.map(x => x.manifest_id)
   for (const [cat, list] of Object.entries(SUPPLEMENTS)) for (const sup of list) {
+    if (!approved.includes(sup.id)) continue
     const b = JSON.parse(await read(`data/reference/bundles/${sup.id}.bundle.json`))
-    bundles[cat] = { ...bundles[cat], passages: [...bundles[cat].passages, ...b.passages.map(p => { const m = (p.heading || '').match(/the chapter titles this AOC "([^"]+)"/); return { ...p, _supplement: sup.note + (m ? ` The chapter titles this AOC "${m[1]}"; DA PAM 611-21 (Nov 2025) uses a different title, which is kept as the AOC's title.` : '') } })] }
+    bundles[cat] = { ...bundles[cat], passages: [...bundles[cat].passages, ...b.passages.map(p => { const m = (p.heading || '').match(/the chapter titles this AOC \"([^\"]+)\"/); return { ...p, _supplement: sup.note + (m ? ` The chapter titles this AOC \"${m[1]}\"; DA PAM 611-21 (Nov 2025) uses a different title, which is kept as the AOC's title.` : '') } })] }
   }
   return bundles
 }

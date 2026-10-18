@@ -195,7 +195,10 @@ test('01-install.sql then 02-approve.sql: inert until approved, visible after, a
 
   await db.exec(approve)
   const bundles = await loadBundles()
-  assert.equal(await approvedCount(), bundles.length)
+  const approvedIds = JSON.parse(await readFile(new URL('../data/reference/approvals.json', import.meta.url), 'utf8')).approvals.map(a => a.manifest_id)
+  const nApproved = bundles.filter(b => approvedIds.includes(b.manifest_id)).length
+  assert.ok(nApproved < bundles.length, 'a bundle that was imported but not reviewed (the Medical Service Corps chapter) stays unreviewed')
+  assert.equal(await approvedCount(), nApproved)
   const row = (await db.query(`select reviewed_by from public.reference_sources limit 1`)).rows[0]
   assert.match(row.reviewed_by, /Claude Sonnet 5\.5/)
   assert.match(row.reviewed_by, /Rey Rodriguez/, 'the actual reviewer and authorizer are recorded')
@@ -207,7 +210,7 @@ test('01-install.sql then 02-approve.sql: inert until approved, visible after, a
   await db.exec(install)                                   // re-import: content is re-written, so approval must be revoked
   assert.equal(await approvedCount(), 0, 're-running the install revokes approval until re-approved')
   await db.exec(approve)
-  assert.equal(await approvedCount(), bundles.length)
+  assert.equal(await approvedCount(), nApproved)
 })
 
 test('approval is pinned to the reviewed fingerprint: a changed extraction cannot be approved by the old SQL', async () => {
@@ -219,5 +222,6 @@ test('approval is pinned to the reviewed fingerprint: a changed extraction canno
   await db.exec(approve)
   const rows = (await db.query(`select career_field, review_status from public.reference_sources order by career_field`)).rows
   assert.equal(rows.find(r => r.career_field === 'CMF 42').review_status, 'unreviewed')
-  assert.ok(rows.filter(r => r.career_field !== 'CMF 42').every(r => r.review_status === 'approved'))
+  assert.ok(rows.filter(r => r.career_field !== 'CMF 42' && !/^Medical Service Corps/.test(r.career_field)).every(r => r.review_status === 'approved'))
+  assert.ok(rows.filter(r => /^Medical Service Corps/.test(r.career_field)).every(r => r.review_status === 'unreviewed'), 'the unapproved chapter is never approved by the approval SQL')
 })
