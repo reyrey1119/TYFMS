@@ -45,10 +45,10 @@
   },
   "officer": {
    "register": 217,
-   "imported_description": 160,
+   "imported_description": 179,
    "imported_not_served": 5,
    "general_only": 0,
-   "exceptions": 52,
+   "exceptions": 33,
    "by_status": {
     "special_reporting": 8,
     "immaterial": 12,
@@ -59,11 +59,12 @@
     "special_reporting_or_immaterial": 20,
     "rescinded": 8,
     "designation_only": 8,
-    "chart_only_no_section": 3,
-    "medical_service_corps_no_description": 18
+    "functional_area_section_mapped": 1,
+    "immaterial_position_code": 2,
+    "imported_from_supplement": 18
    },
    "imported_codes_not_in_register": [],
-   "codes_with_any_import": 165
+   "codes_with_any_import": 184
   }
  },
  "rows": [
@@ -3564,8 +3565,8 @@
    "code": "50A",
    "title": "FORCE DEVELOPMENT",
    "status": "current",
-   "imported": null,
-   "exception": "Listed in the officer structure chart (p. 19, \"Force Development\"); chapter 3 has no section describing it.",
+   "imported": "assignments+general_duties+grades_authorized",
+   "exception": "Description imported from DA PAM 611-21 section 3-50 \"Force Management (50)\", p. 98: the section describes functional area 50, and the structure chart (p. 19) gives FA 50 exactly one AOC, 50A, titled \"Force Development\" there. The FA50 career pamphlet (25 Apr 2024) calls the functional area \"Force Management\" and refers to \"50A coded\" positions, so the title difference is the functional-area name versus the AOC title; both are recorded.",
    "page": 19
   },
   {
@@ -4222,7 +4223,7 @@
    "title": "SENIOR VETERINARIAN (IMMATERIAL)",
    "status": "current",
    "imported": null,
-   "exception": "Listed in the officer structure chart (p. 12, \"Senior Veterinarian (Immaterial)\"); no section describes it.",
+   "exception": "Veterinary Corps AOC-immaterial position code: DA PAM 611-21 lists it in the structure chart (p. 12, \"Senior Veterinarian (Immaterial)\") with no section; the DA PAM 600-4 Veterinary Corps chapter (17 Dec 2021) says positions \"coded 64Z ... mean that VC officers of any AOC can fill these positions\" (p. 6) and lists them as \"Branch immaterial positions (Coded AOC 64Z)\" (p. 16). It is a position code, not an occupation, so it has no duties to import.",
    "page": 12
   },
   {
@@ -4267,7 +4268,7 @@
    "title": "SPECIALIST ALLIED OPERATIONS",
    "status": "current",
    "imported": null,
-   "exception": "Listed in the officer structure chart (p. 13, \"Specialist Allied Operations\"); p. 136 mentions \"specialty training (65X)\" but gives no description of duties.",
+   "exception": "Specialist Corps AOC-immaterial position code: DA PAM 611-21 lists it in the structure chart (p. 13, \"Specialist Allied Operations\") with no description; the DA PAM 600-4 Specialist Corps chapter (2 Feb 2022) lists \"The coded AC SP AOC Immaterial (65X) positions\" such as Corps Chief and Deputy Corps Chief (p. 8). It is a position code, not an occupation, so it has no duties to import.",
    "page": 13
   },
   {
@@ -4455,8 +4456,8 @@
    "code": "70A",
    "title": "HEALTH CARE ADMINISTRATION",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+skills+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 21
   },
   {
@@ -4464,8 +4465,8 @@
    "code": "70B",
    "title": "HEALTH SERVICES ADMINISTRATION",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 21
   },
   {
@@ -4473,8 +4474,8 @@
    "code": "70C",
    "title": "HEALTH SERVICES COMPTROLLER",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+skills+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 21
   },
   {
@@ -4482,8 +4483,8 @@
    "code": "70D",
    "title": "HEALTH SERVICES SYSTEMS MANAGEMENT",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025). The chapter titles this AOC \"Health Information Technology\"; DA PAM 611-21 (Nov 2025) uses a different title, which is kept as the AOC's title.",
    "page": 21
   },
   {
@@ -4491,8 +4492,8 @@
    "code": "70E",
    "title": "PATIENT ADMINISTRATION",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+skills+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 21
   },
   {
@@ -4500,8 +4501,8 @@
    "code": "70F",
    "title": "HEALTH SERVICES HUMAN RESOURCES",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 21
   },
   {
@@ -4509,8 +4510,8 @@
    "code": "70H",
    "title": "HEALTH SERVICES PLANS, OPERATIONS, INTELLIGENCE, SECURITY, AND TRAINING",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 21
   },
   {
@@ -4518,8 +4519,8 @@
    "code": "70K",
    "title": "HEALTH SERVICES MATERIEL",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 21
   },
   {
@@ -4527,8 +4528,8 @@
    "code": "71A",
    "title": "MICROBIOLOGY",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 22
   },
   {
@@ -4536,8 +4537,8 @@
    "code": "71B",
    "title": "BIOCHEMISTRY",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 22
   },
   {
@@ -4545,8 +4546,8 @@
    "code": "71E",
    "title": "CLINICAL LABORATORY",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 22
   },
   {
@@ -4554,8 +4555,8 @@
    "code": "71F",
    "title": "RESEARCH PSYCHOLOGY",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 22
   },
   {
@@ -4563,8 +4564,8 @@
    "code": "72A",
    "title": "NUCLEAR MEDICAL SCIENCE",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+skills+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 22
   },
   {
@@ -4572,8 +4573,8 @@
    "code": "72B",
    "title": "ENTOMOLOGY",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+skills+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 22
   },
   {
@@ -4581,8 +4582,8 @@
    "code": "72C",
    "title": "AUDIOLOGY",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 22
   },
   {
@@ -4590,8 +4591,8 @@
    "code": "72D",
    "title": "ENVIRONMENTAL SCIENCE AND ENGINEERING",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025). The chapter titles this AOC \"Environmental Science & Engineer Officer\"; DA PAM 611-21 (Nov 2025) uses a different title, which is kept as the AOC's title.",
    "page": 22
   },
   {
@@ -4599,8 +4600,8 @@
    "code": "73A",
    "title": "SOCIAL WORK",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 23
   },
   {
@@ -4608,8 +4609,8 @@
    "code": "73B",
    "title": "CLINICAL PSYCHOLOGY",
    "status": "current",
-   "imported": null,
-   "exception": "Medical Service Corps functional-area AOC: the chapter names it in the branch description (p. 149: \"will be further identified with branch code 67 (e.g., 70A67)\"), the structure chart and a proponent table (pp. 21-23, 31-37), but gives no description of duties for it.",
+   "imported": "assignments+general_duties+prerequisites+training",
+   "exception": "Description imported from the DA PAM 600-4 Medical Service Corps chapter (file dated 23 Feb 2022), \"Description of duties\" for this AOC; DA PAM 611-21 lists the AOC without a description. The 2022 chapter is older than DA PAM 611-21 (Nov 2025).",
    "page": 23
   },
   {

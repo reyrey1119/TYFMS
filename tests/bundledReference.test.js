@@ -17,7 +17,7 @@ import { bundleContentHash } from '../scripts/lib/bundleSql.js'
 import { buildStore } from '../scripts/build-reference-store.js'
 import { REFERENCE_STORE_SOURCES } from '../api/_lib/referenceStore.data.js'
 import { markScopeBullets, unmarkedScopeBullets } from '../api/_lib/scopeMarkers.js'
-import { buildReconciliation, renderMarkdown } from '../scripts/reconcile-imported-coverage.js'
+import { buildReconciliation, renderMarkdown, loadReconciliationBundles } from '../scripts/reconcile-imported-coverage.js'
 
 const NOW = Date.parse('2026-10-16T12:00:00Z')
 const root = new URL('../', import.meta.url)
@@ -363,11 +363,11 @@ test('every current warrant specialty answers at each grade in its range, except
   assert.deepEqual(gaps, ['351Y@W-2', '351Y@W-3', '351Y@W-4', '351Y@W-5', '915E@W-4', '919A@W-3'])
 })
 
-test('officer AOCs: exactly these current AOCs have no description in DA PAM 611-21 (pinned; a change must be deliberate)', async () => {
+test('officer AOCs: exactly these current AOCs have no description in any imported publication (pinned; a change must be deliberate)', async () => {
   const none = []
   for (const c of current('officer')) { const r = await lookup(c.code, 'O-3'); if (r.status !== 'verified') none.push(c.code) }
-  assert.deepEqual(none, ['17X', '37X', '38X', '46X', '48X', '49W', '49X', '50A', '56X', '64Z', '65X', '70A', '70B', '70C', '70D', '70E', '70F', '70H', '70K', '71A', '71B', '71E', '71F', '72A', '72B', '72C', '72D', '73A', '73B'])
-  assert.equal(current('officer').length - none.length, 160)
+  assert.deepEqual(none, ['17X', '37X', '38X', '46X', '48X', '49W', '49X', '56X', '64Z', '65X'])   // 8 designation-only codes + 2 AOC-immaterial position codes (64Z, 65X)
+  assert.equal(current('officer').length - none.length, 179)
 })
 
 test('shipped data covers the counts the report states', () => {
@@ -391,7 +391,7 @@ test('publication-only resume: the summary and competencies are marked as writte
 const bundleOf = async id => JSON.parse(await readFile(new URL(`data/reference/bundles/${id}.bundle.json`, root), 'utf8'))
 
 test('every code in the register has an imported description or a documented exception, and the committed reconciliation is current', async () => {
-  const bundles = { enlisted: await bundleOf('army-611-21-enlisted-ch10c'), warrant: await bundleOf('army-611-21-warrant-ch8b'), officer: await bundleOf('army-611-21-officer-ch3') }
+  const bundles = await loadReconciliationBundles(f => readFile(new URL(f, root), 'utf8'))
   const r = buildReconciliation(inventory, bundles)
   assert.deepEqual(r.unaccounted, [], 'codes that are neither imported nor explained')
   assert.equal(await readFile(new URL('data/reference/corpus/coverage-reconciliation.json', root), 'utf8'), JSON.stringify(r, null, 1) + '\n', 'run: node scripts/reconcile-imported-coverage.js')
@@ -399,12 +399,12 @@ test('every code in the register has an imported description or a documented exc
   const c = r.categories
   // the numbers the report states
   assert.deepEqual([c.enlisted.register, c.warrant.register, c.officer.register], [212, 84, 217])
-  assert.deepEqual([c.enlisted.imported_description, c.warrant.imported_description, c.officer.imported_description], [178, 74, 160])
+  assert.deepEqual([c.enlisted.imported_description, c.warrant.imported_description, c.officer.imported_description], [178, 74, 179])
   assert.equal(c.enlisted.imported_codes_not_in_register.length + c.warrant.imported_codes_not_in_register.length + c.officer.imported_codes_not_in_register.length, 0)
   // register = specification headings + reporting/status codes defined in other chapters
   assert.equal(c.enlisted.codes_with_any_import, 194)
   assert.equal(c.warrant.codes_with_any_import, 74)
-  assert.equal(c.officer.codes_with_any_import, 165)
+  assert.equal(c.officer.codes_with_any_import, 184)
 })
 
 // ── the translator, personal-duties field empty, no Vault: every code at every grade ──────────
@@ -420,7 +420,7 @@ const squashT = x => String(x).toLowerCase().replace(/[^a-z0-9]+/g, '')
 test('EXHAUSTIVE: every current code at every grade, empty duties and no Vault, gets only its own code\'s official text for that grade', async () => {
   const bundles = { enlisted: await bundleOf('army-611-21-enlisted-ch10c'), warrant: await bundleOf('army-611-21-warrant-ch8b'), officer: await bundleOf('army-611-21-officer-ch3') }
   const guides = (await readdir(new URL('data/reference/bundles/', root))).filter(f => /^army-600-25-.*\.bundle\.json$/.test(f)).map(f => f.replace(/\.bundle\.json$/, ''))
-  const pilot = [await bundleOf('army-cmf42-dapam600-25-2025-09-30'), await bundleOf('army-cmf36-dapam600-25-2024-07-19'), await bundleOf('army-fc-officer-2025-09-10'), ...await Promise.all(guides.map(bundleOf))]
+  const pilot = [await bundleOf('army-cmf42-dapam600-25-2025-09-30'), await bundleOf('army-cmf36-dapam600-25-2024-07-19'), await bundleOf('army-fc-officer-2025-09-10'), await bundleOf('army-600-4-20220223-medical-service-corps'), ...await Promise.all(guides.map(bundleOf))]
   const pilotFor = cat => pilot.flatMap(b => b.passages).filter(p => p.personnel_category === cat)
   const byCode = {}
   for (const cat of Object.keys(bundles)) { byCode[cat] = new Map(); for (const p of [...bundles[cat].passages, ...pilotFor(cat)]) { if (!byCode[cat].has(p.occupation_code)) byCode[cat].set(p.occupation_code, []); byCode[cat].get(p.occupation_code).push(p) } }

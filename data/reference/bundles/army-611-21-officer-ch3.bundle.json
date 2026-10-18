@@ -3607,6 +3607,72 @@
    "id": "7dc89c65-0f75-5bbe-9fe5-3514236abfef"
   },
   {
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "general_duties",
+   "rank_band": null,
+   "components": null,
+   "heading": "Description of duties",
+   "chapter": "DA PAM 611-21, ch. 3 (officer branches and functional areas)",
+   "body": "Determine the structure, composition, position, and equipment requirements of active and reserve component Army forces. Arrange all components into the force structure in integrated organizations and units. An FA 50 officer:\n(1) Analyzes Army objectives to determine force structure requirements. Design forces to implement the Army’s role in national security. Plans and programs change to the force structure. Manage documentation of changes to organizations and materiel. Allocate units, detachments and teams. Mobilizes, demobilizes, activates, inactivates, establishes, discontinues and reorganizes units as required. Maintain the troop base by developing and reviewing command plans and troop lists. Manage determination of manpower and equipment resource requirements, authorizations and structure in MTOE/TDA/MOBTDA. Reviews and approves TOE.\n(2) Develops and manages capabilities and materiel solutions at operational Army level through the Operational Needs Statement (ONS) process.\n(3) Develops, applies and ensures compliance with polices and procedures for manpower requirements determinations, programming and allocation.\n(4) Develops, applies and ensures compliance with polices and procedures for force management information systems and subsystems.\n(5) Is thoroughly familiar with the planning, programming, budgeting and executing systems (PPBES), equipment authorization standings/systems, manpower and equipment survey procedures and personnel equipment interrelationships. Must know Army policy on organizing and structuring units. Must be able to translate plans into force, including minimum risk force, planning force, program and budget (resourced) force based on application of available resources.\n(6) Supervises and manages personnel activities performing the above duties.",
+   "pdf_page_start": 98,
+   "pdf_page_end": 98,
+   "printed_page": null,
+   "effective_from": null,
+   "effective_to": null,
+   "cumulative": false,
+   "skill_level": null,
+   "sort_order": 163,
+   "body_sha256": "e07bcd778afb614234aa1d6ff04b3da2ceb796911ee3fab85277ab36f5a1b76a",
+   "id": "def05973-3cdf-5e89-b55d-d1f045d5970e"
+  },
+  {
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "grades_authorized",
+   "rank_band": null,
+   "components": null,
+   "heading": "Special grading of positions",
+   "chapter": "DA PAM 611-21, ch. 3 (officer branches and functional areas)",
+   "body": "For positions graded CPT and above.",
+   "pdf_page_start": 98,
+   "pdf_page_end": 98,
+   "printed_page": null,
+   "effective_from": null,
+   "effective_to": null,
+   "cumulative": false,
+   "skill_level": null,
+   "sort_order": 164,
+   "body_sha256": "eac4ad09319340601067743d111285aea447eebfea80184ec576d11ddbacb3f6",
+   "id": "6a0e075e-1a04-56ca-aeae-0d6016c0ec69"
+  },
+  {
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": null,
+   "components": null,
+   "heading": "Unique duty positions",
+   "chapter": "DA PAM 611-21, ch. 3 (officer branches and functional areas)",
+   "body": "(1) Requirements Synchronization Officer (RSO), Army G-37.\n(2) Systems Synchronization Officer, Army G-8.\n(3) Force Modernization Officer, Division, Corps, MACOM.\n(4) Force Structure Officer, MACOM, ARSTAF.\n(5) Joint Force Manager, Joint Staff J-8, Army G-8.\n(6) Division Chief, Army G-37, Army G-8.",
+   "pdf_page_start": 98,
+   "pdf_page_end": 98,
+   "printed_page": null,
+   "effective_from": null,
+   "effective_to": null,
+   "cumulative": false,
+   "skill_level": null,
+   "sort_order": 165,
+   "body_sha256": "518975dd91891c88e05cd0a453ee0cc78af9d6d12b42b9c82ef2a18ef6c76162",
+   "id": "a1a3d997-09ef-5b41-9ebf-29bbb554fcb4"
+  },
+  {
    "occupation_code": "51A",
    "occupation_title": "SYSTEMS DEVELOPMENT",
    "branch": "Army",
@@ -3624,9 +3690,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 163,
+   "sort_order": 166,
    "body_sha256": "0e6e35aba3421d0270ffc85a034eebb125d92fda4bac48ff5948b7f4db9be80d",
-   "id": "20f9b6cf-2323-5340-ac59-f01190165aa4"
+   "id": "7c8ffa03-04e5-592d-b2b9-ef909a9d6757"
   },
   {
    "occupation_code": "51A",
@@ -3646,9 +3712,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 164,
+   "sort_order": 167,
    "body_sha256": "2ee7beda6f07676a5ca04a722ddee6163034d94e3233af9dd17e6171b09edd2e",
-   "id": "19f9d98d-4692-53c3-8924-90db36a4ab01"
+   "id": "3d0d5a29-5a44-50ee-aa94-19935af6937a"
   },
   {
    "occupation_code": "51A",
@@ -3668,9 +3734,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 165,
+   "sort_order": 168,
    "body_sha256": "b687fb9a9fe6cb0b2bd34ec18a28e66272d227c8384e8d054ed51c468769cb76",
-   "id": "4a1b750e-d642-5c3b-a6cb-7223da539b58"
+   "id": "0e571657-b698-5fbe-980a-b69b11e9f2da"
   },
   {
    "occupation_code": "51C",
@@ -3690,9 +3756,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 166,
+   "sort_order": 169,
    "body_sha256": "0fb1c0fe0d5da2e5c1cb3f90373f74973024d61aa489fd3d6401797fa992184b",
-   "id": "92d41b69-2fe4-540c-8b2d-91cfaf4f2f11"
+   "id": "e2c84d54-4ddf-5ad9-ab85-e4e52e4766e9"
   },
   {
    "occupation_code": "51C",
@@ -3712,9 +3778,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 167,
+   "sort_order": 170,
    "body_sha256": "2ee7beda6f07676a5ca04a722ddee6163034d94e3233af9dd17e6171b09edd2e",
-   "id": "a53e2ada-bcd9-5fbb-833a-b1faf1cd403f"
+   "id": "264384c5-fb00-529c-b9c4-d5a5365b5f0c"
   },
   {
    "occupation_code": "51C",
@@ -3734,9 +3800,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 168,
+   "sort_order": 171,
    "body_sha256": "fa9a01a5ce146f029325ba47ec0fa1c25999c94eee0fd8ff528b45d76e4eae5e",
-   "id": "c2648450-17e8-5550-b362-6dcb7f65a09e"
+   "id": "49d87e9d-7050-5724-815d-a30f4ef53093"
   },
   {
    "occupation_code": "51R",
@@ -3756,9 +3822,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 169,
+   "sort_order": 172,
    "body_sha256": "469a0da4b31bcf617fe14b7aaaa1644a04a3bd413f22eaeccc459f15acc1082b",
-   "id": "06733c6f-edf0-568b-a264-edc46d488db1"
+   "id": "4b78cdca-0548-5c08-bbac-de1442f77ac3"
   },
   {
    "occupation_code": "51R",
@@ -3778,9 +3844,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 170,
+   "sort_order": 173,
    "body_sha256": "2ee7beda6f07676a5ca04a722ddee6163034d94e3233af9dd17e6171b09edd2e",
-   "id": "031b29e4-518e-5ee8-89c6-8796bb9d0b87"
+   "id": "52e380d4-385d-5d48-b0f7-579660b634e2"
   },
   {
    "occupation_code": "51R",
@@ -3800,9 +3866,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 171,
+   "sort_order": 174,
    "body_sha256": "4df4df2d1ab028616dd84d78b196b7c19a67c2b3f82ae51a0cc691647151334c",
-   "id": "b37e2c23-b9af-5ad4-b79f-24a3c503eb7a"
+   "id": "e33994a3-2522-5971-991e-53d1f55b2f95"
   },
   {
    "occupation_code": "51S",
@@ -3822,9 +3888,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 172,
+   "sort_order": 175,
    "body_sha256": "e9968e52b135dd6abccb8d63d05b99b42863150ee48a01b53bdc5aa0506706f0",
-   "id": "e2e3b9a5-05e6-544a-b759-77c4d2cfadf9"
+   "id": "8d8bc32b-e572-5ede-82be-15f6c85347e2"
   },
   {
    "occupation_code": "51S",
@@ -3844,9 +3910,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 173,
+   "sort_order": 176,
    "body_sha256": "2ee7beda6f07676a5ca04a722ddee6163034d94e3233af9dd17e6171b09edd2e",
-   "id": "9f10edfb-fcd8-5838-85e9-82ae7c57cb10"
+   "id": "3188f533-54d5-5686-a815-b69508758f54"
   },
   {
    "occupation_code": "51S",
@@ -3866,9 +3932,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 174,
+   "sort_order": 177,
    "body_sha256": "313b129855ff69c8003c4bf86031faa63f7e97a9fe487d15f5abd0444adc9212",
-   "id": "f5520a05-f665-539b-add0-cc122927918e"
+   "id": "2d9f9e16-c00c-50f4-8730-83568c63fbf7"
   },
   {
    "occupation_code": "51T",
@@ -3888,9 +3954,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 175,
+   "sort_order": 178,
    "body_sha256": "055fb1f3d48d1f07fe42f2028840c3e8f8028c8182df68007ca5e7ca8ae33125",
-   "id": "f03100f3-b9d4-5098-996c-7151d060081f"
+   "id": "bc1da23f-0486-5f10-8fbc-e71cfa4d022b"
   },
   {
    "occupation_code": "51T",
@@ -3910,9 +3976,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 176,
+   "sort_order": 179,
    "body_sha256": "2ee7beda6f07676a5ca04a722ddee6163034d94e3233af9dd17e6171b09edd2e",
-   "id": "273a92e9-e750-544a-812b-e291f76454d2"
+   "id": "37c4c4ce-ffd2-5334-944c-a73bcecd470d"
   },
   {
    "occupation_code": "51T",
@@ -3932,9 +3998,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 177,
+   "sort_order": 180,
    "body_sha256": "c0340a7afb9d2c3c6a1e154a1ac920c77a2486c46babb486f9747def7d1e92ed",
-   "id": "3bd2ff6a-3e59-54a3-a14d-3a29ebab7ce8"
+   "id": "dc41c5a9-b169-5433-9f04-ccb6cbfd952a"
   },
   {
    "occupation_code": "51Z",
@@ -3954,9 +4020,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 178,
+   "sort_order": 181,
    "body_sha256": "1f1b7d99d0e94aab79746dc530689c627d342180934c48a11b98341df69391b1",
-   "id": "0294065d-7d9f-52e3-a880-359508b11315"
+   "id": "7fd879bb-bf6b-5848-971f-85060575a00b"
   },
   {
    "occupation_code": "51Z",
@@ -3976,9 +4042,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 179,
+   "sort_order": 182,
    "body_sha256": "b45e6107b898785d603b634c846284680ed7e11bcef8066d0e0d6d92c8705796",
-   "id": "8d4d3e11-a4cb-512b-a3d3-5516efd0339b"
+   "id": "ff2480bc-a590-53ec-b58b-dd636087a031"
   },
   {
    "occupation_code": "51Z",
@@ -3998,9 +4064,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 180,
+   "sort_order": 183,
    "body_sha256": "f989a478fb29d030e1f010aa5cbcd1127f43bae5bb8de7169fceb648eaa3dcef",
-   "id": "cd281c12-6659-5867-8be9-dbcd9bd8b8be"
+   "id": "147f2e50-ea60-56ec-ac7d-e9640cf753fe"
   },
   {
    "occupation_code": "52B",
@@ -4020,9 +4086,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 181,
+   "sort_order": 184,
    "body_sha256": "235d0926476665d55dad9f0a40aec9e7c36493978163c1608ac0e041e53c9064",
-   "id": "99b4d784-4ecd-5633-bf2c-e401a85633c2"
+   "id": "9d342161-1f61-566f-9dc7-fb15f70d7c40"
   },
   {
    "occupation_code": "52B",
@@ -4042,9 +4108,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 182,
+   "sort_order": 185,
    "body_sha256": "eac4ad09319340601067743d111285aea447eebfea80184ec576d11ddbacb3f6",
-   "id": "be8b59da-3c99-514d-83ef-88f234f28741"
+   "id": "4f18e2ef-5359-5e82-a44b-a9bb72cbad91"
   },
   {
    "occupation_code": "52B",
@@ -4064,9 +4130,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 183,
+   "sort_order": 186,
    "body_sha256": "2f4ecb5a97a651846af859bec4a4998d95c9135d80d3cc9502bc89f1bd8ca562",
-   "id": "7bda0eae-53e3-5c15-8f8f-0c760a6d1435"
+   "id": "3785b4b0-f160-539e-820f-66d6c5ac2341"
   },
   {
    "occupation_code": "56A",
@@ -4086,9 +4152,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 184,
+   "sort_order": 187,
    "body_sha256": "6fc9e68f1c49ccd58c1a4ce6f56b4afcd5c3c182e4b64b883b63f002d3941d2a",
-   "id": "8010672e-a6b9-5822-ae0b-b4229264e945"
+   "id": "682caa89-90e1-5340-aa63-0ac052b71c25"
   },
   {
    "occupation_code": "56A",
@@ -4108,9 +4174,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 185,
+   "sort_order": 188,
    "body_sha256": "fb22ba7584af49b0f7fd011cc32476485ba305b8d2c568cd965e1897381fa144",
-   "id": "ac5933bb-27bc-5992-a403-d9838be7f7f8"
+   "id": "23e20434-675d-5903-be6a-7075b76386e9"
   },
   {
    "occupation_code": "56D",
@@ -4130,9 +4196,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 186,
+   "sort_order": 189,
    "body_sha256": "7f291d79354376f3cb4179add55529b4cbf5f9a7ed7fb4540c5a0e362d02fcec",
-   "id": "deb87a30-b018-5704-9215-317d4d013e57"
+   "id": "9ad2c645-0f25-545a-bbfd-6bb95af49dd0"
   },
   {
    "occupation_code": "56D",
@@ -4152,9 +4218,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 187,
+   "sort_order": 190,
    "body_sha256": "de012f9b28da4d29f410d20637772487c15146c9dffdf9473b7584bc00f9a2ae",
-   "id": "66a0ca4c-6850-5a54-8d54-e9223efc337c"
+   "id": "5310c95c-cf10-5a78-a043-cf6c757461d1"
   },
   {
    "occupation_code": "57A",
@@ -4174,9 +4240,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 188,
+   "sort_order": 191,
    "body_sha256": "f18d34181b7e1af1b156f029faebfb612deb4dafacff7d49da34749f366c73e9",
-   "id": "95f088a4-b9a7-5b00-a3e4-d6bb10b951d4"
+   "id": "ceee999a-b9e5-58b8-9ffc-cb8dc396477c"
   },
   {
    "occupation_code": "57A",
@@ -4196,9 +4262,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 189,
+   "sort_order": 192,
    "body_sha256": "600b258d91120892ba5552b011025d71968670f0a9237208dff06cddaba4a019",
-   "id": "aa7e54c2-b55e-538c-ad71-a85c2e7adb4f"
+   "id": "5c2588da-6658-5239-9f90-62cfb8ae79ee"
   },
   {
    "occupation_code": "57A",
@@ -4218,9 +4284,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 190,
+   "sort_order": 193,
    "body_sha256": "3805e4e64f2d37c6379d86409cea2c8ec666cf7621965d54a42f3231224c29ed",
-   "id": "346e8992-2251-5052-83cc-d29e6d61a203"
+   "id": "46a33d43-67f8-5a99-b0d7-587587e6090d"
   },
   {
    "occupation_code": "58A",
@@ -4240,9 +4306,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 191,
+   "sort_order": 194,
    "body_sha256": "af7ff88967385382e003e81cae215aa98da4f4b529da5a935470e4a73f676094",
-   "id": "3d05a501-79e1-5fc2-bf36-eea073aa543a"
+   "id": "42ada31b-d277-5af3-b963-8cf774fbe3a5"
   },
   {
    "occupation_code": "58A",
@@ -4262,9 +4328,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 192,
+   "sort_order": 195,
    "body_sha256": "050ce9acf52ac571ff9ceb3c9021c6ef2c64cea11bda478c57067eec02ee6661",
-   "id": "4ace76d4-1e6c-5fd1-b4da-6e8797454f71"
+   "id": "15461deb-047e-5682-b678-92dfc75d1b12"
   },
   {
    "occupation_code": "59A",
@@ -4284,9 +4350,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 193,
+   "sort_order": 196,
    "body_sha256": "443c67fe9a880e712ae8b1083f92236f5f64c0382fb9db07cee20e537e6bdbbc",
-   "id": "a8e142b6-14f7-5e57-8131-60e05d80ee77"
+   "id": "1f9c15b8-6d48-5152-bdbb-3edc2f02a262"
   },
   {
    "occupation_code": "59A",
@@ -4306,9 +4372,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 194,
+   "sort_order": 197,
    "body_sha256": "5f03ce1155f2eca5f355ef8cf45e1abd28798af7d376cd820201881e059f5a0a",
-   "id": "bc15d3ec-146d-51ab-bbbf-9a6ab85561f2"
+   "id": "862a5506-b8c4-57f8-b1cd-806b20db7645"
   },
   {
    "occupation_code": "59A",
@@ -4328,9 +4394,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 195,
+   "sort_order": 198,
    "body_sha256": "6da3c05e86c508fe7c00bb253379c04ec497280799c820e0a82b72956db67eb8",
-   "id": "cdcc1f36-f652-5a44-b9e8-deadea281119"
+   "id": "730f4782-3945-571e-ac51-7baeb3ca43fb"
   },
   {
    "occupation_code": "60A",
@@ -4350,9 +4416,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 196,
+   "sort_order": 199,
    "body_sha256": "5a4e0f1e4df30502bf1f3d3745d553ffde5c8f3c2e86f00c66f438d603a4d20b",
-   "id": "451c3441-5a4b-556d-ba75-cf3469ff3ed0"
+   "id": "afde1c5d-631a-5fb6-b680-a574a8214ee6"
   },
   {
    "occupation_code": "60A",
@@ -4372,9 +4438,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 197,
+   "sort_order": 200,
    "body_sha256": "c9850d8eb896b2b734c979edcc20a125be45ff3a71f7fbfb611e5ccef887629c",
-   "id": "081c41f4-3739-52dc-b845-22bc621dc50a"
+   "id": "dd184987-cfe9-52ee-a94c-9334544122b8"
   },
   {
    "occupation_code": "60B",
@@ -4394,9 +4460,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 198,
+   "sort_order": 201,
    "body_sha256": "22694d3a76b495ce22d3ae1c60931bb171b1fe51a1dfba95b28e6232394b8595",
-   "id": "d04b1057-897b-56d8-97e0-342125cb3577"
+   "id": "f54f2d62-e66d-57cc-9186-fcce5c61cb26"
   },
   {
    "occupation_code": "60C",
@@ -4416,9 +4482,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 199,
+   "sort_order": 202,
    "body_sha256": "fc7f717d66d958ffe72865496704f240cb7c72848da3082653a25d3e76cc28b4",
-   "id": "1a89dc74-d53e-527f-a030-6fa6766186b2"
+   "id": "633f2f80-d669-5fe5-a0f5-124c76552fab"
   },
   {
    "occupation_code": "60D",
@@ -4438,9 +4504,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 200,
+   "sort_order": 203,
    "body_sha256": "a8bf1b78308393b90b0cc027e1ce42884c5aca582a43f16b612664ed8f5f7ad1",
-   "id": "af72d587-97ca-5cb1-a1f0-cb9b632237b3"
+   "id": "59f01939-1727-5883-a1ae-5278aa8b6f92"
   },
   {
    "occupation_code": "60G",
@@ -4460,9 +4526,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 201,
+   "sort_order": 204,
    "body_sha256": "af872a1cceee4e348b3818e39ca1d73529b64e0c1f7df98c4b3f9b8754a70e35",
-   "id": "635dabf3-cd62-598b-893f-cde3b6e993b4"
+   "id": "f364c002-2db8-5183-9efa-18f1cb77371e"
   },
   {
    "occupation_code": "60H",
@@ -4482,9 +4548,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 202,
+   "sort_order": 205,
    "body_sha256": "eddbec02a1e341f8a7ba0ce75c5be7a379098a11b841a12f51279d21c0b31112",
-   "id": "a41e5b73-7ba0-5cdd-9a96-e92d0325cba1"
+   "id": "fbc62b1d-9d16-5b8e-b470-5f55ac4cbbe7"
   },
   {
    "occupation_code": "60J",
@@ -4504,9 +4570,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 203,
+   "sort_order": 206,
    "body_sha256": "db40e12b7582b6a91ea7aefd50d528d075f8c2065c0516f52869b97163424736",
-   "id": "0aac3c90-bbe3-56b3-92ba-b86aa80ad24e"
+   "id": "0ea2dffa-fe49-5b62-b538-dadde65f6824"
   },
   {
    "occupation_code": "60K",
@@ -4526,9 +4592,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 204,
+   "sort_order": 207,
    "body_sha256": "103153bd813a72d7edd6ba7a42fa2bacf748742f8c81f8dd492e04ce72a8dd55",
-   "id": "627ced43-c0c0-5559-b478-74b2a1f3553f"
+   "id": "aed5c308-1513-53c5-b1db-f02501b2f2c8"
   },
   {
    "occupation_code": "60L",
@@ -4548,9 +4614,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 205,
+   "sort_order": 208,
    "body_sha256": "3d8814b196d428df9f8abdd6e4023e9126b35cf2d13f5c2c40e1df2814259e00",
-   "id": "9323ee18-677b-5e95-8708-67d91604fbb6"
+   "id": "827730cb-af86-5c6f-82e2-59342fca758c"
   },
   {
    "occupation_code": "60M",
@@ -4570,9 +4636,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 206,
+   "sort_order": 209,
    "body_sha256": "928c02e09120aa4e3781aea929c7590174ff792adc9d9d26626ee5ef5a051c82",
-   "id": "61274377-244c-56d3-b587-889941f430f8"
+   "id": "22ac1855-e6e3-58c6-9386-3d6cb9ff489c"
   },
   {
    "occupation_code": "60N",
@@ -4592,9 +4658,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 207,
+   "sort_order": 210,
    "body_sha256": "f81c7efb07d49c7bb006f9fb0333900e03bda91574d69bfdb75a33f977c41d2c",
-   "id": "3b6db27d-2802-5b01-8b11-aab4a660c8f0"
+   "id": "bb73138a-8974-5099-a680-791fbe2819ce"
   },
   {
    "occupation_code": "60N",
@@ -4614,9 +4680,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 208,
+   "sort_order": 211,
    "body_sha256": "f9fb482b405c8f1c03c8ff10d5b2f1f65d8be13905afb34c8dc40a0c18cda899",
-   "id": "30c00f6c-96a6-5492-b3b4-68649d4862fa"
+   "id": "2872802b-4983-5a4f-9333-aa0ce2a59cab"
   },
   {
    "occupation_code": "60P",
@@ -4636,9 +4702,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 209,
+   "sort_order": 212,
    "body_sha256": "0d5f97eeb90f6e134c1733d2e089f2db93ef6037e9dc3f14ab61f5232448a9eb",
-   "id": "b1bddc66-2dba-5da3-8443-03550d50d4b6"
+   "id": "28e6e4c1-06f5-5400-bd85-f485714d61b4"
   },
   {
    "occupation_code": "60Q",
@@ -4658,9 +4724,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 210,
+   "sort_order": 213,
    "body_sha256": "bce22fdba9d9aa368432d517f55baf8c539d77c140a3cae2732cad90aca0b295",
-   "id": "a0f45277-7191-59ee-a0b2-83d2ad60b404"
+   "id": "387be521-20a5-5c20-983a-51b45bbc163f"
   },
   {
    "occupation_code": "60R",
@@ -4680,9 +4746,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 211,
+   "sort_order": 214,
    "body_sha256": "b27a6a2edf74f7b15737408341f1d63ef98a251b48e11b94e63eedc3273d4b41",
-   "id": "666a0af2-94f5-5ef5-95d3-9a155925f5b5"
+   "id": "77814fb2-cb48-5d6a-83f6-09c6cdda1f5e"
   },
   {
    "occupation_code": "60S",
@@ -4702,9 +4768,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 212,
+   "sort_order": 215,
    "body_sha256": "36cb30a2e6f372746ea07fa173314414d5c08349bdfeaeca0d2f51c4dc2bf8da",
-   "id": "aabba06a-8c46-56ec-a472-48341f9349ca"
+   "id": "3a881df1-85cf-5a8a-aa3b-d59ff5e2ae6f"
   },
   {
    "occupation_code": "60T",
@@ -4724,9 +4790,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 213,
+   "sort_order": 216,
    "body_sha256": "33eefe645cf51f7e93a1535694d5db3feb0c91fffc6ff172eee18f7bd8291cd6",
-   "id": "b4c9a730-31e9-5fb2-b43d-61bb7a3e95c0"
+   "id": "1270f950-6082-5a8a-ac16-ca68138c984f"
   },
   {
    "occupation_code": "60U",
@@ -4746,9 +4812,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 214,
+   "sort_order": 217,
    "body_sha256": "220aef3a09ee3f5915f9a850d8b65e0b7001d22114c7628ef69d66ea4f7ed6e4",
-   "id": "80490c4e-9b9f-53da-8ab4-7357a643b3e3"
+   "id": "a682d257-5d8b-51bb-a18d-8903d18d1ac3"
   },
   {
    "occupation_code": "60V",
@@ -4768,9 +4834,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 215,
+   "sort_order": 218,
    "body_sha256": "7254ab4ea612f5cbbec78df1a4f5d0ec38cd998a3859e65fb42d424d227dab39",
-   "id": "7397a2c8-e7fc-594d-be4e-946a07aa06d0"
+   "id": "e7656a95-593a-5f35-914a-24be76ad09d3"
   },
   {
    "occupation_code": "60W",
@@ -4790,9 +4856,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 216,
+   "sort_order": 219,
    "body_sha256": "5e738f5a9639e46df5e76d74b281d7f3bcab739b611da07d6ba9a380814ebf2c",
-   "id": "20027458-a7cb-5852-b994-d0b81e8c474f"
+   "id": "74e28a3e-1ce9-5b91-b3f7-f76dd194fd46"
   },
   {
    "occupation_code": "60W",
@@ -4812,9 +4878,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 217,
+   "sort_order": 220,
    "body_sha256": "352d7eb83ea51dc63659b8e57aa61244ae24a5946264c14e87303c4ac5b023d4",
-   "id": "43f67b11-208c-5a9a-a261-5fddcc3a8a9c"
+   "id": "96e7c252-0032-5e2b-9528-855d648bd900"
   },
   {
    "occupation_code": "60X",
@@ -4834,9 +4900,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 218,
+   "sort_order": 221,
    "body_sha256": "0cc43ee2f85c8b36ac3c55b700e16a62488e32aabab5736da5d44148514092ea",
-   "id": "2171a16b-f0b4-5e57-a9eb-d51269eba575"
+   "id": "a2f6a9be-539a-5476-9bee-88b0ef09786d"
   },
   {
    "occupation_code": "60X",
@@ -4856,9 +4922,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 219,
+   "sort_order": 222,
    "body_sha256": "41d517a1106a2999c3895ec96bec97777297c9f9412e3fd84b6771274484db6f",
-   "id": "c808e461-97b7-505a-8e8f-9f6725fa8d99"
+   "id": "2c4c27d7-772f-587c-b69b-92e132703721"
   },
   {
    "occupation_code": "61A",
@@ -4878,9 +4944,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 220,
+   "sort_order": 223,
    "body_sha256": "5242e1fd30f1f3879e33fff945e461ec21648a0c85068f6aecaf6b1ebb79eed3",
-   "id": "3213d29d-08e4-5f93-aae8-fcf1623135d5"
+   "id": "6aba9f96-6979-50f8-9829-ea9edafce08d"
   },
   {
    "occupation_code": "61B",
@@ -4900,9 +4966,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 221,
+   "sort_order": 224,
    "body_sha256": "96a849f97e002cfe60b3e56cc82787ab244cc80161191839e2b545f1ea773b04",
-   "id": "cd4f2418-d197-510a-9409-a91151aaa50d"
+   "id": "a409381f-8531-5130-8493-41dc2773823e"
   },
   {
    "occupation_code": "61C",
@@ -4922,9 +4988,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 222,
+   "sort_order": 225,
    "body_sha256": "b0fcad5c91bd5e4ffd195a376ff08fc7d009d26e1510d97cc3357bff1e62bafd",
-   "id": "a0daa006-f239-541b-84c0-74a39d1d5db8"
+   "id": "85eac46a-7bde-5561-bbda-76d8dbdfa0ce"
   },
   {
    "occupation_code": "61D",
@@ -4944,9 +5010,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 223,
+   "sort_order": 226,
    "body_sha256": "7993478c139db76b4ce2422e40ce2b2727d25213ca0f981ae8212774d5413b2f",
-   "id": "82a8641d-e9fc-5e98-894e-cb98ffceeb46"
+   "id": "3ddece2b-982a-5073-a4e4-35c0800a45e1"
   },
   {
    "occupation_code": "61E",
@@ -4966,9 +5032,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 224,
+   "sort_order": 227,
    "body_sha256": "676ef5aac7e729170c9fb529115eff1f3f1c59be832653e6a3e2363440bc050c",
-   "id": "af26552e-caab-5fa3-8392-aa6da277452c"
+   "id": "8eb0abc0-b9c3-578f-8c44-adaa40c2b2f0"
   },
   {
    "occupation_code": "61F",
@@ -4988,9 +5054,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 225,
+   "sort_order": 228,
    "body_sha256": "c33102f61aad4e86d81dcd8bb91d9fd53d59b6e1a8867447f7476649c9050fc5",
-   "id": "c897fc1f-a2e6-51d9-9e78-b4798728aa50"
+   "id": "d4345e2b-79f4-5dd3-9a94-c887a9842a5a"
   },
   {
    "occupation_code": "61G",
@@ -5010,9 +5076,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 226,
+   "sort_order": 229,
    "body_sha256": "4fab6e62d83fe6cf55ab46bd72be1f1f0c12c59080463685c19ab24d5af2d973",
-   "id": "bce9b98c-9686-5f50-9627-ad405de60e57"
+   "id": "14d6ea07-ba88-574c-b3f2-08e4f8636508"
   },
   {
    "occupation_code": "61G",
@@ -5032,9 +5098,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 227,
+   "sort_order": 230,
    "body_sha256": "059327044f6c9e6e90a8d93e2bf6a9b15e097cda40fceb1689c45351f17629fb",
-   "id": "9037aaeb-701f-5e22-9aee-ef6ffea616d8"
+   "id": "5513ede0-0bcb-5068-be45-c49f8e768fc4"
   },
   {
    "occupation_code": "61H",
@@ -5054,9 +5120,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 228,
+   "sort_order": 231,
    "body_sha256": "ae8ccf6fe604f693067894095254b3076ea91973dfb6b565f4a93bdec80b815e",
-   "id": "8beb26ff-a5fb-526c-b2c7-730f23db2426"
+   "id": "c5b6ee41-e8ad-5bb2-93be-028e5f74deaa"
   },
   {
    "occupation_code": "61J",
@@ -5076,9 +5142,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 229,
+   "sort_order": 232,
    "body_sha256": "20b9f8b9f2a042f8ec1b1394dd9399fd1e300d94caa66e797996193f86ac4cf5",
-   "id": "37303cf4-ac8f-519a-afa8-a01c60e5eafb"
+   "id": "2e1fff82-934d-5d05-86cf-8e3c780f26ab"
   },
   {
    "occupation_code": "61J",
@@ -5098,9 +5164,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 230,
+   "sort_order": 233,
    "body_sha256": "5be51323123870a2849296d225e0c1e85c405627dee1df0f456fc5eaf275727f",
-   "id": "ae0af3f6-22fe-5ffe-abde-e8fe10ea3f02"
+   "id": "77a2dec4-bc76-5826-b3af-c8683b9a31ba"
   },
   {
    "occupation_code": "61K",
@@ -5120,9 +5186,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 231,
+   "sort_order": 234,
    "body_sha256": "2bbad2f6622cd776ce9d265ebed4423924afa45f2b4bc0d4c3a098da548bbc3f",
-   "id": "953930f3-95aa-521b-9450-bd0fdbb03ecb"
+   "id": "9f527b4b-5ad6-52ef-a347-f5fcf854a274"
   },
   {
    "occupation_code": "61L",
@@ -5142,9 +5208,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 232,
+   "sort_order": 235,
    "body_sha256": "429c0ffcbea62b3352d39db2ceb51b1d7af13efb4eff7453ae7c88d2847231cb",
-   "id": "a2af2986-d70b-513e-91bf-5ecabe51c5f6"
+   "id": "7dc1aa24-e66e-5fd5-9585-4596f3c77b5b"
   },
   {
    "occupation_code": "61M",
@@ -5164,9 +5230,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 233,
+   "sort_order": 236,
    "body_sha256": "c84a7cfbd556896b6efa64a79808ea8a92b9b6bf5b3c56a7bb4e92bafa912c10",
-   "id": "96666cf3-bbb2-55a8-920e-c07ef2feb568"
+   "id": "d89e7a4f-2c4c-5d50-8825-a6a849343364"
   },
   {
    "occupation_code": "61M",
@@ -5186,9 +5252,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 234,
+   "sort_order": 237,
    "body_sha256": "b9aeb11a89a86a5389d2c65584b8cf9930d0511f0f3755178b3dad5f357cb597",
-   "id": "4c278d34-cf50-5320-9940-55e7eb211a1b"
+   "id": "cfff17ca-567f-5723-b48e-f29a16c8c66a"
   },
   {
    "occupation_code": "61N",
@@ -5208,9 +5274,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 235,
+   "sort_order": 238,
    "body_sha256": "e87b656f843ca40480378b24a389fbbc8ff915d4b5ad9325365f4d98d8819e08",
-   "id": "fa0853cb-c6b5-59e0-81f2-3e307367bf98"
+   "id": "651d080c-acef-52c7-8589-e3534a99534c"
   },
   {
    "occupation_code": "61N",
@@ -5230,9 +5296,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 236,
+   "sort_order": 239,
    "body_sha256": "71ccdcca72e82860ebbdbfdee2460354cdcf6c1b5b880578434fc84064630204",
-   "id": "e205e10b-a6e2-5444-89e0-b51de9e09321"
+   "id": "44026f6d-5644-5c98-a1a9-fbd7ddc873b8"
   },
   {
    "occupation_code": "61P",
@@ -5252,9 +5318,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 237,
+   "sort_order": 240,
    "body_sha256": "1ee3ee7be27d1d525298aa32956892c1cf3631c6d15f82f92c6ca8d1a293ecaa",
-   "id": "43021abb-98c9-5157-b58e-a9fdade92ad2"
+   "id": "1506136b-7890-5983-ae47-0e6ca326761e"
   },
   {
    "occupation_code": "61Q",
@@ -5274,9 +5340,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 238,
+   "sort_order": 241,
    "body_sha256": "4620aa2569e4f0278f7f5867e133e96246ebb9fbbe94797f51dc0abd94819f95",
-   "id": "35944926-1d95-593a-b195-3348b06a7667"
+   "id": "d469b437-6c16-5e91-8d80-3e6cf5bbe239"
   },
   {
    "occupation_code": "61R",
@@ -5296,9 +5362,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 239,
+   "sort_order": 242,
    "body_sha256": "8614d7613231b53f21dbda641bb2276e28ea21a060bfc38427ab4f2203a6b138",
-   "id": "57356e3b-e170-5e47-a9e1-3e0a0bb67d2a"
+   "id": "6250a1ed-e575-53e9-a006-1d6cc15cf2b8"
   },
   {
    "occupation_code": "61U",
@@ -5318,9 +5384,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 240,
+   "sort_order": 243,
    "body_sha256": "e393206f17f31ec8deea386d79de8cf3f2a1e7858e3366b0c58c6f9d55ebeca9",
-   "id": "413f5cfd-8d73-544a-b129-bd1f3cffc42a"
+   "id": "6e98281f-5813-58bc-ba6a-e8c0ebf5b23d"
   },
   {
    "occupation_code": "61U",
@@ -5340,9 +5406,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 241,
+   "sort_order": 244,
    "body_sha256": "48098a2ff43ad24bcedeeff241cd301c8a976597e8ff0c5640669c8902e0a9e3",
-   "id": "777aaab1-58ee-5eb0-a6f7-a6158586862c"
+   "id": "d539ad71-79ff-55a7-a6c6-596f65e0a53f"
   },
   {
    "occupation_code": "61U",
@@ -5362,9 +5428,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 242,
+   "sort_order": 245,
    "body_sha256": "f90281173bdf33c02c5928dc52799f45a9b5a7e58580d32f25620823dc6b4f28",
-   "id": "05840554-1a44-5ea4-8d2a-cb09342ba8b2"
+   "id": "0b2a74f0-61b0-57d5-968f-d82841f623d7"
   },
   {
    "occupation_code": "61W",
@@ -5384,9 +5450,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 243,
+   "sort_order": 246,
    "body_sha256": "ef2601f92aac21a6cad56ec362fb66536eaf95d619583f2c0336495e1dea0c62",
-   "id": "f56632dd-34a9-5b26-a69f-01c71ccbf8ca"
+   "id": "53122a60-0065-5162-8109-493902338920"
   },
   {
    "occupation_code": "61Z",
@@ -5406,9 +5472,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 244,
+   "sort_order": 247,
    "body_sha256": "a21f66f947a11f55d79ca43179d4f804def3d1c2d520190164d08ae8ebcea26b",
-   "id": "2bfa28b8-ee32-57dd-8bb6-214c12407fd4"
+   "id": "ec632f01-e30a-5d90-8f15-6b5fa4ac60aa"
   },
   {
    "occupation_code": "62A",
@@ -5428,9 +5494,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 245,
+   "sort_order": 248,
    "body_sha256": "27f38b66eb48ca991d03029ed48a44cd978f88421f26df7143e65703dc5ecfd0",
-   "id": "f3f5cd68-9716-5fd4-ace0-2e05bbb2ae61"
+   "id": "eab836a7-645c-5b7e-b360-ed0443cbc586"
   },
   {
    "occupation_code": "62B",
@@ -5450,9 +5516,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 246,
+   "sort_order": 249,
    "body_sha256": "8048abb2e14aa72afbeadcb452176e97aa66d493669edfeaf1319ea84d9b0843",
-   "id": "3543cf24-1dc1-583f-919d-f66d35e61fc2"
+   "id": "c3ecfd8a-e90d-5958-8c6a-f09eb1c5130f"
   },
   {
    "occupation_code": "62B",
@@ -5472,9 +5538,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 247,
+   "sort_order": 250,
    "body_sha256": "20b18b5d8e2fbec72d2dca7af1ed3a0d98e4ca173d32c5d5bd0007e45f9c8096",
-   "id": "4bc7c965-27e4-5f92-a991-ee2562d18967"
+   "id": "8558eb2d-38c6-534f-840a-a550dd9e6c5f"
   },
   {
    "occupation_code": "62B",
@@ -5494,9 +5560,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 248,
+   "sort_order": 251,
    "body_sha256": "6f22578a8d9d94a6889293aa6f2979c96c3b6ee1c24c2ae2f348c71c44f10fc6",
-   "id": "713c7c4c-c0e6-5250-8b10-c9686eb24290"
+   "id": "ca90bda4-92c5-5b0c-8716-936a7d4f0834"
   },
   {
    "occupation_code": "62Z",
@@ -5516,9 +5582,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 249,
+   "sort_order": 252,
    "body_sha256": "a8865b73b29f05d3b0840db48d802056eac7aa2be30f51fa4aabc987d92b944d",
-   "id": "5c1d8a7b-70df-552c-8668-4d4196c730e7"
+   "id": "0004e07c-0446-5f45-b044-658d4dc84067"
   },
   {
    "occupation_code": "62Z",
@@ -5538,9 +5604,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 250,
+   "sort_order": 253,
    "body_sha256": "a3c0feb98bd8e69e26174062d294622ec74c80337b0705feda77586277c9c7aa",
-   "id": "bdf1907b-ede5-5a26-9a63-918ebc6a9906"
+   "id": "30d7e423-2917-5fad-bedf-9971e6c3347a"
   },
   {
    "occupation_code": "62Z",
@@ -5560,9 +5626,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 251,
+   "sort_order": 254,
    "body_sha256": "36769e62a10ef3c9c1a8d261335d4e638532242ed64a23391e6225c281cf1be1",
-   "id": "eceb15bd-91aa-5c42-ab23-90eccab5b0ff"
+   "id": "2a2eccd3-0863-5072-9ca3-c90d826d78e1"
   },
   {
    "occupation_code": "63A",
@@ -5582,9 +5648,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 252,
+   "sort_order": 255,
    "body_sha256": "68e9203ae0047b629b9041d376797d6fa0984d67344e3cf9e5cdb033a4c8f95e",
-   "id": "746416d3-69a5-53df-ac5c-35121e67d64f"
+   "id": "7f4aec84-eb25-5114-b017-2730e268b994"
   },
   {
    "occupation_code": "63A",
@@ -5604,9 +5670,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 253,
+   "sort_order": 256,
    "body_sha256": "ff39033d175afc5a745b3cf89996cacf8dcbb17c0654381e2fde563be3c80b8e",
-   "id": "6adef582-6a49-5700-ba20-9342056e9843"
+   "id": "ec05d588-2a4e-50d9-a66a-fe1a7bd92590"
   },
   {
    "occupation_code": "63B",
@@ -5626,9 +5692,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 254,
+   "sort_order": 257,
    "body_sha256": "6bab4ebe44c8199e7f2de29554b85d9a2efda3554b32d077e0588266deefdaa3",
-   "id": "10422495-4d9e-5b66-b735-78a76dcfc5a2"
+   "id": "a32675b9-9955-5cd6-8a0b-7eed12d6d3b9"
   },
   {
    "occupation_code": "63B",
@@ -5648,9 +5714,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 255,
+   "sort_order": 258,
    "body_sha256": "00ac162d29777b76108cc5066b6e6d3bc91a03c44a27c9b180152ff61ce37aa7",
-   "id": "8ab648d0-6932-5b8b-bbf9-a4f7dacacf0f"
+   "id": "e389895c-5f48-572e-9c78-91fb16e3d647"
   },
   {
    "occupation_code": "63B",
@@ -5670,9 +5736,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 256,
+   "sort_order": 259,
    "body_sha256": "738eb8f9caef6f8b13ece757b4bc07d618083145873356b416fbd7b68a6e476e",
-   "id": "b0078cc6-1862-5963-891a-59ca95dc97f5"
+   "id": "9f8c291d-3b09-5d29-af6b-1faaf669f908"
   },
   {
    "occupation_code": "63D",
@@ -5692,9 +5758,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 257,
+   "sort_order": 260,
    "body_sha256": "8aa7e4a91156c204ba40ef0759a8900ee5c70f9c9f33c61015ab9d74d8981770",
-   "id": "0c1fc857-689f-58c8-b164-2bc5276e35db"
+   "id": "d65dd283-bfdf-5eb2-b4f9-937ad440ec70"
   },
   {
    "occupation_code": "63D",
@@ -5714,9 +5780,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 258,
+   "sort_order": 261,
    "body_sha256": "8e7ac039f40098cf38af770f491bd2454f7988ed339b324b75fa7a19b4358265",
-   "id": "0116b4c7-a496-5995-ad99-344863bfb6bb"
+   "id": "3844073d-86f8-5cac-912e-8a035438c781"
   },
   {
    "occupation_code": "63D",
@@ -5736,9 +5802,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 259,
+   "sort_order": 262,
    "body_sha256": "5aaee6612f9e739690515a2498a3f52ad2b726955c64ab86d28457fee77bd7b9",
-   "id": "2c43c0ab-2267-52d3-afba-0e89dc3c097f"
+   "id": "6a2d22f8-b1a6-5d44-83f5-17a1d2401933"
   },
   {
    "occupation_code": "63E",
@@ -5758,9 +5824,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 260,
+   "sort_order": 263,
    "body_sha256": "c6d95c333a633b0ce3cb6bea59a404034418f3392a9d291116466d4667113ad6",
-   "id": "7eac83f6-620f-587a-906c-4be7e77e9f36"
+   "id": "6a4646d8-68c0-5a58-bc6f-b238d59a9efe"
   },
   {
    "occupation_code": "63E",
@@ -5780,9 +5846,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 261,
+   "sort_order": 264,
    "body_sha256": "00ac162d29777b76108cc5066b6e6d3bc91a03c44a27c9b180152ff61ce37aa7",
-   "id": "09f7c3c6-6399-5d6b-861c-2e1e984ed893"
+   "id": "f36a1d9b-0042-51ee-901c-139b13c3270d"
   },
   {
    "occupation_code": "63E",
@@ -5802,9 +5868,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 262,
+   "sort_order": 265,
    "body_sha256": "b9e103d1dd8a19293d3fa4dfcc395a4d19aeadc1fb7dfe3c601620b7ff2e72f0",
-   "id": "a077ab9f-7069-55d9-9f2b-c523e322e322"
+   "id": "2e599121-787e-52aa-b845-8ff4939f8f45"
   },
   {
    "occupation_code": "63F",
@@ -5824,9 +5890,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 263,
+   "sort_order": 266,
    "body_sha256": "f1acf3d59420c96380810c8c59b36e59c2f88f02d6265badf781b961dc98417f",
-   "id": "ab8c1680-3470-556a-9337-ddcf669d7cbd"
+   "id": "2e95f022-b50a-5545-b879-98a06337b9d1"
   },
   {
    "occupation_code": "63F",
@@ -5846,9 +5912,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 264,
+   "sort_order": 267,
    "body_sha256": "00ac162d29777b76108cc5066b6e6d3bc91a03c44a27c9b180152ff61ce37aa7",
-   "id": "bc8be9b2-989a-5efa-8590-784fe2e24ec2"
+   "id": "9df8a9f0-28df-5121-9f68-10e9ac37d26d"
   },
   {
    "occupation_code": "63F",
@@ -5868,9 +5934,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 265,
+   "sort_order": 268,
    "body_sha256": "f3f57dda95f6c151199d65a5f191753778631fd43789dfcb6006be5030b75ca4",
-   "id": "f7bfb76e-90e2-55cc-81e3-727ff48c6077"
+   "id": "766d3763-02d2-55d9-89ab-bc9302dc84e8"
   },
   {
    "occupation_code": "63H",
@@ -5890,9 +5956,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 266,
+   "sort_order": 269,
    "body_sha256": "0708e354d5ff64d9a7e9fbf7d388fe90bfeba710e748dec36fd1a9dd698c49ed",
-   "id": "ee544e59-3086-5e19-878f-82966cf4a3a7"
+   "id": "004eba79-1e15-5119-bc88-f6c71f0f4ae1"
   },
   {
    "occupation_code": "63H",
@@ -5912,9 +5978,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 267,
+   "sort_order": 270,
    "body_sha256": "00ac162d29777b76108cc5066b6e6d3bc91a03c44a27c9b180152ff61ce37aa7",
-   "id": "14a15ba1-a18a-5af5-9919-d0cd01adb41e"
+   "id": "76e04692-e8f2-556f-9538-a938080b881f"
   },
   {
    "occupation_code": "63H",
@@ -5934,9 +6000,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 268,
+   "sort_order": 271,
    "body_sha256": "739b2efcf470eee7e875942cda1641811d063a4b01ff150d61442de47af0ce20",
-   "id": "717b75f1-9189-5260-8204-ba959895013b"
+   "id": "45b49d7b-a7d0-5589-a66c-5bdc65af17a5"
   },
   {
    "occupation_code": "63K",
@@ -5956,9 +6022,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 269,
+   "sort_order": 272,
    "body_sha256": "274efc0c423e49ca9fe93dcb7e3d379ef69efff55c805f7b6bcd1f26fb866e67",
-   "id": "54be483e-f17d-5be1-ada4-8f5c03e7d0da"
+   "id": "cb241039-8392-5ef7-9be5-a64460aca12a"
   },
   {
    "occupation_code": "63K",
@@ -5978,9 +6044,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 270,
+   "sort_order": 273,
    "body_sha256": "00ac162d29777b76108cc5066b6e6d3bc91a03c44a27c9b180152ff61ce37aa7",
-   "id": "2af66281-19b0-5943-a761-f1d0c3a6c781"
+   "id": "adc7db8e-54ba-50c0-aac1-a81c98cf888f"
   },
   {
    "occupation_code": "63K",
@@ -6000,9 +6066,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 271,
+   "sort_order": 274,
    "body_sha256": "cf1f74d82a76ed58a89a9b7c864d28d022485d9e8002c7c009fba78343a88b95",
-   "id": "f6092703-37c8-5b9a-9451-40bf986ae699"
+   "id": "5ac719f0-a54a-5099-a3c4-824b1b002f52"
   },
   {
    "occupation_code": "63M",
@@ -6022,9 +6088,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 272,
+   "sort_order": 275,
    "body_sha256": "a4997d7df962d162ad01eb73f66d1e9aa7007f3c1191099b2a27c80667878c7b",
-   "id": "3fd48e18-41b5-5aba-9af6-45665d72b867"
+   "id": "b8df7a66-c63d-5979-8731-bd9ef5ade66c"
   },
   {
    "occupation_code": "63M",
@@ -6044,9 +6110,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 273,
+   "sort_order": 276,
    "body_sha256": "00ac162d29777b76108cc5066b6e6d3bc91a03c44a27c9b180152ff61ce37aa7",
-   "id": "e9bf63f5-b082-5f9d-af3b-50742365a6ec"
+   "id": "101492e0-86f3-5ac4-b94c-419cb56b5a9f"
   },
   {
    "occupation_code": "63M",
@@ -6066,9 +6132,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 274,
+   "sort_order": 277,
    "body_sha256": "1698d01c6de1ef7b8a1a8ab42bdffba667631dfc13174dd19b4d8ef239c57a4a",
-   "id": "3c717115-b566-5770-957c-a042adc77361"
+   "id": "f747b506-5269-52ba-b533-f3667392a035"
   },
   {
    "occupation_code": "63N",
@@ -6088,9 +6154,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 275,
+   "sort_order": 278,
    "body_sha256": "b1da3b05b1e289f659676b06bdd54b2da92db47c327a04e69155c20c56943038",
-   "id": "4c23040f-1a17-5a44-99da-eaea36adb464"
+   "id": "ab0d379f-5dd7-5f8d-95f2-c2a0d755ec4b"
   },
   {
    "occupation_code": "63N",
@@ -6110,9 +6176,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 276,
+   "sort_order": 279,
    "body_sha256": "34706a8cc6a98579ef9d573324cfb3e44257828cc77caefbae03b09e636fabd6",
-   "id": "b3158fad-4425-53d2-9cc5-a95f4fdfbc63"
+   "id": "10a2abcb-84a4-5d6f-8368-4f1c45b8bfbd"
   },
   {
    "occupation_code": "63N",
@@ -6132,9 +6198,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 277,
+   "sort_order": 280,
    "body_sha256": "0657bb7067a04496e0f174a6099186f71e4e2f5c2fcb9b2f15c4b7fca7e10162",
-   "id": "0355f77d-b922-5af2-99e7-7278a1027600"
+   "id": "0f606f24-d240-5c96-b37e-163d534a90bc"
   },
   {
    "occupation_code": "63P",
@@ -6154,9 +6220,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 278,
+   "sort_order": 281,
    "body_sha256": "27527680d1e1845b0af4986e563469f3b48c58cb1de2ea8111d9a78f73e13936",
-   "id": "d298a616-cb8f-54c9-aaa6-a3402d17cc88"
+   "id": "be903772-ef81-5518-999f-4366909df42d"
   },
   {
    "occupation_code": "63P",
@@ -6176,9 +6242,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 279,
+   "sort_order": 282,
    "body_sha256": "00ac162d29777b76108cc5066b6e6d3bc91a03c44a27c9b180152ff61ce37aa7",
-   "id": "557c2b45-da47-5013-9fab-6e9593c0ca76"
+   "id": "c792f361-a8a4-55a3-9103-3a7cbe316515"
   },
   {
    "occupation_code": "63P",
@@ -6198,9 +6264,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 280,
+   "sort_order": 283,
    "body_sha256": "09b9632effed88f96071fc05fa511dd88ea08dff8fcd7988678f3634fc79407b",
-   "id": "e3787566-75f9-5125-a3d7-b58867e37ff4"
+   "id": "20cf71c2-2e7e-5ff7-8bea-17fa99cbcbb8"
   },
   {
    "occupation_code": "63R",
@@ -6220,9 +6286,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 281,
+   "sort_order": 284,
    "body_sha256": "f26296fd86bc6b22098275fa1d1bd4594a516dec100e1460171a0cde4d628e88",
-   "id": "e6f1cf92-7ff7-5a8f-9f5a-f690160b8822"
+   "id": "0f40f47d-495d-5e54-b8b2-4db39b0f2d2f"
   },
   {
    "occupation_code": "63R",
@@ -6242,9 +6308,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 282,
+   "sort_order": 285,
    "body_sha256": "f06ccf38733210db9df4e195cee90a1d2af36d09dc8786d556b5d01da8402378",
-   "id": "6c425f51-f85d-5d8d-8f2f-71af9df425e4"
+   "id": "e1a60b06-9bf6-5d37-914b-35dccfb3adf7"
   },
   {
    "occupation_code": "63R",
@@ -6264,9 +6330,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 283,
+   "sort_order": 286,
    "body_sha256": "f043eeaa31f102a109e933ced47e5359743e29bc985493ce98d270750796868b",
-   "id": "0c1fed1b-e7a2-508e-8e2f-0f4c7204bf28"
+   "id": "c61ebcce-6141-52df-8ffe-45210a8ca5b6"
   },
   {
    "occupation_code": "64A",
@@ -6286,9 +6352,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 284,
+   "sort_order": 287,
    "body_sha256": "749b5f2fb9023196ebaa9054d8b7e6eedbdd9c0b3a303a45702e074d6ef0133b",
-   "id": "0f0e0b50-89a6-5e31-b1f3-c7e51f25a910"
+   "id": "e930c39c-468e-5f11-bb1f-c03eab1d7e25"
   },
   {
    "occupation_code": "64A",
@@ -6308,9 +6374,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 285,
+   "sort_order": 288,
    "body_sha256": "833199361248dc6d34e6ba8abe3101d32f4e21ab37f23365924d5190a46ff4e2",
-   "id": "865d85d8-f2cc-5bc6-b7c1-e7ce6f44dddc"
+   "id": "1c1e19c4-ab0a-5b32-93ab-19f70acc6c98"
   },
   {
    "occupation_code": "64A",
@@ -6330,9 +6396,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 286,
+   "sort_order": 289,
    "body_sha256": "3afdac39bbccb6fc294efb4a97b7510cfe891cb9ea786fe5eb77b57f063b56cd",
-   "id": "7b04c18d-7c3a-5cab-884a-b96a1b209c98"
+   "id": "2f173b03-0ab3-5d4f-aa9d-c978cbce7b4e"
   },
   {
    "occupation_code": "64B",
@@ -6352,9 +6418,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 287,
+   "sort_order": 290,
    "body_sha256": "ce8b1a90015c16d79afba4c1a4a1eebb3193b91880bee32fd84885cc91414406",
-   "id": "40a8ebc2-d5ce-5c98-95aa-4d8d769407f1"
+   "id": "85f10695-41a7-5b50-b64e-3a0a04154cdd"
   },
   {
    "occupation_code": "64B",
@@ -6374,9 +6440,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 288,
+   "sort_order": 291,
    "body_sha256": "a4019d7dfa4abb32b7be0f85df08cbb1a42a945fb316d7da5ec6007727c35999",
-   "id": "770eb4b6-317a-5c84-ad41-48d8dbf995c7"
+   "id": "9389a6a4-dc67-5854-bc60-8fa9f95e5724"
   },
   {
    "occupation_code": "64B",
@@ -6396,9 +6462,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 289,
+   "sort_order": 292,
    "body_sha256": "9abe353d577340dab30f727aeafe7b703571bd22d0c1dd0e6464453547c79cae",
-   "id": "7962d034-029f-5517-a725-7e586abd62c9"
+   "id": "032b1677-a1a4-50c6-970b-fd87fc991024"
   },
   {
    "occupation_code": "64C",
@@ -6418,9 +6484,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 290,
+   "sort_order": 293,
    "body_sha256": "8bdd8eeea5ee325bb2b8b930e663d51825af4bc9c30dbc7dfe736db0bd9440cd",
-   "id": "36079cee-1067-5998-bb02-681d8d3a0e91"
+   "id": "5f2674fe-810b-57a9-9702-70de372cccfe"
   },
   {
    "occupation_code": "64C",
@@ -6440,9 +6506,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 291,
+   "sort_order": 294,
    "body_sha256": "a4019d7dfa4abb32b7be0f85df08cbb1a42a945fb316d7da5ec6007727c35999",
-   "id": "01d63377-16a7-55de-a47a-0769bb5c0170"
+   "id": "904c3fd2-0ad9-5256-95d4-4b617cfc7cc0"
   },
   {
    "occupation_code": "64C",
@@ -6462,9 +6528,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 292,
+   "sort_order": 295,
    "body_sha256": "f21942989b54b34eb81764a67aa268bac88c369f5aa8a20ca2cf54c9cf3b76f9",
-   "id": "8440325d-19e5-59ec-9d40-fec0a0c74416"
+   "id": "9da95ac9-b2ba-5365-9761-546a412b7541"
   },
   {
    "occupation_code": "64D",
@@ -6484,9 +6550,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 293,
+   "sort_order": 296,
    "body_sha256": "628d7f67b98fd5b9100b9e16e5ea7c12ab85a17396176273ec649ba0d2926f99",
-   "id": "f18a269c-2c70-5c58-bf88-e9e97b29b2d5"
+   "id": "5748a12c-93a5-5ebb-8c83-e7429422fab4"
   },
   {
    "occupation_code": "64D",
@@ -6506,9 +6572,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 294,
+   "sort_order": 297,
    "body_sha256": "a4019d7dfa4abb32b7be0f85df08cbb1a42a945fb316d7da5ec6007727c35999",
-   "id": "9016cbe8-8437-5fdf-bac0-9eb40b3debd7"
+   "id": "9a13d9f6-f8f0-5b55-9475-b79bd3630ef1"
   },
   {
    "occupation_code": "64D",
@@ -6528,9 +6594,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 295,
+   "sort_order": 298,
    "body_sha256": "f80239db36f006644ae283819204b362b776fcaa6645fbd5e0b45bfebf404cd7",
-   "id": "ec92d9fe-8be5-5ae0-8c53-9809a51601f8"
+   "id": "0755eb4f-768c-5dbd-b8fd-d7a2159b317d"
   },
   {
    "occupation_code": "64E",
@@ -6550,9 +6616,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 296,
+   "sort_order": 299,
    "body_sha256": "56a6ef2b45e86f3eaa4408a5cec2bd728300ad7e7ddcfcae832490bd09424941",
-   "id": "751fb8be-a811-5768-915b-3af306abc726"
+   "id": "c0de3581-5849-5f4e-aafc-4aeafbf270c9"
   },
   {
    "occupation_code": "64E",
@@ -6572,9 +6638,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 297,
+   "sort_order": 300,
    "body_sha256": "a4019d7dfa4abb32b7be0f85df08cbb1a42a945fb316d7da5ec6007727c35999",
-   "id": "878f1db6-d559-55a4-991f-a589b784db4d"
+   "id": "25fb8e6d-0c66-5e0f-b731-9f7ae0be5ad2"
   },
   {
    "occupation_code": "64E",
@@ -6594,9 +6660,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 298,
+   "sort_order": 301,
    "body_sha256": "179a99c41fe04ca87345ba1e7e5aa16b6eeb131e0f74902598cda09b090c5a48",
-   "id": "5fd279f8-5c96-5dc1-8c47-fa9249fbec6f"
+   "id": "56f44449-debf-53b4-849e-fad89b77120b"
   },
   {
    "occupation_code": "64F",
@@ -6616,9 +6682,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 299,
+   "sort_order": 302,
    "body_sha256": "3b19e6f4a2559c398cfed8bd2bf3eedcc2bc87f3a545820014dba079a274cf52",
-   "id": "ca35c447-ab21-54dd-958a-4d37aca98426"
+   "id": "6cf9a658-544c-5cf3-996d-654ddb07dfb2"
   },
   {
    "occupation_code": "64F",
@@ -6638,9 +6704,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 300,
+   "sort_order": 303,
    "body_sha256": "a4019d7dfa4abb32b7be0f85df08cbb1a42a945fb316d7da5ec6007727c35999",
-   "id": "82115135-63bb-5747-9c0e-1c92622017bc"
+   "id": "481ff77f-424f-544e-8332-0673985f53a4"
   },
   {
    "occupation_code": "64F",
@@ -6660,9 +6726,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 301,
+   "sort_order": 304,
    "body_sha256": "e32fde28d4853128b205f403a0646b8a924aa7a63d0acda5e46739bfba258396",
-   "id": "0e4afcb0-862b-5695-90c8-f2a8cc5ba11f"
+   "id": "a85f6598-93dc-57bb-b613-7d35178777ed"
   },
   {
    "occupation_code": "65A",
@@ -6682,9 +6748,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 302,
+   "sort_order": 305,
    "body_sha256": "c903763556f512f5cf2c0de3f98f10cb716d3e5630d3e460603f944db072eb54",
-   "id": "f37b6736-5272-5f1a-bcc1-2cb8bceed981"
+   "id": "778fe388-d118-5c3b-9664-34cdbf7b2a2a"
   },
   {
    "occupation_code": "65A",
@@ -6704,9 +6770,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 303,
+   "sort_order": 306,
    "body_sha256": "fb1cce6ca0be59c373ca509d4350c2ccffc367cd08d3de3c3b9c8c5171453faf",
-   "id": "ecab812f-971d-53e7-bf74-c8e81e51176c"
+   "id": "015fc56c-ccac-55aa-ad03-b5a443a68841"
   },
   {
    "occupation_code": "65B",
@@ -6726,9 +6792,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 304,
+   "sort_order": 307,
    "body_sha256": "f17b4c3105f262ab77955dac09cce77fc959df6b621674a770856a55c4b967f5",
-   "id": "baee64b1-71d6-58b5-acf8-f263e4e5c511"
+   "id": "1a9011bc-9665-5f2b-8d4a-759761801e57"
   },
   {
    "occupation_code": "65B",
@@ -6748,9 +6814,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 305,
+   "sort_order": 308,
    "body_sha256": "4c625c567122f801a29f3035132dd68a15db1f765541f96ce32f66365e0f8df1",
-   "id": "03b6a882-aef4-5260-a56d-c8a5d90b17af"
+   "id": "a1e6898d-e36e-52a0-b7e2-fb54ffdda9b2"
   },
   {
    "occupation_code": "65C",
@@ -6770,9 +6836,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 306,
+   "sort_order": 309,
    "body_sha256": "3090eb6199e7ac0ce326bfe1b5a2f512ea6e83525e5ec16a38de5b97e19dc7f8",
-   "id": "3f966f28-3364-589e-9d3e-aa0d0fda35ca"
+   "id": "0b0d4339-7de1-5420-abb5-f27e46ec1205"
   },
   {
    "occupation_code": "65C",
@@ -6792,9 +6858,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 307,
+   "sort_order": 310,
    "body_sha256": "8310e587e853e613262f8f4ac508b6671d1d9092f4c16018fce6d4ca72b0c685",
-   "id": "90dabf76-f94f-5171-a32e-f1acce200740"
+   "id": "9639b1a1-9127-55ff-a0c5-e2e71e11fc2f"
   },
   {
    "occupation_code": "65D",
@@ -6814,9 +6880,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 308,
+   "sort_order": 311,
    "body_sha256": "21ded7efdd6556c95d7f55c96e0aa667a8c4a124012684971a32667042156153",
-   "id": "00836f90-c682-5cd7-8b4e-e40c837721d0"
+   "id": "68a11e62-fbc0-5736-8bf7-17155df127f3"
   },
   {
    "occupation_code": "65D",
@@ -6836,9 +6902,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 309,
+   "sort_order": 312,
    "body_sha256": "05f9058fa9bf2fd019b59d6134b37478b5e58d8948f40769f5f007ae4d087d08",
-   "id": "809f4553-4904-555d-82d1-afb45e1d9e31"
+   "id": "82f83b69-8a07-5da5-9f1a-6015a0c01463"
   },
   {
    "occupation_code": "66B",
@@ -6858,9 +6924,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 310,
+   "sort_order": 313,
    "body_sha256": "036abc56d27143e0daa759ff19bb1788f1c4cd6bd3af3aa3448c326e73bcbf77",
-   "id": "709718e6-1bf5-5953-a510-324791038b76"
+   "id": "84071870-4b11-5c0a-bf2d-52feab46c394"
   },
   {
    "occupation_code": "66B",
@@ -6880,9 +6946,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 311,
+   "sort_order": 314,
    "body_sha256": "f1f208e44003574aaa69725d5f2bf293b27c946bcf98a29f9b70c9358c9ef80f",
-   "id": "18f2d615-bf50-5996-bbea-18ccc5a38a83"
+   "id": "117fb23f-e5fb-5adb-91d1-f983d7305b44"
   },
   {
    "occupation_code": "66C",
@@ -6902,9 +6968,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 312,
+   "sort_order": 315,
    "body_sha256": "6c38e637ab1c7efff4084d78316073f57085cb6fbb6a92068a36f40b6ac1f2bf",
-   "id": "5036fe29-17e2-5800-991f-2f3826d14a1a"
+   "id": "baa68eb4-f8c8-5f1b-bb47-d23f42dd679b"
   },
   {
    "occupation_code": "66C",
@@ -6924,9 +6990,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 313,
+   "sort_order": 316,
    "body_sha256": "c3b9ca0b33bed32e85e07e6335806122973d56d7f30ae9f5dd5693e058fc8ac3",
-   "id": "cd3d886c-69c3-588f-af84-9598a6ee564f"
+   "id": "1a3bedd0-bdbd-5384-a465-4fc27521caf9"
   },
   {
    "occupation_code": "66E",
@@ -6946,9 +7012,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 314,
+   "sort_order": 317,
    "body_sha256": "e7417f5a211a75f54e68013dfa1a331251c88c8f6cb27c0c5deb1a387118ff9d",
-   "id": "8eb1a5ef-23bf-5c15-a4d7-f05c33a6495c"
+   "id": "d6bc5aba-b9c6-5109-bd0a-00b9aad21831"
   },
   {
    "occupation_code": "66E",
@@ -6968,9 +7034,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 315,
+   "sort_order": 318,
    "body_sha256": "4dbf46604fb2ce082998dd06c73947e289bf4a1d1fd1563999a46c1148ea851b",
-   "id": "4166f568-8360-5b96-8c92-9e1cb87737bf"
+   "id": "7b587341-fb2d-5956-ad1a-152b4d11bd42"
   },
   {
    "occupation_code": "66E",
@@ -6990,9 +7056,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 316,
+   "sort_order": 319,
    "body_sha256": "e98388e429e7ee037f63295100627b55a2fccb163891e1b90c67dc2e331f69f5",
-   "id": "45a1fcb2-38f2-5d04-bf01-eee5ccd7cc99"
+   "id": "3cb58e91-6680-5658-b734-e711a8e63d3f"
   },
   {
    "occupation_code": "66F",
@@ -7012,9 +7078,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 317,
+   "sort_order": 320,
    "body_sha256": "524cb9cc06ac19fdb87edae605f6c0ea917c26b9a2f56339ec12430ef21933d6",
-   "id": "cb0d8293-629b-555a-981f-056006bed2cb"
+   "id": "d03eedc8-fe01-5081-92cc-c4e2840bb7b6"
   },
   {
    "occupation_code": "66F",
@@ -7034,9 +7100,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 318,
+   "sort_order": 321,
    "body_sha256": "c2b5fb9e1944e9a0a6d3a7ab2f6a456a0ca05751f4450a8e0e4248668a3243bf",
-   "id": "64392530-02ef-5d6c-afb9-351d96fa39ce"
+   "id": "095ee5ed-c81e-5004-a35c-bd726050efcc"
   },
   {
    "occupation_code": "66F",
@@ -7056,9 +7122,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 319,
+   "sort_order": 322,
    "body_sha256": "33697f58821043052275cc66656f5f15b2ca7ef2cadbd708811569cf319c05f1",
-   "id": "1be8b515-c207-564b-8642-f6ab3641659d"
+   "id": "f6f080b4-89d3-54d6-a1cb-6564fc6ce9f8"
   },
   {
    "occupation_code": "66G",
@@ -7078,9 +7144,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 320,
+   "sort_order": 323,
    "body_sha256": "d9e7c851e5751fe475279a93a8e1630c98f02aad98d196971b08c3ae707945f9",
-   "id": "17cddfea-74af-5e9b-b808-f753d3b3a7c6"
+   "id": "bd3d79dd-1981-5ed7-b9e2-45f122a3ad92"
   },
   {
    "occupation_code": "66G",
@@ -7100,9 +7166,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 321,
+   "sort_order": 324,
    "body_sha256": "66d5baebfc2627300ec287b277166bbb3c76fd55d07c316d792ad8923c6721f7",
-   "id": "b8c04b3c-0dc5-559c-bdef-390f026ca912"
+   "id": "b50293c2-ecc1-5efe-8a88-7155f0db53a7"
   },
   {
    "occupation_code": "66H",
@@ -7122,9 +7188,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 322,
+   "sort_order": 325,
    "body_sha256": "66586a9cc84756c696de2cd349942f0825ecbffdcb8b487c54e95e675376f1dd",
-   "id": "14177ca3-32bd-522a-a3bb-52a7b5326def"
+   "id": "c85591b3-d123-5b0b-bed7-40c957d44e3d"
   },
   {
    "occupation_code": "66H",
@@ -7144,9 +7210,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 323,
+   "sort_order": 326,
    "body_sha256": "c27195d300deb03d42621d8e1adcc6eb96ef21476c4857f74369df4339ccf189",
-   "id": "abb4ac7d-bbef-59d9-b81c-61b0e3e762f3"
+   "id": "ded4ee32-17a0-5dd7-b075-cde9d614703a"
   },
   {
    "occupation_code": "66H",
@@ -7166,9 +7232,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 324,
+   "sort_order": 327,
    "body_sha256": "ad4e2d9510431a4d6c4de96e393ed53a3e369e8fb7895495257f96b0dca5c775",
-   "id": "682f5279-c200-5a71-960a-4ac93da8e753"
+   "id": "14c327c0-f3d1-5eaf-be77-4415df044d71"
   },
   {
    "occupation_code": "66N",
@@ -7188,9 +7254,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 325,
+   "sort_order": 328,
    "body_sha256": "1c90c934922d7dd5f29ee16ed612f774d4c516bcdefb4d869175e162a7eaa497",
-   "id": "4bc1a955-7194-5d95-86db-9877208b758d"
+   "id": "09e916ef-5c7f-51dd-80dd-11a855bf1187"
   },
   {
    "occupation_code": "66N",
@@ -7210,9 +7276,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 326,
+   "sort_order": 329,
    "body_sha256": "0c25be387b5e67ffe43624857cbeb97b7dd5dd687bd50e74d97a82c82a8efe6a",
-   "id": "d2742272-d9a5-573c-a69e-9f4c65f0bb33"
+   "id": "8273c06b-3ff3-516d-8aca-e262b1009486"
   },
   {
    "occupation_code": "66P",
@@ -7232,9 +7298,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 327,
+   "sort_order": 330,
    "body_sha256": "14ec443692f090036a474c9481b611bfb4240a409daf020ddd8ae2323533aa4b",
-   "id": "1456c7d1-85b1-5d34-a3f7-7ae05d89abb2"
+   "id": "238b2adc-b505-5d58-a427-4fc736cf10f2"
   },
   {
    "occupation_code": "66P",
@@ -7254,9 +7320,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 328,
+   "sort_order": 331,
    "body_sha256": "2c051bc78454a4c58e4e084220fd395e7d06840d00e15917aee27a04db018534",
-   "id": "dc63efe1-ada1-5a41-9ee0-e449a90d2994"
+   "id": "24ef7f8c-cd06-5af9-94a7-2edafc1c0f0d"
   },
   {
    "occupation_code": "66R",
@@ -7276,9 +7342,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 329,
+   "sort_order": 332,
    "body_sha256": "3e2d0f8bcad6288d0f716fa8cad7a1090f827b98b2bea7bb5b019af913dedfe8",
-   "id": "bcaf627a-a5ef-5ad8-837a-00c832005ec4"
+   "id": "09a35833-9c48-5c8d-9cf7-45f03507530c"
   },
   {
    "occupation_code": "66R",
@@ -7298,9 +7364,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 330,
+   "sort_order": 333,
    "body_sha256": "70beb70f4fe25e1e026dc248f01cabe5c0d7b75d2f353f949ace098ea2975c70",
-   "id": "0abb488a-0f90-533a-b312-1728947b24d1"
+   "id": "3a7210c1-cc42-5263-80eb-928d7c095961"
   },
   {
    "occupation_code": "66S",
@@ -7320,9 +7386,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 331,
+   "sort_order": 334,
    "body_sha256": "ddb845204dec28ae798b54f06adc0bef9120acd3788cbfb165f811540ca02802",
-   "id": "a09d51fc-0252-5eca-921b-792719eef412"
+   "id": "004300e6-94b4-505e-a392-7bbcdd29934a"
   },
   {
    "occupation_code": "66S",
@@ -7342,9 +7408,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 332,
+   "sort_order": 335,
    "body_sha256": "80860525740b9567212d0d6cb2fafefac0397a714b300fb6debc9ad324913b5d",
-   "id": "25da9beb-5141-54e3-8442-ec32d1fc5f21"
+   "id": "89147794-33d6-5229-85f7-febfc5d696e2"
   },
   {
    "occupation_code": "66T",
@@ -7364,9 +7430,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 333,
+   "sort_order": 336,
    "body_sha256": "a4046cf260d81f7f9421d8703787ecf1a36d20e8c2f4a073d570574b931c3538",
-   "id": "95cf0eaa-69f7-57a4-8054-d53a713500b6"
+   "id": "1aa2ccff-a29b-530d-bf44-913f1f329912"
   },
   {
    "occupation_code": "66T",
@@ -7386,9 +7452,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 334,
+   "sort_order": 337,
    "body_sha256": "785a25551997684fae6aa2943648b2f78a5c8ecec40ff238877993eaca77f0ba",
-   "id": "eb0d766e-c2ee-5ff3-9c29-cb25852dde5d"
+   "id": "cadf3e07-df85-5934-a02e-7ba48b2b74ba"
   },
   {
    "occupation_code": "66W",
@@ -7408,9 +7474,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 335,
+   "sort_order": 338,
    "body_sha256": "8dbc48e5162318a092dda4f5887019b12de356a28d80766e668d6203953cde6c",
-   "id": "a80e0ed5-74ec-5b66-a901-65d837ac0960"
+   "id": "de10efb9-f92c-574c-ba80-d490ede8ce3c"
   },
   {
    "occupation_code": "66W",
@@ -7430,9 +7496,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 336,
+   "sort_order": 339,
    "body_sha256": "b8c92b30d69b5d3bae4b16ae1d314f340f2f5ceef71dcd94fb5e06ce6ddf4bba",
-   "id": "a5df5015-8314-5397-ad4e-958456c40b2b"
+   "id": "e9e8c07c-dbbf-5412-aa8b-3d93171ef454"
   },
   {
    "occupation_code": "67A",
@@ -7452,9 +7518,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 337,
+   "sort_order": 340,
    "body_sha256": "a6aa939e99316eb190e28009544976c199585581bbdbe1ead8dc1ef56212d5ec",
-   "id": "fbee48b9-cc16-502a-99cc-83507bad775b"
+   "id": "5ae2b0ea-f6a4-5d13-84b7-4c083da3e082"
   },
   {
    "occupation_code": "67A",
@@ -7474,9 +7540,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 338,
+   "sort_order": 341,
    "body_sha256": "edf21b82e225f93f7ce7c38e3f5c6f30c71814c398a3075e6a56f669468cc530",
-   "id": "1aaf845f-1af8-5e58-9d5a-5e193a78a0dd"
+   "id": "9e1b8811-4cb3-5c54-910f-2c29bf094748"
   },
   {
    "occupation_code": "67B",
@@ -7496,9 +7562,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 339,
+   "sort_order": 342,
    "body_sha256": "fa844caaa9bdb4a2a09ed568040e693151cd57c730c264d103bdaf8ac26390ff",
-   "id": "4e2fca20-6729-5e26-a0d7-04fcf987951a"
+   "id": "1507100d-ade7-5247-af3e-a4ef9b9acfea"
   },
   {
    "occupation_code": "67B",
@@ -7518,9 +7584,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 340,
+   "sort_order": 343,
    "body_sha256": "9bedca82dbacd9cd9b7d625189899c7099bc98687f1396fdd679f39f935b0625",
-   "id": "0262c9e3-c91e-5fde-bf38-87675f91a40c"
+   "id": "43ec40c5-7458-5e1d-8819-c0e719745e30"
   },
   {
    "occupation_code": "67C",
@@ -7540,9 +7606,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 341,
+   "sort_order": 344,
    "body_sha256": "d1e3d91b43da1e14299cd5c21c0b17267c882b7a58e95f92db30a3843a099897",
-   "id": "e94a13c0-e558-53ad-a97e-9ea9689487bb"
+   "id": "474b7eb5-27a3-532b-b611-ff9c569ba306"
   },
   {
    "occupation_code": "67C",
@@ -7562,9 +7628,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 342,
+   "sort_order": 345,
    "body_sha256": "9def5553b3a2c2cab2e57cf1f3948c90835ff8099661fd01a442aa8841792283",
-   "id": "7b0199c6-7e87-5a51-9106-5539cb943bdb"
+   "id": "958ac92c-45f8-5090-86ec-1ccd0e0ef396"
   },
   {
    "occupation_code": "67D",
@@ -7584,9 +7650,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 343,
+   "sort_order": 346,
    "body_sha256": "f70905d50ba584c3c120106f7d4ce61ed147e6a912bca97fe6ac5d79f882c410",
-   "id": "a1ee8485-4fae-5e9d-be49-f55476c03502"
+   "id": "1e2a1165-5d2a-53a8-83be-8fddd5204041"
   },
   {
    "occupation_code": "67D",
@@ -7606,9 +7672,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 344,
+   "sort_order": 347,
    "body_sha256": "fdefc0101373dc28d2013a700ed1727c67be9efc2ed87ee6dc038c37ec1d44c7",
-   "id": "8c9c5ac8-e1cf-501f-82d8-bad0f8c0d68f"
+   "id": "083e16cb-ac80-54e8-9819-7a3b921f87be"
   },
   {
    "occupation_code": "67D",
@@ -7628,9 +7694,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 345,
+   "sort_order": 348,
    "body_sha256": "d07ccc7567bdef6dfd18c3b8183b68a84b1003a32ae2e71bf10804cf6adb479f",
-   "id": "32c0586c-c55d-55df-9407-177e7a090b92"
+   "id": "193c680d-dda3-5a28-8f10-aaaf14fcd4e5"
   },
   {
    "occupation_code": "67E",
@@ -7650,9 +7716,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 346,
+   "sort_order": 349,
    "body_sha256": "53a6901b0d2c675d7e011a4b8ec1e5198890bd01f544835912220c037a3a22bc",
-   "id": "c802a287-1334-5396-8349-d686d4c56678"
+   "id": "fc7bd54c-cd85-58d4-8a49-32db7dca9100"
   },
   {
    "occupation_code": "67F",
@@ -7672,9 +7738,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 347,
+   "sort_order": 350,
    "body_sha256": "d4c971287a3848281a83559718bbc68a6549955b6836ebb7928b5039eb734066",
-   "id": "a593eb10-30e6-5efd-86ac-58794825a85d"
+   "id": "b2d09c50-cf10-5384-b179-8b0ae3b482ff"
   },
   {
    "occupation_code": "67F",
@@ -7694,9 +7760,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 348,
+   "sort_order": 351,
    "body_sha256": "7f5aca80ce607187962b986690b8116d931601049ff80f8e2761af4e2a2d9425",
-   "id": "abdacfbc-8c6a-5457-bcdb-7ab261f67f84"
+   "id": "5bc7fe8f-c84c-5973-bf34-5191e2727193"
   },
   {
    "occupation_code": "67G",
@@ -7716,9 +7782,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 349,
+   "sort_order": 352,
    "body_sha256": "fa7d4cd386e3263d7413d90c5730aaf2bfb3dbd9d5488b8d3ace5736fbf5c3ea",
-   "id": "b406a060-94ce-527a-a74c-d0e540ddc6d2"
+   "id": "a98ce924-e17f-5544-ab33-550f086a180b"
   },
   {
    "occupation_code": "67G",
@@ -7738,9 +7804,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 350,
+   "sort_order": 353,
    "body_sha256": "61e14950b70901fe5c201c485654c22ae699359b45f9714693fe3e5e2395ed90",
-   "id": "fa8f41ed-cf2f-53fc-8dba-ec38c2faacc0"
+   "id": "8c914814-8326-592c-8c9d-6454b4bfcf6c"
   },
   {
    "occupation_code": "67J",
@@ -7760,9 +7826,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 351,
+   "sort_order": 354,
    "body_sha256": "c3ce96074e46127f3b2338a84315f97c5f9baa389a8ab6db7d249d5eb282ef6f",
-   "id": "4fa3e6c4-bb1b-5008-b133-3f44c5e0ea47"
+   "id": "d47bdec8-389a-5a95-80b5-3ab8694eec5d"
   },
   {
    "occupation_code": "67J",
@@ -7782,9 +7848,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 352,
+   "sort_order": 355,
    "body_sha256": "71b870d12486987497c826a6c80bee337fa9d596494e96a7f29ec4f69c4e7017",
-   "id": "d91ab91c-6e9a-5601-8a5f-e805398c44c4"
+   "id": "35d04297-ea6b-58f7-b304-ad6a8f042fd1"
   },
   {
    "occupation_code": "67J",
@@ -7804,9 +7870,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 353,
+   "sort_order": 356,
    "body_sha256": "bc3eb6bfab38041bd81ad9a32220f544e283962599a10deb6305e432e1962b46",
-   "id": "a2107b87-ef56-56cb-a4cc-cd258df10743"
+   "id": "77464567-e11b-561f-95d4-0fcb854da3fd"
   },
   {
    "occupation_code": "74A",
@@ -7826,9 +7892,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 354,
+   "sort_order": 357,
    "body_sha256": "e48c453eabc00d5a0362c1ca89ad4339fe46a8c0d3493038af0e94fc866223b3",
-   "id": "1dec113a-716b-5d8a-913f-ba8b3a086a56"
+   "id": "ff567ada-71cd-5b80-8892-8ebf7c9239d2"
   },
   {
    "occupation_code": "74A",
@@ -7848,9 +7914,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 355,
+   "sort_order": 358,
    "body_sha256": "fa2a3ea2b11b852705482e3877c82c85f1012677b81139a13fc5db5fcfc61702",
-   "id": "50b900f5-8027-5c26-8140-46fa528bb1d4"
+   "id": "d979a8b0-6b30-5cf0-a1a6-378cf911b16e"
   },
   {
    "occupation_code": "88A",
@@ -7870,9 +7936,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 356,
+   "sort_order": 359,
    "body_sha256": "ea434273626ed2692efa61eff9e3956a84d19a9c99bb5d5562f4e7b8373b75ef",
-   "id": "eadc8fe4-7e4e-5e8f-b014-91fd1b9cc6df"
+   "id": "7435c213-5237-5e83-9b6d-49d6d1b695a7"
   },
   {
    "occupation_code": "88A",
@@ -7892,9 +7958,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 357,
+   "sort_order": 360,
    "body_sha256": "3fc216632cc5afebd5853ae510e1e79fe52ce157020c95f446b13e57fafc8c45",
-   "id": "fe5ea496-7e8d-5bf9-9276-12c45242101d"
+   "id": "f022e5df-1181-5eea-b151-49c44b9e9df5"
   },
   {
    "occupation_code": "89E",
@@ -7914,9 +7980,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 358,
+   "sort_order": 361,
    "body_sha256": "58acf167d090635c1e2372c370c0d0ef9d6bf54420c968e18b5952a07ae52cc6",
-   "id": "5b833a64-3a9f-56b0-8b2b-6b1bc089317e"
+   "id": "c5b80b3d-785a-5862-bc21-59832ea965bf"
   },
   {
    "occupation_code": "89E",
@@ -7936,9 +8002,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 359,
+   "sort_order": 362,
    "body_sha256": "8eb17235af242b6ee68274a4fc88790ee7c70d4c3a2d4041e79bc2f798d3e0ca",
-   "id": "693f6548-d945-5255-9d4a-b70667a6fbaf"
+   "id": "08f50c1c-b566-5c50-99df-7cd74c2461c9"
   },
   {
    "occupation_code": "90A",
@@ -7958,9 +8024,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 360,
+   "sort_order": 363,
    "body_sha256": "08525bbe2dce5cb818f5ed1ebcf67995d86ef12de0701b532157a20de7184f7e",
-   "id": "bdf34421-b263-54e7-819e-35937fdfc386"
+   "id": "39648068-b862-5c81-9120-82e2213b5d41"
   },
   {
    "occupation_code": "90A",
@@ -7980,9 +8046,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 361,
+   "sort_order": 364,
    "body_sha256": "5950b1211f8ebf453c0539467550fa0379a20a1d5478590e956a737d2ad0b1d4",
-   "id": "04b8940b-54f4-5b6e-a09f-c84bbb207f67"
+   "id": "dabc8bc9-dbde-5ba0-a3b5-10982d6390ad"
   },
   {
    "occupation_code": "91A",
@@ -8002,9 +8068,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 362,
+   "sort_order": 365,
    "body_sha256": "94181501d7b3ac100aa4d8825f038664d05810143db17719174ee6e4cd9a4745",
-   "id": "e6a959dc-0a27-5519-b232-29a3d20f4fd5"
+   "id": "38130d06-e745-5f4a-9571-bd1b47db4969"
   },
   {
    "occupation_code": "91A",
@@ -8024,9 +8090,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 363,
+   "sort_order": 366,
    "body_sha256": "e5c31e11f113f8d8db7196b461927734d181fea950ef8e4b2bab5c91e72fd1fd",
-   "id": "c43d9bda-e9be-5481-946b-0149fc1a89ea"
+   "id": "b9e72bd7-539a-52d2-8eb5-d3b0719736c5"
   },
   {
    "occupation_code": "91B",
@@ -8046,9 +8112,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 364,
+   "sort_order": 367,
    "body_sha256": "561d26945b0ff0ca8f66a935b8238117ead59aba8f09e560c8676b06b92effd1",
-   "id": "dd4d0b16-50c4-52e0-88e8-926244c7e3d9"
+   "id": "dc77464b-0109-500f-9946-2ba4b3e03a67"
   },
   {
    "occupation_code": "91B",
@@ -8068,9 +8134,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 365,
+   "sort_order": 368,
    "body_sha256": "400869a4d098ef91818b1723d63533817b2efe8163b081bf7d9823c26e39b5a1",
-   "id": "c1ae2b38-d0b3-584d-9072-2060c554b090"
+   "id": "a4360b6c-f511-5dd8-a0da-d2b4a4547845"
   },
   {
    "occupation_code": "91B",
@@ -8090,9 +8156,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 366,
+   "sort_order": 369,
    "body_sha256": "9ecfd45a526b3175874dee13509d101371252c219f1532179c8f958711ee9012",
-   "id": "82018ed6-584e-549a-a4e7-26024398b200"
+   "id": "f4df9e0c-87b3-5c2a-ac77-055ea2c11371"
   },
   {
    "occupation_code": "91D",
@@ -8112,9 +8178,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 367,
+   "sort_order": 370,
    "body_sha256": "c0fa97e55544bd010c962103dd4a6a49778c62c2814e7d535cc0493036751d6f",
-   "id": "8f86d00e-b291-5637-814c-3e31affdb11b"
+   "id": "674a8c16-b3d8-50c2-9046-43731a4f73fa"
   },
   {
    "occupation_code": "91D",
@@ -8134,9 +8200,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 368,
+   "sort_order": 371,
    "body_sha256": "b06fe9a4e5c17219da256c9b22636adeab5fc64d237539901311550809e83cd6",
-   "id": "8f8e4d58-389b-5d2a-8a53-8c804ae74520"
+   "id": "dc4a1577-5bb9-51ef-9cc8-b29acbe196ce"
   },
   {
    "occupation_code": "92A",
@@ -8156,9 +8222,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 369,
+   "sort_order": 372,
    "body_sha256": "59e1d8b8e72feba1a9071c4415b3e3c1d1e1f33396037bd2c66a797c2ff561cd",
-   "id": "de138724-5ab5-5e8b-9306-04e11210eafd"
+   "id": "9053333f-0c28-5b2f-8da9-f03395d4c4ef"
   },
   {
    "occupation_code": "92A",
@@ -8178,9 +8244,9 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 370,
+   "sort_order": 373,
    "body_sha256": "2eb4cf52e5ef1fc9a1b7aa1c852405c001fad9d903374a90ddc80d3fc154fab5",
-   "id": "005aa97d-8c15-570e-abb2-715bff2adac7"
+   "id": "8e8b7c71-62e4-56f3-a003-f42b45666aca"
   },
   {
    "occupation_code": "92A",
@@ -8200,18 +8266,18 @@
    "effective_to": null,
    "cumulative": false,
    "skill_level": null,
-   "sort_order": 371,
+   "sort_order": 374,
    "body_sha256": "d6fa8e72b77eba7274177ac9fb0597a0915495fc787e8b8c4e7030db78120413",
-   "id": "ba5d989e-b9ed-5ce9-9950-7cd473aa81ca"
+   "id": "93b975de-50c7-5406-8c47-5df024129765"
   }
  ],
  "report": {
-  "codes": 173,
-  "passages": 372,
+  "codes": 174,
+  "passages": 375,
   "byType": {
-   "general_duties": 166,
-   "assignments": 117,
-   "grades_authorized": 89
+   "general_duties": 167,
+   "assignments": 118,
+   "grades_authorized": 90
   },
   "publicationRepeatsDropped": [
    {
@@ -8314,7 +8380,6 @@
    "48X",
    "49W",
    "49X",
-   "50A",
    "70A",
    "70B",
    "70C",

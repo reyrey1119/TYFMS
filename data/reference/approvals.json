@@ -10,11 +10,11 @@
   },
   {
    "manifest_id": "army-611-21-officer-ch3",
-   "fingerprint": "4f3e9c9a0690b698e26a981b3dd5c52b9f92e3112cd3982e3523ee6e8f64c07f",
+   "fingerprint": "0a2d452c40fa610ea2d05137998fa26f13e62525e65a094d77039db182fd064b",
    "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, structure and line-accounting checks on every passage, plus visual comparison of 27 sampled PDF pages against the stored text, 2026-10-16), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
-   "reviewed_at": "2026-10-16T12:00:00Z",
+   "reviewed_at": "2026-10-17T12:00:00Z",
    "method": "automated-checks-plus-sampled-visual-review",
-   "scope": "DA PAM 611-21 ch. 3 (officer AOC descriptions). Every passage checked verbatim; 7 pages viewed: 63N, 67E, 64A, 60G, 15A (random, same seed; 17X has no description) plus 89E, 90A. After the visual review, boundary fixes were made and the 4 AOCs that have a section but no structure-chart row (49B, 60U, 91B, 91D) plus 60V (heading glued to the previous line) were added; their pages (95, 113, 161, 162) and 47D, 47J, 47U, 18A, 25A, 26A, 91D were re-read against the rendered pages, and every passage was re-verified verbatim."
+   "scope": "DA PAM 611-21 ch. 3 (officer AOC descriptions). Every passage checked verbatim; 7 pages viewed: 63N, 67E, 64A, 60G, 15A (random, same seed; 17X has no description) plus 89E, 90A. After the visual review, boundary fixes were made and the 4 AOCs that have a section but no structure-chart row (49B, 60U, 91B, 91D) plus 60V (heading glued to the previous line) were added; their pages (95, 113, 161, 162) and 47D, 47J, 47U, 18A, 25A, 26A, 91D were re-read against the rendered pages, and every passage was re-verified verbatim. Change on 2026-10-17: the Force Management (FA 50) section, 3-50 on PDF page 98 (functional-area description, \"Description of duties\" with items 1-6, special grading, unique duty positions), was added as AOC 50A's description because the structure chart gives FA 50 exactly one AOC (50A); the page was rendered and compared with the stored passages and the whole bundle was re-verified verbatim. No other passage changed."
   },
   {
    "manifest_id": "army-611-21-warrant-ch8b",
@@ -271,6 +271,14 @@
    "reviewed_at": "2026-10-17T12:00:00Z",
    "method": "automated-checks-plus-sampled-visual-review",
    "scope": "DA PAM 600-25 career guide, mos-00z (2022-07-12): rank-specific training, assignments, credentials, self-development and development guidance for 00Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p2. Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-4-20220223-medical-service-corps",
+   "fingerprint": "0f55f817e011b8a87de37713a11d0256bbd110333b3418efa0d0e9dbc3670a3d",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim and line-accounting checks on every passage plus visual comparison of the rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-4 Medical Service Corps chapter (file dated 2022-02-23), for the 18 AOCs DA PAM 611-21 lists without a description: 70A, 70B, 70C, 70D, 70E, 70F, 70H, 70K, 71A, 71B, 71E, 71F, 72A, 72B, 72C, 72D, 73A, 73B. Imported per AOC: Description of duties (general duties), Description of positions (assignments), Qualifications (prerequisites), Unique education/training opportunities (training), and the plain CPT/MAJ/LTC/COL Unique-skills lists where the chapter has them (70A, 70C, 70E, 72A, 72B); the grade-by-grade self-development and career-phase text and the Restrictions line are not imported. Every passage verified verbatim against the PDF pages it cites; pages 8 (70B, 70A) and 48 (73B, and the start of 67E which is not imported) rendered and compared. EDITION: see the source notes; the chapter is older than DA PAM 611-21 (Nov 2025), its file name carries the date 23 Feb 2022 and the Army hosts it under a 3 May 2023 upload path, after the 27 Apr 2023 base pamphlet; no newer chapter was found but that could not be confirmed. For 70D and 72D the chapter uses different title words than 611-21; the 611-21 title is kept and the chapter wording is noted on the description."
   }
  ]
 }

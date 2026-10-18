@@ -341,9 +341,22 @@ export function importOfficerChapter(pages) {
     for (const c of notInChart) chartMissing.set(c, { code: c, title: m[1].trim().replace(/\s*\([^)]*\)\s*$/, ''), page: l.page })
     if (codes.length || notInChart.length) heads.push({ i: l.i, codes: [...codes, ...notInChart], title: m[1].trim(), page: l.page })
   })
-  const branchStarts = prose.filter(l => BRANCH_HEADING.test(l.text)).map(l => l.i)
+  // A functional-area section ("3-50. Force Management (50) (Proponent: ...)") describes the functional area. When the structure
+  // chart gives that functional area exactly one AOC and nothing else describes it, the section is that AOC's description (50A).
+  const fa = []
+  prose.forEach(l => {
+    const m = l.text.match(/^3\s*[-–—]\s*\d+\.\s+(.{2,80}?)\s*\((\d{2})\)\s*\(Proponent/)
+    if (!m) return
+    const inFa = [...chart.keys()].filter(c => c.startsWith(m[2]))
+    if (inFa.length === 1 && !heads.some(h => h.codes.includes(inFa[0]))) {
+      heads.push({ i: l.i, codes: [inFa[0]], title: m[1].trim(), page: l.page, functionalArea: m[2] })
+      fa.push({ code: inFa[0], fa: m[2], heading: l.text.slice(0, 120), page: l.page })
+    }
+  })
+  heads.sort((a, b) => a.i - b.i)
+  const branchStarts = prose.filter(l => BRANCH_HEADING.test(l.text) && !fa.some(f => lines[l.i].page === f.page && l.text.startsWith(f.heading.slice(0, 20)))).map(l => l.i)
   const byCode = new Map()
-  const report = { headings: heads.length, issues: [], gaps: [] }
+  const report = { headings: heads.length, issues: [], gaps: [], functionalAreaSections: fa }
   heads.forEach((h, n) => {
     const nextHead = n + 1 < heads.length ? heads[n + 1].i : lines.length
     const nextBranch = branchStarts.find(x => x > h.i) ?? lines.length
