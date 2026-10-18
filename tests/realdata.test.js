@@ -16,7 +16,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { useBundledReference } from '../api/_lib/referenceStore.js'
 useBundledReference(false)   // these tests exercise the Supabase registry path with their own data; see tests/bundledReference.test.js for the shipped data
-import { retrieveReference, referencePromptBlock, clearReferenceCache } from '../api/_lib/milReference.js'
+import { retrieveReference, referencePromptBlock, clearReferenceCache, developmentGuidance } from '../api/_lib/milReference.js'
 import { loadBundles, dbFromBundles, PILOT } from './helpers/bundleDb.js'
 
 const NOW = Date.parse('2026-10-16T00:00:00Z')
@@ -85,8 +85,12 @@ test('42A: duties, training, credentials and assignments stay in separate catego
   assert.match(r.credential_recommendations, /Associate Professional in Human Resources \(aPHR\); Certified Associate in Project Management \(CAPM\); Project Management Professional \(PMP\); Power BI Data Analyst Associate/)
   assert.ok(!/aPHR/.test(r.training_recommendations) && !/Advanced Leader Course/.test(r.credential_recommendations), 'categories are not mixed')
   const block = referencePromptBlock(r)
-  assert.match(block, /Recommended credentials \(not proof they were earned\)/)
-  assert.match(block, /Possible assignments \(not confirmed\)/)
+  // Recommended credentials, training and assignments are guidance for the person, not material to write from.
+  assert.ok(!/aPHR|Advanced Leader Course|Senior HR Sergeant in a TDA/.test(block), 'recommendations never reach a generation prompt')
+  assert.match(block, /HR specialist manages and performs HR functions/)
+  const groups = developmentGuidance(r)
+  assert.deepEqual(groups.map(g => g.section).filter(x => ['training', 'credentials', 'assignments'].includes(x)), ['training', 'credentials', 'assignments'])
+  assert.match(groups.find(g => g.section === 'credentials').label, /recommends/)
 })
 
 test('42A: promotion-board criteria are stored but never returned or sent to a model', { skip: !have('army-cmf42') }, async () => {

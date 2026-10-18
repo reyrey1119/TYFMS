@@ -33,7 +33,8 @@ alter table public.reference_passages
     'development',         -- general career-development guidance
     'prerequisites',
     'promotion_criteria',
-    'grades_authorized'    -- added with 007; listed here too so re-running 005 after 007 never rejects existing rows
+    'grades_authorized',   -- added with 007; listed here too so re-running 005 after 007 never rejects existing rows
+    'skills'               -- skills expected at a grade (career guides); same reason
   ));
 
 -- Where in the document this came from, and a fingerprint for review diffs.

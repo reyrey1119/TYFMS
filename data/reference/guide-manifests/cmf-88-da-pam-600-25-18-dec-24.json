@@ -1,0 +1,9 @@
+{
+  "note": "The guide's chapter numbers jump from 19 (88U) to 24: the 88U professional development model is numbered 24 where the sequence expects 20. Chapters 24-27 are renumbered 20-23 here (checked against pages 43 and 47).",
+  "chapterFixups": [
+    { "match": "^Chapter 24\\. Military occupational specialty 88U professional development model", "n": 20, "title": "Military occupational specialty 88U professional development model" },
+    { "match": "^Chapter 25\\. Military occupational specialty 88Z Transportation Senior Sergeant", "n": 21, "title": "Military occupational specialty 88Z Transportation Senior Sergeant" },
+    { "match": "^Chapter 26\\. Military occupational specialty 88Z professional development model", "n": 22, "title": "Military occupational specialty 88Z professional development model" },
+    { "match": "^Chapter 27\\. Military occupational specialty 88Z Reserve Component", "n": 23, "title": "Military occupational specialty 88Z Reserve Component" }
+  ]
+}

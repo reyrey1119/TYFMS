@@ -3,12 +3,15 @@
 // authoritative inputs to either generator. A reviewed source that has simply not been re-checked recently
 // ('stale') is still the official text; it is used, and the person is told it was last checked on a given date.
 export function reviewedGenerationReference(reference) {
-  return (reference?.status === 'verified' || reference?.status === 'stale') && reference.sections?.length
+  // Needs at least one section that describes the work. A reference holding only recommended training or assignments is not
+  // something to write from.
+  return (reference?.status === 'verified' || reference?.status === 'stale') && reference.sections?.some(sec => isDutySection(sec.section))
     ? reference
     : null
 }
 
 import { officialTitle } from './armyCodeStatus.js'
+import { isDutySection } from './milReference.js'
 
 export const NO_REVIEWED_REFERENCE = 'No reviewed, recently checked reference is available for this specialty, rank and component. Do not infer duties, skills, systems, training, leadership scope or credentials from the occupational code or rank. Use only the facts the person supplied. Leave missing experience as [ADD: ...] prompts.';
 

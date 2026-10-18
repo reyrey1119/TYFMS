@@ -1,5 +1,24 @@
 {
-  "chapterFixups": [
-    { "match": "^Chapter 92W Professional Development Model", "n": 26, "title": "MOS 92W Professional Development Model", "why": "The guide prints 'Chapter 92W' where the sequence requires 'Chapter 26'." }
-  ]
+ "chapterFixups": [
+  {
+   "match": "^Chapter 92W Professional Development Model",
+   "n": 26,
+   "title": "MOS 92W Professional Development Model",
+   "why": "The guide prints 'Chapter 92W' where the sequence requires 'Chapter 26'."
+  }
+ ],
+ "chapters": {
+  "32": {
+   "kind": "mos",
+   "codes": [
+    "92Z"
+   ],
+   "rankHeadings": [
+    {
+     "match": "^\\(1\\) Sergeant Major/ Command Sergeant Major\\.$",
+     "band": "E-9"
+    }
+   ]
+  }
+ }
 }

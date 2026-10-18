@@ -38,24 +38,36 @@ const spec = JSON.parse(await readFile('data/reference/bundles/army-611-21-enlis
 const live = p => (!p.effective_from || p.effective_from <= values.today) && (!p.effective_to || p.effective_to > values.today)
 const expected = new Map()
 for (const p of spec.passages.filter(p => p.section_type === 'rank_duties' && live(p))) { if (!expected.has(p.occupation_code)) expected.set(p.occupation_code, new Set()); expected.get(p.occupation_code).add(p.rank_band) }
-function applyStructureGate(passages, report) {
+function applyStructureGate(passages, report, mf = {}) {
   const isCmfWide = p => /applies to every MOS/.test(p.heading || '')
   const bandsOf = new Map()
   for (const p of passages) if (p.rank_band && !isCmfWide(p)) { if (!bandsOf.has(p.occupation_code)) bandsOf.set(p.occupation_code, new Set()); bandsOf.get(p.occupation_code).add(p.rank_band) }
   const ambiguousChapter = new Map()
-  for (const c of report.chapters) if (c.kind === 'mos' && (c.ambiguous?.length || c.droppedHeadings >= 3)) for (const code of c.codes) ambiguousChapter.set(code, { ...c, ambiguous: c.ambiguous?.length ? c.ambiguous : [{ line: `${c.droppedHeadings} candidate headings did not fit the rank order` }] })
+  for (const c of report.chapters) if (c.kind === 'mos' && (c.ambiguous?.length || c.crossBandDropped >= 3)) for (const code of c.codes) ambiguousChapter.set(code, { ...c, ambiguous: c.ambiguous?.length ? c.ambiguous : [{ line: `${c.crossBandDropped} candidate headings under another rank did not fit the rank order` }] })
   const gated = []
   const withheld = new Set()
   // A code with rank sections in two or more chapters (variants of the MOS: different units, tracks) cannot be told apart here.
   const chaptersWithRanks = new Map()
   for (const c of report.chapters) if (c.kind === 'mos' && c.ranks.length) for (const code of c.codes) chaptersWithRanks.set(code, [...(chaptersWithRanks.get(code) || []), c.chapter])
-  for (const [code, list] of chaptersWithRanks) if (list.length > 1 && bandsOf.has(code)) { withheld.add(code); gated.push({ code, why: `the guide has rank sections for ${code} in several chapters (${list.join(', ')}), which are variants of the MOS that cannot be told apart`, passagesWithheld: passages.filter(p => p.occupation_code === code && p.rank_band && !isCmfWide(p)).length }) }
+  // Chapters that cover different grades of one MOS (35Z: one chapter for MSG, one for SGM) are not variants; chapters that
+  // repeat the same grades (four band tracks of 42S) are.
+  const bandsByChapter = new Map()
+  for (const c of report.chapters) if (c.kind === 'mos') for (const code of c.codes) bandsByChapter.set(`${code}|${c.chapter}`, new Set(c.ranks))
+  const overlaps = (code, list) => { const seen = new Set(); for (const ch of list) for (const b of bandsByChapter.get(`${code}|${ch}`) || []) { if (seen.has(b)) return true; seen.add(b) } return false }
+  for (const [code, list] of chaptersWithRanks) if (list.length > 1 && bandsOf.has(code) && overlaps(code, list)) { withheld.add(code); gated.push({ code, why: `the guide has rank sections for ${code} in several chapters (${list.join(', ')}), which are variants of the MOS that cannot be told apart`, passagesWithheld: passages.filter(p => p.occupation_code === code && p.rank_band && !isCmfWide(p)).length }) }
   for (const [code, bands] of bandsOf) {
     const have = new Set(bands); if (have.has('E-4..E-5')) have.add('E-5')
-    const missing = [...(expected.get(code) || [])].filter(b => !have.has(b))
+    const ORDER = ['E-1..E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9']
+    const lowest = Math.min(...[...have].map(b => ORDER.indexOf(b)).filter(i => i >= 0))
+    // A grade below the guide's lowest section (a guide that starts at SGT) cannot have been absorbed into another grade's text.
+    const allMissing = [...(expected.get(code) || [])].filter(b => !have.has(b))
+    const missing = allMissing.filter(b => ORDER.indexOf(b) > lowest)
+    const notCovered = allMissing.filter(b => ORDER.indexOf(b) < lowest)
+    if (notCovered.length) (report.gradesNotInGuide ||= []).push({ code, grades: notCovered, note: 'DA PAM 611-21 lists these grades for the MOS; the guide has no section for them (nothing precedes the first section to absorb them)' })
     const amb = ambiguousChapter.get(code)
     if (missing.length || amb) { withheld.add(code); gated.push({ code, why: missing.length ? `the guide has no section for grade(s) ${missing.join(', ')} that DA PAM 611-21 lists for this MOS` : `chapter ${amb.chapter} has full-line rank headings that could not be placed in order: ${amb.ambiguous.map(a => a.line).join('; ')}`, passagesWithheld: passages.filter(p => p.occupation_code === code && p.rank_band && !isCmfWide(p)).length }) }
   }
+  for (const [code, why] of Object.entries(mf.withheld || {})) if (bandsOf.has(code)) { withheld.add(code); gated.push({ code, why, passagesWithheld: passages.filter(p => p.occupation_code === code && p.rank_band && !isCmfWide(p)).length }) }
   return { passages: passages.filter(p => !(withheld.has(p.occupation_code) && p.rank_band && !isCmfWide(p))), gated }
 }
 
@@ -75,9 +87,9 @@ for (const f of files) {
   const cp = path.join(cache, sha + '.json')
   let pages; try { pages = JSON.parse(await readFile(cp, 'utf8')) } catch { pages = await extractPages(buf); await writeFile(cp, JSON.stringify(pages)) }
   const { lines, printedPages } = toLines(pages, { skipLinePatterns: mf.skipLinePatterns || [] })
-  const parsed = parseGuideAuto({ lines, source: {}, chapterOverrides: mf.chapters || {}, excludeCodes: mf.excludeCodes || [], chapterFixups: mf.chapterFixups || [] })
+  const parsed = parseGuideAuto({ lines, source: {}, chapterOverrides: mf.chapters || {}, excludeCodes: mf.excludeCodes || [], chapterFixups: mf.chapterFixups || [], virtualChapters: mf.virtualChapters || null })
   const { report, mosCodes } = parsed
-  const gate = applyStructureGate(parsed.passages, report)
+  const gate = applyStructureGate(parsed.passages, report, mf)
   const passages = gate.passages
   report.gated = gate.gated
   if (!passages.length) { summary.push({ file: f, passages: 0, flags: report.flags.length, unassigned: report.unassigned.length }); continue }

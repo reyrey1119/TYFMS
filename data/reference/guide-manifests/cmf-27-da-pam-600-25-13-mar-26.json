@@ -1,0 +1,7 @@
+{
+  "note": "Chapters 6 (ARNG) and 7 (USAR COMPO 3) repeat the 27D rank sections for the Reserve Components. Component-specific text is not shown (the app has no component choice), so only the Active Component chapter 4 is imported.",
+  "chapters": {
+    "6": { "kind": "skip", "reason": "Army National Guard chapter: component-specific text is not shown because the app has no component choice" },
+    "7": { "kind": "skip", "reason": "Army Reserve (COMPO 3) chapter: component-specific text is not shown because the app has no component choice" }
+  }
+}

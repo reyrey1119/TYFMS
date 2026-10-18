@@ -1,0 +1,43 @@
+{
+ "title": "DA PAM 600-25 CMF 40 (Space Operations) career progression, 21 Jul 2026",
+ "proponent": "Office of the Chief of Space and Missile Defense (OCSMD)",
+ "dateBasis": "the 21 Jul 2026 date comes from the official file name; the PDF body prints no date.",
+ "limitations": "The guide is an outline (numbered, lettered and roman-numeral paragraphs), not numbered chapters; the rank sections (7. Essential Capabilities, per-grade 'Development' paragraphs) were cut by the manifest. Introduction, duties, transformation and unique-skills paragraphs are not imported (duties come from DA PAM 611-21).",
+ "virtualChapters": [
+  {
+   "n": "40-7",
+   "match": "^7\\. Space Operations Specialist Essential Capabilities",
+   "title": "Space Operations Specialist (MOS 40D) Essential Capabilities and development",
+   "kind": "mos",
+   "codes": [
+    "40D"
+   ],
+   "rankHeadings": [
+    {
+     "match": "^[ivx]+\\.\\s*Space Operations Specialist \\(SPC/CPL\\) Development\\.?$",
+     "band": "E-1..E-4"
+    },
+    {
+     "match": "^[ivx]+\\.\\s*Space Operations Sergeant \\(SGT\\) Development\\.?$",
+     "band": "E-5"
+    },
+    {
+     "match": "^[ivx]+\\.\\s*Senior Space Operations Sergeant \\(SSG\\) Development\\.?$",
+     "band": "E-6"
+    },
+    {
+     "match": "^[ivx]+\\.\\s*Master Space Operations Sergeant \\(SFC\\) Development\\.?$",
+     "band": "E-7"
+    },
+    {
+     "match": "^[ivx]+\\.\\s*Space Operations Senior NCO \\(MSG\\) Development\\.?$",
+     "band": "E-8"
+    },
+    {
+     "match": "^[ivx]+\\.\\s*Space Operations Senior NCO \\(SGM/CSM\\) Development\\.?$",
+     "band": "E-9"
+    }
+   ]
+  }
+ ]
+}

@@ -17,12 +17,15 @@ const sha = s => createHash('sha256').update(s).digest('hex')
 
 // ── rank headings ────────────────────────────────────────────────────────────
 
-const ENUM = /^(?:\(\d+\)|\d+\s*-\s*\d+\.|\d+\.|\([a-z]\)|[a-z]\.)\s*/
+const ENUM = /^(?:\(\d+\)|\d+\s*[-–—]\s*\d+\.|\d+\.|\([a-z]\)|[a-z]\)|[a-z]\.)\s*/
 const ABBR = { pvt: ['private'], pv1: ['private'], pv2: ['private'], pfc: ['private'], spc: ['specialist'], cpl: ['corporal'], sgt: ['sergeant'], ssg: ['staff', 'sergeant'], sfc: ['sergeant', 'first', 'class'], msg: ['master', 'sergeant'], '1sg': ['first', 'sergeant'], sgm: ['sergeant', 'major'], csm: ['command', 'sergeant', 'major'], privates: ['private'], sergeants: ['sergeant'], corporals: ['corporal'], specialists: ['specialist'] }
 
 // Canonical word list of a rank phrase: lower-case, punctuation and grade tags removed, abbreviations expanded, repeats collapsed.
 function rankTokens(text) {
-  let t = text.toLowerCase().replace(/[–—]/g, '-').replace(/\(.*?\)/g, ' ').replace(/skill levels?\s*\d(\s*(and|-|\/)\s*\d)?/g, ' ').replace(/\be-?\d\b/g, ' ')
+  let t = text.toLowerCase().replace(/[–—]/g, '-')
+  // parenthetical groups, also nested: "(PVT – SPC/CPL) (Skill Level (SL) 1)"
+  for (let i = 0; i < 4 && /\([^()]*\)/.test(t); i++) t = t.replace(/\([^()]*\)/g, ' ')
+  t = t.replace(/skill levels?\s*\d(\s*(and|-|\/)\s*\d)?/g, ' ').replace(/\be-?\d\b/g, ' ')
   t = t.replace(/[–—\-\/.,:;]+/g, ' ')
   let words = t.split(/\s+/).filter(w => w && w !== 'and' && w !== 'or' && w !== 'the' && w !== 'e' && !['active', 'guard', 'reserve', 'ra', 'agr', 'regular', 'army'].includes(w))
   words = words.flatMap(w => ABBR[w] || [w])
@@ -50,6 +53,9 @@ const RANK_PHRASES = [
 export function rankHeading(text, prevText = '') {
   if (text.length > 90) return null
   if (/\b(reserve component|RC only|ARNG|USAR|national guard)\b/i.test(text)) return null   // component-specific section, not this guide's main rank sections
+  // "4-6. SSG - Intelligence Sergeant (SL3)" — an enumerated heading that leads with the grade abbreviation
+  const ab = text.match(/^(?:\d+\s*-\s*\d+\.|\d+\.|\([a-z0-9]+\)|[a-z]\.)\s*(SPC|PVT|SGT|SSG|SFC|MSG|1SG|SGM|CSM)(?:\s*\/\s*[A-Z0-9]+)?(?:\s*[-–—]\s*|\s+)[A-Z]\S*.{0,70}\(\s*SL\s*\d\s*\)\s*$/)
+  if (ab) { const hit = RANK_PHRASES.find(([re]) => re.test(rankTokens(ab[1]))); if (hit) return { band: hit[1], title: text.replace(ENUM, '').replace(/\.$/, '').trim() } }
   // "4 - 7. MOS 38R3O Civil Reconnaissance Sergeant (SSG)."  — an MOS skill-level heading that names the grade in parentheses
   const sl = text.replace(ENUM, '').match(/^MOS\s+(\d{2}[A-Z])\d\s?[O0]\b.{0,60}\(\s*(SGT|SSG|SFC|MSG|1SG|MSG\/1SG|SGM|CSM|SGM\/CSM|SPC|PVT[^)]{0,20}|CPL)\s*\)\.?$/i)
   if (sl && ENUM.test(text)) {
@@ -100,6 +106,7 @@ const LABELS = [
   [/^(broadening\s*\/\s*special|special)\s+assignments?\b/i, 'assignments'],
   [/^(critical|key)\s+(leader\s+)?(developmental|development|designated)\b/i, 'assignments'],
   [/^career developmental\b/i, 'assignments'],
+  [/^(kd|operating|nominative|mission critical|mission essential|developmental)\s+(assignments?|positions?|billets?)\b/i, 'assignments'],
   [/^assignments?\b/i, 'assignments'],
   [/^(institutional|additional)\s+training\b/i, 'training'],
   [/^(functional courses?|troop schools?|professional military education)\b/i, 'training'],
@@ -115,12 +122,20 @@ const LABELS = [
   [/^(skills?|core competenc\w+|knowledge,? skills)\b/i, 'skills'],
   [/^(special awards?|goals? for development)\b/i, 'development'],
 ]
-const PROMOTION = /^(along\s+with\s+evaluating|promotion (selection|board|consideration)|to be (most|highly) qualified)/i
+// Labels that only identify the type of an item that is already delimited by its enumerator ("j) Education. ..."); as free-standing
+// lines they would also match wrapped text, so they are not used to start items in guides without enumerators.
+const ENUM_ONLY_LABELS = [
+  [/^(military\s+)?education\s*[.:]/i, 'training'],
+  [/^developmental\s*\/\s*broadening\b/i, 'assignments'],
+]
+const PROMOTION = /^(along\s+with\s+evaluating|promotion (selection|board|consideration)|to be (most|highly) qualified|(unqualified|fully qualified|highly qualified|most qualified|not (fully )?qualified)\b|promotion indicators?\b|(most|highly|fully) qualified indicators?\b)/i
+// An item whose text opens with the board-qualification list ((1) Most Qualified, (2) Highly Qualified ...) is promotion criteria.
+const PROMO_BODY = /(^|\n)(\(\d\)|\d\.)\s*(Most|Highly|Fully)\s+Qualified\b/i
 const LABEL_TEXT = /^([^.:]{2,70}?)\s*[.:]\s*/
 
-function labelOf(text) {
+function labelOf(text, enumerated = false) {
   const t = text.replace(ENUM, '')
-  for (const [re, type] of LABELS) { const m = t.match(re); if (m) { const lm = t.match(LABEL_TEXT); return { type, label: (lm ? lm[1] : m[0]).trim() } } }
+  for (const [re, type] of enumerated ? [...ENUM_ONLY_LABELS, ...LABELS] : LABELS) { const m = t.match(re); if (m) { const lm = t.match(LABEL_TEXT); return { type, label: (lm ? lm[1] : m[0]).trim() } } }
   return null
 }
 
@@ -138,15 +153,20 @@ export function findChapters(lines, fixups = []) {
   lines.forEach((l, k) => {
     // a known typo in the document's own chapter numbering, recorded in the guide's manifest
     const fx = fixups.find(f => new RegExp(f.match).test(l.text))
-    const m = fx ? [l.text, String(fx.n), fx.title] : l.text.match(/^Chapter\s+(\d+)\s*[.:]?\s*(.*)$/)
+    const m = fx ? [l.text, String(fx.n), fx.title] : l.text.match(/^Chapter\s+(\d+)(?![-–]\d)\s*[.:]?\s*(.*)$/)
     if (!m) return
     const n = Number(m[1])
-    const heading = /^(MOS|Military [Oo]ccupational|Career|Recommend|Professional|Reserve|Duties|Transformation|Adaptation|SGM|Introduction|[A-Z0-9]{2,4}\b)/.test((m[2] || '').trim()) && !/^(for|of|to|and|in|above|below|paragraph|section|table|figure)\b/i.test((m[2] || '').trim())
+    // A second "Chapter 1" means the first run was a table of contents (CMF 46); start over from the real chapters.
+    if (n === 1 && out.length) { out.length = 0; last = 0 }
+    const heading = true || /^(MOS)/.test((m[2] || '').trim()) && !/^(for|of|to|and|in|above|below|paragraph|section|table|figure)\b/i.test((m[2] || '').trim())
     // The next number, or (when the document skips numbers) one of the next three if the text reads like a chapter title.
-    if (!(n === last + 1 && !/^(for|of|to|and|in|above|below|paragraph|section|table|figure)\b/i.test((m[2] || '').trim())) && !(n > last + 1 && n <= last + 3 && heading)) return
+    const crossRef = /^(for|of|to|and|in|above|below|paragraph|section|table|figure|on|at|by|with|is|are|as)\b/i.test((m[2] || '').trim())
+    if (crossRef || !(n === last + 1 || (n > last + 1 && n <= last + 3 && heading))) return
     last = n
     let title = m[2]
     let headingEnd = k + 1
+    // "Chapter 4" / "Career Management ..." — the title can be on the next line
+    if (!title.trim() && lines[k + 1] && lines[k + 1].text.length < 110 && !/^Chapter\s+\d/.test(lines[k + 1].text)) { title = lines[k + 1].text; headingEnd = k + 2 }
     // wrapped heading ("... self-development, by" / "rank")
     while (headingEnd < lines.length && headingEnd < k + 3 && (/(,|\bby|\band|\bof|\bfor|\bthe|\bin)\s*$/i.test(title) || wrapsTitle(title, lines[headingEnd].text))) { title += ' ' + lines[headingEnd].text; headingEnd++ }
     out.push({ n, k, headingEnd, title: title.trim() })
@@ -155,9 +175,9 @@ export function findChapters(lines, fixups = []) {
   return out
 }
 
-const SKIP_TITLE = /(professional|talent) development model|reserve component|reserve components|^duties\b|^transformation\b|^adaptation\b|career developmental position|^mos [0-9]{2}[a-z] professional development/i
+const SKIP_TITLE = /(professional|talent|career) development model|reserve component|reserve components|^duties\b|^transformation\b|^adaptation\b|career developmental position|^mos [0-9]{2}[a-z] professional development/i
 export function classifyChapter(c) {
-  const codes = [...new Set(c.title.match(/\b\d{2}[A-Z]\b/g) || [])]
+  const codes = [...new Set([...(c.title.match(/\b\d{2}[A-Z]\b/g) || []), ...[...c.title.matchAll(/\b(\d{2}[A-Z])\d[OP0]\b/g)].map(m => m[1])])]
   // Pointer chapters (a figure, a reserve-component note, a short overview) are short. A long chapter with the same kind of title
   // carries real text (92Z's "professional development model", 88U's "(Reserve Component ...)") and is classified by its content.
   const long = (c.end - c.k) > 40
@@ -171,8 +191,17 @@ export function classifyChapter(c) {
 
 function pageSpan(lines) { return lines.length ? [Math.min(...lines.map(l => l.page)), Math.max(...lines.map(l => l.page))] : [null, null] }
 
-function splitRankSections(chapterLines) {
+export function splitRankSections(chapterLines, explicit = null) {
   const heads = []
+  // A guide manifest can name the rank headings of a nonstandard chapter outright: [{ match: regex, band, title? }].
+  if (explicit) {
+    chapterLines.forEach((l, k) => {
+      const hit = explicit.find(e => new RegExp(e.match).test(l.text))
+      if (hit) heads.push({ k, band: hit.band, title: l.text.replace(ENUM, '').replace(/[.:]\s*$/, '').trim(), enumerated: true })
+    })
+    heads.dropped = 0; heads.strongDropped = []; heads.perMos = false
+    return heads
+  }
   chapterLines.forEach((l, k) => {
     const prev = k > 0 ? chapterLines[k - 1].text : ''
     const r = rankHeading(l.text, prev)
@@ -209,6 +238,10 @@ function splitRankSections(chapterLines) {
     const before = kept.filter(x => x.k < h.k).at(-1)
     return before && start(h.band) < start(before.band)
   }).map(h => ({ line: h.title, band: h.band }))
+  // Dropped lines after the first real heading that sit under a DIFFERENT rank than the nearest kept heading before them: a heading
+  // may have been missed there. (Same-rank repeats are sub-headings of that rank; lines before the first heading are preamble.)
+  const firstK = kept.length ? kept[0].k : Infinity
+  kept.crossBandDropped = wrapped.filter(h => !kept.includes(h) && h.k > firstK).filter(h => { const before = kept.filter(x => x.k < h.k).at(-1); return before && before.band !== h.band }).length
   kept.perMos = groups.size > 1 || (groups.size === 1 && !groups.has(''))
   return kept
 }
@@ -217,6 +250,7 @@ function topLevelStyle(bodyLines) {
   const first = bodyLines.find(l => ENUM.test(l.text))
   if (!first) return 'none'
   if (/^\([a-z]\)/.test(first.text)) return 'paren-letter'
+  if (/^[a-z]\)/.test(first.text)) return 'rparen-letter'
   if (/^\(\d+\)/.test(first.text)) return 'paren-number'
   if (/^[a-z]\./.test(first.text)) return 'dot-letter'
   return 'dot-number'
@@ -225,11 +259,11 @@ function topLevelStyle(bodyLines) {
 // Items of a rank section. If the section is enumerated, top-level items are the enumerators in sequence; otherwise an item
 // starts at a line with a known label. Text before the first item is the section's overview.
 function nextInSeq(style, prev, cur) {
-  if (style === 'paren-letter' || style === 'dot-letter') { const a = prev.charCodeAt(0), b = cur.charCodeAt(0); return b > a && b <= a + 2 }
+  if (style === 'paren-letter' || style === 'dot-letter' || style === 'rparen-letter') { const a = prev.charCodeAt(0), b = cur.charCodeAt(0); return b > a && b <= a + 2 }
   return Number(cur) > Number(prev) && Number(cur) <= Number(prev) + 3
 }
 function enumOf(text, style) {
-  const m = style === 'paren-letter' ? text.match(/^\(([a-z])\)\s+/) : style === 'dot-letter' ? text.match(/^([a-z])\.\s+/) : style === 'paren-number' ? text.match(/^\((\d+)\)\s+/) : style === 'dot-number' ? text.match(/^(\d+)\.\s+/) : null
+  const m = style === 'rparen-letter' ? text.match(/^([a-z])\)\s+/) : style === 'paren-letter' ? text.match(/^\(([a-z])\)\s+/) : style === 'dot-letter' ? text.match(/^([a-z])\.\s+/) : style === 'paren-number' ? text.match(/^\((\d+)\)\s+/) : style === 'dot-number' ? text.match(/^(\d+)\.\s+/) : null
   return m ? m[1] : null
 }
 function splitItems(body) {
@@ -237,10 +271,16 @@ function splitItems(body) {
   const items = []
   const lead = []
   let prev = style.endsWith('letter') ? '`' : '0'
+  // A promotion-indicators item ends in nested lists ((1) Most qualified ... (a)..(j), (2) Highly qualified ... (a)..) whose
+  // letters can continue the outer sequence; everything up to the next labeled item belongs to it.
+  let inPromo = false
   for (const l of body) {
-    const lab = labelOf(l.text)
+    const lab = labelOf(l.text, style !== 'none')
     const e = style === 'none' ? null : enumOf(l.text, style)
+    if (inPromo && items.length && !(lab && e && !PROMOTION.test(l.text.replace(ENUM, '')))) { items.at(-1).lines.push(l); continue }
+    inPromo = false
     if (e && nextInSeq(style, prev, e)) {
+      if (PROMOTION.test(l.text.replace(ENUM, ''))) inPromo = true
       prev = e
       items.push({ ...(lab || { type: 'development', label: unknownLabel(l.text) }), lines: [l] })
     } else if (style === 'none' && lab) {
@@ -253,7 +293,8 @@ function splitItems(body) {
 function unknownLabel(text) {
   const t = text.replace(ENUM, '')
   const m = t.match(LABEL_TEXT)
-  return (m ? m[1] : t.split(/\s+/).slice(0, 5).join(' ')).trim()
+  // An item with no label of its own is shown under a plain heading, never under a truncated sentence fragment.
+  return (m ? m[1] : 'Additional guidance').trim()
 }
 
 // A heading can be glued to the end of the previous line by the text layer ("... complete SSD Level IV.e. Master sergeant (MSG)").
@@ -272,12 +313,27 @@ export function splitGluedHeadings(lines) {
   return out
 }
 
-export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCodes = [], chapterFixups = [] }) {
+export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCodes = [], chapterFixups = [], virtualChapters = null }) {
   const indexed = splitGluedHeadings(lines).map((l, i) => ({ ...l, i }))
   const consumed = new Array(lines.length).fill(null)
   const report = { chapters: [], skippedChapters: [], flags: [], unassigned: [], cmfWideAttachedTo: [] }
   const passages = []
-  const chapters = findChapters(indexed, chapterFixups)
+  // Guides that are not written in numbered chapters (CMF 40, 51) are cut where the manifest says; each cut starts at the
+  // first line after the previous one that matches. The manifest also fixes the kind, MOS codes and explicit rank headings.
+  let chapters
+  if (virtualChapters) {
+    chapters = []
+    let from = 0
+    for (const v of virtualChapters) {
+      const k = indexed.findIndex((l, i) => i >= from && new RegExp(v.match).test(l.text))
+      if (k < 0) { report.flags.push(`virtual chapter "${v.title}": start line not found`); continue }
+      chapters.push({ n: v.n, k, headingEnd: k + 1, title: v.title }); from = k + 1
+    }
+    chapters.forEach((c, i) => { c.end = i + 1 < chapters.length ? chapters[i + 1].k : indexed.length })
+    // text before the first cut (introduction, duties, transformation) is not imported from here
+    for (const l of indexed.slice(0, chapters[0]?.k ?? 0)) consumed[l.i] = 'before-first-section: not rank guidance'
+    virtualChapters.forEach(v => { chapterOverrides = { ...chapterOverrides, [v.n]: { kind: v.kind, codes: v.codes, reason: v.reason, rankHeadings: v.rankHeadings } } })
+  } else chapters = findChapters(indexed, chapterFixups)
   const mosCodes = []
   const plans = []
   for (const c of chapters) {
@@ -308,8 +364,8 @@ export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCo
   }
   const mark = (l, why) => { consumed[l.i] = consumed[l.i] ? `${consumed[l.i]}+${why}` : why }
 
-  function parseRankChapter(ctxBase, chapterLines, codes, kindLabel) {
-    const heads = splitRankSections(chapterLines)
+  function parseRankChapter(ctxBase, chapterLines, codes, kindLabel, explicit = null) {
+    const heads = splitRankSections(chapterLines, explicit)
     const preamble = chapterLines.slice(0, heads.length ? heads[0].k : chapterLines.length)
     return { heads, preamble }
   }
@@ -338,8 +394,35 @@ export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCo
       if (plan.kind === 'mos' || plan.kind === 'appendix') { report.skippedChapters.push({ chapter: c.title.slice(0, 100), pdfPages: pageSpan(indexed.slice(c.k, c.end)).join('-'), reason: 'MOS imported from a separately reviewed source or excluded in the guide manifest' }); for (const l of indexed.slice(c.k, c.end)) mark(l, 'excluded MOS'); continue }
       report.flags.push(`chapter ${c.n}: rank guidance but no MOS chapter in this guide to attach it to`); for (const l of chapterLines) mark(l, 'unattached'); continue
     }
-    const { heads, preamble } = parseRankChapter(null, chapterLines, targets)
-    const summary = { chapter: c.n, title: c.title.slice(0, 90), kind: plan.kind, codes: targets, ranks: heads.map(h => h.band), droppedHeadings: heads.dropped || 0, ambiguous: heads.strongDropped || [], passages: 0, flags: 0 }
+    let { heads, preamble } = parseRankChapter(null, chapterLines, targets, null, plan.rankHeadings || null)
+    // A chapter that holds several separate by-rank lists (professional military education by rank, then publications by rank),
+    // with ordinary paragraphs in between, is cut into those lists by the guide's manifest. The text between the lists is kept
+    // as unranked general guidance, never as part of a rank.
+    // A chapter that is about one grade only (MOS 35Z5O for MSG): its goals-for-development text is that grade's section.
+    if (plan.singleBand) {
+      const gk = chapterLines.findIndex(l => /^(?:\d+\s*[-–]\s*\d+\.\s*)?goals? for development\b/i.test(l.text))
+      if (gk < 0) report.flags.push(`chapter ${c.n}: no "goals for development" line for the single-grade chapter`)
+      else { heads = [{ k: gk, band: plan.singleBand, title: plan.bandTitle || c.title, enumerated: true }]; heads.dropped = 0; heads.strongDropped = []; heads.crossBandDropped = 0; preamble = chapterLines.slice(0, gk) }
+    }
+    if (plan.runs) {
+      heads = []; let cursor = 0, firstStart = null
+      for (const r of plan.runs) {
+        const a = chapterLines.findIndex((l, i) => i >= cursor && new RegExp(r.from).test(l.text))
+        if (a < 0) { report.flags.push(`chapter ${c.n}: list "${r.label}" start line not found`); continue }
+        let b = r.to ? chapterLines.findIndex((l, i) => i > a && new RegExp(r.to).test(l.text)) : -1
+        if (b < 0) b = chapterLines.length
+        if (firstStart === null) firstStart = a
+        else if (a > cursor) heads.at(-1).gapAfter = { lines: chapterLines.slice(cursor, a), heading: plan.gapHeading || 'General guidance' }
+        const hs = splitRankSections(chapterLines.slice(a, b), r.rankHeadings || null)
+        for (const h of hs) heads.push({ ...h, k: h.k + a, runLabel: r.label })
+        if (hs.length) heads.at(-1).end = b
+        cursor = b
+      }
+      if (heads.length && cursor < chapterLines.length) heads.at(-1).gapAfter = { lines: chapterLines.slice(cursor), heading: plan.gapHeading || 'General guidance' }
+      preamble = chapterLines.slice(0, firstStart ?? chapterLines.length)
+      heads.dropped = 0; heads.strongDropped = []; heads.crossBandDropped = 0
+    }
+    const summary = { chapter: c.n, title: c.title.slice(0, 90), kind: plan.kind, codes: targets, ranks: heads.map(h => h.band), droppedHeadings: heads.dropped || 0, crossBandDropped: heads.crossBandDropped || 0, ambiguous: heads.strongDropped || [], passages: 0, flags: 0 }
     if (!heads.length) { report.flags.push(`chapter ${c.n} (${c.title.slice(0, 50)}): no rank headings found`); summary.flags++ }
     const order = ['E-1..E-4', 'E-4..E-5', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9']
     const idxs = heads.map(h => order.indexOf(h.band))
@@ -356,12 +439,13 @@ export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCo
         mk(ctx, { section_type: part.type, heading: part.heading }, part.lines)
       }
       heads.forEach((h, idx) => {
-        const end = idx + 1 < heads.length ? heads[idx + 1].k : chapterLines.length
+        const end = h.end ?? (idx + 1 < heads.length ? heads[idx + 1].k : chapterLines.length)
         if (ti === 0 && !h.rest) mark(chapterLines[h.k], 'rank-heading')
         if (h.mos && h.mos !== code) { if (ti === 0) for (const l of chapterLines.slice(h.k + 1, end)) mark(l, `section for MOS ${h.mos}`); return }
         const body = chapterLines.slice(h.k + 1, end)
         if (h.rest) body.unshift({ ...chapterLines[h.k], text: h.rest })
         parseRankBody(ctx, h, body, chapterLines[h.k], plan.kind)
+        if (h.gapAfter) mk(ctx, { section_type: 'development', heading: h.gapAfter.heading }, h.gapAfter.lines)
       })
       summary.passages += passages.length - before
     })
@@ -392,16 +476,16 @@ export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCo
     }
     if (kind === 'cmf-rank') {
       // CMF-wide narrative: one passage per rank, with credential / recommended-reading text kept inside as written.
-      mk(ctx, { section_type: 'development', rank_band: h.band, heading: `${gradeLabel} — recommended career management (applies to every MOS in this career management field)`, spanExtra: [headingLine] }, body)
+      mk(ctx, { section_type: 'development', rank_band: h.band, heading: `${gradeLabel} — ${h.runLabel || 'recommended career management'} (applies to every MOS in this career management field)`, spanExtra: [headingLine] }, body)
       return
     }
     const { items, lead } = splitItems(body)
     if (lead.length) mk(ctx, { section_type: 'development', rank_band: h.band, heading: `${gradeLabel} — overview`, spanExtra: [headingLine] }, lead)
     for (const item of items) {
       const first = item.lines[0].text.replace(ENUM, '')
-      if (PROMOTION.test(first)) { mk(ctx, { section_type: 'promotion_criteria', rank_band: h.band, heading: `${gradeLabel} — promotion consideration` }, item.lines); continue }
+      if (PROMOTION.test(first) || PROMO_BODY.test(item.lines.slice(0, 3).map(l => l.text).join('\n'))) { mk(ctx, { section_type: 'promotion_criteria', rank_band: h.band, heading: `${gradeLabel} — promotion consideration` }, item.lines); continue }
       const m = first.match(/^[^.:]{2,70}?[.:]\s*/)
-      const rest = m && labelOf(item.lines[0].text) || m && item.type === 'development' ? first.slice(m[0].length) : first
+      const rest = m && labelOf(item.lines[0].text, true) || m && item.type === 'development' ? first.slice(m[0].length) : first
       const bodyLines = [{ ...item.lines[0], text: rest }, ...item.lines.slice(1)].filter(l => l.text)
       if (!rest) mark(item.lines[0], 'label-only')
       mk(ctx, { section_type: item.type, rank_band: h.band, heading: `${gradeLabel} — ${item.label}`.replace(/\s+/g, ' ') }, bodyLines)

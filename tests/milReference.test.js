@@ -13,7 +13,7 @@ useBundledReference(false)   // these tests exercise the Supabase registry path 
 import {
   parsePayGrade, normalizeOccupation, rankBandContains, buildCacheKey,
   validateReferenceRequest, retrieveReference, referencePromptBlock,
-  clearReferenceCache, STALE_AFTER_DAYS,
+  clearReferenceCache, STALE_AFTER_DAYS, developmentGuidance, dutyReference, isDutySection,
 } from '../api/_lib/milReference.js'
 import { makeLatestGuard, makeSingleFlight } from '../src/lib/latestOnly.js'
 import { fakeSupabase } from './helpers/fakeSupabase.js'
@@ -342,8 +342,7 @@ test('prompt block treats reference as typical, not as what the person did', asy
   const unconfirmed = referencePromptBlock(ref)
   assert.match(unconfirmed, /NOT a record of what this person did/)
   assert.match(unconfirmed, /NOT confirmed/)
-  assert.match(unconfirmed, /Recommended training \(not proof it was completed\)/)
-  assert.match(unconfirmed, /Possible assignments \(not confirmed\)/)
+  assert.match(unconfirmed, /deliberately not included/, 'recommendations are kept out of the prompt, and the prompt says so')
   assert.match(unconfirmed, /\[S1 p\.10\]/, 'each line cites its own source and page')
   assert.match(unconfirmed, /<<<REFERENCE_DATA/)
   assert.match(referencePromptBlock(ref, { confirmed: true }), /CONFIRMED they performed/)
@@ -426,7 +425,13 @@ test('with two sources, each section is attributed to the source it came from', 
   assert.equal(r.status, 'stale', 'overall status is the worst of its sources')
   const block = referencePromptBlock(r)
   assert.match(block, new RegExp(`\\[${first.sourceRef} p\\.7\\].*From the first`))
-  assert.match(block, new RegExp(`\\[${second.sourceRef} p\\.12\\].*From the second`))
+  // The second source only recommends training, so it is guidance for the person and never material to write from.
+  assert.ok(!/From the second/.test(block))
+  const g = developmentGuidance(r)
+  assert.equal(g[0].section, 'training')
+  assert.equal(g[0].items[0].text, 'From the second.')
+  assert.equal(g[0].items[0].source.publication, 'PAM TWO')
+  assert.equal(g[0].items[0].source.pdfPages, '12')
 })
 
 test('a source that contributes no displayed section is not reported', async () => {

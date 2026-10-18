@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import FunFact from '../components/FunFact'
 import AdUnit from '../components/AdUnit'
 import ResumeNotice from '../components/ResumeNotice'
+import DevelopmentGuidance from '../components/DevelopmentGuidance'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import { trackEvent } from '../lib/analytics'
@@ -391,6 +392,8 @@ style={{ width: '100%', fontSize: 13, borderRadius: 6, border: '1px solid #C2B58
 {results.reference?.gradeNote && <p style={{ fontSize: 11, color: '#8F8768', marginTop: 4, lineHeight: 1.5 }}>{results.reference.gradeNote}</p>}
 </div>
 )}
+
+<DevelopmentGuidance groups={results.developmentGuidance} />
 
 <p className="cat-label">Transferable skills</p>
 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(140px,1fr))', gap: 6, marginBottom: 20 }}>

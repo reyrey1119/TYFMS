@@ -1,0 +1,21 @@
+{
+ "note": "The chapters for MOS 35Z are written one per grade (35Z5O for MSG, 35Z6O for SGM); each is imported as that grade's section.",
+ "chapters": {
+  "20": {
+   "kind": "mos",
+   "codes": [
+    "35Z"
+   ],
+   "singleBand": "E-8",
+   "bandTitle": "Master Sergeant (MSG) (SL5)"
+  },
+  "22": {
+   "kind": "mos",
+   "codes": [
+    "35Z"
+   ],
+   "singleBand": "E-9",
+   "bandTitle": "Sergeant Major (SGM) (SL6)"
+  }
+ }
+}

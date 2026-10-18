@@ -5,7 +5,7 @@ import { officialTitle } from './_lib/armyCodeStatus.js'
 import { markScopeBullets, annotateResume } from './_lib/scopeMarkers.js'
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
-import { retrieveReference, referencePromptBlock, validateReferenceRequest } from './_lib/milReference.js'
+import { retrieveReference, referencePromptBlock, validateReferenceRequest, isDutySection } from './_lib/milReference.js'
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
@@ -98,7 +98,7 @@ export default async function handler(req, res) {
     ? `\n13. PUBLICATION-ONLY DRAFT (this rule overrides rules 5 and 7 where they conflict): the person gave no details of their own work, so the PROFESSIONAL SUMMARY is 2 to 3 plain sentences that begin with "[CONFIRM: written from the official role description, not from your records] " and state only the branch, the official title, years of service if given, and what the specialty involves in general (from REFERENCE_DATA). Do not describe personal qualities (disciplined, dependable, team-oriented, strong, passionate) or performance. The first line under CORE COMPETENCIES must be "[CONFIRM: these come from the specialty description; keep only skills you can demonstrate]".`
     : ''
   const milRefBlock = referenceBlock + dutiesBlock + scopeInstructions
-  const scopeFacts = reviewed ? (reviewed.sections || []).map(s => s.text).join(' ') : ''
+  const scopeFacts = reviewed ? (reviewed.sections || []).filter(s => isDutySection(s.section)).map(s => s.text).join(' ') : ''
 
   // The position line states the OFFICIAL military title (DA PAM 611-21) so the model cannot invent a job title or
   // a different specialty. A civilian equivalent, if any, is a suggestion the person must confirm.

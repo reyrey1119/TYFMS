@@ -19,5 +19,6 @@ alter table public.reference_passages
   check (section_type in (
     'general_duties', 'rank_duties', 'assignments', 'training', 'lifelong_learning', 'self_development',
     'credentials', 'development', 'prerequisites', 'promotion_criteria',
-    'grades_authorized'    -- officer AOCs: grades the AOC is authorized at / special grading of positions
+    'grades_authorized',   -- officer AOCs: grades the AOC is authorized at / special grading of positions
+    'skills'               -- skills expected at a grade, as a career guide words them
   ));

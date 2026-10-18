@@ -1,0 +1,13 @@
+{
+ "note": "Chapter 4 is the Regular Army (RA) chapter ('information specific to RA only'); chapter 5 has the same title but is the Reserve Component and Active Guard/Reserve chapter. Component-specific text is not shown (the app has no component choice), so only the Regular Army chapter is imported.",
+ "chapters": {
+  "5": {
+   "kind": "skip",
+   "reason": "Reserve Component and Active Guard/Reserve chapter (same title as chapter 4): component-specific text is not shown because the app has no component choice"
+  },
+  "3": {
+   "kind": "skip",
+   "reason": "CMF-wide chapter organized by topic (assignments, education, language, fitness) with grade-by-grade statements inside each topic, not by rank; the statements cannot be assigned to a grade without rewording, so the chapter is not imported (the Regular Army chapter 4 has the grade sections)"
+  }
+ }
+}

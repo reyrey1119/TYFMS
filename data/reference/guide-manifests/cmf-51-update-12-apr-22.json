@@ -1,0 +1,80 @@
+{
+ "title": "DA PAM 600-25 CMF 51 (Contracting) career progression plan, update of 12 Apr 2022",
+ "proponent": "Army Acquisition Corps (Contracting)",
+ "dateBasis": "the 12 Apr 2022 date comes from the official file name (\"Update 12 Apr 22\"); the PDF body prints no date. This is an older update than most other guides; the Army G-1 listing carries no newer CMF 51 guide as of 2026-10-16.",
+ "limitations": "The guide is not written in numbered chapters; its sections (21-3 CMF-wide self-development by rank, 21-4 MOS 51C goals for development) were cut by the manifest. The Army career degree and GI Jobs pointers are not imported.",
+ "virtualChapters": [
+  {
+   "n": "21-3",
+   "match": "^21-3\\. Recommended career management",
+   "title": "Recommended career management self-development, by rank",
+   "kind": "cmf-rank",
+   "rankHeadings": [
+    {
+     "match": "^a\\. Staff sergeant\\.?$",
+     "band": "E-6"
+    },
+    {
+     "match": "^b\\. Sergeant first class\\.?$",
+     "band": "E-7"
+    },
+    {
+     "match": "^c\\. Master sergeant\\.?$",
+     "band": "E-8"
+    },
+    {
+     "match": "^d\\. Sergeant major and command sergeant major\\.?$",
+     "band": "E-9"
+    }
+   ]
+  },
+  {
+   "n": "21-4",
+   "match": "^21-4\\. Military Occupational Specialty 51C",
+   "title": "Military Occupational Specialty 51C Contracting Noncommissioned Officer",
+   "kind": "mos",
+   "codes": [
+    "51C"
+   ],
+   "rankHeadings": [
+    {
+     "match": "^\\(1\\) Staff sergeant$",
+     "band": "E-6"
+    },
+    {
+     "match": "^\\(2\\) Sergeant first class$",
+     "band": "E-7"
+    },
+    {
+     "match": "^\\(3\\) Master sergeant/First sergeant$",
+     "band": "E-8"
+    },
+    {
+     "match": "^\\(4\\) Sergeant Major/Command Sergeant Major$",
+     "band": "E-9"
+    }
+   ]
+  },
+  {
+   "n": "21-4d",
+   "match": "^d\\. Army career degrees",
+   "title": "Army career degrees and GI Jobs pointers",
+   "kind": "skip",
+   "reason": "pointers to program web sites, no guidance text"
+  },
+  {
+   "n": "21-5",
+   "match": "^21-5\\. Military occupational specialty 51C professional",
+   "title": "professional development model",
+   "kind": "skip",
+   "reason": "professional development model: a figure, no text to import"
+  },
+  {
+   "n": "21-6",
+   "match": "^21-6\\. Military occupational specialty 51C Reserve",
+   "title": "Reserve Component",
+   "kind": "skip",
+   "reason": "Reserve Component chapter: component-specific text is not shown because the app has no component choice"
+  }
+ ]
+}

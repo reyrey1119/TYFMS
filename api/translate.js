@@ -3,7 +3,7 @@
 
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
-import { retrieveReference, referencePromptBlock, parsePayGrade, validateReferenceRequest, SECTION_LABELS } from './_lib/milReference.js'
+import { retrieveReference, referencePromptBlock, parsePayGrade, validateReferenceRequest, SECTION_LABELS, dutyReference, developmentGuidance } from './_lib/milReference.js'
 import { groundEntries } from './_lib/provenance.js'
 import { reviewedGenerationReference, NO_REVIEWED_REFERENCE, NO_EMBELLISHMENT, codeIdentityBlock } from './_lib/generationEvidence.js'
 import { CERT_NAMES_FOR_PROMPT, verifyRecommendations } from './_lib/certCatalog.js'
@@ -121,7 +121,7 @@ For certifications: recommend up to 3 and choose ONLY from this verified list, u
         // Check where every entry actually comes from. The quote has to be in the official text for this grade or in
         // what the person provided; anything else is dropped rather than shown as fact. If nothing survives, ask once more.
         const g = groundEntries(result.civilianTranslation, {
-          reference: reviewed,
+          reference: dutyReference(reviewed),
           personal: [
             { label: 'what you described', text: (milDuties || '').slice(0, 2000) },
             { label: 'your uploaded records', text: (vaultContext || '').slice(0, 6000) },
@@ -153,6 +153,8 @@ For certifications: recommend up to 3 and choose ONLY from this verified list, u
           codeNote: reviewed.codeNote || null,
         }
       }
+      // Recommendations (training, credentials, assignments, self-development) for this grade: stored text only, shown as guidance.
+      result.developmentGuidance = reviewed ? developmentGuidance(reviewed) : []
       result.referenceStatus = ref?.status || null
       return res.status(200).json(result)
     } catch {
@@ -176,7 +178,7 @@ For certifications: recommend up to 3 and choose ONLY from this verified list, u
     try { ref = await retrieveReference({ supabase: getSupabase(), body: { branch, component, mos_afsc: mos, rank } }) } catch { ref = null }
     const reviewed = reviewedGenerationReference(ref)
     const { kept } = groundEntries(civilianTranslation, {
-      reference: reviewed,
+      reference: dutyReference(reviewed),
       personal: [{ label: 'what you described', text: described }, { label: 'your uploaded records', text: records }],
       referenceSectionLabels: SECTION_LABELS,
     })

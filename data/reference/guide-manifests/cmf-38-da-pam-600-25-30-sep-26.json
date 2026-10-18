@@ -1,0 +1,47 @@
+{
+ "note": "Chapter 3 holds two separate by-rank lists (professional military education by rank, then publications and recommended reading by rank) with ordinary paragraphs between them (broadening billets, competitive boards, education resources). They are cut into those two lists; the paragraphs between them are kept as unranked general guidance.",
+ "title": "DA PAM 600-25 CMF 38 (Civil Affairs) career progression plan, 30 Sep 2026",
+ "proponent": "U.S. Army John F. Kennedy Special Warfare Center and School (CMF 38 Civil Affairs proponent)",
+ "chapters": {
+  "3": {
+   "runs": [
+    {
+     "from": "^a\\. Private-Specialist/Corporal \\(USAR only\\)\\. Decentralized",
+     "to": "^3 - 8\\.",
+     "label": "recommended professional military education"
+    },
+    {
+     "from": "^a\\. Private-Specialist/Corporal \\(USAR only\\)\\.$",
+     "label": "recommended publications and reading",
+     "rankHeadings": [
+      {
+       "match": "^a\\. Private-Specialist/Corporal \\(USAR only\\)\\.$",
+       "band": "E-1..E-4"
+      },
+      {
+       "match": "^b\\. Sergeant \\(USAR only\\)\\.$",
+       "band": "E-5"
+      },
+      {
+       "match": "^c\\. Staff Sergeant\\.$",
+       "band": "E-6"
+      },
+      {
+       "match": "^d\\. Sergeant First Class\\.$",
+       "band": "E-7"
+      },
+      {
+       "match": "^e\\. Master Sergeant and First Sergeant\\.$",
+       "band": "E-8"
+      },
+      {
+       "match": "^f\\. Sergeant Major and Command Sergeant Major\\.$",
+       "band": "E-9"
+      }
+     ]
+    }
+   ],
+   "gapHeading": "General guidance (broadening billets, competitive boards, education resources, professional reading)"
+  }
+ }
+}
