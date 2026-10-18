@@ -1,0 +1,13 @@
+{
+ "codes": [
+  "35A",
+  "35B"
+ ],
+ "run": 0,
+ "title": "Military Intelligence Branch officer career pamphlet, DA PAM 600-3 chapter (August 2026)",
+ "careerField": "Military Intelligence (branch code 35)",
+ "proponent": "U.S. Army Intelligence Center of Excellence (MI proponent)",
+ "publicationDate": "2026-08-06",
+ "dateBasis": "the PDF prints only 'AUG2026'; 2026-08-06 is the upload date in the official URL path (\u2026/2026/08/06/\u2026).",
+ "limitations": "The second run of grade headings (page 22 on) is the Reserve Component text and is not imported."
+}

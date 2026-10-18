@@ -1,0 +1,653 @@
+{
+ "bundle_version": 1,
+ "manifest_id": "army-600-3-ada-11-june-2026",
+ "import_batch": "army-600-3-ada-11-june-2026@2026-10-18",
+ "source": {
+  "id": "22740226-6e28-52ff-be47-a7c022db8b12",
+  "branch": "Army",
+  "personnel_category": "officer",
+  "publication_number": "DA PAM 600-3",
+  "title": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+  "chapter": null,
+  "career_field": "Air Defense Artillery (branch code 14)",
+  "proponent": "U.S. Army Air Defense Artillery School (ADA proponent)",
+  "official_url": "https://api.army.mil/e2/c/downloads/2026/06/11/00ebfede/ada-11-june-2026.pdf",
+  "publication_date": "2026-06-11",
+  "effective_date": null,
+  "last_checked_at": "2026-10-18T00:00:00Z",
+  "checksum_sha256": "c615a7d3a5fc6383c894063aadfc9bfb0aca4ec49b70cfe8dad2f3708089e681",
+  "extraction_tool": "pdf-parse 2.4.5",
+  "notes": "Date basis: the 11 June 2026 date is printed in the first line of the PDF. Imported for 14A: the grade-by-grade development sections (O-1..O-2, O-3, O-4, O-5, O-6) as the pamphlet gives them for the branch or functional area; they apply to every AOC listed. Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures and tables are not extracted. LIMITATIONS: figures (development models) are images and are not imported."
+ },
+ "passages": [
+  {
+   "id": "363bfa30-7fab-58e7-a8b6-091aa861c5b8",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant (LT) Development — Education",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "LTs attend the ADA Basic Officer Leader Course (BOLC), proponent institutional training.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 0,
+   "body_sha256": "7bfa7a6033398eec4b160f59a13ab776a5e77b335a687be7e0c0811fa15f4aa1"
+  },
+  {
+   "id": "fb558e14-0e00-5057-9e29-e7911b86a86e",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant (LT) Development — KD Assignments",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "LTs are assigned to a Battery/Company in a platoon leader position within a Patriot battalion, Patriot/Avenger composite battalion, DIVAD battalion, IFPC composite battalion, C-RAM batteries, Missile Defense Battery (MDB), C-sUAS battery, or THAAD battery. As platoon leaders, lieutenants gain valuable experience and training that becomes the \"cornerstone\" of their career development. Platoon leaders in Patriot and THAAD batteries are expected to train and perform as tactical control officers (TCO).",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 1,
+   "body_sha256": "3ae9202a9735ca4cd5a212d014e37c25f46adf4561a203025007b23311e54f77"
+  },
+  {
+   "id": "f6a8cc25-e2dd-5730-a60e-0ce93a9aac2a",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant (LT) Development — Developmental and Broadening Assignments",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "Additional developmental duty positions for seasoned platoon leaders include Aide-de-Camp; Battery Tactical Control Officer (TCO); Executive Officer (XO); and Liaison Officer.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 2,
+   "body_sha256": "6245031dd3273340aefd362cdfc39264e824bb18387976c699f6681089e3729b"
+  },
+  {
+   "id": "920cb26f-8263-5db9-afdf-ddfd630fb028",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant (LT) Development — Self-development",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "By law, officers must obtain an Undergraduate degree before promotion to captain. A self-development program enhancing professional development through lifelong learning must also begin at the rank of lieutenant.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 3,
+   "body_sha256": "0f932a5eec74b84558a08fc3d1419262a8d6caff1e45af68b9a7bf7142ded44f"
+  },
+  {
+   "id": "07581bca-8358-5b46-9df4-4d0b4c577304",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant (LT) Development — Desired experience",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "The focus of effort during the lieutenant years is to master the basic skills of the ADA Branch and acquire, reinforce, and hone troop-leading skills. Lieutenants must seek leadership positions in troop units whenever possible, as this is the best means to become educated in Army operations, building a strong foundation for future service as an Army officer. Accompanying development of technical, tactical, logistics, and administrative skills are important in these assignments, but leading Soldiers embodies the essence of leadership development for LTs and CPTs. Inculcation of the Warrior Ethos and Army Core Values are essential to the character development of officers prior to promotion to CPT, officers must possess an in-depth knowledge of ADA and combined arms operations gained through experience in MTOE Forces Command units.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 4,
+   "body_sha256": "c2ce237e09ebf78c48f4556bd0b625caa287c5539d4bc228659a2a153974f856"
+  },
+  {
+   "id": "3ca5e4d0-fdea-5d11-9292-98b2e0a42ffa",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain (CPT) Development — Education",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "Officers generally attend the Captains' Career Course (CCC) following selection for promotion to CPT. Select ADA officers may have an opportunity to attend the resident phase of another combat arms branch CCC or the U.S. Marine Corps Expeditionary Warfare School. These schools are extremely competitive and provide increased benefits to the officer and both branches.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 5,
+   "body_sha256": "d386ad2d4d1fdacf056945981645a7085e80d114ba6b5d670cb7d70d986dba27"
+  },
+  {
+   "id": "7cbc9fcd-de0a-5ad5-83f9-c3e6fec4661f",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain (CPT) Development — KD Assignments",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "CPTs must aggressively prepare for and seek the skills and experience to prepare them for duties at the rank of major (MAJ). The following are considered KD assignments for ADA CPTs:\n(a) ADA battery command (exceptions may include command of another combat arms battery or company).\n(b) HHB or Maintenance Company/Service Battery commander of an active component ADA organization.\n(c) HHC/HHD commander of an active component non-ADA organization (such as company/detachment command of Divisional HHC Units, company commander of Basic Training Company, or Initial Entry Training Company).\n(d) AN/TPY-2 FBM detachment command.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 6,
+   "body_sha256": "5401ab11ab96e6c652130f862f000955dabfcc84d34dcc06b882bb498db4d749"
+  },
+  {
+   "id": "87ea906a-6b20-59c3-9219-3f90169c66bc",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain (CPT) Development — Developmental and Broadening Assignments",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "Completion of CCC and a minimum of 12 months in one of the above KD positions will fully qualify CPTs for promotion to MAJ; the optimal timeline will provide for an 18-month command experience. Some CPTs may also be assigned to either branch-specific or generalist assignments, allowing them to develop a wider perspective of the Army or other services (some examples below):\n(a) ADA BN/BDE Staff Officer.\n(b) ADSE Cell Officer.\n(c) Army Human Resources Command (HRC) staff.\n(d) Battalion or brigade Tactical Director (TD).\n(e) Battlefield Coordination Detachment (BCD) Staff Officer.\n(f) CTC observer/controller (OC/T).\n(g) Space and Missile Defense Command (SMDC) positions.\n(h) Other branch developmental positions: ADA doctrine or combat developer in the Transformation Lessons Learned Manager (TLLM), Directorate of Training and Doctrine Development (DOTD), HRC positions, Army Test and Evaluation Command (ATEC); U.S. Army Recruiting Command staff positions, AC/Reserve Component (RC) positions, Reserve Officer Training Corps (ROTC) instructor, USMA instructor or tactical officer, Foreign Service exchange officer or Foreign Service school exchange officer, JIIM assignments, fellowship/internship positions; aide-de-camp.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 7,
+   "body_sha256": "6b6bd94953ff46e4102835cbebd7d54b7b8c00220804099addd47f310e2d8c45"
+  },
+  {
+   "id": "72cc0ec5-0f53-5365-9293-29b01afb39e8",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain (CPT) Development — Self-development",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "All CPTs must exercise continuous self-development and must master all aspects of ADA operations including JIIM operations. Self-development initiatives may include (among others) online/correspondence courses, civilian education, professional reading programs, and other institutional training to broaden their warfighting perspective. Officers may pursue functional area designation through programs such as the Voluntary Transfer Incentive Program or several advanced civil schooling opportunities. Eligibility varies by program and may require successful CCC completion, KD completion, or other prerequisites. Officers apply when eligible and are designated once selected and after completing the functional area requirements. Eligibility, application, and designation timing are flexible and may occur earlier or later based on program criteria and officer qualifications. Final designation decisions reflect Army requirements, officer preference, military experience, and civilian education.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 8,
+   "body_sha256": "c567ca13e582d199175f4795fec559003cf069022fa0db8f6510f8e97328dda7"
+  },
+  {
+   "id": "aa7468da-5416-5d4e-828a-a4da79fc485a",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain (CPT) Development — Desired experience",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "Developmental assignments, both branch-specific and generalist, will provide ADA CPTs with exposure to the Army and in some cases JIIM organizations. The CPTs must have mastered their troop leading skills and fully understand operations at battery, battalion, and brigade levels. At this stage in their career development, ADA CPTs must recognize how the Army functions and fights.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 9,
+   "body_sha256": "57f53b19169eb3200e057690110c738fa002fb111dc06b3c09edbf98fdceb577"
+  },
+  {
+   "id": "ceb8d826-f174-5582-bb5e-3b42d6f621ba",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major (MAJ) Development — Education",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "Education. Officers selected for promotion to MAJ in their 9th year of service undergo an HQDA level board that considers Army requirements along with each officer’s skills, experience, and preferences before assigning them to Intermediate Level Education (ILE). Completing ILE and performing successfully in KD assignments strengthens an officer’s competitiveness for promotion to lieutenant colonel (LTC). ILE/JPME I is critical at this point in an ADA officers’ career and must be completed prior to the 15th year of commissioned service. This prepares them for success in their next 10 years of service and is a prerequisite for Senior Service College (SSC) attendance. Upon completion of ILE/JPME I, ADA MAJs must continue to aggressively prepare for and seek the skills and experience that will prepare them for promotion to LTC.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 10,
+   "body_sha256": "493d4b198e9098856f21e266b7a2641904703ace62bfb06ab83725c3b2058bcb"
+  },
+  {
+   "id": "23923017-8f33-5c7c-a4a5-fc3b16e110cc",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major (MAJ) Development — KD Assignments",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "The following are considered KD assignments for ADA MAJs:\n(a) Battalion/Brigade S-3 or XO of an ADA organization.\n(b) Battalion/Brigade S-3 or XO of a Special Troops Battalion (STB) or another combat arms unit, including MDTF and DIVARTY.\n(c) National Capitol Region (NCR) Integrated Air Defense System (IADS) Tactical Director.\n(d) School of Advanced Military Studies (SAMS) utilization tour.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 9,
+   "printed_page": null,
+   "sort_order": 11,
+   "body_sha256": "ca27cf9366a5876f25185a46d185b70e1cd18c51b4412e464fb5f19225152437"
+  },
+  {
+   "id": "ae19a9de-646e-5c31-a719-37c188ffeb19",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major (MAJ) Development — Developmental and Broadening Assignments",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "Completion of ILE and a minimum of 12 months in a key developmental assignment fully qualify for promotion to LTC. The optimal timeline provides officers with the opportunity to serve in one or more of the above-mentioned positions for at least 18-24 months. Officers will not suffer prejudice towards promotion or assignment consideration because of not having served as an ADA battalion or brigade S-3/XO. Some ADA MAJs may be assigned to either branch specific or generalist assignments allowing them to develop a wider perspective of the Army or other services (some examples below):\n(a) AC/RC Service in cross-component billet positions.\n(b) ADA brigade staff officer.\n(c) CTC senior O/C.\n(d) Army Staff G-8 (Capabilities Directorate Fires [CDF]), and HRC positions.\n(e) Mission Command Training Program (MCTP) positions.\n(f) Other branch or multi-functional positions: Brigade/Division/Corps Staff Officer; FCD/TID/OCADA/ATEC/T2COM/HRC positions; CTC Senior OC/T; Fellowship/Internship positions; GMD brigade/SMDC Staff positions; Inspector General; OSW/Joint staff; ROTC/USMA Instructor; Service School Instructor; ILE Faculty and Staff Officer.",
+   "pdf_page_start": 9,
+   "pdf_page_end": 9,
+   "printed_page": null,
+   "sort_order": 12,
+   "body_sha256": "d5ecaf8331951c024ed5ec558e5757afa21e15cfe549170fa8089cd0a23930fa"
+  },
+  {
+   "id": "9f453c33-28dc-5ea9-8a28-3ba38b2cfb5e",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major (MAJ) Development — Self-development",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "All MAJs must exercise continuous self-development to fully master all aspects of ADA operations, including JIIM operations. MAJs should also begin the process of mastering the Fires functional concept. Self-development initiatives may include (among others) on-line/correspondence courses, civilian education, professional reading programs, and other institutional training to broaden their warfighting perspective. Skills and experience continue to drive an officer's career path and future assignments. See Figure 12-1.",
+   "pdf_page_start": 9,
+   "pdf_page_end": 9,
+   "printed_page": null,
+   "sort_order": 13,
+   "body_sha256": "12e6f835e39e921c533f77a5f18cacec1c62e4004433d2f5aff38ab0e5ad22a9"
+  },
+  {
+   "id": "d5d84081-f599-52f4-af99-4e68b720f062",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major (MAJ) Development — Desired experience",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "At this stage, an ADA MAJ must hone skills in the planning and execution of ADA TTPs and develop expertise in the JIIM operational environment. While 12 months is the minimum standard, an officer should serve for as long as possible in key developmental assignments.",
+   "pdf_page_start": 9,
+   "pdf_page_end": 9,
+   "printed_page": null,
+   "sort_order": 14,
+   "body_sha256": "f67b35d68585fc9e4c9f9fe9eb3368bb51e2095597198508291c02ce9163ad7c"
+  },
+  {
+   "id": "ed692fe5-9cb0-5d83-ab5c-67ebc281dd8b",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel (LTC) Development — Education",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "Officers selected for LTC must seek assignments of greater responsibility in branch positions. The SSC selection board will screen ADA LTCs’ records after their 16th year of service. Completion of ILE is required for attendance consideration. SSC is the final major military educational program available to prepare officers for position of greatest responsibility in the DoD. Approximately 30-35 percent of a corps year group is selected to attend during their years of eligibility between the 16th and 23rd years of service.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 15,
+   "body_sha256": "dfcfec71b600e10c8b63e3130c9e8e2ca3425b7dd39deaeb076d727e989e600e"
+  },
+  {
+   "id": "4a2b02b0-9bd7-5b71-9b0b-4f49f8df4159",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel (LTC) Development — KD Assignments",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "ADA LTCs must continue to aggressively prepare for and seek the skills and experience that will prepare them for promotion to colonel. The objective of LTC assignments is to give ADA officers the opportunity to make a greater contribution to the branch and the Army. KD assignments for LTCs include the following:\n(a) CSL battalion-level command\n(b) Brigade Deputy Commander\n(c) Corps Chief of AMD Operations.\n(d) Division Chief of AMD Operations.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 16,
+   "body_sha256": "86f34514e8344d0453668b6c79a0a962f8c3d52f122c7113c2972af678cf2e60"
+  },
+  {
+   "id": "b69e3592-acc7-5543-a0bb-c34db9f3f712",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel (LTC) Development — Developmental and Broadening Assignments",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "The following are some possible examples of branch specific/generalist assignments for LTCs: AC/RC Service in cross- component billet positions; Chief, GMD fire direction center (FDC); HRC staff; OSW/Joint staff/HQDA staff Officer; Proponent Deputy Directors (TID, FCD, ATEC); Service School Instructor/Staff Officer; SMDC Staff Officer.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 17,
+   "body_sha256": "097e6f3abbe9a7713d85d07d148263367664cb496d9cfa675393b25ea4131a5f"
+  },
+  {
+   "id": "9b65439d-6051-5af8-96b2-ef139bb7581d",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel (LTC) Development — Self-development",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "Completion of SSC and a minimum of 12 months in a KD assignment will fully qualify LTCs for promotion to COL.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 18,
+   "body_sha256": "96bf67f24d30798538f9a1ef31242a8514258a06b7b2dfa143ab2cef44a87143"
+  },
+  {
+   "id": "8216f2c2-edc2-5454-ade7-e7d6324d12f6",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel (LTC) Development — Desired experience",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "ADA LTCs must have mastery level understanding of ADA Operations, Logistics, and the Command and Control required for CCMD level operations. Officers are expected to complete a minimum of 12 months of assignment at a Theater Level Command; (AAMDC, Army Service Component Command [ASCC], Combatant Command [CCMD]); at an Army Command, or Army / Joint Staff. Officers selected as Battalion Commanders should have this experience prior to or immediately following command.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 19,
+   "body_sha256": "52424603506de2a148832e3f2e1b5a3b0ebed4a261679cf7c586d12f2bf02107"
+  },
+  {
+   "id": "e06e1bc5-3de9-5401-8d15-280a69b62383",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel (COL) Development — Education",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "The annual SSC selection board reviews the files of COLs until their 23rd year of service. The majority of COLs will attend the resident training or be awarded Military Education Level (MEL) SSC certification from the U.S. Army War College Distance Education Course during the latter 3 years of their eligibility window.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 20,
+   "body_sha256": "8fb3551a4bb3a39bcac17c5081fb3f86ddc3f2d2a8a3c5d01721b53b5f200ca8"
+  },
+  {
+   "id": "c04b3251-2ca2-5024-b00f-98bed5c3cfe5",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel (COL) Development — KD Assignments",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "ADA COLs contribute to the branch by serving in key and developmental assignments to include the following:\n(a) CSL brigade-level command.\n(b) AAMDC Assistant Chief of Staff G-3.\n(c) ATEC Directors (Army Evaluation Command, Fires Test Directorate).\n(d) DA G-8 Defensive Fires, Branch Chief.\n(e) DAMO Fires Military Deputy Director.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 21,
+   "body_sha256": "a528c15499b7c7dc08fffbbe0fea0863b684d9431f494b232a8e23684e68433c"
+  },
+  {
+   "id": "3cd1e67c-e36b-5172-9c7d-27f899b6326d",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel (COL) Development — Developmental and Broadening Assignments",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "The following are some possible examples of branch specific/generalist assignments for COLs: AC/RC Service in cross- component billet positions; Allied/Coalition Headquarters Staff; Army Fellowship positions; Army Service Component Command Staff; HQDA Staff; DoD/OSW Staff; Joint Force Headquarters Staff; Joint Staff; ACOM Staff Officer; ROTC/USMA Staff Officer; SMDC Chief of Staff/G-3; Force/GMD Staff Officer; AMD/TMD Division Chief.",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 22,
+   "body_sha256": "efc7eac1b9cd590b562959bbaf0a121e55507789ba03cc98a0b2db380cd8db1b"
+  },
+  {
+   "id": "263ddf57-9b1d-594b-bd21-7a8176aebfbe",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel (COL) Development — Self-development",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "ADA COLs must maintain their branch skills and keep current on all changes that affect the Soldiers they command and/or manage. Mastery of all aspects of offensive and defensive Fires is critical to service as a Fires General Officer. JIIM assignments are important during this phase.",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 23,
+   "body_sha256": "e61e2389d77f32a39fd0f5dc35edd06dce58d1284f274da37871e181147aeb16"
+  },
+  {
+   "id": "95bf3e90-a62a-5ffa-bfdc-ffb977eb6100",
+   "occupation_code": "14A",
+   "occupation_title": "AIR DEFENSE ARTILLERY OFFICER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel (COL) Development — Desired experience",
+   "chapter": "Air Defense Artillery officer career pamphlet, DA PAM 600-3 chapter (11 June 2026)",
+   "body": "ADA COLs must have mastery level understanding of Strategic, Political, and National Security implications of ADA Operations. Officers are expected to complete 12 months assignment as a G3, Chief of Staff, Senior Staff Officer, or Division Chief at a Theater Level Command; (AAMDC, ASCC, CCMD); an ACOM, (T2COM/AMC); or Army / Joint Staff. Officers selected as Brigade Commanders should have this experience prior to or immediately following command.",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 24,
+   "body_sha256": "7cdc311a5339a4f2015a9d6220117594d00e60e0a7cd3686f2c001c132313557"
+  }
+ ],
+ "report": {
+  "pdfPages": 25,
+  "flags": [],
+  "runs": [
+   "LT>CPT>MAJ>LTC>COL@p6"
+  ],
+  "removedLines": [
+   {
+    "page": 1,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 2,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 3,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 4,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 5,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 6,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 13,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 14,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 15,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 16,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 17,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 18,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 19,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 20,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 21,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 22,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 23,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 24,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   },
+   {
+    "page": 25,
+    "text": "Air Defense Artillery – 11 June 2026",
+    "why": "running header/footer"
+   }
+  ],
+  "runningLines": [
+   "T0|Air Defense Artillery – # June #"
+  ],
+  "pointerOnlyDropped": 0,
+  "sections": [
+   {
+    "grade": "LT",
+    "lines": 25,
+    "chars": 1949,
+    "pages": "6-7"
+   },
+   {
+    "grade": "CPT",
+    "lines": 53,
+    "chars": 3732,
+    "pages": "7-8"
+   },
+   {
+    "grade": "MAJ",
+    "lines": 46,
+    "chars": 3299,
+    "pages": "8-9"
+   },
+   {
+    "grade": "LTC",
+    "lines": 29,
+    "chars": 2019,
+    "pages": "9-10"
+   },
+   {
+    "grade": "COL",
+    "lines": 27,
+    "chars": 1953,
+    "pages": "10-11"
+   }
+  ],
+  "byType": {
+   "training": 5,
+   "assignments": 5,
+   "development": 10,
+   "self_development": 5
+  },
+  "codes": [
+   "14A"
+  ]
+ }
+}

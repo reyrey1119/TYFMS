@@ -1,0 +1,529 @@
+{
+ "bundle_version": 1,
+ "manifest_id": "army-600-3-da-pam-600-3-fy25-signal-final",
+ "import_batch": "army-600-3-da-pam-600-3-fy25-signal-final@2026-10-18",
+ "source": {
+  "id": "52a67ea8-6126-525f-a0d2-6b144b0b11a3",
+  "branch": "Army",
+  "personnel_category": "officer",
+  "publication_number": "DA PAM 600-3",
+  "title": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+  "chapter": null,
+  "career_field": "Signal (branch code 25)",
+  "proponent": "U.S. Army Signal School (Signal Corps proponent)",
+  "official_url": "https://api.army.mil/e2/c/downloads/2026/07/24/c2a48f36/da-pam-600-3-fy25-signal-final.pdf",
+  "publication_date": "2026-02-01",
+  "effective_date": null,
+  "last_checked_at": "2026-10-18T00:00:00Z",
+  "checksum_sha256": "f1d8da42c6553f259aa8402eaed1904d64bf38748416a69d0619ef9283909265",
+  "extraction_tool": "pdf-parse 2.4.5",
+  "notes": "Date basis: the running title of the Signal Corps text reads 'Signal Corps – 01 February 2026'; the file name says FY25 and the Army G-1 page lists the upload in July 2026. Imported for 25A: the grade-by-grade development sections (O-1..O-2, O-3, O-4, O-5, O-6) as the pamphlet gives them for the branch or functional area; they apply to every AOC listed. Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures and tables are not extracted. LIMITATIONS: figures (development models) are images and are not imported."
+ },
+ "passages": [
+  {
+   "id": "553c6127-b334-5952-9cac-4aa41fd313b9",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant Development — Education",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "All lieutenants accessed directly into Signal must complete Signal BOLC (SBOLC). SBOLC provides foundational leadership skills, tactical training, and technical Signal training.",
+   "pdf_page_start": 9,
+   "pdf_page_end": 9,
+   "printed_page": null,
+   "sort_order": 0,
+   "body_sha256": "6fc0a26ba0797af5026e8274930e45023a32a11911359f43e5d16d8aa2fb5514"
+  },
+  {
+   "id": "f36e7b89-647d-5df4-8f79-124abdb501bb",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant Development — Key Developmental (KD) Assignments",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Assignments for lieutenants are usually at the company level to gain troop-leading experience and enhance technical and tactical competence. Signal Corps lieutenants should serve a minimum of 12 months in Signal lieutenant authorizations. Additionally, assignments to operational theaters, such as South Korea or Kuwait, can provide valuable leadership experience and enhance an officer's professional development. These deployments will not be considered detrimental to a lieutenant's promotion to captain or their overall career timeline. The following are developmental assignments for Signal Corps lieutenants:\n(a) Platoon Leader\n(b) Company Executive Officer\n(c) Battalion Maintenance Officer\n(d) Battalion | Brigade | Division Staff Officer\n(e) Assistant Operations Officer",
+   "pdf_page_start": 9,
+   "pdf_page_end": 9,
+   "printed_page": null,
+   "sort_order": 1,
+   "body_sha256": "37387a6011f108b47f8914e1e5ef9bb39363dfbf207b84795609b01ae438770c"
+  },
+  {
+   "id": "08696fcc-c334-5a22-b846-6ae4a043fb5e",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant Development — Desired Experience",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Before promotion to captain, officers should possess in-depth knowledge of Signal operations and the integration of core competencies into MDO. Signal lieutenants should develop the unique technical skills required to provide, operate, maintain, and secure signal equipment and systems. Signal lieutenants should also become proficient in both common core and branch-unique tasks. Lieutenants should strive to acquire, reinforce, and hone troop-leading, tactical, technical, logistics, and administrative skills. Indoctrination of the Army Values and the Warrior Ethos are essential for all lieutenant development.",
+   "pdf_page_start": 9,
+   "pdf_page_end": 9,
+   "printed_page": null,
+   "sort_order": 2,
+   "body_sha256": "346b4bcc8738331cbd84010ef87864d41ccd81a245f30ffaad3e8f42112a9db9"
+  },
+  {
+   "id": "53e6cf70-7c85-524e-becd-1c01ca1b97e7",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant Development — Branch Detail",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "The Signal Corps branch detail program assigns newly commissioned Signal officers to other branches (Infantry, Armor, Field Artillery, and Chemical) with large lieutenant authorizations and is an integral part of the officer accession process. In accordance with AR 614–100, the branch detail period is 36 months, including time spent in initial entry training. Upon return to the Signal Corps, branch detailed officers must attend SCCC and continue career development in the same manner as their non-detailed counterparts. Branch‑detailed Signal officers play a vital role in strengthening the Signal Corps, bringing with them the operational and tactical experience gained from serving in Infantry, Armor, Field Artillery, or Chemical formations. Their firsthand understanding of maneuver operations directly enhances the Corps’ ability to design, deliver, and support communications that meet the realities of the battlefield.",
+   "pdf_page_start": 9,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 3,
+   "body_sha256": "d5eb14ad6af39b92e2481401b4e6c05641e55ba44c78713058edcb29b42a9753"
+  },
+  {
+   "id": "4d065f4f-0e12-52bf-8cce-92bb4d41c13b",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain Development — Education",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Active Component (AC) Signal officers must complete SCCC promotion consideration to major. Reserve Component (RC) Signal officers must complete the phased version of SCCC (SCCC-RC) as outlined in the RC section of this document. SCCC is a 20-week Permanent Change of Station (PCS) course and is usually completed between the 4th and 7th year of service.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 4,
+   "body_sha256": "5250bf0aafdcbedebab5da45bbeb8c1536b948c16295ff3983e01312b7bb338f"
+  },
+  {
+   "id": "69ceff41-a7be-5c7b-b1d4-2823a40d822a",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain Development — KD Assignments",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Officers must successfully serve a minimum 18 months but are encouraged to complete 24 months in one or a combination of KD assignments before considering more senior captain assignments or applying for broadening opportunities. The following are KD assignments for Signal Corps captains:\n(a) Battalion S6\n(b) Company/Detachment Commander\n(c) Security Force Assistant Battalion (SFAB) Team Signal Advisor",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 5,
+   "body_sha256": "75fcb5b1dd419425e0c9ecdb6f6d789ad87b972b762c0ab164229dbb43742796"
+  },
+  {
+   "id": "1ad484ca-45a6-54d7-8df8-250f6fd30f69",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain Development — Desired Experience",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Captains should continue to gain an in-depth understanding of MDO and become proficient in Signal operations and common core competencies. These competencies form the essential knowledge base necessary for serving in the branch with both tactical and technical expertise, as well as for being a leader of Soldiers. Additionally, captains gain a working knowledge of command principles, battalion-level staff operations, combined arms operations, and Signal operations when serving at the battalion-level and above. Officers are encouraged to pursue developmental assignments only after completing their KD assignments. Engaging in developmental assignments prior to finishing KD assignments is strongly discouraged. Developmental assignments can be found below in Figure 1 for the Signal ODM.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 6,
+   "body_sha256": "b7a181f3c45efcbae7ac69dfdece0cb470714ef649fe1372ef3c8b3c82e78903"
+  },
+  {
+   "id": "9602aba1-cd5c-54ad-97a4-92a1cc7bfef4",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major Development — Education",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Successful completion of ILE / JPME Level 1 producing course in accordance with AR 350–1 is required to remain competitive for lieutenant colonel. ILE consists of the ILE Common Core and the Advanced Operations Course (AOC) through one of two primary venues: the resident course at Fort Leavenworth, or through distance learning. Distance Learning folks can apply to in person (14 week) AOC (Advanced Operations Course) at Fort Leavenworth following the completion of all three phases of ILE Common Core. Army Reserve TASS teaches three phase ILE in person. Resident ILE students are automatically enrolled to earn a Masters of Operational Studies (MOS) unless they formally “opt out” of the MOS program. Majors should obtain a master’s degree to remain competitive for promotion. Coordination for ILE attendance is done through HRC career managers. ILE completion is a prerequisite for SSC. Signal majors may request to attend a sister service school for ILE credit. Signal majors are encouraged to apply for attendance at the School of Advanced Military Studies (SAMS). SAMS prepares officers to plan and conduct future operations across a wide range of military operations. Officers who complete one of the three SAMS courses will gain either a masters or doctoral degree. All SAMS graduates are required to complete a utilization tours following course completion.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 7,
+   "body_sha256": "22e873e1c804bbfbdbafe74622cb56790d2daba19475a90cb7822950c360b479"
+  },
+  {
+   "id": "8fec427a-5673-5167-a0b8-3b455257dede",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major Development — KD Assignments",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Officers must successfully serve a minimum 18 months but are recommended to complete 24 months in one or a combination of KD assignments before considering more senior major assignments or applying for broadening opportunities. The following are KD assignments for Signal Corps majors:\n(a) Brigade/DIVARTY/Group/Multi Domain Task Force/Regimental S6\n(b) Battalion/Brigade Executive Officer (25A/01A)\n(c) Battalion/Brigade S3 (25A/01A)\n(d) O-4 Level Company Command\n(e) Division Deputy G6 (J6 when division deploys)\n(f) Division/Theater or Expeditionary Sustainment Command Network Operations\n(g) SAMS graduates serving as a Division Plans Officer\n(h) SFAB/Security Force Assistance Team (SFAT) Signal mentor/advisor (25A/01A) / SFAC G6",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 8,
+   "body_sha256": "598cbdc3b297888f0f77198709f3317ad14b0c78992d6645c4ed2ed8475bc12f"
+  },
+  {
+   "id": "7f0ca34e-6fbe-5457-8236-691979488505",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major Development — Desired Experience",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Signal majors should seek assignments, experiences, and educational opportunities that will help them become multi-skilled, agile, and adaptive leaders. A Signal major should strive to serve in joint billets such as the joint staff, unified command staff, Defense Information Systems Agency (DISA), and Defense Intelligence Agency (DIA). Joint qualification is essential to the Army and highly desirable for competitive advancement to senior leadership positions. Additionally, majors may serve in O1A branch immaterial assignments as broadening opportunities. Officers are encouraged to pursue broadening assignments only after completing their KD assignments. Engaging in broadening assignments prior to finishing KD assignments is strongly discouraged.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 9,
+   "body_sha256": "5cf91a2849ed362f667b4ecd1d3fca7cacfd4d38c8a0561cb1fd9d531d208048"
+  },
+  {
+   "id": "a1f1ec5f-2c74-5bd8-9e4e-0677dd32ca95",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — Education",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Recommended lieutenant colonel education consists of the pre-command course (PCC).",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 10,
+   "body_sha256": "6f5d44548923deeceb77be4aed45f8b268be03fa58d93a19c650b3e9857a8feb"
+  },
+  {
+   "id": "89b6f0a3-d49c-572e-9322-4f2ebe219480",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — KD Assignments",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Centralized Selection List (CSL) Positions are the only KD positions for lieutenant colonels. An officer must successfully complete a CSL assignment to be considered branch qualified at the lieutenant colonel level. The following assignments are CSL assignments for Signal Corps lieutenant colonels:\n(a) Division G6\n(b) Theater Fires Command / Theater Sustainment Command G6\n(c) Battalion Commander (Signal, Training, Recruiting, HHBN, Soldier Recovery, TRADOC)",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 11,
+   "body_sha256": "f1a6ede53643863bf44b44a6925b0e78d60044ffda22f1397de86af27f6e1114"
+  },
+  {
+   "id": "d9791a4b-1033-56f6-b4df-6d744805ceff",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — Former CSL (FCSL)",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Upon completion of CSL, lieutenant colonels are designated as Former CSL (FCSL) and their assignment process is managed by the Signal Board of Directors composed of sitting Signal General Officers. FCSL lieutenant colonels are assigned to billets that continue to develop them as strategic leaders and future Army senior leaders. FCSL assignment duration is typically 12-24 months and is deconflicted on a case-by- case basis with selection for SSC and/or promotion. Example FCSL billets are:\n(a) Deputy Brigade Commander (DBC)\n(b) Deputy Corps G6\n(c) Combatant Command (COCOM) / Army Command (ACOM) / Army Service Component Command (ASCC) Staff Officer\n(d) Human Resources Command\n(e) Nominative Assignment",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 12,
+   "body_sha256": "303d32d799b7fff2c2047b494336f0a1edc5be10b2ad6fec2120a26530e4efca"
+  },
+  {
+   "id": "0baa797b-d4a6-571e-93e5-2860f4359a64",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — Desired Experience",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Lieutenant colonels should continue to broaden their experiences and seek assignments that provide growth opportunities. The objective is to allow officers to contribute throughout the Army and joint organizations. Joint qualification is essential to the Army and highly desirable for competitive advancement to senior leadership positions. Lieutenant colonels are expected to possess a combination of tactical and enterprise experience, along with a proven ability to modernize and train at the edge. Lieutenant colonels should expect to alternate between command and staff assignments at ACOM, ASCC, Direct Reporting Unit (DRU), joint, DOD, and multinational organizations.",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 13,
+   "body_sha256": "6362cd952e523e57b3083c36e603ce51852eb8e4dc208cd40cb75b3d7b4e85b1"
+  },
+  {
+   "id": "0d8d442c-79fd-5c55-8d8b-ddd5556e4f32",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel Development — Education",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Signal officers selected for colonel should complete Military Education Level (MEL) 1 (SSC equivalent). As senior practitioners in their field, they will primarily serve as Signal Corps officers on ACOM, ASCC, DRU or HQDA staff or be assigned to branch/FA generalist positions.",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 14,
+   "body_sha256": "27aee5a30cf2427257e95a5719497439151f14d3fbdd275fb67447d59ac2cb6c"
+  },
+  {
+   "id": "85f74a74-d2dd-5dc4-9089-a573196e3da4",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel Development — CSL Assignments",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Colonels contribute to the branch by serving in critical assignments at the operational and strategic level. The following assignments are CSL assignments for Signal Corps Colonel:\n(a) Army Capabilities Managers\n(b) Corps G6\n(c) ARCYBER G6\n(d) DISA Commander\n(e) Garrison Commander\n(f) Operational Fires Command G6\n(g) Signal Brigade/Corps Signal Brigade Commander\n(h) Training Brigade Commander\n(i) White House Communications Agency",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 15,
+   "body_sha256": "c1a17ae43161adf025d0b92057470c9b0267d5221016cad0efc3e0915ca9b054"
+  },
+  {
+   "id": "cd0e6191-aa32-5639-9f68-fa3217f6ea9e",
+   "occupation_code": "25A",
+   "occupation_title": "SIGNAL, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel Development — Desired Experience",
+   "chapter": "Signal Corps Branch officer career pamphlet, DA PAM 600-3 chapter (Version 1.4.27, 01 February 2026)",
+   "body": "Colonels should continue to broaden their experiences in a JADO environment, along with strategic broadening initiatives such as: Seminar XXI and post MEL 1 fellowships.",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 16,
+   "body_sha256": "11d6b9c7e1a8aa8c22a4c5f3040964febd862f718acd614f45f58b6c28b5023b"
+  }
+ ],
+ "report": {
+  "pdfPages": 34,
+  "flags": [],
+  "runs": [
+   "LT>CPT>MAJ>LTC>COL@p9",
+   "LT>CPT>MAJ>LTC>COL@p12"
+  ],
+  "removedLines": [
+   {
+    "page": 6,
+    "text": "Signal Corps – 01 February 2026 1",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "Signal Corps – 01 February 2026 2",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "Signal Corps – 01 February 2026 3",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "Signal Corps – 01 February 2026 4",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "Signal Corps – 01 February 2026 5",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "Signal Corps – 01 February 2026 6",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "Signal Corps – 01 February 2026 7",
+    "why": "running header/footer"
+   },
+   {
+    "page": 13,
+    "text": "Signal Corps – 01 February 2026 8",
+    "why": "running header/footer"
+   },
+   {
+    "page": 14,
+    "text": "Signal Corps – 01 February 2026 9",
+    "why": "running header/footer"
+   },
+   {
+    "page": 15,
+    "text": "Signal Corps – 01 February 2026 10",
+    "why": "running header/footer"
+   },
+   {
+    "page": 16,
+    "text": "Signal Corps – 01 February 2026 11",
+    "why": "running header/footer"
+   },
+   {
+    "page": 17,
+    "text": "Signal Corps – 01 February 2026 12",
+    "why": "running header/footer"
+   },
+   {
+    "page": 18,
+    "text": "Signal Corps – 01 February 2026 13",
+    "why": "running header/footer"
+   },
+   {
+    "page": 19,
+    "text": "Signal Corps – 01 February 2026 14",
+    "why": "running header/footer"
+   },
+   {
+    "page": 20,
+    "text": "Signal Corps – 01 February 2026 15",
+    "why": "running header/footer"
+   },
+   {
+    "page": 21,
+    "text": "Signal Corps – 01 February 2026 16",
+    "why": "running header/footer"
+   },
+   {
+    "page": 22,
+    "text": "Signal Corps – 01 February 2026 17",
+    "why": "running header/footer"
+   },
+   {
+    "page": 23,
+    "text": "Signal Corps – 01 February 2026 18",
+    "why": "running header/footer"
+   },
+   {
+    "page": 24,
+    "text": "Signal Corps – 01 February 2026 19",
+    "why": "running header/footer"
+   },
+   {
+    "page": 25,
+    "text": "Signal Corps – 01 February 2026 20",
+    "why": "running header/footer"
+   },
+   {
+    "page": 26,
+    "text": "Signal Corps – 01 February 2026 21",
+    "why": "running header/footer"
+   },
+   {
+    "page": 27,
+    "text": "Signal Corps – 01 February 2026 22",
+    "why": "running header/footer"
+   },
+   {
+    "page": 28,
+    "text": "Signal Corps – 01 February 2026 23",
+    "why": "running header/footer"
+   },
+   {
+    "page": 29,
+    "text": "Signal Corps – 01 February 2026 24",
+    "why": "running header/footer"
+   },
+   {
+    "page": 30,
+    "text": "Signal Corps – 01 February 2026 25",
+    "why": "running header/footer"
+   },
+   {
+    "page": 31,
+    "text": "Signal Corps – 01 February 2026 26",
+    "why": "running header/footer"
+   },
+   {
+    "page": 32,
+    "text": "Signal Corps – 01 February 2026 27",
+    "why": "running header/footer"
+   },
+   {
+    "page": 33,
+    "text": "Signal Corps – 01 February 2026 28",
+    "why": "running header/footer"
+   },
+   {
+    "page": 34,
+    "text": "Signal Corps – 01 February 2026 29",
+    "why": "running header/footer"
+   }
+  ],
+  "runningLines": [
+   "T0|Signal Corps – # February # #"
+  ],
+  "pointerOnlyDropped": 0,
+  "sections": [
+   {
+    "grade": "LT",
+    "lines": 28,
+    "chars": 2600,
+    "pages": "9-10"
+   },
+   {
+    "grade": "CPT",
+    "lines": 18,
+    "chars": 1610,
+    "pages": "10-10"
+   },
+   {
+    "grade": "MAJ",
+    "lines": 32,
+    "chars": 2919,
+    "pages": "10-11"
+   },
+   {
+    "grade": "LTC",
+    "lines": 25,
+    "chars": 2010,
+    "pages": "11-11"
+   },
+   {
+    "grade": "COL",
+    "lines": 16,
+    "chars": 941,
+    "pages": "11-11"
+   }
+  ],
+  "byType": {
+   "training": 5,
+   "assignments": 4,
+   "development": 8
+  },
+  "codes": [
+   "25A"
+  ]
+ }
+}

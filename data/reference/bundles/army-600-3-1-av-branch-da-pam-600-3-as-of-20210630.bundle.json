@@ -1,0 +1,973 @@
+{
+ "bundle_version": 1,
+ "manifest_id": "army-600-3-1-av-branch-da-pam-600-3-as-of-20210630",
+ "import_batch": "army-600-3-1-av-branch-da-pam-600-3-as-of-20210630@2026-10-18",
+ "source": {
+  "id": "94f1d82f-9b7b-5be8-80fb-1f964e2e2fa2",
+  "branch": "Army",
+  "personnel_category": "officer",
+  "publication_number": "DA PAM 600-3",
+  "title": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+  "chapter": null,
+  "career_field": "Aviation (branch code 15)",
+  "proponent": "U.S. Army Aviation Center of Excellence (Aviation branch proponent)",
+  "official_url": "https://api.army.mil/e2/c/downloads/2022/08/03/8d0a3936/1-av-branch-da-pam-600-3-as-of-20210630.pdf",
+  "publication_date": "2021-06-30",
+  "effective_date": null,
+  "last_checked_at": "2026-10-18T00:00:00Z",
+  "checksum_sha256": "332fee1deecb17f93ff317762c098d2ac0b5a2db960d40419996da231380005d",
+  "extraction_tool": "pdf-parse 2.4.5",
+  "notes": "Date basis: printed in the running title ('Aviation Branch – 30 June 2021'). An older chapter; the Army G-1 page lists it as current (uploaded 3 Aug 2022). Imported for 15A: the grade-by-grade development sections (O-1..O-2, O-3, O-4, O-5, O-6) as the pamphlet gives them for the branch or functional area; they apply to every AOC listed. Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures and tables are not extracted. Stored for AOC 15A (Aviation, General), the branch's general AOC; the AOC-specific sections for 15B, 15C and 15D are not imported. LIMITATIONS: Stored for AOC 15A (Aviation, General), the branch's general AOC; the AOC-specific sections for 15B, 15C and 15D are not imported."
+ },
+ "passages": [
+  {
+   "id": "da3a9d15-d095-5dcb-b2a4-1b030670e005",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant — overview",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Lieutenants must meet the requirements outlined in AR 611–110 for entry into the Aviation Branch",
+   "pdf_page_start": 3,
+   "pdf_page_end": 3,
+   "printed_page": null,
+   "sort_order": 0,
+   "body_sha256": "d519e411e6afdfa2ecacada7e56ab11548c61b81769415bf50e4170c4eca4171"
+  },
+  {
+   "id": "7fbd4780-6e94-5bb8-bed3-4745b8f21e6f",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant — Professional military education",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "All newly commissioned Aviation lieutenants attend BOLC and Initial Entry Rotary Wing training at the U.S. Army Aviation Center of Excellence (USAACE), Fort Rucker, AL. BOLC includes training on general military subjects such as leadership, weapons, combined arms operations, physical training, and warrior skills training. Initial Entry Rotary Wing or flight school, training consists of aeromedical factors, basic flight, aerodynamics, meteorology, instrument flight and combat skills training. Training is conducted from the preflight through the primary and instrument qualification phases in the LUH-72 aircraft. Basic warfighting skills, such as navigation, are trained in the LUH-72 Lakota helicopter. Students then transition into one of 4 advanced aircraft: the AH–64E Apache, UH–60A/L/M Blackhawk, C-12 Huron and CH–47F Chinook to complete day and night advance combat skills. Students must also complete survival, evasion, resistance, and escape level C training prior to being awarded the Basic Army Aviator Badge. Follow-on schooling enroute to the officer’s next assignment (for example,Airborne, Air Assault, Ranger, and Aviation Cavalry Leader’s Course) may be approved based on mission requirements.",
+   "pdf_page_start": 3,
+   "pdf_page_end": 4,
+   "printed_page": null,
+   "sort_order": 1,
+   "body_sha256": "eaa54518a1042d77e6e111d063a3c45ee77089f034d7e3295894f41ca31aeb9a"
+  },
+  {
+   "id": "5f287eec-3a02-5899-a5f3-edf8be659c70",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant — Key developmental assignment",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "The single most important assignment consideration for personnel managers and commanders is ensuring that the new lieutenant is assigned to a job which will allow the officer adequate opportunity to develop flight experience and troop-leading skills. Lieutenants should serve 18 to 24 months in a platoon leader position. Due to the length of flight school, this may overlap into the officer’s first year as a captain. Promotions will not automatically alter positions. Promotion from lieutenant to captain while still serving in an operational assignment such as platoon leader will not be a negative consideration when determining the officer’s potential for promotion. The overall goal is for an officer to attain pilot-in-command status and gain as much flight and leadership experience as possible prior to moving to another operational assignment.",
+   "pdf_page_start": 4,
+   "pdf_page_end": 4,
+   "printed_page": null,
+   "sort_order": 2,
+   "body_sha256": "cf8696640d19438f2dbd875bea11edc6ecfa5469b6804811fd6adaf41573360d"
+  },
+  {
+   "id": "d4613845-ce34-5a4f-b177-f7ffdd45449e",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant — Developmental assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Junior officers initially assigned to a CONUS or overseas installations (OCONUS) will be stabilized at their first installation for an extended period of time that allows for branch advancement to the rank of captain. This initial extended tour may include hardship tours or attendance at leader development schools (in TDY or PCS status) but in each case, the officer should return to their stabilization installation. Lieutenants should serve at the platoon and company level to gain troop leading and flight experience. The officer will concentrate on planning and executing the tactics, techniques, and procedures specific to their weapons platform and unit mission.",
+   "pdf_page_start": 4,
+   "pdf_page_end": 4,
+   "printed_page": null,
+   "sort_order": 3,
+   "body_sha256": "ea9f146545e927050d430aa0b12cf1d4b47e06f4587d1762e411b5b01e7ec4b3"
+  },
+  {
+   "id": "ff6dca06-d1ec-53be-88ac-ba20dfa2468f",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant — Self-development",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "All officers should be afforded every opportunity to achieve qualification as a pilot-in- command prior to attendance of the Aviation Captains Career Course (AVCCC) or CCC equivalent. A lieutenant’s focus should be to refine troop-leading, aviator, tactical, logistic (maintenance and supply), force protection (risk management) and administrative skills. The key milestone in a lieutenant’s development should be attaining pilot-in- command status. In doing so, lieutenants will acquire much needed technical and tactical experience, which will serve them well in future assignments. For example, company commanders are expected to set the standard for other pilots within their company. Being a pilot- in-command better enables commanders to be in the position to direct critical assets where needed. Lieutenants should also strive to obtain key training experiences that enhance normal garrison training, including, but not limited to: CTC rotations, joint and combined exercise deployments, and worldwide contingency operations. To successfully compete for promotion to captain, an officer must possess a thorough knowledge of Aviation tactics and principles and have obtained a baccalaureate degree. Officers may take advantage of pre-commissioning educational incentives such as incurring an additional 3-year ADSO in exchange for the opportunity to pursue a master’s degree later in their careers.",
+   "pdf_page_start": 4,
+   "pdf_page_end": 4,
+   "printed_page": null,
+   "sort_order": 4,
+   "body_sha256": "686c9aa7d775b12c05f5e6072d3f73a04370b92f02e1cc6e6a216f377f5cbbbe"
+  },
+  {
+   "id": "93069eb0-aa13-5028-befa-eacca8e3e885",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — overview",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "A captain must successfully complete a branch CCC.",
+   "pdf_page_start": 4,
+   "pdf_page_end": 4,
+   "printed_page": null,
+   "sort_order": 5,
+   "body_sha256": "ff09ec8d0ab2f11a5b254192436879a2d284826b2f74e9cf0744f5add252f749"
+  },
+  {
+   "id": "a96d81c3-2407-52d3-a1d7-d646cd367e04",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Professional military education",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "(a) Captains Career Course. Captains must earn a baccalaureate degree prior to attending a CCC. Aviation officers will attend a branch CCC between their 5th and 8th year of commissioned service and will be awarded AOC 15B upon successful completion. Aviation officers may attend other branch’s CCC. The branch phase of the AVCCC is 21 weeks. It prepares officers to serve as combined arms experts, company commanders and battalion/brigade staff officers. The AVCCC meets established prerequisites for total operational flying duty credit assignments. Aviators earn 1 month of total operational flying duty credit for each month spent at AVCCC. Aviators attending another branch CCC do not earn total operational flying duty credit.\n(b) Military Intelligence Captains Career Course. Officers selected for AOC 15C (All-Source Intelligence Officer) attend the Military Intelligence Officer Transition Course if they did not attend Military Intelligence BOLC. The AOC 15C officers attend the 20-week Military Intelligence CCC and receive training as a branch 35 (All-Source Intelligence Officer). They attend the Fixed Wing Multi-Engine Qualification Course before or after the Military Intelligence CCC with appropriate follow-on Aircraft specific training.\n(c) Aviation Captains Career Course. Officers selected for AOC 15D Aviation Maintenance Officers will attend either the AVCCC or the CLC3. The officer will attend the Aviation Maintenance Officers Course for AOC 15D designation. The Maintenance Test Pilot Course is preferred when course funds and slots are available.",
+   "pdf_page_start": 4,
+   "pdf_page_end": 4,
+   "printed_page": null,
+   "sort_order": 6,
+   "body_sha256": "9da6e04e0d616a64c29ae9d75e6163185897ed02289aedc665d010118555b7bc"
+  },
+  {
+   "id": "1c0df131-cfa9-5b53-9fb0-37cb9b4f8d97",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Key developmental assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Captains serving in one of the following assignments for 12–24 months acquire KD time:\n(a) Platoon leader (15D) in an Aviation support company.\n(b) Captain-level company/detachment command.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 7,
+   "body_sha256": "2ef2a17bacb7040f4ab75c3bd79707d5b67e2d34102dc6d39007a42b36557c66"
+  },
+  {
+   "id": "223c3b88-94aa-5685-91bc-100e0107265f",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Developmental assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Captains are utilized as the senior leader at the company level. Their primary goal is to successfully command a TOE/TDA company for 18–24 months. Captains can hold platoon leader positions in units authorized captains as platoon leaders. These units include the Aviation Support Company and ARSOA units. Captains also fill key staff positions at the battalion and brigade level, in addition to positions within the brigade Aviation element, Air Defense Airspace Management (ADAM) cell, CTC/observer/controller positions, and small group instructor positions at the proponent and USMA. Even when assigned to staff positions, captains should continue to hone their direct leadership skills, build flight experience, and achieve/maintain pilot-in-command status.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 8,
+   "body_sha256": "7e536b5b0b0cdfc54f46f08459ee00215fda04c35b234285b800dc5a218b5717"
+  },
+  {
+   "id": "59cbd431-e796-5be4-a318-d2e8c85232d0",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Broadening assignment",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Opportunities available for captains include, but are not limited to:\n(a) Observer controller/evaluator at a CTC.\n(b) Course manager/instructor at USAACE/USAIC USMA.\n(c) Training With Industry.\n(d) HRC assignments.\n(e) Collection manager (15C).\n(f) Battalion primary and CAB assistant staff officer.\n(g) Brigade Aviation element.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 9,
+   "body_sha256": "50439ca7f942080fe51ba723cd8f599386277820a60384f82e4a800163aa5833"
+  },
+  {
+   "id": "eb15cbb2-3d2a-5dd6-a0c9-2aa9bcfa9f76",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Self-development",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Captains should gain an in-depth understanding of Aviation brigadeoperations, combined arms operations, and aircraft maintenance. Aviation captains should dedicate time to a professional reading program to gain a historical perspective on solutions to tactical and leader challenges. Captains should strive for the same qualitative leadership building experiences as during their lieutenant years: CTC rotations, joint and combined exercises, and deployment on real-world contingency operations. The challenges at the captain/commander level will greatly enhance the officer’s tactical and technical skills, as well as build critical flight experience. Captains should strive to meet the requirements for award of the Senior Aviator Badge by the time they are promoted to major. Captains should broaden their understanding of warfighting through extension courses and independent study. Commanders should maintain healthy officer professional development programs within their units.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 10,
+   "body_sha256": "dd432d55a56ad9bba1514476ed6e9e308e8b7a8804a99678b52edf238eb65bc4"
+  },
+  {
+   "id": "8ee7c344-32a1-50f4-a0f3-87ac9eec881c",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Key developmental",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Captains should seek the KD assignments that assist them in promotion and create the qualities of a tactically and technically proficient Aviation officer. In addition, opportunities exist at TRADOC organizations as staff and logistics officers.\n(a) Aviation captains can request to attend the Joint Air Ground Operations School at Hurlburt Field, FL 32544, or the Aviation Air Cavalry Leaders Course at Fort Benning, GA 31995–3781 or the Aviation Cavalry Leaders Course Fort Rucker,AL.. If attendance at Air Ground Operations School is desired, the 3- week Joint Air Tasking Order Process Course located at Hurlburt Field, FL is recommended for officers who are required to understand and apply airspace mission command and the application of the air tasking order. The 2–week Joint Firepower Course at Nellis Air Force Base, Nevada, is more suited to an understanding of the application of joint fire support systems.\n(b) Project Warrior is a program in which captains serve 2 years as an observer-coach-trainer at a maneuver combat trainer center, followed by 2 years as a small group instructor at a TRADOC Center of Excellence. Project Warrior was suspended due to operational requirements in Iraq and Afghanistan. The intent in reinstituting Project Warrior is to infuse observations, insights, and lessons gained from multiple maneuver combat trainer center decisive action rotations against hybrid threats, back into the force through the TRADOC Center of Excellence.\n(c) Officers may receive Advanced Civilian Schooling or Expanded Graduate School Program participation if career timeline permits or if necessary for a FA or special assignment (for example, Army Acquisition Corps, FAO or USMA instructor). See Part One of DA PAM 600-3 for specifics.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 11,
+   "body_sha256": "adfab910469f8ab17fa4e194c287903e0b91503822e47811c8cdecc9346f4cc6"
+  },
+  {
+   "id": "b4781acf-27ce-5c66-a717-e0a53b762781",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Volunteer Transfer Incentive Program",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "VTIP boards meet to consider officers in their seventh year of service for designation into other FAs or Branches. Officers will submit their top three choices at the seven- year mark. Officers receive a new career manager upon selection by the VTIP for a different branch or FA. Only a limited number of Aviators will be given a FA or branch outside of Aviation, usually based on specific Aviation skill requirements in select FAs. Aviation officers will not participate in the Army’s 4 Year VTIP.\n(a) Volunteer Transfer Incentive Program eligibility. To participate in the VTIP officers must be eligible for transfer based on “in/out call” matrix provided in each MILPER message prior to each VTIP board. The officer must be an ACC officer. Must be a first lieutenant promotable, captain, or captain promotable. officers must submit a DA Form 4187 (Personnel Action) (signed only by the officer requesting the transfer, block 9), a memorandum for record (MFR) stating reason for request and one letter of recommendation from a lieutenant colonel or higher. Officers must submit their request electronically to usarmy.knox.hrc.mbx.opmd-retention@mail.mil. Any questions or concerns about the VTIP program or eligibility can be addressed via email at usarmy.knox.hrc.mbx.opmd- retention@mail.mil.\n(b) An aviator migrating out of the Operations functional category will serve in their new FA for the remainder of their career, and with the exception of FA 51. Acquisition will no longer be authorized Aviation pay. Repetitive operational flying assignments through the grade of captain are critical in order for officers to make their first Aviation pay gate (96 months of credible operational flying duty assignments at the 12-year Aviation pay gate audit). If an aviator has not met their 12 year gate requirements, they will lose continuous Aviation pay beyond the 12th year of Aviation service unless they are assigned to a credible operational flying duty authorization, and continue to ’fly for pay’. Aviators who remain in Aviation Branch are expected to remain eligible to serve in operational Aviation assignments. See additional sections in this pamphlet and AR 611–110 for a complete description of each functional designation and associated skills.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 12,
+   "body_sha256": "b043c8f3d082d3fb9608f433eaa0ec6589ecc1c086bfd045666a334c6d03547c"
+  },
+  {
+   "id": "0259c99f-5b01-5d8c-ba5b-205f1eb9f3b1",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Army Acquisition Corps",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Between the 7th and 8th year of service select officers are assessed into the Army Acquisition Corps by a HQDA selection board. Aviators assessed into Army Acquisition Corps do not compete for Aviation battalion or brigade commands. Instead, they compete for lieutenant colonel and colonel-level product, project and program manager positions. Officers assessed into the Army Acquisition Corps are re-designated with FA 51. Accession into FA 51 is based on the same criteria as mentioned above (Army needs, training and background, and officer skills). Again, Aviation Branch will only access enough aviators into the Army Acquisition Corps to meet Army Aviation acquisitionrequirements.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 13,
+   "body_sha256": "d9950b031fe9d60f730efbb6f758b2723ead33a0b4a10749dbb0e3bdb0bd93fe"
+  },
+  {
+   "id": "833d4456-6a89-515a-b557-1d309edb38a0",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Army Special Operations Aviation",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Officers interested in joining the ARSOA, 160th Special Operations Aviation Regiment should understand the flight and leadership experience needed to be competitive for an ARSOA assessment. The ARSOA recruiters focus their recruiting efforts on experienced captains with solid leadership and flight experience. Interested captains should pursue company command as soon as possible following the CCC.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 14,
+   "body_sha256": "2f519055d27bba7190310532ca54874cd4fb3e9333c31ed9c472886b683094ba"
+  },
+  {
+   "id": "ad7c00e5-6902-57d3-8b89-ed2c98b8ce76",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — overview",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Majors should complete the Command and General Staff College/ILE course, a sister Service equivalent institution (Navy, Marine, or Air Force), or schools in other nations before they enter the primary zone of consideration to be competitive for promotion to lieutenant colonel.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 15,
+   "body_sha256": "e961361d01987af2d1a86bd871ed8e687c60ccf9d774e1a1afe90c775622ff19"
+  },
+  {
+   "id": "8357d3d2-78f0-56b8-b368-bf374aa553df",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — Professional military education",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Following Command and General Staff College/ILE, some officers are selected to attend the SAMS. Those officers selected for the SAMS must serve an initial utilization tour as an assistant plans officer for DCS, G–3/5/7 on division or Corps staffs. Aviation maintenance officers are encouraged to attend the Army Logistics Management Course (Support Operations).",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 16,
+   "body_sha256": "9f3b8430af5a9b54fcbbf882e83cdcb881c58dc7cf959d71101ed4a67686c22d"
+  },
+  {
+   "id": "792b0248-78bf-51ff-9c81-7649b8e8010f",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — Key developmental assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Majors regardless of their AOC (B, C, or D) should seek KD assignments that assist them in promotion, either in the Aviation Branch or in a FA. Majors should seek KD assignments and should serve in one or more of the following assignments for 12 to 24 months to acquire KD time:\n(a) Battalion/brigade XO.\n(b) Battalion/brigade S3.\n(c) Command positions coded for majors.\n(d) AOC 15B. Majors’ KD assignments include Aviation combined arms operating generating force assignments as battalion CAB staff, company command, and brigade Aviation officer.\n(e) AOC 15C. Majors’ KD assignments include Aviation combined arms operating generating force assignments as well as CAB S2 and aerial exploitation battalion S3 and XO. Additional broadening opportunities include Aviation staff positions in Military Intelligence brigades, tactical intelligence groups, and division levels all source collection elements.\n(f) AOC 15D. Majors’ KD assignments include Aviation Combined Arms operating generating force assignments as well as battalion staff in tactical battalions, major level company command assignments as well as Aviation support company command, Aviation support battalion/XO/support operations, brigade S4, and division Aviation maintenance officer. Additional opportunities exist at Army Materiel Command (AMC) depots and in Theater Aviation Sustainment Maintenance Groups",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 17,
+   "body_sha256": "a3baf2c6d869c8e485e928af9eddd46e1c5484003fc99bf394a9b2c08eb8cd02"
+  },
+  {
+   "id": "d5f20c4c-aaed-55ea-a508-c539852614fb",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — Developmental assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Aviation staff positions are at the battalion, brigade, group, HQDA, and joint staff levels. Some majors also serve as instructors or hold staff positions at Army service schools.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 18,
+   "body_sha256": "3d9d99e6181b0c51e42ff26953df5d7cf831724805d58f64b4861ecb4215a9fd"
+  },
+  {
+   "id": "3e35d339-944e-520c-839e-758a1966bc2d",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — Broadening assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Opportunities available for majors include, but are not limited to:\n(a) CTC observer controller/evaluator.\n(b) RC advisor.\n(c) USAREC staff.\n(d) USMA faculty and staff.\n(e) TRADOC service school instructors/doctrine writers.\n(f) Army Staff, joint staff and branch/FA generalist positions.\n(g) Security Forces Assistance Brigade",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 19,
+   "body_sha256": "46e222131b7c02ee398603f2c0e57c37057a5e6e556bccfb2279f3f8a6e8cea0"
+  },
+  {
+   "id": "baa9b3c0-8bdb-5bf7-bb1c-98e50d4fccfa",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — Self-development",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Majors should focus self-developmental efforts on acquiring expertise in organizational leader- ship techniques, operations at division level and above, Aviation logistical support operations. Their self-development must focus on joint, multinational, and combined arms operations. This can be accomplished through correspondence courses or institutional training. Majors should devote time to a professional reading program. Officers may take advantage of the Expanded Graduate School Program and attend advanced civilian schooling if the follow-on assignment requires an advanced degree. Many advanced degree programs are available in order for officers to obtaina graduate degree. Aviation majors will likely serve in operational flying positions after being away from the cockpit for some time due to schooling and required staff positions. Therefore, their self-development should also be focused on refreshing themselves with new Aviation technologies in the cockpit. They should set the example for the younger generation of officers by continuing to place a strong emphasison their technical and tactical Aviation proficiency. Aviation majors in BR 15 should strive to attain the Master Aviator Badge by the time they are promoted to lieutenant colonel should seek a field grade joint duty assignment once tactical and technical experiences have been attained.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 20,
+   "body_sha256": "ed028ec0657faa85158ef72a8d64cc2d5557cc9acf3614a3af21287380125b48"
+  },
+  {
+   "id": "401aee98-a131-5adc-ba09-24759bffb7b5",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — Selection",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Individuals selected and assigned to a brigade Aviation element or ADAM Cell may be selected by the CAB commander to serve in positions organic to the BCTs as the Aviation subject matter expert for the BCT commander. Ideally, these positions will serve as a second KD position fora major, after they have completed an S3/ XO positions. Officers assigned to a brigade Aviation element/ADAM cell provide the critical linkage with the BCT’s supporting CAB to facilitate the most efficient tactical employment of Aviation assets in the BCT’s operational environment. Serving in a similar position at a higher level also satisfies this intent.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 21,
+   "body_sha256": "1342584c2946f19b24f875b778a2f8700f7e6fa69f037e2cced73d8d252ef917"
+  },
+  {
+   "id": "4241c8cf-b630-5b1f-86d5-8c516b340d98",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel — overview",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Lieutenant colonels should serve in an Aviation-coded position for 18 to 24 months.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 22,
+   "body_sha256": "9c18006d14759e87865e3dc2efce51484cfc514921332276a7e531135a8b71e5"
+  },
+  {
+   "id": "7a47954f-505c-5859-98d2-025a882fdfd4",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel — Professional military education",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "No specific military education requirements exist for lieutenant colonels. A HQDA board determines selection for resident SSC or the U.S. Army War College Distance Education Course. Officers selected for command selection list battalion command will attend the Army’s PCC at Fort Leavenworth, KS, and the Aviation PCC at Fort Rucker, AL. Select TDA battalion command designees may also be slated for attendance at the TRADOC PCC at Fort Jackson, SC. Battalion command designees who have special courts martial convening authority will attend the Senior Officers Legal Orientation Course at Charlottesville, VA. A master’s degree is strongly recommended, but is not required for promotion. Aviation maintenance officers are strongly encouraged to attend the Army Logistics Management College (Senior Leaders Course).",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 23,
+   "body_sha256": "4df0fa450381618d3762be764c777d8baeff04d40a76bd9bf68ca0d747b750b3"
+  },
+  {
+   "id": "3ea9d5b0-5ceb-5a64-abaa-5e3de9d1040d",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel — Key developmental",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Lieutenant colonels should seek (KD) assignments that assist them in promotion, either in the Aviation Branch or in a FA. Lieutenant colonels serving in one of the following assignments for 12 to 24 months acquire KD time.\n(a) Battalion commander.\n(b) Brigade deputy CDR/XO/S3.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 24,
+   "body_sha256": "a4c07dc5ad698022c4ee2f843e976f0a9c65c9df99ce470a85531417f2a07eab"
+  },
+  {
+   "id": "ef5397c4-e422-5577-891c-5ed7817cb532",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel — Developmental assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Lieutenant colonels that successfully complete a CSL battalion-level command may remain competitive for promotion to colonel, brigade command, and SSC selection. Commands on the CSL are organized into four functional categories: operations, strategic support, recruiting and training, and installation. The following assignments are not necessarily coded as Aviation, however they are considered developmental assignments: lieutenant colonel positions at the CTCs, brigade/regiment/corps assistant for DCS, G–3/5/ 7 or DCS, G–4, deputy assistant for DCS, G–3/5/7 or DCS, G–4, operations officer for DCS, G–3/5/7, assistant plans officer for DCS, G–3/5/7, ROTC or recruiting duty, ACOM/ASCC/DRU staff, Army Staff, joint staffs, and selected AA/RC assignments. Performance in demanding assignments is a prime consideration for promotion and school selection boards. Officers should complete a field grade joint duty assignment to be competitive for promotionto brigadier general.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 25,
+   "body_sha256": "27358fa1a2f9e26a60cd45d3ae0ae00f3a0a06b0456bf275451f1d103fd915fd"
+  },
+  {
+   "id": "a6b0cf43-eeb5-5675-9af7-1b976bfbdc67",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel — Broadening assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "The following assignments are not necessarily coded as Aviation; however, they are considered broadening assignments. Lieutenant colonel positions at USAACE, CTCs, brigade/regiment/group XO, division primary staff, corps assistant for DCS, G–3/5/7 or DCS, G–4, deputy assistant for DCS, G–3/5/7 or DCS, G–4, operations officer for DCS, G–3/5/7, assistant plans officer for DCS, G–3/5/7, ROTC or recruiting duty, ACOM/ ASCC/DRU staff, Army Staff, joint staffs, and selected AA/RC assignments are designated as broadening. Performance in demanding assignments is a prime consideration for promotion and school selection boards. Lieutenant colonels should also seek a joint duty assignment.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 26,
+   "body_sha256": "6e83b08d66245f9a8caa9b1c8d526997c4164c907b87693b1fdf9566ef289903"
+  },
+  {
+   "id": "a0013db9-14f0-5f77-9f6a-6efd44178589",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel — Self-development",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Officers should continue to build warfighting, joint, expeditionary, and FA expertise.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 27,
+   "body_sha256": "630b365e78a511c6d6b51a52c3876a0297be616519f4320d4c3b7be2df2ca4db"
+  },
+  {
+   "id": "dfe1194d-9bac-5d44-af72-b895655d1452",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel — overview",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "The professional development objective for this phase of an officer’s career is sustainment of warfighting, training, and staff skill, along with utilization of leadership, managerial and executive talents. The majority of strategic level leaders in the Army are colonels. Colonels are expected to be multi-skilled leaders, strategic and creative thinkers, builders of leaders and teams, competent decisive action warfighters, skilled in governance, statesmanship, and diplomacy, and understand cultural context and work effectively across it. Aviation colonels are assigned by the Army’s Senior Leader Development Office. Colonels should serve 18–24 months in an Aviation assignment coded at the grade of colonel.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 28,
+   "body_sha256": "677c52d046ab5da13ac7ecda9aeb01165d5bc90762e3b73757147e1115a401e4"
+  },
+  {
+   "id": "65cf66da-bde7-5b95-9deb-bea85685f46d",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel — Professional military education",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Although no specific mandatory military education requirement exists for colonels, the primary professional development goal is completion of SSC. Resident or nonresident Attendance at a SSC also identifies those officers with exceptional promotion potential for service in positions of increased responsibility. An HQDA board determines who attends the resident course and participates in the U.S. Army War College Distance Education Course. Officers selected for CSL brigade Command will attend the Army’s PCC at Fort Leavenworth, KS, and the Aviation PCCat Fort Rucker, AL. Brigade command selectees may attend the Senior Officers Legal Orientation Course at Charlottesville, VA. Officers selected as TRADOC capability managers (TCMs) will attend the Combat Developers Course at Fort Lee, VA and the Project Manager’s Acquisition Category III Course (commonly known as the Project Manager’s Survival Course) at Fort Belvoir, VA. The Acquisition Category III Course has several prerequisites. Officers selected for TCM billets should contact their assignment officer to discuss requirements.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 29,
+   "body_sha256": "5e038d0e9d54a0e19fbb3472ecdd61ed61ccc0f3211f43e5e0a81bc0e1b9fba3"
+  },
+  {
+   "id": "12c9363c-e418-56ae-b92f-217fb3803440",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel — Key developmental assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Colonels serving in brigade command for 12 to 24 months acquire KD time. Successful brigade-level command marks officers as qualified for increased responsibility at the highest levels in the Army and DOD.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 30,
+   "body_sha256": "2763146cd801dcead7ea1198d0db277e95089ae2922f3600352db195b8d3ec33"
+  },
+  {
+   "id": "418e8029-f6c5-54da-81f8-669cf0b286b1",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel — Developmental assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "The following positions (some not necessarily coded as Aviation) are also developmental assignments: senior-level joint duty, division (former brigade commander position), corps-level officer for DCS, G–3/5/7, or DCS, G–4, U.S. Army Aviation and Missile Command, or deputy chief of staff, deputy assistant commandant, director of training development and doctrine, director, TRADOC program office-Aviation brigades, director of evaluation and standardization (DES), director of simulations, director, organization and personnel force development, chiefs of staff (at division, corps, USAACE) colonel positions at the CTCs, Army Staff, ACOM/ASCC/ DRU staff, joint staffs, and selected AC/RC assignments.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 31,
+   "body_sha256": "d76dfe36108f4c57a2b35b52e857a2785eda29bda8dcfbf371709d8e27dfbedc"
+  },
+  {
+   "id": "e7fc641d-224f-5c80-8c2f-697003958ade",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel — Broadening assignments",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "The following assignments are not necessarily coded as Aviation, however they are considered key broadening assignments: colonel positions at CTCs brigade/regiment/group XO, division primary staff, corps assistant for DCS, G–3/5/7 or DCS, G–4, deputy assistant for DCS, G–3/5/7 or DCS, G–4, operations officer for DCS, G–3/5/7, assistant plans officer for DCS, G–3/5/7, ROTC or recruiting duty, ACOM/ASCC/DRU staff, Army Staff, joint staffs, and selected RA/RC assignments. Performance in demanding assignments is a prime consideration for promotion and school selection boards. Colonels should also seek a joint duty assignment. Officers should complete a field grade joint duty assignment to be competitive for promotion to brigadier general.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 32,
+   "body_sha256": "941a6ccfa2c399446ebff06942fddef2b06f79ee20c56b7e55dfe40635e52c0e"
+  },
+  {
+   "id": "82e33e81-b4cd-5f09-a427-f97a6bfe82cd",
+   "occupation_code": "15A",
+   "occupation_title": "AVIATION, GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel — Self-development",
+   "chapter": "Aviation Branch officer career pamphlet, DA PAM 600-3 chapter (30 June 2021)",
+   "body": "Self-development goals should focus on perfecting organizational level leadership skills, joint and coalition operations, and theater-level operations. An advanced degree is not required but is strongly recommended.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 9,
+   "printed_page": null,
+   "sort_order": 33,
+   "body_sha256": "d1e226ec90c32f62d8bc3b20c9c02761ac2947773a3fddf624dbd6da576b5cdb"
+  }
+ ],
+ "report": {
+  "pdfPages": 28,
+  "flags": [
+   "CPT section is 9280 characters (pages 4-6): check that it does not run past its grade"
+  ],
+  "runs": [
+   "LT>CPT>MAJ>LTC>COL@p3"
+  ],
+  "removedLines": [
+   {
+    "page": 1,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 1,
+    "text": "1",
+    "why": "running header/footer"
+   },
+   {
+    "page": 2,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 2,
+    "text": "2",
+    "why": "running header/footer"
+   },
+   {
+    "page": 3,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 3,
+    "text": "3",
+    "why": "running header/footer"
+   },
+   {
+    "page": 4,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 4,
+    "text": "4",
+    "why": "running header/footer"
+   },
+   {
+    "page": 5,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 5,
+    "text": "5",
+    "why": "running header/footer"
+   },
+   {
+    "page": 6,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 6,
+    "text": "6",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "7",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "8",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "9",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "10",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "11",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "12",
+    "why": "running header/footer"
+   },
+   {
+    "page": 13,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 13,
+    "text": "13",
+    "why": "running header/footer"
+   },
+   {
+    "page": 14,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 14,
+    "text": "14",
+    "why": "running header/footer"
+   },
+   {
+    "page": 15,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 15,
+    "text": "15",
+    "why": "running header/footer"
+   },
+   {
+    "page": 16,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 16,
+    "text": "16",
+    "why": "running header/footer"
+   },
+   {
+    "page": 17,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 17,
+    "text": "17",
+    "why": "running header/footer"
+   },
+   {
+    "page": 18,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 18,
+    "text": "18",
+    "why": "running header/footer"
+   },
+   {
+    "page": 19,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 19,
+    "text": "19",
+    "why": "running header/footer"
+   },
+   {
+    "page": 20,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 20,
+    "text": "20",
+    "why": "running header/footer"
+   },
+   {
+    "page": 21,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 21,
+    "text": "21",
+    "why": "running header/footer"
+   },
+   {
+    "page": 22,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 22,
+    "text": "22",
+    "why": "running header/footer"
+   },
+   {
+    "page": 23,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 23,
+    "text": "23",
+    "why": "running header/footer"
+   },
+   {
+    "page": 24,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 24,
+    "text": "24",
+    "why": "running header/footer"
+   },
+   {
+    "page": 25,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 25,
+    "text": "25",
+    "why": "running header/footer"
+   },
+   {
+    "page": 26,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 26,
+    "text": "26",
+    "why": "running header/footer"
+   },
+   {
+    "page": 27,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 27,
+    "text": "27",
+    "why": "running header/footer"
+   },
+   {
+    "page": 28,
+    "text": "Aviation Branch – 30 June 2021",
+    "why": "running header/footer"
+   },
+   {
+    "page": 28,
+    "text": "28",
+    "why": "running header/footer"
+   }
+  ],
+  "runningLines": [
+   "T0|Aviation Branch – # June #",
+   "T1|#"
+  ],
+  "pointerOnlyDropped": 0,
+  "sections": [
+   {
+    "grade": "LT",
+    "lines": 44,
+    "chars": 4367,
+    "pages": "3-4"
+   },
+   {
+    "grade": "CPT",
+    "lines": 104,
+    "chars": 9280,
+    "pages": "4-6"
+   },
+   {
+    "grade": "MAJ",
+    "lines": 56,
+    "chars": 4697,
+    "pages": "6-7"
+   },
+   {
+    "grade": "LTC",
+    "lines": 35,
+    "chars": 3071,
+    "pages": "7-8"
+   },
+   {
+    "grade": "COL",
+    "lines": 41,
+    "chars": 3831,
+    "pages": "8-9"
+   }
+  ],
+  "byType": {
+   "development": 9,
+   "training": 5,
+   "assignments": 15,
+   "self_development": 5
+  },
+  "codes": [
+   "15A"
+  ]
+ }
+}

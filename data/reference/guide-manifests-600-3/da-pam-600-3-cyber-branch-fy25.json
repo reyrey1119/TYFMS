@@ -1,0 +1,8 @@
+{
+ "skip": "Heading runs are written for the separate AOCs (17A, 17B, 17D) and for the Reserve Component; the run-to-AOC mapping is not established.",
+ "codes": [
+  "17A",
+  "17B",
+  "17D"
+ ]
+}

@@ -1,0 +1,413 @@
+{
+ "bundle_version": 1,
+ "manifest_id": "army-600-3-fa-59-strategist-da-pam-600-3-as-of-1-apr-20",
+ "import_batch": "army-600-3-fa-59-strategist-da-pam-600-3-as-of-1-apr-20@2026-10-18",
+ "source": {
+  "id": "49c69765-6117-5969-8ab3-843d12a58c64",
+  "branch": "Army",
+  "personnel_category": "officer",
+  "publication_number": "DA PAM 600-3",
+  "title": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+  "chapter": null,
+  "career_field": "Functional Area 59",
+  "proponent": "Army Strategist proponent",
+  "official_url": "https://api.army.mil/e2/c/downloads/2023/02/28/1fd5abfc/fa-59-strategist-da-pam-600-3-as-of-1-apr-20.pdf",
+  "publication_date": "2020-04-01",
+  "effective_date": null,
+  "last_checked_at": "2026-10-18T00:00:00Z",
+  "checksum_sha256": "e22d45e263d267a28768cc621b3b8d2773fcb0e7acfb90150a39d0dec5b2c8d6",
+  "extraction_tool": "pdf-parse 2.4.5",
+  "notes": "Date basis: printed in the running title ('Strategist Functional Area – 1 April 2020'). This is an older chapter; the Army G-1 page still lists it as the current one (uploaded 28 Feb 2023). Imported for 59A: the grade-by-grade development sections (O-4, O-5, O-6) as the pamphlet gives them for the branch or functional area; they apply to every AOC listed. Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures and tables are not extracted. LIMITATIONS: figures (development models) are images and are not imported."
+ },
+ "passages": [
+  {
+   "id": "c348ffcf-334d-5a1e-8877-9d5724cda29d",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Education",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "No education is mandated beyond the functional area’s MEL 4 requirements (see paragraph 3b). Successful completion of courses identified in paragraph 3c is desirable.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 0,
+   "body_sha256": "2e6af12ebbb0d18664485fad1f87861b43f0fb492b3d9397786fd3d3ef8e1b21"
+  },
+  {
+   "id": "353f94c1-5ea5-5203-95c4-b47e64551a50",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Key developmental assignments",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "A KD position is one that is deemed fundamental to the development of an officer’s functional area competencies or deemed critical by the senior Army leadership to provide experience across the Army’s strategic mission. All FA59 major billets are considered KD positions based on the variety of potential duties within an FA59 assignment.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 1,
+   "body_sha256": "4c675b5bbdd98470dca6218d94e29591e7d678ec0dc9e074b85221cce8f13fd8"
+  },
+  {
+   "id": "e0b1b8c6-bc6a-588b-9cab-456da8f6f5e6",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Broadening assignments",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "All FA59-coded positions are considered developmental assignments for FA59 majors. Broadening assignments are defined as any non-FA59 coded position in which the officer gains experience in one or more of the functional competencies. FA59-specific and Army-wide fellowship programs are considered broadening. Additionally, some branch immaterial positions are good broadening assignments for FA59 officers. FA59 officers should strive to get joint, interagency, and multinational experience in any broadening opportunity. Officers should coordinate with the HRC Career Manager prior to pursuing non-59A coded assignments.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 2,
+   "body_sha256": "e84b5bdbc9f6fcbe687c012a22c241ed9ce85070f292e14f0122ca1310966f30"
+  },
+  {
+   "id": "81f94f37-3101-505d-8b93-2663bb1fdc2e",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Desired experience",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "FA59 officers gain experience and competency through iterative assignments in a broad array of assignments across different categories. Officers should develop proficiency in at least one FA59 foundational category (institutional strategy or operational strategy) and familiarity with the other category prior to their primary zone (PZ) consideration for lieutenant colonel. Senior majors should also gain exposure to all six functional competencies and experience in three of the competencies.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 3,
+   "body_sha256": "dfa8e73930e46fb1f337989dfcd1935d47ebb5a1d3c4589b2a78b89a18d1c45c"
+  },
+  {
+   "id": "10d0677a-d426-50d9-84d9-2a7f4e2d1887",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel development — Education",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "(a) No education is mandated beyond the functional area’s MEL 4 requirements (see paragraph 3b). Successful completion of courses identified in paragraph 3c is desirable.\n(b) FA59 officers selected by the Senior Service College (SSC) Selection Board participate in a resident or non-resident SSC opportunity (SSC schools, SSC fellowships, or SSC-equivalent foreign schools). All resident Service schools award a master’s degree and JPME II upon completion. Officers should pursue programs that strengthen their abilities to develop theater campaign plans, conduct strategic appraisals, foster joint, interagency, and multinational integration, and participate in the policy formulation process.\n(1) For officers attending the Army War College, the Proponent recommends competing for acceptance to the Advanced Strategic Art Program (ASAP), National Security Policy Program (NSPP), Carlisle Scholars Program, or Commandant’s Reading Program.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 4,
+   "body_sha256": "d94d8cf12ddc6c0054585425269fef86ab7cb97e47c07afd5d450267e3a38410"
+  },
+  {
+   "id": "24b5aee7-e8f9-5b6a-a5af-47a0aac1a507",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel development — Additional guidance",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "The USAWC Distance Education Program is a demanding two-year program, and its curriculum closely parallels the curriculum of the resident course.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 5,
+   "body_sha256": "ab44f40772713ec8a53764a34c1fa6949176d3cc6adb48b7b21add53ef085d42"
+  },
+  {
+   "id": "b8ed5a24-0521-53d8-9938-d29959b80a9d",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel development — Additional guidance",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "U.S. Army War College Fellowship Program. Officers can compete for USAWC Fellowships that round out niche areas of specialization within the six functional competencies or select fellowship opportunities to prepare for follow-on assignments.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 6,
+   "body_sha256": "640733458cbadf96acb3a2b965ea23c619b3ae90f10725e418ab3d2d185afca7"
+  },
+  {
+   "id": "bbcbdea0-2c5c-5fb7-98db-d84d133e6dcc",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel development — Additional guidance",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "For officers attending the Air War College, the Proponent recommends competing for acceptance to the Grand Strategy Seminar.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 7,
+   "body_sha256": "8b1b20cb34e466d484ae2a0d8d8ac10948840963ab75274aa0539912ec2dca50"
+  },
+  {
+   "id": "dfee589e-5f09-5ace-856f-906873ff9c4a",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel development — Additional guidance",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "For officers attending the Eisenhower School for National Security and Resource Strategy, the Proponent recommends competing for acceptance to the Long-Term Strategy program.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 8,
+   "body_sha256": "45ab02e5c9bbf214c110226dd4eb024abd12088be777bbffe64d11bc4fd8e3ae"
+  },
+  {
+   "id": "101830bc-eb14-53e1-91da-20510a794243",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel development — Additional guidance",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "The Joint Advanced Warfighting School (JAWS) at the Joint Forces Staff College builds on FA59 competencies.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 9,
+   "body_sha256": "8a8608bb25a62f24bb3ef120fada74fffbbd4e3dca51305354ddd30f86c7d683"
+  },
+  {
+   "id": "00124df2-8f6b-5b5f-9534-31f6ed6a0a12",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel development — Additional guidance",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "The Advanced Strategic Leadership Studies Program (ASLSP) at the School of Advanced Military Studies builds on FA59 competencies.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 10,
+   "body_sha256": "6e691dfe960da66f55925025602c99f0ba0b002d7650157d9bb265dd5bfec6dd"
+  },
+  {
+   "id": "8c34ab8a-097c-541e-af83-8b3de12a0bc3",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant colonel development — Additional guidance",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "Eligible officers (HQDA SSC selectees) in ASP3 receive MEL 1 credit when all designated MEL 1 portions of the program are completed.\n(c) Executive-level military and civilian courses / programs. Pending available funds, the Proponent Office may be able to fund tuition and/or travel expenses for executive-level education. Officers are invited to contact the FA59 Proponent Manager for details.\n(2) Key developmental assignments. There are no centralized selection list (CSL) FA59 billets. All FA59 lieutenant colonel billets are considered KD positions. While designation as an Experienced Strategist (see “Desired Experience” in this section) is not required to be fully qualified for promotion to colonel, it indicates an officer likely has the breadth of experience required to serve competently in any FA59 colonel assignment.\n(3) Developmental and broadening assignments. In addition to FA59-coded developmental positions, FA59 lieutenant colonels may seek a broadening assignment to gain experience in one or more of the functional competencies. FA59-specific and Army-wide fellowship programs are considered broadening. Additionally, some branch immaterial positions are good broadening assignments for FA59 officers. FA59 officers should strive to get joint, interagency, and multinational experience in any broadening opportunity. Officers should coordinate with the HRC Career Manager, or Colonels Management Office (COMO) Human Resources Manager for promotable lieutenant colonels, prior to pursuing non-59A coded assignments.\n(4) Self-development. See paragraph 3d(2).\n(5) Desired experience.\n(a) Completed at least two FA59 assignments (minimum 48 months, preferably 72 months) prior to their PZ consideration for colonel. Development as an FA59 lieutenant colonel focuses upon gaining experience in all FA59 functional competencies. Officers should complete assignments in the two foundational assignment categories listed in paragraph 1d prior to promotion consideration for colonel.\n(b) Experienced Strategist. An officer who has served in operational strategy and institutional strategy assignments for a combined total of 48 evaluated months, with at least 12 months in each foundational category, will be designated an Experienced Strategist with notation made in “Section X – Remarks” of the Officer Record Brief (ORB). The goal is to build Strategists proficient in five of the six functional competencies by the time they are a senior lieutenant colonel.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 11,
+   "body_sha256": "55a896f6ecf85b3cbaa6a0a50556093ecddf745204b758613ba9a14cd5077ba7"
+  },
+  {
+   "id": "e6039ec3-8be6-52df-bffb-c7fdba6dfd37",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Education",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "There are limited, though widely varied, educational opportunities for FA59 colonels.\n(a) Senior Service College. See paragraph 3f(1)(b).\n(b) Joint and Combined Warfighting School. FA59 colonels in joint assignments may be selected to attend JCWS if they are not JPME II qualified.\n(c) Executive-level military and civilian courses / programs. Pending available funds, the Proponent Office may be able to fund tuition and/or travel expenses for executive-level education. Officers are invited to contact the FA59 Proponent Manager for details.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 12,
+   "body_sha256": "f56e59a25d7ce0e192a5d5a4ef4ce0ec6a8e4c66c8e0ad9cd63ed75f35572d1c"
+  },
+  {
+   "id": "0402ca25-aa10-5a07-8a45-6abe76d84a2e",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Key developmental assignments",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "There are no CSL or KD FA59 colonel positions. At the rank of colonel, an FA59 is expected to have a broad array of experience that allows him/her to be assignable to any FA59-coded position across the force. A fully trained, fully educated, and fully experienced colonel positively shapes the Army and joint enterprise in the execution of his/her duties.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 13,
+   "body_sha256": "bce93d33e8d19c36d5b6124df2fabcc20799bedf0bbb78aabe46074fc0cd9f93"
+  },
+  {
+   "id": "55f49a30-7943-5664-8bbc-1204d7245200",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Developmental and broadening assignments",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "For colonels, developmental or broadening assignments are defined as any non-FA59 coded positions in which the officer participates in national security policy, strategy, or plan development.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 14,
+   "body_sha256": "894e210e7a261776bdd97e428f3f8bdb317ebec535a2f05ed27b236f44986b4c"
+  },
+  {
+   "id": "da26b8d1-2a25-5d7e-97dd-b0628ba18ce8",
+   "occupation_code": "59A",
+   "occupation_title": "STRATEGIST",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Desired experience",
+   "chapter": "Strategist Functional Area career pamphlet, DA PAM 600-3 chapter (1 April 2020)",
+   "body": "The FA59 colonel is expected to have mastery of the six functional competencies. At the rank of colonel, assignments will enhance the officer's competencies. It is expected that colonels meet the criteria for the “Experienced Strategist” designation per paragraph 3f(5)(b). FA59 colonels should actively mentor and develop junior Strategists.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 15,
+   "body_sha256": "78099cc01113acae406bd77696bab5f4b9b8abb3cbb698c84ef29960ade6cafe"
+  }
+ ],
+ "report": {
+  "pdfPages": 12,
+  "flags": [],
+  "runs": [
+   "MAJ>LTC>COL@p6"
+  ],
+  "removedLines": [
+   {
+    "page": 1,
+    "text": "Strategist Functional Area – 1 April 2020 1",
+    "why": "running header/footer"
+   },
+   {
+    "page": 2,
+    "text": "Strategist Functional Area – 1 April 2020 2",
+    "why": "running header/footer"
+   },
+   {
+    "page": 3,
+    "text": "Strategist Functional Area – 1 April 2020 3",
+    "why": "running header/footer"
+   },
+   {
+    "page": 4,
+    "text": "Strategist Functional Area – 1 April 2020 4",
+    "why": "running header/footer"
+   },
+   {
+    "page": 5,
+    "text": "Strategist Functional Area – 1 April 2020 5",
+    "why": "running header/footer"
+   },
+   {
+    "page": 6,
+    "text": "Strategist Functional Area – 1 April 2020 6",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "Strategist Functional Area – 1 April 2020 7",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "Strategist Functional Area – 1 April 2020 8",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "Strategist Functional Area – 1 April 2020 9",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "Strategist Functional Area – 1 April 2020 10",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "Strategist Functional Area – 1 April 2020 11",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "Strategist Functional Area – 1 April 2020 12",
+    "why": "running header/footer"
+   }
+  ],
+  "runningLines": [
+   "T0|Strategist Functional Area – # April # #"
+  ],
+  "pointerOnlyDropped": 2,
+  "sections": [
+   {
+    "grade": "MAJ",
+    "lines": 19,
+    "chars": 1767,
+    "pages": "6-6"
+   },
+   {
+    "grade": "LTC",
+    "lines": 53,
+    "chars": 4387,
+    "pages": "6-7"
+   },
+   {
+    "grade": "COL",
+    "lines": 19,
+    "chars": 1597,
+    "pages": "7-8"
+   }
+  ],
+  "byType": {
+   "training": 3,
+   "assignments": 3,
+   "development": 10
+  },
+  "codes": [
+   "59A"
+  ]
+ }
+}

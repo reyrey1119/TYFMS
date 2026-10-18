@@ -1,0 +1,320 @@
+{
+ "bundle_version": 1,
+ "manifest_id": "army-600-3-fa-50-da-pam-600-3-25-apr-24",
+ "import_batch": "army-600-3-fa-50-da-pam-600-3-25-apr-24@2026-10-18",
+ "source": {
+  "id": "650c3955-b79b-5408-92b5-051a28b2459e",
+  "branch": "Army",
+  "personnel_category": "officer",
+  "publication_number": "DA PAM 600-3",
+  "title": "Force Management Functional Area (FA50) career pamphlet, DA PAM 600-3 chapter (25 April 2024)",
+  "chapter": null,
+  "career_field": "Functional Area 50 (Force Management)",
+  "proponent": "Deputy Chief of Staff, G-8 (FA50 proponent)",
+  "official_url": "https://api.army.mil/e2/c/downloads/2024/04/25/5a97d084/fa-50-da-pam-600-3-25-apr-24.pdf",
+  "publication_date": "2024-04-25",
+  "effective_date": null,
+  "last_checked_at": "2026-10-18T00:00:00Z",
+  "checksum_sha256": "706b34928313acb742f318a0d6228dd68848ec49e0e1f02c4db6fe867a1a91f9",
+  "extraction_tool": "pdf-parse 2.4.5",
+  "notes": "Date basis: printed in the running title. Imported for 50A: the grade-by-grade development sections (O-3, O-4, O-5, O-6) as the pamphlet gives them for the branch or functional area; they apply to every AOC listed. Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures and tables are not extracted. The Regular Army individual development run (page 5 on) is imported; the Army Reserve (page 9 on) and National Guard (page 14 on) runs are not. LIMITATIONS: The Regular Army individual development run (page 5 on) is imported; the Army Reserve (page 9 on) and National Guard (page 14 on) runs are not."
+ },
+ "passages": [
+  {
+   "id": "a4f0285e-ae50-530c-970b-665daeafe8b0",
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain Development — overview",
+   "chapter": "Force Management Functional Area (FA50) career pamphlet, DA PAM 600-3 chapter (25 April 2024)",
+   "body": "Officers are selected for FA50 as Captains around their 8th year of service. Before making the transition to FA50, officers should be fully qualified as a captain in their basic branch, having completed the Captain’s Career Course and an appropriate BQ assignment. 1) Education. FA50 Qualification Course. Upon transition from the basic branch to FA50, the Human Resources Command (HRC) Career Manager must strive to enroll new Force Managers in the FA50 Qualification Course enroute to their first FA50 position or soon thereafter. All FA50 Captains are highly encouraged to compete for a fully funded master’s degree in the recommended academic disciplines of Organization Management, Leadership and Management, Organization Behavior, Business Administration, Project Management, Public Policy, or Public Administration through the FA50",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 0,
+   "body_sha256": "2fd8f2467f3372c7d0fb5501ccf908b94d9e50d22abdf0bc6cee7cfcf3c30b80"
+  },
+  {
+   "id": "57bec877-b1b9-549a-b461-0bad9a00114d",
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain Development — Broadening",
+   "chapter": "Force Management Functional Area (FA50) career pamphlet, DA PAM 600-3 chapter (25 April 2024)",
+   "body": "Broadening Opportunities Program after completing their first FA50 assignment. 2) Assignment. All FA50 captain positions are considered developmental assignments. Positions are normally located at the Army Staff, Army Commands, Army Force Proponent, and Operational ASCCs, and Corps HQs levels, which allows the FA50 Captain to be directly mentored by a larger population of more senior and experienced force managers. 3) Self-Development. Officers not selected for participation in Advanced Civil Schooling are encouraged to pursue a master’s degree. Additionally, officers should actively participate on the FA50 website at: https://www.army.mil/g-1 to develop awareness of changes in the Army and contribute to forums.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 1,
+   "body_sha256": "bd58a05eb394f9248c52290ef12c7fb00bd51395a8225293f33c672c75bd7f5f"
+  },
+  {
+   "id": "05d2b3ee-e026-5658-b3d4-04bd9d5e8f7f",
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — overview",
+   "chapter": "Force Management Functional Area (FA50) career pamphlet, DA PAM 600-3 chapter (25 April 2024)",
+   "body": "Majors serve as force management specialists or as individual action officers with specific focus in force management areas of responsibility. Officers should seek force management",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 2,
+   "body_sha256": "c58dd5ebaac062a1326777d3381677718a2077fdc31dfe1d677332dd655f4fd0"
+  },
+  {
+   "id": "02337b1d-1b59-50f4-8e7b-6b09318c52ba",
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — assignments",
+   "chapter": "Force Management Functional Area (FA50) career pamphlet, DA PAM 600-3 chapter (25 April 2024)",
+   "body": "assignments that provide additional breadth to their experiences and should strive to serve on Force Development, Force Integration, and Force Generation positions at several levels and environments. In their initial FA50 assignment, officers should seek assignments at the Army Staff, ACOM, Army Force Proponent, and Operational (ASCC) levels, which allow them to be directly mentored by a larger population of more senior and experienced force managers. In their second FA50 assignment, more experienced officers should seek assignments in the Operational Force at Divisions, ESCs, Field Armies, TSCs, AAMDCs, 20th CBRNE, SF Command, and SFABs. Senior FA50 Majors should seek joint assignments, broadening opportunities, and leadership roles within their organizations as they prepare for additional responsibility as Lieutenant Colonels. An officer must be MEL 4/JPME 1 complete, including the FA50 qualification course and CGSOC Common Core, and completed 24 months in a BQ assignment to be considered branch qualified at the rank of Major. 1) Education. All FA50 officers are required to complete CGSOC Common Core by their 15th year of commissioned service. CGSOC provides quality education for all field-grade officers and prepares them for their next 10 years of service. Officers not selected for resident attendance must complete CGSOC Common Core by Distance Learning. 2) Branch Qualifying assignments. All FA50 Major positions are considered BQ. FA50 positions exist across the Army on General Staffs in both the Operating and Generating forces. BQ positions also exist on the Joint Duty Assignment List (JDAL); however, Officers should first successfully complete at least two Army Force Management assignments, preferably an assignment at HQDA or ACOM staff and a 1-of-1 assignment, before seeking a Joint Duty assignment. All Majors should complete a 1-of- 1 assignment prior to promotion to Lieutenant Colonel. 3) Broadening assignments. Fellowships. After becoming branch qualified, FA50 Majors may compete to serve in various broadening assignments arranged by the proponent. These include a 12- month Fellowship with not-for-profit, or, 12-month TWI arrangements at a corporate headquarters to observe and learn state-of-the-art organizational and management skills useful to the Army. 4) Self-Development. In addition to the areas identified in Captain self-development, officers can expand their knowledge and skills through completion of applicable DoD training such as Defense Acquisition University Requirements Workforce Training outlined in AR 71-9 Warfighting Capabilities Determination, The Defense Strategy Course offered by the U.S. Army War College, or the Synchronization Staff Officer Training Course offered by the Army Force Management School. Additionally, officers can pursue applicable industry certifications such as the multitude of PMI",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 3,
+   "body_sha256": "ac1d90283a61b4645c8415b10391e5e11c353593b78d35a2ae9fb4935ba62f53"
+  },
+  {
+   "id": "3ff79d6c-3a7a-5a00-a1b0-945fd4e1a141",
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "credentials",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — certifications",
+   "chapter": "Force Management Functional Area (FA50) career pamphlet, DA PAM 600-3 chapter (25 April 2024)",
+   "body": "certifications including CAPM, PMP, PMI-ACP, and Lean Six Sigma Certifications.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 4,
+   "body_sha256": "f4fcb581613c22d0578ee865729e0a601ec2d89b766c941476be1fe52acc3563"
+  },
+  {
+   "id": "c798447c-a53b-5b01-8e4d-d03f7c2559ac",
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — overview",
+   "chapter": "Force Management Functional Area (FA50) career pamphlet, DA PAM 600-3 chapter (25 April 2024)",
+   "body": "Lieutenant Colonels (LTCs) serves as force management leaders at major headquarters and HQDA. They are expected to have a broad understanding of the Army Force Management Model, including the programmatic underpinnings of requirements determination, capabilities development, force design, authorization and documentation, and resource programming and funding. They guide and review the force management work of subordinates and apply analytical assessment techniques to a wide range of military force management and managerial issues. Officers should seek force management assignments that provide additional breadth to their experiences and skill sets and should strive to serve in positions that exercise force development or force integration processes at several levels. A master’s degree is significantly beneficial for an officer’s career. A proponent designated Key Nominative Billet (KNB) assignment is the only branch qualifying",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 5,
+   "body_sha256": "239789536859cc8ca3f83403293c227735f0b95e65a33b07d73af38a0fc6b650"
+  },
+  {
+   "id": "e0c32d12-73ef-5db0-9c01-7ec8cb5d8d0e",
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — assignment at the rank of Lieutenant Colonel",
+   "chapter": "Force Management Functional Area (FA50) career pamphlet, DA PAM 600-3 chapter (25 April 2024)",
+   "body": "An officer must have completed 18-months in a KNB",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 6,
+   "body_sha256": "15d972a28b23c896fba50f4d09f4df4a1e269b92984c13991ae729e1bfcb6ea2"
+  },
+  {
+   "id": "501f980e-063a-50b2-819e-9bce16be9fa8",
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — assignment",
+   "chapter": "Force Management Functional Area (FA50) career pamphlet, DA PAM 600-3 chapter (25 April 2024)",
+   "body": "assignment to be considered functionally qualified at the rank of Lieutenant Colonel. KNB assignments are 24-month in length. 1) Education. FA50 LTCs are encouraged to compete for resident Senior Service College (SSC) or the Army War College Distance Education Program. Officers slated for joint billets are highly encouraged to attend Joint Professional Military Education Level II through the Joint and Combined Warfighting School (JCWS) at the Joint Forces Staff College (JFSC). However, no education is mandated beyond those listed in the Major development path. 2) Branch Qualifying Assignment. KNB assignments are the only BQ assignments at the rank of Lieutenant Colonel. KNBs are challenging positions and selection for these positions indicate an officer is best qualified for key and strategic positions across the force management enterprise. Officers must complete a minimum of 18 months in a KNB assignment to gain BQ designation. 3) Broadening Assignments. Lieutenant Colonels has the same broadening opportunities outlined under Major Broadening Assignments. However, officers seeking joint assignments should first successfully complete a minimum 18-months in a KNB assignment prior to a Lieutenant Colonel-level joint assignment. 4) Self-Development. Lieutenant Colonels should continue to pursue the self-development recommendations under Major development.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 7,
+   "body_sha256": "134b24aed3f023fa9241306f75d6ed22406f72aacbeea96e1d2ae5e7bce7d33e"
+  },
+  {
+   "id": "188e1563-7d55-5431-be90-bef121985fb9",
+   "occupation_code": "50A",
+   "occupation_title": "FORCE DEVELOPMENT",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel Development — overview",
+   "chapter": "Force Management Functional Area (FA50) career pamphlet, DA PAM 600-3 chapter (25 April 2024)",
+   "body": "Colonels are considered Army Strategic Leaders. Joint experience, enterprise management exposure and experience, and Army Staff experience are highly desirable. Experience in multiple geographic venues is encouraged. 1) Education. FA50 Colonels are encouraged to attend one of the SSCs, resident or nonresidents, or one of the many available fellowships to obtain MEL 1 education status. Colonels are encouraged to consider the Post MEL-1 Chief of Staff of the Army Senior Fellowship Program at Northwestern University Kellogg School of Management. 2) Branch qualifying assignments. All Colonel positions are KD. 3) Broadening Assignments. FA50 Colonels serve in a variety of enterprise positions across the Army and DoD to include positions not specifically coded for FA50, but for which an officer is well suited. 4) Self-development. There is a wide variety of schools and professional development opportunities available to an officer serving at the grade of Colonel. The available list can be accessed at the senior leader website at https://www.srleaders.army.mil/ or by contacting the FA50 Senior Leader Division- Colonels Management Human Resource Manager. 5) Life-cycle development model. Figure 1 shows typical sequences of assignments and",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 8,
+   "body_sha256": "9a40798f3ea8d5e73108013ce24da8016e2b357872ce1d342d9be4fcfa5d3c38"
+  }
+ ],
+ "report": {
+  "pdfPages": 17,
+  "flags": [],
+  "runs": [
+   "CPT>MAJ>LTC>COL@p5",
+   "CPT>MAJ>LTC>COL@p9",
+   "MAJ>LTC>COL@p14"
+  ],
+  "removedLines": [
+   {
+    "page": 1,
+    "text": "Force Management Functional Area – 25 April 2024 1",
+    "why": "running header/footer"
+   },
+   {
+    "page": 2,
+    "text": "Force Management Functional Area – 25 April 2024 2",
+    "why": "running header/footer"
+   },
+   {
+    "page": 3,
+    "text": "Force Management Functional Area – 25 April 2024 3",
+    "why": "running header/footer"
+   },
+   {
+    "page": 4,
+    "text": "Force Management Functional Area – 25 April 2024 4",
+    "why": "running header/footer"
+   },
+   {
+    "page": 5,
+    "text": "Force Management Functional Area – 25 April 2024 5",
+    "why": "running header/footer"
+   },
+   {
+    "page": 6,
+    "text": "Force Management Functional Area – 25 April 2024 6",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "Force Management Functional Area – 25 April 2024 7",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "Force Management Functional Area – 25 April 2024 8",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "Force Management Functional Area – 25 April 2024 9",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "Force Management Functional Area – 25 April 2024 10",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "Force Management Functional Area – 25 April 2024 11",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "Force Management Functional Area – 25 April 2024 12",
+    "why": "running header/footer"
+   },
+   {
+    "page": 13,
+    "text": "Force Management Functional Area – 25 April 2024 13",
+    "why": "running header/footer"
+   },
+   {
+    "page": 14,
+    "text": "Force Management Functional Area – 25 April 2024 14",
+    "why": "running header/footer"
+   },
+   {
+    "page": 15,
+    "text": "Force Management Functional Area – 25 April 2024 15",
+    "why": "running header/footer"
+   },
+   {
+    "page": 16,
+    "text": "Force Management Functional Area – 25 April 2024 16",
+    "why": "running header/footer"
+   },
+   {
+    "page": 17,
+    "text": "Force Management Functional Area – 25 April 2024 17",
+    "why": "running header/footer"
+   }
+  ],
+  "runningLines": [
+   "T0|Force Management Functional Area – # April # #"
+  ],
+  "pointerOnlyDropped": 0,
+  "sections": [
+   {
+    "grade": "CPT",
+    "lines": 18,
+    "chars": 1560,
+    "pages": "5-5"
+   },
+   {
+    "grade": "MAJ",
+    "lines": 34,
+    "chars": 3137,
+    "pages": "6-6"
+   },
+   {
+    "grade": "LTC",
+    "lines": 28,
+    "chars": 2410,
+    "pages": "6-7"
+   },
+   {
+    "grade": "COL",
+    "lines": 16,
+    "chars": 1318,
+    "pages": "7-7"
+   }
+  ],
+  "byType": {
+   "development": 4,
+   "assignments": 4,
+   "credentials": 1
+  },
+  "codes": [
+   "50A"
+  ]
+ }
+}

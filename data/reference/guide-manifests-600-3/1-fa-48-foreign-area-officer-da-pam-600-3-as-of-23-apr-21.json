@@ -1,0 +1,10 @@
+{
+ "skip": "Only a 'Major development' heading is found; the other grades are described under region-specific headings the importer does not map to AOCs.",
+ "codes": [
+  "48B",
+  "48E",
+  "48G",
+  "48J",
+  "48P"
+ ]
+}

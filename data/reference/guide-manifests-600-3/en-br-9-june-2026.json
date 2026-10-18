@@ -1,0 +1,12 @@
+{
+ "codes": [
+  "12A"
+ ],
+ "run": 0,
+ "title": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+ "careerField": "Engineer (branch code 12)",
+ "proponent": "U.S. Army Engineer School (Engineer Regiment)",
+ "publicationDate": "2026-06-09",
+ "dateBasis": "the date 9 June 2026 is printed in the first line of the PDF.",
+ "limitations": "The pamphlet gives no Colonel section in the imported run. The second run of grade headings (page 30 on) is the Reserve Component text and is not imported."
+}

@@ -1,0 +1,582 @@
+{
+ "bundle_version": 1,
+ "manifest_id": "army-600-3-po-da-pam-600-3-dtd-19-nov-24",
+ "import_batch": "army-600-3-po-da-pam-600-3-dtd-19-nov-24@2026-10-18",
+ "source": {
+  "id": "2d42b7b2-ffa1-5e83-af7d-1b629cf872e7",
+  "branch": "Army",
+  "personnel_category": "officer",
+  "publication_number": "DA PAM 600-3",
+  "title": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+  "chapter": null,
+  "career_field": "Psychological Operations (branch code 37)",
+  "proponent": "U.S. Army John F. Kennedy Special Warfare Center and School (PO proponent)",
+  "official_url": "https://api.army.mil/e2/c/downloads/2024/11/19/78647da6/po-da-pam-600-3-dtd-19-nov-24.pdf",
+  "publication_date": "2024-11-19",
+  "effective_date": null,
+  "last_checked_at": "2026-10-18T00:00:00Z",
+  "checksum_sha256": "964734cbe71f99412d69a9e31f1706069dad466fe1416796c38cbf908ca57110",
+  "extraction_tool": "pdf-parse 2.4.5",
+  "notes": "Date basis: printed on the first page ('Psychological Operations (PO) Branch 19 November 2024'). Imported for 37A: the grade-by-grade development sections (O-3, O-4, O-5, O-6) as the pamphlet gives them for the branch or functional area; they apply to every AOC listed. Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures and tables are not extracted. The Regular Army run (page 6 on) is imported; the Reserve Component run (page 15 on) is not. LIMITATIONS: The Regular Army run (page 6 on) is imported; the Reserve Component run (page 15 on) is not."
+ },
+ "passages": [
+  {
+   "id": "3ad8f15b-c0e8-5945-be1c-0ce4c599ca85",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Professional Military Education (PME)",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "Completion of ARSOF CCC or CCC equivalent, and the PO training pathway in its entirety (includes Special Warfare PO Course (SWPC), Language, and the PO pathway graduation module, subject to change).",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 0,
+   "body_sha256": "2b6bc368aa01a8bdbad499ea751f87a67612bdb3362ab6a6ffcf6c76937ea3e1"
+  },
+  {
+   "id": "52907a26-647e-553c-87df-f7716b8881a3",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Assignments",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "i. KD assignments. Captains should successfully serve as PO Detachment Commander for a minimum of 18 months and optimally for 24 months. This is the KD position for all PO captains. All PO officer billets at the O-3 level within the Information Warfare Company are executing the roles and responsibilities of PO Detachment Commanders and therefore will be treated as a PO Detachment Commanders for the purposes of evaluation. This duty equates to company, battery, or troop command in other branches. PO captains may be considered for broadening opportunities only after completing their KD assignment. This can include Army Reserve Detachment Command time. ii. Service in a second command following the officer’s initial KD assignment. Selection to a second command is appropriate for an officer with very high-potential. Preferred second commands include the 4th or 8th Psychological Operations Group (POG) Headquarters and Headquarters Company (HHC) or a Battalion Headquarters and Support Company (HSCs). Officers selected for these positions must attend a Pre-Command Orientation Course. iii. Broadening assignments. High-performing officers should seek assignments marked as nominative to best represent the PO branch throughout the Army and broaden their individual development. The broadening assignments for high- performing, high-potential captains are:\n(i) HHC/HSC Company Commander. (Nominative)\n(ii) USAJFKSWCS assignments – minimum 24 months. (Nominative)\n(iii) Special Operations Recruiting Battalion assignments. (Nominative)\n(iv) Human Resources Command assignments. (Nominative)\n(v) General officer personal staff assignments. (Nominative)\n(vi) PO Battalion or Brigade Assistant Operations officer.\n(vii) PO officer at Operational, Strategic, institutional, inter-agency, inter- organizational, and academic assignments.\n(viii) Combat Training Center (CTC) Observer, Coach, and Trainer (O/C-T).\n(ix) Brigade Combat Team, Special Forces Battalion, Security Force Assistance Brigade, or other Battalion-level PO Staff officer (S39).\n(x) Equivalent positions in the Army Reserves.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 1,
+   "body_sha256": "9c68459656917f6da657cf60b9eda85555aebcb0d64470391fd284a3339b3948"
+  },
+  {
+   "id": "b3ad2a6d-02a0-5087-ac12-c959ade1c067",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Self-development goals",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "In addition to professional development through operational assignments, PO captains will continue an intensive military self- development program. Their efforts will focus on gaining an in-depth understanding of combined arms operations in support of LSCO and Irregular Warfare (IW) to include influence in hostile, denied, or politically sensitive environments. Emphasis must be placed on how to apply and integrate PO and influence TTPs with other SOF units in support of DoD and DoS priorities. Captains must also develop an understanding of joint, inter-agency, and inter-organizational operations, as well as improve cultural and linguistic expertise (maintaining a 1+/1+ or higher in their assigned language). Writing articles on any of the above topics for publishing is encouraged.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 2,
+   "body_sha256": "779259692a54ce09b376b86b49fc1e9f971cec762302215e3e40ed5ba9996d47"
+  },
+  {
+   "id": "cd90431a-b6a4-5b26-8f2c-0a691151f4cc",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Suggested captains’ development courses",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "Recommended courses include (in no order): Jumpmaster, Ranger, Pathfinder, Special Operations Military Deception Course (SOFMILDEC), Special Warfare Touchstone, Special Warfare Brighton, SOF courses at the Joint Special Operations University (JSOU), Tactical Information. Operations Planner Course (TIOPC), MISO Program Design and Assessment Course (MPDAC), Joint IO Orientation Course (JIOOC), Army IO Planners Course (AIOPC), Joint MILDEC Course (JMDC), Joint Targeting Course (JTC), Joint Fires and Effects Course (JOFEC), Joint Special Technical Operations (JSTO), and others identified by your chain of command.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 3,
+   "body_sha256": "ec46aeea997eb0d0695ae252ed20c69acd6dd1e69b5bbfd8a87c2e3fb32254b9"
+  },
+  {
+   "id": "e15d8a84-edf6-59f3-a805-f1a4756d485b",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain — Advanced Education",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "PO captains are encouraged to start master’s level education and/or certifications as part of their professional development. Captains should consider applying for advanced civil schooling (ACS), broadening opportunity programs (BOP), and training with industry (TWI) as in-service options; however, due to the time and utilization commitments, planning to compete and attend these should be done well in advance and discussed with the HRC Career Manager for possible promotion and intermediate level education (ILE) complications. As PO officers, preferred career fields for advanced degrees are in Sociology, Anthropology, Psychology, Data Science, Marketing, Advertising, International Relations, Defense Analysis, or Strategic Studies.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 4,
+   "body_sha256": "4dd1a61e2317b437d9fc1d9477354e19d6cb657417af7c73e0936eeeb2a70467"
+  },
+  {
+   "id": "a4af5520-6db5-54f1-9e68-1af428e5b550",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — Professional Military Education",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "Officers must complete ILE PME requirements. Officers in the primary zone cohort year group will be assigned and expected to attend ILE as directed. High-performing/high-potential officers should seek opportunities to attend the Special Operations Campaign Artistry Program (SOCAP) in conjunction with CGSC. Officers selected for company command will attend a Pre-Command Orientation Course.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 5,
+   "body_sha256": "740d1c5e9b7ed3778946fa6f0203ddf9f6b34272e47223224f4310a433396c32"
+  },
+  {
+   "id": "795716e4-9fdf-5e39-a597-b7b6602082c8",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — Assignments",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "i. KD assignments. Multiple positions exist to develop and prepare a PO major to lead at successively higher levels of responsibility; however, PO company command is preferred to ensure optimal competitiveness. PO majors must successfully serve a total of at least 18 months, optimally 24 months, in one or a combination of the following assignments:\n(i) Company Commander.\n(ii) PO Battalion or Group Executive officer.\n(iii) PO Battalion or Group Operations officer.\n(iv) Information Warfare Company PO O-4 billets are filling the roles of a Battalion Operations officer and should be treated as such.\n(v) Non-PSY-G Brigade-level or higher staff PO (37A coded) planner positions.\n(vi) Task Force Executive officer.\n(vii) Task Force Operations officer. ii. Broadening Assignments. PO majors will also meet the Army’s mission requirements and broaden their experience in the following developmental assignments:\n(i) Personnel Division Chief at PO Proponent. (Nominative.)\n(ii) Career Manager at Human Resources Command. (Nominative.)\n(iii) USAJFKSWCS Assignments (All assignments minimum 24 months). (Nominative.)\n(iv) Special Operations Recruiting Battalion Assignments. (Nominative.)\n(v) General officer-level personal staff positions. (Nominative.)\n(vi) Theater Special Operations Command Plans officer.\n(vii) Theater Psychological Operations Plans/Operations officer.\n(viii) Mission Command Training Center, Special Operations Training Detachment, and CTC O/C-T or staff positions.\n(ix) Assignments at USASOC Force Modernization Center.\n(x) PO officer at Operational, Strategic, institutional, inter-organizational, and academic assignments.\n(xi) Equivalent positions in an Army Reserve unit.\n(xii) General staff officer. In this position, an officer receives professional development at one of the staff sections at the command, division, corps, Army Service component command, or joint duty positions.\n(xiii) Senior staff. As senior staff members, majors serve as Headquarters, Department of the Army (HQDA); Department of Defense (DoD); Joint Chiefs of Staff (JCS); United States Special Operations Command (USSOCOM); and joint or combined headquarters staff officers, or interagency positions requiring PO experience and expertise.\n(xiv) Interagency fellowships.\n(xv) Service school staff.\n(xvi) NATO assignments.\n(xvii) Other assignments: operational, institutional, inter-organizational, and academia.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 6,
+   "body_sha256": "1c7bc7c418dfc15ffec0223cabb0a1a2dd696cc1d35790b2d9be85509cca36a8"
+  },
+  {
+   "id": "70b3b07c-203f-5289-bac6-da39e324246d",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — Self-development goals",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "PO majors will expand their understanding of combined arms operations and joint operations before, during, and after LSCO and Irregular Warfare (IW), with an emphasis on battalion and brigade or group-level elements, as well as conventional brigades and divisions. Writing articles on any of the above topics for publishing is encouraged.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 7,
+   "body_sha256": "50d127594b7262a9e5dfba10b253fe866231649039288fc2f8fb6f1ed06e1930"
+  },
+  {
+   "id": "24e33462-1cdc-5089-b998-0000ed1c865f",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major — Suggested majors’ development courses",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "Majors will complete Joint Professional Military Education I. Completion of a master’s degree allows the officer to fill one of the many positions with the Army Educational Requirements System (AERS) code 96 (master’s degree required). Additionally, special operations forces courses at the Joint Special Operations University and NATO courses are encouraged in addition to any other courses listed under the captains list.\ni. Joint Professional Military Education. Command and General Staff Officer’s Course (CGSOC) is the primary Joint Professional Military Education (JPME) I venue for Army majors. CGSOC educates field grade officers through the resident course at Fort Leavenworth, KS, through satellite campuses, or distance learning programs. Schools of Other Nations (Foreign ILE) and Sister Service ILE are reserved for the top five percent of resident selects across the Army and should be the preferred ILE venue for highly competitive PO officers. Senior majors should strive to complete JPMEII as soon as possible. ii. Master’s Degree. PO majors are highly encouraged to pursue their master’s degree through the following programs.\n(i) Command and General Staff College (CGSC). Conducted at Fort Leavenworth, KS, CGSC is the Army’s premier ILE venue and the primary venue for most resident selects. Students receive a graduate level education firmly based in Army doctrine that will prepare them to succeed in command and/or assignments to division or corps staffs. CGSOC curriculum provides students with a Master of Operational Studies (MOS) degree or students have the option of pursuing a thesis-based Master of Military Arts and Science (MMAS) degree.\n(ii) National Defense University (NDU). Select PO officers may attend the highly competitive Joint Special Operations Master of Arts (JSOMA) program conducted over ten months at Fort Liberty, NC, producing a Master of Arts in Strategic Security Studies. This education better prepares PO officers for assignments in joint and interagency billets. Officers attending this venue will need to complete ILE Common Core via satellite or distributed learning. The application for NDU requires an endorsement by the first O-6 in the officer’s chain of command. Graduates of this venue incur a 3:1 ADSO (IAW AR 350-100) for every day spent in NDU.\n(iii) Naval Postgraduate School (NPS). Conducted at Monterey, CA over 18 months, this venue offers three curriculum choices: 699 - Special Operations and Irregular Warfare Curriculum, 698 - Joint Information Strategy and Political Warfare Curriculum, and 697 - Applied Design for Innovation. NPS focuses more on the graduate degree than it does on preparing ARSOF officers for future assignments on division and higher staffs. Officers attending this venue should be prepared to conduct considerable self- development on Army doctrine and MDMP to remain on par with their CGSOC peers. The application for NPS requires an endorsement by the first O-6 in the officer’s chain of command. Graduates of this venue incur a 3:1 ADSO (IAW AR 350-100) for every day spent at NPS with an immediate 24-month AERS utilization IAW AR 621-1.\n(iv) Advanced Military Studies Program (AMSP). AMSP is the largest and most well- known education program in the School of Advanced Military Studies (SAMS) at Fort Leavenworth, KS for selected officers that have completed ILE. Completion of the program confers a Master of Arts in Military Operations degree focused on Theater Operations and the 6S SI. The program consists of one year of advanced classroom education followed by one year of operational education via Tier I utilization. Tier I utilization will be in a critical battle staff position within a division, corps, or equivalent headquarters, with priority going to committed, forward-deployed, contingency, and reinforcing units IAW AR 350-1 and AR 614-100. (Note: IAW USAJFKSWCS Policy, HRC will send an ETP to request non-KD complete officers who graduate from AMSP move directly into a KD position prior to the 12-month Tier 1 utilization tour). Following KD completion and Tier I utilization, AMSP officers will fulfill Tier II utilization via operational/strategic planning, joint, or doctrine writing positions IAW AR 614-100. Some officers have had difficulty getting their KD time and as such, this is recommended as an option upon completion of all KD assignments as opposed to before.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 8,
+   "body_sha256": "d0b4e2692bd1c3233b44c8b5f395ece3562a3226e8fea5420523ad7a5d30ffc3"
+  },
+  {
+   "id": "b889af64-3f03-5e2b-ab46-dc455f383433",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel — Professional Military Education",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "The primary institutional education mechanism for lieutenant colonels is the Senior Service College (SSC). Officers selected to command battalions must attend all Army Pre-Command Courses (PCCs) for selected command category. The Battalion Command Assessment (BCAP) has become a requirement for officers competing for battalion command opportunities. All lieutenant colonels should strive to complete JPME II. The professional development objective for this phase is to demonstrate excellence in tactical, operational, and strategic AOs, and the ability to lead, train, motivate, and care for Soldiers in both the staff and command environments.",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 9,
+   "body_sha256": "56274bf242f7c1eaf355ec6cef7c0d92450c54ffde00ea5223abe1864e279c0f"
+  },
+  {
+   "id": "97bc7d5f-bd37-56a0-9ba8-5719af945dcc",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel — Assignments",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "i. KD assignments. Battalion command or other Centralized Selection List (CSL) assignment in either the AC or RC. ii. Former Battalion Commander (FBC) assignments. The following are considered assignments the best-qualified lieutenant colonels will hold after commanding a PO battalion or other CSL assignment:\n(i) SWCS Assignments, minimum of 24 months.\n(ii) Assistant Chief of Staff / G9.\n(iii) PO group or another group/brigade Deputy Commander.\n(iv) General officer-level personal staff positions. Note: FBC positions are approved and slated per USASOC policy. iii. Broadening assignments.\n(i) HQDA, DoD, JCS, Army Service component command, major command, joint or combined headquarters staff officer, or interagency position.\n(ii) Equivalent positions in the Army Reserves",
+   "pdf_page_start": 11,
+   "pdf_page_end": 12,
+   "printed_page": null,
+   "sort_order": 10,
+   "body_sha256": "ffeabf31b2bd7e805aec01f68d1af13f4a4b5e4dcbf19681401def2cdaab630a"
+  },
+  {
+   "id": "83ce3494-ef05-5759-b7be-ba9a7eb646a2",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel — Self-development goals",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "PO lieutenant colonels should expand their understanding of combined arms operations and joint operations before, during, and after LSCO and Irregular Warfare (IW), focusing on brigade or group-level SOF elements and Theater Special Operations Commands (TSOCs), as well as conventional divisions and corps. Lieutenant colonels are encouraged to continue their education in relevant topics such as strategy, policy, and international relations through graduate certificate programs, professional seminars, and research projects. Writing articles on any of the above topics for publishing is encouraged.",
+   "pdf_page_start": 12,
+   "pdf_page_end": 12,
+   "printed_page": null,
+   "sort_order": 11,
+   "body_sha256": "ac9a25501c71bdee3ade70524b297f7be3c8af1a6318ae0a8cf3ee9eebb4f420"
+  },
+  {
+   "id": "763c30da-07b6-5782-97de-17da75faf3a3",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel — Professional Military Education",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "Completion of Senior Service College.",
+   "pdf_page_start": 12,
+   "pdf_page_end": 12,
+   "printed_page": null,
+   "sort_order": 12,
+   "body_sha256": "3ff67e2f693714b49a82bd585c751f5e197a839614286480ec17d7510a80faf8"
+  },
+  {
+   "id": "f084c20d-c07f-52bd-ad26-27a624153417",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel — Assignments",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "i. KD assignments. Brigade/ PO Group command or other CSL assignment. ii. Broadening assignments. The following are considered assignments colonels will hold after commanding a brigade or other CSL assignment:\n(i) Chief of Staff or Deputy Commanding officer at a general officer headquarters.\n(ii) Capability Manager, who serves in the position for a minimum of 24 months.\n(iii) USAJFKSWCS, PO Commandant (Nominative)\n(iv) Corp or equivalent primary staff officer.\n(v) Assistant Chief of Staff for one of the primary staff positions at the general officer command level.\n(vi) HQDA, DoD, JCS, joint or combined headquarters staff officer, or interagency positions.\n(vii) Equivalent positions in the Army Reserves.",
+   "pdf_page_start": 12,
+   "pdf_page_end": 13,
+   "printed_page": null,
+   "sort_order": 13,
+   "body_sha256": "ec47b425b6ef59de02d1d459894fc085f6904377e457a8076e537648296d4457"
+  },
+  {
+   "id": "63eae820-3d29-5b8f-b37f-232f5f7dc733",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel — Self-development goals",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "Colonels should develop a mastery of combined arms operations and joint operations before, during, and after LSCO and Irregular Warfare (IW). Colonels are encouraged to continue their civilian education in relevant topics such as strategy, policy, and international relations through graduate certificate programs, professional seminars, research projects, and pursue a doctoral degree. Writing articles on any of the above topics for publishing is highly encouraged.\nd. Assignment preferences and precedence.\n(1) Preferences. The Army assigns PO officers based on its needs, the regional alignment of the officer, and the desires of the individual officer. Worldwide assignments are available. The goal of PO officer development is to produce officers able to assimilate into staff and organizations and immediately integrate PO plans and influence principles into the deliberate planning process.\n(2) Precedence. Assignment of officers to KD leadership positions has precedence over other assignments. PO officers should seek assignments in the following order at each grade plate; however, the assignment sequence is flexible:\n(a) Completion of required PME.\n(b) Command.\n(c) Other KD assignment.",
+   "pdf_page_start": 13,
+   "pdf_page_end": 13,
+   "printed_page": null,
+   "sort_order": 14,
+   "body_sha256": "86d049ea3f1161bc0b268bd175cf7d29056c758b86f6eea2173de4b5b207a981"
+  },
+  {
+   "id": "88fa122e-0395-5c62-b771-a51b345a6104",
+   "occupation_code": "37A",
+   "occupation_title": "PSYCHOLOGICAL OPERATIONS",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel — Broadening assignment",
+   "chapter": "Psychological Operations Branch officer career pamphlet, DA PAM 600-3 chapter (19 November 2024)",
+   "body": "Years of Service 37A – Active Component (AC) 4 10 17 22 Rank CPT MAJ CSL Board LTC CSL Board COL Professional Military Education Requirements ARSOF CCC POQC ILE JPME I ARSOF Co CDR Course JPME II SSC Self/Suggested Developmental Courses Special Operations Military Deception Course (SOFMILDEC), Special Warfare Touchstone, Special Warfare Brighton, SOF courses at the Joint Special Operations University (JSOU), Tactical Information Operations Planner Course (TIOPC), MISO Program Design and Assessment Cosuer(MPDAC), Joint IO Orientation Course (JIOOC), Army IO Planners Course (AIOPC), Joint MILDEC Course (JMDC), Joint Targeting Course (JTC), Joint Special Technical Operations (JSTO), Jumpmaster, Air Assault, Ranger, Sapper, Pathfinder, anything else deemed important by unit leadership Typical Assignments **Underlined means high- performing officer assignments Key Developmental (18-24mo): • DET CDR (AC/RC) • IWC PO O-3 assignment Broadening**: • HHC CDR (nom) • SWCS Assignments(nom) • SORB Assignments (nom) • HRC Assignments (nom) • GO personal staff (nom) • Equivalent positions in the Army Reserves • All other assignments Key Developmental (~24mo): • Co CDR • BN/BDE/GRP/TF XO • BN/BDE/GRP/TF/ S3 • IWC PO O-4 assignment • Non-POG BDE PO planner Broadening**: • Personnel Div Chief (Proponent) (nom) • HRC PO FG assignment Officer (nom) • SWCS Assignments (nom) • SORB Assignment (nom) • GO personal staff (nom) • Equivalent positions in the Army Reserves • All other assignments Key Developmental (24mo): • CSL BN CDR • RC CSL BN CDR Former BN CDR: • Positions approved and slated per USASOC Policy • PO Proponent Director • GO personal staff positions Broadening: • HQDA, DOD, JCS, ASCC, MACOM, Joint/Combined HQ, Interagency staff • Equivalent positions in the Army Reserves • All other assignments Key Developmental (24mo): • CSL GRP/BDE CDR Broadening: • COS or DCO at GO HQ • Capability Manager • Corps primary staff officer • ACOS for GO level primary staff positions • PO Commandant • HQDA, DOD, JCS, Joint/Combined HQ staff or interagency positions • Equivalent positions in the Army Reserves • All other assignments Advanced Education • Advanced Civil Schooling (ACS) • Training With Industry (TWI) • Broadening Opportunity Program (BOP) • Credentialing Assistance (CA) • CGSC Master of Military Arts (MMAS) • National Defense University (NDU)Naval Postgraduate School (NPS) • Advanced Military Studies Program (AMSP) (SAMS) • Graduate Certificate Programs • Professional Seminars • Research projects • Graduate Certificate Programs • Professional Seminars • Research projects",
+   "pdf_page_start": 14,
+   "pdf_page_end": 14,
+   "printed_page": null,
+   "sort_order": 15,
+   "body_sha256": "e6b5e6850f762eebe1d5a2dfca2fd605fc25ee04ed9b8dd5c67544e807e126d0"
+  }
+ ],
+ "report": {
+  "pdfPages": 22,
+  "flags": [],
+  "runs": [
+   "CPT>MAJ>LTC>COL@p6",
+   "CPT>MAJ>LTC>COL@p15"
+  ],
+  "removedLines": [
+   {
+    "page": 1,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 1,
+    "text": "1",
+    "why": "running header/footer"
+   },
+   {
+    "page": 2,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 2,
+    "text": "2",
+    "why": "running header/footer"
+   },
+   {
+    "page": 3,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 3,
+    "text": "3",
+    "why": "running header/footer"
+   },
+   {
+    "page": 4,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 4,
+    "text": "4",
+    "why": "running header/footer"
+   },
+   {
+    "page": 5,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 5,
+    "text": "5",
+    "why": "running header/footer"
+   },
+   {
+    "page": 6,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 6,
+    "text": "6",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "7",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "8",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "9",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "10",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "11",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "12",
+    "why": "running header/footer"
+   },
+   {
+    "page": 13,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 13,
+    "text": "13",
+    "why": "running header/footer"
+   },
+   {
+    "page": 14,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 14,
+    "text": "14",
+    "why": "running header/footer"
+   },
+   {
+    "page": 15,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 15,
+    "text": "15",
+    "why": "running header/footer"
+   },
+   {
+    "page": 16,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 16,
+    "text": "16",
+    "why": "running header/footer"
+   },
+   {
+    "page": 17,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 17,
+    "text": "17",
+    "why": "running header/footer"
+   },
+   {
+    "page": 18,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 18,
+    "text": "18",
+    "why": "running header/footer"
+   },
+   {
+    "page": 19,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 19,
+    "text": "19",
+    "why": "running header/footer"
+   },
+   {
+    "page": 20,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 20,
+    "text": "20",
+    "why": "running header/footer"
+   },
+   {
+    "page": 21,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 21,
+    "text": "21",
+    "why": "running header/footer"
+   },
+   {
+    "page": 22,
+    "text": "DA PAM 600-3: Psychological Operations (PO) Branch",
+    "why": "running header/footer"
+   },
+   {
+    "page": 22,
+    "text": "22",
+    "why": "running header/footer"
+   }
+  ],
+  "runningLines": [
+   "T0|DA PAM #-#: Psychological Operations (PO) Branch",
+   "T1|#"
+  ],
+  "pointerOnlyDropped": 0,
+  "sections": [
+   {
+    "grade": "CPT",
+    "lines": 65,
+    "chars": 4599,
+    "pages": "6-8"
+   },
+   {
+    "grade": "MAJ",
+    "lines": 114,
+    "chars": 7662,
+    "pages": "8-11"
+   },
+   {
+    "grade": "LTC",
+    "lines": 32,
+    "chars": 2108,
+    "pages": "11-12"
+   },
+   {
+    "grade": "COL",
+    "lines": 143,
+    "chars": 4660,
+    "pages": "12-14"
+   }
+  ],
+  "byType": {
+   "training": 4,
+   "assignments": 5,
+   "self_development": 4,
+   "development": 3
+  },
+  "codes": [
+   "37A"
+  ]
+ }
+}

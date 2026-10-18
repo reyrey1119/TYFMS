@@ -1,0 +1,28 @@
+{
+ "codes": [
+  "26A",
+  "26B",
+  "26Z"
+ ],
+ "run": 0,
+ "title": "Data Network Engineering Functional Area (FA26) career pamphlet, DA PAM 600-3 chapter (24 July 2026)",
+ "careerField": "Functional Area 26",
+ "proponent": "Signal School (FA26 proponent)",
+ "publicationDate": "2026-07-24",
+ "dateBasis": "printed in the running title ('Data Network Engineering \u2013 24 July 2026').",
+ "limitations": "The Captain, Major and Lieutenant Colonel sections are imported for AOCs 26A and 26B (they discuss those two AOCs); the Colonel section is written for AOC 26Z only and is imported for 26Z only.",
+ "extraGrades": [
+  {
+   "match": "^k\\. AOC 26Z Colonels",
+   "band": "O-6",
+   "abbr": "COL",
+   "codes": [
+    "26Z"
+   ]
+  }
+ ],
+ "runCodes": [
+  "26A",
+  "26B"
+ ]
+}

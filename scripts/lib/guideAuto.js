@@ -17,7 +17,7 @@ const sha = s => createHash('sha256').update(s).digest('hex')
 
 // ── rank headings ────────────────────────────────────────────────────────────
 
-const ENUM = /^(?:\(\d+\)\.?|\d+\s*[-–—]\s*\d+\.|\d+\.|\([a-z]\)\.?|[a-z]\)|[a-z]\.)\s*/
+export const ENUM = /^(?:\(\d+\)\.?|\d+\s*[-–—]\s*\d+\.|\d+\.|\([a-z]\)\.?|[a-z]\)|[a-z]\.)\s*/
 const ABBR = { pvt: ['private'], pv1: ['private'], pv2: ['private'], pfc: ['private'], spc: ['specialist'], cpl: ['corporal'], sgt: ['sergeant'], ssg: ['staff', 'sergeant'], sfc: ['sergeant', 'first', 'class'], msg: ['master', 'sergeant'], '1sg': ['first', 'sergeant'], sgm: ['sergeant', 'major'], csm: ['command', 'sergeant', 'major'], privates: ['private'], sergeants: ['sergeant'], corporals: ['corporal'], specialists: ['specialist'] }
 
 // Canonical word list of a rank phrase: lower-case, punctuation and grade tags removed, abbreviations expanded, repeats collapsed.
@@ -132,12 +132,12 @@ const ENUM_ONLY_LABELS = [
   [/^developmental\s*\/\s*broadening\b/i, 'assignments'],
 ]
 const POINTER_PARA = /(professional|talent|career)\s+development\s+model|reserve\s+components?|national guard|\bUSAR\b|\bARNG\b|career map|^references?$/i
-const PROMOTION = /^(along\s+with\s+evaluating|promotion (selection|board|consideration)|to be (most|highly) qualified|(unqualified|fully qualified|highly qualified|most qualified|not (fully )?qualified)\b|promotion indicators?\b|(most|highly|fully) qualified indicators?\b)/i
+export const PROMOTION = /^(along\s+with\s+evaluating|promotion (selection|board|consideration)|to be (most|highly) qualified|(unqualified|fully qualified|highly qualified|most qualified|not (fully )?qualified)\b|promotion indicators?\b|(most|highly|fully) qualified indicators?\b)/i
 // An item whose text opens with the board-qualification list ((1) Most Qualified, (2) Highly Qualified ...) is promotion criteria.
-const PROMO_BODY = /(^|\n)(\(\d\)|\d\.)\s*(Most|Highly|Fully)\s+Qualified\b/i
-const LABEL_TEXT = /^([^.:]{2,70}?)\s*[.:]\s*/
+export const PROMO_BODY = /(^|\n)(\(\d\)|\d\.)\s*(Most|Highly|Fully)\s+Qualified\b/i
+export const LABEL_TEXT = /^([^.:]{2,70}?)\s*[.:]\s*/
 
-function labelOf(text, enumerated = false) {
+export function labelOf(text, enumerated = false) {
   const t = text.replace(ENUM, '')
   for (const [re, type] of enumerated ? [...ENUM_ONLY_LABELS, ...LABELS] : LABELS) { const m = t.match(re); if (m) { const lm = t.match(LABEL_TEXT); return { type, label: (lm ? lm[1] : m[0]).trim() } } }
   return null
@@ -283,7 +283,7 @@ function enumOf(text, style) {
   const m = style === 'rparen-letter' ? text.match(/^([a-z])\)\s+/) : style === 'paren-letter' ? text.match(/^\(([a-z])\)\s+/) : style === 'dot-letter' ? text.match(/^([a-z])\.\s+/) : style === 'paren-number' ? text.match(/^\((\d+)\)\s+/) : style === 'dot-number' ? text.match(/^(\d+)\.\s+/) : null
   return m ? m[1] : null
 }
-function splitItems(body) {
+export function splitItems(body) {
   const style = topLevelStyle(body)
   const items = []
   const lead = []
@@ -307,7 +307,7 @@ function splitItems(body) {
   }
   return { items, lead }
 }
-function unknownLabel(text) {
+export function unknownLabel(text) {
   const t = text.replace(ENUM, '')
   const m = t.match(LABEL_TEXT)
   // An item with no label of its own is shown under a plain heading, never under a truncated sentence fragment.

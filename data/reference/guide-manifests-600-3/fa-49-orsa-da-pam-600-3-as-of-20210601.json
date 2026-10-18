@@ -1,0 +1,22 @@
+{
+ "codes": [
+  "49A"
+ ],
+ "run": 0,
+ "title": "Operations Research/Systems Analysis Functional Area career pamphlet, DA PAM 600-3 chapter (1 June 2021)",
+ "careerField": "Functional Area 49",
+ "proponent": "ORSA proponent",
+ "publicationDate": "2021-06-01",
+ "dateBasis": "printed in the running title.",
+ "limitations": "The second run of grade headings (page 6 on) is the Reserve Component text and is not imported. The captain section is headed 'Captain/junior major development' and is stored for O-3 to O-4.",
+ "extraGrades": [
+  {
+   "match": "^c\\. Captain/junior major development",
+   "band": "O-3..O-4",
+   "abbr": "CPT",
+   "codes": [
+    "49A"
+   ]
+  }
+ ]
+}

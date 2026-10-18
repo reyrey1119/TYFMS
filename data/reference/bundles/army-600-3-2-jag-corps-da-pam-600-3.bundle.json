@@ -1,0 +1,464 @@
+{
+ "bundle_version": 1,
+ "manifest_id": "army-600-3-2-jag-corps-da-pam-600-3",
+ "import_batch": "army-600-3-2-jag-corps-da-pam-600-3@2026-10-18",
+ "source": {
+  "id": "755c14ce-70b5-5dcb-bf4b-ba973241b41d",
+  "branch": "Army",
+  "personnel_category": "officer",
+  "publication_number": "DA PAM 600-3",
+  "title": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+  "chapter": null,
+  "career_field": "Judge Advocate General's Corps (branch code 27)",
+  "proponent": "The Judge Advocate General's Legal Center and School (JAG Corps proponent)",
+  "official_url": "https://api.army.mil/e2/c/downloads/2022/08/08/4cbca29d/2-jag-corps-da-pam-600-3.pdf",
+  "publication_date": "2019-02-27",
+  "effective_date": null,
+  "last_checked_at": "2026-10-18T00:00:00Z",
+  "checksum_sha256": "a7ce8d0be2779f4ce4577e65a7ba7172e656728d106086681d1ca50287d92104",
+  "extraction_tool": "pdf-parse 2.4.5",
+  "notes": "Date basis: printed in the running title. An older chapter; the Army G-1 page lists it as current (uploaded 8 Aug 2022). Imported for 27A: the grade-by-grade development sections (O-4, O-5, O-6) as the pamphlet gives them for the branch or functional area; they apply to every AOC listed. Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures and tables are not extracted. The run imported is the Major, Lieutenant Colonel and Colonel development text for judge advocates; company grade officers are described in a different part of the chapter and are not imported. Applies to 27A; the military judge AOC (27B) is not covered. LIMITATIONS: The run imported is the Major, Lieutenant Colonel and Colonel development text for judge advocates; company grade officers are described in a different part of the chapter and are not imported. Applies to 27A; the military judge AOC (27B) is not covered."
+ },
+ "passages": [
+  {
+   "id": "5d8f074e-47cb-5d39-b159-ab2514129081",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Education",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "The centerpiece of junior officer professional development is attendance at the 10- month Judge Advocate Graduate Course. Judge advocates are selected to attend the Judge Advocate Graduate Course upon selection for promotion to major or earlier if officers’ career time-lines allow for attendance as a senior captain. The Judge Advocate Graduate Course educates career judge advocates in all areas of military law, legal communications and management. The course prepares officers for middle and senior grade positions and also provides an opportunity to develop specialized knowledge and skills. The Judge Advocate Graduate Course is accredited by the American Bar Association as a graduate legal education program and is statutorily empowered to award the only graduate law degree (LL.M.) in military law in the United States. Officers incur a 2 year active duty service obligation upon completion of the Judge Advocate Graduate Course and normally serve a 2 year utilization tour. The Judge Advocate Graduate Course fulfills the role of the CCC and the Branch- Specific Intermediate Level Education (ILE) Qualification Course required of basic branch officers. The course serves as the Advanced Operations and Warfighting Course portion of the military education level (MEL) ILE requirement. After completion of the Graduate Course and ILE, judge advocates will be joint professional military education (JPME I) qualified. All judge advocates must go before the ILE Advanced Operations Course selection board that convenes approximately 15 months after the Judge Advocate Graduate Course and may compete in the ILE Advanced Operations Course selection board the second and third year after the Judge Advocate Graduate Course. The board results from the Command and General Staff College Board determines which judge advocates will attend Command and General Staff College (in residence at Fort Leavenworth). These board results also determine which judge advocates will have the opportunity to attend advanced civil schooling to obtain a LL.M., based on the needs of the Army, in constitutional, criminal, tax or international law, health sciences, environmental law or cyber-related issues. Selectees for Command and General Staff College and civil schooling to obtain an LL.M. will then serve a two-year utilization tour. Major Judge Advocates not attending Command and General Staff College and those selected for the LL.M program will attend ILE at a satellite location.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 0,
+   "body_sha256": "94e7b12aa03ec33b9a295237f6b6dab4d84ea4837ab8f95a0fa7d53ce501c4de"
+  },
+  {
+   "id": "0e5e5d04-5a8d-5f3d-85a3-4ebe5645bce3",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Key, developmental, and broadening assignments",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "Following the graduate course, officers are assigned to field grade positions. Judge Advocates may develop specialized subject matter expertise; however, they remain generalists capable of performing the broad spectrum of legal operations. Some focus on specific legal disciplines such as military justice, or contract and fiscal law. Judge advocates also receive significant opportunities for leadership and management. Judge advocate majors can expect to serve as brigade judge advocates, senior defense counsel, special victim prosecutors, branch and division chiefs in large legal offices, OICs of branch offices, command judge advocates of non-GCMCA commands, instructors at TJAGLCS, Command and General Staff College or at West Point, or as staff and trial attorneys in the litigating divisions in Washington, DC, other defense and U.S. Government agencies, or in the OTJAG.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 1,
+   "body_sha256": "24d2bca873779a6686ded2b210952350225f76b59f259b99f34b0474524b636d"
+  },
+  {
+   "id": "e81b02fa-2333-5750-ad5c-42d358a1c33a",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Self-development",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "Judge advocate majors must continue to develop professionally as attorneys and officers. This professional growth includes academic instruction by attending continuing legal education within their licensing jurisdiction or at TJAGLCS. Majors should also dedicate time to professional study to gain an enhanced perspective on operational, legal, and leadership lessons.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 2,
+   "body_sha256": "4625cfc5ab46df3cdb032a651a9b6fe04041224deeef70f6243e7ff2c7d8d4b7"
+  },
+  {
+   "id": "ba7bbf9f-9737-582d-b6e7-7e2da72b01af",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Desired experience",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "As a major in the JAGC, TJAG expects these officers to be the trusted command counsel at a brigade, to be mid-level leaders, to attain higher levels of Army and JIIM legal expertise, to be practitioners in specialized areas and to be instructors at various DOD institutions.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 3,
+   "body_sha256": "9e846b9548a0697e7d51a74e63ddb66716f070f3d4fda96c96eec29a217f266b"
+  },
+  {
+   "id": "0388b832-c37b-5f65-9a23-f0566ff850b4",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — Education",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "Senior lieutenant colonel judge advocates become eligible for selection to attend resident SSC or the Army War College Distance Education Program. Numerous officers attend the U.S. Army War College, The Dwight D. Eisenhower School for National Security and Resource Strategy, National War College, Naval War College and the Department of Justice Fellowship each year.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 4,
+   "body_sha256": "1a6b0bb280a85c6e1a619740e22ec468f812273bb9ccc46dece42fae1370e431"
+  },
+  {
+   "id": "8b87d67d-8689-57bf-9c4e-7dd31fae214c",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — Assignment",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "Lieutenant colonels have the opportunity to serve in more specialized assignments and in senior leadership positions. Judge advocate lieutenant colonels have their first opportunity to serve as military judges, regional defense counsel or SJAs. They also serve as branch and division chiefs in the largest unit and agenc y offices including the Office of the Judge Advocate, United States Army Legal Services Agency and the National Capital Region.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 5,
+   "body_sha256": "259dc8b996bcdfdd958f62763ebbd5d4f75ca958db1657f5a43f55d9adf22358"
+  },
+  {
+   "id": "3505ad69-6185-5ce0-8b6c-e1a3941d57c5",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — Self-development",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "Judge advocate lieutenant colonels must continue to d e v elop professionally as attorneys and officers. This professional growth includes academic instruction by attending continuing legal education within their licensing jurisdiction or at TJAGLCS. Lieutenant colonels should also dedicate time to professional study to gain an enhanced perspective on operational, legal, and leadership lessons.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 6,
+   "body_sha256": "52027c86d92ee43864403a46cfcf718caf267f41852b978171d2714fc54c6e23"
+  },
+  {
+   "id": "544cae9c-d3a6-54a9-9bba-11e89a99f2d5",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel Development — Desired experience",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "JAGC lieutenant colonels are assigned in highly complex practice areas and lead junior judge advocates, enlisted paralegals and civilian professionals. Lieutenant colonels serve as advisors to senior leaders and are exposed to the highest levels of DA, DOD, and the legislative processes.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 7,
+   "body_sha256": "e3eb6527fbdd1f89e284ba78c390d4d2b84b008e0fb0dc8f8229878d39ce3731"
+  },
+  {
+   "id": "dc7b3079-4f40-5016-8744-60b85dc6bd64",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Education",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "Most colonels remain eligible for selection to attend resident SSC or the Army War College Distance Education Program. Numerous JAGC officers attend the U.S. Army War College, The Dwight D. Eisenhower School for National Security and Resource Strategy, National War College, Naval War College and the Department of Justice Fellowship each year.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 8,
+   "body_sha256": "27fc064d0315c26205819ec3a0a87430d2b69b170d37bb8239c6e8b042516e74"
+  },
+  {
+   "id": "def64e6d-967b-5140-a10b-3d185ea659ea",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Assignment",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "Judge advocate colonels are senior trial and appellate military judges; SJAs at installations, divisions, corps, ASCCs, ACOMs, DRUs, or combatant commands; division chiefs in the OTJAG and the USALSA, and dean and center director at TJAGLCS.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 9,
+   "body_sha256": "5b54394848e4ba77cc5f1ad41b7b7e0c85c7c9ac862605344ab9a6a884751493"
+  },
+  {
+   "id": "2440f558-64ab-5fb1-b698-49fbdbd06720",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Self-development",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "Judge advocate colonels must continue to develop professionally as attorneys and officers. This professional growth includes academic instruction by attending continuing legal education within their licensing jurisdiction or at TJAGLCS. Colonels should also dedicate time to professional study to gain an enhanced perspective on operational, legal, and leadership lessons. Staff judge advocate positions require MEL ILE and attendance at the Staff Judge Advocate Course at TJAGLCS. The MEL ILE is obtained by completing an Army ILE course or equivalent. Lieutenant colonel SJAs and colonels serving as division and corps SJAs will normally be assigned for a two-year tour. Colonels otherwise serving as SJAs will normally be assigned for a two or three-year tour.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 10,
+   "body_sha256": "aa1658ea3a8b15e1260c13f712639a5c4e12e370094a6d526308070d6ec9b59d"
+  },
+  {
+   "id": "9a440c35-038b-56b4-a05c-bff1a3b4a728",
+   "occupation_code": "27A",
+   "occupation_title": "JUDGE ADVOCATE GENERAL",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Desired experience",
+   "chapter": "Judge Advocate General's Corps officer career pamphlet, DA PAM 600-3 chapter (27 February 2019)",
+   "body": "Colonels comprise the senior leadership of the JAGC and are the senior counsel to the leaders of the Army and DOD. These senior judge advocates occupy leadership positions on division and higher echelon staffs that require a thorough knowledge of strategy and the art and science of developing and using instruments of national power. Current operations mandate our senior judge advocates be thoroughly versed and familiar with strategic thinking. Judge advocates at all levels, from the Joint Chiefs of Staff down through the brigade, assist in, advise on, and review the preparation and execution of plans crucial to success in all operations.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 11,
+   "body_sha256": "8ad9ffde8edea1999e0034560f72589737dd5f4e66eed0a0e6b3719d547c64b7"
+  }
+ ],
+ "report": {
+  "pdfPages": 18,
+  "flags": [],
+  "runs": [
+   "MAJ>LTC>COL@p5",
+   "MAJ>LTC>COL@p13"
+  ],
+  "removedLines": [
+   {
+    "page": 1,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 1,
+    "text": "1",
+    "why": "running header/footer"
+   },
+   {
+    "page": 2,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 2,
+    "text": "2",
+    "why": "running header/footer"
+   },
+   {
+    "page": 3,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 3,
+    "text": "3",
+    "why": "running header/footer"
+   },
+   {
+    "page": 4,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 4,
+    "text": "4",
+    "why": "running header/footer"
+   },
+   {
+    "page": 5,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 5,
+    "text": "5",
+    "why": "running header/footer"
+   },
+   {
+    "page": 6,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 6,
+    "text": "6",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "7",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "8",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "9",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "10",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "11",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "12",
+    "why": "running header/footer"
+   },
+   {
+    "page": 13,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 13,
+    "text": "13",
+    "why": "running header/footer"
+   },
+   {
+    "page": 14,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 14,
+    "text": "14",
+    "why": "running header/footer"
+   },
+   {
+    "page": 15,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 15,
+    "text": "15",
+    "why": "running header/footer"
+   },
+   {
+    "page": 16,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 16,
+    "text": "16",
+    "why": "running header/footer"
+   },
+   {
+    "page": 17,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 17,
+    "text": "17",
+    "why": "running header/footer"
+   },
+   {
+    "page": 18,
+    "text": "Judge Advocate General’s Corps – 27 February 2019",
+    "why": "running header/footer"
+   },
+   {
+    "page": 18,
+    "text": "18",
+    "why": "running header/footer"
+   }
+  ],
+  "runningLines": [
+   "T0|Judge Advocate General’s Corps – # February #",
+   "T1|#"
+  ],
+  "pointerOnlyDropped": 0,
+  "sections": [
+   {
+    "grade": "MAJ",
+    "lines": 43,
+    "chars": 4115,
+    "pages": "5-5"
+   },
+   {
+    "grade": "LTC",
+    "lines": 18,
+    "chars": 1580,
+    "pages": "5-6"
+   },
+   {
+    "grade": "COL",
+    "lines": 22,
+    "chars": 2073,
+    "pages": "6-6"
+   }
+  ],
+  "byType": {
+   "training": 3,
+   "development": 4,
+   "self_development": 3,
+   "assignments": 2
+  },
+  "codes": [
+   "27A"
+  ]
+ }
+}

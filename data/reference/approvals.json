@@ -271,6 +271,134 @@
    "reviewed_at": "2026-10-17T12:00:00Z",
    "method": "automated-checks-plus-sampled-visual-review",
    "scope": "DA PAM 600-25 career guide, mos-00z (2022-07-12): rank-specific training, assignments, credentials, self-development and development guidance for 00Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p2. Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-3-ada-11-june-2026",
+   "fingerprint": "2848a2e20ff89cc08a59b1590be3de6c486b1be990034e547c96ea6890dff856",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Air Defense Artillery (branch code 14) (2026-06-11): grade-by-grade development guidance (education, key developmental and broadening assignments, self-development, desired experience) for 14A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run used chosen in a per-pamphlet manifest; no in-scope grade section runs past its heading (section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading). Rendered pages compared with the stored passages: p10 (LTC/COL). Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-3-da-pam-600-3-fy25-fa26-data-network-engineering-final",
+   "fingerprint": "2c067140c3a06f4c2053c931d361bc45dbce93b7dddb6ba9b05ce772fd41cba3",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Functional Area 26 (2026-07-24): grade-by-grade development guidance (education, key developmental and broadening assignments, self-development, desired experience) for 26A, 26B, 26Z. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run used chosen in a per-pamphlet manifest; no in-scope grade section runs past its heading (section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading). Rendered pages compared with the stored passages: p10 (LTC, AOC 26Z Colonels). Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. Captain, Major and Lieutenant Colonel sections apply to 26A and 26B; the Colonel section is for 26Z only."
+  },
+  {
+   "manifest_id": "army-600-3-da-pam-600-3-fy25-signal-final",
+   "fingerprint": "c567df072fa1e2571a2277eba9e1c91764acb594bb066894276039ace64a6ba0",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Signal (branch code 25) (2026-02-01): grade-by-grade development guidance (education, key developmental and broadening assignments, self-development, desired experience) for 25A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run used chosen in a per-pamphlet manifest; no in-scope grade section runs past its heading (section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading). Rendered pages compared with the stored passages: p11 (LTC/COL). Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. The Reserve Component paragraphs and the warrant officer sections are not imported."
+  },
+  {
+   "manifest_id": "army-600-3-en-br-9-june-2026",
+   "fingerprint": "d05fce6cff665eedcad98dd60fede7913727824a7f73d2e24f3003524466d3cc",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Engineer (branch code 12) (2026-06-09): grade-by-grade development guidance (education, key developmental and broadening assignments, self-development, desired experience) for 12A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run used chosen in a per-pamphlet manifest; no in-scope grade section runs past its heading (section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading). Rendered pages compared with the stored passages: p10 (LTC/COL). Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. The Reserve Component run (page 30 on) is not imported."
+  },
+  {
+   "manifest_id": "army-600-3-fa-49-orsa-da-pam-600-3-as-of-20210601",
+   "fingerprint": "1cd38a7f475d7becd9990e9539a241eb9a696ec2dcc1435a732f0f11185818ac",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Functional Area 49 (2021-06-01): grade-by-grade development guidance (education, key developmental and broadening assignments, self-development, desired experience) for 49A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run used chosen in a per-pamphlet manifest; no in-scope grade section runs past its heading (section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading). Rendered pages compared with the stored passages: p3 (MAJ/LTC). Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. The captain section is headed Captain/junior major and is stored as O-3 to O-4. The Reserve Component run (page 6 on) is not imported."
+  },
+  {
+   "manifest_id": "army-600-3-fa-58-da-pam-600-3-25-oct-23",
+   "fingerprint": "28093e48820f6604b20f1943b685dbe382b20b44afc7ff5f099d3d3942e90cf1",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Functional Area 58 (2023-10-25): grade-by-grade development guidance (education, key developmental and broadening assignments, self-development, desired experience) for 58A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run used chosen in a per-pamphlet manifest; no in-scope grade section runs past its heading (section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading). Rendered pages compared with the stored passages: p5 (LT/CPT, with the unextracted Figure 3). Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. Figure 3 (the officer development model) is an image and is not imported."
+  },
+  {
+   "manifest_id": "army-600-3-fa-59-strategist-da-pam-600-3-as-of-1-apr-20",
+   "fingerprint": "f5220d9e620e6c416e5107e699d34fa70767ec4b10343669d178deb1419c09a5",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Functional Area 59 (2020-04-01): grade-by-grade development guidance (education, key developmental and broadening assignments, self-development, desired experience) for 59A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run used chosen in a per-pamphlet manifest; no in-scope grade section runs past its heading (section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading). Rendered pages compared with the stored passages: p6 (MAJ/LTC). Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-3-mi-da-pam-600-3-aug2026",
+   "fingerprint": "66faa82e740075efa61ce1d2dbaa51fa67831c91e335295923c3fff6fba17cc0",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Military Intelligence (branch code 35) (2026-08-06): grade-by-grade development guidance (education, key developmental and broadening assignments, self-development, desired experience) for 35A, 35B. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run used chosen in a per-pamphlet manifest; no in-scope grade section runs past its heading (section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading). Rendered pages compared with the stored passages: p4 (LT/CPT/MAJ). Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. The Reserve Component run (page 22 on) is not imported. Applied to 35A and 35B (the branch's two AOCs)."
+  },
+  {
+   "manifest_id": "army-600-3-military-police-da-pam-600-3-june-2024",
+   "fingerprint": "8c59b493b212bba8dcb43469fa626952a7ab67655d64020b0742e2de4425ecef",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Military Police (branch code 31) (2024-06-21): grade-by-grade development guidance (education, key developmental and broadening assignments, self-development, desired experience) for 31A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run used chosen in a per-pamphlet manifest; no in-scope grade section runs past its heading (section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading). Rendered pages compared with the stored passages: p6 (CPT/field-grade introduction/MAJ). Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. The unnumbered \"Field Grade Officer\" paragraph (MAJ to COL) and the second run of grade paragraphs on assignment preferences (pages 12-13) are not imported; the Reserve Component text (page 17 on) is not imported."
+  },
+  {
+   "manifest_id": "army-600-3-1-av-branch-da-pam-600-3-as-of-20210630",
+   "fingerprint": "159ca3453633b00969301e4ac24bdcba9ce25486aad3aa2ae0731fb295217ad6",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Aviation (branch code 15) (2021-06-30): grade-by-grade development guidance for 15A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run chosen in a per-pamphlet manifest; section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading. Rendered pages compared with the stored passages: p6 (CPT/MAJ). Duties and prerequisites are not imported (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. Stored for AOC 15A only; the AOC-specific sections for 15B, 15C and 15D are not imported. An older chapter (30 June 2021) that the Army G-1 page still lists as current."
+  },
+  {
+   "manifest_id": "army-600-3-1-fa30-da-pam-600-3",
+   "fingerprint": "9760ee96ee54978287f7eeb0b9d2b05f8514a2cca76202c98f9df6e959e85765",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Functional Area 30 (2017-06-01): grade-by-grade development guidance for 30A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run chosen in a per-pamphlet manifest; section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading. Rendered pages compared with the stored passages: p3 (LT/CPT/MAJ). Duties and prerequisites are not imported (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. An older chapter (1 June 2017) that the Army G-1 page still lists as current."
+  },
+  {
+   "manifest_id": "army-600-3-fa-46-public-affairs-oct-23",
+   "fingerprint": "e1828fcdca83d96cd1bc428aa36c93422b4c2a56a4818b2e14b4b3e7aefc9ec9",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Functional Area 46 (2023-09-29): grade-by-grade development guidance for 46A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run chosen in a per-pamphlet manifest; section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading. Rendered pages compared with the stored passages: p4 (MAJ/LTC). Duties and prerequisites are not imported (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-3-2-jag-corps-da-pam-600-3",
+   "fingerprint": "185a6c1a21e2d9babed2b83a10ed8dddf81887ee22a688e2baf972f4834409c7",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Judge Advocate General's Corps (branch code 27) (2019-02-27): grade-by-grade development guidance for 27A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run chosen in a per-pamphlet manifest; section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading. Rendered pages compared with the stored passages: p5 (MAJ/LTC). Duties and prerequisites are not imported (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. An older chapter (27 February 2019) that the Army G-1 page still lists as current. Company-grade text is not imported; 27B (military judge) is not covered."
+  },
+  {
+   "manifest_id": "army-600-3-fa-50-da-pam-600-3-25-apr-24",
+   "fingerprint": "4d516fce6a00ff6c1d993aff71cce1ed353047d07756cfc40986c63f7ae75584",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Functional Area 50 (Force Management) (2024-04-25): grade-by-grade development guidance for 50A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run chosen in a per-pamphlet manifest; section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading. Rendered pages compared with the stored passages: p6 (MAJ/LTC). Duties and prerequisites are not imported (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. Regular Army run only; the Army Reserve and National Guard runs are not imported."
+  },
+  {
+   "manifest_id": "army-600-3-ag-da-pam-600-3-26-jan-26",
+   "fingerprint": "8f4c3b0022fd7bb3f22f1a3c417247da409a6f85487cf427153cba439cc790c1",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Adjutant General (branch code 42) (2026-01-26): grade-by-grade development guidance for 42B, 42C, 42H. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run chosen in a per-pamphlet manifest; section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading. Rendered pages compared with the stored passages: p9 (MAJ/LTC). Duties and prerequisites are not imported (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. Applied to 42B, 42C and 42H: the grade sections cover the whole branch including the Army Band, and each passage says which part it describes. The Reserve Component run (page 20) is not imported; the superseded 25 Apr 2024 edition is not imported."
+  },
+  {
+   "manifest_id": "army-600-3-po-da-pam-600-3-dtd-19-nov-24",
+   "fingerprint": "d83205cef1acf4906dafca920cd3d13dfc1c4629f22ef7e9153062a86c156d37",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting and grade-order checks on every passage, plus visual comparison of the rendered pages named in the scope, 2026-10-18), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-18T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-3 officer pamphlet, Psychological Operations (branch code 37) (2024-11-19): grade-by-grade development guidance for 37A. Every passage verified verbatim against the PDF pages it cites; grade headings found by a generic detector and the run chosen in a per-pamphlet manifest; section ends are the next grade heading, the next heading at the same level, a figure, a warrant-officer or Reserve Component heading. Rendered pages compared with the stored passages: p8, p11 (MAJ/LTC). Duties and prerequisites are not imported (DA PAM 611-21 is the source); figures are not extracted. Passages are recommendations and guidance, never occupational duties. Regular Army run only (page 6 on); the Reserve Component run (page 15 on) is not imported."
   }
  ]
 }

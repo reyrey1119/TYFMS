@@ -1,0 +1,712 @@
+{
+ "bundle_version": 1,
+ "manifest_id": "army-600-3-en-br-9-june-2026",
+ "import_batch": "army-600-3-en-br-9-june-2026@2026-10-18",
+ "source": {
+  "id": "1cfe8916-4a2c-57b2-a87e-ab9dbd218611",
+  "branch": "Army",
+  "personnel_category": "officer",
+  "publication_number": "DA PAM 600-3",
+  "title": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+  "chapter": null,
+  "career_field": "Engineer (branch code 12)",
+  "proponent": "U.S. Army Engineer School (Engineer Regiment)",
+  "official_url": "https://api.army.mil/e2/c/downloads/2026/06/09/d9a900fa/en-br-9-june-2026.pdf",
+  "publication_date": "2026-06-09",
+  "effective_date": null,
+  "last_checked_at": "2026-10-18T00:00:00Z",
+  "checksum_sha256": "b76224f5887cf246b4a10cbd6e04966d8f3a5efb63ff00a1d8d8865a12283c03",
+  "extraction_tool": "pdf-parse 2.4.5",
+  "notes": "Date basis: the date 9 June 2026 is printed in the first line of the PDF. Imported for 12A: the grade-by-grade development sections (O-1..O-2, O-3, O-4, O-5, O-6) as the pamphlet gives them for the branch or functional area; they apply to every AOC listed. Duties and prerequisites are not imported from this pamphlet (DA PAM 611-21 is the source); figures and tables are not extracted. The pamphlet gives no Colonel section in the imported run. The second run of grade headings (page 30 on) is the Reserve Component text and is not imported. LIMITATIONS: The pamphlet gives no Colonel section in the imported run. The second run of grade headings (page 30 on) is the Reserve Component text and is not imported."
+ },
+ "passages": [
+  {
+   "id": "51f9c073-1051-50a2-a0eb-920ca8bf5f17",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant development — Education",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Engineer lieutenants must graduate from the Engineer Basic Officer Leaders Course (EBOLC) to ensure a strong foundation in officer common core/leadership training and military-specific engineer training. This strong foundation allows for continued leader development in the operational and self-developmental domains. The Engineer Branch desires the following certifications skills to further the development of engineer lieutenants. Those selected skill identifiers are: (S4) Sapper, (5R) Ranger, (5P) Airborne, (3X) Bradley Leader Course, (R4) Stryker Leaders Course, (W4) Degreed Engineer Officer, (W2) Geospatial Leader.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 0,
+   "body_sha256": "d2aee787e5c27521f36982aa946b1f738c0022deaca27f63be2ea6c8c9b2c357"
+  },
+  {
+   "id": "5b368767-7327-5158-a298-2c8f723c8c66",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant development — Assignment",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "(a) KD (12–24 months) assignment as a platoon leader is critical for an engineer lieutenant for a minimum of 12 months.\n(b) The following assignments for lieutenants are examples of developmental or broadening opportunities. A mixture of these assignments provides company-grade officers with technical experience and the opportunity to lead, train, and support small units. These positions of higher responsibility and breadth are the foundation critical to continued growth as an engineer officer as they develop at the tactical level. • Company XO • T2COM IMT Platoon Leader • Aide de Camp • Assist. Group Engineers/Assist. Command Engineers/Assist. Ranger BN EN (ENSOF-DP) • USACE Project Engineer or Project Manager Technical Development Program (TEC-DP) • Geospatial Engineer Officer Development Program (GEO-DP) • Task Force Engineer • Battalion Staff Officer",
+   "pdf_page_start": 5,
+   "pdf_page_end": 5,
+   "printed_page": null,
+   "sort_order": 1,
+   "body_sha256": "55e49314f0804d7af9b27202d2bdb023a01e6bf0ec00aa2fd02a66ca5463464f"
+  },
+  {
+   "id": "671aa33c-7feb-547d-ae6f-b4954cc889e3",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant development — Self-development",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Numerous opportunities exist for self-development at the lieutenant level. Officers who have an ABET accredited engineering degree are highly encouraged to take the Fundamentals of Engineering exam to become an Engineer in Training and seek Professional Engineer registration (licensure) later in their career. Lieutenants earn the W2 (Geospatial Leader) Skill Identifier through various education and experience pathways identified in Table 4-1 of DA PAM 611-21. Officers with an architecture degree should enroll in the Architectural Experience Program (AXP) of the National Council of Architect Registration Boards (NCARB) to become eligible for Registered Architect licensure later in their career. Various professional reading lists and doctrinal publications are available, such as the Engineer Regimental Resource Menu hosted on the USAES homepage, which officers should use to generate discussion in professional development sessions and self-assessment tools to increase self- awareness. To stay current in emerging technologies and ideas, engineer lieutenants should become engineer professional/technical organization members.",
+   "pdf_page_start": 5,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 2,
+   "body_sha256": "6695cdc4da9771551d4f2fa646fac406ae9906967f3b21db6cb4cca96f5fdb28"
+  },
+  {
+   "id": "b41ec3cd-730f-556b-9c32-341614e60cbd",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-1..O-2",
+   "components": null,
+   "heading": "Lieutenant development — Desired experience",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Engineer lieutenants must acquire and master troop-leading procedures, platoon and company operations, basic maintenance and logistical concepts, and administrative requirements inherent to platoons and companies. Each engineer lieutenant must also embody the Army’s Warrior Ethos and values to train and lead Soldiers to win our Nation’s wars.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 3,
+   "body_sha256": "77501c2f03d1a8bd1d27fed9c563097103ff1ea61e3aeb2a0596287db6698d09"
+  },
+  {
+   "id": "51a4c0bb-59ac-5f98-a334-9e83657b6e5e",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain development — Education",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "The Engineer Captain Career Course (ECCC) prepares company-grade officers to command Soldiers at the company, troop, or detachment level and serve as staff officers at battalion and brigade levels. Officers attend a Captain Career Course (CCC) following selection for promotion to the grade of captain before a company-level command. Select captains who have demonstrated superior performance in the Engineer branch may be selected to attend a CCC other than the United States Army Engineer School including Maneuver, Aviation, and Field Artillery CCCs, Army Special Operations Forces Captains Career Course, or the Marine Expeditionary Warfare School. This cross-training benefits combined arms officers of both branches. The captains’ PME centers on the technical, tactical, and leadership competencies needed for success in follow-on assignments. Engineer captains may pursue technical engineer training through the USACE Proponent Sponsored Engineer Corps Training (PROSPECT) program. Engineer-specific technical training in project management, construction management, facilities management, geospatial engineering, environmental engineering, contracting officer representative, quality assurance, the Joint Engineer Operations Course (JEOC), and other related areas. The following certifications and tactical training are desired skills for further development of engineer captains: Those desired skill identifiers are: (S4) Sapper, (5R) Ranger, (5P) Airborne, (5W) Jumpmaster, (3X) Bradley Leader Course, (R4) Stryker Leaders Course, (W3) Licensed Engineer Officer, (W4) Degreed Engineer Officer, (W5) Construction Project Manager, (W2) Geospatial Leader.",
+   "pdf_page_start": 6,
+   "pdf_page_end": 6,
+   "printed_page": null,
+   "sort_order": 4,
+   "body_sha256": "efb3b2ba5d711c7e26c823aea0d770793aa904b78dad2d253aba3d4128c2cd16"
+  },
+  {
+   "id": "300da01d-1753-561a-9d4a-dcb417576333",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain development — Assignment",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "(a) KD (12 - 18 months) assignment as a company, troop, or detachment commander is critical for an engineer captain for a minimum of 12 months. After completion of the minimum of 12 months as a company-level commander, a Captain is considered Branch Qualified for assignment purposes. Company-level commanders typically include a duty position aligned with approved unit MTOE/TDA structure that reflect a “commander” title, has UCMJ authority under AR 600-20, and is responsible as a Primary Hand Receipt Holder under AR 735-5.\n(b) The following assignments for branch qualified captains are examples of developmental or broadening opportunities. A mixture of these assignments further develops technical and tactical competencies and the experience base necessary to succeed at the field grade level and beyond. Engineer captains should seek to serve in the following developmental/broadening assignments: • CTC or First Army Observer/Coach/Trainer (OC/T) • US Army Recruiting Command (USAREC) • Small Group Leader / Instructor (USAES/MSCoE) • Aide de Camp • HRC Assignments Officer • Security Force Assistance Brigade (SFAB) Team Leader/Team Advisor/Construction Officer • ENSOF Assist. Group Engineer/Assist. Command Engineer/Assist. Ranger BN EN • Instructor/Tactical Officer/Assistant Professor of Military Science (USMA/ROTC/USAES) • HRC Broadening Opportunity Programs: JCS Internship/Congressional Fellowship/MSG Wright MBA • USACE Project Officer/Project Engineer/Project Manager Geospatial Engineer • Junior Officer GEOINT Program (JOGP) Engineer Intern • National Geospatial-Intelligence Agency Geospatial Engineer • ACS/PB-GSIP with utilization • Doctrine/Training/Capability Developer • Exchange Officer • Defense School of Geospatial Intelligence (DSGI) with utilization",
+   "pdf_page_start": 6,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 5,
+   "body_sha256": "5a49425ce2c1b183774f3a1dfd3da1d09d1270777463d6d31ae0a78f538cd747"
+  },
+  {
+   "id": "205cae89-2917-5e56-a867-54a4e5c8c4c6",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain development — Self-development",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Numerous opportunities exist for self-development at the captain level. Engineer officers should obtain a graduate degree before promotion to the rank of lieutenant colonel. Officers attending the ECCC have an opportunity to get a master’s degree through the professional development program from the Missouri University of Science and Technology (MS&T). Additionally, the Advanced Civil Schooling (ACS) option is a fully funded program that supports advanced degree requirements for certain branches and FAs. HRC conducts ACS boards annually and announces participation via MILPER message describing procedures. Many universities award constructive credit for military courses, facilitating earning an advanced degree at an accelerated pace. Lastly, an officer can obtain an advanced degree at their own expense or through tuition assistance during off-duty hours. AR 621- 2 provides a full explanation and eligibility requirements for these programs. The Engineer Branch encourages officers with undergraduate engineering degrees to pursue a graduate-level degree in engineering or a related engineering mission discipline. Without an undergraduate engineering degree, officers may obtain a master’s degree in Geography or Geographic Information Systems; Engineering or Construction Management; Urban, City, or Regional Planning; Architecture or other mission-related disciplines. These disciplines may support qualification for an SI or support a FA designation and provide the skills necessary for higher-level command and staff positions. Officers who have passed the Fundamentals of Engineering exam should prepare for and take the Professional Engineer exam. Officers who have completed the AXP should prepare for and take the six sections of the Architecture Registration Exam (ARE). Officers who meet the experience requirements should prepare for and take the Project Management Professional, the GEOINT Professional Certification- one of the GEOINT Professional Certification exams, or the Certified Construction Manager exams. Postgraduate junior and mid-career officers are encouraged to attend the Army’s Strategic Broadening Seminar (SBS) to expand their ability to forecast requirements, anticipate needs, and derive the appropriate support at the strategic planning level. Graduates of SBS earn the 6Z (Strategic Studies Graduate) ASI. Captains earn the W2 (Geospatial Leader) Skill Identifier by completing requirements in accordance with Table 4-1 of DA PAM 611-21. Various professional reading lists and doctrinal publications are available that officers should use to generate dialogue in professional development sessions and self-assessment tools to increase self- awareness. To stay current with emerging technologies and ideas, engineer captains should be members of engineering professional/ technical organizations. Completing online courses through AKO Distributive Learning, DAU, and learning a foreign language is highly encouraged.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 6,
+   "body_sha256": "c07e647c3f839a6757b3b966938e1ed8388888116702e0d71a67f3da9dcd6cf6"
+  },
+  {
+   "id": "012e63eb-65cf-5c2c-b9cd-6745ce90c56d",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-3",
+   "components": null,
+   "heading": "Captain development — Desired experience",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Engineer captains must complete a 12 to 18 months KD assignment and strive to complete several developmental assignments before promotion to the rank of major. Captains transition their development to mastery of engineer support to Multi-Domain Operations.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 7,
+   "printed_page": null,
+   "sort_order": 7,
+   "body_sha256": "c610ab8b96d223f1b94bc98d3d0221895d60bcbad6f5736684ef5b6362c321b1"
+  },
+  {
+   "id": "46e0f828-b8d9-5888-8611-a90e4d574713",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Education",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "After selection for promotion to major, engineer officers attend the Army’s Intermediate Level Education (ILE). ILE aims to provide all mid-grade officers with a foundation of professional military education and leader development training. It develops Engineer leaders prepared to execute multi- domain unified land operations; trains and educates leaders in the practice and values of the profession of arms; and prepares leaders to operate in JIIM environments. ILE prepares engineer officers for duty as staff officers throughout the Army, primarily at brigade and higher echelons. ILE is a blanket term that encompasses all MEL 4/JPME 1 producing venues. ILE includes the US Army Command and General Staff Officers Course (CGSOC), Sister Service (Navy, Air Force, Marine) Command and Staff Courses, WHINSEC (Western Hemisphere Institute for Security Cooperation), Foreign Command and Staff Schools, the Naval Postgraduate School (NPS), the National Intelligence University (NIU) JPME 1 Track, and US Army Combined Arms Center satellite, or distance learning ILE. For the most competitive majors, additional educational opportunities following CGSOC exist, including degree programs at the School of Advanced Military Studies (SAMS). Graduates of SAMS degree programs are eligible for the Advanced Military Studies Program Graduate ASI (6S). Graduates of the US Army CGSOC earn a Masters of Operational Science. The Engineer Branch recommends that majors attend the Joint Engineer Operations Course (JEOC) or the Joint, Interagency, Multinational Planners Course (JIMPC) to prepare field grade officers for future JIIM assignments. The Engineer Branch desires the following certifications for further development of engineer majors: Those desired skill identifiers (SI) are (W2) Geospatial Leader, (W3) Licensed Engineer Officer, (W5) Construction Project Manager, (W6) Construction Quality Assurance Officer, and (W8) Facility Engineer.",
+   "pdf_page_start": 7,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 8,
+   "body_sha256": "1b77a4a049d1c743099e36e50ac3f5ac6cb3efffbaa15969ade82e1de3994dfe"
+  },
+  {
+   "id": "0dc88fdc-4540-53bf-939a-2fb7c8dc1e00",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Assignment",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "(a) KD (12–24 months) assignment in one or more of the below jobs is critical for an engineer major and should be held for a minimum of 12 months, 18-24 months preferred. • Battalion/Brigade XO (Operations, Training, First Army Training Support Battalions (TsBNs), and Branch Immaterial) • Battalion/Brigade Operations Officer (S3) (Operations, Training, and Branch Immaterial) • Brigade Engineer (IBCT/SBCT) • USACE Deputy District Commander • Ranger Regiment/Special Forces Group Engineer • Geospatial Planning Cell OIC (Special consideration for this billet should be given to officers who have displayed professional interest by completing ACS, DSGI, or W2 certification)\n(b) Developmental/broadening. The following assignments are important to the broadening of engineer majors, allowing them to provide an engineering perspective in JIIM and other non-engineer organizations. Some of these assignments are available to majors after completing a KD assignment, while others are available before completing a KD assignment. The individual and HRC management of the officer’s career timeline is critical to ensure the correct position given Army requirements: • CTC/MTCP Observer/Coach/Trainer • Aide de Camp • HRC Assignments Officer • SFAB Advisor, Brigade/Battalion XO/S3, Brigade Engineer Officer • Joint/ASCC/HQDA/ACOM staff • School of Advanced Military Studies (SAMS) • Instructor (USMA/USAES/ROTC) • JIIM Staff Officer • Division Engineer Planner/TAC Engineer Officer • Defense School of Geospatial Intelligence (DSGI) with utilization (formerly RSMS) • USAES Doctrine/Training/Capability/Personnel Developer • MSCOE Capability and Concept Development • Advanced Civil Schooling (ACS) • Exchange Officer • USACE Deputy District Commander (O6 District) • USACE Forward Engineer Support Teams (FEST-A) • HRC Broadening Opportunity Programs (BOPs)",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 9,
+   "body_sha256": "e47b1cb6f067423aa001989cd7440183f5100c5dc7c74008d093a2be0000edb0"
+  },
+  {
+   "id": "ff7876ba-76f5-53fb-8bf0-2906a5b4b94a",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Self-development",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Engineer majors must continue refining and building upon their technical competence using self-development. Engineer Branch encourages all engineer officers to have a master’s degree in engineering or a related technical discipline at this point in their careers. Eligible officers should complete Professional Engineer or Registered Architect (licensure). The Engineer Branch encourages all officers to pursue and obtain other professional certifications such as PMP, CCM, and LEED-AP. To differentiate officers by technical discipline, engineers at the field grade level should maximize the use of DA Pam 611–21 Army recognized skill identifiers (SIs). Various professional reading lists and doctrinal publications are available that officers may use to generate discussion in professional development sessions and self-assessment tools to increase self-awareness. Engineer majors may also increase their participation in professional/technical organizations to stay current with emerging technologies and ideas. Completing online courses through Distributive Learning and DAU and learning a foreign language is highly encouraged.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 8,
+   "printed_page": null,
+   "sort_order": 10,
+   "body_sha256": "9ca7e5d9901a420d76ef29fedef15cc4329faf7cee09a25b8ab0c3be7ef5c1c9"
+  },
+  {
+   "id": "9900568b-8113-5b76-8fa8-351495c82e18",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-4",
+   "components": null,
+   "heading": "Major development — Desired experience",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Engineer majors must complete a KD assignment for 12 to 24 months. Engineer majors should also serve in several developmental/broadening assignments to further develop their technical and tactical competencies and broaden their experience base to succeed at the lieutenant colonel and colonel levels. Majors transition their development to mastery of engineer support as a part of joint and multinational operations. Engineer majors continue their mastery of the Protection and Movement and Maneuver Warfighting functions through experience, knowledge, and how they integrate and lead in this vital role.",
+   "pdf_page_start": 8,
+   "pdf_page_end": 9,
+   "printed_page": null,
+   "sort_order": 11,
+   "body_sha256": "c96e1cfcc6a33d1f1e4d0ceea0a29b0808947260b841e0d1ef7bab6497daa60e"
+  },
+  {
+   "id": "8327c8dd-0ad2-5f03-b236-5d5ad4e4f954",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel development — Education",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "After promotion to lieutenant colonel, an HQDA Board may select engineer officers to complete resident Senior Staff College (SSC) instruction. SSC typically occurs after engineer battalion command. Those not chosen by the HQDA board should consider completing the nonresident Army War College distance education course. The Joint Engineer Operations Course or the JIIM Planners Course provides lieutenant colonels with a knowledge base of joint operations needed at this grade and is highly encouraged. Engineer lieutenant colonels centrally selected for battalion-level command must attend the CSA foundational pre-command courses (PCC). Following the CSA foundational PCC, commanders proceed with an additional course depending on the type of command. Tactical commanders attend the Tactical Commander’s Development Course. Functional commanders (T2COM, Recruiting, USACE, Garrison, and TsBN) attend a Functional Commander PCC.",
+   "pdf_page_start": 9,
+   "pdf_page_end": 9,
+   "printed_page": null,
+   "sort_order": 12,
+   "body_sha256": "9ee3b4c2001f958ccf95ab6a055f77e16d7f862177252be60cec1cc6ce83dffc"
+  },
+  {
+   "id": "eefebe8e-a204-58e3-82f0-4045b7da9dc1",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel development — Assignment",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "(a) Key developmental. All promotable engineer majors and lieutenant colonels are eligible to compete for lieutenant colonel-level command. Selection is based primarily on the officer’s overall performance, demonstrated potential to lead larger organizations, experience, and qualifications. HRC slates officers to specific units and CSL subcategories based on previously obtained skills and experiences while considering officer preferences for all CSL assignments. Officers considered for command must “opt-in” in all categories to compete.\n(b) The HQDA CSL designates commands into four functional categories: Command lengths are typically 12-24 months in duration, and Officers are considered KD complete after the successful completion of their tour in command. • Operations. This includes TOE engineer battalions throughout the Army for AC and RC. Most engineer lieutenant colonel commands are in this category. • Strategic support. Lieutenant colonel USACE engineer district commands, The Humphreys Engineer Center Support Agency (HECSA), Engineer Research and Development Center (ERDC), and the 249th Prime Power Battalion are in this category. • Recruiting and training. T2COM engineer battalions and training support battalions (TsBNs) are in this category as well as branch immaterial USAREC battalion commands. • Installation. Branch immaterial garrison commands and DPW Commanders are in this category. Engineer officers compete with all officers considered in this category. • Second Commands. Battalion Commanders may compete for a second command in SFAB Brigade Engineer Battalions and select US Army Recruiting Commands. On the occasions when officers command these units as their first command, they must be considered KD complete.\n(c) Developmental/broadening. The objective of lieutenant colonel assignments is for officers to continue to provide a valuable contribution to the regiment, the Army, and our nation based on their unique experiences and qualifications. Officers desiring to contribute to the tactical arena have numerous opportunities on staff at all levels. Officers desiring to contribute to the technical arena have numerous opportunities in USACE, NGA, and IMCOM. The following developmental and broadening assignments enhance the officer’s technical and tactical competencies in a wide range of skill sets and offer operational and strategic value to the Army: • Senior observer/coach/trainer at a CTC • USACE Deputy District Commander • USACE Division Staff • USAES Chief of Staff • MSCoE Staff • HRC Branch Chief • HQDA Office of the Chief of Engineers Staff • Army Futures Command (AFC)/Futures and Concepts Center (FCC) Staff • BDE Deputy Commander/XO • DIV/Corps Staff • USASOC Command Engineer • Joint/ASCC/HQDA/ACOM Staff • Geospatial Engineer in OCE/G-2, NGA, GEO-Geospatial, or NATO-SHAPE • JIIM Staff Officer • ROTC Professor of Military Science",
+   "pdf_page_start": 9,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 13,
+   "body_sha256": "d2f1a93842e0b8c1dd95240759aae88bc617c0ec8d96dfd980422db21d58666d"
+  },
+  {
+   "id": "eb7f436f-05dd-553c-9d19-abfce19e358a",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel development — Self-development",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Engineer lieutenant colonels must continue refining and building upon their technical competence using self-development. At this point in an officer’s career, all engineer officers must have a master’s degree, preferably in an engineering mission-related discipline. Eligible officers are encouraged to complete Professional Engineer or Registered Architect licensure. Officers are encouraged to pursue and obtain other professional certifications such as PMP, CCM, LEED-AP, etc. Other areas where engineer lieutenant colonels may consider certification and credentialing are geospatial and environmental engineering, contracting, and other strategic planning and management disciplines. Various professional reading lists and doctrinal publications are available that officers should use to generate discussion in professional development sessions and self-assessment tools to increase self- awareness. The Engineer Branch encourages lieutenant colonels to be active contributors to professional/technical organizations to remain current in emerging technologies and ideas. Completing online courses through Distributive Learning and DAU is encouraged, and learning a foreign language is highly encouraged.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 14,
+   "body_sha256": "e5bfa66c086374b484235207ee70d705ad09da9ea0df1da24a695f711dc94f62"
+  },
+  {
+   "id": "17a26609-00c2-5ffe-a140-b8f5f2ad544f",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-5",
+   "components": null,
+   "heading": "Lieutenant Colonel development — Desired experience",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Engineer lieutenant colonels are subject matter experts within any organization to which they are assigned. A wide variety of assignments ensures tactical and technical expertise that is comfortable in all levels of warfare (tactical, operational, and strategic).",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 15,
+   "body_sha256": "37cfbfc9e2120f908248bc422b2035b46ce05d0d7f9332c0496fe7b0550d0fd8"
+  },
+  {
+   "id": "6b1c80b7-9427-5228-b4bb-fab6bf95ca70",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — overview",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "The professional development objective for this phase of an officer’s career is a joint qualification, sustainment of warfighting, training, and staff skills, along with the provisions of senior, seasoned leadership, management, and executive talents. Most strategic-level leaders in the Army are colonels. The Army expects Colonels to be multi-skilled leaders, strategic and creative thinkers, builders of leaders and teams, competent full spectrum warfighters, skilled in governance, statesmanship, and diplomacy, and understand the cultural context and work effectively across all domains.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 16,
+   "body_sha256": "750c9736d3a2f8e1a0f150791d6152af03f54bd06e7e0a2a67301540a394a9bd"
+  },
+  {
+   "id": "0d54041c-8c95-5e45-9888-6cead1541539",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "training",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Education",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "After selection for promotion to colonel, engineer officers should complete SSC, either resident or nonresident. Opportunities for educational fellowships are also available and can grant MEL SSC accreditation instead of an SSC attendance. All colonels should pursue joint qualification, consisting of two parts: an education component and an experience component. Officers meet the education requirement by completing the 10-week JPME II course or resident SSC attendance at any service war college. The education requirement for joint qualification is not waiverable. The officer meets the experience requirement by serving an assignment in a joint billet for a prescribed period (usually 22 months, but less for combat and hardship assignments). Officers can appply for experience-based credit in place of assignment but must demonstrate significant interaction with joint or interagency actors/organizations. Colonels interested in experience-based credit should work closely with their HR manager at the Senior Leader Development Office to ensure compliance with the most current waiver rules and request format. Engineer colonels centrally selected for brigade-level command must attend the Army, branch, and functional PCCs.",
+   "pdf_page_start": 10,
+   "pdf_page_end": 10,
+   "printed_page": null,
+   "sort_order": 17,
+   "body_sha256": "8581e5284699d213b2ac87ecd43d178860400b0bcdbe348b98ed2f8fbbd20867"
+  },
+  {
+   "id": "b91377d0-9f30-54e6-a070-44590194ac76",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "assignments",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Assignment",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "(a) Key developmental. Selection for colonel-level command is extremely competitive. Promotable engineer Lieutenant Colonels and Colonels are eligible to compete for Colonel-level command during the Command Selection Board and the Colonels Command Assessment Program (CCAP). Selection is based primarily on the officer’s overall performance, demonstrated potential to lead larger organizations, experience, and qualifications. A centralized selection board selects officers in each category based on HQDA guidance. HRC slates officers to specific units within the categories. Officers considered for a command submit a category preference list in which they desire to compete. The HQDA CSL designates commands into four functional categories: • Operations. This includes TOE engineer brigades throughout the Army as well as BCTs. • Strategic support. Colonel USACE engineer districts and Geospatial Enterprise Office (GEO) Director are in this category. • Recruiting and training. T2COM engineer and branch immaterial USAREC brigade commands are in this category. • Installation. Branch immaterial garrison commands are in this category. Engineer officers compete with all officers considered in this category.\n(b) Developmental/broadening. The objective of colonel assignments is for officers to continue to provide strategic value to the Regiment, the Army, and our nation based on their unique experiences and qualifications. Assignments include organizations and duties beyond those discussed in earlier sections. The spectrum of possible assignments is broad and is characterized as highly responsible, important, and requiring mature, skilled, and well-rounded officers. The following assignments ensure that engineer colonels further develop the broad range of competencies they have obtained to provide strategic value to the Army and the nation. • HQDA/Office of the Chief of Engineers, Director • USACE Chief of Staff • USAES Assistant Commandant • Army Futures Command (AFC)/Futures and Concepts Center (FCC) Staff • CDID Team Chief • USACE Staff • MSCoE Staff • Exchange Officer • JIIM Staff Officer • ROTC PMS • Joint/ASCC/HQDA/ACOM/COCOMs Staff • NGA Joint Geospatial Staff • OSD Staff Assignment",
+   "pdf_page_start": 10,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 18,
+   "body_sha256": "d83208805957802ac58d811313d2807801248905436943f9a9e2bc51a6ea5c85"
+  },
+  {
+   "id": "9990c41a-f5c6-536c-b1f1-b48cc40fdb51",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "self_development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Self-development",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Engineer colonels must continue refining and building upon their technical competence using self-development. Various professional reading lists and doctrinal publications are available that officers should use to generate discussion in professional development sessions and self- assessment tools to increase self-awareness. To remain current in emerging technologies and ideas, engineer colonels should hold leadership positions and be chief contributors within professional/technical organizations.",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 19,
+   "body_sha256": "5d911c8910a25564e088bf6ba729bde2078d79fc056c94f5eeafd4714bce3e1f"
+  },
+  {
+   "id": "5111a5fe-bcae-527b-b0ef-ee1181e11170",
+   "occupation_code": "12A",
+   "occupation_title": "ENGINEER",
+   "branch": "Army",
+   "personnel_category": "officer",
+   "section_type": "development",
+   "rank_band": "O-6",
+   "components": null,
+   "heading": "Colonel development — Desired experience",
+   "chapter": "Engineer Branch officer career pamphlet, DA PAM 600-3 chapter (9 June 2026)",
+   "body": "Engineer colonels are subject matter experts within any organization to which they are assigned.",
+   "pdf_page_start": 11,
+   "pdf_page_end": 11,
+   "printed_page": null,
+   "sort_order": 20,
+   "body_sha256": "bbcdec39d2ae411fa2ee1f9be694736fb822f1938d92e023abc2d02249761625"
+  }
+ ],
+ "report": {
+  "pdfPages": 51,
+  "flags": [],
+  "runs": [
+   "LT>CPT>MAJ>LTC>COL@p5",
+   "LT>CPT>MAJ>LTC>COL@p30"
+  ],
+  "removedLines": [
+   {
+    "page": 1,
+    "text": "Engineer Branch – 9 June 2026 1",
+    "why": "running header/footer"
+   },
+   {
+    "page": 2,
+    "text": "Engineer Branch – 9 June 2026 2",
+    "why": "running header/footer"
+   },
+   {
+    "page": 3,
+    "text": "Engineer Branch – 9 June 2026 3",
+    "why": "running header/footer"
+   },
+   {
+    "page": 4,
+    "text": "Engineer Branch – 9 June 2026 4",
+    "why": "running header/footer"
+   },
+   {
+    "page": 5,
+    "text": "Engineer Branch – 9 June 2026 5",
+    "why": "running header/footer"
+   },
+   {
+    "page": 6,
+    "text": "Engineer Branch – 9 June 2026 6",
+    "why": "running header/footer"
+   },
+   {
+    "page": 7,
+    "text": "Engineer Branch – 9 June 2026 7",
+    "why": "running header/footer"
+   },
+   {
+    "page": 8,
+    "text": "Engineer Branch – 9 June 2026 8",
+    "why": "running header/footer"
+   },
+   {
+    "page": 9,
+    "text": "Engineer Branch – 9 June 2026 9",
+    "why": "running header/footer"
+   },
+   {
+    "page": 10,
+    "text": "Engineer Branch – 9 June 2026 10",
+    "why": "running header/footer"
+   },
+   {
+    "page": 11,
+    "text": "Engineer Branch – 9 June 2026 11",
+    "why": "running header/footer"
+   },
+   {
+    "page": 12,
+    "text": "Engineer Branch – 9 June 2026 12",
+    "why": "running header/footer"
+   },
+   {
+    "page": 13,
+    "text": "Engineer Branch – 9 June 2026 13",
+    "why": "running header/footer"
+   },
+   {
+    "page": 14,
+    "text": "Engineer Branch – 9 June 2026 14",
+    "why": "running header/footer"
+   },
+   {
+    "page": 15,
+    "text": "Engineer Branch – 9 June 2026 15",
+    "why": "running header/footer"
+   },
+   {
+    "page": 16,
+    "text": "Engineer Branch – 9 June 2026 16",
+    "why": "running header/footer"
+   },
+   {
+    "page": 17,
+    "text": "Engineer Branch – 9 June 2026 17",
+    "why": "running header/footer"
+   },
+   {
+    "page": 18,
+    "text": "Engineer Branch – 9 June 2026 18",
+    "why": "running header/footer"
+   },
+   {
+    "page": 19,
+    "text": "Engineer Branch – 9 June 2026 19",
+    "why": "running header/footer"
+   },
+   {
+    "page": 20,
+    "text": "Engineer Branch – 9 June 2026 20",
+    "why": "running header/footer"
+   },
+   {
+    "page": 21,
+    "text": "Engineer Branch – 9 June 2026 21",
+    "why": "running header/footer"
+   },
+   {
+    "page": 22,
+    "text": "Engineer Branch – 9 June 2026 22",
+    "why": "running header/footer"
+   },
+   {
+    "page": 23,
+    "text": "Engineer Branch – 9 June 2026 23",
+    "why": "running header/footer"
+   },
+   {
+    "page": 24,
+    "text": "Engineer Branch – 9 June 2026 24",
+    "why": "running header/footer"
+   },
+   {
+    "page": 25,
+    "text": "Engineer Branch – 9 June 2026 25",
+    "why": "running header/footer"
+   },
+   {
+    "page": 26,
+    "text": "Engineer Branch – 9 June 2026 26",
+    "why": "running header/footer"
+   },
+   {
+    "page": 27,
+    "text": "Engineer Branch – 9 June 2026 27",
+    "why": "running header/footer"
+   },
+   {
+    "page": 28,
+    "text": "Engineer Branch – 9 June 2026 28",
+    "why": "running header/footer"
+   },
+   {
+    "page": 29,
+    "text": "Engineer Branch – 9 June 2026 29",
+    "why": "running header/footer"
+   },
+   {
+    "page": 30,
+    "text": "Engineer Branch – 9 June 2026 30",
+    "why": "running header/footer"
+   },
+   {
+    "page": 31,
+    "text": "Engineer Branch – 9 June 2026 31",
+    "why": "running header/footer"
+   },
+   {
+    "page": 32,
+    "text": "Engineer Branch – 9 June 2026 32",
+    "why": "running header/footer"
+   },
+   {
+    "page": 33,
+    "text": "Engineer Branch – 9 June 2026 33",
+    "why": "running header/footer"
+   },
+   {
+    "page": 34,
+    "text": "Engineer Branch – 9 June 2026 34",
+    "why": "running header/footer"
+   },
+   {
+    "page": 35,
+    "text": "Engineer Branch – 9 June 2026 35",
+    "why": "running header/footer"
+   },
+   {
+    "page": 36,
+    "text": "Engineer Branch – 9 June 2026 36",
+    "why": "running header/footer"
+   },
+   {
+    "page": 37,
+    "text": "Engineer Branch – 9 June 2026 37",
+    "why": "running header/footer"
+   },
+   {
+    "page": 38,
+    "text": "Engineer Branch – 9 June 2026 38",
+    "why": "running header/footer"
+   },
+   {
+    "page": 39,
+    "text": "Engineer Branch – 9 June 2026 39",
+    "why": "running header/footer"
+   },
+   {
+    "page": 40,
+    "text": "Engineer Branch – 9 June 2026 40",
+    "why": "running header/footer"
+   },
+   {
+    "page": 41,
+    "text": "Engineer Branch – 9 June 2026 41",
+    "why": "running header/footer"
+   },
+   {
+    "page": 42,
+    "text": "Engineer Branch – 9 June 2026 42",
+    "why": "running header/footer"
+   },
+   {
+    "page": 43,
+    "text": "Engineer Branch – 9 June 2026 43",
+    "why": "running header/footer"
+   },
+   {
+    "page": 44,
+    "text": "Engineer Branch – 9 June 2026 44",
+    "why": "running header/footer"
+   },
+   {
+    "page": 45,
+    "text": "Engineer Branch – 9 June 2026 45",
+    "why": "running header/footer"
+   },
+   {
+    "page": 46,
+    "text": "Engineer Branch – 9 June 2026 46",
+    "why": "running header/footer"
+   },
+   {
+    "page": 47,
+    "text": "Engineer Branch – 9 June 2026 47",
+    "why": "running header/footer"
+   },
+   {
+    "page": 48,
+    "text": "Engineer Branch – 9 June 2026 48",
+    "why": "running header/footer"
+   },
+   {
+    "page": 49,
+    "text": "Engineer Branch – 9 June 2026 49",
+    "why": "running header/footer"
+   },
+   {
+    "page": 50,
+    "text": "Engineer Branch – 9 June 2026 50",
+    "why": "running header/footer"
+   },
+   {
+    "page": 51,
+    "text": "Engineer Branch – 9 June 2026 51",
+    "why": "running header/footer"
+   }
+  ],
+  "runningLines": [
+   "T0|Engineer Branch – # June # #"
+  ],
+  "pointerOnlyDropped": 0,
+  "sections": [
+   {
+    "grade": "LT",
+    "lines": 39,
+    "chars": 3051,
+    "pages": "5-6"
+   },
+   {
+    "grade": "CPT",
+    "lines": 78,
+    "chars": 6744,
+    "pages": "6-7"
+   },
+   {
+    "grade": "MAJ",
+    "lines": 72,
+    "chars": 5612,
+    "pages": "7-9"
+   },
+   {
+    "grade": "LTC",
+    "lines": 71,
+    "chars": 5373,
+    "pages": "9-10"
+   },
+   {
+    "grade": "COL",
+    "lines": 63,
+    "chars": 4711,
+    "pages": "10-11"
+   }
+  ],
+  "byType": {
+   "training": 5,
+   "assignments": 5,
+   "self_development": 5,
+   "development": 6
+  },
+  "codes": [
+   "12A"
+  ]
+ }
+}

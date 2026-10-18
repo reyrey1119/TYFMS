@@ -1,0 +1,7 @@
+{
+ "skip": "Only Lieutenant Colonel and Colonel sections are headed; company and field grade text for the branch is under other headings.",
+ "codes": [
+  "51A",
+  "51C"
+ ]
+}

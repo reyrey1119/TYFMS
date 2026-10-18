@@ -419,7 +419,7 @@ const squashT = x => String(x).toLowerCase().replace(/[^a-z0-9]+/g, '')
 
 test('EXHAUSTIVE: every current code at every grade, empty duties and no Vault, gets only its own code\'s official text for that grade', async () => {
   const bundles = { enlisted: await bundleOf('army-611-21-enlisted-ch10c'), warrant: await bundleOf('army-611-21-warrant-ch8b'), officer: await bundleOf('army-611-21-officer-ch3') }
-  const guides = (await readdir(new URL('data/reference/bundles/', root))).filter(f => /^army-600-25-.*\.bundle\.json$/.test(f)).map(f => f.replace(/\.bundle\.json$/, ''))
+  const guides = (await readdir(new URL('data/reference/bundles/', root))).filter(f => /^army-600-(25|3)-.*\.bundle\.json$/.test(f)).map(f => f.replace(/\.bundle\.json$/, ''))
   const pilot = [await bundleOf('army-cmf42-dapam600-25-2025-09-30'), await bundleOf('army-cmf36-dapam600-25-2024-07-19'), await bundleOf('army-fc-officer-2025-09-10'), ...await Promise.all(guides.map(bundleOf))]
   const pilotFor = cat => pilot.flatMap(b => b.passages).filter(p => p.personnel_category === cat)
   const byCode = {}
@@ -493,7 +493,7 @@ test('EXHAUSTIVE: every current code at every grade, empty duties and no Vault, 
 // ── recommendations are never material for the generators ─────────────────────────────────────
 
 test('recommended training, credentials, assignments and self-development never reach a prompt, and are returned only as guidance', async () => {
-  const guides = (await readdir(new URL('data/reference/bundles/', root))).filter(f => /^army-600-25-.*\.bundle\.json$/.test(f)).map(f => f.replace(/\.bundle\.json$/, ''))
+  const guides = (await readdir(new URL('data/reference/bundles/', root))).filter(f => /^army-600-(25|3)-.*\.bundle\.json$/.test(f)).map(f => f.replace(/\.bundle\.json$/, ''))
   const all = [...await Promise.all(guides.map(bundleOf)), await bundleOf('army-cmf42-dapam600-25-2025-09-30'), await bundleOf('army-cmf36-dapam600-25-2024-07-19')].flatMap(b => b.passages)
   const DUTY = new Set(['general_duties', 'rank_duties', 'skills'])
   const prompts = []
