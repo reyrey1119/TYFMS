@@ -1,0 +1,15 @@
+15K E-6 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+15K E-8 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+68D E-4 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+68D E-6 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+15U E-5 (empty) 200 8 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+15U E-7 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+15B O-3 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+15B O-5 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+17D O-3 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+17D O-5 (empty) 200 6 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+63R O-4 (empty) 200 6 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+63R O-6 (empty) 200 6 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+390A W-2 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+390A W-4 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+all checks passed rows: 14

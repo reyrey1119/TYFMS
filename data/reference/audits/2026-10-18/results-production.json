@@ -1,0 +1,1042 @@
+{
+ "ran_at": "2026-10-18T23:25:43.011Z",
+ "target": "https://www.tyfms.com",
+ "rows": [
+  {
+   "category": "enlisted",
+   "code": "15K",
+   "rank": "E-6",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 31873,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "planning aircraft maintenance areas, component and avionics repair shops/facilities",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Planning and organizing maintenance areas and repair shop facilities"
+    },
+    {
+     "basis": "publication",
+     "evidence": "determining man-hours, personnel management, parts and facility requirements while maintaining supply economy and discipline",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Estimating man-hours, managing personnel, and determining parts and facility requirements"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Prepares evaluations, special reports, records and recommends and/or administers plans and policies pertaining to aircraft component repair",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Preparing evaluations, reports, and administrative records; recommending and administering maintenance policies"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Instructs and supervises maintenance, repairs and inspections of aircraft components and other systems",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Instructing and supervising maintenance, repairs, and inspections of aircraft components"
+    },
+    {
+     "basis": "publication",
+     "evidence": "according to drawings, blueprints, directives, technical manuals, and safety procedures",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Applying technical manuals, blueprints, directives, and safety procedures to guide maintenance work"
+    },
+    {
+     "basis": "publication",
+     "evidence": "must be knowledgeable of the duties performed by personnel in MOSs 15B, 15D, 15G, and 15H",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Cross-functional knowledge spanning multiple aircraft maintenance specialties"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15K",
+   "rank": "E-8",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 31423,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "planning aircraft maintenance areas, component and avionics repair shops/facilities",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Planning maintenance areas and repair shop facilities"
+    },
+    {
+     "basis": "publication",
+     "evidence": "determining man-hours, personnel management, parts and facility requirements while maintaining supply economy and discipline",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Determining labor hours, personnel needs, and parts requirements"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Prepares evaluations, special reports, records",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Preparing evaluations, special reports, and maintenance records"
+    },
+    {
+     "basis": "publication",
+     "evidence": "recommends and/or administers plans and policies pertaining to aircraft component repair",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Recommending and administering maintenance plans and policies"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Instructs and supervises maintenance, repairs and inspections of aircraft components and other systems",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Instructing and supervising maintenance, repairs, and inspections"
+    },
+    {
+     "basis": "publication",
+     "evidence": "according to drawings, blueprints, directives, technical manuals, and safety procedures",
+     "pages": "89",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Applying technical manuals, blueprints, and safety procedures to direct work"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68D",
+   "rank": "E-4",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 34108,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 1,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "creation and maintenance of sterile fields for surgical procedures",
+     "pages": "236",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Sterile field creation and maintenance"
+    },
+    {
+     "basis": "publication",
+     "evidence": "preparation, manipulation, and delivery of basic surgical instruments and equipment",
+     "pages": "236",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Surgical instrument preparation and delivery"
+    },
+    {
+     "basis": "publication",
+     "evidence": "accountability for all instruments, needles, sponges and medications placed within the sterile field",
+     "pages": "236",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Sterile field item accountability"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Receives, cleans, decontaminates, sterilizes, stores and issues various medical supplies and equipment used during surgical procedures",
+     "pages": "236",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Medical supply and equipment decontamination, sterilization, and issue"
+    },
+    {
+     "basis": "publication",
+     "evidence": "inspecting, cleaning, assembling, warping and sterilizing equipment",
+     "pages": "236",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Sterilization process execution including inspection, assembly, and wrapping"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Operates and runs sterilization checks on a variety of sterilization equipment to include Steam, ETO, Sterrad and Steris Systems",
+     "pages": "236",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Operation and quality checks of sterilization equipment"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68D",
+   "rank": "E-6",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 35428,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "assists the nursing staff in preparing the patient and the operating room (OR) environment for surgery",
+     "pages": "236",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Preparing patients and the OR environment for surgical procedures"
+    },
+    {
+     "basis": "publication",
+     "evidence": "creation and maintenance of sterile fields for surgical procedures, the draping of patients, the preparation, manipulation, and delivery of basic surgical instruments and equipment",
+     "pages": "236",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Maintaining sterile fields and managing surgical instruments during procedures"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Monitor quality of sterilization techniques to ensure adherence to established standards",
+     "pages": "236",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Monitoring sterilization quality and adherence to standards"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Receives, cleans, decontaminates, sterilizes, stores and issues various medical supplies and equipment used during surgical procedures",
+     "pages": "236",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Decontamination, sterilization, storage, and issuance of surgical supplies and equipment"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Establishes stock levels for requisitioning supplies and equipment and supervises their storage and issue",
+     "pages": "236",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Establishing stock levels and supervising supply requisitioning, storage, and issuance"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Supervise the maintenance programs in the operating room and the central material service",
+     "pages": "236",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Supervising maintenance programs for the OR and central material service"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15U",
+   "rank": "E-5",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 33800,
+   "referenceStatus": "verified",
+   "entries": 8,
+   "error": null,
+   "translationBasis": {
+    "publication": 8,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "performs and/or supervises inspections, repairs and maintenance according to drawings, blueprints, directives, technical manuals, and safety procedures",
+     "pages": "104",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Performing and supervising inspections and repairs following technical manuals and safety procedures"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Removes and installs aircraft subsystem assemblies such as engines, rotors, gearboxes, transmissions, mechanical flight control, and their components",
+     "pages": "104",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Removal and installation of major aircraft subsystem assemblies"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Diagnoses and troubleshoots malfunctions in aircraft subsystems",
+     "pages": "104",
+     "grade": "E-5",
+     "from": null,
+     "militarySkill": "Diagnosing and troubleshooting aircraft subsystem malfunctions"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Performs operational checks and scheduled inspections",
+     "pages": "104",
+     "grade": "E-5",
+     "from": null,
+     "militarySkill": "Conducting operational checks and scheduled maintenance inspections"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Prepares aircraft related maintenance forms and records",
+     "pages": "104",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Preparing maintenance forms and records"
+    },
+    {
+     "basis": "publication",
+     "evidence": "provides technical guidance to subordinate personnel",
+     "pages": "104",
+     "grade": "E-5",
+     "from": null,
+     "militarySkill": "Providing technical guidance to subordinate personnel"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15U",
+   "rank": "E-7",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 30008,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Supervises aircraft maintenance and technical inspection activities.",
+     "pages": "104",
+     "grade": "E-7",
+     "from": null,
+     "militarySkill": "Supervising aircraft maintenance and technical inspection"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Determines man-hours, personnel, parts and facility requirements to repair aircraft and associated equipment.",
+     "pages": "104",
+     "grade": "E-7",
+     "from": null,
+     "militarySkill": "Estimating maintenance resource requirements"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans aircraft maintenance areas, component repair shops and facilities.",
+     "pages": "104",
+     "grade": "E-7",
+     "from": null,
+     "militarySkill": "Planning maintenance areas and repair shop layout"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Instructs subordinates in aircraft repair and technical inspection techniques and procedures according to directives, technical manuals, work standards and operational policies.",
+     "pages": "104",
+     "grade": "E-7",
+     "from": null,
+     "militarySkill": "Instructing subordinates in repair and inspection techniques"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Supervises the technical training program.",
+     "pages": "104",
+     "grade": "E-7",
+     "from": null,
+     "militarySkill": "Overseeing a technical training program"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Prepares evaluations, special reports, and records pertaining to aircraft maintenance repair and related activities.",
+     "pages": "104",
+     "grade": "E-7",
+     "from": null,
+     "militarySkill": "Preparing maintenance evaluations, reports, and records"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "15B",
+   "rank": "O-3",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 30876,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Commands or serves in leadership positions in aviation maintenance/logistics units.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Leadership in aviation maintenance and logistics units"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans, coordinates, and directs employment of aviation maintenance/logistics assets.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Planning and directing use of aviation maintenance and logistics assets"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Coordinates, and directs employment of aviation maintenance/logistics assets.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Coordinating aviation maintenance and logistics operations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Serve in staff positions, at various levels, requiring aviation maintenance/logistics knowledge and experience.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Staff advisory roles using aviation maintenance and logistics expertise"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans, coordinates, and directs employment of aviation maintenance/logistics assets.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Directing logistics support for aviation operations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Commands or serves in leadership positions in aviation maintenance/logistics units.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Organizational command or management within a maintenance unit"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "15B",
+   "rank": "O-5",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 30256,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Commands or serves in leadership positions in aviation maintenance/logistics units.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Command or senior leadership of aviation maintenance and logistics units"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans, coordinates, and directs employment of aviation maintenance/logistics assets.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Planning and directing the employment of aviation maintenance and logistics assets"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Coordinates, and directs employment of aviation maintenance/logistics assets.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Coordination across maintenance and logistics functions"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Serve in staff positions, at various levels, requiring aviation maintenance/logistics knowledge and experience.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Senior staff advisory roles requiring specialized aviation maintenance and logistics expertise"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Staff positions, at various levels, requiring aviation maintenance/logistics knowledge and experience.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Multi-echelon staff work in aviation maintenance and logistics"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans, coordinates, and directs employment of aviation maintenance/logistics assets.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Directing aviation logistics asset employment"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "17D",
+   "rank": "O-3",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 34088,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "leads, directs, manages, plans, integrates, synchronizes, and/or executes capability development",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Leading and managing cyber capability development efforts"
+    },
+    {
+     "basis": "publication",
+     "evidence": "designing, developing, and delivering relevant, timely, and effective software, hardware, radio frequency, and other technical solutions",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Developing software, hardware, and RF technical solutions"
+    },
+    {
+     "basis": "publication",
+     "evidence": "serves as a developer within a development element or associated organization at any echelon",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Working as a developer embedded in a technical development element"
+    },
+    {
+     "basis": "publication",
+     "evidence": "understands friendly and adversary cyberspace and EMS capabilities, objectives, organizations, and/or operations",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Analyzing friendly and adversary cyberspace and electromagnetic spectrum capabilities"
+    },
+    {
+     "basis": "publication",
+     "evidence": "integrates, synchronizes, and/or executes capability development to support CO and EW missions",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Integrating capability development to support cyberspace operations and electronic warfare missions"
+    },
+    {
+     "basis": "publication",
+     "evidence": "broader aspects of MDO, LSCO, and the competition continuum to perform robust cyber capabilities development efforts",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Applying multi-domain and large-scale combat operations context to capability development"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "17D",
+   "rank": "O-5",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 32906,
+   "referenceStatus": "verified",
+   "entries": 6,
+   "error": null,
+   "translationBasis": {
+    "publication": 6,
+    "personal": 0,
+    "discarded": 1,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "leads, directs, manages, plans, integrates, synchronizes, and/or executes capability development",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Leading and directing cyber capability development efforts"
+    },
+    {
+     "basis": "publication",
+     "evidence": "designing, developing, and delivering relevant, timely, and effective software, hardware, radio frequency, and other technical solutions",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Designing and delivering technical solutions across software, hardware, and RF domains"
+    },
+    {
+     "basis": "publication",
+     "evidence": "serves as a developer within a development element or associated organization at any echelon",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Functioning as a developer within a capability development organization"
+    },
+    {
+     "basis": "publication",
+     "evidence": "understands friendly and adversary cyberspace and EMS capabilities, objectives, organizations, and/or operations",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Analyzing friendly and adversary cyberspace and electromagnetic spectrum capabilities"
+    },
+    {
+     "basis": "publication",
+     "evidence": "broader aspects of MDO, LSCO, and the competition continuum to perform robust cyber capabilities development efforts",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Applying multi-domain and large-scale combat operations context to capability development"
+    },
+    {
+     "basis": "publication",
+     "evidence": "integrates, synchronizes, and/or executes capability development to support CO and EW missions",
+     "pages": "50",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Synchronizing capability development efforts across organizational elements"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "63R",
+   "rank": "O-4",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 28497,
+   "referenceStatus": "verified",
+   "entries": 6,
+   "error": null,
+   "translationBasis": {
+    "publication": 6,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "functions in a variety of command or staff positions through the Army Dental Care System",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Serving in command or staff roles across a dental care system"
+    },
+    {
+     "basis": "publication",
+     "evidence": "A dental officer assigned to this duty AOC functions in a variety of command or staff positions",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Filling both command and staff functions as a dental officer"
+    },
+    {
+     "basis": "publication",
+     "evidence": "duty position only and is considered dental specialty immaterial",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Operating in a specialty-immaterial executive capacity across dental disciplines"
+    },
+    {
+     "basis": "publication",
+     "evidence": "functions in a variety of command or staff positions through the Army Dental Care System",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Operating within a structured, hierarchical dental care system"
+    },
+    {
+     "basis": "publication",
+     "evidence": "A dental officer assigned to this duty AOC functions in a variety of command or staff positions",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Performing executive-level dental officer duties"
+    },
+    {
+     "basis": "publication",
+     "evidence": "functions in a variety of command or staff positions through the Army Dental Care System as stated in paragraph (5) below",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Fulfilling executive roles within a formal healthcare delivery system"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "63R",
+   "rank": "O-6",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 39866,
+   "referenceStatus": "verified",
+   "entries": 6,
+   "error": null,
+   "translationBasis": {
+    "publication": 6,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "A dental officer assigned to this duty AOC functions in a variety of command or staff positions",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Serving in command or staff positions within the dental care system"
+    },
+    {
+     "basis": "publication",
+     "evidence": "functions in a variety of command or staff positions through the Army Dental Care System",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Operating across the breadth of a structured dental care delivery system"
+    },
+    {
+     "basis": "publication",
+     "evidence": "The AOC 63R is a duty position only and is considered dental specialty immaterial",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Leading dental operations in a role defined by leadership function rather than clinical specialty"
+    },
+    {
+     "basis": "publication",
+     "evidence": "functions in a variety of command or staff positions through the Army Dental Care System",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Filling staff positions that support system-level planning and coordination"
+    },
+    {
+     "basis": "publication",
+     "evidence": "A dental officer assigned to this duty AOC functions in a variety of command or staff positions",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Transitioning fluidly between command authority and staff advisory responsibilities"
+    },
+    {
+     "basis": "publication",
+     "evidence": "functions in a variety of command or staff positions through the Army Dental Care System as stated",
+     "pages": "129",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Operating within a regulated, hierarchical healthcare system requiring compliance with standards and directives"
+    }
+   ]
+  },
+  {
+   "category": "warrant",
+   "code": "390A",
+   "rank": "W-2",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 31386,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Responsible for the design, build, employment and maintenance of Robotics and Autonomous Systems (RAS).",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Design, build, and maintain robotic and autonomous systems"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Responsible for the planning and multi-domain integration in support of training and operations.",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Plan and integrate autonomous systems across multiple operational domains"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans, organizes, implements, monitors, and evaluates operations, threat environment, and unit maintenance of RAS.",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Plan, implement, monitor, and evaluate robotic systems operations and maintenance"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Advises the Battalion Commander and staff on all RAS.",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Provide technical advisory support to senior leadership on robotic and autonomous systems"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Management of RAS institutional knowledge and emerging technology in support of training and operations.",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Manage institutional knowledge and track emerging technology for robotic systems"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Coordinates with higher and subordinate units for employment of RAS.",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Coordinate robotic systems employment across organizational levels"
+    }
+   ]
+  },
+  {
+   "category": "warrant",
+   "code": "390A",
+   "rank": "W-4",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 33581,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Advises the Special Forces Group Commander and staff on all Robotics and Autonomous Systems.",
+     "pages": "101-102",
+     "grade": "W-4",
+     "from": null,
+     "militarySkill": "Senior technical advisor on robotics and autonomous systems to senior command"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Responsible for the design, build, employment and maintenance of Robotics and Autonomous Systems (RAS).",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Full lifecycle ownership of robotics and autonomous systems"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans, organizes, implements, monitors, and evaluates operations, threat environment, and unit maintenance of RAS.",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Operational planning and evaluation of RAS in complex environments"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Responsible for the planning and multi-domain integration in support of training and operations.",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Multi-domain integration planning for RAS in training and operations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Develops, publishes, and updates RAS SOP.",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Authoring and maintaining standard operating procedures for robotics systems"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Management of RAS institutional knowledge and emerging technology in support of training and operations.",
+     "pages": "101",
+     "grade": "W-1..W-2",
+     "from": null,
+     "militarySkill": "Institutional knowledge management and emerging technology tracking for RAS"
+    }
+   ]
+  }
+ ]
+}

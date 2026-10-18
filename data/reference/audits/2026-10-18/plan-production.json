@@ -1,0 +1,9 @@
+{ "codes": [
+ { "category": "enlisted", "code": "15K", "ranks": ["E-6", "E-8"] },
+ { "category": "enlisted", "code": "68D", "ranks": ["E-4", "E-6"] },
+ { "category": "enlisted", "code": "15U", "ranks": ["E-5", "E-7"] },
+ { "category": "officer", "code": "15B", "ranks": ["O-3", "O-5"] },
+ { "category": "officer", "code": "17D", "ranks": ["O-3", "O-5"] },
+ { "category": "officer", "code": "63R", "ranks": ["O-4", "O-6"] },
+ { "category": "warrant", "code": "390A", "ranks": ["W-2", "W-4"] }
+] }
