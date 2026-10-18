@@ -1,0 +1,3543 @@
+{
+ "as_of": "2026-10-16",
+ "unapproved_guide_bundles": [
+  "army-600-4-20220223-medical-service-corps"
+ ],
+ "rows": [
+  {
+   "category": "enlisted",
+   "code": "00Z",
+   "title": "Nominative Command Sergeant Major/Sergeant Major (CSM/SGM)",
+   "status": "current",
+   "guide_grades": "E-9",
+   "guides": [
+    "army-600-25-mos-00z"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "08H",
+   "title": "Army Equestrian",
+   "status": "current",
+   "exception": "No DA PAM 600-25 guide for CMF 08 (Army Equestrian) is in the downloaded collection."
+  },
+  {
+   "category": "enlisted",
+   "code": "11B",
+   "title": "Infantryman",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-11-final-18-oct-22"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "11C",
+   "title": "Indirect Fire Infantryman (Indrct Fire Infmn)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-11-final-18-oct-22"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "11Z",
+   "title": "Infantry Senior Sergeant (Inf Sr SGT)",
+   "status": "current",
+   "guide_grades": "E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-11-final-18-oct-22"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12A",
+   "title": "12A Engineer Senior Sergeant",
+   "status": "current",
+   "guide_grades": "E-9",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12B",
+   "title": "Combat Engineer",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12C",
+   "title": "Bridge Crewmember",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12D",
+   "title": "Diver",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12G",
+   "title": "Quarrying Specialist (National Guard Only)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12H",
+   "title": "Construction Engineering Supervisor (Const Engr Supv)",
+   "status": "current",
+   "guide_grades": "E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12K",
+   "title": "Plumber",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12N",
+   "title": "Horizontal Construction Engineer (Horiz Const Engineer)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12P",
+   "title": "Prime Power Production Specialist (PPPS)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12Q",
+   "title": "Powerline Distribution Specialist (Reserve Components) (Powerline Dist Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12R",
+   "title": "Interior Electrician",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12T",
+   "title": "Technical Engineer (Tech Engr)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12W",
+   "title": "Carpentry and Masonry Specialist (Carpentry & Masonry Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12X",
+   "title": "General Engineering Supervisor (Gen Engr Supv)",
+   "status": "current",
+   "guide_grades": "E-8",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12Y",
+   "title": "Geospatial Engineer",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "12Z",
+   "title": "Combat Engineering Senior Sergeant (Combat Engr Sr SGT)",
+   "status": "current",
+   "guide_grades": "E-8",
+   "guides": [
+    "army-600-25-cmf-12-da-pam-600-25-22-jan-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "13B",
+   "title": "Cannon Crewmember",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-13-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "13F",
+   "title": "Joint Fire Support Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-13-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "13J",
+   "title": "Fire Control Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-13-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "13M",
+   "title": "Multiple Launch Rocket System (MLRS)/High Mobility Artillery Rocket System (HIMARS) Crewmember (MLRS/HIMARS)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-13-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "13R",
+   "title": "Field Artillery (FA) Weapons Locating Radar (WLR) Specialist (FA WLR Spc)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-13-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "13Z",
+   "title": "Field Artillery Senior Sergeant (FA Sr Sgt)",
+   "status": "current",
+   "guide_grades": "E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-13-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "14E",
+   "title": "Patriot Fire Control Enhanced Operator/Maintainer (PATRIOT Fire Ctrl Enh Opr/Maint)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-14-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "14G",
+   "title": "Air Defense (AD) Battle Management System Operator",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-14-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "14H",
+   "title": "Air Defense (AD) Enhanced Early Warning System Operator",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-14-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "14P",
+   "title": "Air and Missile Defense (AMD) Crewmember",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-14-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "14T",
+   "title": "Patriot Launching Station Enhanced Operator/Maintainer (Patriot LS Enh Opr/Maint)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-14-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "14Z",
+   "title": "Air Defense Artillery Senior Sergeant",
+   "status": "current",
+   "guide_grades": "E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-14-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15B",
+   "title": "Aircraft Powerplant Repairer (Acft Powerplant Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15C",
+   "title": "MQ-1 Operator",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15D",
+   "title": "Aircraft Powertrain Repairer (Acft Powertrain Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15F",
+   "title": "Aircraft Electrician (Acft Elec)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15G",
+   "title": "Aircraft Structural Repairer (Acft Structural Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15H",
+   "title": "Aircraft Pneudraulics Repairer (Acft Pneudraulics Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15K",
+   "title": "Aircraft Components Repair Supervisor (Acft Comp Repair Supv)",
+   "status": "current",
+   "guide_grades": "E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15L",
+   "title": "Armament/Electrical/Avionics Repair Supervisor (Arm/Elect/Avionics Rep Supv)",
+   "status": "current",
+   "guide_grades": "E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15M",
+   "title": "MQ-1 Repairer",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15N",
+   "title": "Avionic Mechanic",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15P",
+   "title": "Aviation Operations Specialist (Aviation Ops Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15Q",
+   "title": "Air Traffic Control (ATC) Operator",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15R",
+   "title": "AH-64 Attack Helicopter Repairer (AH-64 Attack Hel Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15T",
+   "title": "UH-60 Helicopter Repairer /Aircrew Member (UH-60 Hel Rep/ACM)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15U",
+   "title": "CH-47 Helicopter Repairer/Aircrew Member (CH-47 Hel Rep/ACM)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15X",
+   "title": "Tactical Unmanned Aircraft System (TUAS) Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15Y",
+   "title": "AH-64 Armament/Electrical/Avionics Systems Repairer (AH-64 Arm/Elect/Avionics Sys Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "15Z",
+   "title": "Aviation Senior Sergeant (Avn Sr SGT)",
+   "status": "current",
+   "guide_grades": "E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-15-da-pam-600-25-25-aug-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "17C",
+   "title": "Cyber Operations Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-17-da-pam-600-25-30-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "17E",
+   "title": "Electronic Warfare Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-17-da-pam-600-25-30-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "17Z",
+   "title": "Cyberspace and Electromagnetic Activities (CEMA) Senior Sergeant (CEMA Sr SGT)",
+   "status": "current",
+   "guide_grades": "E-9",
+   "guides": [
+    "army-600-25-cmf-17-da-pam-600-25-30-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "18B",
+   "title": "Special Forces Weapons Sergeant (SF Wpns SGT)",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-18-da-pam-600-25-1-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "18C",
+   "title": "Special Forces Engineer Sergeant (SF Engr SGT)",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-18-da-pam-600-25-1-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "18D",
+   "title": "Special Forces Medical Sergeant, (SF Med SGT)",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-18-da-pam-600-25-1-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "18E",
+   "title": "Special Forces Communications Sergeant (SF Comm SGT)",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-18-da-pam-600-25-1-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "18F",
+   "title": "Special Forces Intelligence Sergeant (SF Intel SGT)",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-18-da-pam-600-25-1-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "18Z",
+   "title": "Special Forces Operations Sergeant, (SF OPS SGT)",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-18-da-pam-600-25-1-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "19C",
+   "title": "Bradley Crewmember",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-19-da-pam-600-25-21-aug-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "19D",
+   "title": "Cavalry Scout",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-19-da-pam-600-25-21-aug-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "19K",
+   "title": "Armor Crewmember",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-19-da-pam-600-25-21-aug-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "19Z",
+   "title": "Armor Senior Sergeant",
+   "status": "current",
+   "guide_grades": "E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-19-da-pam-600-25-21-aug-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "25B",
+   "title": "Information Technology Specialist (Info Tech Spec)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-25-da-pam-600-25-25-jun-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "25D",
+   "title": "Cyber Network Defender",
+   "status": "current",
+   "guide_grades": "E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-25-da-pam-600-25-25-jun-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "25E",
+   "title": "Electromagnetic Spectrum Manager (Electro Spectrum Mgr)",
+   "status": "current",
+   "guide_grades": "E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-25-da-pam-600-25-25-jun-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "25H",
+   "title": "Network Communication Systems Specialist (Net Com Sys Spec)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-25-da-pam-600-25-25-jun-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "25S",
+   "title": "Satellite Communication Systems Specialist (SATCOM Sys Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-25-da-pam-600-25-25-jun-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "25U",
+   "title": "Signal Operations Support Specialist (Sig Ops Spt Spc)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-25-da-pam-600-25-25-jun-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "25Z",
+   "title": "Senior Signal Sergeant",
+   "status": "current",
+   "guide_grades": "E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-25-da-pam-600-25-25-jun-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "27D",
+   "title": "Paralegal Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-27-da-pam-600-25-13-mar-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "31B",
+   "title": "Military Police",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-31-da-pam-600-25-21-aug-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "31D",
+   "title": "CID Special Agent",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-31-da-pam-600-25-21-aug-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "31E",
+   "title": "Corrections and Detention Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-31-da-pam-600-25-21-aug-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "31K",
+   "title": "Working Dog Handler",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-31-da-pam-600-25-21-aug-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "31Z",
+   "title": "Senior Military Police Sergeant",
+   "status": "current",
+   "guide_grades": "E-9",
+   "guides": [
+    "army-600-25-cmf-31-da-pam-600-25-21-aug-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "35F",
+   "title": "Intelligence Analyst (Intel Analyst)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-35-da-pam-600-25-27-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "35G",
+   "title": "Geospatial Intelligence Imagery Analyst",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-35-da-pam-600-25-27-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "35L",
+   "title": "Counterintelligence (CI) Agent",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-35-da-pam-600-25-27-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "35M",
+   "title": "Human Intelligence Collector (HUMINT Collector)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-35-da-pam-600-25-27-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "35N",
+   "title": "Signals Intelligence Analyst (SIGINT Analyst)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-35-da-pam-600-25-27-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "35P",
+   "title": "Signals Intelligence (SIGINT) Voice Interceptor",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-35-da-pam-600-25-27-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "35S",
+   "title": "Signals Acquisition/Exploitation Analyst",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-35-da-pam-600-25-27-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "35T",
+   "title": "Military Intelligence (MI) Systems Maintainer/Integrator, (MI Sys Mntr/Intgr)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-35-da-pam-600-25-27-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "35Z",
+   "title": "Intelligence Senior Sergeant",
+   "status": "current",
+   "guide_grades": "E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-35-da-pam-600-25-27-jun-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "36B",
+   "title": "Financial Management Technician",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-cmf36-dapam600-25-2024-07-19"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "37F",
+   "title": "Psychological Operations Specialist, (PO Specialist)",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-37f-po-da-pam-600-25-v8-6-final-22-feb-24"
+   ],
+   "grades_611_lists_without_guide_section": "E-1..E-4"
+  },
+  {
+   "category": "enlisted",
+   "code": "38B",
+   "title": "Civil Affairs Specialist (CA Specialist) (USAR Only)",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-38-da-pam-600-25-30-sep-26"
+   ],
+   "grades_611_lists_without_guide_section": "E-1..E-4"
+  },
+  {
+   "category": "enlisted",
+   "code": "38R",
+   "title": "Civil Reconnaissance Sergeant (CR SGT) (Active Component Only)",
+   "status": "current",
+   "guide_grades": "E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-38-da-pam-600-25-30-sep-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "38W",
+   "title": "Civil Affairs Medical Sergeant (CA Medical SGT) (Active Component Only)",
+   "status": "current",
+   "guide_grades": "E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-38-da-pam-600-25-30-sep-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "38Z",
+   "title": "Civil Affairs Senior Sergeant (Active Component Only)",
+   "status": "current",
+   "guide_grades": "E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-38-da-pam-600-25-30-sep-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "40D",
+   "title": "Space Operations Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-40-da-pam-600-25-21-jul-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "42A",
+   "title": "Human Resources Specialist (HR SPC)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-cmf42-dapam600-25-2025-09-30"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "42R",
+   "title": "Musician",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-42-da-pam-600-25-30-sep-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "42S",
+   "title": "Special Band Musician",
+   "status": "current",
+   "exception": "WITHHELD: the guide has four unit-specific chapters for 42S (U.S. Army Band, Field Band, Old Guard Fife and Drum Corps, U.S. Military Academy Band) that repeat the same grades and cannot be told apart."
+  },
+  {
+   "category": "enlisted",
+   "code": "42T",
+   "title": "42T Talent Acquisition Specialist (Active Component and USAR)",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-42t-79-da-pam-600-25-9-sep-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "46S",
+   "title": "Public Affairs Mass Communication Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-46-da-pam-600-25-4-feb-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "46T",
+   "title": "Mass Communications Systems Engineer (Mass Comm Sys Eng)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-46-da-pam-600-25-4-feb-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "46V",
+   "title": "Visual Information Specialist (Visual InfoSp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-46-da-pam-600-25-4-feb-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "46Y",
+   "title": "Visual Information Operations Chief (VI Op Chief)",
+   "status": "current",
+   "guide_grades": "E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-46-da-pam-600-25-4-feb-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "46Z",
+   "title": "Chief Public Affairs NCO",
+   "status": "current",
+   "guide_grades": "E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-46-da-pam-600-25-4-feb-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "51C",
+   "title": "Contracting Noncommissioned Officer (NCO)",
+   "status": "current",
+   "guide_grades": "E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-51-update-12-apr-22"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "56M",
+   "title": "Religious Affairs Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-56-14-apr-2022-v2"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68A",
+   "title": "Biomedical Equipment Specialist (Biomed Eq Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68B",
+   "title": "Orthopedic Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68C",
+   "title": "Practical Nursing Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68D",
+   "title": "Operating Room Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68E",
+   "title": "Dental Specialist (Dental Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68F",
+   "title": "Physical Therapy Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68G",
+   "title": "Patient Administration Specialist (Patient Admin Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68H",
+   "title": "Optical Laboratory Specialist (Optical Lab Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68J",
+   "title": "Medical Logistics Specialist (Medical Log Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68K",
+   "title": "Medical Laboratory Specialist (Medical Lab Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68L",
+   "title": "Occupational Therapy Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68M",
+   "title": "Nutrition Care Specialist (Nutr Care Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68P",
+   "title": "Radiology Specialist (Radiology Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68Q",
+   "title": "Pharmacy Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68R",
+   "title": "Veterinary Food Inspection Specialist (Vet Food Insp Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68S",
+   "title": "Preventive Medicine Specialist (Pvnt Med Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68T",
+   "title": "Animal Care Specialist (Animal Care Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68V",
+   "title": "Respiratory Specialist (Respiratory Sp)",
+   "status": "current",
+   "guide_grades": "E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68W",
+   "title": "68W Combat Medic Specialist (Combat Medic Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68X",
+   "title": "Behavioral Health Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68Y",
+   "title": "Eye Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "68Z",
+   "title": "Chief Medical NCO (Ch Med NCO)",
+   "status": "current",
+   "guide_grades": "E-9",
+   "guides": [
+    "army-600-25-cmf-68-da-pam-600-25-22-aug-23"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "74D",
+   "title": "Chemical, Biological, Radiological and Nuclear (CBRN) Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-74-da-pam-600-25-3-sep-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "79R",
+   "title": "Recruiter (Active Component and USAR)",
+   "status": "current",
+   "exception": "The 9 Sep 2026 CMF 79 guide has chapters for 42T, 79S, 79T and 79V and none for 79R; DA PAM 611-21 gives 79R and 42T the same duties text."
+  },
+  {
+   "category": "enlisted",
+   "code": "79S",
+   "title": "Career Counselor (Active Component)",
+   "status": "future_effective",
+   "guide_grades": "E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-42t-79-da-pam-600-25-9-sep-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "79T",
+   "title": "Recruiting and Retention NCO (Army National Guard of the United States/ Recruiter and Retention NCO)",
+   "status": "current",
+   "exception": "WITHHELD: the chapter gives every grade twice, once for each Active Guard/Reserve track (AGR T-32 and AGR T-10), which cannot be told apart."
+  },
+  {
+   "category": "enlisted",
+   "code": "79V",
+   "title": "Army Reserve Career Counselor (Army Reserve)",
+   "status": "current",
+   "guide_grades": "E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-42t-79-da-pam-600-25-9-sep-26"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "88H",
+   "title": "Cargo Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-88-da-pam-600-25-18-dec-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "88K",
+   "title": "Watercraft Operator",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-88-da-pam-600-25-18-dec-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "88L",
+   "title": "Watercraft Engineer",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-88-da-pam-600-25-18-dec-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "88M",
+   "title": "Motor Transport Operator",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-88-da-pam-600-25-18-dec-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "88N",
+   "title": "Transportation Management Coordinator (Trans Mgt Coord)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-88-da-pam-600-25-18-dec-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "88P",
+   "title": "Railway Equipment Repairer (USAR only)",
+   "status": "current",
+   "exception": "USAR-only MOS (Railway Equipment Repairer): the CMF 88 guide has no 88P chapter (it names only 88U as USAR-only)."
+  },
+  {
+   "category": "enlisted",
+   "code": "88U",
+   "title": "Railway Specialist (USAR only)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-88-da-pam-600-25-18-dec-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "88Z",
+   "title": "Transportation Senior Sergeant (Transportation Sr SGT)",
+   "status": "current",
+   "guide_grades": "E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-88-da-pam-600-25-18-dec-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "89A",
+   "title": "Ammunition Stock Control and Accounting Specialist (Ammo Stk Con/Acctg Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5",
+   "guides": [
+    "army-600-25-cmf-89-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "89B",
+   "title": "Ammunition Specialist (Ammo Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-89-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "89D",
+   "title": "Explosive Ordnance Disposal (EOD) Specialist (EOD Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-89-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91A",
+   "title": "M1 Abrams Tank System Maintainer (M1 Abrams Tank Sys Maint)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91B",
+   "title": "Wheeled Vehicle Mechanic",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91C",
+   "title": "Utilities Equipment Repairer (Util Equip Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91D",
+   "title": "Tactical Power Generation Specialist (Tac Pwr Gen Spec)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91E",
+   "title": "Allied Trades Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91F",
+   "title": "Small Arms/Towed Artillery Repairer (Small Arms/Towed Arty Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91H",
+   "title": "Tracked Vehicle Repairer (Tracked Veh Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91J",
+   "title": "Quartermaster and Chemical Equipment Repairer (QM & Chem Equip Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91L",
+   "title": "Construction Equipment Repairer (Const Equip Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91M",
+   "title": "Bradley Fighting Vehicle System Maintainer (BFVS Maint)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91P",
+   "title": "Self-Propelled Artillery Systems Mechanic (Self-Prop Arty Sys Mech)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91S",
+   "title": "Stryker Systems Maintainer, Stryker Sys Maint",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91X",
+   "title": "Maintenance Supervisor (Maint Supv)",
+   "status": "current",
+   "guide_grades": "E-7",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "91Z",
+   "title": "Senior Maintenance Supervisor (SR Maint Supervisor)",
+   "status": "current",
+   "guide_grades": "E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-91-da-pam-600-25-15-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92A",
+   "title": "Automated Logistical Specialist (Auto Log Spec)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-92-da-pam-600-25-28-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92F",
+   "title": "Petroleum Supply Specialist (Petro Sup SPC)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-92-da-pam-600-25-28-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92G",
+   "title": "Culinary Specialist",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-92-da-pam-600-25-28-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92L",
+   "title": "Petroleum Laboratory Specialist (Petro Lab SPC)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-92-da-pam-600-25-28-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92M",
+   "title": "Fatality Management Specialist (Fatality Management SPC)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-92-da-pam-600-25-28-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92R",
+   "title": "Parachute Rigger",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-92-da-pam-600-25-28-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92S",
+   "title": "Shower and Laundry Specialist (S&L SPC)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-92-da-pam-600-25-28-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92W",
+   "title": "Water Treatment Specialist (Water Trmt SPC)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-92-da-pam-600-25-28-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92Y",
+   "title": "Unit Supply Specialist (Unit Supply SPEC)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7 E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-92-da-pam-600-25-28-jan-25"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92Z",
+   "title": "Senior Noncommissioned Logistician",
+   "status": "current",
+   "guide_grades": "E-9",
+   "guides": [
+    "army-600-25-cmf-92-da-pam-600-25-28-jan-25"
+   ],
+   "grades_611_lists_without_guide_section": "E-8"
+  },
+  {
+   "category": "enlisted",
+   "code": "94A",
+   "title": "Land Combat Electronic Missile System Repairer",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94D",
+   "title": "Air Traffic Control Equipment Repairer (ATC Equip Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94E",
+   "title": "Radio Equipment Repairer",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94F",
+   "title": "Computer/Detection Systems Repairer (Comp/Det Sys Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94H",
+   "title": "Test, Measurement, and Diagnostic Equipment (TMDE) Maintenance Support Specialist (TMDE Maint Spt Sp)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94M",
+   "title": "Radar Repairer (Radar Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94P",
+   "title": "Multiple Launch Rocket System (MLRS) Repairer (MLRS Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94R",
+   "title": "Avionics and Survivability Equipment Repairer (Avionics/Surv Eq Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94S",
+   "title": "Patriot System Repairer (Patriot Sys Rep)",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6 E-7",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94T",
+   "title": "Short Range Air Defense System Repairer",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94W",
+   "title": "Electronic Maintenance Supervisor (Elect Maint Supv)",
+   "status": "current",
+   "guide_grades": "E-7",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94Y",
+   "title": "Automatic Test Systems Operator/Maintainer",
+   "status": "current",
+   "guide_grades": "E-1..E-4 E-5 E-6",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "94Z",
+   "title": "Senior Electronic Maintenance Supervisor (Sr Elect Maint Supv)",
+   "status": "current",
+   "guide_grades": "E-8 E-9",
+   "guides": [
+    "army-600-25-cmf-94-da-pam-600-25-9-aug-24"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "11A",
+   "title": "INFANTRY",
+   "status": "current",
+   "exception": "infantry-branch-da-pam-600-1-sep-22.pdf: Only Captain and Colonel headings are found; the file name says DA PAM 600-1 and the date is September 2022."
+  },
+  {
+   "category": "officer",
+   "code": "12A",
+   "title": "ENGINEER",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-en-br-9-june-2026"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "13A",
+   "title": "FIELD ARTILLERY, GENERAL",
+   "status": "current",
+   "exception": "da-pam-600-03-fa-cao-jul-2026.pdf: Only Colonel headings are found; the Field Artillery grade sections are under headings the importer does not read."
+  },
+  {
+   "category": "officer",
+   "code": "14A",
+   "title": "AIR DEFENSE ARTILLERY OFFICER",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-ada-11-june-2026"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "15A",
+   "title": "AVIATION, GENERAL",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-1-av-branch-da-pam-600-3-as-of-20210630"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "15B",
+   "title": "AVIATION COMBINED ARMS OPERATIONS",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "15C",
+   "title": "AVIATION ALL-SOURCE INTELLIGENCE",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "15D",
+   "title": "AVIATION MAINTENANCE OFFICER",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "17A",
+   "title": "CYBER WARFARE OFFICER",
+   "status": "current",
+   "exception": "da-pam-600-3-cyber-branch-fy25.pdf: Heading runs are written for the separate AOCs (17A, 17B, 17D) and for the Reserve Component; the run-to-AOC mapping is not established."
+  },
+  {
+   "category": "officer",
+   "code": "17B",
+   "title": "CYBER ELECTROMAGNETIC WARFARE OFFICER",
+   "status": "current",
+   "exception": "da-pam-600-3-cyber-branch-fy25.pdf: Heading runs are written for the separate AOCs (17A, 17B, 17D) and for the Reserve Component; the run-to-AOC mapping is not established."
+  },
+  {
+   "category": "officer",
+   "code": "17D",
+   "title": "CYBER CAPABILITY DEVELOPMENT OFFICER",
+   "status": "current",
+   "exception": "da-pam-600-3-cyber-branch-fy25.pdf: Heading runs are written for the separate AOCs (17A, 17B, 17D) and for the Reserve Component; the run-to-AOC mapping is not established."
+  },
+  {
+   "category": "officer",
+   "code": "17X",
+   "title": "CYBER OFFICER DESIGNATED",
+   "status": "current",
+   "exception": "Designation / classification-only AOC, not a job: no career guide applies."
+  },
+  {
+   "category": "officer",
+   "code": "18A",
+   "title": "SPECIAL FORCES",
+   "status": "current",
+   "exception": "sf-da-pam-600-3-draft-dtd-2mar26-pdf.pdf: The file is marked draft (2 March 2026); a draft is not imported."
+  },
+  {
+   "category": "officer",
+   "code": "19A",
+   "title": "ARMOR",
+   "status": "current",
+   "exception": "armor-22-may-26.pdf: No grade headings: the text points to the DA PAM 600-3 SMARTBOOK and carries a life-cycle figure."
+  },
+  {
+   "category": "officer",
+   "code": "25A",
+   "title": "SIGNAL, GENERAL",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-da-pam-600-3-fy25-signal-final"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "26A",
+   "title": "NETWORK SYSTEMS ENGINEERING",
+   "status": "current",
+   "guide_grades": "O-3 O-4 O-5",
+   "guides": [
+    "army-600-3-da-pam-600-3-fy25-fa26-data-network-engineering-final"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "26B",
+   "title": "DATA SYSTEMS ENGINEERING",
+   "status": "current",
+   "guide_grades": "O-3 O-4 O-5",
+   "guides": [
+    "army-600-3-da-pam-600-3-fy25-fa26-data-network-engineering-final"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "26Z",
+   "title": "DATA NETWORK ENGINEERING",
+   "status": "current",
+   "guide_grades": "O-6",
+   "guides": [
+    "army-600-3-da-pam-600-3-fy25-fa26-data-network-engineering-final"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "27A",
+   "title": "JUDGE ADVOCATE GENERAL",
+   "status": "current",
+   "guide_grades": "O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-2-jag-corps-da-pam-600-3"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "27B",
+   "title": "MILITARY JUDGE",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "28A",
+   "title": "SOFTWARE OPERATIONS",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "30A",
+   "title": "INFORMATION OPERATIONS OFFICER",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-1-fa30-da-pam-600-3"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "31A",
+   "title": "MILITARY POLICE",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-military-police-da-pam-600-3-june-2024"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "35A",
+   "title": "INTELLIGENCE OFFICER",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-mi-da-pam-600-3-aug2026"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "35B",
+   "title": "STRATEGIC INTELLIGENCE OFFICER",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-mi-da-pam-600-3-aug2026"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "36A",
+   "title": "FINANCE AND COMPTROLLER",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-1..O-3 O-3 O-4 O-4..O-6 O-5 O-6 W-1..W-5",
+   "guides": [
+    "army-fc-officer-2025-09-10"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "37A",
+   "title": "PSYCHOLOGICAL OPERATIONS",
+   "status": "current",
+   "guide_grades": "O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-po-da-pam-600-3-dtd-19-nov-24"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "37X",
+   "title": "PSYCHOLOGICAL OPERATIONS, DESIGNATED",
+   "status": "current",
+   "exception": "Designation / classification-only AOC, not a job: no career guide applies."
+  },
+  {
+   "category": "officer",
+   "code": "38A",
+   "title": "CIVIL AFFAIRS (RESERVE FORCES ONLY)",
+   "status": "current",
+   "exception": "swcs-cg-approved-ca-chapter-da-pam-600-03-effective-fy27-15jul2026-grp-s9-added-v2.pdf: Three runs for the Civil Affairs AOCs (38A, 38G, 38S) and the Reserve Component; the run-to-AOC mapping is not established."
+  },
+  {
+   "category": "officer",
+   "code": "38G",
+   "title": "MILITARY GOVERNMENT (USAR ONLY)",
+   "status": "current",
+   "exception": "swcs-cg-approved-ca-chapter-da-pam-600-03-effective-fy27-15jul2026-grp-s9-added-v2.pdf: Three runs for the Civil Affairs AOCs (38A, 38G, 38S) and the Reserve Component; the run-to-AOC mapping is not established."
+  },
+  {
+   "category": "officer",
+   "code": "38S",
+   "title": "CIVIL AFFAIRS OFFICER SPECIAL OPERATIONS (SO)",
+   "status": "current",
+   "exception": "swcs-cg-approved-ca-chapter-da-pam-600-03-effective-fy27-15jul2026-grp-s9-added-v2.pdf: Three runs for the Civil Affairs AOCs (38A, 38G, 38S) and the Reserve Component; the run-to-AOC mapping is not established."
+  },
+  {
+   "category": "officer",
+   "code": "38X",
+   "title": "CIVIL AFFAIRS, DESIGNATED",
+   "status": "current",
+   "exception": "Designation / classification-only AOC, not a job: no career guide applies."
+  },
+  {
+   "category": "officer",
+   "code": "40A",
+   "title": "SPACE OPERATIONS",
+   "status": "current",
+   "exception": "army-space-40a-600-3-final-draft.pdf: The file is a 'final draft' (revision dated 25 August 2026, listed by the Army G-1 page as a final draft) that adds AOCs 40A and 40C; a draft is not imported."
+  },
+  {
+   "category": "officer",
+   "code": "40C",
+   "title": "ARMY ASTRONAUT",
+   "status": "current",
+   "exception": "army-space-40a-600-3-final-draft.pdf: The file is a 'final draft' (revision dated 25 August 2026, listed by the Army G-1 page as a final draft) that adds AOCs 40A and 40C; a draft is not imported."
+  },
+  {
+   "category": "officer",
+   "code": "42B",
+   "title": "HUMAN RESOURCES OFFICER",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-ag-da-pam-600-3-26-jan-26"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "42C",
+   "title": "ARMY MUSIC",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-ag-da-pam-600-3-26-jan-26"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "42H",
+   "title": "SENIOR HUMAN RESOURCES OFFICER",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-ag-da-pam-600-3-26-jan-26"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "46A",
+   "title": "PUBLIC AFFAIRS, GENERAL",
+   "status": "current",
+   "guide_grades": "O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-fa-46-public-affairs-oct-23"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "46X",
+   "title": "PUBLIC AFFAIRS DESIGNEE",
+   "status": "current",
+   "exception": "Designation / classification-only AOC, not a job: no career guide applies."
+  },
+  {
+   "category": "officer",
+   "code": "47A",
+   "title": "USMA, PROFESSOR",
+   "status": "current",
+   "exception": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf: One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  },
+  {
+   "category": "officer",
+   "code": "47C",
+   "title": "USMA, PROFESSOR OF ENGLISH",
+   "status": "current",
+   "exception": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf: One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  },
+  {
+   "category": "officer",
+   "code": "47D",
+   "title": "USMA, PROFESSOR OF ELECTRICAL ENGINEERING AND COMPUTER SCIENCE",
+   "status": "current",
+   "exception": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf: One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  },
+  {
+   "category": "officer",
+   "code": "47E",
+   "title": "USMA, PROFESSOR OF LAW",
+   "status": "current",
+   "exception": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf: One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  },
+  {
+   "category": "officer",
+   "code": "47F",
+   "title": "USMA, PROFESSOR OF SYSTEMS ENGINEERING",
+   "status": "current",
+   "exception": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf: One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  },
+  {
+   "category": "officer",
+   "code": "47G",
+   "title": "USMA, PROFESSOR OF FOREIGN LANGUAGES",
+   "status": "current",
+   "exception": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf: One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  },
+  {
+   "category": "officer",
+   "code": "47H",
+   "title": "USMA, PROFESSOR OF PHYSICS",
+   "status": "current",
+   "exception": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf: One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  },
+  {
+   "category": "officer",
+   "code": "47J",
+   "title": "USMA, PROFESSOR OF SOCIAL SCIENCES",
+   "status": "current",
+   "exception": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf: One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  },
+  {
+   "category": "officer",
+   "code": "47K",
+   "title": "USMA, PROFESSOR OF HISTORY",
+   "status": "current",
+   "exception": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf: One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  },
+  {
+   "category": "officer",
+   "code": "47L",
+   "title": "USMA, PROFESSOR OF BEHAVIORAL SCIENCES AND LEADERSHIP",
+   "status": "current",
+   "exception": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf: One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  },
+  {
+   "category": "officer",
+   "code": "47M",
+   "title": "USMA, PROFESSOR OF CHEMISTRY",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "47N",
+   "title": "USMA, PROFESSOR OF MATHEMATICAL SCIENCES",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "47P",
+   "title": "USMA, PROFESSOR OF GEOGRAPHY AND ENVIRONMENTAL ENGINEERING",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "47Q",
+   "title": "USMA, PROFESSOR AND ASSOCIATE DEAN",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "47R",
+   "title": "USMA, PROFESSOR OF CIVIL AND MECHANICAL ENGINEERING",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "47S",
+   "title": "USMA, PROFESSOR OF PHYSICAL EDUCATION",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "47T",
+   "title": "USMA, PROFESSOR OF LEADER DEVELOPMENT AND ORGANIZATIONAL LEARNING",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "47U",
+   "title": "USMA, PROFESSOR OF MILITARY INSTRUCTION AND ETHICS",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "47V",
+   "title": "USMA, PROFESSOR OF ARMY CYBER",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "47W",
+   "title": "USMA, PROFESSOR OF THE ARMY WAR COLLEGE",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "48B",
+   "title": "WESTERN HEMISPHERE",
+   "status": "current",
+   "exception": "1-fa-48-foreign-area-officer-da-pam-600-3-as-of-23-apr-21.pdf: Only a 'Major development' heading is found; the other grades are described under region-specific headings the importer does not map to AOCs."
+  },
+  {
+   "category": "officer",
+   "code": "48E",
+   "title": "EUROPE AND EURASIA",
+   "status": "current",
+   "exception": "1-fa-48-foreign-area-officer-da-pam-600-3-as-of-23-apr-21.pdf: Only a 'Major development' heading is found; the other grades are described under region-specific headings the importer does not map to AOCs."
+  },
+  {
+   "category": "officer",
+   "code": "48G",
+   "title": "MIDEAST/NORTH AFRICA",
+   "status": "current",
+   "exception": "1-fa-48-foreign-area-officer-da-pam-600-3-as-of-23-apr-21.pdf: Only a 'Major development' heading is found; the other grades are described under region-specific headings the importer does not map to AOCs."
+  },
+  {
+   "category": "officer",
+   "code": "48J",
+   "title": "AFRICA, SOUTH OF THE SAHARA",
+   "status": "current",
+   "exception": "1-fa-48-foreign-area-officer-da-pam-600-3-as-of-23-apr-21.pdf: Only a 'Major development' heading is found; the other grades are described under region-specific headings the importer does not map to AOCs."
+  },
+  {
+   "category": "officer",
+   "code": "48P",
+   "title": "ASIA-PACIFIC",
+   "status": "current",
+   "exception": "1-fa-48-foreign-area-officer-da-pam-600-3-as-of-23-apr-21.pdf: Only a 'Major development' heading is found; the other grades are described under region-specific headings the importer does not map to AOCs."
+  },
+  {
+   "category": "officer",
+   "code": "48X",
+   "title": "FOREIGN AREA OFFICER",
+   "status": "current",
+   "exception": "Designation / classification-only AOC, not a job: no career guide applies."
+  },
+  {
+   "category": "officer",
+   "code": "49A",
+   "title": "OPERATIONS RESEARCH/SYSTEMS ANALYSIS",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3..O-4 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-fa-49-orsa-da-pam-600-3-as-of-20210601"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "49B",
+   "title": "Artificial Intelligence/Machine Learning Officer",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "49W",
+   "title": "TRAINED, ORSA",
+   "status": "current",
+   "exception": "Designation / classification-only AOC, not a job: no career guide applies."
+  },
+  {
+   "category": "officer",
+   "code": "49X",
+   "title": "UNTRAINED, ORSA",
+   "status": "current",
+   "exception": "Designation / classification-only AOC, not a job: no career guide applies."
+  },
+  {
+   "category": "officer",
+   "code": "50A",
+   "title": "FORCE DEVELOPMENT",
+   "status": "current",
+   "guide_grades": "O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-fa-50-da-pam-600-3-25-apr-24"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "51A",
+   "title": "SYSTEMS DEVELOPMENT",
+   "status": "current",
+   "exception": "acquisition-branch-7-nov-22.pdf: Only Lieutenant Colonel and Colonel sections are headed; company and field grade text for the branch is under other headings."
+  },
+  {
+   "category": "officer",
+   "code": "51C",
+   "title": "CONTRACT AND INDUSTRIAL MANAGEMENT",
+   "status": "current",
+   "exception": "acquisition-branch-7-nov-22.pdf: Only Lieutenant Colonel and Colonel sections are headed; company and field grade text for the branch is under other headings."
+  },
+  {
+   "category": "officer",
+   "code": "51R",
+   "title": "SYSTEMS AUTOMATION ACQUISITION AND ENGINEERING",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "51S",
+   "title": "RESEARCH AND ENGINEERING",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "51T",
+   "title": "TEST AND EVALUATION",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "51Z",
+   "title": "ACQUISITION",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "52B",
+   "title": "NUCLEAR AND COUNTERING WEAPONS OF MASS DESTRUCTION (CWMD)",
+   "status": "current",
+   "exception": "No DA PAM 600-3 pamphlet or functional-area chapter for this AOC is in the downloaded collection, or none was imported (see the pamphlet list)."
+  },
+  {
+   "category": "officer",
+   "code": "56A",
+   "title": "COMMAND AND UNIT CHAPLAIN",
+   "status": "current",
+   "exception": "da-pam-600-3-chaplain-2026-update.pdf: Four separate runs of Major, Lieutenant Colonel and Colonel headings for different chaplain tracks; the track-to-AOC mapping is not established."
+  },
+  {
+   "category": "officer",
+   "code": "56D",
+   "title": "CLINICAL PASTORAL EDUCATOR",
+   "status": "current",
+   "exception": "da-pam-600-3-chaplain-2026-update.pdf: Four separate runs of Major, Lieutenant Colonel and Colonel headings for different chaplain tracks; the track-to-AOC mapping is not established."
+  },
+  {
+   "category": "officer",
+   "code": "56X",
+   "title": "CHAPLAIN CANDIDATE",
+   "status": "current",
+   "exception": "Designation / classification-only AOC, not a job: no career guide applies."
+  },
+  {
+   "category": "officer",
+   "code": "57A",
+   "title": "SIMULATIONS OPERATIONS OFFICER",
+   "status": "current",
+   "exception": "1-fa-57-simulation-operations-da-pam-600-3-28-jun-21.pdf: The only run of grade headings is under the Reserve Component and National Guard heading; the active-component text has no grade headings that can be separated reliably."
+  },
+  {
+   "category": "officer",
+   "code": "58A",
+   "title": "MARKETING OFFICER",
+   "status": "current",
+   "guide_grades": "O-1..O-2 O-3 O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-fa-58-da-pam-600-3-25-oct-23"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "59A",
+   "title": "STRATEGIST",
+   "status": "current",
+   "guide_grades": "O-4 O-5 O-6",
+   "guides": [
+    "army-600-3-fa-59-strategist-da-pam-600-3-as-of-1-apr-20"
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "60A",
+   "title": "OPERATIONAL MEDICINE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60B",
+   "title": "NUCLEAR MEDICINE OFFICER",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60C",
+   "title": "PREVENTIVE MEDICINE OFFICER",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60D",
+   "title": "OCCUPATIONAL MEDICINE OFFICER",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60G",
+   "title": "GASTROENTEROLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60H",
+   "title": "CARDIOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60J",
+   "title": "OBSTETRICIAN AND GYNECOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60K",
+   "title": "UROLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60L",
+   "title": "DERMATOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60M",
+   "title": "ALLERGIST, CLINICAL IMMUNOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60N",
+   "title": "CRITICAL CARE MEDICINE (CCM) ANESTHESIOLOGY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60P",
+   "title": "PEDIATRICIAN",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60Q",
+   "title": "PEDIATRIC SUB-SPECIALIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60R",
+   "title": "CHILD NEUROLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60S",
+   "title": "OPHTHALMOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60T",
+   "title": "OTOLARYNGOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60U",
+   "title": "Child Psychiatrist",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60V",
+   "title": "NEUROLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60W",
+   "title": "PSYCHIATRIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "60X",
+   "title": "CRITICAL CARE MEDICINE OFFICER",
+   "status": "current",
+   "exception": "Designation / classification-only AOC, not a job: no career guide applies."
+  },
+  {
+   "category": "officer",
+   "code": "61A",
+   "title": "NEPHROLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61B",
+   "title": "MEDICAL ONCOLOGIST/HEMATOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61C",
+   "title": "ENDOCRINOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61D",
+   "title": "RHEUMATOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61E",
+   "title": "CLINICAL PHARMACOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61F",
+   "title": "INTERNIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61G",
+   "title": "INFECTIOUS DISEASE OFFICER",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61H",
+   "title": "FAMILY MEDICINE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61J",
+   "title": "GENERAL SURGEON",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61K",
+   "title": "THORACIC SURGEON",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61L",
+   "title": "PLASTIC SURGEON",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61M",
+   "title": "ORTHOPEDIC SURGEON",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61N",
+   "title": "FLIGHT SURGEON",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61P",
+   "title": "PHYSIATRIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61Q",
+   "title": "RADIATION ONCOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61R",
+   "title": "DIAGNOSTIC RADIOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61U",
+   "title": "PATHOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61W",
+   "title": "PERIPHERAL VASCULAR SURGEON",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "61Z",
+   "title": "NEUROSURGEON",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "62A",
+   "title": "EMERGENCY PHYSICIAN",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "62B",
+   "title": "FIELD SURGEON",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "62Z",
+   "title": "GENERAL MEDICAL OFFICER",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63A",
+   "title": "GENERAL DENTIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63B",
+   "title": "COMPREHENSIVE DENTIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63D",
+   "title": "PERIODONTIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63E",
+   "title": "ENDODONTIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63F",
+   "title": "PROSTHODONTIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63H",
+   "title": "PUBLIC HEALTH DENTIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63K",
+   "title": "PEDIATRIC DENTIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63M",
+   "title": "ORTHODONTIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63N",
+   "title": "ORAL AND MAXILLOFACIAL SURGEON",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63P",
+   "title": "ORAL PATHOLOGIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "63R",
+   "title": "EXECUTIVE DENTIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "64A",
+   "title": "FIELD VETERINARY SERVICE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "64B",
+   "title": "VETERINARY PREVENTIVE MEDICINE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "64C",
+   "title": "VETERINARY LABORATORY ANIMAL MEDICINE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "64D",
+   "title": "VETERINARY PATHOLOGY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "64E",
+   "title": "VETERINARY BIOMEDICAL SCIENTIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "64F",
+   "title": "VETERINARY CLINICAL MEDICINE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "64Z",
+   "title": "SENIOR VETERINARIAN (IMMATERIAL)",
+   "status": "current",
+   "exception": "No description in DA PAM 611-21 and no guide: see coverage-reconciliation.md."
+  },
+  {
+   "category": "officer",
+   "code": "65A",
+   "title": "OCCUPATIONAL THERAPY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "65B",
+   "title": "PHYSICAL THERAPY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "65C",
+   "title": "DIETITIAN",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "65D",
+   "title": "PHYSICIAN ASSISTANT",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "65X",
+   "title": "SPECIALIST ALLIED OPERATIONS",
+   "status": "current",
+   "exception": "Designation / classification-only AOC, not a job: no career guide applies."
+  },
+  {
+   "category": "officer",
+   "code": "66B",
+   "title": "ARMY PUBLIC HEALTH NURSE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66C",
+   "title": "PSYCHIATRIC/BEHAVIORAL HEALTH NURSE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66E",
+   "title": "PERIOPERATIVE NURSE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66F",
+   "title": "NURSE ANESTHETIST",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66G",
+   "title": "OBSTETRIC AND GYNECOLOGIC NURSE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66H",
+   "title": "MEDICAL-SURGICAL NURSE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66N",
+   "title": "GENERALIST NURSE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66P",
+   "title": "FAMILY NURSE PRACTITIONER",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66R",
+   "title": "PSYCHIATRIC/BEHAVIORAL HEALTH NURSE PRACTITIONER",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66S",
+   "title": "CRITICAL CARE NURSING",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66T",
+   "title": "EMERGENCY NURSING",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "66W",
+   "title": "CERTIFIED NURSE MIDWIFE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "67A",
+   "title": "HEALTH SERVICES",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "67B",
+   "title": "ALLIED SCIENCES",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "67C",
+   "title": "PREVENTIVE MEDICINE SCIENCES",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "67D",
+   "title": "BEHAVIORAL SCIENCES",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "67E",
+   "title": "PHARMACY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "67F",
+   "title": "OPTOMETRY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "67G",
+   "title": "PODIATRY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "67J",
+   "title": "AEROMEDICAL EVACUATION",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "70A",
+   "title": "HEALTH CARE ADMINISTRATION",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "70B",
+   "title": "HEALTH SERVICES ADMINISTRATION",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "70C",
+   "title": "HEALTH SERVICES COMPTROLLER",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "70D",
+   "title": "HEALTH SERVICES SYSTEMS MANAGEMENT",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "70E",
+   "title": "PATIENT ADMINISTRATION",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "70F",
+   "title": "HEALTH SERVICES HUMAN RESOURCES",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "70H",
+   "title": "HEALTH SERVICES PLANS, OPERATIONS, INTELLIGENCE, SECURITY, AND TRAINING",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "70K",
+   "title": "HEALTH SERVICES MATERIEL",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "71A",
+   "title": "MICROBIOLOGY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "71B",
+   "title": "BIOCHEMISTRY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "71E",
+   "title": "CLINICAL LABORATORY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "71F",
+   "title": "RESEARCH PSYCHOLOGY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "72A",
+   "title": "NUCLEAR MEDICAL SCIENCE",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "72B",
+   "title": "ENTOMOLOGY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "72C",
+   "title": "AUDIOLOGY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "72D",
+   "title": "ENVIRONMENTAL SCIENCE AND ENGINEERING",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "73A",
+   "title": "SOCIAL WORK",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "73B",
+   "title": "CLINICAL PSYCHOLOGY",
+   "status": "current",
+   "exception": "Army Medical Department AOC: the DA PAM 600-3 AMEDD chapter (one page, June 2017) refers to DA PAM 600-4; the per-corps DA PAM 600-4 chapters are not imported as approved guidance because their currency could not be confirmed (the Medical Service Corps chapter is imported but unapproved)."
+  },
+  {
+   "category": "officer",
+   "code": "74A",
+   "title": "CHEMICAL, BIOLOGICAL, RADIOLOGICAL AND NUCLEAR (CBRN)",
+   "status": "current",
+   "exception": "da-pam-600-3-cmf74-chemical-branch-3mar26.pdf: Grade headings interleave with warrant-officer and AOC-specific sections; the officer text cannot be separated reliably."
+  },
+  {
+   "category": "officer",
+   "code": "89E",
+   "title": "EXPLOSIVE ORDNANCE DISPOSAL",
+   "status": "current",
+   "exception": "ordnance-28-aug-25.pdf: No grade headings found."
+  },
+  {
+   "category": "officer",
+   "code": "90A",
+   "title": "LOGISTICS",
+   "status": "current",
+   "exception": "lg-da-19-aug-25.pdf: The Logistics Corps pamphlet has several runs for different logistics AOCs and the Reserve Component; the run-to-AOC mapping is not established."
+  }
+ ],
+ "summary": {
+  "enlisted": {
+   "current_in_register": 179,
+   "with_approved_guide_grades": 174,
+   "without": 5
+  },
+  "officer": {
+   "current_in_register": 189,
+   "with_approved_guide_grades": 22,
+   "without": 167
+  }
+ },
+ "pamphlets": [
+  {
+   "file": "1-amedd-da-pam-600-3.pdf",
+   "codes": [
+    "60A",
+    "61A",
+    "62A",
+    "63A",
+    "64A",
+    "65A",
+    "66A",
+    "67A",
+    "68A",
+    "70A",
+    "71A",
+    "72A",
+    "73A"
+   ],
+   "imported": false,
+   "reason": "One page (text dated 1 June 2017) that describes the AMEDD in general and refers to DA PAM 600-4 for officer career management; it has no grade sections."
+  },
+  {
+   "file": "1-av-branch-da-pam-600-3-as-of-20210630.pdf",
+   "codes": [
+    "15A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "1-fa-48-foreign-area-officer-da-pam-600-3-as-of-23-apr-21.pdf",
+   "codes": [
+    "48B",
+    "48E",
+    "48G",
+    "48J",
+    "48P"
+   ],
+   "imported": false,
+   "reason": "Only a 'Major development' heading is found; the other grades are described under region-specific headings the importer does not map to AOCs."
+  },
+  {
+   "file": "1-fa-57-simulation-operations-da-pam-600-3-28-jun-21.pdf",
+   "codes": [
+    "57A"
+   ],
+   "imported": false,
+   "reason": "The only run of grade headings is under the Reserve Component and National Guard heading; the active-component text has no grade headings that can be separated reliably."
+  },
+  {
+   "file": "1-fa30-da-pam-600-3.pdf",
+   "codes": [
+    "30A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "2-jag-corps-da-pam-600-3.pdf",
+   "codes": [
+    "27A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "acquisition-branch-7-nov-22.pdf",
+   "codes": [
+    "51A",
+    "51C"
+   ],
+   "imported": false,
+   "reason": "Only Lieutenant Colonel and Colonel sections are headed; company and field grade text for the branch is under other headings."
+  },
+  {
+   "file": "ada-11-june-2026.pdf",
+   "codes": [
+    "14A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "ag-da-pam-600-3-25-apr-2024.pdf",
+   "codes": [
+    "42B",
+    "42C",
+    "42H"
+   ],
+   "imported": false,
+   "reason": "Superseded by the 26 January 2026 Adjutant General pamphlet (ag-da-pam-600-3-26-jan-26.pdf), which is the one imported; two editions of the same text are not served."
+  },
+  {
+   "file": "ag-da-pam-600-3-26-jan-26.pdf",
+   "codes": [
+    "42B",
+    "42C",
+    "42H"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "armor-22-may-26.pdf",
+   "codes": [
+    "19A"
+   ],
+   "imported": false,
+   "reason": "No grade headings: the text points to the DA PAM 600-3 SMARTBOOK and carries a life-cycle figure."
+  },
+  {
+   "file": "army-space-40a-600-3-final-draft.pdf",
+   "codes": [
+    "40A",
+    "40C"
+   ],
+   "imported": false,
+   "reason": "The file is a 'final draft' (revision dated 25 August 2026, listed by the Army G-1 page as a final draft) that adds AOCs 40A and 40C; a draft is not imported."
+  },
+  {
+   "file": "cmf42-slides-jan-26.pdf",
+   "codes": [
+    "42B"
+   ],
+   "imported": false,
+   "reason": "Presentation slides (company grade and warrant officer charts), not a pamphlet."
+  },
+  {
+   "file": "da-pam-600-03-fa-cao-jul-2026.pdf",
+   "codes": [
+    "13A"
+   ],
+   "imported": false,
+   "reason": "Only Colonel headings are found; the Field Artillery grade sections are under headings the importer does not read."
+  },
+  {
+   "file": "da-pam-600-3-career-charts-wo-od-fy25.pdf",
+   "codes": [],
+   "imported": false,
+   "reason": "Career charts (figures) for warrant and other officers; no text sections."
+  },
+  {
+   "file": "da-pam-600-3-chaplain-2026-update.pdf",
+   "codes": [
+    "56A",
+    "56D"
+   ],
+   "imported": false,
+   "reason": "Four separate runs of Major, Lieutenant Colonel and Colonel headings for different chaplain tracks; the track-to-AOC mapping is not established."
+  },
+  {
+   "file": "da-pam-600-3-cmf74-chemical-branch-3mar26.pdf",
+   "codes": [
+    "74A"
+   ],
+   "imported": false,
+   "reason": "Grade headings interleave with warrant-officer and AOC-specific sections; the officer text cannot be separated reliably."
+  },
+  {
+   "file": "da-pam-600-3-cyber-branch-fy25.pdf",
+   "codes": [
+    "17A",
+    "17B",
+    "17D"
+   ],
+   "imported": false,
+   "reason": "Heading runs are written for the separate AOCs (17A, 17B, 17D) and for the Reserve Component; the run-to-AOC mapping is not established."
+  },
+  {
+   "file": "da-pam-600-3-fy25-fa26-data-network-engineering-final.pdf",
+   "codes": [
+    "26A",
+    "26B",
+    "26Z"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "da-pam-600-3-fy25-signal-final.pdf",
+   "codes": [
+    "25A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "en-br-9-june-2026.pdf",
+   "codes": [
+    "12A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "fa-46-public-affairs-oct-23.pdf",
+   "codes": [
+    "46A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "fa-49-orsa-da-pam-600-3-as-of-20210601.pdf",
+   "codes": [
+    "49A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "fa-50-da-pam-600-3-25-apr-24.pdf",
+   "codes": [
+    "50A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "fa-52-pam-600-3-update-as-of-13-apr-20.pdf",
+   "codes": [
+    "52A"
+   ],
+   "imported": false,
+   "reason": "Only Lieutenant Colonel and Colonel headings are found."
+  },
+  {
+   "file": "fa-58-da-pam-600-3-25-oct-23.pdf",
+   "codes": [
+    "58A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "fa-59-strategist-da-pam-600-3-as-of-1-apr-20.pdf",
+   "codes": [
+    "59A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "fc-10sep25.pdf",
+   "codes": [
+    "36A"
+   ],
+   "imported": false,
+   "reason": "Imported earlier (page-by-page reviewed pilot: army-fc-officer-2025-09-10)."
+  },
+  {
+   "file": "infantry-branch-da-pam-600-1-sep-22.pdf",
+   "codes": [
+    "11A"
+   ],
+   "imported": false,
+   "reason": "Only Captain and Colonel headings are found; the file name says DA PAM 600-1 and the date is September 2022."
+  },
+  {
+   "file": "lg-da-19-aug-25.pdf",
+   "codes": [
+    "88A",
+    "90A",
+    "91A",
+    "92A"
+   ],
+   "imported": false,
+   "reason": "The Logistics Corps pamphlet has several runs for different logistics AOCs and the Reserve Component; the run-to-AOC mapping is not established."
+  },
+  {
+   "file": "mi-da-pam-600-3-aug2026.pdf",
+   "codes": [
+    "35A",
+    "35B"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "military-police-da-pam-600-3-june-2024.pdf",
+   "codes": [
+    "31A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "ordnance-28-aug-25.pdf",
+   "codes": [
+    "89E",
+    "91A"
+   ],
+   "imported": false,
+   "reason": "No grade headings found."
+  },
+  {
+   "file": "po-da-pam-600-3-dtd-19-nov-24.pdf",
+   "codes": [
+    "37A"
+   ],
+   "imported": true,
+   "reason": null
+  },
+  {
+   "file": "qm-19-aug-2025.pdf",
+   "codes": [
+    "92A"
+   ],
+   "imported": false,
+   "reason": "Grade sections say 'See DA PAM 600-3 SMARTBOOK'; the text is not in the file."
+  },
+  {
+   "file": "sf-da-pam-600-3-draft-dtd-2mar26-pdf.pdf",
+   "codes": [
+    "18A"
+   ],
+   "imported": false,
+   "reason": "The file is marked draft (2 March 2026); a draft is not imported."
+  },
+  {
+   "file": "swcs-cg-approved-ca-chapter-da-pam-600-03-effective-fy27-15jul2026-grp-s9-added-v2.pdf",
+   "codes": [
+    "38A",
+    "38G",
+    "38S"
+   ],
+   "imported": false,
+   "reason": "Three runs for the Civil Affairs AOCs (38A, 38G, 38S) and the Reserve Component; the run-to-AOC mapping is not established."
+  },
+  {
+   "file": "tc-branch-19-aug-25.pdf",
+   "codes": [
+    "88A"
+   ],
+   "imported": false,
+   "reason": "Only a Captain heading is found; the other grades say to see the Logistics SMARTBOOK."
+  },
+  {
+   "file": "usma-professor-fa-47-da-pam-600-3-as-of-200413.pdf",
+   "codes": [
+    "47A",
+    "47C",
+    "47D",
+    "47E",
+    "47F",
+    "47G",
+    "47H",
+    "47J",
+    "47K",
+    "47L"
+   ],
+   "imported": false,
+   "reason": "One Captain-to-Colonel run that describes the whole permanent-professor career for twelve discipline AOCs (47A-47L); it is not mapped to a single AOC."
+  }
+ ],
+ "warrant": "No warrant-officer development guidance is imported: the warrant sections of the DA PAM 600-3 pamphlets and the warrant/officer career charts (da-pam-600-3-career-charts-wo-od-fy25.pdf, figures) are not imported. Warrant specialties are served from DA PAM 611-21 duties only."
+}

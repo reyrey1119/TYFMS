@@ -18,6 +18,7 @@ import { buildStore } from '../scripts/build-reference-store.js'
 import { REFERENCE_STORE_SOURCES } from '../api/_lib/referenceStore.data.js'
 import { markScopeBullets, unmarkedScopeBullets } from '../api/_lib/scopeMarkers.js'
 import { buildReconciliation, renderMarkdown, loadReconciliationBundles } from '../scripts/reconcile-imported-coverage.js'
+import { build as buildGuideCoverage, render as renderGuideCoverage } from '../scripts/reconcile-guide-coverage.js'
 
 const NOW = Date.parse('2026-10-16T12:00:00Z')
 const root = new URL('../', import.meta.url)
@@ -531,4 +532,20 @@ test('recommended training, credentials, assignments and self-development never 
     assert.ok(prompts.length >= 1, `${code}: resume prompt captured`)
     for (const p of recs) assert.ok(!rp.includes(squashT(p.body).slice(0, 70)), `${code}@${rank}: a ${p.section_type} passage reached the resume prompt`)
   }
+})
+
+// ── career-guide coverage: what has approved development guidance, and why the rest does not ──
+
+test('every current specialty either has approved career-guide guidance or a stated reason, and the committed report is current', async () => {
+  const r = await buildGuideCoverage(f => readFile(new URL(f, root), 'utf8'), d => readdir(new URL(d + '/', root)))
+  assert.deepEqual(r.rows.filter(x => x.exception === 'UNACCOUNTED').map(x => x.code), [], 'a code with neither guide grades nor a reason')
+  for (const x of r.rows) assert.ok(x.guide_grades || x.exception, `${x.category} ${x.code}`)
+  assert.equal(await readFile(new URL('data/reference/corpus/guide-coverage-reconciliation.json', root), 'utf8'), JSON.stringify(r, null, 1) + '\n', 'run: node scripts/reconcile-guide-coverage.js')
+  assert.equal(await readFile(new URL('data/reference/corpus/guide-coverage-reconciliation.md', root), 'utf8'), renderGuideCoverage(r))
+  // the numbers the report states (a change must be deliberate)
+  assert.deepEqual(r.summary.enlisted, { current_in_register: 179, with_approved_guide_grades: 174, without: 5 })
+  assert.deepEqual(r.rows.filter(x => x.category === 'enlisted' && x.exception).map(x => x.code).sort(), ['08H', '42S', '79R', '79T', '88P'])
+  assert.equal(r.summary.officer.with_approved_guide_grades, 22)
+  // the unapproved Medical Service Corps chapter is imported but never counted
+  assert.deepEqual(r.unapproved_guide_bundles, ['army-600-4-20220223-medical-service-corps'])
 })
