@@ -17,7 +17,7 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import path from 'node:path'
 import { parseArgs } from 'node:util'
-import { readPdf, extractPages, normalizeSpace } from './lib/pdfLines.js'
+import { readPdf, extractPages, normalizeSpace, findRunningLines } from './lib/pdfLines.js'
 
 const { values } = parseArgs({ options: { bundle: { type: 'string' }, pdf: { type: 'string' }, out: { type: 'string', default: 'data/reference/reports' } } })
 if (!values.bundle || !values.pdf) { console.error('Usage: node scripts/verify-reference-bundle.js --bundle <bundle.json> --pdf <file.pdf>'); process.exit(2) }
@@ -27,9 +27,30 @@ const { buffer, sha256 } = await readPdf(values.pdf)
 const pages = await extractPages(buffer)
 
 // Same page-text form the importer works from: whitespace-normalized, printed page number dropped.
-const pageText = Object.fromEntries(pages.map(p => [p.num, normalizeSpace(p.text.replace(/^\s*\d{1,3}\s*\n/, ''))]))
+// Lines the importer took out before parsing (table rows listed in the guide manifest, running headers/footers) are taken out here
+// too, one occurrence per listed line; the importer's list of running lines must also match what the PDF itself shows.
+const removed = new Map()
+for (const r of bundle.report?.removedLines || []) removed.set(`${r.page}|${r.text}`, (removed.get(`${r.page}|${r.text}`) || 0) + 1)
+const pageLines = p => {
+  const left = new Map(removed)
+  const kept = []
+  for (const l of p.text.split('\n').map(normalizeSpace).filter(Boolean)) {
+    const k = `${p.num}|${l}`
+    if (left.get(k) > 0) { left.set(k, left.get(k) - 1); continue }
+    kept.push(l)
+  }
+  if (kept.length && /^\d{1,3}$/.test(kept[0])) kept.shift()
+  return kept
+}
+const pageText = Object.fromEntries(pages.map(p => [p.num, normalizeSpace(pageLines(p).join(' '))]))
 
 const result = { bundle: bundle.manifest_id, checks: {}, failures: [], residue: [], figureLines: [] }
+if (bundle.report?.runningLines) {
+  const mine = findRunningLines(pages)
+  if (JSON.stringify(mine) !== JSON.stringify(bundle.report.runningLines)) result.failures.push('the running header/footer lines recorded in the bundle are not the ones this PDF shows')
+  result.checks.runningLinesRemoved = (bundle.report.removedLines || []).filter(r => r.why === 'running header/footer').length
+  result.checks.tableRowsRemoved = (bundle.report.removedLines || []).filter(r => r.why === 'table row').length
+}
 
 // 1. exact file
 result.checks.checksumMatches = sha256 === bundle.source.checksum_sha256
@@ -52,7 +73,7 @@ result.checks.verbatimOnClaimedPages = verbatim
 let overlaps = 0
 const seen = new Map()
 for (const p of bundle.passages) {
-  const key = [p.occupation_code, p.personnel_category, p.section_type, p.rank_band, p.components, p.effective_from ?? '', p.effective_to ?? '', normalizeSpace(p.body)].join('|')
+  const key = [p.occupation_code, p.personnel_category, p.section_type, p.rank_band, p.components, p.effective_from ?? '', p.effective_to ?? '', normalizeSpace(p.body), normalizeSpace(p.body).length > 40 ? '' : p.heading].join('|')   // a short stock statement ("None.") under different headings is not double counting
   if (seen.has(key)) { overlaps++; result.failures.push(`DUPLICATE passage stored twice: [${p.occupation_code} ${p.section_type} ${p.rank_band || '-'}] "${normalizeSpace(p.body).slice(0, 50)}…"`) }
   seen.set(key, true)
 }

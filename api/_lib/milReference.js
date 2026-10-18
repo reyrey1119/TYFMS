@@ -316,7 +316,9 @@ function assembleFromPassages(passages, req, now) {
   return {
     duty_title: (shown.find(p => p.occupation_title) || eligible.find(p => p.occupation_title) || {}).occupation_title || '',
     sections,
-    hasRankSection: sections.some(s => s.rankBand),
+    // DA PAM 611-21's grade-by-grade duties only: recommendations (training, assignments) and a career guide's expected skills
+    // say nothing about whether the specification gives duties for this grade
+    hasRankSection: sections.some(s => s.rankBand && s.section === 'rank_duties'),
     componentNote: null,
     ...fields,
   }

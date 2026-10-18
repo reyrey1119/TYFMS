@@ -1,0 +1,11 @@
+{
+ "note": "The ASI/SQI tables (pages 6-14, repeated inside each grade's text) and the 68W critical-leader-development table (pages 76-77) are not imported: their columns (ASI/SQI, title, MOS, grade, remarks; unit type, position title) do not survive text extraction, so a row could be read against the wrong MOS or grade. The prose around the tables is imported. Table rows were identified by the tab characters that separate their cells.",
+ "title": "DA PAM 600-25 CMF 68 (Army Medical Department enlisted) career progression plan, 22 Aug 2023",
+ "proponent": "AMEDD Personnel Proponent Directorate (APPD) / Medical Center of Excellence",
+ "limitations": "Table rows (ASI/SQI lists, 68W critical leader development positions) are left out because their column structure is lost in extraction; see the PDF for those tables.",
+ "skipRawPatterns": [
+  "\\t.*\\t",
+  "^[A-Z0-9]{1,2}\\s*\\t[A-Z]",
+  "^(ASI|SQI)\\s*\\t"
+ ]
+}

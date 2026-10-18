@@ -47,6 +47,230 @@
    "reviewed_at": "2026-10-16T12:00:00Z",
    "method": "page-by-page-visual-review",
    "scope": "Every imported PDF page rendered and compared with the stored passages (see docs/reference-sources.md)."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-11-final-18-oct-22",
+   "fingerprint": "8889ace7d77ba3c63773d0e811efa85ff21cfc9dddb8dbd699935c994e5dcfeb",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 11 (2022-10-18): rank-specific training, assignments, credentials, self-development and development guidance for 11B, 11C, 11Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p5 (11B). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-12-da-pam-600-25-22-jan-26",
+   "fingerprint": "bb673b73a9d232db7dc1604033726dd550c3d72e050c2ffc80d4ffedc7d199e8",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 12 (2026-01-22): rank-specific training, assignments, credentials, self-development and development guidance for 12A, 12B, 12C, 12D, 12G, 12H, 12K, 12M, 12N, 12P, 12Q, 12R, 12T, 12W, 12X, 12Y, 12Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p21 (12M). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-13-da-pam-600-25-25-aug-26",
+   "fingerprint": "210e7b17b55b690ea5c53accdf43856c15956df9e56c848878a9398185934371",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 13 (2026-08-25): rank-specific training, assignments, credentials, self-development and development guidance for 13B, 13F, 13J, 13M, 13R, 13Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p26 (13J). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-14-da-pam-600-25-9-aug-24",
+   "fingerprint": "60cd966fd91915a76126fce3649e19f3f777841dee7c4e8325859de4a6229580",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 14 (2024-08-09): rank-specific training, assignments, credentials, self-development and development guidance for 14E, 14G, 14H, 14P, 14T, 14Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p54 (14T). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-15-da-pam-600-25-25-aug-26",
+   "fingerprint": "58e4267a2ec96d4d471a0d1161fab4508f14e439cd8040f707c3e253b8eddea6",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 15 (2026-08-25): rank-specific training, assignments, credentials, self-development and development guidance for 15B, 15C, 15D, 15F, 15G, 15H, 15K, 15L, 15M, 15N, 15P, 15Q, 15R, 15T, 15U, 15X, 15Y, 15Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p24 (15U). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. Chapter 3 lists the Most/Highly Qualified indicators before the by-rank list; the indicators are stored as promotion criteria and never shown."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-17-da-pam-600-25-30-jan-25",
+   "fingerprint": "9bd62fdb22090e3dafa09921190f4d24bc5c1a7d26c0c7fa2903eec99f6a5f85",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 17 (2025-01-30): rank-specific training, assignments, credentials, self-development and development guidance for 17C, 17E, 17Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p13 (17C). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-18-da-pam-600-25-1-jun-25",
+   "fingerprint": "d2854b6d523cb06f22e03eb62435c9c91a9f898afe1ae0a870121bda4b829160",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 18 (2025-06-01): rank-specific training, assignments, credentials, self-development and development guidance for 18B, 18C, 18D, 18E, 18F, 18Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p6 (the education table), p22, p28 (language table, appendix D). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. The page 6 education table is not imported (columns lost); Appendices B-F are not imported; Appendix A (assignments) is."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-19-da-pam-600-25-21-aug-25",
+   "fingerprint": "a0df31c2d607b7317cc7121a001a77fa81a86fc1cddcb31de2f6fc55626429f8",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 19 (2025-08-21): rank-specific training, assignments, credentials, self-development and development guidance for 19C, 19D, 19K, 19Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p10 and p19 (19K). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-25-da-pam-600-25-25-jun-24",
+   "fingerprint": "24354718aca36f5fefca13f03c744f754e7adbead58b2cb62ed315eab6786780",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 25 (2024-06-25): rank-specific training, assignments, credentials, self-development and development guidance for 25B, 25D, 25E, 25H, 25S, 25U, 25Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p11 (25E). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-27-da-pam-600-25-13-mar-26",
+   "fingerprint": "b5968cec327a0b9142e698d40c66e937eba41308e725ec5107bfc59d37ecf2a6",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 27 (2026-03-13): rank-specific training, assignments, credentials, self-development and development guidance for 27D. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p9, p22 (27D). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. Reserve Component chapters 6 (ARNG) and 7 (USAR) are not imported."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-31-da-pam-600-25-21-aug-25",
+   "fingerprint": "e5a01a968cf62410b48c88d2b74c6efccab47a975376aca49e4004a6dabff73d",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 31 (2025-08-21): rank-specific training, assignments, credentials, self-development and development guidance for 31B, 31D, 31E, 31K, 31Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p25 (31K). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-35-da-pam-600-25-27-jun-25",
+   "fingerprint": "e8e42466021062f9767180a694f3a595efa32fd5648a5fa1798618b4b618ebc2",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 35 (2025-06-27): rank-specific training, assignments, credentials, self-development and development guidance for 35F, 35G, 35L, 35M, 35N, 35P, 35S, 35T, 35Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p52 (35Z). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. 35Z is imported from its two one-grade chapters (MSG, SGM)."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-37f-po-da-pam-600-25-v8-6-final-22-feb-24",
+   "fingerprint": "8a9c9f6971774694bb2fc6205afe3fff1975545d0ab5155c8619433e5bf97c4d",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 37F (2024-02-22): rank-specific training, assignments, credentials, self-development and development guidance for 37F. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p15 (37F). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. Only the Regular Army chapter (E-5 to E-9) is imported; the topic-organized CMF-wide chapter 3 and the Reserve Component chapter 5 are not. The guide has no section for E-1 to E-4 in the Regular Army chapter."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-38-da-pam-600-25-30-sep-26",
+   "fingerprint": "9385ee57617bdecfea7190526c3443397aea3753594b2cd3e0efda9f70dcfe21",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 38 (2026-09-30): rank-specific training, assignments, credentials, self-development and development guidance for 38R, 38W, 38Z, 38B. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p24 (38Z). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. Chapter 3 is cut into its two by-rank lists (military education; publications and reading) with the paragraphs between them kept as unranked general guidance. 38B has no section for E-1 to E-4 in the guide."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-40-da-pam-600-25-21-jul-26",
+   "fingerprint": "3015f0ea5223b1b2c8f5663d409d1b670b4fafbd7006857eabb0817a70661fc5",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 40 (2026-07-21): rank-specific training, assignments, credentials, self-development and development guidance for 40D. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p10 (40D). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. The guide is an outline; the per-grade development paragraphs (items vii-xii) are imported for MOS 40D."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-42-da-pam-600-25-30-sep-25",
+   "fingerprint": "35152030b65b0f9548857e37540d61f950a3f6d430a5f42578a353de6b78b05b",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 42 (2025-09-30): rank-specific training, assignments, credentials, self-development and development guidance for 42R, 42S. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p23, p60 (42R, 42S). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. 42S is NOT imported: its four unit-specific chapters (U.S. Army Band, Field Band, Old Guard Fife and Drum Corps, U.S. Military Academy Band) repeat the same grades and cannot be told apart. 42A is imported separately (army-cmf42-dapam600-25-2025-09-30); 42T is imported with the CMF 79 guide."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-42t-79-da-pam-600-25-9-sep-26",
+   "fingerprint": "fa33988557b927ec5cc661dcf7d15c60d48999692dcb926f72390860c8e133c3",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 42T-79 (2026-09-09): rank-specific training, assignments, credentials, self-development and development guidance for 42T, 79S, 79T, 79V. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p44 (79V). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. 79T is NOT imported: its chapter gives each grade twice (AGR T-32 and AGR T-10 tracks)."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-46-da-pam-600-25-4-feb-26",
+   "fingerprint": "806671848a8e5b448bbfc18743bd5f23d8d56fb1880868cd510a1885cda587b8",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 46 (2026-02-04): rank-specific training, assignments, credentials, self-development and development guidance for 46S, 46T, 46V, 46Y, 46Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p13 (46Z). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-51-update-12-apr-22",
+   "fingerprint": "70f7017c7085d8e64187897eaaee8ca5827989e15b105336ed21cdbd2a9d883c",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 51 (2022-04-12): rank-specific training, assignments, credentials, self-development and development guidance for 51C. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p5 (51C). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. The guide has no numbered chapters; its sections 21-3 (CMF-wide) and 21-4 (MOS 51C) were cut by the manifest. This is the 12 Apr 2022 update."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-56-14-apr-2022-v2",
+   "fingerprint": "7ab5152a3e0af545742cc519d40f42ab49ca1ff6f80a037141649addc2f878af",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 56-14 (2022-04-14): rank-specific training, assignments, credentials, self-development and development guidance for 56M. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p9 (56M). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-68-da-pam-600-25-22-aug-23",
+   "fingerprint": "411ca1919708a8bccf43ccc4acc315bb33077b70cd66c0783701f94cb7adf869",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 68 (2023-08-22): rank-specific training, assignments, credentials, self-development and development guidance for 68A, 68B, 68C, 68D, 68E, 68F, 68G, 68H, 68J, 68K, 68L, 68M, 68P, 68Q, 68R, 68S, 68T, 68V, 68W, 68X, 68Y, 68Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p3, p9, p14 (ASI/SQI tables), p30 (68E), p85 (68Z). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. The ASI/SQI tables (pages 6-14) and the 68W critical-leader-development table (pages 76-77) are not imported because their columns are lost in extraction; the prose around them is."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-74-da-pam-600-25-3-sep-25",
+   "fingerprint": "b8d759cdc4721ffbaad6562240900a8610359242a0542f3654787e7cf323f17e",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 74 (2025-09-03): rank-specific training, assignments, credentials, self-development and development guidance for 74D. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p24 (74D). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-88-da-pam-600-25-18-dec-24",
+   "fingerprint": "bce8787c90b061659e9e372c2c4555d20e4358c897d36b0e569079b4e6ded3a9",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 88 (2024-12-18): rank-specific training, assignments, credentials, self-development and development guidance for 88H, 88K, 88L, 88M, 88N, 88U, 88Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p43 (88U/88Z). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. The guide numbers the 88U professional-development-model chapter 24 where the sequence expects 20; chapters 24-27 are read as 20-23 (checked on pages 43 and 47)."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-89-da-pam-600-25-15-aug-24",
+   "fingerprint": "e60b2715758838e3de2a1605d90935b6771e5280909f468df7f0ab984cdc13e7",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 89 (2024-08-15): rank-specific training, assignments, credentials, self-development and development guidance for 89A, 89B, 89D. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p14 (89D). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-91-da-pam-600-25-15-aug-24",
+   "fingerprint": "9ff03d23fdb353e40d9920ed8cdb6996ef65d4e3d1494fbc9749fcd3d0d85a38",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 91 (2024-08-15): rank-specific training, assignments, credentials, self-development and development guidance for 91A, 91B, 91C, 91D, 91E, 91F, 91H, 91J, 91L, 91M, 91P, 91S, 91X, 91Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p27 (91M). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-92-da-pam-600-25-28-jan-25",
+   "fingerprint": "40d64915c1645c02c123429862624e20517b4de7415316b31d6e19809fd19ee5",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 92 (2025-01-28): rank-specific training, assignments, credentials, self-development and development guidance for 92A, 92F, 92G, 92L, 92M, 92R, 92S, 92W, 92Y, 92Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p39 (92Y). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties. 92Z is imported from its professional-development-model chapter (SGM/CSM only)."
+  },
+  {
+   "manifest_id": "army-600-25-cmf-94-da-pam-600-25-9-aug-24",
+   "fingerprint": "e2d49a11e35047e6dc95200479383774b35caa00bc46d9c16c2a17a61a8ef473",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, CMF 94 (2024-08-09): rank-specific training, assignments, credentials, self-development and development guidance for 94A, 94D, 94E, 94F, 94H, 94M, 94P, 94R, 94S, 94T, 94W, 94Y, 94Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p33 (94Y). Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
+  },
+  {
+   "manifest_id": "army-600-25-mos-00z",
+   "fingerprint": "5623b9741c09600b400f7a58f4b8f7f63e429c7fcd6fbcc27b1c11ed9a160818",
+   "reviewer": "Claude Sonnet 5.5 (AI-assisted: automated verbatim, line-accounting, rank-order, grade cross-check and structure checks on every passage, plus visual comparison of the sampled rendered pages named in the scope, 2026-10-17), authorized by project owner Rey Rodriguez. Not a human subject-matter-expert review.",
+   "reviewed_at": "2026-10-17T12:00:00Z",
+   "method": "automated-checks-plus-sampled-visual-review",
+   "scope": "DA PAM 600-25 career guide, mos-00z (2022-07-12): rank-specific training, assignments, credentials, self-development and development guidance for 00Z. Every passage checked verbatim against the PDF pages it cites (running page headers/footers and any table rows listed in the bundle are removed in both); no in-scope line is unassigned or silently dropped; rank sections are in order and cover every grade DA PAM 611-21 lists after the guide's first section; no heading-like line of another grade sits inside any passage; promotion-board criteria are stored as promotion criteria and never shown. Rendered pages compared with the stored passages: p2. Duties and prerequisites are not imported from this guide (DA PAM 611-21 is the source); professional/talent development model figures and Reserve Component chapters are not imported. Passages are recommendations and guidance, never occupational duties."
   }
  ]
 }

@@ -13,7 +13,7 @@ import { createHash } from 'node:crypto'
 import os from 'node:os'
 import path from 'node:path'
 import { parseArgs } from 'node:util'
-import { extractPages, toLines } from './lib/pdfLines.js'
+import { extractPages, toLines, findRunningLines } from './lib/pdfLines.js'
 import { parseGuideAuto } from './lib/guideAuto.js'
 import { stableUuid, importSql } from './lib/bundleSql.js'
 
@@ -86,12 +86,16 @@ for (const f of files) {
   if (sha !== entry.sha256) throw new Error(`checksum mismatch for ${f}`)
   const cp = path.join(cache, sha + '.json')
   let pages; try { pages = JSON.parse(await readFile(cp, 'utf8')) } catch { pages = await extractPages(buf); await writeFile(cp, JSON.stringify(pages)) }
-  const { lines, printedPages } = toLines(pages, { skipLinePatterns: mf.skipLinePatterns || [] })
+  const runningLines = findRunningLines(pages)
+  const { lines, printedPages, skipped } = toLines(pages, { skipLinePatterns: mf.skipLinePatterns || [], skipRawPatterns: mf.skipRawPatterns || [], skipRegions: mf.skipRegions || [], runningLines })
   const parsed = parseGuideAuto({ lines, source: {}, chapterOverrides: mf.chapters || {}, excludeCodes: mf.excludeCodes || [], chapterFixups: mf.chapterFixups || [], virtualChapters: mf.virtualChapters || null })
   const { report, mosCodes } = parsed
   const gate = applyStructureGate(parsed.passages, report, mf)
   const passages = gate.passages
   report.gated = gate.gated
+  report.runningLines = runningLines
+  // Every line taken out of the text before parsing, with the reason, so the verifier can account for each one.
+  report.removedLines = skipped.map(x => ({ page: x.page, text: x.text, why: x.why || 'skip pattern in the guide manifest' }))
   if (!passages.length) { summary.push({ file: f, passages: 0, flags: report.flags.length, unassigned: report.unassigned.length }); continue }
   const id = `army-600-25-${f.replace(/\.pdf$/, '')}`
   const sourceId = stableUuid('source|' + id)

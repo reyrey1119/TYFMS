@@ -30,14 +30,56 @@ export function normalizeSpace(s) {
   return String(s).replace(/[\t ]+/g, ' ').replace(/\s+/g, ' ').trim()
 }
 
-export function toLines(pages, { skipLinePatterns = [] } = {}) {
+// Running headers and footers ("Army Medical Department (CMF 68) Career Progression Plan", "... Effective FY27 18"): a line whose
+// text (digits masked) is the same at the same position from the top or bottom of at least a quarter of the pages. They are not part
+// of any paragraph, but the PDF text layer puts them in the middle of a passage that crosses a page break.
+const maskRunning = s => normalizeSpace(s).replace(/\d+/g, '#')
+const EDGE_TOP = 4, EDGE_BOTTOM = 3
+export function findRunningLines(pages) {
+  const counts = new Map()
+  for (const page of pages) {
+    const lines = page.text.split('\n').map(normalizeSpace).filter(Boolean)
+    lines.forEach((l, i) => {
+      const side = i < EDGE_TOP ? `T${i}` : lines.length - 1 - i < EDGE_BOTTOM ? `B${lines.length - 1 - i}` : null
+      if (side) { const k = `${side}|${maskRunning(l)}`; counts.set(k, (counts.get(k) || 0) + 1) }
+    })
+  }
+  const need = Math.max(4, Math.ceil(pages.length * 0.25))
+  return [...counts].filter(([, c]) => c >= need).map(([k]) => k).sort()
+}
+export function dropRunningLines(lines, running) {
+  if (!running?.length) return { kept: lines, dropped: [] }
+  const set = new Set(running)
+  const kept = [], dropped = []
+  lines.forEach((l, i) => {
+    const side = i < EDGE_TOP ? `T${i}` : lines.length - 1 - i < EDGE_BOTTOM ? `B${lines.length - 1 - i}` : null
+    if (side && set.has(`${side}|${maskRunning(l)}`)) dropped.push(l); else kept.push(l)
+  })
+  return { kept, dropped }
+}
+
+export function toLines(pages, { skipLinePatterns = [], skipRawPatterns = [], skipRegions = [], runningLines = [] } = {}) {
   const skips = skipLinePatterns.map(p => new RegExp(p, 'i'))
+  // tested on the line as extracted, with its tab characters (table cells are separated by tabs)
+  const rawSkips = skipRawPatterns.map(p => new RegExp(p))
   const lines = []
   const printedPages = {}
   const skipped = []
   for (const page of pages) {
-    const raw = page.text.split('\n').map(normalizeSpace).filter(Boolean)
-    let list = raw
+    // A table whose cells cannot be told apart once flattened: skip from the line matching `from` up to (not including) `until`.
+    let inRegion = null
+    const regionFilter = l => {
+      if (!inRegion) { const r = skipRegions.find(r => r.page === page.num && new RegExp(r.from).test(l)); if (r) inRegion = r; else return true }
+      if (new RegExp(inRegion.until).test(l) && !new RegExp(inRegion.from).test(l)) { inRegion = null; return true }
+      skipped.push({ page: page.num, text: normalizeSpace(l), why: 'table row' })
+      return false
+    }
+    const raw = page.text.split('\n').filter(regionFilter).filter(l => { if (rawSkips.some(re => re.test(l))) { skipped.push({ page: page.num, text: normalizeSpace(l), why: 'table row' }); return false } return true }).map(normalizeSpace).filter(Boolean)
+    const rr = dropRunningLines(raw, runningLines)
+    // a lone number at the top of a page that repeats on the pages is the printed page number (kept for citations)
+    if (raw.length && /^\d{1,3}$/.test(raw[0]) && rr.dropped.includes(raw[0])) printedPages[page.num] = raw[0]
+    for (const d of rr.dropped) if (!(/^\d{1,3}$/.test(d) && printedPages[page.num] === d)) skipped.push({ page: page.num, text: d, why: 'running header/footer' })
+    let list = rr.kept
     // A lone 1-3 digit number as the first line of a page is its printed page number.
     if (list.length && /^\d{1,3}$/.test(list[0])) {
       printedPages[page.num] = list[0]

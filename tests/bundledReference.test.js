@@ -10,7 +10,7 @@
 
 import { test, beforeEach, afterEach } from 'node:test'
 import assert from 'node:assert/strict'
-import { readFile } from 'node:fs/promises'
+import { readFile, readdir } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { retrieveReference, clearReferenceCache } from '../api/_lib/milReference.js'
 import { bundleContentHash } from '../scripts/lib/bundleSql.js'
@@ -156,7 +156,7 @@ test('a specification that takes effect on a stated date applies only from that 
   const before = await retrieveReference({ supabase: null, now: Date.parse('2026-01-15T00:00:00Z'), body: { branch: 'Army', mos_afsc: '92Y', rank: 'E-5' } })
   clearReferenceCache()
   const after = await retrieveReference({ supabase: null, now: NOW, body: { branch: 'Army', mos_afsc: '92Y', rank: 'E-5' } })
-  const e5 = r => r.sections.filter(s => s.rankBand === 'E-5' && !s.includedForLowerLevel)
+  const e5 = r => r.sections.filter(s => s.section === 'rank_duties' && s.rankBand === 'E-5' && !s.includedForLowerLevel)
   assert.equal(e5(before).length, 1)
   assert.equal(e5(after).length, 1)
   assert.notEqual(e5(before)[0].text, e5(after)[0].text)
@@ -419,7 +419,8 @@ const squashT = x => String(x).toLowerCase().replace(/[^a-z0-9]+/g, '')
 
 test('EXHAUSTIVE: every current code at every grade, empty duties and no Vault, gets only its own code\'s official text for that grade', async () => {
   const bundles = { enlisted: await bundleOf('army-611-21-enlisted-ch10c'), warrant: await bundleOf('army-611-21-warrant-ch8b'), officer: await bundleOf('army-611-21-officer-ch3') }
-  const pilot = [await bundleOf('army-cmf42-dapam600-25-2025-09-30'), await bundleOf('army-cmf36-dapam600-25-2024-07-19'), await bundleOf('army-fc-officer-2025-09-10')]
+  const guides = (await readdir(new URL('data/reference/bundles/', root))).filter(f => /^army-600-25-.*\.bundle\.json$/.test(f)).map(f => f.replace(/\.bundle\.json$/, ''))
+  const pilot = [await bundleOf('army-cmf42-dapam600-25-2025-09-30'), await bundleOf('army-cmf36-dapam600-25-2024-07-19'), await bundleOf('army-fc-officer-2025-09-10'), ...await Promise.all(guides.map(bundleOf))]
   const pilotFor = cat => pilot.flatMap(b => b.passages).filter(p => p.personnel_category === cat)
   const byCode = {}
   for (const cat of Object.keys(bundles)) { byCode[cat] = new Map(); for (const p of [...bundles[cat].passages, ...pilotFor(cat)]) { if (!byCode[cat].has(p.occupation_code)) byCode[cat].set(p.occupation_code, []); byCode[cat].get(p.occupation_code).push(p) } }

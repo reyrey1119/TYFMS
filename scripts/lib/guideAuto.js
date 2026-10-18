@@ -17,7 +17,7 @@ const sha = s => createHash('sha256').update(s).digest('hex')
 
 // ── rank headings ────────────────────────────────────────────────────────────
 
-const ENUM = /^(?:\(\d+\)|\d+\s*[-–—]\s*\d+\.|\d+\.|\([a-z]\)|[a-z]\)|[a-z]\.)\s*/
+const ENUM = /^(?:\(\d+\)\.?|\d+\s*[-–—]\s*\d+\.|\d+\.|\([a-z]\)\.?|[a-z]\)|[a-z]\.)\s*/
 const ABBR = { pvt: ['private'], pv1: ['private'], pv2: ['private'], pfc: ['private'], spc: ['specialist'], cpl: ['corporal'], sgt: ['sergeant'], ssg: ['staff', 'sergeant'], sfc: ['sergeant', 'first', 'class'], msg: ['master', 'sergeant'], '1sg': ['first', 'sergeant'], sgm: ['sergeant', 'major'], csm: ['command', 'sergeant', 'major'], privates: ['private'], sergeants: ['sergeant'], corporals: ['corporal'], specialists: ['specialist'] }
 
 // Canonical word list of a rank phrase: lower-case, punctuation and grade tags removed, abbreviations expanded, repeats collapsed.
@@ -88,10 +88,11 @@ function endsSentenceOrHeading(prev) {
 // "Private-Specialist/Corporal (14E1O). Soldiers at this level ..." — the heading and its first sentence share a line.
 export function rankHeadingRunIn(text, prevText = '') {
   // A wrapped line that starts with "Sergeant. ..." continues a sentence; a heading follows the end of one.
-  const m = text.replace(ENUM, '').match(/^([A-Za-z][A-Za-z\s\/\-–—1]{2,60}?)\s*(\([^)]{1,40}\))?\s*[.:]\s+(\S.{12,})$/)
+  const m = text.replace(ENUM, '').match(/^([A-Za-z][A-Za-z\s\/\-–—1]{2,60}?)\s*(\([^)]{1,40}\))?\s*[.:]\s+(\S.{6,})$/)
   if (!m) return null
   // an enumerator, or a skill-level code in parentheses ("(14G3O)"), is enough evidence on its own
   const strong = ENUM.test(text) || /\(\s*\d{2}[A-Z]\d\s?[O0]\s*\)/.test(m[2] || '')
+  if (m[3].length < 13 && !strong) return null   // a short remainder ("See MOS 12A.") only counts after an enumerator or skill-level code
   if (prevText && !strong && !endsSentenceOrHeading(prevText)) return null
   const head = rankHeading(`${m[1]}.`, '')
   if (!head) return null
@@ -107,6 +108,8 @@ const LABELS = [
   [/^(critical|key)\s+(leader\s+)?(developmental|development|designated)\b/i, 'assignments'],
   [/^career developmental\b/i, 'assignments'],
   [/^(kd|operating|nominative|mission critical|mission essential|developmental)\s+(assignments?|positions?|billets?)\b/i, 'assignments'],
+  [/^(special\s*\/\s*nominative|nominative)\s+(opportunit\w*|assignments?|billets?)\b/i, 'assignments'],
+  [/^(OF|GF|operating force|generating force)\s+(assignments?|positions?)\b/i, 'assignments'],
   [/^assignments?\b/i, 'assignments'],
   [/^(institutional|additional)\s+training\b/i, 'training'],
   [/^(functional courses?|troop schools?|professional military education)\b/i, 'training'],
@@ -119,7 +122,7 @@ const LABELS = [
   [/^star credential/i, 'credentials'],
   [/^lifelong learning\b/i, 'lifelong_learning'],
   [/^(self-?development|civilian education|army career degree|professional (clubs?|organizations?|reading|development)|competitive events?)\b/i, 'self_development'],
-  [/^(skills?|core competenc\w+|knowledge,? skills)\b/i, 'skills'],
+  [/^(skills?\s*[.:]|core competenc\w+|knowledge,? skills)/i, 'skills'],
   [/^(special awards?|goals? for development)\b/i, 'development'],
 ]
 // Labels that only identify the type of an item that is already delimited by its enumerator ("j) Education. ..."); as free-standing
@@ -128,6 +131,7 @@ const ENUM_ONLY_LABELS = [
   [/^(military\s+)?education\s*[.:]/i, 'training'],
   [/^developmental\s*\/\s*broadening\b/i, 'assignments'],
 ]
+const POINTER_PARA = /(professional|talent|career)\s+development\s+model|reserve\s+components?|national guard|\bUSAR\b|\bARNG\b|career map|^references?$/i
 const PROMOTION = /^(along\s+with\s+evaluating|promotion (selection|board|consideration)|to be (most|highly) qualified|(unqualified|fully qualified|highly qualified|most qualified|not (fully )?qualified)\b|promotion indicators?\b|(most|highly|fully) qualified indicators?\b)/i
 // An item whose text opens with the board-qualification list ((1) Most Qualified, (2) Highly Qualified ...) is promotion criteria.
 const PROMO_BODY = /(^|\n)(\(\d\)|\d\.)\s*(Most|Highly|Fully)\s+Qualified\b/i
@@ -222,7 +226,10 @@ export function splitRankSections(chapterLines, explicit = null) {
   for (const [, g] of groups) {
     const n = g.length
     const best = new Array(n).fill(1), prev = new Array(n).fill(-1)
-    for (let i = 0; i < n; i++) for (let j = 0; j < i; j++) if (start(g[j].band) < start(g[i].band) && best[j] + 1 > best[i]) { best[i] = best[j] + 1; prev[i] = j }
+    // numbered-paragraph headings ("24–4. Sergeant Major (SGM)", "24–5. Command Sergeant Major (CSM)") may repeat a grade: two sections
+    const isNM = h => /^\d+\s*[-–—]\s*\d+\./.test(chapterLines[h.k].text)
+    const stepsUp = (a, b) => start(a.band) < start(b.band) || (start(a.band) === start(b.band) && isNM(a) && isNM(b))
+    for (let i = 0; i < n; i++) for (let j = 0; j < i; j++) if (stepsUp(g[j], g[i]) && best[j] + 1 > best[i]) { best[i] = best[j] + 1; prev[i] = j }
     let end = 0
     for (let i = 1; i < n; i++) if (best[i] > best[end]) end = i
     const run = []
@@ -242,6 +249,16 @@ export function splitRankSections(chapterLines, explicit = null) {
   // may have been missed there. (Same-rank repeats are sub-headings of that rank; lines before the first heading are preamble.)
   const firstK = kept.length ? kept[0].k : Infinity
   kept.crossBandDropped = wrapped.filter(h => !kept.includes(h) && h.k > firstK).filter(h => { const before = kept.filter(x => x.k < h.k).at(-1); return before && before.band !== h.band }).length
+  // The chapter's own numbered paragraphs ("2–3. Goals for development", "2–4. Professional Development Model"): the rank sections
+  // are either those paragraphs themselves ("7–8. Master Sergeant") or lettered items inside one of them. A numbered paragraph that
+  // follows the grade sections is not part of the last grade's text.
+  kept.terminators = []
+  const paras = []
+  chapterLines.forEach((l, k) => { const m = l.text.match(/^(\d+)\s*[-–—]\s*(\d+)\.\s+([A-Z][^.]{2,80})/); if (m) paras.push({ k, n: +m[1], title: m[3].trim() }) })
+  const modeN = [...new Set(paras.map(x => x.n))].sort((a, b) => paras.filter(x => x.n === b).length - paras.filter(x => x.n === a).length)[0]
+  if (kept.length && paras.filter(x => x.n === modeN).length >= 3) {
+    for (const t of paras) if (t.n === modeN && t.k > kept[0].k && !kept.some(h => h.k === t.k) && !rankHeading(chapterLines[t.k].text, chapterLines[t.k - 1]?.text || '') && !/^(See|Refer|In addition|Continue|Note)\b/.test(t.title)) kept.terminators.push({ k: t.k, title: t.title })
+  }
   kept.perMos = groups.size > 1 || (groups.size === 1 && !groups.has(''))
   return kept
 }
@@ -301,9 +318,13 @@ function unknownLabel(text) {
 const GLUED = /(?<=\S[.)])(?=(?:\([a-z0-9]+\)|[a-z]\.|\d+\.)\s*(?:Private|Corporal|Sergeant|Staff [Ss]ergeant|Master [Ss]ergeant|First [Ss]ergeant|Sergeant [Ff]irst [Cc]lass|Sergeant [Mm]ajor)\b)/
 // A label that starts mid-line after a sentence ("... See TADECIDE (...). Army Credentialing Opportunities. Credentialing ...").
 const INLINE_LABEL = /(?<=[.)]\s)(?=(?:Army Credentialing Opportunities|Army Career Degree|Suggested correspondence courses|Additional training|Special assignments|Self-development)\s*[.:]\s)/
+// A heading that starts in the middle of a line after a label that ends without a period ("... See GI to Jobs COOL Website (f) Sergeant Major/Command Sergeant Major. ...").
+const MIDLINE_HEAD = /\s(?=\((?:[a-z]|\d+)\)\s*(?:Private|Specialist|Corporal|Sergeant|Staff Sergeant|Master Sergeant|First Sergeant|Command Sergeant Major|Sergeant Major)(?:[ \/-][A-Za-z\/ ]{0,40})?\.(?:\s+[A-Z]|$))/
 export function splitGluedHeadings(lines) {
   const out = []
   for (const l of lines) {
+    const mid = l.text.search(MIDLINE_HEAD)
+    if (mid > 20) { out.push({ ...l, text: l.text.slice(0, mid).trimEnd() }, { ...l, text: l.text.slice(mid + 1) }); continue }
     let at = l.text.search(GLUED)
     if (at > 3) { out.push({ ...l, text: l.text.slice(0, at) }, { ...l, text: l.text.slice(at) }); continue }
     at = l.text.search(INLINE_LABEL)
@@ -338,13 +359,16 @@ export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCo
   const plans = []
   for (const c of chapters) {
     const plan = { c, ...classifyChapter(c), ...(chapterOverrides[c.n] || {}) }
-    // An appendix at the end of a chapter ("Appendix A – Assignments") is not part of the last rank section.
-    const ap = plan.kind === 'skip' ? -1 : indexed.findIndex((l, k) => k >= c.headingEnd && k < c.end && /^Appendix\s+[A-Z]\b/.test(l.text))
-    if (ap >= 0) {
-      const main = { ...c, end: ap }
-      plans.push({ ...plan, c: main })
-      const title = indexed[ap].text
-      plans.push({ c: { n: `${c.n}-app`, k: ap, headingEnd: ap + 1, end: c.end, title }, kind: /assignment/i.test(title) ? 'appendix' : 'skip', codes: plan.codes, reason: 'appendix that is not about assignments by rank', attachTo: plan.kind === 'mos' ? plan.codes : null })
+    // Appendices at the end of a chapter ("Appendix A – Assignments", "Appendix B1 – ...") are not part of the last rank section;
+    // each starts its own section, and only the one about assignments is imported.
+    const apIdx = plan.kind === 'skip' ? [] : indexed.map((l, k) => k >= c.headingEnd && k < c.end && /^Appendix\s+[A-Z]\d?(\s*[-–—:]\s*\S|\s+[A-Z][a-z])/.test(l.text) ? k : -1).filter(k => k >= 0)
+    if (apIdx.length) {
+      plans.push({ ...plan, c: { ...c, end: apIdx[0] } })
+      apIdx.forEach((ak, ai) => {
+        const title = indexed[ak].text
+        const aend = ai + 1 < apIdx.length ? apIdx[ai + 1] : c.end
+        plans.push({ c: { n: `${c.n}-app${ai + 1}`, k: ak, headingEnd: ak + 1, end: aend, title }, kind: /assignment/i.test(title) ? 'appendix' : 'skip', codes: plan.codes, reason: 'appendix that is not about assignments by rank', attachTo: plan.kind === 'mos' ? plan.codes : null })
+      })
     } else plans.push(plan)
   }
   for (const p of plans) if (p.kind === 'mos') mosCodes.push(...p.codes)
@@ -433,19 +457,38 @@ export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCo
       const ctx = { code, title: null, chapterTitle: `Chapter ${c.n}. ${c.title}`.slice(0, 160), primary: ti === 0 }
       const before = passages.length
       // preamble: Major duties / Prerequisites duplicate DA PAM 611-21 and are not stored; goals for development are.
-      const pre = splitPreamble(preamble)
+      let preLines = preamble, promoLines = []
+      // Qualification indicators ("Most Qualified Indicators ...") listed before the by-rank sections are promotion criteria.
+      if (plan.promotionFrom) { const pk = preamble.findIndex(l => new RegExp(plan.promotionFrom).test(l.text)); if (pk >= 0) { preLines = preamble.slice(0, pk); promoLines = preamble.slice(pk) } }
+      const pre = splitPreamble(preLines)
+      if (promoLines.length) mk(ctx, { section_type: 'promotion_criteria', heading: 'Qualification indicators (promotion consideration)' }, promoLines)
       for (const part of pre) {
         if (part.skip) { if (ti === 0) for (const l of part.lines) mark(l, `skipped: ${part.skip}`); continue }
         mk(ctx, { section_type: part.type, heading: part.heading }, part.lines)
       }
       heads.forEach((h, idx) => {
-        const end = h.end ?? (idx + 1 < heads.length ? heads[idx + 1].k : chapterLines.length)
+        const nextHead = idx + 1 < heads.length ? heads[idx + 1].k : chapterLines.length
+        const term = (heads.terminators || []).find(t => t.k > h.k && t.k < nextHead)
+        const end = h.end ?? (term ? term.k : nextHead)
         if (ti === 0 && !h.rest) mark(chapterLines[h.k], 'rank-heading')
         if (h.mos && h.mos !== code) { if (ti === 0) for (const l of chapterLines.slice(h.k + 1, end)) mark(l, `section for MOS ${h.mos}`); return }
         const body = chapterLines.slice(h.k + 1, end)
         if (h.rest) body.unshift({ ...chapterLines[h.k], text: h.rest })
         parseRankBody(ctx, h, body, chapterLines[h.k], plan.kind)
         if (h.gapAfter) mk(ctx, { section_type: 'development', heading: h.gapAfter.heading }, h.gapAfter.lines)
+        // paragraphs after this grade's text that are not part of it: kept as general guidance, or skipped when they only point to
+        // a figure, a Reserve Component chapter or another document
+        if (term && !h.end) {
+          const terms = (heads.terminators || []).filter(t => t.k >= term.k && t.k < nextHead)
+          terms.forEach((t, i) => {
+            const tend = i + 1 < terms.length ? terms[i + 1].k : nextHead
+            const lns = chapterLines.slice(t.k, tend)
+            const text = joinLines(lns)
+            const skip = POINTER_PARA.test(t.title) ? 'figure, Reserve Component or pointer paragraph that follows the grade sections' : /^\S+\s+\S+\.\s+(See|Refer to)\b[^.]{0,120}\.?$/.test(text.replace(/\s+/g, ' ')) ? 'paragraph that only points elsewhere' : null
+            if (skip) { if (ti === 0) for (const l of lns) mark(l, `skipped: ${skip}`); return }
+            mk(ctx, { section_type: 'development', heading: t.title.length > 70 ? 'Additional guidance' : t.title }, [{ ...lns[0], text: lns[0].text.replace(/^\d+\s*[-–—]\s*\d+\.\s*/, '').trim() }, ...lns.slice(1)].filter(l => l.text))
+          })
+        }
       })
       summary.passages += passages.length - before
     })
@@ -460,8 +503,8 @@ export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCo
     for (const l of preamble) {
       const t = l.text.replace(ENUM, '')
       let m
-      if ((m = t.match(/^(major duties|prerequisites?)\b\s*[.:]?\s*/i))) { cur = { skip: 'duplicates DA PAM 611-21 (duties and prerequisites are imported from it)', lines: [l] }; out.push(cur) }
-      else if ((m = t.match(/^(goals? for development)\b\s*[.:]?\s*/i))) { cur = { type: 'development', heading: 'Goals for development', lines: [{ ...l, text: t.replace(/^(goals? for development)\b\s*[.:]?\s*/i, '') }] }; out.push(cur); if (!cur.lines[0].text) { mark(l, 'label-only'); cur.lines.shift() } }
+      if ((m = t.match(/^((Major|MAJOR) [Dd]uties|(Prerequisites?|PREREQUISITES?))\b\s*[.:]?\s*/))) { cur = { skip: 'duplicates DA PAM 611-21 (duties and prerequisites are imported from it)', lines: [l] }; out.push(cur) }
+      else if ((m = t.match(/^((Goals?|GOALS?) [Ff]or [Dd]evelopment)\b\s*[.:]?\s*/))) { cur = { type: 'development', heading: 'Goals for development', lines: [{ ...l, text: t.replace(/^(goals? for development)\b\s*[.:]?\s*/i, '') }] }; out.push(cur); if (!cur.lines[0].text) { mark(l, 'label-only'); cur.lines.shift() } }
       else if (cur) cur.lines.push(l)
       else out.push(cur = { type: 'development', heading: 'Overview', lines: [l] })
     }
@@ -483,7 +526,7 @@ export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCo
     if (lead.length) mk(ctx, { section_type: 'development', rank_band: h.band, heading: `${gradeLabel} — overview`, spanExtra: [headingLine] }, lead)
     for (const item of items) {
       const first = item.lines[0].text.replace(ENUM, '')
-      if (PROMOTION.test(first) || PROMO_BODY.test(item.lines.slice(0, 3).map(l => l.text).join('\n'))) { mk(ctx, { section_type: 'promotion_criteria', rank_band: h.band, heading: `${gradeLabel} — promotion consideration` }, item.lines); continue }
+      if (PROMOTION.test(first) || PROMOTION.test(first.replace(LABEL_TEXT, '')) || PROMO_BODY.test(item.lines.slice(0, 3).map(l => l.text).join('\n'))) { mk(ctx, { section_type: 'promotion_criteria', rank_band: h.band, heading: `${gradeLabel} — promotion consideration` }, item.lines); continue }
       const m = first.match(/^[^.:]{2,70}?[.:]\s*/)
       const rest = m && labelOf(item.lines[0].text, true) || m && item.type === 'development' ? first.slice(m[0].length) : first
       const bodyLines = [{ ...item.lines[0], text: rest }, ...item.lines.slice(1)].filter(l => l.text)
@@ -499,7 +542,11 @@ export function parseGuideAuto({ lines, source, chapterOverrides = {}, excludeCo
     if (inSkipped) continue
     if (!consumed[k]) report.unassigned.push({ page: indexed[k].page, text: indexed[k].text.slice(0, 90), why: 'not assigned to any passage' })
   }
-  passages.forEach((p, i) => { p.sort_order = i })
-  report.passageCount = passages.length
-  return { passages, report, mosCodes: uniqueMos }
+  // A passage that is only a pointer ("See MOS 68Z.") says nothing about the specialty or grade; it is left out and counted.
+  const POINTER_ONLY = /^\(?(see|refer to)\b[^.]{0,100}\.?\)?$/i
+  const keptPassages = passages.filter(p => !(p.body.length < 110 && POINTER_ONLY.test(p.body.trim().replace(/\s+/g, ' '))))
+  report.pointerOnlyDropped = passages.length - keptPassages.length
+  keptPassages.forEach((p, i) => { p.sort_order = i })
+  report.passageCount = keptPassages.length
+  return { passages: keptPassages, report, mosCodes: uniqueMos }
 }

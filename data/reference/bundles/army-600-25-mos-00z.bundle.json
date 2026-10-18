@@ -1,0 +1,114 @@
+{
+ "bundle_version": 1,
+ "manifest_id": "army-600-25-mos-00z",
+ "import_batch": "army-600-25-mos-00z@2026-10-18",
+ "source": {
+  "id": "c9d0af13-e548-50ae-be44-5411996836cc",
+  "branch": "Army",
+  "personnel_category": "enlisted",
+  "publication_number": "DA PAM 600-25",
+  "title": "Nominative CSM/SGM (MOS 00Z)",
+  "chapter": null,
+  "career_field": "mos-00z",
+  "proponent": null,
+  "official_url": "https://api.army.mil/e2/c/downloads/2022/07/12/a7e6965d/mos-00z.pdf",
+  "publication_date": "2022-07-12",
+  "effective_date": null,
+  "last_checked_at": "2026-10-18T00:00:00Z",
+  "checksum_sha256": "2eddf9e5df4b40308d43b64f6587ac6385243447f2353632eca04ff062d653a4",
+  "extraction_tool": "pdf-parse 2.4.5",
+  "notes": "Date basis: the date is the upload date in the official URL path (…/2022/07/12/…); the PDF prints no date. Imported for 00Z. Duties and prerequisites are NOT imported from this guide (DA PAM 611-21 is the source for them); promotion-board criteria are stored but never shown. LIMITATIONS: Reserve Component chapters and professional-development-model figures are not imported; career-field-wide rank guidance is attached to every MOS of this guide that has its own chapter."
+ },
+ "passages": [
+  {
+   "id": "fb787ef1-8252-5a25-9cd8-0837f670b696",
+   "occupation_code": "00Z",
+   "occupation_title": null,
+   "branch": "Army",
+   "personnel_category": "enlisted",
+   "section_type": "development",
+   "rank_band": "E-9",
+   "components": null,
+   "heading": "Sergeants Major — overview",
+   "chapter": "Chapter 2. MOS 00Z Nominative Sergeant Major",
+   "body": "00Z is the capstone for all MOSs within the Army at the General Officer level. Important assignments are those at the Battalion and Brigade level operations or broadening positions that are necessary in development and eligibility to potentially serve at the nominative level. 00Z is not a guarantee and is only awarded if selected to serve at the nominative level. Once the nominative tour is complete MOS 00Z is revoked and the NCO is reverted back to their original MOS at the E9 level.",
+   "pdf_page_start": 2,
+   "pdf_page_end": 2,
+   "printed_page": null,
+   "sort_order": 0,
+   "body_sha256": "04cd4d20f30a1254b3b1a9ba96991bc1c4260b6308000ea305cac045e75c6922"
+  },
+  {
+   "id": "9de85d08-cbd2-56ea-abf7-42ec5e87cd4d",
+   "occupation_code": "00Z",
+   "occupation_title": null,
+   "branch": "Army",
+   "personnel_category": "enlisted",
+   "section_type": "development",
+   "rank_band": "E-9",
+   "components": null,
+   "heading": "Sergeants Major — Command Sergeants Major",
+   "chapter": "Chapter 2. MOS 00Z Nominative Sergeant Major",
+   "body": "00Z is the capstone for all MOSs within the Army at the General Officer level. Important assignments are those serving successfully as Battalion and Brigade Command Sergeants Major that are necessary in development and eligibility to potentially serve at the nominative level. 00Z is not a guarantee and is only awarded if selected to serve at the nominative level. Once the nominative tour is complete MOS 00Z is revoked and the NCO is reverted back to their original MOS at the E9 level.\nd. Self-development. Civilian education is not a requirement for selection to a nominative position. However, continuing civilian education (completion of bachelors and master’s degree) is encouraged. Degrees enable senior leaders to think at the strategic level, a key goal of the nominative Sergeant Major.",
+   "pdf_page_start": 2,
+   "pdf_page_end": 2,
+   "printed_page": null,
+   "sort_order": 1,
+   "body_sha256": "ab5ba33248a6157cc981a2bd17fe7c31b4654cd61ebfcf6d08939219d50f6cbf"
+  }
+ ],
+ "report": {
+  "pdfPages": 5,
+  "chapters": [
+   {
+    "chapter": 2,
+    "title": "MOS 00Z Nominative Sergeant Major",
+    "kind": "mos",
+    "codes": [
+     "00Z"
+    ],
+    "ranks": [
+     "E-9"
+    ],
+    "droppedHeadings": 1,
+    "crossBandDropped": 0,
+    "ambiguous": [],
+    "passages": 2,
+    "flags": 1
+   }
+  ],
+  "skippedChapters": [
+   {
+    "chapter": "Definition",
+    "pdfPages": "1-1",
+    "reason": "not an MOS chapter and not rank guidance"
+   },
+   {
+    "chapter": "Knowledge, Skills, and Attributes (KSA)",
+    "pdfPages": "2-5",
+    "reason": "not an MOS chapter and not rank guidance"
+   },
+   {
+    "chapter": "Professional development model",
+    "pdfPages": "5-5",
+    "reason": "professional/talent development model: a figure, no text to import"
+   }
+  ],
+  "flags": [
+   "chapter 2 (MOS 00Z Nominative Sergeant Major): 1 line(s) looked like rank headings but were out of order or repeated"
+  ],
+  "unassigned": [],
+  "cmfWideAttachedTo": [],
+  "pointerOnlyDropped": 0,
+  "passageCount": 2,
+  "gated": [],
+  "runningLines": [],
+  "removedLines": [],
+  "byType": {
+   "development": 2
+  },
+  "mosCodes": [
+   "00Z"
+  ]
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "note": "Chapter 3 lists the Most/Highly Qualified indicators (promotion criteria, with 'a. SSG: ... b. SFC: ...' sub-bullets that are not rank headings) before the real by-rank list (items h-m). Only h-m are rank sections; the indicators are stored as promotion criteria and never shown.",
+ "chapters": {
+  "3": {
+   "promotionFrom": "^b\\. Most Qualified Indicators",
+   "rankHeadings": [
+    {
+     "match": "^h\\. Private \\(PVT\\) E\u20131 to Specialist/Corporal \\(SPC/CPL\\) E-4$",
+     "band": "E-1..E-4"
+    },
+    {
+     "match": "^i\\.\\s*Sergeant \\(SGT\\) E-5$",
+     "band": "E-5"
+    },
+    {
+     "match": "^j\\. Staff Sergeant \\(SSG\\) E-6$",
+     "band": "E-6"
+    },
+    {
+     "match": "^k\\. Sergeant First Class \\(SFC\\) E-7$",
+     "band": "E-7"
+    },
+    {
+     "match": "^l\\. Master Sergeant/First Sergeant \\(MSG/1SG\\) E-8$",
+     "band": "E-8"
+    },
+    {
+     "match": "^m\\. Sergeant Major/Command Sergeant Major \\(SGM/CSM\\) E-9$",
+     "band": "E-9"
+    }
+   ]
+  }
+ },
+ "title": "Aviation (CMF 15) Career Progression Plan, DA PAM 600-25, 25 Aug 2026"
+}

@@ -1,0 +1,13 @@
+{
+ "note": "Appendices B-F (skill identifiers, languages, civilian education, publications) follow Appendix A and are not imported; Appendix A (assignments by grade) is. The page 6 table of Professional Military Education by promotion (columns: promote to, board eligibility, pin-on requirement) is not imported because its columns are lost in extraction.",
+ "title": "DA PAM 600-25 CMF 18 (Special Forces) career progression plan, 1 Jun 2025",
+ "proponent": "U.S. Army John F. Kennedy Special Warfare Center and School (Special Forces proponent)",
+ "limitations": "The page 6 table of Professional Military Education by promotion is left out (columns lost in extraction). Appendices B-F are not imported.",
+ "skipRegions": [
+  {
+   "page": 6,
+   "from": "^Promote to:",
+   "until": "^NOTE:"
+  }
+ ]
+}
