@@ -36,6 +36,8 @@ export function groundEntries(entries, { reference, personal = [], referenceSect
         source: {
           ref: hit.sec.sourceRef || null,
           publication: src?.publicationNumber || null,
+          title: src?.title || null,
+          url: src?.url || null,
           publicationDate: src?.publicationDate || null,
           chapter: src?.chapter || null,
           pdfPages: hit.sec.pdfPages || null,

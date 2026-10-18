@@ -489,3 +489,46 @@ test('EXHAUSTIVE: every current code at every grade, empty duties and no Vault, 
   assert.ok(stats.calls > 3500, JSON.stringify(stats))
   assert.ok(stats.withGradeText > 1000 && stats.generalOnly > 500, JSON.stringify(stats))
 })
+
+// ── recommendations are never material for the generators ─────────────────────────────────────
+
+test('recommended training, credentials, assignments and self-development never reach a prompt, and are returned only as guidance', async () => {
+  const guides = (await readdir(new URL('data/reference/bundles/', root))).filter(f => /^army-600-25-.*\.bundle\.json$/.test(f)).map(f => f.replace(/\.bundle\.json$/, ''))
+  const all = [...await Promise.all(guides.map(bundleOf)), await bundleOf('army-cmf42-dapam600-25-2025-09-30'), await bundleOf('army-cmf36-dapam600-25-2024-07-19'), await bundleOf('army-600-4-20220223-medical-service-corps')].flatMap(b => b.passages)
+  const DUTY = new Set(['general_duties', 'rank_duties', 'skills'])
+  const prompts = []
+  globalThis.fetch = async (url, opts) => {
+    const body = JSON.parse(opts.body); prompts.push(promptOf(body))
+    const block = (promptOf(body).match(/<<<REFERENCE_DATA\n([\s\S]*?)\nREFERENCE_DATA>>>/) || [])[1] || ''
+    const first = (block.split(/\n(?=\[S\d)/).find(l => /^\[S\d/.test(l)) || '').replace(/^\[[^\]]*\](?:\s*\[[^\]]*\])?\s*[^:]*:\s*/, '').split(/\s+/).slice(0, 12).join(' ')
+    return { json: async () => ({ content: [{ type: 'text', text: JSON.stringify({ civilianTranslation: [{ basis: 'publication', evidence: first, militarySkill: 'm', civilianEquivalent: 'c', civilianFunctions: [], verify: 'v' }], certifications: [], summary: 's' }) }] }) }
+  }
+  for (const [code, rank] of [['25B', 'E-6'], ['68W', 'E-5'], ['38B', 'E-6'], ['11B', 'E-7'], ['27D', 'E-7'], ['40D', 'E-8']]) {
+    clearReferenceCache(); prompts.length = 0
+    const res = mockRes()
+    await (await translate())(mockReq({ action: 'translate', branch: 'Army', mos: code, rank, milDuties: '', vaultContext: '' }), res)
+    assert.equal(res.code, 200, `${code}@${rank}`)
+    const prompt = squashT(prompts.join('\n'))
+    // the guide's own opening description of the specialty can repeat a duties sentence word for word; such text is the duty text
+    const dutyText = squashT([...all, ...(await bundleOf('army-611-21-enlisted-ch10c')).passages, ...(await bundleOf('army-611-21-officer-ch3')).passages].filter(p => p.occupation_code === code && DUTY.has(p.section_type)).map(p => p.body).join(' '))
+    const recs = all.filter(p => p.occupation_code === code && !DUTY.has(p.section_type) && p.body.length > 60 && !dutyText.includes(squashT(p.body).slice(0, 70)))
+    assert.ok(recs.length > 0, `${code} has recommendation passages to test with`)
+    for (const p of recs) assert.ok(!prompt.includes(squashT(p.body).slice(0, 70)), `${code}@${rank}: a ${p.section_type} passage reached the prompt: ${p.body.slice(0, 50)}`)
+    // they come back as guidance, labelled as suggestions
+    assert.ok(Array.isArray(res.body.developmentGuidance) && res.body.developmentGuidance.length > 0, `${code} guidance panel`)
+    for (const g of res.body.developmentGuidance) for (const it of g.items) assert.ok(it.source?.publication && it.text, 'every guidance item names its source')
+    // and none of the evidence the entries cite is a recommendation
+    for (const e of res.body.civilianTranslation) assert.equal(e.basis, 'publication')
+    assert.ok(res.body.civilianTranslation.every(e => !recs.some(p => squashT(p.body).includes(squashT(e.evidence)))), `${code}@${rank}: an entry was grounded in a recommendation`)
+    // the resume builder: quick (translator) and full builder prompts carry no recommendation either
+    prompts.length = 0
+    const saved = globalThis.fetch
+    globalThis.fetch = async (url, opts) => { prompts.push(promptOf(JSON.parse(opts.body))); return { json: async () => ({ content: [{ type: 'text', text: 'resume text' }] }) } }
+    await (await resume())(mockReq({ branch: 'Army', mos: code, rank }), mockRes())
+    await (await resume())(mockReq({ branch: 'Army', mos: code, rank, name: 'A B', targetRole: 'Operations Manager' }), mockRes())
+    globalThis.fetch = saved
+    const rp = squashT(prompts.join('\n'))
+    assert.ok(prompts.length >= 1, `${code}: resume prompt captured`)
+    for (const p of recs) assert.ok(!rp.includes(squashT(p.body).slice(0, 70)), `${code}@${rank}: a ${p.section_type} passage reached the resume prompt`)
+  }
+})

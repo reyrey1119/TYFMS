@@ -15,7 +15,7 @@ import { promisify } from 'node:util'
 import { parseArgs } from 'node:util'
 import path from 'node:path'
 const run = promisify(execFile)
-const { values } = parseArgs({ options: { plan: { type: 'string' }, out: { type: 'string' }, base: { type: 'string' }, deployment: { type: 'string' }, 'pdf-dir': { type: 'string' }, personal: { type: 'boolean', default: false } } })
+const { values } = parseArgs({ options: { plan: { type: 'string' }, out: { type: 'string' }, base: { type: 'string' }, deployment: { type: 'string' }, 'pdf-dir': { type: 'string' }, 'pdf-root': { type: 'string', multiple: true }, personal: { type: 'boolean', default: false } } })
 const plan = JSON.parse(await readFile(values.plan, 'utf8'))
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 const sent = []
@@ -48,11 +48,31 @@ async function pagesOf(category) {
   }
   return pdfPages[category]
 }
+// Entries drawn from a career guide cite that guide's PDF: found by the file name in the source URL under any --pdf-root folder.
+const byName = new Map()
+async function indexRoots() {
+  const { readdir } = await import('node:fs/promises')
+  async function walk(dir) { for (const d of await readdir(dir, { withFileTypes: true })) { const f = path.join(dir, d.name); if (d.isDirectory()) await walk(f); else if (d.name.endsWith('.pdf')) byName.set(d.name, f) } }
+  for (const r of values['pdf-root'] || []) await walk(r)
+}
+await indexRoots()
+const guidePages = {}
+async function pagesOfUrl(url) {
+  const name = decodeURIComponent(String(url || '').split('/').pop())
+  const file = byName.get(name)
+  if (!file) return null
+  if (!guidePages[name]) {
+    const { PDFParse } = await import('pdf-parse')
+    const parser = new PDFParse({ data: new Uint8Array(await readFile(file)) })
+    guidePages[name] = Object.fromEntries((await parser.getText()).pages.map(p => [p.num, p.text.toLowerCase().replace(/[^a-z0-9]+/g, '')]))
+  }
+  return guidePages[name]
+}
 const squash = s => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '')
 
 const results = { ran_at: new Date().toISOString(), target: values.deployment || values.base, rows: [] }
 for (const c of plan.codes) {
-  const pages = await pagesOf(c.category)
+  const pages = values['pdf-dir'] ? await pagesOf(c.category) : null
   const letter = { enlisted: 'Army', warrant: 'Army', officer: 'Army' }[c.category]
   const calls = c.ranks.map(rank => ({ rank, personal: '' }))
   if (values.personal && c.personal) calls.push({ rank: c.ranks[Math.floor(c.ranks.length / 2)], personal: c.personal })
@@ -64,12 +84,16 @@ for (const c of plan.codes) {
     row.checks.ok = c.expectNeedsDetails && !call.personal ? r.http === 422 && r.json?.status === 'needs_experience' : r.http === 200 && entries.length > 0
     if (c.expectNeedsDetails && !call.personal) { /* nothing to check beyond the 422 */ } else if (!call.personal) row.checks.allPublication = entries.every(e => e.basis === 'publication' && e.source?.publication && e.evidence)
     else row.checks.hasPersonalEntry = entries.some(e => e.basis === 'personal')
-    if (pages) {
-      const missing = entries.filter(e => e.basis === 'publication').filter(e => {
+    if (pages || byName.size) {
+      const missing = []
+      for (const e of entries.filter(e => e.basis === 'publication')) {
+        const own = e.source.url ? await pagesOfUrl(e.source.url) : null
+        const src = own || pages
+        if (!src) { missing.push(e); continue }
         const span = String(e.source.pdfPages || '').split('-').map(Number); const lo = span[0], hi = span[1] || span[0]
-        let hay = ''; for (let n = lo; n <= hi; n++) hay += pages[n] || ''
-        return !hay.includes(squash(e.evidence))
-      })
+        let hay = ''; for (let n = lo; n <= hi; n++) hay += src[n] || ''
+        if (!hay.includes(squash(e.evidence))) missing.push(e)
+      }
       row.checks.quotesFoundInPdfAtCitedPages = missing.length === 0
       row.quotesNotFound = missing.map(e => e.evidence)
     }
