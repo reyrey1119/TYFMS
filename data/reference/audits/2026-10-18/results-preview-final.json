@@ -1,0 +1,2156 @@
+{
+ "ran_at": "2026-10-18T22:52:40.060Z",
+ "target": "https://project-v8pdy-pgc03axm1-reyrey1119s-projects.vercel.app",
+ "rows": [
+  {
+   "category": "enlisted",
+   "code": "37F",
+   "rank": "E-6",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 30304,
+   "referenceStatus": "verified",
+   "entries": 5,
+   "error": null,
+   "translationBasis": {
+    "publication": 5,
+    "personal": 0,
+    "discarded": 2,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Conducts analysis of target audiences and environments",
+     "pages": "190",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Target audience and environment analysis"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Analyzes current intelligence products to identify gaps and subsequent collection requirements to support PO",
+     "pages": "190",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Intelligence gap analysis to support operations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Supervises scriptwriters, broadcast specialists, journalists, and illustrators in the development and production of PO products",
+     "pages": "190",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Supervising a creative content production team"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Assesses the overall impact of the PO series on target audience behavior",
+     "pages": "190",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Campaign effectiveness assessment against behavioral objectives"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Coordinates resource requirements for the development, production and dissemination of PO products",
+     "pages": "190",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Resource coordination across development, production, and distribution"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "37F",
+   "rank": "E-6",
+   "personalTextGiven": true,
+   "http": 200,
+   "ms": 31249,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 5,
+    "personal": 2,
+    "discarded": 0,
+    "usedTypedDetails": true,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "hasPersonalEntry": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "personal",
+     "evidence": "I wrote scripts and messages for outreach products",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Writing scripts and messages for outreach products"
+    },
+    {
+     "basis": "personal",
+     "evidence": "tracked how audiences reacted",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Tracking audience reaction to outreach products"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Evaluates the effectiveness of PO products",
+     "pages": "190",
+     "grade": "E-5",
+     "from": null,
+     "militarySkill": "Evaluating the effectiveness of information products"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Analyzes psychological vulnerabilities, and susceptibilities of PO target audiences to determine potential for exploitation",
+     "pages": "190",
+     "grade": "E-5",
+     "from": null,
+     "militarySkill": "Analyzing target audience characteristics to inform messaging"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Determines the appropriate mix of media to implement PO",
+     "pages": "190",
+     "grade": "E-5",
+     "from": null,
+     "militarySkill": "Selecting appropriate media channels for message delivery"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Supervises scriptwriters, broadcast specialists, journalists, and illustrators in the development and production of PO products",
+     "pages": "190",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Supervising content production staff across multiple disciplines"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "38B",
+   "rank": "E-6",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 37916,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "engage and influence unified action partners, indigenous populations, and institutions",
+     "pages": "193",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Engaging and influencing partner organizations, local populations, and institutions"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Coordinates with Unified Action Partners, and conducts planned CAO assessments, and Key Leader Engagements (KLEs) to gather civil information",
+     "pages": "193",
+     "grade": "E-5",
+     "from": null,
+     "militarySkill": "Conducting key leader engagements and coordinating with partner organizations to gather civil information"
+    },
+    {
+     "basis": "publication",
+     "evidence": "conducts trend analysis on civil information, develops plans for dislocated civilian operations, determines civil vulnerabilities",
+     "pages": "193",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Conducting trend analysis on civil information and identifying vulnerabilities"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Coordinates and assists with planned CAO assessments and conducts trend analysis on civil information",
+     "pages": "193",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Planning and conducting civil affairs assessments"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Integrates directly with supported organizations to identify requirements for CAO as part of the Military Decision-Making Process (MDMP)",
+     "pages": "193",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Integrating with supported organizations to identify requirements and inform operational decision-making"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Gathers data for and produces geospatial representation of the Civil Component of the Operational Environment",
+     "pages": "193",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Gathering data and producing geospatial or visual representations of civil environments"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "38B",
+   "rank": "E-6",
+   "personalTextGiven": true,
+   "http": 200,
+   "ms": 27810,
+   "referenceStatus": "verified",
+   "entries": 5,
+   "error": null,
+   "translationBasis": {
+    "publication": 4,
+    "personal": 1,
+    "discarded": 1,
+    "usedTypedDetails": true,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "hasPersonalEntry": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "personal",
+     "evidence": "wrote assessments of community needs",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Producing written assessments of civil conditions and community requirements"
+    },
+    {
+     "basis": "publication",
+     "evidence": "conducts trend analysis on civil information",
+     "pages": "193",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Trend analysis on collected civil information"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Coordinates with Unified Action Partners, and conducts planned CAO assessments",
+     "pages": "193",
+     "grade": "E-5",
+     "from": null,
+     "militarySkill": "Coordinating with partner organizations and conducting structured assessments"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Gathers data for and produces geospatial representation of the Civil Component of the Operational Environment",
+     "pages": "193",
+     "grade": "E-1..E-4",
+     "from": null,
+     "militarySkill": "Collecting and representing civil environment data"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Integrates directly with supported organizations to identify requirements for CAO as part of the Military Decision-Making Process",
+     "pages": "193",
+     "grade": "E-6",
+     "from": null,
+     "militarySkill": "Embedding with supported organizations to identify civil affairs requirements during planning"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "35Z",
+   "rank": "E-9",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 34827,
+   "referenceStatus": "verified",
+   "entries": 6,
+   "error": null,
+   "translationBasis": {
+    "publication": 6,
+    "personal": 0,
+    "discarded": 1,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Manages intelligence readiness, the intelligence cycle and empowers the intelligence enterprise through operational guidance and technical expertise",
+     "pages": "186",
+     "grade": "E-9",
+     "from": null,
+     "militarySkill": "Managing intelligence readiness and the full intelligence cycle through operational guidance"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Synchronizes intelligence efforts with operational requirements to achieve unity of effort and meet the commander's intent",
+     "pages": "186",
+     "grade": "E-9",
+     "from": null,
+     "militarySkill": "Synchronizing intelligence operations with broader mission requirements to align organizational effort"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Reviews, evaluates, prepares, and executes intelligence asset deployment, employment and redeployment",
+     "pages": "186",
+     "grade": "E-9",
+     "from": null,
+     "militarySkill": "Reviewing and executing deployment and redeployment of intelligence assets"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Compares intelligence MTOE and TDA authorizations and recommends revisions",
+     "pages": "186",
+     "grade": "E-9",
+     "from": null,
+     "militarySkill": "Comparing organizational authorizations against actual requirements and recommending structural changes"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Supervises and oversees the implementation of Intelligence Architecture, to include the conduct of Military Intelligence systems maintenance and test operations",
+     "pages": "186",
+     "grade": "E-9",
+     "from": null,
+     "militarySkill": "Supervising implementation of intelligence architecture and overseeing systems maintenance and testing"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Provides oversight and experience inclusive of all aspects of the Intelligence Warfighting Function",
+     "pages": "186",
+     "grade": "E-9",
+     "from": null,
+     "militarySkill": "Providing senior-level oversight across all intelligence disciplines including All Source, CI, SIGINT, HUMINT, and GEOINT"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92Z",
+   "rank": "E-8",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 35729,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "supervises operations of organizations performing supply and logistics related service operations such as decontamination, transportation, and property disposal operations",
+     "pages": "340",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Supervising multi-function logistics service operations at the organizational level"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Supervise management of materiel support functions in stock control and accounting, procurement, inventory control and item financial management",
+     "pages": "340",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Supervising stock control, procurement, and inventory accountability"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Analyzes reports on supply and service support operations",
+     "pages": "340",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Analyzing logistics and supply support reports"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Supervises development and preparation of operations information, plans, maps, sketches, overlays and related data to employment supply and service organizations",
+     "pages": "340",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Supervising development of logistics operations plans and supporting documentation"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Develop, coordinate, implement, advise, and evaluate command food service programs",
+     "pages": "340",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Developing and evaluating institutional food service programs"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Contributes to subordinate and staff development and operations of the GCSS-Army automated system, equipment review, salvage, demilitarization, and unit/organizational and repair parts supply procedures",
+     "pages": "340",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Contributing to staff development and automated logistics system operations"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "92Z",
+   "rank": "E-9",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 36966,
+   "referenceStatus": "verified",
+   "entries": 5,
+   "error": null,
+   "translationBasis": {
+    "publication": 5,
+    "personal": 0,
+    "discarded": 2,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "serves as the principal NCO of logistics support operations and performs supervisory duties shown in preceding level of skills",
+     "pages": "340",
+     "grade": "E-9",
+     "from": null,
+     "militarySkill": "Principal enlisted leader of logistics support operations at the Sergeant Major level"
+    },
+    {
+     "basis": "publication",
+     "evidence": "advise senior leaders on logistical operations. They are the senior enlisted advisor to Commanders, Directors, and Chiefs of Departments",
+     "pages": "340",
+     "grade": "E-9",
+     "from": null,
+     "militarySkill": "Senior enlisted advisor to commanders and department chiefs on logistics and personnel matters"
+    },
+    {
+     "basis": "publication",
+     "evidence": "plan, coordinate and supervise activities pertaining to unit organization, training, tactical and technical operations",
+     "pages": "340",
+     "grade": "E-9",
+     "from": null,
+     "militarySkill": "Planning and supervising organizational, training, and technical operations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "supervises Soldiers engaged in supply and services, materiel, petroleum, fatality and culinary management, aerial delivery operations, shower and laundry, water treatment and logistics operations",
+     "pages": "340",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Supervision of a wide range of specialized logistics service functions"
+    },
+    {
+     "basis": "publication",
+     "evidence": "knowledgeable in all operations of organizations performing logistics related service operations",
+     "pages": "340",
+     "grade": "E-9",
+     "from": null,
+     "militarySkill": "Broad technical knowledge across the full spectrum of logistics service operations"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "42S",
+   "rank": "E-7",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 29949,
+   "referenceStatus": "verified",
+   "entries": 5,
+   "error": null,
+   "translationBasis": {
+    "publication": 5,
+    "personal": 0,
+    "discarded": 2,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Perform as solo instrumentalist or vocalist",
+     "pages": "210",
+     "grade": "E-7",
+     "from": null,
+     "militarySkill": "Solo instrumental or vocal performance"
+    },
+    {
+     "basis": "publication",
+     "evidence": "NCO in an instrumental group",
+     "pages": "210",
+     "grade": "E-7",
+     "from": null,
+     "militarySkill": "Senior NCO coordination within an instrumental ensemble"
+    },
+    {
+     "basis": "publication",
+     "evidence": "administrative and supply support",
+     "pages": "210",
+     "grade": "E-7",
+     "from": null,
+     "militarySkill": "Administrative and supply support for a performing organization"
+    },
+    {
+     "basis": "publication",
+     "evidence": "senior vocalist music annotator/commentator",
+     "pages": "210",
+     "grade": "E-7",
+     "from": null,
+     "militarySkill": "Senior vocalist and music annotator or commentator"
+    },
+    {
+     "basis": "publication",
+     "evidence": "performs as a musician or in direct support of the mission of The U.S. Army Band, The U.S. Army Field Band, U.S. Military Academy Band, or the 3rd Infantry (The Old Guard) Fife and Drum Corps",
+     "pages": "210",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Performance and mission support for a premier military musical organization"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "79T",
+   "rank": "E-8",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 36561,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 1,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Responsible for establishing and implementing a written yearly training program designed to address the specific training needs and levels of experience of assigned RRNCOs, SRRNCOs, and R&R Team Leaders",
+     "pages": "280",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Designing and implementing an annual training program for recruiting staff"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Assists in developing, maintaining, and analyzing statistical data of assigned area demographics, as well as unit losses, unit climate information and SIDPERS data to form current and projected trends",
+     "pages": "280",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Analyzing demographic and workforce data to identify trends"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Assess the effectiveness of area recruiting, attrition management and retention incentive/awards programs and make recommendations for improvement",
+     "pages": "280",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Evaluating recruiting and retention program effectiveness and recommending improvements"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Assists RRNCOs by making and evaluating periodic presentations to local schools, government, civilian and other influential persons and informing them of the benefits available",
+     "pages": "280",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Conducting outreach presentations to schools, government agencies, and community stakeholders"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Counsels and rates R&R Team Leaders assigned IAW AR 623-3 and locally established policy. At a minimum, conducts monthly performance counseling with each assigned R&R Team Leader",
+     "pages": "280",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Monthly performance counseling and formal rating of team leaders"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Makes recommendations for disciplinary action and/or dismissal of R&R Team Leaders, SRRNCOs, and RRNCOs as required",
+     "pages": "280",
+     "grade": "E-8",
+     "from": null,
+     "militarySkill": "Initiating disciplinary actions and dismissal recommendations for recruiting staff"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "51C",
+   "rank": "E-8",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 39115,
+   "referenceStatus": "verified",
+   "entries": 2,
+   "error": null,
+   "translationBasis": {
+    "publication": 2,
+    "personal": 0,
+    "discarded": 6,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "perform theater contracting support situational training; manage theater contracting support; coordinate theater contracting support",
+     "pages": "223-224",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Theater contracting support management and coordination"
+    },
+    {
+     "basis": "publication",
+     "evidence": "manages the execution and administration/revision of contracting support plans, annexes, and appendices in support of operational, contingency and deliberate plans",
+     "pages": "223-224",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Contracting support plan management"
+    }
+   ]
+  },
+  {
+   "category": "enlisted",
+   "code": "51C",
+   "rank": "E-8",
+   "personalTextGiven": true,
+   "http": 200,
+   "ms": 33157,
+   "referenceStatus": "verified",
+   "entries": 6,
+   "error": null,
+   "translationBasis": {
+    "publication": 4,
+    "personal": 2,
+    "discarded": 1,
+    "usedTypedDetails": true,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "hasPersonalEntry": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "personal",
+     "evidence": "I prepared purchase request packages and checked them against the contract rules.",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Preparing purchase request packages"
+    },
+    {
+     "basis": "personal",
+     "evidence": "checked them against the contract rules.",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Compliance review of procurement packages against contract rules"
+    },
+    {
+     "basis": "publication",
+     "evidence": "review requirements packages",
+     "pages": "223-224",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Reviewing contract requirements packages"
+    },
+    {
+     "basis": "publication",
+     "evidence": "conduct contract solicitation process",
+     "pages": "223-224",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Conducting the contract solicitation process"
+    },
+    {
+     "basis": "publication",
+     "evidence": "perform contract administration and management",
+     "pages": "223-224",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Contract administration and management"
+    },
+    {
+     "basis": "publication",
+     "evidence": "provide pre-award theater contracting oversight",
+     "pages": "223-224",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Pre-award contracting oversight"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "14A",
+   "rank": "O-3",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 33280,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Commands or assists the commander of Air Defense Artillery units",
+     "pages": "43",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Unit command or command support"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans, coordinates, and directs employment of gun systems and/or surface to air missile systems",
+     "pages": "43",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Planning and directing employment of integrated weapon systems"
+    },
+    {
+     "basis": "publication",
+     "evidence": "their associated command and control system",
+     "pages": "43",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Operating and directing command and control systems"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Serves as an Air Defense Artillery staff officer at Brigade Combat Teams (BCT), Army, Corps, and Division Main and TAC positions",
+     "pages": "43",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Staff officer duties across multiple echelons of command"
+    },
+    {
+     "basis": "publication",
+     "evidence": "require Air Defense knowledge/experience, but are not related to a specific Air Defense weapons system",
+     "pages": "43",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Domain-specialist staff advisory in non-system-specific roles"
+    },
+    {
+     "basis": "publication",
+     "evidence": "coordinates, and directs employment",
+     "pages": "43",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Coordinating and directing integrated operational activities"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "14A",
+   "rank": "O-3",
+   "personalTextGiven": true,
+   "http": 200,
+   "ms": 31789,
+   "referenceStatus": "verified",
+   "entries": 5,
+   "error": null,
+   "translationBasis": {
+    "publication": 4,
+    "personal": 1,
+    "discarded": 1,
+    "usedTypedDetails": true,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "hasPersonalEntry": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "personal",
+     "evidence": "I led a platoon through live-fire air defense drills",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Leading a unit through live-fire training exercises"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Commands or assists the commander of Air Defense Artillery units",
+     "pages": "43",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Commanding or assisting command of a military unit"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans, coordinates, and directs employment of gun systems and/or surface to air missile systems and their associated command and control system",
+     "pages": "43",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Planning and coordinating employment of air defense weapons and command-and-control systems"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Serves as an Air Defense Artillery staff officer at Brigade Combat Teams (BCT), Army, Corps, and Division Main and TAC positions",
+     "pages": "43",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Serving as a staff officer supporting multi-echelon headquarters"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Serves as an Air Defense Artillery staff officer at Brigade Combat Teams (BCT), Army, Corps, and Division Main and TAC positions that require Air Defense knowledge/experience",
+     "pages": "43",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Applying specialized technical knowledge in a staff advisory capacity"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "31A",
+   "rank": "O-4",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 33390,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Commands or assists commanders of Military Police, Detention, and/or Criminal Investigation units or activities.",
+     "pages": "68",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Command and oversight of military police, detention, and criminal investigation units"
+    },
+    {
+     "basis": "publication",
+     "evidence": "plans, coordinates, and directs military police, antiterrorism and force protection, or physical security activities within a command or activity",
+     "pages": "68",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Planning and directing antiterrorism, force protection, and physical security operations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "directs or supervises the administration and operation of detention facilities and U.S. military prisoner correctional/confinement facilities",
+     "pages": "68",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Administration and operation of detention and correctional confinement facilities"
+    },
+    {
+     "basis": "publication",
+     "evidence": "plans, coordinates, and supervises (as assigned) Protection War Fighting Functions (WFF) related tasks",
+     "pages": "68",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Coordinating and supervising protection mission tasks across a command"
+    },
+    {
+     "basis": "publication",
+     "evidence": "supervises and administers the development and operation of an ongoing criminal investigation program",
+     "pages": "68",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Development and administration of a criminal investigation program"
+    },
+    {
+     "basis": "publication",
+     "evidence": "plan and coordinate emergency services (including law enforcement, investigative, detention, fire and emergency medical",
+     "pages": "68",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Coordinating integrated emergency services across law enforcement, fire, and emergency medical functions"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "35A",
+   "rank": "O-5",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 39571,
+   "referenceStatus": "verified",
+   "entries": 6,
+   "error": null,
+   "translationBasis": {
+    "publication": 6,
+    "personal": 0,
+    "discarded": 1,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "direct, supervise and coordinate the planning, collection, evaluation, fusion, analysis, production, and dissemination of intelligence",
+     "pages": "70",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Directing and coordinating the full intelligence cycle"
+    },
+    {
+     "basis": "publication",
+     "evidence": "perform multidiscipline collection management, coordination of surveillance and reconnaissance activities and provide advice on the use of intelligence resources at all echelons",
+     "pages": "70",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Multi-discipline collection management and resource advisory"
+    },
+    {
+     "basis": "publication",
+     "evidence": "supervise and perform intelligence preparation of the battlefield (IPB)",
+     "pages": "70",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Intelligence Preparation of the Battlefield (IPB)"
+    },
+    {
+     "basis": "publication",
+     "evidence": "advise the commander and subordinate units on the enemy, weather, and terrain",
+     "pages": "70",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Senior advisory to commanders on threat, environment, and terrain factors"
+    },
+    {
+     "basis": "publication",
+     "evidence": "dissemination of intelligence (to include GEOINT, SIGINT, HUMINT, Counterintelligence (CI), Open-source Intelligence (OSINT), Measurement and Signature Intelligence (MASINT) and Technical Intelligence (TECHINT))",
+     "pages": "70",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Cross-domain intelligence integration across multiple collection disciplines"
+    },
+    {
+     "basis": "publication",
+     "evidence": "employ automated intelligence data processing systems",
+     "pages": "70",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Employment of automated intelligence data processing systems"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "25A",
+   "rank": "O-6",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 32861,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "command, lead and manage signal units and personnel engaged in the installation, operation, administration, maintenance",
+     "pages": "56",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Command and management of signal units and personnel"
+    },
+    {
+     "basis": "publication",
+     "evidence": "enabling mission command for tactical, operational, strategic, and sustaining base operations",
+     "pages": "56",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Enabling communications for multi-echelon operations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "advise and provide technical expertise to supported commanders, staffs and other users of communication networks and information services",
+     "pages": "56",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Technical advisory to senior commanders and staff"
+    },
+    {
+     "basis": "publication",
+     "evidence": "plan, build, secure, operate, maintain and defend communications networks",
+     "pages": "56",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Full-lifecycle management of communications networks including security and defense"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans, coordinates, and supervises the training, administration, operation, supply, maintenance, transportation, security and allocation of resources for Signal units",
+     "pages": "56",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Resource planning, coordination, and supervision across signal operations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "security and allocation of resources for Signal units and facilities",
+     "pages": "56",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Security planning and resource allocation for facilities and units"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "12A",
+   "rank": "O-2",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 28007,
+   "referenceStatus": "verified",
+   "entries": 5,
+   "error": null,
+   "translationBasis": {
+    "publication": 5,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Provide general engineer expertise to Army activities.",
+     "pages": "41",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Delivering general engineering expertise to an organization"
+    },
+    {
+     "basis": "publication",
+     "evidence": "The majority of these positions will be at DA, DoD, Joint Staff, MACOMs, or Field Activities.",
+     "pages": "41",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Working within large, multi-layered organizational structures"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Provide general engineer expertise to Army activities.",
+     "pages": "41",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Supporting Army activities with engineering input"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Provide general engineer expertise to Army activities.",
+     "pages": "41",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Applying broad engineering knowledge across varied tasks"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Provide general engineer expertise to Army activities.",
+     "pages": "41",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Liaising between engineering functions and broader organizational needs"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "58A",
+   "rank": "O-5",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 31210,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "manage portfolios of projects and solve Army marketing challenges in direct support of the officer and enlisted accessions enterprise",
+     "pages": "107",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Portfolio management of marketing projects in support of a large accessions enterprise"
+    },
+    {
+     "basis": "publication",
+     "evidence": "advise commanders on marketing strategy and implementation to accomplish short term goals",
+     "pages": "107",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Advising senior commanders on marketing strategy and near-term implementation"
+    },
+    {
+     "basis": "publication",
+     "evidence": "working with the central Army Enterprise Marketing Office to balance the long-term evolution of the Army brand at regional offices",
+     "pages": "107",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Coordinating with a central marketing office to manage long-term brand consistency across regional locations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "brand management and marketing strategy",
+     "pages": "107",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Brand management and marketing strategy as a core specialization"
+    },
+    {
+     "basis": "publication",
+     "evidence": "content creation, content delivery",
+     "pages": "107",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Content creation and content delivery as specialized marketing functions"
+    },
+    {
+     "basis": "publication",
+     "evidence": "marketing analytics to determine effectiveness and returns on marketing investments",
+     "pages": "107",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Marketing analytics to assess campaign effectiveness and return on investment"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "49A",
+   "rank": "O-4",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 38523,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Conduct analysis across the spectrum of military activities. Perform research and analysis of practical and theoretical issues",
+     "pages": "94",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Broad-spectrum research and analysis of practical and theoretical operational issues"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Determine optimal resource management and allocation strategies through analyses of force structure, manpower requirements, authorizations, personnel developments, materiel acquisition, and logistics programs",
+     "pages": "94",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Developing resource management and allocation strategies through structured analysis"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Design tests and experiments for complex weapon systems and future combat developments concepts within materiel acquisition and force development processes",
+     "pages": "94",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Designing tests and experiments for complex systems within acquisition and development processes"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Determines measures of effectiveness, applies risk analysis, analyzes and interprets empirical data, and obtains objective data for acquisition decisions, studies, training evaluations, system comparisons, analytic models, and combat simulations",
+     "pages": "94",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Defining measures of effectiveness, applying risk analysis, and interpreting empirical data for decisions"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Serve on senior level Army, Defense, and Joint staffs conducting quantitative and qualitative analysis to support commanders",
+     "pages": "94",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Providing quantitative and qualitative analytical support to senior-level staffs"
+    },
+    {
+     "basis": "publication",
+     "evidence": "effectively communicate potential solutions to complex problems to decision makers",
+     "pages": "94",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Communicating solutions to complex problems to decision-makers"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "49A",
+   "rank": "O-4",
+   "personalTextGiven": true,
+   "http": 200,
+   "ms": 32853,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 4,
+    "personal": 3,
+    "discarded": 0,
+    "usedTypedDetails": true,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "hasPersonalEntry": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "personal",
+     "evidence": "I built models to compare options for a unit's equipment plan.",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Built quantitative models to evaluate equipment acquisition options"
+    },
+    {
+     "basis": "personal",
+     "evidence": "I built models to compare options for a unit's equipment plan.",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Analyzed alternatives within a resource planning process"
+    },
+    {
+     "basis": "personal",
+     "evidence": "I built models to compare options for a unit's equipment plan.",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Applied analytical methods to a materiel or force planning problem"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Perform research and analysis of practical and theoretical issues regarding combat operations, doctrine, tactics, system effectiveness, force design, force structure",
+     "pages": "94",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Research and analysis of complex system effectiveness and force design issues"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Determines measures of effectiveness, applies risk analysis, analyzes and interprets empirical data, and obtains objective data for acquisition decisions",
+     "pages": "94",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Defining measures of effectiveness and applying risk analysis to support acquisition or investment decisions"
+    },
+    {
+     "basis": "publication",
+     "evidence": "effectively communicate potential solutions to complex problems to decision makers",
+     "pages": "94",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Communicating analytical solutions and recommendations to senior decision makers"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "37A",
+   "rank": "O-5",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 32143,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "plan, coordinate, direct and participate in Psychological Operations",
+     "pages": "73",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Planning and directing psychological operations across operational environments"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Target Audience Analysis (TAA)",
+     "pages": "73",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Conducting target audience analysis to inform operations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "PSYOP Product Development and Dissemination",
+     "pages": "73",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Developing and disseminating PSYOP products"
+    },
+    {
+     "basis": "publication",
+     "evidence": "PSYOP Product Testing and Evaluation",
+     "pages": "73",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Testing and evaluating effectiveness of PSYOP products"
+    },
+    {
+     "basis": "publication",
+     "evidence": "negotiating and working with foreign and U.S. government agencies and country teams",
+     "pages": "73",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Negotiating and coordinating with foreign and U.S. government agencies and country teams"
+    },
+    {
+     "basis": "publication",
+     "evidence": "serve on upper echelon Psychological Operations, Army and Joint Special Operations Forces (SOF) staffs and in interagency assignments",
+     "pages": "73",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Serving on upper-echelon and joint SOF staffs and in interagency assignments"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "42B",
+   "rank": "O-4",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 30259,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Leads, manages, commands, and/or directs the HR military life cycle functions",
+     "pages": "80",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Leading and directing HR lifecycle functions"
+    },
+    {
+     "basis": "publication",
+     "evidence": "support HR policy formulation, interpretation, coordination, integration and implementation",
+     "pages": "80",
+     "grade": null,
+     "from": null,
+     "militarySkill": "HR policy formulation, interpretation, and implementation"
+    },
+    {
+     "basis": "publication",
+     "evidence": "coordination, integration and implementation at all echelons",
+     "pages": "80",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Coordinating and integrating HR programs across organizational levels"
+    },
+    {
+     "basis": "publication",
+     "evidence": "serve in positions requiring HR experience at HR platoon, HR company, battalion, brigade/BCT, division and Corps",
+     "pages": "80",
+     "grade": null,
+     "from": null,
+     "militarySkill": "HR leadership across progressively larger organizational structures"
+    },
+    {
+     "basis": "publication",
+     "evidence": "theater, ACOM, HQDA, Joint and DoD levels",
+     "pages": "80",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Operating within enterprise-level and interagency HR environments"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Leads, manages, commands, and/or directs the HR military life cycle functions",
+     "pages": "80",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Directing HR teams and functions"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "27A",
+   "rank": "O-5",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 34624,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Furnish legal advice and services to the Active Army and the U.S. Army Reserves in civil and criminal legal practice",
+     "pages": "60",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Furnishing legal advice across civil and criminal legal practice"
+    },
+    {
+     "basis": "publication",
+     "evidence": "including the fields of business, property, administration, and financial operations under the jurisdiction of DA",
+     "pages": "60",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Legal services in business, property, administration, and financial operations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Provides defense counsel services for Army personnel whenever required by law or regulation and authorized by The Judge Advocate General",
+     "pages": "60",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Defense counsel services authorized under law or regulation"
+    },
+    {
+     "basis": "publication",
+     "evidence": "representation at trials by courts-martial, administrative boards, and other criminal and adverse administrative actions",
+     "pages": "60",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Courtroom and administrative tribunal representation"
+    },
+    {
+     "basis": "publication",
+     "evidence": "other criminal and adverse administrative actions",
+     "pages": "60",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Handling adverse administrative actions alongside criminal matters"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Perform other defense-related duties as prescribed by Chief, U.S. Army Trial Defense Service",
+     "pages": "60",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Defense-related duties within a structured legal chain of authority"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "30A",
+   "rank": "O-4",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 32811,
+   "referenceStatus": "verified",
+   "entries": 8,
+   "error": null,
+   "translationBasis": {
+    "publication": 8,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "synchronizing, coordinating and deconflicting information-related capabilities employed in support of unit operations",
+     "pages": "66",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Synchronizing and deconflicting information-related capabilities across the force"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Analyzing the information environment to discern impacts it will have on unit operations and to exploit opportunities to gain an advantage over threat forces",
+     "pages": "66",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Analyzing the information environment for operational impact and opportunity"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Assessing the risk associated with the use of information-related capabilities as part of supported unit operations",
+     "pages": "66",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Assessing risk tied to employment of information-related capabilities"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Providing input to the synchronization matrix for the use of available information-related capabilities in support of unit operations",
+     "pages": "66",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Contributing to the synchronization matrix for information-related capabilities"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Identifying information-related capabilities support gaps not resolvable at the unit level",
+     "pages": "66",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Identifying capability gaps that exceed unit-level authority to resolve"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Coordinating with other Army, Service, or joint forces to use information-related capabilities and units to augment existing unit capability shortfalls",
+     "pages": "66",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Coordinating with joint and interagency partners to augment capability shortfalls"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "46A",
+   "rank": "O-5",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 32213,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Commands PA units or advises the commander on all PA matters.",
+     "pages": "83",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Advising senior leadership on all public affairs matters"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Develops, coordinates, and supervises these activities within the command.",
+     "pages": "83",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Developing public affairs activities across the command"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Develops, coordinates, and supervises these activities within the command.",
+     "pages": "83",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Coordinating public affairs activities across organizational elements"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Develops, coordinates, and supervises these activities within the command.",
+     "pages": "83",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Supervising public affairs activities within the command"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Commands PA units or advises the commander on all PA matters.",
+     "pages": "83",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Commanding a public affairs unit"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Develops, coordinates, and supervises these activities within the command.",
+     "pages": "83",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Developing and supervising public affairs activities"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "15A",
+   "rank": "O-4",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 30134,
+   "referenceStatus": "verified",
+   "entries": 5,
+   "error": null,
+   "translationBasis": {
+    "publication": 5,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Identify positions requiring general aviation knowledge and experience but not related to a specific aviation AOC.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Serving in aviation roles requiring broad general aviation knowledge rather than a single specialty"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Identify positions requiring general aviation knowledge and experience but not related to a specific aviation AOC.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Filling positions defined by breadth of aviation experience rather than a single occupational track"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Identify positions requiring general aviation knowledge and experience but not related to a specific aviation AOC.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Providing aviation expertise to support positions not tied to one specific specialty code"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Identify positions requiring general aviation knowledge and experience but not related to a specific aviation AOC.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Occupying billets defined by general aviation qualifications at a senior officer grade"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Identify positions requiring general aviation knowledge and experience but not related to a specific aviation AOC.",
+     "pages": "44",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Applying general aviation experience to support diverse organizational requirements"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "50A",
+   "rank": "O-4",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 32849,
+   "referenceStatus": "verified",
+   "entries": 8,
+   "error": null,
+   "translationBasis": {
+    "publication": 8,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Determine the structure, composition, position, and equipment requirements of active and reserve component Army forces.",
+     "pages": "98",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Determining force structure requirements based on organizational objectives"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Arrange all components into the force structure in integrated organizations and units.",
+     "pages": "98",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Integrating separate components into cohesive organizational structures"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans and programs change to the force structure. Manage documentation of changes to organizations and materiel.",
+     "pages": "98",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Planning, programming, and documenting organizational changes"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Mobilizes, demobilizes, activates, inactivates, establishes, discontinues and reorganizes units as required.",
+     "pages": "98",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Activating, reorganizing, and discontinuing organizational units as mission requires"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Develops, applies and ensures compliance with polices and procedures for manpower requirements determinations, programming and allocation.",
+     "pages": "98",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Developing and enforcing manpower requirements and allocation policies"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Develops, applies and ensures compliance with polices and procedures for force management information systems and subsystems.",
+     "pages": "98",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Managing policy compliance for organizational management information systems"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "50A",
+   "rank": "O-4",
+   "personalTextGiven": true,
+   "http": 200,
+   "ms": 32585,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 5,
+    "personal": 2,
+    "discarded": 0,
+    "usedTypedDetails": true,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "hasPersonalEntry": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "personal",
+     "evidence": "tracked unit authorizations",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Tracking unit authorizations"
+    },
+    {
+     "basis": "personal",
+     "evidence": "helped plan a reorganization",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Reorganization planning"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Manage documentation of changes to organizations and materiel",
+     "pages": "98",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Managing documentation of organizational changes"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Analyzes Army objectives to determine force structure requirements",
+     "pages": "98",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Analyzing objectives to determine structural requirements"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Manage determination of manpower and equipment resource requirements, authorizations and structure",
+     "pages": "98",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Managing manpower requirements and authorizations"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Plans and programs change to the force structure",
+     "pages": "98",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Programming structural changes"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "26Z",
+   "rank": "O-6",
+   "personalTextGiven": false,
+   "http": 200,
+   "ms": 32968,
+   "referenceStatus": "verified",
+   "entries": 7,
+   "error": null,
+   "translationBasis": {
+    "publication": 7,
+    "personal": 0,
+    "discarded": 0,
+    "usedTypedDetails": false,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "allPublication": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "publication",
+     "evidence": "Leads, manages, directs, network systems and information systems activities at the executive level.",
+     "pages": "59",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Leading network and information systems activities at the executive level"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Leads, manages, directs, network systems and information systems activities at the executive level.",
+     "pages": "59",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Managing network systems at the executive level"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Leads, manages, directs, network systems and information systems activities at the executive level.",
+     "pages": "59",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Directing information systems activities at the executive level"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Leads, manages, directs, network systems and information systems activities at the executive level.",
+     "pages": "59",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Executive oversight of data network engineering"
+    },
+    {
+     "basis": "publication",
+     "evidence": "The AOC 26Z designation is awarded to all FA 26 officers upon promotion to the rank of COL.",
+     "pages": "59",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Senior executive role in data network engineering at the O-6 level"
+    },
+    {
+     "basis": "publication",
+     "evidence": "Leads, manages, directs, network systems and information systems activities at the executive level.",
+     "pages": "59",
+     "grade": null,
+     "from": null,
+     "militarySkill": "Executive leadership spanning both network systems and information systems domains"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "70A",
+   "rank": "O-3",
+   "personalTextGiven": false,
+   "http": 422,
+   "ms": 1857,
+   "referenceStatus": "none",
+   "entries": 0,
+   "error": "Add a few tasks you performed or trained on so we can translate your experience.",
+   "checks": {
+    "ok": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": []
+  },
+  {
+   "category": "officer",
+   "code": "70A",
+   "rank": "O-3",
+   "personalTextGiven": true,
+   "http": 200,
+   "ms": 24840,
+   "referenceStatus": "none",
+   "entries": 4,
+   "error": null,
+   "translationBasis": {
+    "publication": 0,
+    "personal": 4,
+    "discarded": 1,
+    "usedTypedDetails": true,
+    "usedUploadedRecords": false
+   },
+   "checks": {
+    "ok": true,
+    "hasPersonalEntry": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": [
+    {
+     "basis": "personal",
+     "evidence": "I managed the budget and staffing for a clinic.",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Managed the budget for a clinic"
+    },
+    {
+     "basis": "personal",
+     "evidence": "I managed the budget and staffing for a clinic.",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Managed staffing for a clinic"
+    },
+    {
+     "basis": "personal",
+     "evidence": "I managed the budget and staffing for a clinic.",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Managed both budget and staffing simultaneously for a clinical setting"
+    },
+    {
+     "basis": "personal",
+     "evidence": "I managed the budget and staffing for a clinic.",
+     "pages": null,
+     "grade": null,
+     "from": "what you described",
+     "militarySkill": "Administered a clinic"
+    }
+   ]
+  },
+  {
+   "category": "officer",
+   "code": "64Z",
+   "rank": "O-5",
+   "personalTextGiven": false,
+   "http": 422,
+   "ms": 1840,
+   "referenceStatus": "none",
+   "entries": 0,
+   "error": "Add a few tasks you performed or trained on so we can translate your experience.",
+   "checks": {
+    "ok": true,
+    "quotesFoundInPdfAtCitedPages": true
+   },
+   "quotesNotFound": [],
+   "sample": []
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+13M E-4 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+13M E-8 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+13M E-8 (+bullet) 200 5 {"ok":true,"hasPersonalEntry":true,"quotesFoundInPdfAtCitedPages":true}
+18Z E-9 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+18Z E-9 (+bullet) 200 6 {"ok":true,"hasPersonalEntry":true,"quotesFoundInPdfAtCitedPages":true}
+25H E-4 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+25H E-7 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+25H E-7 (+bullet) 200 7 {"ok":true,"hasPersonalEntry":true,"quotesFoundInPdfAtCitedPages":true}
+17C E-3 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+17C E-8 (empty) 200 8 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+17C E-8 (+bullet) 200 6 {"ok":true,"hasPersonalEntry":true,"quotesFoundInPdfAtCitedPages":true}
+94S E-5 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+94S E-6 (empty) 200 8 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+94S E-6 (+bullet) 200 7 {"ok":true,"hasPersonalEntry":true,"quotesFoundInPdfAtCitedPages":true}
+19C E-5 (empty) 200 8 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+19C E-7 (empty) 200 6 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+19C E-7 (+bullet) 200 7 {"ok":true,"hasPersonalEntry":true,"quotesFoundInPdfAtCitedPages":true}
+64E O-3 (empty) 200 6 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+64E O-5 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+64E O-5 (+bullet) 200 6 {"ok":true,"hasPersonalEntry":true,"quotesFoundInPdfAtCitedPages":true}
+47M O-4 (empty) 200 4 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+47M O-4 (+bullet) 200 6 {"ok":true,"hasPersonalEntry":true,"quotesFoundInPdfAtCitedPages":true}
+11A O-3 (empty) 200 5 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+11A O-5 (empty) 200 7 {"ok":true,"allPublication":true,"quotesFoundInPdfAtCitedPages":true}
+11A O-5 (+bullet) 200 7 {"ok":true,"hasPersonalEntry":true,"quotesFoundInPdfAtCitedPages":true}
+node:internal/errors:985
+  const err = new Error(message);
+              ^
+
+Error: Command failed: vercel curl /api/translate --deployment https://project-v8pdy-ji0y6ixwq-reyrey1119s-projects.vercel.app -- -s -w 
+%{http_code} -X POST -H Content-Type: application/json -d {"action":"translate","branch":"Army","mos":"28A","rank":"O-4","yos":"","milDuties":""}
+<claude-code-hint v="1" type="plugin" value="vercel@claude-plugins-official" />
+Retrieving project…
+Retrieving project…
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:508:28)
+    at maybeClose (node:internal/child_process:1100:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:305:5) {
+  code: 56,
+  killed: false,
+  signal: null,
+  cmd: 'vercel curl /api/translate --deployment https://project-v8pdy-ji0y6ixwq-reyrey1119s-projects.vercel.app -- -s -w \n' +
+    '%{http_code} -X POST -H Content-Type: application/json -d {"action":"translate","branch":"Army","mos":"28A","rank":"O-4","yos":"","milDuties":""}',
+  stdout: '\n000',
+  stderr: '<claude-code-hint v="1" type="plugin" value="vercel@claude-plugins-official" />\n' +
+    'Retrieving project…\n' +
+    'Retrieving project…\n'
+}
+
+Node.js v24.14.1
