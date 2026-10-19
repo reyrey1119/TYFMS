@@ -11,21 +11,21 @@ test('migration 008 adds the two columns, is repeatable, keeps existing rows and
   const db = await newDb()
   await db.exec(`
     create table public.vault_documents (id uuid default gen_random_uuid() primary key, user_id uuid not null, document_type text not null,
-      filename text not null, storage_path text not null, file_size integer, extracted_text text, uploaded_at timestamptz default now());
+      filename text not null, storage_path text not null);
     alter table public.vault_documents enable row level security;
     create policy "Users manage own vault docs" on public.vault_documents for all using (true) with check (true);
-    insert into public.vault_documents (user_id, document_type, filename, storage_path, extracted_text)
-      values ('00000000-0000-0000-0000-000000000001', 'other', 'old.pdf', 'u/other/1-old.pdf', 'kept text');`)
+    insert into public.vault_documents (user_id, document_type, filename, storage_path)
+      values ('00000000-0000-0000-0000-000000000001', 'other', 'old.pdf', 'u/other/1-old.pdf');`)
   const sql = await readFile(new URL('../supabase/migrations/008_vault_documents_columns.sql', import.meta.url), 'utf8')
   await db.exec(sql); await db.exec(sql)
   const cols = (await db.query(`select column_name from information_schema.columns where table_name='vault_documents'`)).rows.map(r => r.column_name)
-  assert.ok(cols.includes('content_type') && cols.includes('extraction_summary'))
-  const rows = (await db.query(`select filename, extracted_text, content_type from public.vault_documents`)).rows
-  assert.deepEqual(rows, [{ filename: 'old.pdf', extracted_text: 'kept text', content_type: null }])
+  for (const c of ['file_size', 'content_type', 'extracted_text', 'extraction_summary', 'uploaded_at']) assert.ok(cols.includes(c), c)
+  const rows = (await db.query(`select filename, extracted_text, content_type, file_size from public.vault_documents`)).rows
+  assert.deepEqual(rows, [{ filename: 'old.pdf', extracted_text: null, content_type: null, file_size: null }])
   assert.equal((await db.query(`select count(*)::int c from pg_policies where tablename='vault_documents'`)).rows[0].c, 1)
   assert.equal((await db.query(`select relrowsecurity from pg_class where relname='vault_documents'`)).rows[0].relrowsecurity, true)
-  await db.exec(`insert into public.vault_documents (user_id, document_type, filename, storage_path, content_type, extraction_summary)
-                 values ('00000000-0000-0000-0000-000000000001','other','new.pdf','u/other/2-new.pdf','application/pdf','{"a":1}')`)
+  await db.exec(`insert into public.vault_documents (user_id, document_type, filename, storage_path, file_size, content_type, extraction_summary)
+                 values ('00000000-0000-0000-0000-000000000001','other','new.pdf','u/other/2-new.pdf',34503,'application/pdf','{"a":1}')`)
 })
 
 // ── fake client ────────────────────────────────────────────────────────────

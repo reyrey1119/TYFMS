@@ -12,8 +12,11 @@ an older version and never updated.
 
 ```sql
 ALTER TABLE public.vault_documents
+  ADD COLUMN IF NOT EXISTS file_size integer,
   ADD COLUMN IF NOT EXISTS content_type text,
-  ADD COLUMN IF NOT EXISTS extraction_summary jsonb;
+  ADD COLUMN IF NOT EXISTS extracted_text text,
+  ADD COLUMN IF NOT EXISTS extraction_summary jsonb,
+  ADD COLUMN IF NOT EXISTS uploaded_at timestamptz DEFAULT now();
 
 NOTIFY pgrst, 'reload schema';
 
@@ -21,6 +24,10 @@ NOTIFY pgrst, 'reload schema';
 SELECT column_name, data_type FROM information_schema.columns
 WHERE table_schema = 'public' AND table_name = 'vault_documents' ORDER BY ordinal_position;
 ```
+
+**Update 2026-10-19:** after `content_type` and `extraction_summary` were added, production reported `file_size` missing as
+well, so the live table differs from the setup SQL by more than two columns. The statement above now adds every column the
+app writes (only where missing); it is `supabase/migrations/008_vault_documents_columns.sql`.
 
 ## Clean up the test's leftover files (owner, in the Supabase dashboard)
 
