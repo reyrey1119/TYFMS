@@ -5,7 +5,7 @@
 // selected and (b) skills the person typed themselves. Whatever the model wrote under that heading is discarded.
 
 const MAX_SKILLS = 24
-const MAX_LEN = 60
+const MAX_LEN = 160   // suggestions from the translator are full phrases, often 60-100 characters
 
 export function parseSkillList(value) {
   const parts = Array.isArray(value) ? value : String(value || '').split(/[\n,;•]+/)

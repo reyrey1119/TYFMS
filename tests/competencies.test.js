@@ -11,7 +11,9 @@ test('selection counts only for suggestions that were shown (case-insensitive), 
 
 test('typed skills are split, trimmed, de-duplicated; brackets and long text are dropped', () => {
   assert.deepEqual(parseSkillList('Python, bilingual Spanish\nPython; [ADD: x] • Agile'), ['Python', 'bilingual Spanish', 'Agile'])
-  assert.deepEqual(parseSkillList('x'.repeat(61)), [])
+  assert.deepEqual(parseSkillList('x'.repeat(161)), [])
+  const long = 'System and network administration in classified and unclassified environments'
+  assert.deepEqual(selectedFromSuggestions([long], [long, 'Budgeting']), [long], 'a long suggested phrase is kept when selected')
 })
 
 test('no choice gives one [ADD] line, never invented competencies', () => {
