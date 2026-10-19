@@ -3,6 +3,7 @@
 import { reviewedGenerationReference, NO_REVIEWED_REFERENCE, NO_EMBELLISHMENT, codeIdentityBlock } from './_lib/generationEvidence.js'
 import { officialTitle } from './_lib/armyCodeStatus.js'
 import { markScopeBullets, annotateResume } from './_lib/scopeMarkers.js'
+import { applyCompetencies, selectedFromSuggestions, parseSkillList } from './_lib/competencies.js'
 import { rejectIfRateLimited } from './_lib/rateLimit.js'
 import { getSupabase } from './_lib/db.js'
 import { retrieveReference, referencePromptBlock, validateReferenceRequest, isDutySection } from './_lib/milReference.js'
@@ -18,8 +19,11 @@ export default async function handler(req, res) {
     branch, mos, rank, yos, targetCompany, additionalSkills,
     clearance, awards, summaryTone, education, contact, prevJobs,
     additionalContext, jobDescription, component, confirmReferenceDuties, milDuties,
-    format, cvExtras, milPositions, vaultContext, jstContext,
+    format, cvExtras, milPositions, vaultContext, jstContext, selectedSkills, suggestedSkills, ownSkills,
   } = req.body || {}
+  // CORE COMPETENCIES = suggestions the person selected + skills they typed; nothing the model proposes.
+  const chosenSkills = selectedFromSuggestions(selectedSkills, suggestedSkills)
+  const typedSkills = parseSkillList(ownSkills)
 
   if (!mos?.trim()) return res.status(400).json({ error: 'MOS, AFSC, or rate code is required.' })
 
@@ -95,7 +99,7 @@ export default async function handler(req, res) {
   const hasPersonal = !!(milDuties?.trim() || vaultContext?.trim() || additionalContext?.trim() || (Array.isArray(milPositions) && milPositions.some(p => p.duties?.trim())))
   // With only the publication to go on, the summary and the competency list are also "typical of the role", so they say so.
   const publicationOnlyRule = useScope && !hasPersonal
-    ? `\n13. PUBLICATION-ONLY DRAFT (this rule overrides rules 5 and 7 where they conflict): the person gave no details of their own work, so the PROFESSIONAL SUMMARY is 2 to 3 plain sentences that begin with "[CONFIRM: written from the official role description, not from your records] " and state only the branch, the official title, years of service if given, and what the specialty involves in general (from REFERENCE_DATA). Do not describe personal qualities (disciplined, dependable, team-oriented, strong, passionate) or performance. The first line under CORE COMPETENCIES must be "[CONFIRM: these come from the specialty description; keep only skills you can demonstrate]".`
+    ? `\n13. PUBLICATION-ONLY DRAFT (this rule overrides rules 5 and 7 where they conflict): the person gave no details of their own work, so the PROFESSIONAL SUMMARY is 2 to 3 plain sentences that begin with "[CONFIRM: written from the official role description, not from your records] " and state only the branch, the official title, years of service if given, and what the specialty involves in general (from REFERENCE_DATA). Do not describe personal qualities (disciplined, dependable, team-oriented, strong, passionate) or performance.`
     : ''
   const milRefBlock = referenceBlock + dutiesBlock + scopeInstructions
   const scopeFacts = reviewed ? (reviewed.sections || []).filter(s => isDutySection(s.section)).map(s => s.text).join(' ') : ''
@@ -199,10 +203,8 @@ PROFESSIONAL SUMMARY
 ─────────────────────────────────────────────────────
 CORE COMPETENCIES
 ─────────────────────────────────────────────────────
-[Skill 1]                    [Skill 2]                    [Skill 3]
-[Skill 4]                    [Skill 5]                    [Skill 6]
-[Skill 7]                    [Skill 8]                    [Skill 9]
-[12–16 ATS-optimized skills in 3-column layout, matching target company priorities]
+[COMPETENCIES]
+(Write exactly the line above. The app fills in this section from the skills the person selected or typed; never write or suggest competencies yourself.)
 
 ─────────────────────────────────────────────────────
 PROFESSIONAL EXPERIENCE
@@ -306,10 +308,8 @@ PROFESSIONAL SUMMARY
 ─────────────────────────────────────────────────────
 CORE COMPETENCIES
 ─────────────────────────────────────────────────────
-[Skill 1]                    [Skill 2]                    [Skill 3]
-[Skill 4]                    [Skill 5]                    [Skill 6]
-[Skill 7]                    [Skill 8]                    [Skill 9]
-[14–18 competencies in 3-column layout]
+[COMPETENCIES]
+(Write exactly the line above. The app fills in this section from the skills the person selected or typed; never write or suggest competencies yourself.)
 
 ─────────────────────────────────────────────────────
 PROFESSIONAL EXPERIENCE
@@ -390,7 +390,8 @@ Return only the CV text — no preamble, no commentary, no markdown.`
       ...(Array.isArray(milPositions) ? milPositions.map(p => `${p.title || ''} ${p.duties || ''}`) : []),
       cvExtras ? JSON.stringify(cvExtras) : '', mos, rank, branch, positionLine].filter(Boolean).join(' ')
     const { text: resume, flagged } = annotateResume(markScopeBullets(raw), { personalFacts: supplied, scopeFacts })
-    return res.status(200).json({ resume, unsupportedClaimLines: flagged.length, hasSpecialtyScope: useScope })
+    const finalResume = applyCompetencies(resume, { selected: chosenSkills, own: typedSkills })
+    return res.status(200).json({ resume: finalResume, competenciesSelected: chosenSkills.length, unsupportedClaimLines: flagged.length, hasSpecialtyScope: useScope })
   } catch {
     return res.status(500).json({ error: 'Resume generation failed. Please try again.' })
   }

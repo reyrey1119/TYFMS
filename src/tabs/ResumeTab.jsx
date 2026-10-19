@@ -528,6 +528,10 @@ export default function ResumeTab({ prefill }) {
   const [mode, setMode] = useState('resume') // 'resume' | 'cv'
   const [step, setStep] = useState(() => prefill ? 2 : 1)
   const [form, setForm] = useState(() => initForm(prefill))
+  // Skills suggested by the translator: included only when the person selects them.
+  const [suggestedSkills, setSuggestedSkills] = useState(() => prefill?.suggestedSkills || [])
+  const [selectedSkills, setSelectedSkills] = useState(() => prefill?.selectedSkills || [])
+  const toggleSuggested = sk => setSelectedSkills(cur => cur.includes(sk) ? cur.filter(x => x !== sk) : [...cur, sk])
   const [cvExtras, setCvExtras] = useState(initCvExtras)
   const [template, setTemplate] = useState('classic')
   const [loading, setLoading] = useState(false)
@@ -579,6 +583,7 @@ export default function ResumeTab({ prefill }) {
   useEffect(() => {
     if (!prefill) return
     setForm(prev => ({ ...prev, branch: prefill.branch || 'Army', mos: prefill.mos || prev.mos, rank: prefill.rank || prev.rank, yos: prefill.yos || prev.yos, milDuties: prefill.milDuties || prev.milDuties }))
+    setSuggestedSkills(prefill.suggestedSkills || []); setSelectedSkills(prefill.selectedSkills || [])
     setStep(2)
   }, [prefill])
 
@@ -671,6 +676,7 @@ export default function ResumeTab({ prefill }) {
           branch: form.branch, mos: form.mos.trim(), rank: form.rank, yos: form.yos,
           targetCompany: form.targetCompany.trim() || form.targetTitle.trim(),
           additionalSkills: [form.additionalSkills, form.certifications].filter(Boolean).join('\n'),
+          selectedSkills, suggestedSkills, ownSkills: form.additionalSkills,
           clearance: form.clearance, awards: form.awards.trim(),
           summaryTone: form.summaryTone,
           additionalContext: form.additionalContext.trim(),
@@ -1050,6 +1056,17 @@ export default function ResumeTab({ prefill }) {
             <F label="Military awards and decorations" hint="(AI translates)">
               <textarea value={form.awards} onChange={e => set('awards', e.target.value)} placeholder="e.g. Army Commendation Medal, Bronze Star, Good Conduct Medal…" style={{ minHeight: 64 }} autoFocus />
             </F>
+            {suggestedSkills.length > 0 && (
+              <F label="Suggested skills" hint="(select the ones you can demonstrate)">
+                <div role="group" aria-label="Suggested skills" style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                  {suggestedSkills.map(sk => {
+                    const on = selectedSkills.includes(sk)
+                    return <button key={sk} type="button" role="checkbox" aria-checked={on} onClick={() => toggleSuggested(sk)} style={{ padding: '6px 10px', fontSize: 12, borderRadius: 6, cursor: 'pointer', border: '1px solid #C07A28', background: on ? '#C07A28' : 'transparent', color: on ? '#fff' : '#211F19' }}>{on ? '✓ ' : ''}{sk}</button>
+                  })}
+                </div>
+                <p style={{ fontSize: 11, color: '#8F8768', marginTop: 4 }}>Suggestions only. Nothing is added to your resume unless you select it.</p>
+              </F>
+            )}
             <F label="Additional skills" hint="languages, software, technical">
               <textarea value={form.additionalSkills} onChange={e => set('additionalSkills', e.target.value)} placeholder="Python, bilingual Spanish, Adobe Suite, Agile/Scrum…" style={{ minHeight: 64 }} />
             </F>

@@ -64,6 +64,9 @@ setProfileApplied(true)
 const [yos, setYos] = useState('')
 const [loading, setLoading] = useState(false)
 const [results, setResults] = useState(null)
+// Suggested skills are only suggestions: none are selected until the person picks them.
+const [selectedSkills, setSelectedSkills] = useState([])
+const toggleSkill = s => setSelectedSkills(cur => cur.includes(s) ? cur.filter(x => x !== s) : [...cur, s])
 const [error, setError] = useState('')
 const [existingCerts, setExistingCerts] = useState([])
 const [certToAdd, setCertToAdd] = useState('')
@@ -121,6 +124,7 @@ return
 }
 setError('')
 setResults(null)
+setSelectedSkills([])
 setResume('')
 setLoading(true)
 try {
@@ -136,6 +140,7 @@ if (data.status === 'needs_experience') dutiesInput.current?.focus()
 return
 }
 setResults(data)
+setSelectedSkills([])
 trackEvent('translate_completed', { branch, has_certs: existingCerts.length > 0 })
 if (useDb && saveProfile) {
 saveProfile({ mos: mos.trim(), branch, rank, target_industries: data.targetIndustries || null })
@@ -158,7 +163,7 @@ try {
 const r = await fetch('/api/translate', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ action: 'resume', branch, mos, rank, yos, milDuties: milDuties.trim(), vaultContext: vaultContext || undefined, ...results }),
+body: JSON.stringify({ action: 'resume', branch, mos, rank, yos, milDuties: milDuties.trim(), vaultContext: vaultContext || undefined, ...results, selectedSkills }),
 })
 const data = await r.json()
 if (!r.ok) { setResumeError(data.error || 'Something went wrong.'); return }
@@ -395,9 +400,13 @@ style={{ width: '100%', fontSize: 13, borderRadius: 6, border: '1px solid #C2B58
 
 <DevelopmentGuidance groups={results.developmentGuidance} />
 
-<p className="cat-label">Transferable skills</p>
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(140px,1fr))', gap: 6, marginBottom: 20 }}>
-{results.transferableSkills.map(s => <div key={s} className="chip">{s}</div>)}
+<p className="cat-label">Suggested skills</p>
+<p style={{ fontSize: 12, color: '#8F8768', margin: '0 0 8px', lineHeight: 1.5 }}>These are suggestions, not things you have shown. Select only the ones you can demonstrate; only selected skills go into your resume. {selectedSkills.length ? `${selectedSkills.length} selected.` : 'None selected yet.'}</p>
+<div role="group" aria-label="Suggested skills" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(140px,1fr))', gap: 6, marginBottom: 20 }}>
+{results.transferableSkills.map(s => {
+const on = selectedSkills.includes(s)
+return <button key={s} type="button" role="checkbox" aria-checked={on} onClick={() => toggleSkill(s)} className="chip" style={{ cursor: 'pointer', textAlign: 'left', border: '1px solid transparent', font: 'inherit', fontSize: 13, ...(on ? { background: '#C07A28', color: '#fff', borderColor: '#C07A28' } : {}) }}>{on ? '✓ ' : ''}{s}</button>
+})}
 </div>
 
 <p className="cat-label">Career paths</p>
@@ -453,7 +462,7 @@ Ready to build your full resume?
 Your branch, MOS, rank, and years of service will be pre-filled automatically.
 </p>
 <button
-onClick={() => onGoToResume && onGoToResume({ branch, mos, rank, yos, milDuties: milDuties.trim() })}
+onClick={() => onGoToResume && onGoToResume({ branch, mos, rank, yos, milDuties: milDuties.trim(), suggestedSkills: results.transferableSkills, selectedSkills })}
 style={{
 width: '100%', padding: '13px 20px', background: '#C07A28',
 border: 'none', borderRadius: 10, color: '#fff', fontSize: 14,

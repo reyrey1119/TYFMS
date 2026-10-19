@@ -10,6 +10,7 @@ import { CERT_NAMES_FOR_PROMPT, verifyRecommendations } from './_lib/certCatalog
 import { annotateUnsupportedClaims } from './_lib/claimLint.js'
 import { officialTitle } from './_lib/armyCodeStatus.js'
 import { markScopeBullets } from './_lib/scopeMarkers.js'
+import { applyCompetencies, selectedFromSuggestions } from './_lib/competencies.js'
 
 const JUNIOR_YOS = ['Less than 1 year', '1–2 years']
 
@@ -171,6 +172,8 @@ For certifications: recommend up to 3 and choose ONLY from this verified list, u
   // so the browser cannot relabel a line.
   if (action === 'resume') {
     const { civilianTitles, transferableSkills, careerPaths, targetIndustries, civilianTranslation } = req.body || {}
+    // Suggested skills reach the resume only if the person selected them (and they are among the suggestions that were shown).
+    const chosenSkills = selectedFromSuggestions(req.body?.selectedSkills, transferableSkills)
     const described = (milDuties || '').trim().slice(0, 2000)
     const records = (vaultContext || '').trim().slice(0, 6000)
 
@@ -213,7 +216,7 @@ ${mineBlock}
 
 Civilian profile (suggestions about where skills could apply, NOT facts about this person):
 - Possible target titles: ${(civilianTitles || []).join(', ')}
-- Possible skills: ${(transferableSkills || []).join(', ')}
+- Skills the person selected: ${chosenSkills.length ? chosenSkills.join(', ') : 'none'}
 - Possible career paths: ${(careerPaths || []).map(p => p.title).join(', ')}
 - Possible industries: ${(targetIndustries || []).join(', ')}
 
@@ -234,8 +237,8 @@ PROFESSIONAL SUMMARY
 2-3 sentences, civilian language, no military jargon. Describe only what the person's own words or records support; if there are none, write [ADD: 2-3 sentences about the work you have actually done].
 
 CORE COMPETENCIES
-[CONFIRM: these come from the specialty description; keep only skills you can demonstrate]
-List up to 12 of the possible skills above, three columns of four (use " | " to separate columns).
+[COMPETENCIES]
+(Write exactly the line above. The app fills in this section from the skills the person selected; never write or suggest competencies yourself.)
 
 PROFESSIONAL EXPERIENCE
 ${positionLine} [optional: a civilian-equivalent title ONLY as [CONFIRM: ...]] | ${branch}
@@ -270,7 +273,8 @@ Return only the resume text. No markdown, no extra commentary.`
       const raw = (data.content || []).map(i => i.text || '').join('')
       const marked = markScopeBullets(raw)
       const { text: resume, flagged } = annotateUnsupportedClaims(marked, [milDuties, vaultContext, branch, mos, rank, yos, positionLine, ...scope.map(k => `${k.militarySkill} ${k.civilianEquivalent}`)].filter(Boolean).join(' '))
-      return res.status(200).json({ resume, unsupportedClaimLines: flagged.length, scopeEntries: scope.length, accomplishmentEntries: mine.length })
+      const finalResume = applyCompetencies(resume, { selected: chosenSkills })
+      return res.status(200).json({ resume: finalResume, competenciesSelected: chosenSkills.length, unsupportedClaimLines: flagged.length, scopeEntries: scope.length, accomplishmentEntries: mine.length })
     } catch {
       return res.status(500).json({ error: 'Resume generation failed. Please try again.' })
     }
