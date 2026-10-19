@@ -94,3 +94,9 @@ test('full resume builder: only selected suggestions and typed skills appear und
   assert.match(none.body.resume, /CORE COMPETENCIES\n\[ADD: skills you can demonstrate/)
   assert.ok(!/Budgeting/.test(none.body.resume))
 })
+
+test('typed skills are told to the model as competencies only, never as experience to write up', async () => {
+  const handler = (await import('../api/resume.js')).default
+  const res = mockRes(); await handler(mockReq({ branch: 'Army', mos: '25B', rank: 'E-6', ownSkills: 'Python', additionalSkills: 'Python' }), res)
+  assert.match(prompt(0), /never turn a listed skill into an experience bullet, accomplishment, duty or claim of use/)
+})

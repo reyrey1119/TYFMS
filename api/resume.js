@@ -174,7 +174,7 @@ VETERAN PROFILE:
 - MOS/AFSC/Rate: ${mos.trim()}
 - Rank: ${rank?.trim() || 'Not specified'}
 - Years of service: ${yos?.trim() || 'Not specified'}
-- Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently near the header as it is a major hiring advantage` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()} — translate each into a specific civilian achievement statement` : ''}
+- Additional skills and certifications (skills are listed by the app under CORE COMPETENCIES: never turn a listed skill into an experience bullet, accomplishment, duty or claim of use; certifications go only in the certifications section): ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently near the header as it is a major hiring advantage` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()} — translate each into a specific civilian achievement statement` : ''}
 
 TARGET: ${companyContext}
 SUMMARY TONE: ${toneNote}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}${vaultBlock}${jstBlock}
@@ -282,7 +282,7 @@ VETERAN PROFILE:
 - MOS/AFSC/Rate: ${mos.trim()}
 - Rank: ${rank?.trim() || 'Not specified'}
 - Years of service: ${yos?.trim() || 'Not specified'}
-- Additional skills: ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently; critical for federal roles` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()}` : ''}
+- Additional skills and certifications (skills are listed by the app under CORE COMPETENCIES: never turn a listed skill into an experience bullet, accomplishment, duty or claim of use; certifications go only in the certifications section): ${additionalSkills?.trim() || 'None listed'}${hasClearance ? `\n- Security clearance: ${clearance} — include prominently; critical for federal roles` : ''}${hasAwards ? `\n- Awards/decorations: ${awards.trim()}` : ''}
 
 TARGET: ${companyContext}${prevJobsBlock}${additionalContextBlock}${jobDescBlock}${milRefBlock}${milPositionsBlock}${vaultBlock}${jstBlock}${pubBlock}${presBlock}${pdBlock}${volBlock}${memBlock}${teachBlock}
 
