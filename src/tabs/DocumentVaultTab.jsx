@@ -33,6 +33,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
+import { uploadVaultDocument, deleteVaultDocument } from '../lib/vaultOps'
 import AuthModal from '../components/AuthModal'
 
 const BUCKET = 'document-vault'
@@ -166,6 +167,7 @@ export default function DocumentVaultTab() {
   const [extractErrors, setExtractErrors] = useState({}) // { [docId]: string }
   const [deleteConfirm, setDeleteConfirm] = useState(null) // docId
   const [deleting, setDeleting] = useState({})
+  const [deleteErrors, setDeleteErrors] = useState({}) // { [docId]: string }
   const [expandedDoc, setExpandedDoc] = useState(null)
   const [dragOver, setDragOver] = useState({}) // { [catId]: bool }
   const fileInputRefs = useRef({})
@@ -210,42 +212,14 @@ export default function DocumentVaultTab() {
     setUploadErrors(p => ({ ...p, [catId]: '' }))
     setUploading(p => ({ ...p, [catId]: true }))
 
-    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_')
-    const storagePath = `${user.id}/${catId}/${Date.now()}-${safeName}`
-
-    try {
-      const { error: uploadErr } = await supabase.storage
-        .from(BUCKET)
-        .upload(storagePath, file, { contentType: file.type, upsert: false })
-
-      if (uploadErr) {
-        setUploadErrors(p => ({ ...p, [catId]: uploadErr.message }))
-        setUploading(p => ({ ...p, [catId]: false }))
-        return
-      }
-
-      const { data: doc, error: dbErr } = await supabase
-        .from('vault_documents')
-        .insert({
-          user_id: user.id,
-          document_type: catId,
-          filename: file.name,
-          storage_path: storagePath,
-          file_size: file.size,
-          content_type: file.type || '',
-        })
-        .select()
-        .single()
-
-      setUploading(p => ({ ...p, [catId]: false }))
-      if (dbErr || !doc) return
-
-      setDocs(prev => [doc, ...prev])
-      extractDoc(doc)
-    } catch {
-      setUploadErrors(p => ({ ...p, [catId]: 'Upload failed. Try again.' }))
-      setUploading(p => ({ ...p, [catId]: false }))
+    const { doc, error } = await uploadVaultDocument({ supabase, bucket: BUCKET, userId: user.id, catId, file })
+    setUploading(p => ({ ...p, [catId]: false }))
+    if (error || !doc) {
+      setUploadErrors(p => ({ ...p, [catId]: error || 'Upload failed. Try again.' }))
+      return
     }
+    setDocs(prev => [doc, ...prev])
+    extractDoc(doc)
   }
 
   async function extractDoc(doc) {
@@ -287,12 +261,14 @@ export default function DocumentVaultTab() {
 
   async function deleteDoc(doc) {
     setDeleting(p => ({ ...p, [doc.id]: true }))
-    try {
-      await supabase.storage.from(BUCKET).remove([doc.storage_path])
-      await supabase.from('vault_documents').delete().eq('id', doc.id)
+    setDeleteErrors(p => ({ ...p, [doc.id]: '' }))
+    const { ok, error } = await deleteVaultDocument({ supabase, bucket: BUCKET, doc })
+    if (ok) {
       setDocs(prev => prev.filter(d => d.id !== doc.id))
-    } catch {}
-    setDeleteConfirm(null)
+      setDeleteConfirm(null)
+    } else {
+      setDeleteErrors(p => ({ ...p, [doc.id]: error || 'Delete failed. Try again.' }))
+    }
     setDeleting(p => ({ ...p, [doc.id]: false }))
   }
 
@@ -476,6 +452,7 @@ export default function DocumentVaultTab() {
                       const isExpanded = expandedDoc === doc.id
                       const isDeleting = deleting[doc.id]
                       const isDeleteConfirm = deleteConfirm === doc.id
+                      const deleteErr = deleteErrors[doc.id]
 
                       return (
                         <div key={doc.id} style={{ borderTop: '1px solid #ECE3C7', paddingTop: 10, marginTop: 10 }}>
@@ -549,6 +526,7 @@ export default function DocumentVaultTab() {
                               )}
                             </div>
                           </div>
+                          {deleteErr && <p role="alert" style={{ fontSize: 12, color: '#a32d2d', marginTop: 6, lineHeight: 1.5 }}>{deleteErr}</p>}
                           {isExpanded && (isJst
                             ? <JstSummaryCard summary={doc.extraction_summary} />
                             : <SummaryCard summary={doc.extraction_summary} />
